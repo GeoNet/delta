@@ -11,6 +11,7 @@ import (
 func TestList(t *testing.T) {
 
 	var liststart, _ = time.Parse(DateTimeFormat, "2010-01-01T12:00:00Z")
+	var listend, _ = time.Parse(DateTimeFormat, "2012-01-01T12:00:00Z")
 
 	var listtests = []struct {
 		f     string
@@ -22,10 +23,22 @@ func TestList(t *testing.T) {
 			"testdata/stations.csv",
 			Stations{
 				Station{
-					Code:      "CODE",
-					Name:      "Name",
+					Network:   "AA",
+					Code:      "AAAA",
+					Name:      "A Name",
+					Latitude:  -41.5,
+					Longitude: 173.5,
 					StartTime: liststart,
-					Count:     4,
+					EndTime:   listend,
+				},
+				Station{
+					Network:   "BB",
+					Code:      "BBBB",
+					Name:      "B Name",
+					Latitude:  -42.5,
+					Longitude: 174.5,
+					StartTime: liststart.Add(time.Hour),
+					EndTime:   listend.Add(time.Hour),
 				},
 			},
 			func(f string, l interface{}) ([]byte, error) {
