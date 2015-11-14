@@ -13,9 +13,9 @@ type Network struct {
 
 type Networks []Network
 
-func (s Networks) Len() int           { return len(s) }
-func (s Networks) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s Networks) Less(i, j int) bool { return s[i].Code < s[j].Code }
+func (n Networks) Len() int           { return len(n) }
+func (n Networks) Swap(i, j int)      { n[i], n[j] = n[j], n[i] }
+func (n Networks) Less(i, j int) bool { return n[i].Code < n[j].Code }
 
-func (s Networks) list()      {}
-func (s Networks) sort() list { sort.Sort(s); return s }
+func (n Networks) List()      {}
+func (n Networks) Sort() List { sort.Sort(n); return n }

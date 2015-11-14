@@ -13,36 +13,27 @@ func TestList(t *testing.T) {
 	var listend, _ = time.Parse(DateTimeFormat, "2012-01-01T12:00:00Z")
 
 	var listtests = []struct {
-		f     string
-		l     list
-		load  func(string) ([]byte, error)
-		lists func(string, string) ([]byte, error)
+		file string
+		test List
+		list func() List
 	}{
 		{
 			"testdata/networks.csv",
 			Networks{
 				Network{
-					Code: "AA",
-					Map:  "XX",
-					Name: "A Network",
+					Code:       "AA",
+					Map:        "XX",
+					Name:       "A Name",
+					Restricted: false,
 				},
 				Network{
 					Code:       "BB",
 					Map:        "XX",
-					Name:       "B Network",
+					Name:       "B Name",
 					Restricted: true,
 				},
 			},
-			func(f string) ([]byte, error) {
-				var n Networks
-				err := load(f, &n)
-				return marshal(n), err
-			},
-			func(d, f string) ([]byte, error) {
-				var n Networks
-				err := lists(d, f, &n)
-				return marshal(n), err
-			},
+			func() List { return &Networks{} },
 		},
 		{
 			"testdata/stations.csv",
@@ -66,52 +57,59 @@ func TestList(t *testing.T) {
 					EndTime:   listend.Add(time.Hour),
 				},
 			},
-			func(f string) ([]byte, error) {
-				var s Stations
-				err := load(f, &s)
-				return marshal(s), err
-			},
-			func(d, f string) ([]byte, error) {
-				var s Stations
-				err := lists(d, f, &s)
-				return marshal(s), err
-			},
+			func() List { return &Stations{} },
 		},
 	}
 
 	for _, tt := range listtests {
-		t.Log("Compare list file: " + tt.f)
+		res := MarshalList(tt.test)
+
+		t.Log("Compare raw list file: " + tt.file)
 		{
-			b, err := ioutil.ReadFile(tt.f)
+			b, err := ioutil.ReadFile(tt.file)
 			if err != nil {
 				t.Fatal(err)
 			}
-			m := marshal(tt.l)
-			if string(m) != string(b) {
-				t.Errorf("stations file text mismatch: %s [\n%s\n]", tt.f, diff(string(m), string(b)))
+			if string(res) != string(b) {
+				t.Errorf("stations file text mismatch: %s [\n%s\n]", tt.file, diff(string(res), string(b)))
 			}
 		}
-		t.Log("Check list file: " + tt.f)
+		t.Log("Check encode/decode list: " + tt.file)
 		{
-			s, err := tt.load(tt.f)
-			if err != nil {
+			list := tt.list()
+			if err := UnmarshalList(res, list); err != nil {
 				t.Fatal(err)
 			}
-			m := marshal(tt.l)
-			if string(m) != string(s) {
-				t.Errorf("stations file list mismatch: %s [\n%s\n]", tt.f, diff(string(m), string(s)))
+			s := MarshalList(list)
+
+			if string(res) != string(s) {
+				t.Errorf("stations encode/reencode mismatch: %s [\n%s\n]", tt.file, diff(string(res), string(s)))
 			}
 		}
 
-		t.Log("Check loading files: " + tt.f)
+		t.Log("Check list file: " + tt.file)
 		{
-			s, err := tt.lists(filepath.Dir(tt.f), filepath.Base(tt.f))
-			if err != nil {
+			list := tt.list()
+			if err := LoadList(tt.file, list); err != nil {
 				t.Fatal(err)
 			}
-			m := marshal(tt.l)
-			if string(m) != string(s) {
-				t.Errorf("stations file load mismatch: [\n%s\n]", diff(string(m), string(s)))
+			s := MarshalList(list)
+
+			if string(res) != string(s) {
+				t.Errorf("stations file list mismatch: %s [\n%s\n]", tt.file, diff(string(res), string(s)))
+			}
+		}
+
+		t.Log("Check loading files: " + tt.file)
+		{
+			list := tt.list()
+			if err := LoadLists(filepath.Dir(tt.file), filepath.Base(tt.file), list); err != nil {
+				t.Fatal(err)
+			}
+
+			s := MarshalList(list)
+			if string(res) != string(s) {
+				t.Errorf("stations file load mismatch: [\n%s\n]", diff(string(res), string(s)))
 			}
 		}
 	}

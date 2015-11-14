@@ -12,32 +12,32 @@ import (
 	"time"
 )
 
-type list interface {
-	list()
-	sort() list
+type List interface {
+	List()
+	Sort() List
 }
 
-func marshal(l list) []byte {
+func MarshalList(l List) []byte {
 	var b bytes.Buffer
 
-	if lines, err := encode(l.sort()); err == nil {
+	if lines, err := EncodeList(l.Sort()); err == nil {
 		csv.NewWriter(&b).WriteAll(lines)
 	}
 
 	return b.Bytes()
 }
 
-func unmarshal(b []byte, l list) error {
+func UnmarshalList(b []byte, l List) error {
 
 	v, err := csv.NewReader(bytes.NewBuffer(b)).ReadAll()
 	if err != nil {
 		return err
 	}
 
-	return decode(v, l)
+	return DecodeList(v, l)
 }
 
-func decode(data [][]string, l list) error {
+func DecodeList(data [][]string, l List) error {
 	rv := reflect.ValueOf(l)
 	if rv.Kind() != reflect.Ptr {
 		panic("list decode requires a pointer")
@@ -128,7 +128,7 @@ func decode(data [][]string, l list) error {
 	return nil
 }
 
-func encode(l list) ([][]string, error) {
+func EncodeList(l List) ([][]string, error) {
 	var data [][]string
 
 	rv := reflect.ValueOf(l)
@@ -185,7 +185,7 @@ func encode(l list) ([][]string, error) {
 	return data, nil
 }
 
-func load(path string, l list) error {
+func LoadList(path string, l List) error {
 
 	file, err := os.OpenFile(path, os.O_RDONLY, 0)
 	if err != nil {
@@ -198,18 +198,18 @@ func load(path string, l list) error {
 		return err
 	}
 
-	if err := decode(data, l); err != nil {
+	if err := DecodeList(data, l); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func lists(dirname, filename string, l list) error {
+func LoadLists(dirname, filename string, l List) error {
 
 	err := filepath.Walk(dirname, func(path string, fi os.FileInfo, err error) error {
 		if err == nil && filepath.Base(path) == filename {
-			if err := load(path, l); err != nil {
+			if err := LoadList(path, l); err != nil {
 				return err
 			}
 		}

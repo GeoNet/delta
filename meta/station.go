@@ -22,5 +22,5 @@ func (s Stations) Len() int           { return len(s) }
 func (s Stations) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
 func (s Stations) Less(i, j int) bool { return s[i].Code < s[j].Code }
 
-func (s Stations) list()      {}
-func (s Stations) sort() list { sort.Sort(s); return s }
+func (s Stations) List()      {}
+func (s Stations) Sort() List { sort.Sort(s); return s }
