@@ -1,12 +1,13 @@
 package meta
 
 import (
+	"sort"
 	"time"
 )
 
 type Station struct {
-	Network   string    `csv:"Network Code",`
 	Code      string    `csv:"Station Code",`
+	Network   string    `csv:"Network Code",`
 	Name      string    `csv:"Station Name",`
 	Latitude  float64   `csv:"Latitude",`
 	Longitude float64   `csv:"Longitude",`
@@ -17,4 +18,9 @@ type Station struct {
 
 type Stations []Station
 
-func (s Stations) list() {}
+func (s Stations) Len() int           { return len(s) }
+func (s Stations) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
+func (s Stations) Less(i, j int) bool { return s[i].Code < s[j].Code }
+
+func (s Stations) list()      {}
+func (s Stations) sort() list { sort.Sort(s); return s }

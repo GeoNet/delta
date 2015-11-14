@@ -14,12 +14,13 @@ import (
 
 type list interface {
 	list()
+	sort() list
 }
 
 func marshal(l list) []byte {
 	var b bytes.Buffer
 
-	if lines, err := encode(l); err == nil {
+	if lines, err := encode(l.sort()); err == nil {
 		csv.NewWriter(&b).WriteAll(lines)
 	}
 
@@ -87,6 +88,12 @@ func decode(data [][]string, l list) error {
 				switch v.Kind() {
 				case reflect.String:
 					v.SetString(s)
+				case reflect.Bool:
+					b, err := strconv.ParseBool(s)
+					if err != nil {
+						return err
+					}
+					v.SetBool(b)
 				case reflect.Int16:
 					i, err := strconv.ParseInt(s, 10, 16)
 					if err != nil {
@@ -161,6 +168,8 @@ func encode(l list) ([][]string, error) {
 				switch f.Kind() {
 				case reflect.String:
 					line = append(line, f.String())
+				case reflect.Bool:
+					line = append(line, strconv.FormatBool(f.Bool()))
 				case reflect.Int16, reflect.Int32:
 					line = append(line, strconv.FormatInt(f.Int(), 10))
 				case reflect.Float64:
