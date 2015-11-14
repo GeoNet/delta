@@ -221,3 +221,28 @@ func LoadLists(dirname, filename string, l List) error {
 
 	return nil
 }
+
+func StoreList(path string, l List) error {
+
+	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
+		return err
+	}
+
+	file, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	records, err := EncodeList(l.Sort())
+	if err != nil {
+		return err
+	}
+
+	err = csv.NewWriter(file).WriteAll(records)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

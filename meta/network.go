@@ -5,10 +5,10 @@ import (
 )
 
 type Network struct {
-	Code       string `csv:"Internal Code",`
-	Map        string `csv:"External Code",`
-	Name       string `csv:"Network Name",`
-	Restricted bool   `csv:"Restricted Status",`
+	Code        string `csv:"Network Code"`
+	External    string `csv:"External Code"`
+	Description string `csv:"Description"`
+	Restricted  bool   `csv:"Restricted"`
 }
 
 type Networks []Network

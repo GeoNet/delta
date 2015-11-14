@@ -6,14 +6,16 @@ import (
 )
 
 type Station struct {
-	Code      string    `csv:"Station Code",`
-	Network   string    `csv:"Network Code",`
-	Name      string    `csv:"Station Name",`
-	Latitude  float64   `csv:"Latitude",`
-	Longitude float64   `csv:"Longitude",`
-	Depth     float64   `csv:"Depth",`
+	Code      string    `csv:"Station Code"`
+	Network   string    `csv:"Network Code"`
+	Name      string    `csv:"Station Name"`
+	Latitude  float64   `csv:"Latitude"`
+	Longitude float64   `csv:"Longitude"`
+	Height    float64   `csv:"Height"`
+	Datum     string    `csv:"Datum"`
 	StartTime time.Time `csv:"Start Time"`
 	EndTime   time.Time `csv:"End Time"`
+	Notes     string    `csv:"Notes"`
 }
 
 type Stations []Station
