@@ -71,7 +71,7 @@ func TestList(t *testing.T) {
 				t.Fatal(err)
 			}
 			if string(res) != string(b) {
-				t.Errorf("stations file text mismatch: %s [\n%s\n]", tt.file, diff(string(res), string(b)))
+				t.Errorf("list file text mismatch: %s [\n%s\n]", tt.file, diff(string(res), string(b)))
 			}
 		}
 		t.Log("Check encode/decode list: " + tt.file)
@@ -83,7 +83,7 @@ func TestList(t *testing.T) {
 			s := MarshalList(list)
 
 			if string(res) != string(s) {
-				t.Errorf("stations encode/reencode mismatch: %s [\n%s\n]", tt.file, diff(string(res), string(s)))
+				t.Errorf("list encode/reencode mismatch: %s [\n%s\n]", tt.file, diff(string(res), string(s)))
 			}
 		}
 
@@ -96,7 +96,7 @@ func TestList(t *testing.T) {
 			s := MarshalList(list)
 
 			if string(res) != string(s) {
-				t.Errorf("stations file list mismatch: %s [\n%s\n]", tt.file, diff(string(res), string(s)))
+				t.Errorf("list file list mismatch: %s [\n%s\n]", tt.file, diff(string(res), string(s)))
 			}
 		}
 
@@ -109,7 +109,7 @@ func TestList(t *testing.T) {
 
 			s := MarshalList(list)
 			if string(res) != string(s) {
-				t.Errorf("stations file load mismatch: [\n%s\n]", diff(string(res), string(s)))
+				t.Errorf("list file load mismatch: [\n%s\n]", diff(string(res), string(s)))
 			}
 		}
 	}
