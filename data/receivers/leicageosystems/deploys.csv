@@ -1,0 +1,33 @@
+Receiver Make,Receiver Model,Serial Number,Deployment Place,Installation Date,Removal Date
+LeicaGeosystems,CRS1000,23181,Avalon GeoNet Undeployed Equipment Store,1999-08-31T12:00:00Z,1999-09-22T12:00:00Z
+LeicaGeosystems,CRS1000,23181,Observation Point,1999-09-22T12:00:01Z,2000-07-31T12:00:00Z
+LeicaGeosystems,CRS1000,23181,Observation Point,2000-08-13T12:00:00Z,2007-06-09T12:00:00Z
+LeicaGeosystems,CRS1000,23181,Otago University,2007-06-09T12:00:01Z,9999-01-01T02:39:15Z
+LeicaGeosystems,CRS1000,23183,Gracefield GeoNet Undeployed Equipment Store,1999-11-30T11:00:00Z,2000-05-30T11:00:00Z
+LeicaGeosystems,CRS1000,23183,Te Papa,2000-05-30T11:00:01Z,2006-02-28T11:00:00Z
+LeicaGeosystems,CRS1000,23183,GNS Avalon,2006-02-28T11:00:01Z,9999-01-01T02:30:55Z
+LeicaGeosystems,CRS1000,23199,Avalon GeoNet Undeployed Equipment Store,1999-10-31T11:00:00Z,1999-11-14T11:00:00Z
+LeicaGeosystems,CRS1000,23199,Lyttelton Wharf,1999-11-14T11:00:01Z,2003-11-23T11:00:00Z
+LeicaGeosystems,CRS1000,23204,Gracefield GeoNet Undeployed Equipment Store,1999-11-30T11:00:00Z,1999-12-13T10:00:00Z
+LeicaGeosystems,CRS1000,23204,Te Papa,1999-12-13T10:00:01Z,1999-12-19T12:00:00Z
+LeicaGeosystems,CRS1000,23204,GNS Gracefield (Hutton),1999-12-19T12:00:01Z,9998-12-31T19:48:37Z
+LeicaGeosystems,CRS1000,23242,Gracefield GeoNet Undeployed Equipment Store,1999-11-30T11:00:00Z,1999-12-19T10:00:00Z
+LeicaGeosystems,CRS1000,23242,Gracefield GeoNet Undeployed Equipment Store,1999-11-30T11:00:00Z,1999-12-19T10:00:00Z
+LeicaGeosystems,CRS1000,23242,Te Papa,1999-12-19T10:00:01Z,2000-01-05T12:00:00Z
+LeicaGeosystems,CRS1000,23242,GNS Gracefield (Hutton),2000-01-05T12:00:01Z,9998-12-31T19:47:34Z
+LeicaGeosystems,CRS1000,23243,Gracefield GeoNet Undeployed Equipment Store,1999-11-30T11:00:00Z,1999-12-31T09:59:59Z
+LeicaGeosystems,CRS1000,23243,Te Papa,1999-12-31T10:00:00Z,2000-05-31T12:00:00Z
+LeicaGeosystems,CRS1000,23243,GNS Gracefield (Hutton),2000-05-31T12:00:01Z,2001-07-09T12:00:00Z
+LeicaGeosystems,CRS1000,23243,Observation Point,2000-07-31T12:00:00Z,2000-08-13T12:00:00Z
+LeicaGeosystems,CRS1000,23243,Captain Cook Wharf,2001-07-09T12:00:01Z,2007-07-06T17:00:00Z
+LeicaGeosystems,CRS1000,23243,GNS Avalon,2007-07-06T17:00:01Z,9999-01-01T01:18:48Z
+LeicaGeosystems,CRS1000,30132,Gracefield GeoNet Undeployed Equipment Store,1999-11-30T11:00:00Z,9998-12-31T22:48:01Z
+LeicaGeosystems,CRS1000,30188,Avalon GeoNet Undeployed Equipment Store,2000-02-29T11:00:00Z,2002-04-04T12:00:00Z
+LeicaGeosystems,CRS1000,30188,Observation Point,2002-04-04T12:00:01Z,9998-12-31T23:56:15Z
+LeicaGeosystems,GRX1200GGPRO,353205,Avalon GeoNet Undeployed Equipment Store,2007-08-31T12:00:00Z,2007-09-25T11:50:00Z
+LeicaGeosystems,GRX1200GGPRO,353205,Lyttelton Wharf,2007-09-25T11:50:01Z,9999-01-01T01:44:36Z
+LeicaGeosystems,GRX1200GGPRO,463475,Avalon GeoNet Undeployed Equipment Store,2007-05-04T12:00:00Z,2007-06-03T12:00:00Z
+LeicaGeosystems,GRX1200GGPRO,463475,Observation Point,2007-06-03T12:00:01Z,9999-01-01T02:33:33Z
+LeicaGeosystems,RS500,82242,Avalon GeoNet Undeployed Equipment Store,1999-10-31T11:00:00Z,2003-11-23T10:59:58Z
+LeicaGeosystems,RS500,82242,Lyttelton Wharf,2003-11-23T10:59:59Z,2007-09-25T12:00:00Z
+LeicaGeosystems,RS500,82242,Otago University,2007-09-25T12:00:01Z,9999-01-01T01:46:30Z

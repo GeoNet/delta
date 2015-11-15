@@ -1,0 +1,13 @@
+Sensor Make,Sensor Model,Serial Number,Station Code,Location Code,Installation Azimuth,Installation Dip,Installation Depth,Installation Date,Removal Date
+BoiseStateUniversity,InfraBSU microphone,0124,WSRZ,31,0,0,0,2014-11-19T13:00:00Z,9999-01-01T07:52:10Z
+BoiseStateUniversity,InfraBSU microphone,0137,KHEZ,31,0,0,0,2014-10-13T15:00:00Z,9999-01-01T09:46:08Z
+BoiseStateUniversity,InfraBSU microphone,0138,KHEZ,32,0,0,0,2014-10-13T15:00:00Z,9998-12-31T21:30:30Z
+BoiseStateUniversity,InfraBSU microphone,0147,WIZ,32,0,0,0,2015-01-21T11:00:00Z,9998-12-31T21:15:31Z
+BoiseStateUniversity,InfraBSU microphone,0148,KHEZ,33,0,0,0,2014-10-13T15:00:00Z,9998-12-31T21:30:57Z
+BoiseStateUniversity,InfraBSU microphone,0149,COVZ,31,0,0,-10,2014-04-01T10:40:00Z,2015-02-22T11:00:00Z
+BoiseStateUniversity,InfraBSU microphone,0149,COVZ,31,0,0,-10,2014-04-01T10:40:00Z,2015-02-22T11:00:00Z
+BoiseStateUniversity,InfraBSU microphone,0150,PREZ,33,0,0,0,2014-05-13T12:01:00Z,9999-01-01T07:32:18Z
+BoiseStateUniversity,InfraBSU microphone,0151,PREZ,31,0,0,0,2014-05-13T12:01:00Z,9999-01-01T07:33:13Z
+BoiseStateUniversity,InfraBSU microphone,0154,PREZ,32,0,0,0,2014-05-13T12:01:00Z,9999-01-01T07:34:13Z
+BoiseStateUniversity,InfraBSU microphone,0157,WIZ,31,0,0,0,2015-01-21T11:00:00Z,9998-12-31T21:20:03Z
+BoiseStateUniversity,InfraBSU microphone,0160,WSRZ,32,0,0,0,2014-11-19T13:00:00Z,9999-01-01T07:52:55Z
