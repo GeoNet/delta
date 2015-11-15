@@ -6,16 +6,10 @@ import (
 )
 
 type InstalledRadome struct {
-	Make   string `csv:"Sensor Make"`
-	Model  string `csv:"Sensor Model"`
-	Serial string `csv:"Serial Number"`
-	Mark   string `csv:"Mark Code"`
-	/*
-		Location  string    `csv:"Location Code"`
-		Azimuth   float64   `csv:"Installation Azimuth"`
-		Dip       float64   `csv:"Installation Dip"`
-		Depth     float64   `csv:"Installation Depth"`
-	*/
+	Make      string    `csv:"Sensor Make"`
+	Model     string    `csv:"Sensor Model"`
+	Serial    string    `csv:"Serial Number"`
+	Mark      string    `csv:"Mark Code"`
 	StartTime time.Time `csv:"Installation Date"`
 	EndTime   time.Time `csv:"Removal Date"`
 }

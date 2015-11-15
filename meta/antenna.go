@@ -6,16 +6,13 @@ import (
 )
 
 type InstalledAntenna struct {
-	Make   string `csv:"Sensor Make"`
-	Model  string `csv:"Sensor Model"`
-	Serial string `csv:"Serial Number"`
-	Mark   string `csv:"Mark Code"`
-	/*
-		Location  string    `csv:"Location Code"`
-		Azimuth   float64   `csv:"Installation Azimuth"`
-		Dip       float64   `csv:"Installation Dip"`
-		Depth     float64   `csv:"Installation Depth"`
-	*/
+	Make      string    `csv:"Antenna Make"`
+	Model     string    `csv:"Antenna Model"`
+	Serial    string    `csv:"Serial Number"`
+	Mark      string    `csv:"Mark Code"`
+	Height    float64   `csv:"Antenna Height"`
+	North     float64   `csv:"Offset North"`
+	East      float64   `csv:"Offset East"`
 	StartTime time.Time `csv:"Installation Date"`
 	EndTime   time.Time `csv:"Removal Date"`
 }
