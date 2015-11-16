@@ -1,7 +1,6 @@
 Sensor Make,Sensor Model,Serial Number,Station Code,Location Code,Installation Azimuth,Installation Dip,Installation Depth,Installation Date,Removal Date
 Duke,2 Hz Duke Malin Seismometer,001,RIVH,11,0,0,250,2007-02-08T07:10:00Z,2007-05-13T15:40:00Z
 Duke,2 Hz Duke Malin Seismometer,001,RVAZ,10,360,0,250,2008-04-01T12:00:00Z,2013-10-22T13:00:00Z
-Duke,2 Hz Duke Malin Seismometer,001,RVAZ,10,360,0,250,2008-04-01T12:00:00Z,2013-10-22T13:00:00Z
 Duke,2 Hz Duke Malin Seismometer,110,KBAZ,10,0,0,160,2008-07-10T13:00:00Z,2008-09-15T12:00:00Z
 Duke,2 Hz Duke Malin Seismometer,110,HBAZ,10,0,0,380,2009-08-06T12:00:01Z,9999-01-01T00:00:00Z
 Duke,2 Hz Duke Malin Seismometer,301,ETAZ,10,0,0,347,2010-02-10T11:00:03Z,9999-01-01T00:00:00Z

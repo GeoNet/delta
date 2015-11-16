@@ -1,6 +1,5 @@
 Sensor Make,Sensor Model,Serial Number,Station Code,Location Code,Installation Azimuth,Installation Dip,Installation Depth,Installation Date,Removal Date
 Geospace,GS-11D seismometer,001,KQ01,10,0,0,0,2008-06-03T12:00:00Z,9999-01-01T00:00:00Z
-Geospace,GS-11D seismometer,001,KQ01,10,0,0,0,2008-06-03T12:00:00Z,9999-01-01T00:00:00Z
 Geospace,GS-11D seismometer,002,KQ02,10,0,0,0,2008-06-11T12:00:02Z,9999-01-01T00:00:00Z
 Geospace,GS-11D seismometer,003,KQ05,10,0,0,0,2008-09-04T08:00:03Z,9999-01-01T00:00:00Z
 Geospace,GS-11D seismometer,004,KQ04,10,0,0,0,2008-09-09T15:00:00Z,9999-01-01T00:00:00Z

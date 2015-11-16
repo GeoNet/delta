@@ -35,7 +35,6 @@ Nanometrics,ORION,0205,Glendale Station,2001-01-12T11:00:00Z,2001-06-27T12:00:00
 Nanometrics,ORION,0206,Papakiri,2001-01-13T11:00:00Z,2001-06-27T12:00:00Z
 Nanometrics,ORION,0233,Kiwitahi,2001-01-12T01:41:00Z,2001-06-25T05:40:00Z
 Nanometrics,ORION,0233,GNS Gracefield (Hutton),2001-06-25T05:40:01Z,2001-07-30T10:00:00Z
-Nanometrics,ORION,0233,GNS Gracefield (Hutton),2001-06-25T05:40:01Z,2001-07-30T10:00:00Z
 Nanometrics,ORION,0233,"Glenlee, Awatere Valley #3",2001-07-30T10:00:01Z,2002-01-21T14:00:00Z
 Nanometrics,ORION,0233,GNS Gracefield (Hutton),2002-01-21T14:00:01Z,2003-11-12T11:00:00Z
 Nanometrics,ORION,0233,"Mount Joyce, David Glacier, Antarctica",2003-11-12T11:00:01Z,2004-01-21T11:00:00Z
@@ -201,8 +200,8 @@ Nanometrics,Taurus,487,"Institute of Earth Science and Engineering, Auck U",2008
 Nanometrics,Taurus,487,MRP Rotokawa 06,2008-07-02T11:40:01Z,2008-10-09T11:00:02Z
 Nanometrics,Taurus,487,GNS Wairakei Grange Building Storeroom,2008-10-09T11:00:03Z,2008-11-02T12:00:00Z
 Nanometrics,Taurus,487,GNS Avalon,2008-11-02T12:00:01Z,2010-11-17T07:00:00Z
-Nanometrics,Taurus,487,GNS Wairakei Grange Building Storeroom,2010-11-17T07:00:01Z,9999-01-01T00:00:00Z
 Nanometrics,Taurus,487,WK403,2010-11-17T07:00:01Z,2011-01-19T09:00:00Z
+Nanometrics,Taurus,487,GNS Wairakei Grange Building Storeroom,2010-11-17T07:00:01Z,9999-01-01T00:00:00Z
 Nanometrics,Taurus,487,GNS Wairakei Grange Building Storeroom,2011-01-19T09:00:01Z,2011-01-27T11:00:00Z
 Nanometrics,Taurus,487,"GNS Science, Avalon",2011-01-27T11:00:01Z,2012-02-29T11:00:00Z
 Nanometrics,Taurus,487,GNS Avalon,2012-02-29T11:00:01Z,2014-03-12T13:40:00Z
