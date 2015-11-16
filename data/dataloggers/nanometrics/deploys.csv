@@ -1,263 +1,291 @@
 Datalogger Make,Datalogger Model,Serial Number,Deployment Place,Installation Date,Removal Date
-Nanometrics,ORION,0144,"Marble Point, Antarctica",1999-11-02T11:00:01Z,2000-01-21T11:00:00Z
-Nanometrics,ORION,0160,"Cape Bird, Antarctica",1999-10-29T11:00:01Z,2000-01-21T11:00:00Z
-Nanometrics,ORION,0163,"Mount Fleming, Antarctica",1999-11-08T11:00:01Z,2000-01-22T11:00:00Z
-Nanometrics,ORION,0164,"Lower Wright Valley, Antarctica",1999-11-07T11:00:01Z,2000-01-21T11:00:00Z
-Nanometrics,ORION,0165,"Butter Point, Antarctica",1999-11-02T11:00:01Z,2000-01-21T11:00:00Z
-Nanometrics,ORION,0167,"Lake Chad, Antarctica",1999-12-06T11:00:01Z,2000-01-20T11:00:00Z
-Nanometrics,ORION,0169,"Labyrinth, Antarctica",1999-11-07T11:00:01Z,2000-01-22T11:00:00Z
-Nanometrics,ORION,0173,"Cape Roberts, Antarctica",1999-11-01T11:00:01Z,2000-01-21T11:00:00Z
-Nanometrics,ORION,0178,Moumoukai,2002-08-29T12:20:00Z,2003-01-19T05:00:00Z
-Nanometrics,ORION,0201,Te Tarata,2001-01-09T23:20:00Z,2001-04-27T22:45:00Z
-Nanometrics,ORION,0201,Acheron,2001-07-31T11:00:00Z,2002-01-22T10:00:00Z
-Nanometrics,ORION,0201,"Mount Priestley, David Glacier, Antarctica",2003-11-16T11:00:00Z,2004-01-20T11:00:00Z
-Nanometrics,ORION,0201,Totara Road,2004-03-18T13:30:00Z,2004-12-21T11:01:00Z
-Nanometrics,ORION,0201,MED1,2005-01-17T09:00:01Z,2005-03-29T12:00:00Z
-Nanometrics,ORION,0233,Kiwitahi,2001-01-12T01:41:00Z,2001-06-25T05:40:00Z
-Nanometrics,ORION,0233,"Glenlee, Awatere Valley #3",2001-07-30T10:00:01Z,2002-01-21T14:00:00Z
-Nanometrics,ORION,0233,"Mount Joyce, David Glacier, Antarctica",2003-11-12T11:00:01Z,2004-01-21T11:00:00Z
-Nanometrics,ORION,0233,East Paeroa,2004-03-22T11:00:00Z,2005-01-31T12:00:00Z
-Nanometrics,ORION,0235,Lochinver,2001-01-11T07:41:00Z,2001-06-25T09:06:00Z
-Nanometrics,ORION,0235,Glenlee,2001-07-28T12:00:00Z,2002-01-21T15:00:00Z
-Nanometrics,ORION,0235,"Hughes Bluff, David Glacier, Antarctica",2003-11-16T11:00:00Z,2004-01-21T11:00:00Z
-Nanometrics,ORION,0235,Parsons Road,2004-03-11T13:00:00Z,2005-01-31T11:01:00Z
-Nanometrics,ORION,0251,Tauhara (Mountain Road),2001-01-11T07:41:00Z,2001-06-25T04:25:00Z
-Nanometrics,ORION,0251,"Mount Priestley, David Glacier, Antarctica",2003-11-11T11:00:00Z,2003-11-16T11:00:00Z
-Nanometrics,ORION,0252,Rangitaiki,2001-01-11T11:00:00Z,2001-06-26T03:50:00Z
-Nanometrics,ORION,0252,Omahuta,2002-08-29T20:00:00Z,2003-01-20T06:15:00Z
-Nanometrics,ORION,0252,"Trio, David Glacier, Antarctica",2003-11-13T11:00:00Z,2004-01-20T11:00:00Z
-Nanometrics,ORION,0253,Kaingaroa Forest,2001-01-11T10:00:00Z,2001-06-26T03:50:00Z
-Nanometrics,ORION,0253,Wards Pass #5,2001-07-31T16:00:00Z,2001-11-27T10:00:00Z
-Nanometrics,ORION,0253,Waipu Caves,2002-08-29T06:25:00Z,2003-01-17T13:20:00Z
-Nanometrics,ORION,0289,Karaitiana Farm,2001-01-12T15:01:00Z,2001-06-26T03:50:00Z
-Nanometrics,ORION,0289,Wards Pass #2,2001-09-12T14:00:01Z,2002-01-22T09:00:00Z
-Nanometrics,ORION,0289,Short Road,2004-07-27T12:00:01Z,2005-04-03T12:00:00Z
-Nanometrics,ORION,0290,Poihipi,2000-12-31T18:11:00Z,2001-02-24T10:01:00Z
-Nanometrics,ORION,0290,Tukairangi Road,2001-02-24T13:59:00Z,2001-06-24T06:44:00Z
-Nanometrics,ORION,0290,Upcot,2001-07-30T12:00:00Z,2002-01-21T13:00:00Z
-Nanometrics,ORION,0290,Mangatete Road,2004-03-23T12:00:00Z,2005-01-31T11:00:00Z
-Nanometrics,ORION,0290,Turihaua Station,2005-02-23T15:00:01Z,2005-03-30T12:00:00Z
-Nanometrics,ORION,0292,Pohokura,2001-01-12T15:01:00Z,2001-06-26T03:55:00Z
-Nanometrics,ORION,0292,"Glenlee, Awatere Valley #2",2001-07-30T14:00:00Z,2002-01-21T14:00:00Z
-Nanometrics,ORION,0292,Lake Ohakuri,2004-03-18T10:00:01Z,2005-01-19T09:00:00Z
-Nanometrics,ORION,0292,Kaiaua Station,2005-01-19T09:00:01Z,2005-03-30T12:00:00Z
-Nanometrics,ORION,0307,Wards Pass #1,2001-09-11T15:00:01Z,2002-01-22T09:00:00Z
-Nanometrics,ORION,0307,Tahunaatara Stream,2004-03-23T16:00:01Z,2004-12-22T10:00:00Z
-Nanometrics,ORION,0307,Pakarae,2005-01-17T15:00:00Z,2005-03-29T12:00:00Z
-Nanometrics,ORION,TMP_6044,Scheres Farm,2001-01-16T20:59:00Z,2001-06-27T08:55:00Z
-Nanometrics,ORION,TMP_6045,Waipapa,2001-01-15T22:53:00Z,2001-06-27T08:55:00Z
-Nanometrics,ORION,TMP_6046,Yup Farm,2001-01-14T22:33:00Z,2001-06-27T08:55:00Z
-Nanometrics,Taurus,403,MRP Rotokawa 01,2008-07-02T09:39:01Z,2008-10-09T11:00:02Z
-Nanometrics,Taurus,436,Owenga,2007-01-09T11:00:01Z,2009-07-16T12:00:00Z
-Nanometrics,Taurus,436,Breaksea Sound,2009-07-16T12:00:01Z,2009-12-10T11:00:00Z
-Nanometrics,Taurus,436,Miners Road,2010-09-05T10:10:01Z,2010-09-28T11:00:00Z
-Nanometrics,Taurus,436,Rhodes Road,2011-02-27T11:27:45Z,2011-02-27T11:27:46Z
-Nanometrics,Taurus,436,Okuti Valley Road,2011-02-27T11:27:47Z,2013-07-22T15:00:00Z
-Nanometrics,Taurus,436,Oyster Bay,2013-07-22T15:00:03Z,2013-11-20T23:00:00Z
-Nanometrics,Taurus,461,Patutahi,2006-07-22T09:00:01Z,2006-08-16T17:00:00Z
-Nanometrics,Taurus,461,MRP Kawerau South Site KQ02,2008-02-12T09:00:01Z,2008-03-17T13:00:00Z
-Nanometrics,Taurus,461,MRP Kawerau West Site KQ04,2008-05-13T10:00:01Z,2008-06-03T15:00:00Z
-Nanometrics,Taurus,461,Waipahi,2014-03-16T12:00:01Z,2014-09-16T15:00:00Z
-Nanometrics,Taurus,461,Waikouaiti,2014-09-16T15:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,472,Lathrope Road,2006-11-22T14:22:01Z,2007-05-15T16:00:00Z
-Nanometrics,Taurus,472,Lower Hutt Rock Site,2008-09-30T14:13:01Z,2009-02-11T10:00:00Z
-Nanometrics,Taurus,472,White Island 05,2011-06-13T09:40:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,483,MRP Kawerau East Site KQ03,2008-02-12T09:30:01Z,2008-03-17T13:00:00Z
-Nanometrics,Taurus,483,Hockey Stadium,2008-10-06T11:45:00Z,2008-10-30T14:24:00Z
-Nanometrics,Taurus,483,Lower Hutt Emergency Management,2008-11-19T10:17:01Z,2009-02-11T10:00:00Z
-Nanometrics,Taurus,483,Tongariro 4,2012-07-20T11:00:01Z,2013-06-06T13:00:00Z
-Nanometrics,Taurus,483,East Tongariro,2013-09-26T11:00:01Z,2014-03-19T08:00:00Z
-Nanometrics,Taurus,483,Riverton,2014-03-19T08:00:01Z,2014-09-18T12:00:00Z
-Nanometrics,Taurus,483,Hampden,2014-09-18T12:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,487,MRP Rotokawa 06,2008-07-02T11:40:01Z,2008-10-09T11:00:02Z
-Nanometrics,Taurus,487,Sutton,2014-03-12T13:40:01Z,2014-10-10T13:00:00Z
-Nanometrics,Taurus,487,Cattle Creek,2014-10-10T13:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,492,Duncan Road,2006-07-23T13:00:01Z,2006-08-16T17:00:00Z
-Nanometrics,Taurus,492,North of Bare Cone,2007-10-17T09:20:01Z,2007-11-27T10:00:00Z
-Nanometrics,Taurus,492,Supper Cove,2009-07-16T12:00:01Z,2009-09-14T12:00:00Z
-Nanometrics,Taurus,492,McKay,2010-09-04T17:30:01Z,2010-09-28T11:00:00Z
-Nanometrics,Taurus,492,Purau,2011-02-26T13:13:26Z,2011-10-18T12:22:45Z
-Nanometrics,Taurus,501,Okepuha Station,2006-05-03T17:00:01Z,2006-05-27T23:45:00Z
-Nanometrics,Taurus,501,MRP Kawerau Central Site KQ01,2008-05-13T10:00:01Z,2008-06-03T15:00:00Z
-Nanometrics,Taurus,501,Ngongotaha,2011-05-10T12:00:01Z,2011-05-10T13:05:00Z
-Nanometrics,Taurus,501,Tongariro 2,2012-07-20T15:00:01Z,2012-10-11T11:00:00Z
-Nanometrics,Taurus,504,Mount Tanilba,2007-10-17T07:00:01Z,2007-11-27T09:00:00Z
-Nanometrics,Taurus,504,Horizon International Brick and Paving Centre,2008-10-23T10:00:01Z,2009-02-11T10:00:00Z
-Nanometrics,Taurus,504,Duck Cove,2009-07-15T12:00:01Z,2009-09-15T11:00:00Z
-Nanometrics,Taurus,504,White Island 07,2011-06-12T13:11:01Z,2011-06-12T13:12:00Z
-Nanometrics,Taurus,504,White Island 06,2011-06-12T13:12:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,504,Owaka,2014-03-17T07:00:01Z,2014-09-17T12:00:00Z
-Nanometrics,Taurus,504,Otekaieke,2014-09-17T12:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,554,South of Mount Elder,2007-10-17T08:00:01Z,2007-11-27T10:00:00Z
-Nanometrics,Taurus,554,Lower Hutt Unilever,2008-10-02T09:50:01Z,2009-02-11T09:00:00Z
-Nanometrics,Taurus,554,White Island 12,2011-06-12T12:00:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,554,Roxburgh,2014-03-11T09:00:01Z,2014-10-12T12:00:00Z
-Nanometrics,Taurus,554,Waihao,2014-10-12T12:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,576,MRP Rotokawa 02,2008-07-02T09:26:01Z,2008-10-09T11:00:02Z
-Nanometrics,Taurus,576,White Island 04,2011-06-13T11:05:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,576,Kaitangata,2014-03-14T12:40:01Z,2014-09-17T10:00:00Z
-Nanometrics,Taurus,576,Aviemore,2014-09-17T10:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,582,Carnagh Station,2006-08-14T13:00:01Z,2006-11-14T11:00:00Z
-Nanometrics,Taurus,582,Matarangi,2008-02-06T12:00:01Z,2008-03-05T13:00:00Z
-Nanometrics,Taurus,582,White Island 15,2011-06-11T12:00:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,582,Mandeville,2014-03-18T08:00:01Z,2014-09-16T09:00:00Z
-Nanometrics,Taurus,582,Kyeburn,2014-09-16T09:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,584,Lower Hutt Emergency Management,2008-10-02T12:19:01Z,2008-11-19T10:17:00Z
-Nanometrics,Taurus,584,Purser Grove,2008-11-25T16:10:01Z,2009-02-11T13:00:00Z
-Nanometrics,Taurus,584,White Island 07,2011-06-12T12:12:01Z,2011-09-21T18:00:00Z
-Nanometrics,Taurus,584,Park Hill,2014-03-11T13:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,589,MRP Rotokawa 07,2008-07-02T10:54:01Z,2008-10-09T11:00:02Z
-Nanometrics,Taurus,589,Logan Burn,2014-05-27T14:10:01Z,2014-10-13T08:00:00Z
-Nanometrics,Taurus,589,Grays,2014-10-13T08:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,592,MRP Kawerau Central Site KQ01,2008-02-12T08:06:31Z,2008-03-17T13:00:00Z
-Nanometrics,Taurus,592,Brighton,2014-03-10T08:30:01Z,2014-10-14T12:30:00Z
-Nanometrics,Taurus,592,Milford,2014-10-14T12:30:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,599,MRP Rotokawa 05,2008-07-02T10:30:02Z,2008-10-09T11:00:02Z
-Nanometrics,Taurus,599,White Island 10,2011-06-12T14:18:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,599,Waikaia,2014-03-18T11:30:01Z,2014-09-14T12:00:01Z
-Nanometrics,Taurus,599,Moonlight,2014-09-14T12:00:02Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,602,White Island 02,2011-06-13T12:45:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,603,Okepuha Station,2006-11-15T11:00:01Z,2007-01-31T11:00:00Z
-Nanometrics,Taurus,603,MRP Rotokawa 03,2008-07-02T11:40:01Z,2008-10-09T11:00:02Z
-Nanometrics,Taurus,603,White Island 13,2011-06-11T12:00:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,603,Glenlee Station,2013-08-20T22:00:01Z,2013-11-20T23:00:00Z
-Nanometrics,Taurus,603,Mahinerangi,2014-03-13T11:00:01Z,2014-09-17T14:00:00Z
-Nanometrics,Taurus,603,Airedale,2014-09-17T14:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,606,St. Oran's College,2008-10-02T12:45:01Z,2009-02-11T10:30:00Z
-Nanometrics,Taurus,606,Tuturau,2014-03-16T10:00:01Z,2014-09-15T12:00:00Z
-Nanometrics,Taurus,606,Ida Valley,2014-09-15T12:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,607,Okepuha Station,2006-08-16T17:00:01Z,2006-11-15T11:00:00Z
-Nanometrics,Taurus,607,Rugged Mountain,2007-10-17T10:59:01Z,2007-11-27T10:00:00Z
-Nanometrics,Taurus,607,Breaksea Sound,2009-07-16T12:00:01Z,2009-09-14T11:00:00Z
-Nanometrics,Taurus,607,Mitchells,2010-09-04T14:30:01Z,2010-09-28T11:00:00Z
-Nanometrics,Taurus,607,Rhodes Road,2011-02-26T17:11:44Z,2011-10-18T09:22:45Z
-Nanometrics,Taurus,607,South Renwick,2013-07-23T10:42:01Z,2013-11-20T23:00:00Z
-Nanometrics,Taurus,608,Lathrope Road,2007-03-26T12:00:01Z,2007-05-15T16:00:00Z
-Nanometrics,Taurus,608,MRP Rotokawa 08,2008-10-09T11:00:01Z,2008-10-29T11:00:00Z
-Nanometrics,Taurus,608,Skate,2010-09-04T16:00:01Z,2010-09-28T11:00:00Z
-Nanometrics,Taurus,608,East Tongariro,2012-07-20T11:00:01Z,2013-06-06T13:00:00Z
-Nanometrics,Taurus,608,Logan Burn,2014-03-12T10:00:01Z,2014-05-27T14:00:00Z
-Nanometrics,Taurus,609,Carnagh Station,2006-07-21T11:00:01Z,2006-08-16T17:00:00Z
-Nanometrics,Taurus,609,Petone,2008-10-08T10:30:01Z,2009-02-12T12:30:00Z
-Nanometrics,Taurus,609,Last Cove,2009-07-16T12:00:01Z,2009-09-14T11:00:00Z
-Nanometrics,Taurus,609,White Island 14,2011-06-12T12:00:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,609,Table Hill,2014-03-10T13:45:01Z,2014-10-14T10:00:00Z
-Nanometrics,Taurus,609,Opuha,2014-10-14T10:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,610,MRP Rotokawa 08,2008-07-02T12:29:01Z,2008-10-09T11:00:02Z
-Nanometrics,Taurus,610,White Island 08,2011-06-12T10:06:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,610,Clifton,2014-03-14T09:00:01Z,2014-09-15T12:00:00Z
-Nanometrics,Taurus,610,Manorburn,2014-09-15T12:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,611,Lower Hutt Croft Combined Carriers,2008-10-06T15:30:01Z,2009-02-11T09:00:00Z
-Nanometrics,Taurus,611,White Island 03,2011-06-13T10:27:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,611,Millers Flat,2014-03-11T11:20:01Z,2014-10-14T15:00:00Z
-Nanometrics,Taurus,611,Kohika,2014-10-14T15:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,612,Matiu-Somes Island,2008-10-05T10:40:01Z,2009-02-16T10:00:00Z
-Nanometrics,Taurus,612,Hindon,2014-03-13T08:00:01Z,2014-10-13T11:00:00Z
-Nanometrics,Taurus,612,Sherwood Downs,2014-10-13T11:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,614,Okepuha Station,2006-07-20T14:00:01Z,2006-08-16T17:00:00Z
-Nanometrics,Taurus,614,White Island 09,2011-06-12T10:56:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,614,Patearoa,2014-09-18T09:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,617,Lake Frazer,2009-07-16T12:00:01Z,2009-12-10T11:00:00Z
-Nanometrics,Taurus,617,Steel,2010-09-04T13:00:01Z,2010-09-28T11:00:00Z
-Nanometrics,Taurus,617,Richmond Hill,2011-02-25T15:30:42Z,2011-08-24T13:09:12Z
-Nanometrics,Taurus,617,Craig's Peak,2013-07-22T12:00:01Z,2013-11-20T23:00:00Z
-Nanometrics,Taurus,618,Paritu Road,2006-07-22T16:00:01Z,2006-08-16T17:00:00Z
-Nanometrics,Taurus,618,Dagg Sound,2009-07-16T12:00:01Z,2009-09-14T11:00:00Z
-Nanometrics,Taurus,618,Marshland,2011-02-25T10:00:01Z,2011-10-18T13:22:45Z
-Nanometrics,Taurus,618,White Bluffs,2013-07-22T17:20:01Z,2013-11-20T23:00:00Z
-Nanometrics,Taurus,620,GNS Rafter,2008-10-02T10:18:01Z,2009-02-11T09:00:00Z
-Nanometrics,Taurus,620,White Island 01,2011-06-12T12:00:01Z,2011-11-23T11:00:00Z
-Nanometrics,Taurus,620,Tongariro 7,2012-08-22T12:00:01Z,2013-06-06T13:00:00Z
-Nanometrics,Taurus,620,Waimahaka,2014-03-19T12:10:01Z,2014-09-14T12:00:01Z
-Nanometrics,Taurus,620,Morrisons,2014-09-14T12:00:02Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,621,South of Lake Ronald,2007-10-17T14:20:01Z,2007-11-27T10:00:00Z
-Nanometrics,Taurus,621,Point Howard,2008-09-30T12:21:01Z,2009-03-16T10:00:00Z
-Nanometrics,Taurus,621,White Island 07,2011-09-21T13:00:01Z,2012-03-05T11:00:00Z
-Nanometrics,Taurus,621,Tongariro 1,2012-07-20T09:40:01Z,2013-06-06T13:00:00Z
-Nanometrics,Taurus,621,Conical Hill Otago,2014-03-16T07:00:01Z,2014-09-15T09:00:00Z
-Nanometrics,Taurus,621,Hawkdun,2014-09-15T09:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,704,Cairn Hill,2010-09-04T11:23:01Z,2010-09-28T11:00:00Z
-Nanometrics,Taurus,704,Mount Hutt,2012-09-17T13:49:38Z,2014-04-08T16:00:59Z
-Nanometrics,Taurus,731,Mount Hutt,2012-09-18T10:04:38Z,2014-04-09T14:02:47Z
-Nanometrics,Taurus,735,Mount Hutt,2012-09-18T11:23:38Z,2014-06-11T12:00:00Z
-Nanometrics,Taurus,736,Rakaia,2012-01-18T11:10:26Z,2014-03-10T10:30:00Z
-Nanometrics,Taurus,736,Taieri,2014-03-10T10:30:01Z,2014-10-12T14:00:00Z
-Nanometrics,Taurus,736,Morven,2014-10-12T14:00:01Z,2015-04-29T12:00:00Z
-Nanometrics,Taurus,743,Owenga,2007-01-09T11:00:01Z,2007-04-01T12:00:00Z
-Nanometrics,Taurus,743,Essendon,2010-09-04T14:53:01Z,2010-09-29T11:00:00Z
-Nanometrics,Taurus,743,Richmond Hill,2011-08-24T13:19:13Z,2011-10-18T09:22:45Z
-Nanometrics,Taurus,1600,Guthrie Street,2008-11-23T14:07:01Z,2009-02-11T10:00:00Z
-Nanometrics,Taurus,1600,Loch Ness,2010-09-05T10:25:01Z,2010-09-28T11:00:00Z
-Nanometrics,Taurus,1600,Duvauchelle,2011-02-27T10:15:28Z,2011-10-18T11:22:45Z
-Nanometrics,Taurus,1620,Hockey Stadium,2008-10-30T14:24:01Z,2009-02-11T11:00:00Z
-Nanometrics,Taurus,1620,Sandy Knolls,2010-09-04T18:54:01Z,2010-09-28T11:00:00Z
-Nanometrics,Taurus,1630,"GNS Science, Avalon",2008-10-23T15:37:00Z,2009-02-10T15:00:00Z
-Nanometrics,Taurus,1630,Courtenay,2010-09-04T13:35:01Z,2010-09-28T11:00:00Z
-Nanometrics,Taurus,1648,MRP Rotokawa 03,2008-10-09T11:00:02Z,2009-08-13T12:00:00Z
-Nanometrics,Taurus,1648,MRP Rotokawa 06,2009-08-13T12:00:01Z,2012-10-28T11:00:10Z
-Nanometrics,Taurus,1648,MRP Rotokawa 14,2012-10-28T11:00:21Z,2013-02-13T11:00:00Z
-Nanometrics,Taurus,1648,MRP Rotokawa 12,2013-02-13T11:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,1655,MRP Rotokawa 05,2008-10-09T11:00:02Z,2015-03-04T12:00:00Z
-Nanometrics,Taurus,1655,MRP Rotokawa 23,2015-06-23T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,1667,MRP Rotokawa 09,2008-10-29T11:00:01Z,2012-10-28T11:00:10Z
-Nanometrics,Taurus,1667,MRP Rotokawa 16,2012-10-28T11:00:21Z,2013-03-14T10:00:00Z
-Nanometrics,Taurus,1667,MRP Rotokawa 18,2013-03-14T10:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,1675,MRP Rotokawa 10,2008-10-29T11:00:01Z,2011-05-09T12:00:00Z
-Nanometrics,Taurus,1675,MRP Rotokawa 12,2011-05-28T12:00:01Z,2013-02-13T11:00:00Z
-Nanometrics,Taurus,1675,MRP Rotokawa 14,2013-02-13T11:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,1687,MRP Rotokawa 06,2008-10-09T11:00:02Z,2009-08-13T12:00:00Z
-Nanometrics,Taurus,1687,MRP Rotokawa 08,2012-03-07T11:00:01Z,2012-10-28T11:00:10Z
-Nanometrics,Taurus,1687,MRP Rotokawa 15,2012-10-28T11:00:21Z,2013-03-14T10:00:00Z
-Nanometrics,Taurus,1687,MRP Rotokawa 19,2013-03-14T10:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,1688,MRP Rotokawa 07,2008-10-09T11:00:02Z,2013-03-14T10:00:00Z
-Nanometrics,Taurus,1688,MRP Rotokawa 20,2013-03-14T10:00:01Z,2013-08-27T12:00:00Z
-Nanometrics,Taurus,1688,MRP Rotokawa 21,2013-08-27T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,1690,MRP Rotokawa 11,2009-03-12T11:00:01Z,2015-06-23T12:00:00Z
-Nanometrics,Taurus,1690,MRP Rotokawa 22,2015-06-23T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,1692,MRP Rotokawa 02,2008-10-09T11:00:02Z,2012-10-28T11:00:10Z
-Nanometrics,Taurus,1692,MRP Rotokawa 13,2012-10-28T11:00:21Z,2015-03-25T13:02:51Z
-Nanometrics,Taurus,1692,MRP Rotokawa 05,2015-03-25T13:02:52Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,1693,MRP Rotokawa 01,2008-10-09T11:00:02Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,1694,MRP Rotokawa 08,2008-10-09T11:00:02Z,2012-10-28T11:00:10Z
-Nanometrics,Taurus,1694,MRP Rotokawa 17,2012-10-28T11:00:21Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,002848,MRP Kawerau Taurus KQD,2012-04-03T12:10:02Z,2014-03-13T11:01:00Z
-Nanometrics,Taurus,002848,MRP Kawerau Taurus KQH,2014-04-09T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,002849,MRP Kawerau Taurus KQG,2012-04-03T12:15:02Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,002850,MRP Kawerau Taurus KQB,2012-04-03T12:05:02Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,002855,MRP Kawerau Taurus KQF,2012-04-03T12:15:02Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,002857,MRP Kawerau Taurus KQE,2012-04-03T12:15:02Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,003102,MRP Ngatamariki Seismic 10,2012-10-31T11:00:21Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,003103,MRP Ngatamariki Seismic 03,2012-05-16T09:49:01Z,2012-10-30T11:00:00Z
-Nanometrics,Taurus,003104,MRP Ngatamariki Seismic 13,2013-02-11T11:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,003105,MRP Ngatamariki Seismic 07,2012-05-15T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,003106,MRP Ngatamariki Seismic 06,2012-05-15T09:00:01Z,2012-10-31T11:00:20Z
-Nanometrics,Taurus,003106,MRP Ngatamariki Seismic 11,2012-10-31T11:00:21Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,003107,MRP Ngatamariki Seismic 09,2012-05-15T09:00:01Z,2015-04-30T12:01:00Z
-Nanometrics,Taurus,003107,MRP Ngatamariki Seismic 16,2015-04-30T12:01:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,003108,MRP Ngatamariki Seismic 04,2012-05-15T11:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,003109,MRP Ngatamariki Seismic 12,2013-01-31T11:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,003110,MRP Ngatamariki Seismic 08,2012-05-16T09:49:01Z,2015-04-22T12:00:00Z
-Nanometrics,Taurus,003110,MRP Ngatamariki Seismic 18,2015-04-22T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,003111,MRP Ngatamariki Seismic 02,2012-05-16T11:20:01Z,2014-01-26T11:00:00Z
-Nanometrics,Taurus,003111,MRP Ngatamariki Seismic 02,2014-01-26T11:00:11Z,2015-01-26T11:00:00Z
-Nanometrics,Taurus,003288,MRP Ngatamariki Seismic 03,2012-10-30T11:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,003291,MRP Ngatamariki Seismic 01,2012-10-30T11:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,003298,MRP Ngatamariki Seismic 05,2012-10-30T11:00:01Z,2015-04-30T12:00:00Z
-Nanometrics,Taurus,003298,MRP Ngatamariki Seismic 15,2015-04-30T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,3319,MRP Ngatamariki Seismic 14,2013-02-28T11:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,3536,MRP Mokai 03,2013-06-11T12:00:01Z,2013-07-18T12:01:00Z
-Nanometrics,Taurus,3536,MRP Mokai 11,2013-07-23T12:00:01Z,2014-08-25T11:00:00Z
-Nanometrics,Taurus,3536,MRP Mokai 15,2014-08-25T11:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,3538,MRP Mokai 02,2013-06-11T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,3541,MRP Mokai 07,2013-06-11T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,3542,MRP Mokai 05,2013-06-11T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,3543,MRP Mokai 01,2013-06-11T12:00:01Z,2013-10-03T10:23:00Z
-Nanometrics,Taurus,3543,MRP Mokai 13,2013-10-03T10:23:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,3544,MRP Mokai 09,2013-06-10T12:00:11Z,2013-10-03T09:18:00Z
-Nanometrics,Taurus,3544,MRP Mokai 14,2014-02-10T11:03:01Z,2014-08-25T13:45:00Z
-Nanometrics,Taurus,3544,MRP Mokai 17,2014-08-25T13:45:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,3547,MRP Mokai 04,2013-06-11T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,3548,MRP Mokai 08,2013-06-10T23:00:01Z,2014-08-26T11:00:00Z
-Nanometrics,Taurus,3548,MRP Mokai 16,2014-08-26T11:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,3550,MRP Mokai 10,2013-06-11T12:00:01Z,9999-01-01T00:00:00Z
-Nanometrics,Taurus,3551,MRP Mokai 06,2013-06-11T12:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,ORION,0144,"Marble Point, Antarctica Orion",1999-11-03T00:00:01Z,2000-01-22T00:00:00Z
+Nanometrics,ORION,0145,"Table Mountain, Antarctica Orion",1999-12-07T00:00:01Z,2000-01-21T00:00:00Z
+Nanometrics,ORION,0160,"Cape Bird, Antarctica Orion",1999-10-30T00:00:01Z,2000-01-22T00:00:00Z
+Nanometrics,ORION,0163,"Mount Fleming, Antarctica Orion",1999-11-09T00:00:01Z,2000-01-23T00:00:00Z
+Nanometrics,ORION,0164,"Lower Wright Valley, Antarctica Orion",1999-11-08T00:00:01Z,2000-01-22T00:00:00Z
+Nanometrics,ORION,0165,"Butter Point, Antarctica Orion",1999-11-03T00:00:01Z,2000-01-22T00:00:00Z
+Nanometrics,ORION,0167,"Lake Chad, Antarctica Orion",1999-12-07T00:00:01Z,2000-01-21T00:00:00Z
+Nanometrics,ORION,0168,"Sperm Bluff, Antarctica Orion",1999-11-03T00:00:01Z,2000-01-22T00:00:00Z
+Nanometrics,ORION,0169,"Labyrinth, Antarctica Orion",1999-11-08T00:00:01Z,2000-01-23T00:00:00Z
+Nanometrics,ORION,0173,"Cape Roberts, Antarctica Orion",1999-11-02T00:00:01Z,2000-01-22T00:00:00Z
+Nanometrics,ORION,0177,Tikorangi Orion,2002-08-28T19:48:00Z,2003-01-20T09:54:00Z
+Nanometrics,ORION,0178,Moumoukai Orion,2002-08-30T00:20:00Z,2003-01-19T18:00:00Z
+Nanometrics,ORION,0201,Te Tarata Orion,2001-01-10T12:20:00Z,2001-04-28T10:45:00Z
+Nanometrics,ORION,0201,Acheron Orion,2001-07-31T23:00:00Z,2002-01-22T23:00:00Z
+Nanometrics,ORION,0201,"Mount Priestley, David Glacier, Antarctica Orion",2003-11-17T00:00:00Z,2004-01-21T00:00:00Z
+Nanometrics,ORION,0201,Totara Road Orion,2004-03-19T02:30:00Z,2004-12-22T00:01:00Z
+Nanometrics,ORION,0201,MED1 Orion,2005-01-17T22:00:01Z,2005-03-30T00:00:00Z
+Nanometrics,ORION,0202,Glen Falls Orion,2001-01-23T00:00:00Z,2001-06-28T00:00:00Z
+Nanometrics,ORION,0203,Tataraakina Orion,2001-01-15T00:00:00Z,2001-06-27T00:00:00Z
+Nanometrics,ORION,0205,Glendale Station Orion,2001-01-13T00:00:00Z,2001-06-28T00:00:00Z
+Nanometrics,ORION,0206,Papakiri Orion,2001-01-14T00:00:00Z,2001-06-28T00:00:00Z
+Nanometrics,ORION,0233,Kiwitahi Orion,2001-01-12T14:41:00Z,2001-06-25T17:40:00Z
+Nanometrics,ORION,0233,"Glenlee, Awatere Valley #3 Orion",2001-07-30T22:00:01Z,2002-01-22T03:00:00Z
+Nanometrics,ORION,0233,"Mount Joyce, David Glacier, Antarctica Orion",2003-11-13T00:00:01Z,2004-01-22T00:00:00Z
+Nanometrics,ORION,0233,East Paeroa Orion,2004-03-22T23:00:00Z,2005-02-01T01:00:00Z
+Nanometrics,ORION,0235,Lochinver Orion,2001-01-11T20:41:00Z,2001-06-25T21:06:00Z
+Nanometrics,ORION,0235,Glenlee Orion,2001-07-29T00:00:00Z,2002-01-22T04:00:00Z
+Nanometrics,ORION,0235,Matakana Orion,2002-08-28T12:44:00Z,2003-01-18T02:20:00Z
+Nanometrics,ORION,0235,"Hughes Bluff, David Glacier, Antarctica Orion",2003-11-17T00:00:00Z,2004-01-22T00:00:00Z
+Nanometrics,ORION,0235,Parsons Road Orion,2004-03-12T02:00:00Z,2005-02-01T00:01:00Z
+Nanometrics,ORION,0251,Tauhara (Mountain Road) Orion,2001-01-11T20:41:00Z,2001-06-25T16:25:00Z
+Nanometrics,ORION,0251,"Mount Priestley, David Glacier, Antarctica Orion",2003-11-12T00:00:00Z,2003-11-17T00:00:00Z
+Nanometrics,ORION,0252,Rangitaiki Orion,2001-01-12T00:00:00Z,2001-06-26T15:50:00Z
+Nanometrics,ORION,0252,Omahuta Orion,2002-08-30T08:00:00Z,2003-01-20T19:15:00Z
+Nanometrics,ORION,0252,"Trio, David Glacier, Antarctica Orion",2003-11-14T00:00:00Z,2004-01-21T00:00:00Z
+Nanometrics,ORION,0253,Kaingaroa Forest Orion,2001-01-11T23:00:00Z,2001-06-26T15:50:00Z
+Nanometrics,ORION,0253,Wards Pass #5 Orion,2001-08-01T04:00:00Z,2001-11-27T23:00:00Z
+Nanometrics,ORION,0253,Waipu Caves Orion,2002-08-29T18:25:00Z,2003-01-18T02:20:00Z
+Nanometrics,ORION,0260,Opouahi Station Orion,2001-01-14T00:00:00Z,2001-06-28T00:00:00Z
+Nanometrics,ORION,0278,Denley's Farm Orion,2001-01-15T00:00:00Z,2001-06-26T00:00:00Z
+Nanometrics,ORION,0289,Karaitiana Farm Orion,2001-01-13T04:01:00Z,2001-06-26T15:50:00Z
+Nanometrics,ORION,0289,Wards Pass #2 Orion,2001-09-13T02:00:01Z,2002-01-22T22:00:00Z
+Nanometrics,ORION,0289,Short Road Orion,2004-07-28T00:00:01Z,2005-04-04T00:00:00Z
+Nanometrics,ORION,0290,Poihipi Orion,2001-01-01T07:11:00Z,2001-02-24T23:01:00Z
+Nanometrics,ORION,0290,Tukairangi Road Orion,2001-02-25T02:59:00Z,2001-06-24T18:44:00Z
+Nanometrics,ORION,0290,Upcot Orion,2001-07-31T00:00:00Z,2002-01-22T02:00:00Z
+Nanometrics,ORION,0290,Mangatete Road Orion,2004-03-24T00:00:00Z,2005-02-01T00:00:00Z
+Nanometrics,ORION,0290,Turihaua Station Orion,2005-02-24T04:00:01Z,2005-03-31T00:00:00Z
+Nanometrics,ORION,0292,Pohokura Orion,2001-01-13T04:01:00Z,2001-06-26T15:55:00Z
+Nanometrics,ORION,0292,"Glenlee, Awatere Valley #2 Orion",2001-07-31T02:00:00Z,2002-01-22T03:00:00Z
+Nanometrics,ORION,0292,Lake Ohakuri Orion,2004-03-18T23:00:01Z,2005-01-19T22:00:00Z
+Nanometrics,ORION,0292,Kaiaua Station Orion,2005-01-19T22:00:01Z,2005-03-31T00:00:00Z
+Nanometrics,ORION,0307,Wards Pass #1 Orion,2001-09-12T03:00:01Z,2002-01-22T22:00:00Z
+Nanometrics,ORION,0307,Tahunaatara Stream Orion,2004-03-24T04:00:01Z,2004-12-22T23:00:00Z
+Nanometrics,ORION,0307,Pakarae Orion,2005-01-18T04:00:00Z,2005-03-30T00:00:00Z
+Nanometrics,ORION,TMP_6044,Scheres Farm Orion,2001-01-17T09:59:00Z,2001-06-27T20:55:00Z
+Nanometrics,ORION,TMP_6045,Waipapa Orion,2001-01-16T11:53:00Z,2001-06-27T20:55:00Z
+Nanometrics,ORION,TMP_6046,Yup Farm Orion,2001-01-15T11:33:00Z,2001-06-27T20:55:00Z
+Nanometrics,Taurus,403,MRP Rotokawa 01 Taurus,2008-07-02T21:39:01Z,2008-10-10T00:00:02Z
+Nanometrics,Taurus,403,Motutapu Island Taurus,2012-10-08T23:00:01Z,2012-12-04T00:00:00Z
+Nanometrics,Taurus,436,Owenga Taurus,2007-01-10T00:00:01Z,2009-07-17T00:00:00Z
+Nanometrics,Taurus,436,Breaksea Sound Taurus,2009-07-17T00:00:01Z,2009-12-11T00:00:00Z
+Nanometrics,Taurus,436,Miners Road Taurus,2010-09-05T22:10:01Z,2010-09-29T00:00:00Z
+Nanometrics,Taurus,436,Rhodes Road Taurus,2011-02-28T00:27:45Z,2011-02-28T00:27:46Z
+Nanometrics,Taurus,436,Okuti Valley Road Taurus,2011-02-28T00:27:47Z,2013-07-23T03:00:00Z
+Nanometrics,Taurus,436,Oyster Bay Taurus,2013-07-23T03:00:03Z,2013-11-21T12:00:00Z
+Nanometrics,Taurus,461,Patutahi Taurus,2006-07-22T21:00:01Z,2006-08-17T05:00:00Z
+Nanometrics,Taurus,461,MRP Kawerau South Site KQ02 Taurus,2008-02-12T22:00:01Z,2008-03-18T02:00:00Z
+Nanometrics,Taurus,461,MRP Kawerau West Site KQ04 Taurus,2008-05-13T22:00:01Z,2008-06-04T03:00:00Z
+Nanometrics,Taurus,461,Waipahi Taurus,2014-03-17T01:00:01Z,2014-09-17T03:00:00Z
+Nanometrics,Taurus,461,Waikouaiti Taurus,2014-09-17T03:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,472,Lathrope Road Taurus,2006-11-23T03:22:01Z,2007-05-16T04:00:00Z
+Nanometrics,Taurus,472,Lower Hutt Rock Site Taurus,2008-10-01T03:13:01Z,2009-02-11T23:00:00Z
+Nanometrics,Taurus,472,White Island 05 Taurus,2011-06-13T21:40:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,483,MRP Kawerau East Site KQ03 Taurus,2008-02-12T22:30:01Z,2008-03-18T02:00:00Z
+Nanometrics,Taurus,483,Hockey Stadium Taurus,2008-10-07T00:45:00Z,2008-10-31T03:24:00Z
+Nanometrics,Taurus,483,Lower Hutt Emergency Management Taurus,2008-11-19T23:17:01Z,2009-02-11T23:00:00Z
+Nanometrics,Taurus,483,Waihaha Taurus,2011-08-01T00:00:01Z,2011-09-08T00:00:00Z
+Nanometrics,Taurus,483,Tongariro 4 Taurus,2012-07-20T23:00:01Z,2013-06-07T01:00:00Z
+Nanometrics,Taurus,483,East Tongariro Taurus,2013-09-26T23:00:01Z,2014-03-19T21:00:00Z
+Nanometrics,Taurus,483,Riverton Taurus,2014-03-19T21:00:01Z,2014-09-19T00:00:00Z
+Nanometrics,Taurus,483,Hampden Taurus,2014-09-19T00:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,487,MRP Rotokawa 06 Taurus,2008-07-02T23:40:01Z,2008-10-10T00:00:02Z
+Nanometrics,Taurus,487,Sutton Taurus,2014-03-13T02:40:01Z,2014-10-11T02:00:00Z
+Nanometrics,Taurus,487,Cattle Creek Taurus,2014-10-11T02:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,492,Duncan Road Taurus,2006-07-24T01:00:01Z,2006-08-17T05:00:00Z
+Nanometrics,Taurus,492,North of Bare Cone Taurus,2007-10-17T22:20:01Z,2007-11-27T23:00:00Z
+Nanometrics,Taurus,492,Supper Cove Taurus,2009-07-17T00:00:01Z,2009-09-15T00:00:00Z
+Nanometrics,Taurus,492,McKay Taurus,2010-09-05T05:30:01Z,2010-09-29T00:00:00Z
+Nanometrics,Taurus,492,Purau Taurus,2011-02-27T02:13:26Z,2011-10-19T01:22:45Z
+Nanometrics,Taurus,501,Okepuha Station Taurus,2006-05-04T05:00:01Z,2006-05-28T11:45:00Z
+Nanometrics,Taurus,501,MRP Kawerau Central Site KQ01 Taurus,2008-05-13T22:00:01Z,2008-06-04T03:00:00Z
+Nanometrics,Taurus,501,Karaka Road Borehole Taurus,2008-07-11T00:00:01Z,2008-09-17T01:00:00Z
+Nanometrics,Taurus,501,Ngongotaha Taurus,2011-05-11T00:00:01Z,2011-05-11T01:05:00Z
+Nanometrics,Taurus,501,Tongariro 2 Taurus,2012-07-21T03:00:01Z,2012-10-12T00:00:00Z
+Nanometrics,Taurus,504,Mount Tanilba Taurus,2007-10-17T20:00:01Z,2007-11-27T22:00:00Z
+Nanometrics,Taurus,504,Horizon International Brick and Paving Centre Taurus,2008-10-23T23:00:01Z,2009-02-11T23:00:00Z
+Nanometrics,Taurus,504,Duck Cove Taurus,2009-07-16T00:00:01Z,2009-09-15T23:00:00Z
+Nanometrics,Taurus,504,White Island 07 Taurus,2011-06-13T01:11:01Z,2011-06-13T01:12:00Z
+Nanometrics,Taurus,504,White Island 06 Taurus,2011-06-13T01:12:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,504,Owaka Taurus,2014-03-17T20:00:01Z,2014-09-18T00:00:00Z
+Nanometrics,Taurus,504,Otekaieke Taurus,2014-09-18T00:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,554,South of Mount Elder Taurus,2007-10-17T21:00:01Z,2007-11-27T23:00:00Z
+Nanometrics,Taurus,554,Lower Hutt Unilever Taurus,2008-10-02T22:50:01Z,2009-02-11T22:00:00Z
+Nanometrics,Taurus,554,White Island 12 Taurus,2011-06-13T00:00:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,554,Roxburgh Taurus,2014-03-11T22:00:01Z,2014-10-13T01:00:00Z
+Nanometrics,Taurus,554,Waihao Taurus,2014-10-13T01:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,576,MRP Rotokawa 02 Taurus,2008-07-02T21:26:01Z,2008-10-10T00:00:02Z
+Nanometrics,Taurus,576,White Island 04 Taurus,2011-06-13T23:05:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,576,Kaitangata Taurus,2014-03-15T01:40:01Z,2014-09-17T22:00:00Z
+Nanometrics,Taurus,576,Aviemore Taurus,2014-09-17T22:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,582,Carnagh Station Taurus,2006-08-15T01:00:01Z,2006-11-15T00:00:00Z
+Nanometrics,Taurus,582,Matarangi Taurus,2008-02-07T01:00:01Z,2008-03-06T02:00:00Z
+Nanometrics,Taurus,582,White Island 15 Taurus,2011-06-12T00:00:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,582,Mandeville Taurus,2014-03-18T21:00:01Z,2014-09-16T21:00:00Z
+Nanometrics,Taurus,582,Kyeburn Taurus,2014-09-16T21:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,584,Lower Hutt Emergency Management Taurus,2008-10-03T01:19:01Z,2008-11-19T23:17:00Z
+Nanometrics,Taurus,584,Purser Grove Taurus,2008-11-26T05:10:01Z,2009-02-12T02:00:00Z
+Nanometrics,Taurus,584,White Island 07 Taurus,2011-06-13T00:12:01Z,2011-09-22T06:00:00Z
+Nanometrics,Taurus,584,Park Hill Taurus,2014-03-12T02:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,589,MRP Rotokawa 07 Taurus,2008-07-02T22:54:01Z,2008-10-10T00:00:02Z
+Nanometrics,Taurus,589,Logan Burn Taurus,2014-05-28T02:10:01Z,2014-10-13T21:00:00Z
+Nanometrics,Taurus,589,Grays Taurus,2014-10-13T21:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,592,MRP Kawerau Central Site KQ01 Taurus,2008-02-12T21:06:31Z,2008-03-18T02:00:00Z
+Nanometrics,Taurus,592,Brighton Taurus,2014-03-10T21:30:01Z,2014-10-15T01:30:00Z
+Nanometrics,Taurus,592,Milford Taurus,2014-10-15T01:30:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,599,MRP Rotokawa 05 Taurus,2008-07-02T22:30:02Z,2008-10-10T00:00:02Z
+Nanometrics,Taurus,599,White Island 10 Taurus,2011-06-13T02:18:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,599,Waikaia Taurus,2014-03-19T00:30:01Z,2014-09-15T00:00:01Z
+Nanometrics,Taurus,599,Moonlight Taurus,2014-09-15T00:00:02Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,602,White Island 02 Taurus,2011-06-14T00:45:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,603,Okepuha Station Taurus,2006-11-16T00:00:01Z,2007-02-01T00:00:00Z
+Nanometrics,Taurus,603,MRP Rotokawa 03 Taurus,2008-07-02T23:40:01Z,2008-10-10T00:00:02Z
+Nanometrics,Taurus,603,White Island 13 Taurus,2011-06-12T00:00:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,603,Glenlee Station Taurus,2013-08-21T10:00:01Z,2013-11-21T12:00:00Z
+Nanometrics,Taurus,603,Mahinerangi Taurus,2014-03-14T00:00:01Z,2014-09-18T02:00:00Z
+Nanometrics,Taurus,603,Airedale Taurus,2014-09-18T02:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,606,St. Oran's College Taurus,2008-10-03T01:45:01Z,2009-02-11T23:30:00Z
+Nanometrics,Taurus,606,Tuturau Taurus,2014-03-16T23:00:01Z,2014-09-16T00:00:00Z
+Nanometrics,Taurus,606,Ida Valley Taurus,2014-09-16T00:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,607,Okepuha Station Taurus,2006-08-17T05:00:01Z,2006-11-16T00:00:00Z
+Nanometrics,Taurus,607,Rugged Mountain Taurus,2007-10-17T23:59:01Z,2007-11-27T23:00:00Z
+Nanometrics,Taurus,607,Breaksea Sound Taurus,2009-07-17T00:00:01Z,2009-09-14T23:00:00Z
+Nanometrics,Taurus,607,Mitchells Taurus,2010-09-05T02:30:01Z,2010-09-29T00:00:00Z
+Nanometrics,Taurus,607,Rhodes Road Taurus,2011-02-27T06:11:44Z,2011-10-18T22:22:45Z
+Nanometrics,Taurus,607,South Renwick Taurus,2013-07-23T22:42:01Z,2013-11-21T12:00:00Z
+Nanometrics,Taurus,608,Lathrope Road Taurus,2007-03-27T00:00:01Z,2007-05-16T04:00:00Z
+Nanometrics,Taurus,608,MRP Rotokawa 08 Taurus,2008-10-10T00:00:01Z,2008-10-30T00:00:00Z
+Nanometrics,Taurus,608,Skate Taurus,2010-09-05T04:00:01Z,2010-09-29T00:00:00Z
+Nanometrics,Taurus,608,Wahianoa Taurus,2011-01-13T22:00:01Z,2011-02-10T00:00:00Z
+Nanometrics,Taurus,608,Waihaha Taurus,2011-08-01T00:00:01Z,2011-09-08T00:00:00Z
+Nanometrics,Taurus,608,East Tongariro Taurus,2012-07-20T23:00:01Z,2013-06-07T01:00:00Z
+Nanometrics,Taurus,608,Logan Burn Taurus,2014-03-12T23:00:01Z,2014-05-28T02:00:00Z
+Nanometrics,Taurus,609,Carnagh Station Taurus,2006-07-21T23:00:01Z,2006-08-17T05:00:00Z
+Nanometrics,Taurus,609,Petone Taurus,2008-10-08T23:30:01Z,2009-02-13T01:30:00Z
+Nanometrics,Taurus,609,Last Cove Taurus,2009-07-17T00:00:01Z,2009-09-14T23:00:00Z
+Nanometrics,Taurus,609,White Island 14 Taurus,2011-06-13T00:00:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,609,Table Hill Taurus,2014-03-11T02:45:01Z,2014-10-14T23:00:00Z
+Nanometrics,Taurus,609,Opuha Taurus,2014-10-14T23:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,610,MRP Rotokawa 08 Taurus,2008-07-03T00:29:01Z,2008-10-10T00:00:02Z
+Nanometrics,Taurus,610,White Island 08 Taurus,2011-06-12T22:06:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,610,Clifton Taurus,2014-03-14T22:00:01Z,2014-09-16T00:00:00Z
+Nanometrics,Taurus,610,Manorburn Taurus,2014-09-16T00:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,611,Lower Hutt Croft Combined Carriers Taurus,2008-10-07T04:30:01Z,2009-02-11T22:00:00Z
+Nanometrics,Taurus,611,White Island 03 Taurus,2011-06-13T22:27:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,611,Millers Flat Taurus,2014-03-12T00:20:01Z,2014-10-15T04:00:00Z
+Nanometrics,Taurus,611,Kohika Taurus,2014-10-15T04:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,612,Matiu-Somes Island Taurus,2008-10-05T23:40:01Z,2009-02-16T23:00:00Z
+Nanometrics,Taurus,612,Makatiti Taurus,2011-08-16T23:13:01Z,2011-09-30T02:00:00Z
+Nanometrics,Taurus,612,Matarangi Taurus,2012-06-01T00:00:01Z,2013-06-07T00:00:00Z
+Nanometrics,Taurus,612,Hindon Taurus,2014-03-13T21:00:01Z,2014-10-14T00:00:00Z
+Nanometrics,Taurus,612,Sherwood Downs Taurus,2014-10-14T00:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,614,Okepuha Station Taurus,2006-07-21T02:00:01Z,2006-08-17T05:00:00Z
+Nanometrics,Taurus,614,Dome Shelter Taurus,2008-07-14T22:00:01Z,2008-09-16T03:00:00Z
+Nanometrics,Taurus,614,White Island 09 Taurus,2011-06-12T22:56:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,614,Patearoa Taurus,2014-09-18T21:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,617,Lake Frazer Taurus,2009-07-17T00:00:01Z,2009-12-11T00:00:00Z
+Nanometrics,Taurus,617,Steel Taurus,2010-09-05T01:00:01Z,2010-09-29T00:00:00Z
+Nanometrics,Taurus,617,Richmond Hill Taurus,2011-02-26T04:30:42Z,2011-08-25T01:09:12Z
+Nanometrics,Taurus,617,Craig's Peak Taurus,2013-07-23T00:00:01Z,2013-11-21T12:00:00Z
+Nanometrics,Taurus,618,Paritu Road Taurus,2006-07-23T04:00:01Z,2006-08-17T05:00:00Z
+Nanometrics,Taurus,618,Dagg Sound Taurus,2009-07-17T00:00:01Z,2009-09-14T23:00:00Z
+Nanometrics,Taurus,618,Marshland Taurus,2011-02-25T23:00:01Z,2011-10-19T02:22:45Z
+Nanometrics,Taurus,618,White Bluffs Taurus,2013-07-23T05:20:01Z,2013-11-21T12:00:00Z
+Nanometrics,Taurus,620,GNS Rafter Taurus,2008-10-02T23:18:01Z,2009-02-11T22:00:00Z
+Nanometrics,Taurus,620,White Island 01 Taurus,2011-06-13T00:00:01Z,2011-11-24T00:00:00Z
+Nanometrics,Taurus,620,Tongariro 7 Taurus,2012-08-23T00:00:01Z,2013-06-07T01:00:00Z
+Nanometrics,Taurus,620,Waimahaka Taurus,2014-03-20T01:10:01Z,2014-09-15T00:00:01Z
+Nanometrics,Taurus,620,Morrisons Taurus,2014-09-15T00:00:02Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,621,South of Lake Ronald Taurus,2007-10-18T03:20:01Z,2007-11-27T23:00:00Z
+Nanometrics,Taurus,621,Point Howard Taurus,2008-10-01T01:21:01Z,2009-03-16T23:00:00Z
+Nanometrics,Taurus,621,White Island 07 Taurus,2011-09-22T01:00:01Z,2012-03-06T00:00:00Z
+Nanometrics,Taurus,621,Tongariro 1 Taurus,2012-07-20T21:40:01Z,2013-06-07T01:00:00Z
+Nanometrics,Taurus,621,Conical Hill Otago Taurus,2014-03-16T20:00:01Z,2014-09-15T21:00:00Z
+Nanometrics,Taurus,621,Hawkdun Taurus,2014-09-15T21:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,704,Cairn Hill Taurus,2010-09-04T23:23:01Z,2010-09-29T00:00:00Z
+Nanometrics,Taurus,704,Mount Hutt Taurus,2012-09-18T01:49:38Z,2014-04-09T04:00:59Z
+Nanometrics,Taurus,731,Waipu Caves Taurus,2008-11-18T04:42:15Z,2009-01-20T21:00:00Z
+Nanometrics,Taurus,731,Mount Hutt Taurus,2012-09-18T22:04:38Z,2014-04-10T02:02:47Z
+Nanometrics,Taurus,735,Eyrewell Taurus,2011-11-23T00:00:01Z,2012-01-18T23:50:25Z
+Nanometrics,Taurus,735,Mount Hutt Taurus,2012-09-18T23:23:38Z,2014-06-12T00:00:00Z
+Nanometrics,Taurus,736,Eyrewell Taurus,2011-11-23T00:00:01Z,2012-01-19T00:10:25Z
+Nanometrics,Taurus,736,Rakaia Taurus,2012-01-19T00:10:26Z,2014-03-10T23:30:00Z
+Nanometrics,Taurus,736,Taieri Taurus,2014-03-10T23:30:01Z,2014-10-13T03:00:00Z
+Nanometrics,Taurus,736,Morven Taurus,2014-10-13T03:00:01Z,2015-04-30T00:00:00Z
+Nanometrics,Taurus,743,Owenga Taurus,2007-01-10T00:00:01Z,2007-04-02T00:00:00Z
+Nanometrics,Taurus,743,Essendon Taurus,2010-09-05T02:53:01Z,2010-09-30T00:00:00Z
+Nanometrics,Taurus,743,Richmond Hill Taurus,2011-08-25T01:19:13Z,2011-10-18T22:22:45Z
+Nanometrics,Taurus,1600,Guthrie Street Taurus,2008-11-24T03:07:01Z,2009-02-11T23:00:00Z
+Nanometrics,Taurus,1600,Loch Ness Taurus,2010-09-05T22:25:01Z,2010-09-29T00:00:00Z
+Nanometrics,Taurus,1600,Duvauchelle Taurus,2011-02-27T23:15:28Z,2011-10-19T00:22:45Z
+Nanometrics,Taurus,1614,Newall Road Taurus,2012-10-17T00:00:01Z,2012-12-04T00:00:00Z
+Nanometrics,Taurus,1614,Matahi Valley Taurus,2012-12-13T00:00:01Z,2014-05-27T00:00:00Z
+Nanometrics,Taurus,1620,Hockey Stadium Taurus,2008-10-31T03:24:01Z,2009-02-12T00:00:00Z
+Nanometrics,Taurus,1620,Sandy Knolls Taurus,2010-09-05T06:54:01Z,2010-09-29T00:00:00Z
+Nanometrics,Taurus,1630,"GNS Science, Avalon Taurus",2008-10-24T04:37:00Z,2009-02-11T04:00:00Z
+Nanometrics,Taurus,1630,Courtenay Taurus,2010-09-05T01:35:01Z,2010-09-29T00:00:00Z
+Nanometrics,Taurus,1648,MRP Rotokawa 03 Taurus,2008-10-10T00:00:02Z,2009-08-14T00:00:00Z
+Nanometrics,Taurus,1648,MRP Rotokawa 06 Taurus,2009-08-14T00:00:01Z,2012-10-29T00:00:10Z
+Nanometrics,Taurus,1648,MRP Rotokawa 14 Taurus,2012-10-29T00:00:21Z,2013-02-14T00:00:00Z
+Nanometrics,Taurus,1648,MRP Rotokawa 12 Taurus,2013-02-14T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,1655,MRP Rotokawa 05 Taurus,2008-10-10T00:00:02Z,2015-03-05T01:00:00Z
+Nanometrics,Taurus,1655,MRP Rotokawa 23 Taurus,2015-06-24T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,1667,MRP Rotokawa 09 Taurus,2008-10-30T00:00:01Z,2012-10-29T00:00:10Z
+Nanometrics,Taurus,1667,MRP Rotokawa 16 Taurus,2012-10-29T00:00:21Z,2013-03-14T23:00:00Z
+Nanometrics,Taurus,1667,MRP Rotokawa 18 Taurus,2013-03-14T23:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,1675,MRP Rotokawa 10 Taurus,2008-10-30T00:00:01Z,2011-05-10T00:00:00Z
+Nanometrics,Taurus,1675,MRP Rotokawa 12 Taurus,2011-05-29T00:00:01Z,2013-02-14T00:00:00Z
+Nanometrics,Taurus,1675,MRP Rotokawa 14 Taurus,2013-02-14T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,1687,MRP Rotokawa 06 Taurus,2008-10-10T00:00:02Z,2009-08-14T00:00:00Z
+Nanometrics,Taurus,1687,MRP Rotokawa 08 Taurus,2012-03-08T00:00:01Z,2012-10-29T00:00:10Z
+Nanometrics,Taurus,1687,MRP Rotokawa 15 Taurus,2012-10-29T00:00:21Z,2013-03-14T23:00:00Z
+Nanometrics,Taurus,1687,MRP Rotokawa 19 Taurus,2013-03-14T23:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,1688,MRP Rotokawa 07 Taurus,2008-10-10T00:00:02Z,2013-03-14T23:00:00Z
+Nanometrics,Taurus,1688,MRP Rotokawa 20 Taurus,2013-03-14T23:00:01Z,2013-08-28T00:00:00Z
+Nanometrics,Taurus,1688,MRP Rotokawa 21 Taurus,2013-08-28T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,1690,MRP Rotokawa 11 Taurus,2009-03-13T00:00:01Z,2015-06-24T00:00:00Z
+Nanometrics,Taurus,1690,MRP Rotokawa 22 Taurus,2015-06-24T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,1692,MRP Rotokawa 02 Taurus,2008-10-10T00:00:02Z,2012-10-29T00:00:10Z
+Nanometrics,Taurus,1692,MRP Rotokawa 13 Taurus,2012-10-29T00:00:21Z,2015-03-26T02:02:51Z
+Nanometrics,Taurus,1692,MRP Rotokawa 05 Taurus,2015-03-26T02:02:52Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,1693,MRP Rotokawa 01 Taurus,2008-10-10T00:00:02Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,1694,MRP Rotokawa 08 Taurus,2008-10-10T00:00:02Z,2012-10-29T00:00:10Z
+Nanometrics,Taurus,1694,MRP Rotokawa 17 Taurus,2012-10-29T00:00:21Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,002848,MRP Kawerau Taurus KQD Taurus,2012-04-04T00:10:02Z,2014-03-14T00:01:00Z
+Nanometrics,Taurus,002848,MRP Kawerau Taurus KQH Taurus,2014-04-10T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,002849,MRP Kawerau Taurus KQG Taurus,2012-04-04T00:15:02Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,002850,MRP Kawerau Taurus KQB Taurus,2012-04-04T00:05:02Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,002855,MRP Kawerau Taurus KQF Taurus,2012-04-04T00:15:02Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,002857,MRP Kawerau Taurus KQE Taurus,2012-04-04T00:15:02Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,003102,MRP Ngatamariki Seismic 10 Taurus,2012-11-01T00:00:21Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,003103,MRP Ngatamariki Seismic 03 Taurus,2012-05-16T21:49:01Z,2012-10-31T00:00:00Z
+Nanometrics,Taurus,003104,MRP Ngatamariki Seismic 13 Taurus,2013-02-12T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,003105,MRP Ngatamariki Seismic 07 Taurus,2012-05-16T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,003106,MRP Ngatamariki Seismic 06 Taurus,2012-05-15T21:00:01Z,2012-11-01T00:00:20Z
+Nanometrics,Taurus,003106,MRP Ngatamariki Seismic 11 Taurus,2012-11-01T00:00:21Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,003107,MRP Ngatamariki Seismic 09 Taurus,2012-05-15T21:00:01Z,2015-05-01T00:01:00Z
+Nanometrics,Taurus,003107,MRP Ngatamariki Seismic 16 Taurus,2015-05-01T00:01:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,003108,MRP Ngatamariki Seismic 04 Taurus,2012-05-15T23:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,003109,MRP Ngatamariki Seismic 12 Taurus,2013-02-01T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,003110,MRP Ngatamariki Seismic 08 Taurus,2012-05-16T21:49:01Z,2015-04-23T00:00:00Z
+Nanometrics,Taurus,003110,MRP Ngatamariki Seismic 18 Taurus,2015-04-23T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,003111,MRP Ngatamariki Seismic 02 Taurus,2012-05-16T23:20:01Z,2014-01-27T00:00:00Z
+Nanometrics,Taurus,003111,MRP Ngatamariki Seismic 02 Taurus,2014-01-27T00:00:11Z,2015-01-27T00:00:00Z
+Nanometrics,Taurus,003288,MRP Ngatamariki Seismic 03 Taurus,2012-10-31T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,003291,MRP Ngatamariki Seismic 01 Taurus,2012-10-31T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,003298,MRP Ngatamariki Seismic 05 Taurus,2012-10-31T00:00:01Z,2015-05-01T00:00:00Z
+Nanometrics,Taurus,003298,MRP Ngatamariki Seismic 15 Taurus,2015-05-01T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3319,MRP Ngatamariki Seismic 14 Taurus,2013-03-01T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3536,MRP Mokai 03 Taurus,2013-06-12T00:00:01Z,2013-07-19T00:01:00Z
+Nanometrics,Taurus,3536,MRP Mokai 11 Taurus,2013-07-24T00:00:01Z,2014-08-25T23:00:00Z
+Nanometrics,Taurus,3536,MRP Mokai 15 Taurus,2014-08-25T23:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3538,MRP Mokai 02 Taurus,2013-06-12T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3541,MRP Mokai 07 Taurus,2013-06-12T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3542,MRP Mokai 05 Taurus,2013-06-12T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3543,MRP Mokai 01 Taurus,2013-06-12T00:00:01Z,2013-10-03T23:23:00Z
+Nanometrics,Taurus,3543,MRP Mokai 13 Taurus,2013-10-03T23:23:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3544,MRP Mokai 09 Taurus,2013-06-11T00:00:11Z,2013-10-03T22:18:00Z
+Nanometrics,Taurus,3544,MRP Mokai 14 Taurus,2014-02-11T00:03:01Z,2014-08-26T01:45:00Z
+Nanometrics,Taurus,3544,MRP Mokai 17 Taurus,2014-08-26T01:45:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3547,MRP Mokai 04 Taurus,2013-06-12T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3548,MRP Mokai 08 Taurus,2013-06-11T11:00:01Z,2014-08-26T23:00:00Z
+Nanometrics,Taurus,3548,MRP Mokai 16 Taurus,2014-08-26T23:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3550,MRP Mokai 10 Taurus,2013-06-12T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3551,MRP Mokai 06 Taurus,2013-06-12T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3648,White Island 01 Taurus,2014-01-30T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3662,White Island 04 Taurus,2014-01-30T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3668,White Island 13 Taurus,2014-01-30T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3673,White Island 03 Taurus,2014-01-30T00:00:01Z,9999-01-01T00:00:00Z
+Nanometrics,Taurus,3745,White Island 02 Taurus,2014-11-20T00:00:01Z,9999-01-01T00:00:00Z
