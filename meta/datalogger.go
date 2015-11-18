@@ -10,6 +10,7 @@ type DeployedDatalogger struct {
 	Model     string    `csv:"Datalogger Model"`
 	Serial    string    `csv:"Serial Number"`
 	Place     string    `csv:"Deployment Place"`
+	Role      string    `csv:"Deployment Role"`
 	StartTime time.Time `csv:"Installation Date"`
 	EndTime   time.Time `csv:"Removal Date"`
 }

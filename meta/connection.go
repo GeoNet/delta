@@ -6,11 +6,12 @@ import (
 )
 
 type Connection struct {
-	Station   string    `csv:"Station Code"`
-	Location  string    `csv:"Location Code"`
-	Place     string    `csv:"Datalogger Place"`
-	Offset    int16     `csv:"Offset"`
-	Length    int16     `csv:"Length"`
+	Station  string `csv:"Station Code"`
+	Location string `csv:"Location Code"`
+	Place    string `csv:"Datalogger Place"`
+	Role     string `csv:"Datalogger Role"`
+	//Offset    int16     `csv:"Offset"`
+	//Length    int16     `csv:"Length"`
 	StartTime time.Time `csv:"Start Date"`
 	EndTime   time.Time `csv:"End Date"`
 }
@@ -33,14 +34,20 @@ func (c Connections) Less(i, j int) bool {
 		return true
 	case c[i].Place > c[j].Place:
 		return false
+	case c[i].Role < c[j].Role:
+		return true
+	case c[i].Role > c[j].Role:
+		return false
 	case c[i].StartTime.Before(c[j].StartTime):
 		return true
 	case c[i].StartTime.After(c[j].StartTime):
 		return false
-	case c[i].Offset < c[j].Offset:
-		return true
-	case c[i].Offset > c[j].Offset:
-		return false
+		/*
+			case c[i].Offset < c[j].Offset:
+				return true
+			case c[i].Offset > c[j].Offset:
+				return false
+		*/
 	default:
 		return false
 	}
