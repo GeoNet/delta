@@ -6,12 +6,10 @@ import (
 )
 
 type Connection struct {
-	Station  string `csv:"Station Code"`
-	Location string `csv:"Location Code"`
-	Place    string `csv:"Datalogger Place"`
-	Role     string `csv:"Datalogger Role"`
-	//Offset    int16     `csv:"Offset"`
-	//Length    int16     `csv:"Length"`
+	Station   string    `csv:"Station Code"`
+	Location  string    `csv:"Location Code"`
+	Place     string    `csv:"Datalogger Place"`
+	Role      string    `csv:"Datalogger Role"`
 	StartTime time.Time `csv:"Start Date"`
 	EndTime   time.Time `csv:"End Date"`
 }
