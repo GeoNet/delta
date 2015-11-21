@@ -1,37 +1,10 @@
 package meta
 
 import (
-	//	"fmt"
 	"io/ioutil"
 
-	"github.com/go-yaml/yaml"
+	"gopkg.in/yaml.v2"
 )
-
-/*
-type Complex complex128
-
-//UnmarshalYAML(unmarshal func(interface{}) error) error
-
-func (c *Complex) UnmarshalYAML(unmarshal func(interface{}) error) error {
-	var params string
-	if err := unmarshal(&params); err != nil {
-		return err
-	}
-
-	var v complex128
-	if _, err := fmt.Sscanf(params, "%g", &v); err != nil {
-		return err
-	}
-
-	*c = Complex(v)
-
-	return nil
-}
-
-func (c Complex) MarshalYAML() (interface{}, error) {
-	return fmt.Sprintf("%g", complex128(c)), nil
-}
-*/
 
 type FIR struct {
 	Name       string    `yaml:"name"`
@@ -41,12 +14,6 @@ type FIR struct {
 	Gain       float64   `yaml:gain"`
 	Notes      *string   `yaml:"notes,omitempty"`
 	Factors    []float64 `yaml:"factors,omitempty"`
-	/*
-		Code  string    `yaml:"code"`
-		Type  string    `yaml:"type"`
-		Poles []Complex `yaml:"poles,omitempty"`
-		Zeros []Complex `yaml:"zeros,omitempty"`
-	*/
 }
 
 func LoadFIR(file string) (map[string]FIR, error) {

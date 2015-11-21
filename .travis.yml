@@ -3,8 +3,5 @@ language: go
 go:
     - 1.5
 
-install:
-    - go get gopkg.in/yaml.v2
-
 script: go test ./...
 

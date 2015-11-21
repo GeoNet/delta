@@ -4,12 +4,10 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/go-yaml/yaml"
+	"gopkg.in/yaml.v2"
 )
 
 type Complex complex128
-
-//UnmarshalYAML(unmarshal func(interface{}) error) error
 
 func (c *Complex) UnmarshalYAML(unmarshal func(interface{}) error) error {
 	var params string
@@ -27,21 +25,9 @@ func (c *Complex) UnmarshalYAML(unmarshal func(interface{}) error) error {
 	return nil
 }
 
-/*
-var params struct {
-	        SkipHeaderValidation bool `yaml:"skip-header-validation"`
-		    }
-*/
-
 func (c Complex) MarshalYAML() (interface{}, error) {
 	return fmt.Sprintf("%g", complex128(c)), nil
 }
-
-/*
-func (c Complex) UnarshalYAML() (interface{}, error) {
-	return fmt.Sprintf("%g + %gi", real(c), imag(c)), nil
-}
-*/
 
 type PAZ struct {
 	Name  string    `yaml:"name"`
