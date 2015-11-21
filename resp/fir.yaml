@@ -1,7 +1,7 @@
 altus_a100:
   name: ALTUS_A100
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 10
   gain: 1
   notes: ftp://ftp.kinemetrics.com/pub/AppNotes/FIRA100.COE
@@ -66,7 +66,7 @@ altus_a100:
 altus_a200:
   name: ALTUS_A200
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   notes: ftp://ftp.kinemetrics.com/pub/AppNotes/FIRA200.COE
@@ -103,7 +103,7 @@ altus_a200:
 altus_a250:
   name: ALTUS_A250
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 4
   gain: 1
   notes: ftp://ftp.kinemetrics.com/pub/AppNotes/FIRA250.COE
@@ -135,7 +135,7 @@ altus_a250:
 altus_bc:
   name: ALTUS_BC
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 2
   gain: 1
   notes: ftp://ftp.kinemetrics.com/pub/AppNotes/FIRBC.COE
@@ -254,7 +254,7 @@ altus_bc:
 altus_bnc:
   name: ALTUS_BNC
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 2
   gain: 1
   notes: ftp://ftp.kinemetrics.com/pub/AppNotes/FIRBNC.COE
@@ -331,7 +331,7 @@ altus_bnc:
 cusp_100:
   name: CUSP_100
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 8
   gain: 1
   factors:
@@ -462,7 +462,7 @@ cusp_100:
 cusp_200:
   name: CUSP_200
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 4
   gain: 1
   factors:
@@ -569,7 +569,7 @@ cusp_200:
 dm24_fir_stage_2:
   name: DM24_FIR_STAGE_2
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 2
   gain: 1
   factors:
@@ -827,7 +827,7 @@ dm24_fir_stage_2:
 dm24_fir_stage_4:
   name: DM24_FIR_STAGE_4
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 4
   gain: 1
   factors:
@@ -1335,7 +1335,7 @@ dm24_fir_stage_4:
 dm24_fir_stage_5:
   name: DM24_FIR_STAGE_5
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 5
   gain: 1
   factors:
@@ -1943,7 +1943,7 @@ dm24_fir_stage_5:
 dm24_fir_stage_8:
   name: DM24_FIR_STAGE_8
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 8
   gain: 1
   factors:
@@ -2551,7 +2551,7 @@ dm24_fir_stage_8:
 dm24_fir_stage_10:
   name: DM24_FIR_STAGE_10
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 10
   gain: 1
   factors:
@@ -3159,7 +3159,7 @@ dm24_fir_stage_10:
 dm24_fir1:
   name: DM24_FIR1
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 8
   gain: 1
   factors:
@@ -3183,7 +3183,7 @@ dm24_fir1:
 dm24_fir2:
   name: DM24_FIR2
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 2
   gain: 1
   factors:
@@ -3197,7 +3197,7 @@ dm24_fir2:
 dm24_fir3:
   name: DM24_FIR3
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 2
   gain: 1
   factors:
@@ -3305,7 +3305,7 @@ dm24_fir3:
 orion_fir_1_filter:
   name: ORION_FIR_1_FILTER
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 5
   gain: 1
   factors:
@@ -3329,7 +3329,7 @@ orion_fir_1_filter:
 orion_fir_2_filter:
   name: ORION_FIR_2_FILTER
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 3
   gain: 1
   factors:
@@ -3351,7 +3351,7 @@ orion_fir_2_filter:
 orion_fir_3_filter:
   name: ORION_FIR_3_FILTER
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 2
   gain: 1
   factors:
@@ -3417,7 +3417,7 @@ orion_fir_3_filter:
 orion_fir_5_filter:
   name: ORION_FIR_5_FILTER
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 5
   gain: 1
   factors:
@@ -3452,7 +3452,7 @@ orion_fir_5_filter:
 orion_fir_7_filter:
   name: ORION_FIR_7_FILTER
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 5
   gain: 1
   factors:
@@ -3477,7 +3477,7 @@ orion_fir_7_filter:
 orion_fir_8_filter:
   name: ORION_FIR_8_FILTER
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 10
   gain: 1
   factors:
@@ -3539,7 +3539,7 @@ orion_fir_8_filter:
 orion_fir_10_filter:
   name: ORION_FIR_10_FILTER
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 5
   gain: 1
   factors:
@@ -3674,7 +3674,7 @@ orion_fir_10_filter:
 q330_flbelow100-1:
   name: Q330_FLbelow100-1
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 1
   gain: 1
   factors:
@@ -3712,7 +3712,7 @@ q330_flbelow100-1:
 q330_flbelow100-10:
   name: Q330_FLbelow100-10
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 1
   gain: 1
   factors:
@@ -3800,7 +3800,7 @@ q330_flbelow100-10:
 q330_flbelow100-50:
   name: Q330_FLbelow100-50
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 1
   gain: 1
   factors:
@@ -3888,7 +3888,7 @@ q330_flbelow100-50:
 q330_flbelow100-100:
   name: Q330_FLbelow100-100
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 1
   gain: 1
   factors:
@@ -3960,7 +3960,7 @@ q330_flbelow100-100:
 q330_flbelow100-200:
   name: Q330_FLbelow100-200
   causal: true
-  symmetry: NONE
+  symmetry: none
   decimation: 1
   gain: 1
   factors:
@@ -4002,7 +4002,7 @@ q330_flbelow100-200:
 quanterra_f64c:
   name: QUANTERRA_F64C
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 2
   gain: 1
   factors:
@@ -4041,7 +4041,7 @@ quanterra_f64c:
 quanterra_f64cm:
   name: QUANTERRA_F64CM
   causal: true
-  symmetry: EVEN
+  symmetry: even
   decimation: 2
   gain: 1
   factors:
@@ -4112,7 +4112,7 @@ quanterra_f64cm:
 quanterra_f72b:
   name: QUANTERRA_F72B
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 4
   gain: 1
   factors:
@@ -4155,7 +4155,7 @@ quanterra_f72b:
 quanterra_f72bm:
   name: QUANTERRA_F72BM
   causal: true
-  symmetry: EVEN
+  symmetry: even
   decimation: 4
   gain: 1
   factors:
@@ -4234,7 +4234,7 @@ quanterra_f72bm:
 quanterra_f96c:
   name: QUANTERRA_F96C
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 2
   gain: 1
   factors:
@@ -4289,7 +4289,7 @@ quanterra_f96c:
 quanterra_f96cm:
   name: QUANTERRA_F96CM
   causal: true
-  symmetry: EVEN
+  symmetry: even
   decimation: 2
   gain: 1
   factors:
@@ -4392,7 +4392,7 @@ quanterra_f96cm:
 quanterra_f260:
   name: QUANTERRA_F260
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 10
   gain: 1
   factors:
@@ -4529,7 +4529,7 @@ quanterra_f260:
 quanterra_f260m:
   name: QUANTERRA_F260M
   causal: true
-  symmetry: EVEN
+  symmetry: even
   decimation: 10
   gain: 1
   factors:
@@ -4796,7 +4796,7 @@ quanterra_f260m:
 quanterra_fs2d5:
   name: QUANTERRA_FS2D5
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 5
   gain: 1
   factors:
@@ -4883,7 +4883,7 @@ quanterra_fs2d5:
 quanterra_fs2d5m:
   name: QUANTERRA_FS2D5M
   causal: true
-  symmetry: EVEN
+  symmetry: even
   decimation: 5
   gain: 1
   factors:
@@ -5050,7 +5050,7 @@ quanterra_fs2d5m:
 quanterra_lp:
   name: QUANTERRA_LP
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 5
   gain: 4
   factors:
@@ -5157,7 +5157,7 @@ quanterra_lp:
 quanterra_mp:
   name: QUANTERRA_MP
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 4
   gain: 1
   factors:
@@ -5189,7 +5189,7 @@ quanterra_mp:
 quanterra_ulp:
   name: QUANTERRA_ULP
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 10
   gain: 1
   factors:
@@ -5396,7 +5396,7 @@ quanterra_ulp:
 quanterra_vlp:
   name: QUANTERRA_VLP
   causal: false
-  symmetry: EVEN
+  symmetry: even
   decimation: 10
   gain: 4
   factors:
@@ -5603,7 +5603,7 @@ quanterra_vlp:
 reftek_2_101:
   name: REFTEK_2_101
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 2
   gain: 1
   factors:
@@ -5661,7 +5661,7 @@ reftek_2_101:
 reftek_2_13:
   name: REFTEK_2_13
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 2
   gain: 1
   factors:
@@ -5675,7 +5675,7 @@ reftek_2_13:
 reftek_5_99:
   name: REFTEK_5_99
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   factors:
@@ -5732,7 +5732,7 @@ reftek_5_99:
 reftek_8_29:
   name: REFTEK_8_29
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 8
   gain: 1
   factors:
@@ -5754,7 +5754,7 @@ reftek_8_29:
 reftek_f2_95:
   name: REFTEK_F2_95
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 2
   gain: 1
   factors:
@@ -5809,7 +5809,7 @@ reftek_f2_95:
 reftek_f4_189:
   name: REFTEK_F4_189
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 4
   gain: 1
   factors:
@@ -5911,7 +5911,7 @@ reftek_f4_189:
 reftek_f5_235:
   name: REFTEK_F5_235
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   factors:
@@ -6033,403 +6033,10 @@ reftek_f5_235:
   - 0.142124
   - 0.167226
   - 0.176134
-taurus_10hz_stage_1:
-  name: TAURUS_10HZ_STAGE_1
-  causal: false
-  symmetry: ODD
-  decimation: 20
-  gain: 1
-  factors:
-  - 1.0649076e-09
-  - 1.0344532e-09
-  - 9.664114e-10
-  - 8.418349e-10
-  - 6.2492583e-10
-  - 2.5165495e-10
-  - -3.8767034e-10
-  - -1.4743318e-09
-  - -3.2988061e-09
-  - -6.3141368e-09
-  - -1.1210161e-08
-  - -1.9014838e-08
-  - -3.1230222e-08
-  - -5.0011963e-08
-  - -7.840265e-08
-  - -1.2063074e-07
-  - -1.8248808e-07
-  - -2.7180025e-07
-  - -3.9900462e-07
-  - -5.7785155e-07
-  - -8.2624376e-07
-  - -1.1672283e-06
-  - -1.630152e-06
-  - -2.2519919e-06
-  - -3.0788608e-06
-  - -4.1676917e-06
-  - -5.5880873e-06
-  - -7.4243185e-06
-  - -9.777442e-06
-  - -1.276749e-05
-  - -1.6535685e-05
-  - -2.1246597e-05
-  - -2.7090146e-05
-  - -3.4283363e-05
-  - -4.307177e-05
-  - -5.373022e-05
-  - -6.6563065e-05
-  - -8.190345e-05
-  - -0.000100111574
-  - -0.0001215717
-  - -0.00014668771
-  - -0.00017587708
-  - -0.000209563
-  - -0.00024816455
-  - -0.0002920848
-  - -0.00034169658
-  - -0.00039732637
-  - -0.00045923557
-  - -0.0005275998
-  - -0.0006024864
-  - -0.0006838299
-  - -0.0007714062
-  - -0.0008648061
-  - -0.0009634079
-  - -0.0010663501
-  - -0.0011725061
-  - -0.0012804589
-  - -0.001388479
-  - -0.001494507
-  - -0.0015961381
-  - -0.0016906139
-  - -0.0017748197
-  - -0.0018452886
-  - -0.001898214
-  - -0.0019294709
-  - -0.0019346459
-  - -0.0019090773
-  - -0.001847904
-  - -0.0017461258
-  - -0.0015986724
-  - -0.0014004806
-  - -0.0011465813
-  - -0.00083219225
-  - -0.00045281748
-  - -4.3503255e-06
-  - 0.00051682105
-  - 0.0011137079
-  - 0.0017886173
-  - 0.0025430527
-  - 0.0033776215
-  - 0.004291952
-  - 0.0052846223
-  - 0.0063531017
-  - 0.0074937106
-  - 0.008701598
-  - 0.009970736
-  - 0.011293939
-  - 0.012662903
-  - 0.014068265
-  - 0.015499689
-  - 0.016945967
-  - 0.018395146
-  - 0.019834677
-  - 0.021251563
-  - 0.02263254
-  - 0.023964262
-  - 0.025233496
-  - 0.02642731
-  - 0.027533276
-  - 0.028539661
-  - 0.029435618
-  - 0.030211346
-  - 0.03085827
-  - 0.031369165
-  - 0.031738278
-  - 0.031961437
-  - 0.032036107
-taurus_10hz_stage_2:
-  name: TAURUS_10HZ_STAGE_2
-  causal: false
-  symmetry: ODD
-  decimation: 15
-  gain: 1
-  factors:
-  - 1.274508e-09
-  - 3.9987826e-09
-  - 1.0241543e-08
-  - 2.260132e-08
-  - 4.4821473e-08
-  - 8.183461e-08
-  - 1.3962804e-07
-  - 2.2477657e-07
-  - 3.43498e-07
-  - 5.0008356e-07
-  - 6.945703e-07
-  - 9.1956315e-07
-  - 1.1561802e-06
-  - 1.3692137e-06
-  - 1.5017322e-06
-  - 1.4695362e-06
-  - 1.1560721e-06
-  - 4.0863117e-07
-  - -9.631576e-07
-  - -3.1853585e-06
-  - -6.51303e-06
-  - -1.1217549e-05
-  - -1.7566888e-05
-  - -2.579808e-05
-  - -3.608163e-05
-  - -4.8478367e-05
-  - -6.2890045e-05
-  - -7.900613e-05
-  - -9.625023e-05
-  - -0.00011373088
-  - -0.00013020232
-  - -0.00014404174
-  - -0.00015325008
-  - -0.00015548321
-  - -0.00014812002
-  - -0.00012837222
-  - -9.343931e-05
-  - -4.0708386e-05
-  - 3.2003998e-05
-  - 0.00012617552
-  - 0.00024227901
-  - 0.00037947667
-  - 0.00053532823
-  - 0.00070553675
-  - 0.0008837591
-  - 0.0010615078
-  - 0.0012281727
-  - 0.0013711841
-  - 0.0014763406
-  - 0.0015283084
-  - 0.0015113004
-  - 0.0014099217
-  - 0.0012101644
-  - 0.0009005163
-  - 0.00047313745
-  - -7.4953314e-05
-  - -0.00074074965
-  - -0.0015142609
-  - -0.0023777247
-  - -0.0033051036
-  - -0.0042619356
-  - -0.0052055954
-  - -0.006086005
-  - -0.0068468186
-  - -0.0074270735
-  - -0.0077632726
-  - -0.0077918465
-  - -0.0074519073
-  - -0.0066881767
-  - -0.005453973
-  - -0.003714095
-  - -0.001447465
-  - 0.0013506273
-  - 0.0046668197
-  - 0.008468634
-  - 0.0127041945
-  - 0.017302765
-  - 0.022176133
-  - 0.027220845
-  - 0.03232118
-  - 0.037352826
-  - 0.04218706
-  - 0.046695307
-  - 0.050753836
-  - 0.054248426
-  - 0.05707876
-  - 0.05916234
-  - 0.06043776
-  - 0.060867164
-taurus_10hz_stage_3:
-  name: TAURUS_10HZ_STAGE_3
-  causal: false
-  symmetry: ODD
-  decimation: 5
-  gain: 1
-  factors:
-  - 3.6241532e-09
-  - 1.4702167e-08
-  - 2.924648e-08
-  - 1.675816e-08
-  - -9.459693e-08
-  - -4.0052925e-07
-  - -9.373652e-07
-  - -1.5304353e-06
-  - -1.6459915e-06
-  - -4.0787037e-07
-  - 3.0300941e-06
-  - 8.685992e-06
-  - 1.4766035e-05
-  - 1.7136746e-05
-  - 1.0128135e-05
-  - -1.07285605e-05
-  - -4.439651e-05
-  - -8.029797e-05
-  - -9.761762e-05
-  - -7.094869e-05
-  - 1.6920907e-05
-  - 0.00015850783
-  - 0.00030949365
-  - 0.00039128022
-  - 0.0003155885
-  - 2.9190578e-05
-  - -0.00043627236
-  - -0.0009354174
-  - -0.0012283939
-  - -0.0010614687
-  - -0.0002939815
-  - 0.00097564777
-  - 0.0023524554
-  - 0.0032155854
-  - 0.0029334335
-  - 0.001171051
-  - -0.0018295484
-  - -0.0051456466
-  - -0.0073612076
-  - -0.0070563597
-  - -0.0034676546
-  - 0.0029351127
-  - 0.010248572
-  - 0.01551828
-  - 0.01570616
-  - 0.008987865
-  - -0.0040811715
-  - -0.020045403
-  - -0.033034977
-  - -0.036284562
-  - -0.024308797
-  - 0.004958794
-  - 0.048845254
-  - 0.100014776
-  - 0.1480753
-  - 0.18231122
-  - 0.19471112
-taurus_10hz_stage_4:
-  name: TAURUS_10HZ_STAGE_4
-  causal: false
-  symmetry: ODD
-  decimation: 2
-  gain: 1
-  factors:
-  - -2.4877042e-10
-  - 4.7374398e-09
-  - 1.240319e-08
-  - 2.18423e-09
-  - -2.9735045e-08
-  - -2.7740985e-08
-  - 4.8235005e-08
-  - 9.0485194e-08
-  - -4.377202e-08
-  - -2.0292507e-07
-  - -2.9325097e-08
-  - 3.5767712e-07
-  - 2.3807556e-07
-  - -5.050541e-07
-  - -6.5666063e-07
-  - 5.295136e-07
-  - 1.3330266e-06
-  - -2.3539087e-07
-  - -2.2345582e-06
-  - -6.431887e-07
-  - 3.178848e-06
-  - 2.3918938e-06
-  - -3.7664256e-06
-  - -5.213131e-06
-  - 3.343879e-06
-  - 9.069842e-06
-  - -1.0342027e-06
-  - -1.3494763e-05
-  - -4.1282033e-06
-  - 1.7408136e-05
-  - 1.293247e-05
-  - -1.901116e-05
-  - -2.5598201e-05
-  - 1.5838466e-05
-  - 4.1298543e-05
-  - -5.0513613e-06
-  - -5.769434e-05
-  - -1.5973434e-05
-  - 7.0623195e-05
-  - 4.876212e-05
-  - -7.411825e-05
-  - -9.265601e-05
-  - 6.0928058e-05
-  - 0.00014370415
-  - -2.3657132e-05
-  - -0.00019381766
-  - -4.3460685e-05
-  - 0.0002305286
-  - 0.00014229974
-  - -0.00023769663
-  - -0.00026841954
-  - 0.00019742001
-  - 0.00040898618
-  - -9.322642e-05
-  - -0.0005416667
-  - -8.5650594e-05
-  - 0.0006351459
-  - 0.00033942354
-  - -0.00065179385
-  - -0.0006531623
-  - 0.000552734
-  - 0.0009935334
-  - -0.000305133
-  - -0.0013080203
-  - -0.00010898668
-  - 0.0015276424
-  - 0.0006836461
-  - -0.0015738078
-  - -0.0013811903
-  - 0.0013693165
-  - 0.002127841
-  - -0.00085273915
-  - -0.0028143255
-  - -5.435981e-06
-  - 0.0033029264
-  - 0.0011872353
-  - -0.0034414928
-  - -0.0026150185
-  - 0.0030838612
-  - 0.004145541
-  - -0.0021149328
-  - -0.0055726687
-  - 0.00047754316
-  - 0.0066401707
-  - 0.0018025375
-  - -0.00706464
-  - -0.0045973808
-  - 0.0065669403
-  - 0.007666904
-  - -0.00490895
-  - -0.010660289
-  - 0.0019310636
-  - 0.01312888
-  - 0.0024148712
-  - -0.014547577
-  - -0.008042475
-  - 0.014337281
-  - 0.014722062
-  - -0.011873589
-  - -0.022088949
-  - 0.0064510596
-  - 0.029669395
-  - 0.0028717185
-  - -0.03692219
-  - -0.017776346
-  - 0.043291513
-  - 0.042483605
-  - -0.048264846
-  - -0.09280869
-  - 0.051428583
-  - 0.31377736
-  - 0.4474858
 taurus_20hz_stage_1:
   name: TAURUS_20HZ_STAGE_1
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 15
   gain: 1
   factors:
@@ -6519,7 +6126,7 @@ taurus_20hz_stage_1:
 taurus_20hz_stage_2:
   name: TAURUS_20HZ_STAGE_2
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 10
   gain: 1
   factors:
@@ -6620,7 +6227,7 @@ taurus_20hz_stage_2:
 taurus_20hz_stage_3:
   name: TAURUS_20HZ_STAGE_3
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   factors:
@@ -6684,7 +6291,7 @@ taurus_20hz_stage_3:
 taurus_20hz_stage_4:
   name: TAURUS_20HZ_STAGE_4
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 2
   gain: 1
   factors:
@@ -6803,7 +6410,7 @@ taurus_20hz_stage_4:
 taurus_40hz_stage_1:
   name: TAURUS_40HZ_STAGE_1
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 15
   gain: 1
   factors:
@@ -6899,7 +6506,7 @@ taurus_40hz_stage_1:
 taurus_40hz_stage_2:
   name: TAURUS_40HZ_STAGE_2
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   factors:
@@ -6942,7 +6549,7 @@ taurus_40hz_stage_2:
 taurus_40hz_stage_3:
   name: TAURUS_40HZ_STAGE_3
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   factors:
@@ -7006,7 +6613,7 @@ taurus_40hz_stage_3:
 taurus_40hz_stage_4:
   name: TAURUS_40HZ_STAGE_4
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 2
   gain: 1
   factors:
@@ -7125,7 +6732,7 @@ taurus_40hz_stage_4:
 taurus_50hz_stage_1:
   name: TAURUS_50HZ_STAGE_1
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 20
   gain: 1
   factors:
@@ -7234,7 +6841,7 @@ taurus_50hz_stage_1:
 taurus_50hz_stage_2:
   name: TAURUS_50HZ_STAGE_2
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 15
   gain: 1
   factors:
@@ -7364,7 +6971,7 @@ taurus_50hz_stage_2:
 taurus_50hz_stage_3:
   name: TAURUS_50HZ_STAGE_3
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 2
   gain: 1
   factors:
@@ -7483,7 +7090,7 @@ taurus_50hz_stage_3:
 taurus_80hz_stage_1:
   name: TAURUS_80HZ_STAGE_1
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 15
   gain: 1
   factors:
@@ -7573,7 +7180,7 @@ taurus_80hz_stage_1:
 taurus_80hz_stage_2:
   name: TAURUS_80HZ_STAGE_2
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   factors:
@@ -7612,7 +7219,7 @@ taurus_80hz_stage_2:
 taurus_80hz_stage_3:
   name: TAURUS_80HZ_STAGE_3
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   factors:
@@ -7868,7 +7475,7 @@ taurus_80hz_stage_3:
 taurus_100hz_stage_1:
   name: TAURUS_100HZ_STAGE_1
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 15
   gain: 1
   factors:
@@ -7958,7 +7565,7 @@ taurus_100hz_stage_1:
 taurus_100hz_stage_2:
   name: TAURUS_100HZ_STAGE_2
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 10
   gain: 1
   factors:
@@ -8059,7 +7666,400 @@ taurus_100hz_stage_2:
 taurus_100hz_stage_3:
   name: TAURUS_100HZ_STAGE_3
   causal: false
-  symmetry: ODD
+  symmetry: odd
+  decimation: 2
+  gain: 1
+  factors:
+  - -2.4877042e-10
+  - 4.7374398e-09
+  - 1.240319e-08
+  - 2.18423e-09
+  - -2.9735045e-08
+  - -2.7740985e-08
+  - 4.8235005e-08
+  - 9.0485194e-08
+  - -4.377202e-08
+  - -2.0292507e-07
+  - -2.9325097e-08
+  - 3.5767712e-07
+  - 2.3807556e-07
+  - -5.050541e-07
+  - -6.5666063e-07
+  - 5.295136e-07
+  - 1.3330266e-06
+  - -2.3539087e-07
+  - -2.2345582e-06
+  - -6.431887e-07
+  - 3.178848e-06
+  - 2.3918938e-06
+  - -3.7664256e-06
+  - -5.213131e-06
+  - 3.343879e-06
+  - 9.069842e-06
+  - -1.0342027e-06
+  - -1.3494763e-05
+  - -4.1282033e-06
+  - 1.7408136e-05
+  - 1.293247e-05
+  - -1.901116e-05
+  - -2.5598201e-05
+  - 1.5838466e-05
+  - 4.1298543e-05
+  - -5.0513613e-06
+  - -5.769434e-05
+  - -1.5973434e-05
+  - 7.0623195e-05
+  - 4.876212e-05
+  - -7.411825e-05
+  - -9.265601e-05
+  - 6.0928058e-05
+  - 0.00014370415
+  - -2.3657132e-05
+  - -0.00019381766
+  - -4.3460685e-05
+  - 0.0002305286
+  - 0.00014229974
+  - -0.00023769663
+  - -0.00026841954
+  - 0.00019742001
+  - 0.00040898618
+  - -9.322642e-05
+  - -0.0005416667
+  - -8.5650594e-05
+  - 0.0006351459
+  - 0.00033942354
+  - -0.00065179385
+  - -0.0006531623
+  - 0.000552734
+  - 0.0009935334
+  - -0.000305133
+  - -0.0013080203
+  - -0.00010898668
+  - 0.0015276424
+  - 0.0006836461
+  - -0.0015738078
+  - -0.0013811903
+  - 0.0013693165
+  - 0.002127841
+  - -0.00085273915
+  - -0.0028143255
+  - -5.435981e-06
+  - 0.0033029264
+  - 0.0011872353
+  - -0.0034414928
+  - -0.0026150185
+  - 0.0030838612
+  - 0.004145541
+  - -0.0021149328
+  - -0.0055726687
+  - 0.00047754316
+  - 0.0066401707
+  - 0.0018025375
+  - -0.00706464
+  - -0.0045973808
+  - 0.0065669403
+  - 0.007666904
+  - -0.00490895
+  - -0.010660289
+  - 0.0019310636
+  - 0.01312888
+  - 0.0024148712
+  - -0.014547577
+  - -0.008042475
+  - 0.014337281
+  - 0.014722062
+  - -0.011873589
+  - -0.022088949
+  - 0.0064510596
+  - 0.029669395
+  - 0.0028717185
+  - -0.03692219
+  - -0.017776346
+  - 0.043291513
+  - 0.042483605
+  - -0.048264846
+  - -0.09280869
+  - 0.051428583
+  - 0.31377736
+  - 0.4474858
+taurus_10hz_stage_1:
+  name: TAURUS_10HZ_STAGE_1
+  causal: false
+  symmetry: odd
+  decimation: 20
+  gain: 1
+  factors:
+  - 1.0649076e-09
+  - 1.0344532e-09
+  - 9.664114e-10
+  - 8.418349e-10
+  - 6.2492583e-10
+  - 2.5165495e-10
+  - -3.8767034e-10
+  - -1.4743318e-09
+  - -3.2988061e-09
+  - -6.3141368e-09
+  - -1.1210161e-08
+  - -1.9014838e-08
+  - -3.1230222e-08
+  - -5.0011963e-08
+  - -7.840265e-08
+  - -1.2063074e-07
+  - -1.8248808e-07
+  - -2.7180025e-07
+  - -3.9900462e-07
+  - -5.7785155e-07
+  - -8.2624376e-07
+  - -1.1672283e-06
+  - -1.630152e-06
+  - -2.2519919e-06
+  - -3.0788608e-06
+  - -4.1676917e-06
+  - -5.5880873e-06
+  - -7.4243185e-06
+  - -9.777442e-06
+  - -1.276749e-05
+  - -1.6535685e-05
+  - -2.1246597e-05
+  - -2.7090146e-05
+  - -3.4283363e-05
+  - -4.307177e-05
+  - -5.373022e-05
+  - -6.6563065e-05
+  - -8.190345e-05
+  - -0.000100111574
+  - -0.0001215717
+  - -0.00014668771
+  - -0.00017587708
+  - -0.000209563
+  - -0.00024816455
+  - -0.0002920848
+  - -0.00034169658
+  - -0.00039732637
+  - -0.00045923557
+  - -0.0005275998
+  - -0.0006024864
+  - -0.0006838299
+  - -0.0007714062
+  - -0.0008648061
+  - -0.0009634079
+  - -0.0010663501
+  - -0.0011725061
+  - -0.0012804589
+  - -0.001388479
+  - -0.001494507
+  - -0.0015961381
+  - -0.0016906139
+  - -0.0017748197
+  - -0.0018452886
+  - -0.001898214
+  - -0.0019294709
+  - -0.0019346459
+  - -0.0019090773
+  - -0.001847904
+  - -0.0017461258
+  - -0.0015986724
+  - -0.0014004806
+  - -0.0011465813
+  - -0.00083219225
+  - -0.00045281748
+  - -4.3503255e-06
+  - 0.00051682105
+  - 0.0011137079
+  - 0.0017886173
+  - 0.0025430527
+  - 0.0033776215
+  - 0.004291952
+  - 0.0052846223
+  - 0.0063531017
+  - 0.0074937106
+  - 0.008701598
+  - 0.009970736
+  - 0.011293939
+  - 0.012662903
+  - 0.014068265
+  - 0.015499689
+  - 0.016945967
+  - 0.018395146
+  - 0.019834677
+  - 0.021251563
+  - 0.02263254
+  - 0.023964262
+  - 0.025233496
+  - 0.02642731
+  - 0.027533276
+  - 0.028539661
+  - 0.029435618
+  - 0.030211346
+  - 0.03085827
+  - 0.031369165
+  - 0.031738278
+  - 0.031961437
+  - 0.032036107
+taurus_10hz_stage_2:
+  name: TAURUS_10HZ_STAGE_2
+  causal: false
+  symmetry: odd
+  decimation: 15
+  gain: 1
+  factors:
+  - 1.274508e-09
+  - 3.9987826e-09
+  - 1.0241543e-08
+  - 2.260132e-08
+  - 4.4821473e-08
+  - 8.183461e-08
+  - 1.3962804e-07
+  - 2.2477657e-07
+  - 3.43498e-07
+  - 5.0008356e-07
+  - 6.945703e-07
+  - 9.1956315e-07
+  - 1.1561802e-06
+  - 1.3692137e-06
+  - 1.5017322e-06
+  - 1.4695362e-06
+  - 1.1560721e-06
+  - 4.0863117e-07
+  - -9.631576e-07
+  - -3.1853585e-06
+  - -6.51303e-06
+  - -1.1217549e-05
+  - -1.7566888e-05
+  - -2.579808e-05
+  - -3.608163e-05
+  - -4.8478367e-05
+  - -6.2890045e-05
+  - -7.900613e-05
+  - -9.625023e-05
+  - -0.00011373088
+  - -0.00013020232
+  - -0.00014404174
+  - -0.00015325008
+  - -0.00015548321
+  - -0.00014812002
+  - -0.00012837222
+  - -9.343931e-05
+  - -4.0708386e-05
+  - 3.2003998e-05
+  - 0.00012617552
+  - 0.00024227901
+  - 0.00037947667
+  - 0.00053532823
+  - 0.00070553675
+  - 0.0008837591
+  - 0.0010615078
+  - 0.0012281727
+  - 0.0013711841
+  - 0.0014763406
+  - 0.0015283084
+  - 0.0015113004
+  - 0.0014099217
+  - 0.0012101644
+  - 0.0009005163
+  - 0.00047313745
+  - -7.4953314e-05
+  - -0.00074074965
+  - -0.0015142609
+  - -0.0023777247
+  - -0.0033051036
+  - -0.0042619356
+  - -0.0052055954
+  - -0.006086005
+  - -0.0068468186
+  - -0.0074270735
+  - -0.0077632726
+  - -0.0077918465
+  - -0.0074519073
+  - -0.0066881767
+  - -0.005453973
+  - -0.003714095
+  - -0.001447465
+  - 0.0013506273
+  - 0.0046668197
+  - 0.008468634
+  - 0.0127041945
+  - 0.017302765
+  - 0.022176133
+  - 0.027220845
+  - 0.03232118
+  - 0.037352826
+  - 0.04218706
+  - 0.046695307
+  - 0.050753836
+  - 0.054248426
+  - 0.05707876
+  - 0.05916234
+  - 0.06043776
+  - 0.060867164
+taurus_10hz_stage_3:
+  name: TAURUS_10HZ_STAGE_3
+  causal: false
+  symmetry: odd
+  decimation: 5
+  gain: 1
+  factors:
+  - 3.6241532e-09
+  - 1.4702167e-08
+  - 2.924648e-08
+  - 1.675816e-08
+  - -9.459693e-08
+  - -4.0052925e-07
+  - -9.373652e-07
+  - -1.5304353e-06
+  - -1.6459915e-06
+  - -4.0787037e-07
+  - 3.0300941e-06
+  - 8.685992e-06
+  - 1.4766035e-05
+  - 1.7136746e-05
+  - 1.0128135e-05
+  - -1.07285605e-05
+  - -4.439651e-05
+  - -8.029797e-05
+  - -9.761762e-05
+  - -7.094869e-05
+  - 1.6920907e-05
+  - 0.00015850783
+  - 0.00030949365
+  - 0.00039128022
+  - 0.0003155885
+  - 2.9190578e-05
+  - -0.00043627236
+  - -0.0009354174
+  - -0.0012283939
+  - -0.0010614687
+  - -0.0002939815
+  - 0.00097564777
+  - 0.0023524554
+  - 0.0032155854
+  - 0.0029334335
+  - 0.001171051
+  - -0.0018295484
+  - -0.0051456466
+  - -0.0073612076
+  - -0.0070563597
+  - -0.0034676546
+  - 0.0029351127
+  - 0.010248572
+  - 0.01551828
+  - 0.01570616
+  - 0.008987865
+  - -0.0040811715
+  - -0.020045403
+  - -0.033034977
+  - -0.036284562
+  - -0.024308797
+  - 0.004958794
+  - 0.048845254
+  - 0.100014776
+  - 0.1480753
+  - 0.18231122
+  - 0.19471112
+taurus_10hz_stage_4:
+  name: TAURUS_10HZ_STAGE_4
+  causal: false
+  symmetry: odd
   decimation: 2
   gain: 1
   factors:
@@ -8178,7 +8178,7 @@ taurus_100hz_stage_3:
 taurus_120hz_stage_1:
   name: TAURUS_120HZ_STAGE_1
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   factors:
@@ -8215,7 +8215,7 @@ taurus_120hz_stage_1:
 taurus_120hz_stage_2:
   name: TAURUS_120HZ_STAGE_2
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   factors:
@@ -8257,7 +8257,7 @@ taurus_120hz_stage_2:
 taurus_120hz_stage_3:
   name: TAURUS_120HZ_STAGE_3
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   factors:
@@ -8321,7 +8321,7 @@ taurus_120hz_stage_3:
 taurus_120hz_stage_4:
   name: TAURUS_120HZ_STAGE_4
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 2
   gain: 1
   factors:
@@ -8440,7 +8440,7 @@ taurus_120hz_stage_4:
 taurus_200hz_stage_1:
   name: TAURUS_200HZ_STAGE_1
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 15
   gain: 1
   factors:
@@ -8534,7 +8534,7 @@ taurus_200hz_stage_1:
 taurus_200hz_stage_2:
   name: TAURUS_200HZ_STAGE_2
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 5
   gain: 1
   factors:
@@ -8589,7 +8589,7 @@ taurus_200hz_stage_2:
 taurus_200hz_stage_3:
   name: TAURUS_200HZ_STAGE_3
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 2
   gain: 1
   factors:
@@ -8708,7 +8708,7 @@ taurus_200hz_stage_3:
 taurus_250hz_stage_1:
   name: TAURUS_250HZ_STAGE_1
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 15
   gain: 1
   factors:
@@ -8809,7 +8809,7 @@ taurus_250hz_stage_1:
 taurus_250hz_stage_2:
   name: TAURUS_250HZ_STAGE_2
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 4
   gain: 1
   factors:
@@ -8853,7 +8853,7 @@ taurus_250hz_stage_2:
 taurus_250hz_stage_3:
   name: TAURUS_250HZ_STAGE_3
   causal: false
-  symmetry: ODD
+  symmetry: odd
   decimation: 2
   gain: 1
   factors:
