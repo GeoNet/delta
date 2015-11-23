@@ -1,16 +1,21 @@
 package meta
 
 import (
+	"bytes"
 	"fmt"
 	"io/ioutil"
+	"os"
+	"path/filepath"
+	"sort"
 
-	"gopkg.in/yaml.v2"
+	"github.com/BurntSushi/toml"
 )
 
 type Complex struct {
 	Value complex128
 }
 
+/*
 func (c *Complex) UnmarshalYAML(unmarshal func(interface{}) error) error {
 	var params string
 	if err := unmarshal(&params); err != nil {
@@ -31,6 +36,7 @@ func (c *Complex) UnmarshalYAML(unmarshal func(interface{}) error) error {
 func (c Complex) MarshalYAML() (interface{}, error) {
 	return fmt.Sprintf("%g", complex128(c.Value)), nil
 }
+*/
 
 func (c Complex) MarshalText() ([]byte, error) {
 	return []byte(fmt.Sprintf("%g", complex128(c.Value))), nil
@@ -43,33 +49,89 @@ func (c *Complex) UnmarshalText(text []byte) error {
 		return err
 	}
 
-	//*c = Complex(v)
 	c.Value = v
 
 	return nil
 }
 
 type PAZ struct {
-	Name  string    `yaml:"name"`
-	Code  string    `yaml:"code"`
-	Type  string    `yaml:"type"`
-	Notes *string   `yaml:"notes,omitempty"`
-	Poles []Complex `yaml:"poles,omitempty"`
-	Zeros []Complex `yaml:"zeros,omitempty"`
+	Name  string
+	Code  string
+	Type  string
+	Notes string
+	Poles []Complex `toml:"pole"`
+	Zeros []Complex `toml:"zero"`
 }
 
-func LoadPAZ(file string) (map[string]PAZ, error) {
-	p := make(map[string]PAZ)
+type pazs struct {
+	PAZs []PAZ `toml:"paz"`
+}
 
-	b, err := ioutil.ReadFile(file)
+type PAZs []PAZ
+
+func (p PAZs) Len() int      { return len(p) }
+func (p PAZs) Swap(i, j int) { p[i], p[j] = p[j], p[i] }
+func (p PAZs) Less(i, j int) bool {
+	return p[i].Name < p[j].Name
+}
+
+func LoadPAZFile(path string) ([]PAZ, error) {
+	var pazs pazs
+	b, err := ioutil.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
 
-	err = yaml.Unmarshal(b, p)
+	if _, err := toml.Decode(string(b), &pazs); err != nil {
+		return nil, err
+	}
+
+	return pazs.PAZs, nil
+}
+
+func LoadPAZFiles(dirname, filename string) ([]PAZ, error) {
+
+	var filters []PAZ
+	err := filepath.Walk(dirname, func(path string, fi os.FileInfo, err error) error {
+		if err == nil && filepath.Base(path) == filename {
+			f, err := LoadPAZFile(path)
+			if err != nil {
+				return err
+			}
+			filters = append(filters, f...)
+		}
+		return nil
+	})
 	if err != nil {
 		return nil, err
 	}
 
-	return p, nil
+	return filters, nil
+}
+
+func StorePAZFile(path string, filters []PAZ) error {
+
+	sort.Sort(PAZs(filters))
+
+	buf := new(bytes.Buffer)
+	if err := toml.NewEncoder(buf).Encode(pazs{filters}); err != nil {
+		return err
+	}
+
+	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
+		return err
+	}
+
+	f, err := os.Create(path)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	_, err = f.Write(buf.Bytes())
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

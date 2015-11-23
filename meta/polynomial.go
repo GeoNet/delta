@@ -30,7 +30,7 @@ type Polynomial struct {
 }
 
 type polynomials struct {
-	polynomials []Polynomial
+	Polynomials []Polynomial `toml:"polynomial"`
 }
 
 type Polynomials []Polynomial
@@ -52,7 +52,7 @@ func LoadPolynomialFile(path string) ([]Polynomial, error) {
 		return nil, err
 	}
 
-	return pols.polynomials, nil
+	return pols.Polynomials, nil
 }
 
 func LoadPolynomialFiles(dirname, filename string) ([]Polynomial, error) {
