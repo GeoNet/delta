@@ -46,12 +46,25 @@ func (r Responses) List()      {}
 func (r Responses) Sort() List { sort.Sort(r); return r }
 */
 
+type Stream struct {
+	Type          string
+	Label         string
+	Channels      string
+	Rate          float64
+	Frequencey    float64
+	StorageFormat string
+	ClockDrift    float64
+	Stages        string
+}
+
 type Response struct {
 	Dataloggers []string
 	Sensors     []string
 	Reversed    bool
 	Lookup      string
 	Match       string
+
+	Streams []Stream `toml:"streams"`
 }
 
 type responses struct {

@@ -1,5 +1,6 @@
 package meta
 
+/*
 import (
 	"sort"
 )
@@ -41,3 +42,4 @@ func (s Streams) Less(i, j int) bool {
 
 func (s Streams) List()      {}
 func (s Streams) Sort() List { sort.Sort(s); return s }
+*/
