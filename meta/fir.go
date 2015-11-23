@@ -1,9 +1,9 @@
 package meta
 
 import (
-	"io/ioutil"
+//"io/ioutil"
 
-	"gopkg.in/yaml.v2"
+//	"gopkg.in/yaml.v2"
 )
 
 type FIR struct {
@@ -16,6 +16,7 @@ type FIR struct {
 	Factors    []float64 `yaml:"factors,omitempty"`
 }
 
+/*
 func LoadFIR(file string) (map[string]FIR, error) {
 	p := make(map[string]FIR)
 
@@ -31,3 +32,4 @@ func LoadFIR(file string) (map[string]FIR, error) {
 
 	return p, nil
 }
+*/

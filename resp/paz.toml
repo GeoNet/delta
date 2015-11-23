@@ -1,0 +1,366 @@
+[[paz]]
+  Name = "FBA-ES-T"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "Standard response of an Kinemetric's EpiSensor FBA-ES sensor, they are built\n\t\t\twith a wide range of gains. We use +/- 20V @ +/-2 g for the National Network,\n\t\t\tand +/- 2.5V @ +/- 2g for the ETNA strong motion recorders."
+  Poles = ["(-981+1009i)", "(-981-1009i)", "(-3290+1263i)", "(-3290-1263i)"]
+
+[[paz]]
+  Name = "FBA-23-50Hz"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "This is the standard response of a Kinemetrics FBA-23 @ a gain of +/- .5g\n\t\t\tfull scale. It is assumed that the natural frequency is 50Hz."
+  Poles = ["(-1000+0i)", "(-222.1+222.1i)", "(-222.1-222.1i)"]
+
+[[paz]]
+  Name = "FBA-23-100Hz"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "This is the standard response of a Kinemetrics FBA-23 @ a gain of +/- .5g\n\t\t\tfull scale. It is assumed that the natural frequency is 100Hz."
+  Poles = ["(-1000+0i)", "(-444.2+444.2i)", "(-444.2-444.2i)"]
+
+[[paz]]
+  Name = "FBA-23-50Hz-2g"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "This is the standard response of a Kinemetrics FBA-23 @ a gain of +/- 2g\n\t\t\tfull scale. It is assumed that the natural frequency is 50Hz."
+  Poles = ["(-222.1+222.1i)", "(-222.1-222.1i)", "(-1500+0i)"]
+
+[[paz]]
+  Name = "A2D"
+  Code = "D"
+  Type = "Digital (Z-transform)."
+  Notes = "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros."
+
+[[paz]]
+  Name = "CMG-3ESP-UC"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "These are the Canterbury Ring Laser sensor response specifications."
+  Poles = ["(-0.025356+0.025356i)", "(-0.025356-0.025356i)", "(-50-32.2i)", "(-50+32.2i)"]
+  Zeros = ["(138-144i)", "(0+0i)", "(0+0i)", "(138+144i)"]
+
+[[paz]]
+  Name = "CMG-3ESP-GN"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "derived from Guralp Test &amp; Calibration Data [Cal 025]"
+  Poles = ["(-0.01178+0.01178i)", "(-0.01178-0.01178i)", "(-180+0i)", "(-80+0i)", "(-160+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "CMG-3TB-CTBTO"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Standard CTBTO specification downhole broadband sensor."
+  Poles = ["(-0.00589+0.00589i)", "(-0.00589-0.00589i)", "(-73.2-37.6i)", "(-73.2+37.6i)"]
+  Zeros = ["(0+0i)", "(0+0i)", "(146.5+0i)"]
+
+[[paz]]
+  Name = "CMG-40T-60S-GN"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Standard GeoNet specification CMG-40T as initially deployed"
+  Poles = ["(-0.01178+0.01178i)", "(-48.4+0i)", "(-0.01178-0.01178i)"]
+  Zeros = ["(140+0i)", "(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "CMG-40T-30S-GN"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Standard GeoNet specification CMG-40T as initially deployed"
+  Poles = ["(-0.02365+0.02365i)", "(-0.02365-0.02365i)", "(-159+0i)", "(-66+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)", "(189+0i)"]
+
+[[paz]]
+  Name = "L4C"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "Standard response for a Mark Products L4C (Sercel)"
+  Poles = ["(-4.2097-4.6644i)", "(-4.2097+4.6644i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "CMG-40T-30S-GN-H"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Standard GeoNet specification CMG-40T as initially deployed"
+  Poles = ["(-91.297-20.011i)", "(-0.02365+0.02365i)", "(-0.02365-0.02365i)", "(-91.297+20.011i)"]
+  Zeros = ["(0+0i)", "(0+0i)", "(174.208+0i)"]
+
+[[paz]]
+  Name = "CMG-40T-30S-GNS"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Standard GNS specification CMG-40T as initially deployed"
+  Poles = ["(-50+0i)", "(-0.02356+0.02356i)", "(-0.02356-0.02356i)"]
+  Zeros = ["(0+0i)", "(0+0i)", "(159+0i)"]
+
+[[paz]]
+  Name = "CMG-40T-30S-GNS-Z"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Standard GeoNet specification CMG-40T as initially deployed"
+  Poles = ["(-0.02356+0.02356i)", "(-0.02356-0.02356i)", "(-250+0i)", "(-61+0i)", "(-200+0i)", "(-200+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "CMG-40T-30S-GNS-H"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Standard GeoNet specification CMG-40T as initially deployed"
+  Poles = ["(-0.02356+0.02356i)", "(-250+0i)", "(-0.02356-0.02356i)", "(-61+0i)", "(-200+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "STS-2"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Poles = ["(-0.03701+0.03701i)", "(-251.3+0i)", "(-0.03701-0.03701i)", "(-131+467.3i)", "(-131-467.3i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "SDP"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "A simple place holder for the SDP down-hole sensor"
+
+[[paz]]
+  Name = "SSA-320"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "Taken from the UW network station ALST"
+  Poles = ["(-201.06-241.39i)", "(-201.06+241.39i)"]
+
+[[paz]]
+  Name = "EARSS-GAIN"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "A simple place holder indicating we have an analogue EARSS gain stage"
+
+[[paz]]
+  Name = "EARSS-25Hz"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "EARSS running at 25Hz"
+  Poles = ["(-33.3216-33.3216i)", "(-33.3216+33.3216i)"]
+
+[[paz]]
+  Name = "EARSS-50Hz"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "EARSS running at 50Hz"
+  Poles = ["(-66.6432-66.6432i)", "(-66.6432+66.6432i)"]
+
+[[paz]]
+  Name = "EARSS-100Hz"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "EARSS running at 100Hz"
+  Poles = ["(-133.2865-133.2865i)", "(-133.2865+133.2865i)"]
+
+[[paz]]
+  Name = "SNARE-50Hz"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "SNARE running at 50Hz"
+  Poles = ["(-66.6432+66.6432i)", "(-66.6432-66.6432i)", "(-66.6432-66.6432i)", "(-66.6432+66.6432i)"]
+
+[[paz]]
+  Name = "EARSS-HP"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "EARSS single pole high pass filter with corner @ 2 pi Hz"
+  Poles = ["(-6.283185+0i)"]
+  Zeros = ["(0+0i)"]
+
+[[paz]]
+  Name = "W1"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Standard response for a Willmore Mark I"
+  Poles = ["(-2.5132+5.7586i)", "(-2.5132-5.7586i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "W2"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Standard response for a Willmore Mark II"
+  Poles = ["(-4.5239+4.3604i)", "(-4.5239-4.3604i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "L4C-OD"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Overdamped response for a Mark Products L4C (Sercel) - using 560 ohm resistors"
+  Poles = ["(13.03+0i)", "(3.03+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "BENIOFF:SP"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Guessed response based on 1s critical period and critical damping"
+  Poles = ["(-4.44288-4.44288i)", "(-4.44288+4.44288i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "EARSS-XHP"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "EARSS single pole high pass filter with corner @ 2 pi * 4.7 Hz as used for CRLZ"
+  Poles = ["(-29.530971+0i)"]
+  Zeros = ["(0+0i)"]
+
+[[paz]]
+  Name = "L15"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "Standard response for a Mark Products L15 4.5 Hz sensor (Sercel)"
+  Poles = ["(-17.8128+21.9577i)", "(-17.8128-21.9577i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "SENSONICS:SP3"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "A dummy PAZ filter for the unknown SP3 response"
+
+[[paz]]
+  Name = "MICROPHONE"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "A dummy PAZ filter for the unknown microphone response"
+
+[[paz]]
+  Name = "LE-3D"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "Standard response for a Lennartz LE-3D (Lite)"
+  Poles = ["(-4.21+4.66i)", "(-4.21-4.66i)", "(-2.105+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "1500Hz Bessel 3P-LP"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Poles = ["(-9904.799805+3786i)", "(-9904.799805-3786i)", "(-12507+0i)"]
+
+[[paz]]
+  Name = "CMG-6T"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Standard CMG-6T as per T6262"
+  Poles = ["(-0.148597+0.148597i)", "(-0.148597-0.148597i)", "(-336.766+136.656i)", "(-336.766-136.656i)", "(-2469.36+0i)", "(-47.0636+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)", "(-31.6+0i)"]
+
+[[paz]]
+  Name = "REFTEK"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Poles = ["(-1517+406.6i)", "(-1517-406.6i)", "(-1111+1111i)", "(-1111-1111i)", "(-406.6+1517i)", "(-406.6-1517i)"]
+
+[[paz]]
+  Name = "LE-3D-MKII"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Poles = ["(-4.44+4.44i)", "(-4.44-4.44i)", "(-1.083+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "MALIN"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "derived from information passed on from Eylon Shalev <shalev@duke.edu>"
+  Poles = ["(-7.6654860747591+9.95760983645695i)", "(-7.6654860747591-9.95760983645695i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "Q330-PREAMP"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "A simple place holder indicating the PREAMP has been enables"
+
+[[paz]]
+  Name = "HYDROPHONE"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "A simple place holder for hydrophones"
+
+[[paz]]
+  Name = "LE-3DliteMkII"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "derived from Lennartz documentation, i.e. 990-0003 page 15 via http://www.lennartz-electronic.de"
+  Poles = ["(-4.444+4.444i)", "(-4.444-4.444i)", "(-1.083+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "SM-6 Geophone"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "derived from information 10K shunt and instrument docs"
+  Poles = ["(-19.5092903787926+20.4652277144474i)", "(-19.5092903787926-20.4652277144474i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "LE-3Dlite"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "derived from Lennartz documentation, i.e. 990-0003 page 15 via http://www.lennartz-electronic.de"
+  Poles = ["(-4.444+4.444i)", "(-4.444-4.444i)", "(-1.083+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "CMG-3T"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "derived from IRIS web page"
+  Poles = ["(-0.03701+0.03701i)", "(-0.03701-0.03701i)", "(-1131+0i)", "(-1005+0i)", "(-502.7+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "CMG-40T-30S"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "Standard GNS specification CMG-40T as initially deployed"
+  Poles = ["(-0.02356+0.02356i)", "(-0.02356-0.02356i)", "(-50+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)", "(159+0i)"]
+
+[[paz]]
+  Name = "CUSP"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "A simple place holder for the CSI CUSP strong motion sensors"
+
+[[paz]]
+  Name = "POL"
+  Code = "D"
+  Type = "Digital (Z-transform)."
+  Notes = "This filter is used for a polynomial response stages, it has no poles or zeros."
+
+[[paz]]
+  Name = "CMG-3TB-GN"
+  Code = "B"
+  Type = "Analogue response, in Hz."
+  Notes = "derived from Guralp documentation for T35920, i.e. caldoc@guralp.com"
+  Poles = ["(-0.00589-0.00589i)", "(-0.00589+0.00589i)", "(-180+0i)", "(-160+0i)", "(-80+0i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "IESE-4.5Hz-10K-SHUNT"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "from Carolin Boese IESE, damping 0.5 gain 50.4"
+  Poles = ["(-14.137167+24.486291i)", "(-14.137167-24.486291i)"]
+  Zeros = ["(0+0i)", "(0+0i)"]
+
+[[paz]]
+  Name = "TRILLIUM-120QA"
+  Code = "A"
+  Type = "Laplace transform analog stage response, in rad/sec."
+  Notes = "derived from Nanometrics documentation for Trillium 120QA"
+  Poles = ["(-0.036614+0.037059i)", "(-0.036614-0.037059i)", "(-32.55+0i)", "(-142+0i)", "(-364+404i)", "(-364-404i)", "(-1260+0i)", "(-4900+5200i)", "(-4900-5200i)", "(-7100+1700i)"]
+  Zeros = ["(0+0i)", "(0+0i)", "(-31.63+0i)", "(-160+0i)", "(-350+0i)", "(-3177+0i)"]

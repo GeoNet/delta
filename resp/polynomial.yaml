@@ -1,0 +1,84 @@
+---
+- name: Druck PTX-1830-A
+  gain: 0.0008
+  approximation_type: MACLAURIN
+  approximation_lower_bound: 0.0
+  approximation_upper_bound: 20.0
+  maximum_error: 0.0
+  coefs:
+  - {coef_value: 0.004, coef_error: 0.0}
+  - {coef_value: 0.0008, coef_error: 0.0}
+  
+- name: Druck PTX-1830-B
+  gain: 250
+  approximation_type: MACLAURIN
+  approximation_lower_bound: 0.004
+  approximation_upper_bound: 0.02
+  maximum_error: 0.0
+  coefs:
+  - {coef_value: 0.0, coef_error: 0.0}
+  - {coef_value: 250, coef_error: 0.0}
+
+- name: SEAWATER
+  gain: 1.03
+  approximation_type: MACLAURIN
+  approximation_lower_bound: 0.0
+  approximation_upper_bound: 20.0
+  maximum_error: 0.0
+  coefs:
+  - {coef_value: 0.0, coef_error: 0.0}
+  - {coef_value: 1030 / 1000, coef_error: 0.0}
+
+- name: 270-600/12V
+  gain: 0.01
+  approximation_type: MACLAURIN
+  approximation_lower_bound: 600.0
+  approximation_upper_bound: 1100.0
+  maximum_error: 0.0
+  coefs:
+  - {coef_value: 600.0, coef_error: 0.0}
+  - {coef_value: 100.0, coef_error: 0.0}
+
+- name: 270-600/24V
+  gain: 0.01
+  approximation_type: MACLAURIN
+  approximation_lower_bound: 600.0
+  approximation_upper_bound: 1100.0
+  maximum_error: 0.0
+  coefs:
+  - {coef_value: 600.0, coef_error: 0.0}
+  - {coef_value: 100.0, coef_error: 0.0}
+
+- name: 270-800/12V
+  gain: 0.01666666666666666666
+  approximation_type: MACLAURIN
+  approximation_lower_bound: 800.0
+  approximation_upper_bound: 1100.0
+  maximum_error: 0.0
+  coefs:
+  - {coef_value: 800.0, coef_error: 0.0}
+  - {coef_value: 60.0, coef_error: 0.0}
+
+- name: InfraBSU microphone
+  gain: 0.008
+  notes: |
+   this is incorrect, enough to get a plot
+   in theory this is linear with +/- 10mV for +/- 125Pa (1.25 mbar)
+    which translates to +/- 1V for +/- 125mbar
+  approximation_type: MACLAURIN
+  maximum_error: 0.0
+  coefs:
+  - {coef_value: 0.0, coef_error: 0.0}
+  - {coef_value: 125.0, coef_error: 0.0}
+
+- name: LM35
+  gain: 0.01
+  approximation_type: MACLAURIN
+  approximation_lower_bound: -55.0
+  approximation_upper_bound: 150.0
+  maximum_error: 0.0
+  coefs:
+  - {coef_value: 0.0, coef_error: 0.0}
+  - {coef_value: 100.0, coef_error: 0.0}
+
+# vim: set ts=2 sw=2 tw=0 et:

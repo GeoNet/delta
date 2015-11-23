@@ -7,7 +7,9 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-type Complex complex128
+type Complex struct {
+	Value complex128
+}
 
 func (c *Complex) UnmarshalYAML(unmarshal func(interface{}) error) error {
 	var params string
@@ -20,13 +22,31 @@ func (c *Complex) UnmarshalYAML(unmarshal func(interface{}) error) error {
 		return err
 	}
 
-	*c = Complex(v)
+	//*c = Complex(v)
+	c.Value = v
 
 	return nil
 }
 
 func (c Complex) MarshalYAML() (interface{}, error) {
-	return fmt.Sprintf("%g", complex128(c)), nil
+	return fmt.Sprintf("%g", complex128(c.Value)), nil
+}
+
+func (c Complex) MarshalText() ([]byte, error) {
+	return []byte(fmt.Sprintf("%g", complex128(c.Value))), nil
+}
+
+func (c *Complex) UnmarshalText(text []byte) error {
+	var v complex128
+
+	if _, err := fmt.Sscanf(string(text), "%g", &v); err != nil {
+		return err
+	}
+
+	//*c = Complex(v)
+	c.Value = v
+
+	return nil
 }
 
 type PAZ struct {
