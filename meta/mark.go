@@ -14,13 +14,14 @@ type Mark struct {
 	Longitude   float64   `csv:"Longitude"`
 	Height      float64   `csv:"Height"`
 	Datum       string    `csv:"Datum"`
-	Offset      float64   `csv:"Vertical Offset"`
+	Offset      float64   `csv:"Ground Relationship"`
 	StartTime   time.Time `csv:"Start Time"`
 	EndTime     time.Time `csv:"End Time"`
 	Dome        string    `csv:"Dome Number"`
 	Plan        string    `csv:"Plan Reference"`
 	Protection  string    `csv:"Protection"`
 	Sky         string    `csv:"Sky View"`
+	Monument    string    `csv:"Monument Type"`
 	Established string    `csv:"Established By"`
 }
 
