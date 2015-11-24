@@ -1,0 +1,719 @@
+[[model]]
+  Model = "2 Hz Duke Malin Seismometer"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "270-600/12V"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = 0.0
+
+[[model]]
+  Model = "270-600/24V"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = 0.0
+
+[[model]]
+  Model = "270-800/12V"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = 0.0
+
+[[model]]
+  Model = "4.5 Hz Duke Malin Seismometer"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "CMG-3ESP"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "CMG-3ESP-Z"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "CMG-3ESPC"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "CMG-3T"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "CMG-3TB"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "CMG-3TB-GN"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "CMG-40T-30S"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "CMG-40T-60S"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "CMG-6T"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "CUSP-Me SENSOR"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 90.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 0.0
+    Dip = -90.0
+
+[[model]]
+  Model = "CUSP3A SENSOR"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 90.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 0.0
+    Dip = -90.0
+
+[[model]]
+  Model = "CUSP3B SENSOR"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 90.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 0.0
+    Dip = -90.0
+
+[[model]]
+  Model = "CUSP3C SENSOR"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 90.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 0.0
+    Dip = -90.0
+
+[[model]]
+  Model = "CUSP3C3 SENSOR"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 90.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 0.0
+    Dip = -90.0
+
+[[model]]
+  Model = "CUSP3D SENSOR"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 90.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 0.0
+    Dip = -90.0
+
+[[model]]
+  Model = "CUSPM SENSOR"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 90.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 0.0
+    Dip = -90.0
+
+[[model]]
+  Model = "Druck PTX-1830"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = 0.0
+
+[[model]]
+  Model = "Druck PTX-1830-LAND"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = 0.0
+
+[[model]]
+  Model = "FBA-23-DECK"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 180.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 90.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 270.0
+    Dip = 0.0
+
+[[model]]
+  Model = "FBA-ES-T"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "FBA-ES-T-BASALT"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "FBA-ES-T-DECK"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 90.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 0.0
+    Dip = -90.0
+
+[[model]]
+  Model = "FBA-ES-T-ISO"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "GS-11D seismometer"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "IESE HS-1-LT Mini 4.5Hz"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "IESE S10g-4.5 (with preamp)"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "IESE S10g-4.5 (without preamp)"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "IESE S31f-15 (with preamp)"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "InfraBSU microphone"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = 0.0
+
+[[model]]
+  Model = "Kinemetrics SBEPI"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "L4C"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+[[model]]
+  Model = "L4C-3D"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "LE-3Dlite"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "LE-3DliteMkII"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "LM35"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = 0.0
+
+[[model]]
+  Model = "Nanometrics Trillium 120QA"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "SDP"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 90.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 0.0
+    Dip = -90.0
+
+[[model]]
+  Model = "SSA-320"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 90.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 0.0
+    Dip = -90.0
+
+[[model]]
+  Model = "STS-2"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = -90.0
+
+  [[model.pin]]
+    Pin = 1
+    Azimuth = 0.0
+    Dip = 0.0
+
+  [[model.pin]]
+    Pin = 2
+    Azimuth = 90.0
+    Dip = 0.0
+
+[[model]]
+  Model = "Scout Hydrophone"
+
+  [[model.pin]]
+    Pin = 0
+    Azimuth = 0.0
+    Dip = 0.0

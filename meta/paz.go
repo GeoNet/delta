@@ -59,8 +59,8 @@ type PAZ struct {
 	Code  string
 	Type  string
 	Notes string
-	Poles []Complex `toml:"pole"`
-	Zeros []Complex `toml:"zero"`
+	Poles []Complex
+	Zeros []Complex
 }
 
 type pazs struct {

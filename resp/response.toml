@@ -2,20 +2,20 @@
   Dataloggers = ["Q330/3", "Q330/6"]
   Sensors = ["LE-3Dlite"]
   Reversed = false
-  Lookup = "Q330_LE-3Dlite"
+ # Filters = ["Q330_LE-3Dlite"]
 
 [[response]]
   Dataloggers = ["Q330/3", "Q330/6"]
   Sensors = ["LE-3DliteMkII"]
   Reversed = false
-  Lookup = "Q330_LE-3DliteMkII"
+ # Filters = ["Q330_LE-3DliteMkII"]
   Match = "!KQ03"
 
 [[response]]
   Dataloggers = ["Q330/6"]
   Sensors = ["LE-3DliteMkII"]
   Reversed = false
-  Lookup = "Q330_LE-3DliteMkII_200"
+ # Filters = ["Q330_LE-3DliteMkII_200"]
   Match = "KQ03"
 
 [[response]]
@@ -32,15 +32,30 @@
 
 [[response]]
   Dataloggers = ["Q330S/3", "Q330S/6"]
-  Sensors     = ["2 Hz Duke Malin Seismometer", "4.5 Hz Duke Malin Seismometer"]
+  Sensors     = ["2 Hz Duke Malin Seismometer"]
   Reversed    = true
 
   [[response.streams]]
     Type          = "CG"
     Label         = "EH"
     Channels      = "Z12"
-    Rate          = 200.0
+    Rate          = 100.0
     Frequencey    = 15.0
     StorageFormat = "Steim2"
     ClockDrift    = 0.0001
-    Stages        = "Q330S+_FLbelow100-100-PREAMP32"
+    Filters       = ["2_Hz_Duke_Malin_Seismometer", "Q330S+_FLbelow100-100-PREAMP32"]
+
+[[response]]
+  Dataloggers = ["Q330S/3", "Q330S/6"]
+  Sensors     = ["4.5 Hz Duke Malin Seismometer"]
+  Reversed    = true
+
+  [[response.streams]]
+    Type          = "CG"
+    Label         = "EH"
+    Channels      = "Z12"
+    Rate          = 100.0
+    Frequencey    = 15.0
+    StorageFormat = "Steim2"
+    ClockDrift    = 0.0001
+    Filters       = ["Q330S+_FLbelow100-100-PREAMP32"]
