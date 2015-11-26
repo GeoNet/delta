@@ -1,19 +1,23 @@
 Network Code,External Code,Description,Restricted
 AK,NZ,Auckland volcano seismic network,false
 CB,NZ,Canterbury regional seismic network,false
+CG,CG,The GeoNet CGPS network,false
 CH,NZ,Tongariro National Park volcano seismic network,false
 CY,NZ,Clyde local seismic network,false
 EC,NZ,East Cape regional seismic network,false
 FI,NZ,Fiordland regional seismic network,false
+GN,GN,The GNS CGPS network,false
 HA,NZ,Hydrophone Array,false
 HB,NZ,Hawke's Bay regional seismic network,false
 KI,NZ,Kermadec Islands volcano seismic network,false
+LI,LI,The LINZ national CGPS network,false
 NM,NZ,Nelson and Marlborough regional seismic network,false
 NX,NZ,Private seismograph sites,true
 NZ,NZ,New Zealand National Seismograph Network,false
 OT,NZ,Otago regional seismic network,false
 PK,NZ,Pukaki local seismic network,false
 RT,NZ,Rotorua/Okataina volcano seismic network,false
+SA,SA,The Southern Alps CGPS network,false
 SB,NZ,Building array network,false
 SC,NZ,Canterbury regional strong motion network,false
 SI,NZ,South Island regional seismic network,false
