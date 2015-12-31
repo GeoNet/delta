@@ -12,6 +12,6 @@ func (i Install) Less(in Install) bool {
 	case in.Equipment.Less(i.Equipment):
 		return false
 	default:
-		return i.Span.Before(in.Span)
+		return i.Span.Less(in.Span)
 	}
 }
