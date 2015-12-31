@@ -20,7 +20,7 @@ type Stations []Station
 
 func (s Stations) Len() int           { return len(s) }
 func (s Stations) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s Stations) Less(i, j int) bool { return s[i].Reference.Less(s[j].Reference) }
+func (s Stations) Less(i, j int) bool { return s[i].Code < s[j].Code }
 
 func (s Stations) encode() [][]string {
 	data := [][]string{{

@@ -37,7 +37,7 @@ func (c Connection) Less(con Connection) bool {
 	case c.Role > con.Role:
 		return false
 	default:
-		return c.Span.Before(con.Span)
+		return c.Start.Before(con.Start)
 	}
 }
 
