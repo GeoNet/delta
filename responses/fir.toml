@@ -1,4 +1,11 @@
 [[fir]]
+  Name = "A2D"
+  Causal = false
+  Symmetry = "even"
+  Decimation = 1.0
+  Gain = 1.0
+
+[[fir]]
   Name = "QUANTERRA_MP"
   Causal = false
   Symmetry = "even"

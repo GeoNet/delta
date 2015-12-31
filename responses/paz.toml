@@ -77,7 +77,7 @@
   Code = "A"
   Type = "Laplace transform analog stage response, in rad/sec."
   Notes = "Standard response for a Mark Products L4C (Sercel)"
-  Poles = ["(-4.2097-4.6644i)", "(-4.2097+4.6644i)"]
+  Poles = ["(-4.2097+4.6644i)", "(-4.2097-4.6644i)"]
   Zeros = ["(0+0i)", "(0+0i)"]
 
 [[paz]]
@@ -310,7 +310,7 @@
   Code = "A"
   Type = "Laplace transform analog stage response, in rad/sec."
   Notes = "derived from Lennartz documentation, i.e. 990-0003 page 15 via http://www.lennartz-electronic.de"
-  Poles = ["(-4.444+4.444i)", "(-4.444-4.444i)", "(-1.083+0i)"]
+  Poles = ["(-4.444-4.444i)", "(-4.444+4.444i)", "(-1.083+0i)"]
   Zeros = ["(0+0i)", "(0+0i)", "(0+0i)"]
 
 [[paz]]

@@ -1,3 +1,42 @@
+#
+# sensors ...
+#
+[[filter]]
+  Name = "L4C"
+
+  [[filter.stage]]
+    Type   = "paz"
+    Lookup = "L4C"
+    Freq   = 15.0
+    Gain   = 177.8
+    Scale  = 1.0
+    Input  = "M/S"
+    Output = "V"
+
+[[filter]]
+  Name = "LE-3Dlite"
+
+  [[filter.stage]]
+    Type   = "paz"
+    Lookup = "LE-3Dlite"
+    Freq   = 15.0
+    Gain   = 400.0
+    Scale  = 1.0
+    Input  = "M/S"
+    Output = "V"
+
+[[filter]]
+  Name = "LE-3DliteMkII"
+
+  [[filter.stage]]
+    Type   = "paz"
+    Lookup = "LE-3DliteMkII"
+    Freq   = 15.0
+    Gain   = 400.0
+    Scale  = 1.0
+    Input  = "M/S"
+    Output = "V"
+
 [[filter]]
   Name = "2_Hz_Duke_Malin_Seismometer"
 
@@ -10,17 +49,19 @@
     Input  = "M/S"
     Output = "V"
 
+#
+# dataloggers
+#
 [[filter]]
   Name = "Q330_FLbelow100-100"
 
   [[filter.stage]]
     Type = "a2d"
-    Lookup = "A2D"
-    Decimate = 1
     Rate     = 100.0
     Gain     = 419430.4
     Input    = "V"
     Output   = "COUNTS"
+
   [[filter.stage]]
     Type   = "fir"
     Lookup = "Q330_FLbelow100-100"
