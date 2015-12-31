@@ -1,4 +1,4 @@
-package meta_test
+package delta_test
 
 import (
 	"sort"
@@ -8,25 +8,25 @@ import (
 )
 
 func TestDataloggers(t *testing.T) {
-	var dataloggers meta.DeployedDataloggers
+	var dataloggers meta.DeployedDataloggerList
 
 	t.Log("Load deployed dataloggers file")
 	{
-		if err := meta.LoadLists("../equipment/dataloggers", "dataloggers.csv", &dataloggers); err != nil {
+		if err := meta.LoadList("../installs/dataloggers.csv", &dataloggers); err != nil {
 			t.Fatal(err)
 		}
 	}
 
 	t.Log("Check for datalogger installation place overlaps")
 	{
-		installs := make(map[string]meta.DeployedDataloggers)
+		installs := make(map[string]meta.DeployedDataloggerList)
 		for _, d := range dataloggers {
 			_, ok := installs[d.Place]
 			if ok {
 				installs[d.Place] = append(installs[d.Place], d)
 
 			} else {
-				installs[d.Place] = meta.DeployedDataloggers{d}
+				installs[d.Place] = meta.DeployedDataloggerList{d}
 			}
 		}
 
@@ -45,13 +45,13 @@ func TestDataloggers(t *testing.T) {
 					case v[i].Place != v[j].Place:
 					case v[i].Role != v[j].Role:
 					//case v[i].Model != v[j].Model:
-					case v[i].EndTime.Before(v[j].StartTime):
-					case v[i].StartTime.After(v[j].EndTime):
-					//case v[i].EndTime.Equal(v[j].StartTime):
-					//case v[i].StartTime.Equal(v[j].EndTime):
+					case v[i].End.Before(v[j].Start):
+					case v[i].Start.After(v[j].End):
+					//case v[i].End.Equal(v[j].Start):
+					//case v[i].Start.Equal(v[j].End):
 					default:
 						t.Errorf("datalogger %s:[%s] at %-32s has place overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Place, v[i].StartTime.Format(meta.DateTimeFormat), v[i].EndTime.Format(meta.DateTimeFormat))
+							v[i].Model, v[i].Serial, v[i].Place, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
 			}
@@ -60,14 +60,14 @@ func TestDataloggers(t *testing.T) {
 
 	t.Log("Check for datalogger installation equipment overlaps")
 	{
-		installs := make(map[string]meta.DeployedDataloggers)
+		installs := make(map[string]meta.DeployedDataloggerList)
 		for _, s := range dataloggers {
 			_, ok := installs[s.Model]
 			if ok {
 				installs[s.Model] = append(installs[s.Model], s)
 
 			} else {
-				installs[s.Model] = meta.DeployedDataloggers{s}
+				installs[s.Model] = meta.DeployedDataloggerList{s}
 			}
 		}
 
@@ -84,13 +84,13 @@ func TestDataloggers(t *testing.T) {
 				for j := i + 1; j < n; j++ {
 					switch {
 					case v[i].Serial != v[j].Serial:
-					case v[i].EndTime.Before(v[j].StartTime):
-					case v[i].StartTime.After(v[j].EndTime):
-						//		case v[i].EndTime.Equal(v[j].StartTime):
-						//		case v[i].StartTime.Equal(v[j].EndTime):
+					case v[i].End.Before(v[j].Start):
+					case v[i].Start.After(v[j].End):
+						//		case v[i].End.Equal(v[j].Start):
+						//		case v[i].Start.Equal(v[j].End):
 					default:
 						t.Errorf("datalogger %s:[%s] at %-32s has installation overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Place, v[i].StartTime.Format(meta.DateTimeFormat), v[i].EndTime.Format(meta.DateTimeFormat))
+							v[i].Model, v[i].Serial, v[i].Place, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
 			}

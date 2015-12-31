@@ -1,16 +1,16 @@
-package meta_test
+package delta_test
 
 import (
 	"testing"
 
-	"github.com/GeoNet/delta/meta"
+	"github.com/GeoNet/delta/resp"
 )
 
 func TestModel(t *testing.T) {
 
 	t.Log("Load model file")
 	{
-		m, err := meta.LoadModelFile("../responses/model.toml")
+		m, err := resp.LoadModelFile("../responses/model.toml")
 		if err != nil {
 			t.Fatal(err)
 		}
