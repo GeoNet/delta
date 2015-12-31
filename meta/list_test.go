@@ -1,28 +1,29 @@
-package meta
+package meta_test
 
 import (
 	"io/ioutil"
-	//	"path/filepath"
 	"testing"
 	"time"
+
+	"github.com/GeoNet/delta/meta"
 )
 
 func TestList(t *testing.T) {
 
 	var listtests = []struct {
 		f string
-		l List
+		l meta.List
 	}{
 		{
 			"testdata/networks.csv",
-			&Networks{
-				Network{
+			&meta.Networks{
+				meta.Network{
 					NetworkCode:  "AK",
 					ExternalCode: "NZ",
 					Description:  "Auckland volcano seismic network",
 					Restricted:   false,
 				},
-				Network{
+				meta.Network{
 					NetworkCode:  "CB",
 					ExternalCode: "NZ",
 					Description:  "Canterbury regional seismic network",
@@ -32,49 +33,49 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/stations.csv",
-			&Stations{
-				Station{
-					Reference: Reference{
+			&meta.Stations{
+				meta.Station{
+					Reference: meta.Reference{
 						Code:    "DFE",
 						Network: "TR",
 						Name:    "Dawson Falls",
 					},
-					Point: Point{
+					Point: meta.Point{
 						Latitude:  -39.325743417,
 						Longitude: 174.103863732,
 						Elevation: 880.0,
 						Datum:     "WGS84",
 					},
-					Span: Span{
+					Span: meta.Span{
 						Start: func() time.Time {
-							v, _ := time.Parse(DateTimeFormat, "1993-12-14T00:00:00Z")
+							v, _ := time.Parse(meta.DateTimeFormat, "1993-12-14T00:00:00Z")
 							return v
 						}(),
 						End: func() time.Time {
-							v, _ := time.Parse(DateTimeFormat, "2010-02-23T00:00:00Z")
+							v, _ := time.Parse(meta.DateTimeFormat, "2010-02-23T00:00:00Z")
 							return v
 						}(),
 					},
 				},
-				Station{
-					Reference: Reference{
+				meta.Station{
+					Reference: meta.Reference{
 						Code:    "TBAS",
 						Network: "SM",
 						Name:    "Tolaga Bay Area School",
 					},
-					Point: Point{
+					Point: meta.Point{
 						Latitude:  -38.372803703,
 						Longitude: 178.300778623,
 						Elevation: 8.0,
 						Datum:     "WGS84",
 					},
-					Span: Span{
+					Span: meta.Span{
 						Start: func() time.Time {
-							v, _ := time.Parse(DateTimeFormat, "2002-03-05T00:00:00Z")
+							v, _ := time.Parse(meta.DateTimeFormat, "2002-03-05T00:00:00Z")
 							return v
 						}(),
 						End: func() time.Time {
-							v, _ := time.Parse(DateTimeFormat, "9999-01-01T00:00:00Z")
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
 							return v
 						}(),
 					},
@@ -84,9 +85,9 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/sites.csv",
-			&Sites{
-				Site{
-					Point: Point{
+			&meta.Sites{
+				meta.Site{
+					Point: meta.Point{
 						Latitude:  -39.198244208,
 						Longitude: 175.547981982,
 						Elevation: 1116.0,
@@ -95,8 +96,8 @@ func TestList(t *testing.T) {
 					StationCode:  "CNZ",
 					LocationCode: "12",
 				},
-				Site{
-					Point: Point{
+				meta.Site{
+					Point: meta.Point{
 						Latitude:  -45.091369824,
 						Longitude: 169.411775594,
 						Elevation: 701.0,
@@ -109,14 +110,14 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/marks.csv",
-			&Marks{
-				Mark{
-					Reference: Reference{
+			&meta.Marks{
+				meta.Mark{
+					Reference: meta.Reference{
 						Code:    "AHTI",
 						Network: "CG",
 						Name:    "Ahititi",
 					},
-					Point: Point{
+					Point: meta.Point{
 						Latitude:  -38.411447554,
 						Longitude: 178.046002897,
 						Elevation: 563.221,
@@ -125,24 +126,24 @@ func TestList(t *testing.T) {
 					MarkType:           "Forced Centering",
 					MonumentType:       "Deep Braced",
 					GroundRelationship: 0.0,
-					Span: Span{
+					Span: meta.Span{
 						Start: func() time.Time {
-							v, _ := time.Parse(DateTimeFormat, "2009-01-01T00:00:00Z")
+							v, _ := time.Parse(meta.DateTimeFormat, "2009-01-01T00:00:00Z")
 							return v
 						}(),
 						End: func() time.Time {
-							v, _ := time.Parse(DateTimeFormat, "9999-01-01T00:00:00Z")
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
 							return v
 						}(),
 					},
 				},
-				Mark{
-					Reference: Reference{
+				meta.Mark{
+					Reference: meta.Reference{
 						Code:    "DUND",
 						Network: "LI",
 						Name:    "Dunedin",
 					},
-					Point: Point{
+					Point: meta.Point{
 						Latitude:  -45.88366604,
 						Longitude: 170.5971706,
 						Elevation: 386.964,
@@ -152,13 +153,13 @@ func TestList(t *testing.T) {
 					MarkType:           "Forced Centering",
 					MonumentType:       "Short Braced",
 					DomeNumber:         "50212M003",
-					Span: Span{
+					Span: meta.Span{
 						Start: func() time.Time {
-							v, _ := time.Parse(DateTimeFormat, "2005-08-10T00:00:00Z")
+							v, _ := time.Parse(meta.DateTimeFormat, "2005-08-10T00:00:00Z")
 							return v
 						}(),
 						End: func() time.Time {
-							v, _ := time.Parse(DateTimeFormat, "9999-01-01T00:00:00Z")
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
 							return v
 						}(),
 					},
@@ -167,9 +168,9 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/assets.csv",
-			&Assets{
+			&meta.Assets{
 				{
-					Equipment: Equipment{
+					Equipment: meta.Equipment{
 						Make:   "Trimble",
 						Model:  "Chokering Model 29659.00",
 						Serial: "0220063995",
@@ -177,7 +178,7 @@ func TestList(t *testing.T) {
 					Manufacturer: "Trimble Navigation Ltd.",
 				},
 				{
-					Equipment: Equipment{
+					Equipment: meta.Equipment{
 						Make:   "Trimble",
 						Model:  "Chokering Model 29659.00",
 						Serial: "0220066912",
@@ -188,26 +189,26 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/antennas.csv",
-			&InstalledAntennas{
+			&meta.InstalledAntennas{
 				{
-					Install: Install{
-						Equipment: Equipment{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "Trimble",
 							Model:  "Chokering Model 29659.00",
 							Serial: "0220063995",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2000-08-02T23:59:01Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2000-08-02T23:59:01Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "9999-01-01T00:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
 								return v
 							}(),
 						},
 					},
-					Offset: Offset{
+					Offset: meta.Offset{
 						Height: 0.0015,
 						North:  0.0,
 						East:   0.0,
@@ -215,24 +216,24 @@ func TestList(t *testing.T) {
 					MarkCode: "CNCL",
 				},
 				{
-					Install: Install{
-						Equipment: Equipment{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "Trimble",
 							Model:  "Chokering Model 29659.00",
 							Serial: "0220066912",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2000-08-14T23:59:52Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2000-08-14T23:59:52Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2011-02-07T22:35:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2011-02-07T22:35:00Z")
 								return v
 							}(),
 						},
 					},
-					Offset: Offset{
+					Offset: meta.Offset{
 						Height: 0.0013,
 						North:  0.0,
 						East:   0.0,
@@ -243,21 +244,21 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/dataloggers.csv",
-			&DeployedDataloggers{
-				DeployedDatalogger{
-					Install: Install{
-						Equipment: Equipment{
+			&meta.DeployedDataloggers{
+				meta.DeployedDatalogger{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "GNSScience",
 							Model:  "EARSS/3",
 							Serial: "152",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2001-01-18T13:22:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2001-01-18T13:22:00Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2001-02-10T10:50:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2001-02-10T10:50:00Z")
 								return v
 							}(),
 						},
@@ -265,20 +266,20 @@ func TestList(t *testing.T) {
 					Place: "Pukeroa",
 					Role:  "Short Period",
 				},
-				DeployedDatalogger{
-					Install: Install{
-						Equipment: Equipment{
+				meta.DeployedDatalogger{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "Kinemetrics",
 							Model:  "Q330/3",
 							Serial: "2216",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2009-02-10T23:00:01Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2009-02-10T23:00:01Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "9999-01-01T00:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
 								return v
 							}(),
 						},
@@ -289,53 +290,53 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/gauges.csv",
-			&InstalledGauges{
-				InstalledGauge{
-					Install: Install{
-						Equipment: Equipment{
+			&meta.InstalledGauges{
+				meta.InstalledGauge{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "GESensing",
 							Model:  "Druck PDCR-1830",
 							Serial: "2427881",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2007-03-06T00:00:02Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2007-03-06T00:00:02Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2007-05-22T23:30:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2007-05-22T23:30:00Z")
 								return v
 							}(),
 						},
 					},
-					Offset: Offset{},
-					Orientation: Orientation{
+					Offset: meta.Offset{},
+					Orientation: meta.Orientation{
 						Dip: 90.0,
 					},
 					CableLength:  20.0,
 					StationCode:  "WLGT",
 					LocationCode: "41",
 				},
-				InstalledGauge{
-					Install: Install{
-						Equipment: Equipment{
+				meta.InstalledGauge{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "GESensing",
 							Model:  "Druck PTX-1830",
 							Serial: "2504328",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2007-03-06T00:00:02Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2007-03-06T00:00:02Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2012-05-29T22:55:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2012-05-29T22:55:00Z")
 								return v
 							}(),
 						},
 					},
-					Offset: Offset{},
-					Orientation: Orientation{
+					Offset: meta.Offset{},
+					Orientation: meta.Orientation{
 						Dip: 90.0,
 					},
 					CableLength:  20.0,
@@ -346,26 +347,26 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/metsensors.csv",
-			&InstalledMetSensors{
-				InstalledMetSensor{
-					Install: Install{
-						Equipment: Equipment{
+			&meta.InstalledMetSensors{
+				meta.InstalledMetSensor{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "Paroscientific",
 							Model:  "Paroscientific meterological sensor",
 							Serial: "65123",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "1998-07-09T23:59:59Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "1998-07-09T23:59:59Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "9999-01-01T00:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
 								return v
 							}(),
 						},
 					},
-					Point: Point{
+					Point: meta.Point{
 						Latitude:  -41.2351,
 						Longitude: 174.917,
 						Elevation: 26,
@@ -373,25 +374,25 @@ func TestList(t *testing.T) {
 					},
 					MarkCode: "GRAC",
 				},
-				InstalledMetSensor{
-					Install: Install{
-						Equipment: Equipment{
+				meta.InstalledMetSensor{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "Paroscientific",
 							Model:  "Paroscientific meterological sensor",
 							Serial: "65125",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2000-08-15T00:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2000-08-15T00:00:00Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "9999-01-01T00:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
 								return v
 							}(),
 						},
 					},
-					Point: Point{
+					Point: meta.Point{
 						Latitude:  -43.9857,
 						Longitude: 170.4649,
 						Elevation: 1044,
@@ -403,41 +404,41 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/radomes.csv",
-			&InstalledRadomes{
-				InstalledRadome{
-					Install: Install{
-						Equipment: Equipment{
+			&meta.InstalledRadomes{
+				meta.InstalledRadome{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "LeicaGeosystems",
 							Model:  "LEIS Radome",
 							Serial: "0220148020",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "1999-09-27T00:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "1999-09-27T00:00:00Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2000-01-21T00:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2000-01-21T00:00:00Z")
 								return v
 							}(),
 						},
 					},
 					MarkCode: "MQZG",
 				},
-				InstalledRadome{
-					Install: Install{
-						Equipment: Equipment{
+				meta.InstalledRadome{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "Thales",
 							Model:  "SCIS Radome",
 							Serial: "0220063995",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2000-08-03T00:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2000-08-03T00:00:00Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "9999-01-01T00:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
 								return v
 							}(),
 						},
@@ -448,41 +449,41 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/receivers.csv",
-			&DeployedReceivers{
-				DeployedReceiver{
-					Install: Install{
-						Equipment: Equipment{
+			&meta.DeployedReceivers{
+				meta.DeployedReceiver{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "Trimble",
 							Model:  "5700",
 							Serial: "220280300",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2002-12-31T01:00:01Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2002-12-31T01:00:01Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2012-08-31T15:00:01Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2012-08-31T15:00:01Z")
 								return v
 							}(),
 						},
 					},
 					Place: "Mount Hodgkinson",
 				},
-				DeployedReceiver{
-					Install: Install{
-						Equipment: Equipment{
+				meta.DeployedReceiver{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "Trimble",
 							Model:  "NetR9",
 							Serial: "5014K66721",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2010-10-12T00:00:01Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2010-10-12T00:00:01Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2014-07-27T22:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2014-07-27T22:00:00Z")
 								return v
 							}(),
 						},
@@ -493,58 +494,58 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/sensors.csv",
-			&InstalledSensors{
-				InstalledSensor{
-					Install: Install{
-						Equipment: Equipment{
+			&meta.InstalledSensors{
+				meta.InstalledSensor{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "AppliedGeomechanics",
 							Model:  "Lily tiltmeter",
 							Serial: "N7935",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2009-11-15T01:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2009-11-15T01:00:00Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2013-05-24T00:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2013-05-24T00:00:00Z")
 								return v
 							}(),
 						},
 					},
-					Orientation: Orientation{
+					Orientation: meta.Orientation{
 						Azimuth: 233.0,
 						Dip:     0.0,
 					},
-					Offset: Offset{
+					Offset: meta.Offset{
 						Height: -64.0,
 					},
 					StationCode:  "COVZ",
 					LocationCode: "90",
 				},
-				InstalledSensor{
-					Install: Install{
-						Equipment: Equipment{
+				meta.InstalledSensor{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
 							Make:   "Guralp",
 							Model:  "CMG-3ESPC",
 							Serial: "T36194",
 						},
-						Span: Span{
+						Span: meta.Span{
 							Start: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2012-05-21T11:00:04Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2012-05-21T11:00:04Z")
 								return v
 							}(),
 							End: func() time.Time {
-								v, _ := time.Parse(DateTimeFormat, "2013-07-10T23:00:00Z")
+								v, _ := time.Parse(meta.DateTimeFormat, "2013-07-10T23:00:00Z")
 								return v
 							}(),
 						},
 					},
-					Orientation: Orientation{
+					Orientation: meta.Orientation{
 						Azimuth: 0.0,
 						Dip:     0.0,
 					},
-					Offset: Offset{
+					Offset: meta.Offset{
 						Height: 0.0,
 					},
 					StationCode:  "INZ",
@@ -555,7 +556,7 @@ func TestList(t *testing.T) {
 	}
 
 	for _, tt := range listtests {
-		res := MarshalList(tt.l)
+		res := meta.MarshalList(tt.l)
 
 		t.Log("Compare raw list file: " + tt.f)
 		{
@@ -564,30 +565,30 @@ func TestList(t *testing.T) {
 				t.Fatal(err)
 			}
 			if string(res) != string(b) {
-				t.Errorf("list file text mismatch: %s [\n%s\n]", tt.f, diff(string(res), string(b)))
+				t.Errorf("list file text mismatch: %s [\n%s\n]", tt.f, diff(res, b))
 			}
 		}
 		t.Log("Check encode/decode list: " + tt.f)
 		{
-			if err := UnmarshalList(res, tt.l); err != nil {
+			if err := meta.UnmarshalList(res, tt.l); err != nil {
 				t.Fatal(err)
 			}
 
-			s := MarshalList(tt.l)
+			s := meta.MarshalList(tt.l)
 			if string(res) != string(s) {
-				t.Errorf("list encode/reencode mismatch: %s [\n%s\n]", tt.f, diff(string(res), string(s)))
+				t.Errorf("list encode/reencode mismatch: %s [\n%s\n]", tt.f, diff(res, s))
 			}
 		}
 
 		t.Log("Check list file: " + tt.f)
 		{
-			if err := LoadList(tt.f, tt.l); err != nil {
+			if err := meta.LoadList(tt.f, tt.l); err != nil {
 				t.Fatal(err)
 			}
 
-			s := MarshalList(tt.l)
+			s := meta.MarshalList(tt.l)
 			if string(res) != string(s) {
-				t.Errorf("list file list mismatch: %s [\n%s\n]", tt.f, diff(string(res), string(s)))
+				t.Errorf("list file list mismatch: %s [\n%s\n]", tt.f, diff(res, s))
 			}
 		}
 	}

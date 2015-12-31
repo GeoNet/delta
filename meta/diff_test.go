@@ -1,22 +1,18 @@
-package meta
+package meta_test
 
 import (
 	"fmt"
 	"strings"
 )
 
-func bdiff(b1, b2 []byte) string {
-	return diff(string(b1), string(b2))
-}
-
 // simple debugging helper function
-func diff(s1, s2 string) string {
+func diff(s1, s2 []byte) string {
 
 	l1 := strings.Split(
-		strings.TrimSpace(strings.Replace(s1, "\t", "  ", -1)), "\n",
+		strings.TrimSpace(strings.Replace(string(s1), "\t", "  ", -1)), "\n",
 	)
 	l2 := strings.Split(
-		strings.TrimSpace(strings.Replace(s2, "\t", "  ", -1)), "\n",
+		strings.TrimSpace(strings.Replace(string(s2), "\t", "  ", -1)), "\n",
 	)
 
 	var n, w1, w2 int
