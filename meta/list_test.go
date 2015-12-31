@@ -9,57 +9,162 @@ import (
 
 func TestList(t *testing.T) {
 
-	//	var liststart, _ = time.Parse(DateTimeFormat, "2010-01-01T12:00:00Z")
-	//	var listend, _ = time.Parse(DateTimeFormat, "2012-01-01T12:00:00Z")
-
 	var listtests = []struct {
 		f string
 		l List
 	}{
-		/*
-			{
-				"testdata/networks.csv",
-				Networks{
-					Network{
-						Code:        "AA",
-						External:    "XX",
-						Description: "A Name",
-						Restricted:  false,
+		{
+			"testdata/networks.csv",
+			&Networks{
+				Network{
+					NetworkCode:  "AK",
+					ExternalCode: "NZ",
+					Description:  "Auckland volcano seismic network",
+					Restricted:   false,
+				},
+				Network{
+					NetworkCode:  "CB",
+					ExternalCode: "NZ",
+					Description:  "Canterbury regional seismic network",
+					Restricted:   false,
+				},
+			},
+		},
+		{
+			"testdata/stations.csv",
+			&Stations{
+				Station{
+					Reference: Reference{
+						Code:    "DFE",
+						Network: "TR",
+						Name:    "Dawson Falls",
 					},
-					Network{
-						Code:        "BB",
-						External:    "XX",
-						Description: "B Name",
-						Restricted:  true,
+					Point: Point{
+						Latitude:  -39.325743417,
+						Longitude: 174.103863732,
+						Elevation: 880.0,
+						Datum:     "WGS84",
+					},
+					Span: Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(DateTimeFormat, "1993-12-14T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(DateTimeFormat, "2010-02-23T00:00:00Z")
+							return v
+						}(),
 					},
 				},
-				func() List { return &Networks{} },
-			},
-			{
-				"testdata/stations.csv",
-				Stations{
-					Station{
-						Code:      "AAAA",
-						Network:   "AA",
-						Name:      "A Name",
-						Latitude:  -41.5,
-						Longitude: 173.5,
-						StartTime: liststart,
-						EndTime:   listend,
+				Station{
+					Reference: Reference{
+						Code:    "TBAS",
+						Network: "SM",
+						Name:    "Tolaga Bay Area School",
 					},
-					Station{
-						Code:      "BBBB",
-						Network:   "BB",
-						Name:      "B Name",
-						Latitude:  -42.5,
-						Longitude: 174.5,
-						StartTime: liststart.Add(time.Hour),
-						EndTime:   listend.Add(time.Hour),
+					Point: Point{
+						Latitude:  -38.372803703,
+						Longitude: 178.300778623,
+						Elevation: 8.0,
+						Datum:     "WGS84",
+					},
+					Span: Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(DateTimeFormat, "2002-03-05T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+					Notes: "Is located in the Kiln Shed next to the hall",
+				},
+			},
+		},
+		{
+			"testdata/sites.csv",
+			&Sites{
+				Site{
+					Point: Point{
+						Latitude:  -39.198244208,
+						Longitude: 175.547981982,
+						Elevation: 1116.0,
+						Datum:     "WGS84",
+					},
+					StationCode:  "CNZ",
+					LocationCode: "12",
+				},
+				Site{
+					Point: Point{
+						Latitude:  -45.091369824,
+						Longitude: 169.411775594,
+						Elevation: 701.0,
+						Datum:     "WGS84",
+					},
+					StationCode:  "MSCZ",
+					LocationCode: "10",
+				},
+			},
+		},
+		{
+			"testdata/marks.csv",
+			&Marks{
+				Mark{
+					Reference: Reference{
+						Code:    "AHTI",
+						Network: "CG",
+						Name:    "Ahititi",
+					},
+					Point: Point{
+						Latitude:  -38.411447554,
+						Longitude: 178.046002897,
+						Elevation: 563.221,
+						Datum:     "NZGD2000",
+					},
+					MarkType:           "Forced Centering",
+					MonumentType:       "Deep Braced",
+					GroundRelationship: 0.0,
+					Span: Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(DateTimeFormat, "2009-01-01T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
 					},
 				},
-				func() List { return &Stations{} },
+				Mark{
+					Reference: Reference{
+						Code:    "DUND",
+						Network: "LI",
+						Name:    "Dunedin",
+					},
+					Point: Point{
+						Latitude:  -45.88366604,
+						Longitude: 170.5971706,
+						Elevation: 386.964,
+						Datum:     "NZGD2000",
+					},
+					GroundRelationship: -1.25,
+					MarkType:           "Forced Centering",
+					MonumentType:       "Short Braced",
+					DomeNumber:         "50212M003",
+					Span: Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(DateTimeFormat, "2005-08-10T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+				},
 			},
-		*/
+		},
 		{
 			"testdata/assets.csv",
 			&Assets{
