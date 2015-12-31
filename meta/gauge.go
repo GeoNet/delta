@@ -1,29 +1,30 @@
 package meta
 
+/*
+
 import (
 	"sort"
 	"time"
 )
+*/
 
 type InstalledGauge struct {
-	Make      string    `csv:"Gauge Make"`
-	Model     string    `csv:"Gauge Model"`
-	Serial    string    `csv:"Serial Number"`
-	Station   string    `csv:"Station Code"`
-	Location  string    `csv:"Location Code"`
-	Dip       float64   `csv:"Installation Dip"`
-	Vertical  float64   `csv:"Vertical Offset"`
-	North     float64   `csv:"Offset North"`
-	East      float64   `csv:"Offset East"`
-	Cable     float64   `csv:"Cable Length"`
-	StartTime time.Time `csv:"Installation Date"`
-	EndTime   time.Time `csv:"Removal Date"`
+	Install
+	Offset
+	Orientation
+
+	StationCode  string
+	LocationCode string
+	Cable        float64
 }
 
 type InstalledGauges []InstalledGauge
 
-func (is InstalledGauges) Len() int      { return len(is) }
-func (is InstalledGauges) Swap(i, j int) { is[i], is[j] = is[j], is[i] }
+func (g InstalledGauges) Len() int      { return len(g) }
+func (g InstalledGauges) Swap(i, j int) { g[i], g[j] = g[j], g[i] }
+func (g InstalledGauges) less(i, j int) { g[i].Install.less(g[j].Install) }
+
+/*
 func (is InstalledGauges) Less(i, j int) bool {
 	switch {
 	case is[i].Make < is[j].Make:
@@ -47,3 +48,4 @@ func (is InstalledGauges) Less(i, j int) bool {
 
 func (is InstalledGauges) List()      {}
 func (is InstalledGauges) Sort() List { sort.Sort(is); return is }
+*/

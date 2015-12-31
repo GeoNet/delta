@@ -1,23 +1,26 @@
 package meta
 
+/*
+
 import (
 	"sort"
 	"time"
 )
+*/
 
 type InstalledRadome struct {
-	Make      string    `csv:"Sensor Make"`
-	Model     string    `csv:"Sensor Model"`
-	Serial    string    `csv:"Serial Number"`
-	Mark      string    `csv:"Mark Code"`
-	StartTime time.Time `csv:"Installation Date"`
-	EndTime   time.Time `csv:"Removal Date"`
+	Install
+
+	MarkCode string
 }
 
 type InstalledRadomes []InstalledRadome
 
-func (ir InstalledRadomes) Len() int      { return len(ir) }
-func (ir InstalledRadomes) Swap(i, j int) { ir[i], ir[j] = ir[j], ir[i] }
+func (r InstalledRadomes) Len() int           { return len(r) }
+func (r InstalledRadomes) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
+func (r InstalledRadomes) Less(i, j int) bool { return r[i].Install.less(r[j].Install) }
+
+/*
 func (ir InstalledRadomes) Less(i, j int) bool {
 	switch {
 	case ir[i].Make < ir[j].Make:
@@ -41,3 +44,4 @@ func (ir InstalledRadomes) Less(i, j int) bool {
 
 func (ir InstalledRadomes) List()      {}
 func (ir InstalledRadomes) Sort() List { sort.Sort(ir); return ir }
+*/

@@ -1,27 +1,28 @@
 package meta
 
+/*
 import (
 	"sort"
 	"time"
 )
+*/
 
 type InstalledSensor struct {
-	Make      string    `csv:"Sensor Make"`
-	Model     string    `csv:"Sensor Model"`
-	Serial    string    `csv:"Serial Number"`
-	Station   string    `csv:"Station Code"`
-	Location  string    `csv:"Location Code"`
-	Azimuth   float64   `csv:"Installation Azimuth"`
-	Dip       float64   `csv:"Installation Dip"`
-	Depth     float64   `csv:"Installation Depth"`
-	StartTime time.Time `csv:"Installation Date"`
-	EndTime   time.Time `csv:"Removal Date"`
+	Install
+	Orientation
+	Offset
+
+	StationCode  string `csv:"Station Code"`
+	LocationCode string `csv:"Location Code"`
 }
 
 type InstalledSensors []InstalledSensor
 
-func (is InstalledSensors) Len() int      { return len(is) }
-func (is InstalledSensors) Swap(i, j int) { is[i], is[j] = is[j], is[i] }
+func (s InstalledSensors) Len() int           { return len(s) }
+func (s InstalledSensors) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
+func (s InstalledSensors) Less(i, j int) bool { return s[i].Install.less(s[j].Install) }
+
+/*
 func (is InstalledSensors) Less(i, j int) bool {
 	switch {
 	case is[i].Make < is[j].Make:
@@ -45,3 +46,4 @@ func (is InstalledSensors) Less(i, j int) bool {
 
 func (is InstalledSensors) List()      {}
 func (is InstalledSensors) Sort() List { sort.Sort(is); return is }
+*/

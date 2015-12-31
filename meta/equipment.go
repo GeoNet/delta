@@ -1,10 +1,11 @@
 package meta
 
 import (
-	"sort"
+	//	"sort"
 	"strconv"
 )
 
+/*
 type Serial string
 
 func (s Serial) Less(serial Serial) bool {
@@ -42,36 +43,62 @@ func (s Serial) Equal(serial Serial) bool {
 	}
 	return i == j
 }
+*/
 
 type Equipment struct {
-	Manufacturer string `csv:"Manufacturer"`
-	Make         string `csv:"Make"`
-	Model        string `csv:"Model"`
-	Serial       string `csv:"Serial Number"`
-	Notes        string `csv:"Notes"`
+	Make   string
+	Model  string
+	Serial string
 }
 
-type Equipments []Equipment
+func (e Equipment) less(eq Equipment) bool {
 
-func (e Equipments) Len() int      { return len(e) }
-func (e Equipments) Swap(i, j int) { e[i], e[j] = e[j], e[i] }
-func (e Equipments) Less(i, j int) bool {
-
+	// check by make & model first
 	switch {
-	case e[i].Make < e[j].Make:
+	case e.Make < eq.Make:
 		return true
-	case e[i].Make > e[j].Make:
+	case e.Make > eq.Make:
 		return false
-	case e[i].Model < e[j].Model:
+	case e.Model < eq.Model:
 		return true
-	case e[i].Model > e[j].Model:
-		return false
-	case Serial(e[i].Serial).Less(Serial(e[j].Serial)):
-		return true
-	default:
+	case e.Model > eq.Model:
 		return false
 	}
+
+	// use a numerical serial compare if possible
+	if a, err := strconv.Atoi(e.Serial); err == nil {
+		if b, err := strconv.Atoi(eq.Serial); err == nil {
+			return a < b
+		}
+	}
+
+	// otherwise a string compare
+	return e.Serial < eq.Serial
 }
 
-func (e Equipments) List()      {}
-func (e Equipments) Sort() List { sort.Sort(e); return e }
+/*
+type Equipments []Equipment
+
+func (e Equipments) Len() int           { return len(e) }
+func (e Equipments) Swap(i, j int)      { e[i], e[j] = e[j], e[i] }
+func (e Equipments) Less(i, j int) bool { return e[i].less(e[j]) }
+
+func (e Equipments) decode() [][]string {
+	return nil
+}
+func (e *Equipments) encode(data [][]string) error {
+	return nil
+}
+
+func LoadEquipment(path string) ([]Equipment, error) {
+	var e []Equipment
+
+	if err := LoadList(path, (*Equipments)(&e)); err != nil {
+		return nil, err
+	}
+
+	sort.Sort(Equipments(e))
+
+	return e, nil
+}
+*/

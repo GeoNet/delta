@@ -5,30 +5,38 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
-	"sort"
 
 	"github.com/BurntSushi/toml"
 )
 
-type Stream struct {
+type Datalogger struct {
+	Dataloggers   []string
 	Type          string
 	Label         string
-	Channels      string
 	Rate          float64
 	Frequencey    float64
 	StorageFormat string
 	ClockDrift    float64
-	Filters       []string
+	DLFilters     []string `toml:"filters"`
+	Match         string
+	Skip          string
+}
+
+type Sensor struct {
+	Sensors   []string
+	SNFilters []string `toml:"filters"`
+	Channels  string
+	Reversed  bool
 }
 
 type Response struct {
-	Dataloggers []string
-	Sensors     []string
-	Reversed    bool
-	Lookup      string
-	Match       string
+	Sensors     []Sensor     `toml:"sensors"`
+	Dataloggers []Datalogger `toml:"dataloggers"`
+}
 
-	Streams []Stream `toml:"streams"`
+type Stream struct {
+	Datalogger
+	Sensor
 }
 
 type responses struct {
@@ -36,23 +44,6 @@ type responses struct {
 }
 
 type Responses []Response
-
-func (r Responses) Len() int      { return len(r) }
-func (r Responses) Swap(i, j int) { r[i], r[j] = r[j], r[i] }
-func (r Responses) Less(i, j int) bool {
-	switch {
-	case r[i].Lookup < r[j].Lookup:
-		return true
-	case r[i].Lookup > r[j].Lookup:
-		return false
-	case r[i].Match < r[j].Match:
-		return true
-	case r[i].Match > r[j].Match:
-		return false
-	default:
-		return false
-	}
-}
 
 func LoadResponseFile(path string) ([]Response, error) {
 	var resp responses
@@ -89,8 +80,6 @@ func LoadResponseFiles(dirname, filename string) ([]Response, error) {
 }
 
 func StoreResponseFile(path string, resp []Response) error {
-
-	sort.Sort(Responses(resp))
 
 	buf := new(bytes.Buffer)
 	if err := toml.NewEncoder(buf).Encode(responses{resp}); err != nil {

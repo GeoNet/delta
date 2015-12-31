@@ -1,28 +1,27 @@
 package meta
 
+/*
 import (
 	"sort"
 	"time"
 )
+*/
 
 type InstalledMetSensor struct {
-	Make      string    `csv:"Met Sensor Make"`
-	Model     string    `csv:"Met Sensor Model"`
-	Serial    string    `csv:"Serial Number"`
-	Mark      string    `csv:"Mark"`
-	Comment   string    `csv:"IMS Comment"`
-	Latitude  float64   `csv:"Latitude"`
-	Longitude float64   `csv:"Longitude"`
-	Height    float64   `csv:"Height"`
-	Datum     string    `csv:"Datum"`
-	StartTime time.Time `csv:"Installation Date"`
-	EndTime   time.Time `csv:"Removal Date"`
+	Install
+	Point
+
+	MarkCode string
+	Comment  string
 }
 
 type InstalledMetSensors []InstalledMetSensor
 
-func (is InstalledMetSensors) Len() int      { return len(is) }
-func (is InstalledMetSensors) Swap(i, j int) { is[i], is[j] = is[j], is[i] }
+func (m InstalledMetSensors) Len() int      { return len(m) }
+func (m InstalledMetSensors) Swap(i, j int) { m[i], m[j] = m[j], m[i] }
+func (m InstalledMetSensors) Less(i, j int) { m[i].Install.less(m[j].Install) }
+
+/*
 func (is InstalledMetSensors) Less(i, j int) bool {
 	switch {
 	case is[i].Make < is[j].Make:
@@ -46,3 +45,4 @@ func (is InstalledMetSensors) Less(i, j int) bool {
 
 func (is InstalledMetSensors) List()      {}
 func (is InstalledMetSensors) Sort() List { sort.Sort(is); return is }
+*/

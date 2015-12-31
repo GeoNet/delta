@@ -1,23 +1,26 @@
 package meta
 
+/*
+
 import (
 	"sort"
 	"time"
 )
+*/
 
 type DeployedReceiver struct {
-	Make      string    `csv:"Receiver Make"`
-	Model     string    `csv:"Receiver Model"`
-	Serial    string    `csv:"Serial Number"`
-	Place     string    `csv:"Deployment Place"`
-	StartTime time.Time `csv:"Installation Date"`
-	EndTime   time.Time `csv:"Removal Date"`
+	Install
+
+	Place string
 }
 
 type DeployedReceivers []DeployedReceiver
 
-func (dr DeployedReceivers) Len() int      { return len(dr) }
-func (dr DeployedReceivers) Swap(i, j int) { dr[i], dr[j] = dr[j], dr[i] }
+func (r DeployedReceivers) Len() int           { return len(r) }
+func (r DeployedReceivers) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
+func (r DeployedReceivers) Less(i, j int) bool { return r[i].Install.less(r[j].Install) }
+
+/*
 func (dr DeployedReceivers) Less(i, j int) bool {
 	switch {
 	case dr[i].Make < dr[j].Make:
@@ -41,3 +44,4 @@ func (dr DeployedReceivers) Less(i, j int) bool {
 
 func (dr DeployedReceivers) List()      {}
 func (dr DeployedReceivers) Sort() List { sort.Sort(dr); return dr }
+*/

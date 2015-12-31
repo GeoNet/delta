@@ -14,8 +14,12 @@ type Stage struct {
 	Type   string
 	Lookup string
 	Freq   float64
+	Rate   float64
+	Factor int32
 	Gain   float64
 	Scale  float64
+	Corr   float64
+	Delay  float64
 	Input  string
 	Output string
 }
