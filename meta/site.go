@@ -14,7 +14,7 @@ type Site struct {
 	LocationCode string
 }
 
-func (s Site) less(site Site) bool {
+func (s Site) Less(site Site) bool {
 	switch {
 	case s.StationCode < site.StationCode:
 		return true
@@ -33,7 +33,7 @@ type Sites []Site
 
 func (s Sites) Len() int           { return len(s) }
 func (s Sites) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s Sites) Less(i, j int) bool { return s[i].less(s[j]) }
+func (s Sites) Less(i, j int) bool { return s[i].Less(s[j]) }
 
 func (s Sites) encode() [][]string {
 	data := [][]string{{

@@ -17,7 +17,7 @@ type InstalledRadomes []InstalledRadome
 
 func (r InstalledRadomes) Len() int           { return len(r) }
 func (r InstalledRadomes) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
-func (r InstalledRadomes) Less(i, j int) bool { return r[i].Install.less(r[j].Install) }
+func (r InstalledRadomes) Less(i, j int) bool { return r[i].Install.Less(r[j].Install) }
 
 func (r InstalledRadomes) encode() [][]string {
 	data := [][]string{{

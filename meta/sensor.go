@@ -21,7 +21,7 @@ type InstalledSensors []InstalledSensor
 
 func (s InstalledSensors) Len() int           { return len(s) }
 func (s InstalledSensors) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s InstalledSensors) Less(i, j int) bool { return s[i].Install.less(s[j].Install) }
+func (s InstalledSensors) Less(i, j int) bool { return s[i].Install.Less(s[j].Install) }
 
 func (s InstalledSensors) encode() [][]string {
 	data := [][]string{{

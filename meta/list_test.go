@@ -176,6 +176,7 @@ func TestList(t *testing.T) {
 						Serial: "0220063995",
 					},
 					Manufacturer: "Trimble Navigation Ltd.",
+					AssetNumber:  "100",
 				},
 				{
 					Equipment: meta.Equipment{
@@ -184,6 +185,7 @@ func TestList(t *testing.T) {
 						Serial: "0220066912",
 					},
 					Manufacturer: "Trimble Navigation Ltd.",
+					AssetNumber:  "101",
 				},
 			},
 		},
@@ -550,6 +552,41 @@ func TestList(t *testing.T) {
 					},
 					StationCode:  "INZ",
 					LocationCode: "10",
+				},
+			},
+		},
+		{
+			"testdata/connections.csv",
+			&meta.Connections{
+				meta.Connection{
+					StationCode:  "APZ",
+					LocationCode: "10",
+					Place:        "The Paps",
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2006-05-07T03:23:54Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+				},
+				meta.Connection{
+					StationCode:  "BSWZ",
+					LocationCode: "10",
+					Place:        "Blackbirch Station",
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2003-12-09T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
 				},
 			},
 		},

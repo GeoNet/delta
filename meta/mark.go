@@ -23,7 +23,7 @@ type Marks []Mark
 
 func (m Marks) Len() int           { return len(m) }
 func (m Marks) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
-func (m Marks) Less(i, j int) bool { return m[i].Reference.less(m[j].Reference) }
+func (m Marks) Less(i, j int) bool { return m[i].Reference.Less(m[j].Reference) }
 
 func (m Marks) encode() [][]string {
 	data := [][]string{{

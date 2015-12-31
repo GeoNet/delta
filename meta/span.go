@@ -9,6 +9,6 @@ type Span struct {
 	End   time.Time
 }
 
-func (s Span) before(span Span) bool {
+func (s Span) Before(span Span) bool {
 	return s.Start.Before(span.Start)
 }

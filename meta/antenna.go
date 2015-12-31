@@ -19,7 +19,7 @@ type InstalledAntennas []InstalledAntenna
 
 func (a InstalledAntennas) Len() int           { return len(a) }
 func (a InstalledAntennas) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a InstalledAntennas) Less(i, j int) bool { return a[i].Install.less(a[j].Install) }
+func (a InstalledAntennas) Less(i, j int) bool { return a[i].Install.Less(a[j].Install) }
 
 func (a InstalledAntennas) encode() [][]string {
 	data := [][]string{{

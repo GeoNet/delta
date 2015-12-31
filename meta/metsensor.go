@@ -20,7 +20,7 @@ type InstalledMetSensors []InstalledMetSensor
 
 func (m InstalledMetSensors) Len() int           { return len(m) }
 func (m InstalledMetSensors) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
-func (m InstalledMetSensors) Less(i, j int) bool { return m[i].Install.less(m[j].Install) }
+func (m InstalledMetSensors) Less(i, j int) bool { return m[i].Install.Less(m[j].Install) }
 
 func (m InstalledMetSensors) encode() [][]string {
 	data := [][]string{{

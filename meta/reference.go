@@ -6,4 +6,4 @@ type Reference struct {
 	Name    string
 }
 
-func (r Reference) less(ref Reference) bool { return r.Code < ref.Code }
+func (r Reference) Less(ref Reference) bool { return r.Code < ref.Code }

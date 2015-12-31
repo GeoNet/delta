@@ -18,7 +18,7 @@ type DeployedDataloggers []DeployedDatalogger
 
 func (d DeployedDataloggers) Len() int           { return len(d) }
 func (d DeployedDataloggers) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
-func (d DeployedDataloggers) Less(i, j int) bool { return d[i].Install.less(d[j].Install) }
+func (d DeployedDataloggers) Less(i, j int) bool { return d[i].Install.Less(d[j].Install) }
 
 func (d DeployedDataloggers) encode() [][]string {
 	data := [][]string{{
@@ -44,53 +44,53 @@ func (d DeployedDataloggers) encode() [][]string {
 	return data
 }
 
-func (a *DeployedDataloggers) decode(data [][]string) error {
+func (d *DeployedDataloggers) decode(data [][]string) error {
 	var dataloggers []DeployedDatalogger
 	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != 7 {
+		for _, v := range data[1:] {
+			if len(v) != 7 {
 				return fmt.Errorf("incorrect number of installed datalogger fields")
 			}
 			var err error
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[5]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, v[5]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[6]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, v[6]); err != nil {
 				return err
 			}
 
 			dataloggers = append(dataloggers, DeployedDatalogger{
 				Install: Install{
 					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[0]),
-						Model:  strings.TrimSpace(d[1]),
-						Serial: strings.TrimSpace(d[2]),
+						Make:   strings.TrimSpace(v[0]),
+						Model:  strings.TrimSpace(v[1]),
+						Serial: strings.TrimSpace(v[2]),
 					},
 					Span: Span{
 						Start: start,
 						End:   end,
 					},
 				},
-				Place: strings.TrimSpace(d[3]),
-				Role:  strings.TrimSpace(d[4]),
+				Place: strings.TrimSpace(v[3]),
+				Role:  strings.TrimSpace(v[4]),
 			})
 		}
 
-		*a = DeployedDataloggers(dataloggers)
+		*d = DeployedDataloggers(dataloggers)
 	}
 	return nil
 }
 
 func LoadDeployedDataloggers(path string) ([]DeployedDatalogger, error) {
-	var a []DeployedDatalogger
+	var d []DeployedDatalogger
 
-	if err := LoadList(path, (*DeployedDataloggers)(&a)); err != nil {
+	if err := LoadList(path, (*DeployedDataloggers)(&d)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(DeployedDataloggers(a))
+	sort.Sort(DeployedDataloggers(d))
 
-	return a, nil
+	return d, nil
 }

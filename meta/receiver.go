@@ -17,7 +17,7 @@ type DeployedReceivers []DeployedReceiver
 
 func (r DeployedReceivers) Len() int           { return len(r) }
 func (r DeployedReceivers) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
-func (r DeployedReceivers) Less(i, j int) bool { return r[i].Install.less(r[j].Install) }
+func (r DeployedReceivers) Less(i, j int) bool { return r[i].Install.Less(r[j].Install) }
 
 func (r DeployedReceivers) encode() [][]string {
 	data := [][]string{{
