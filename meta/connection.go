@@ -16,9 +16,7 @@ type Connection struct {
 	Role         string
 }
 
-type Connections []Connection
-
-func (c Connection) Less(con Connection) bool {
+func (c Connection) less(con Connection) bool {
 	switch {
 	case c.StationCode < con.StationCode:
 		return true
@@ -41,11 +39,13 @@ func (c Connection) Less(con Connection) bool {
 	}
 }
 
-func (c Connections) Len() int           { return len(c) }
-func (c Connections) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
-func (c Connections) Less(i, j int) bool { return c[i].Less(c[j]) }
+type ConnectionList []Connection
 
-func (c Connections) encode() [][]string {
+func (c ConnectionList) Len() int           { return len(c) }
+func (c ConnectionList) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
+func (c ConnectionList) Less(i, j int) bool { return c[i].less(c[j]) }
+
+func (c ConnectionList) encode() [][]string {
 	data := [][]string{{
 		"Station Code",
 		"Location Code",
@@ -67,7 +67,7 @@ func (c Connections) encode() [][]string {
 	return data
 }
 
-func (c *Connections) decode(data [][]string) error {
+func (c *ConnectionList) decode(data [][]string) error {
 	var connections []Connection
 	if len(data) > 1 {
 		for _, v := range data[1:] {
@@ -96,7 +96,7 @@ func (c *Connections) decode(data [][]string) error {
 			})
 		}
 
-		*c = Connections(connections)
+		*c = ConnectionList(connections)
 	}
 	return nil
 }
@@ -104,11 +104,11 @@ func (c *Connections) decode(data [][]string) error {
 func LoadConnections(path string) ([]Connection, error) {
 	var c []Connection
 
-	if err := LoadList(path, (*Connections)(&c)); err != nil {
+	if err := LoadList(path, (*ConnectionList)(&c)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(Connections(c))
+	sort.Sort(ConnectionList(c))
 
 	return c, nil
 }

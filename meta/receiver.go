@@ -13,13 +13,13 @@ type DeployedReceiver struct {
 	Place string
 }
 
-type DeployedReceivers []DeployedReceiver
+type DeployedReceiverList []DeployedReceiver
 
-func (r DeployedReceivers) Len() int           { return len(r) }
-func (r DeployedReceivers) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
-func (r DeployedReceivers) Less(i, j int) bool { return r[i].Install.Less(r[j].Install) }
+func (r DeployedReceiverList) Len() int           { return len(r) }
+func (r DeployedReceiverList) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
+func (r DeployedReceiverList) Less(i, j int) bool { return r[i].Install.less(r[j].Install) }
 
-func (r DeployedReceivers) encode() [][]string {
+func (r DeployedReceiverList) encode() [][]string {
 	data := [][]string{{
 		"Receiver Make",
 		"Receiver Model",
@@ -41,7 +41,7 @@ func (r DeployedReceivers) encode() [][]string {
 	return data
 }
 
-func (r *DeployedReceivers) decode(data [][]string) error {
+func (r *DeployedReceiverList) decode(data [][]string) error {
 	var receivers []DeployedReceiver
 	if len(data) > 1 {
 		for _, d := range data[1:] {
@@ -74,7 +74,7 @@ func (r *DeployedReceivers) decode(data [][]string) error {
 			})
 		}
 
-		*r = DeployedReceivers(receivers)
+		*r = DeployedReceiverList(receivers)
 	}
 	return nil
 }
@@ -82,11 +82,11 @@ func (r *DeployedReceivers) decode(data [][]string) error {
 func LoadDeployedReceivers(path string) ([]DeployedReceiver, error) {
 	var r []DeployedReceiver
 
-	if err := LoadList(path, (*DeployedReceivers)(&r)); err != nil {
+	if err := LoadList(path, (*DeployedReceiverList)(&r)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(DeployedReceivers(r))
+	sort.Sort(DeployedReceiverList(r))
 
 	return r, nil
 }

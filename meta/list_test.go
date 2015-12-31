@@ -16,7 +16,7 @@ func TestList(t *testing.T) {
 	}{
 		{
 			"testdata/networks.csv",
-			&meta.Networks{
+			&meta.NetworkList{
 				meta.Network{
 					NetworkCode:  "AK",
 					ExternalCode: "NZ",
@@ -33,7 +33,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/stations.csv",
-			&meta.Stations{
+			&meta.StationList{
 				meta.Station{
 					Reference: meta.Reference{
 						Code:    "DFE",
@@ -85,7 +85,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/sites.csv",
-			&meta.Sites{
+			&meta.SiteList{
 				meta.Site{
 					Point: meta.Point{
 						Latitude:  -39.198244208,
@@ -110,7 +110,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/marks.csv",
-			&meta.Marks{
+			&meta.MarkList{
 				meta.Mark{
 					Reference: meta.Reference{
 						Code:    "AHTI",
@@ -168,7 +168,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/assets.csv",
-			&meta.Assets{
+			&meta.AssetList{
 				{
 					Equipment: meta.Equipment{
 						Make:   "Trimble",
@@ -191,7 +191,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/antennas.csv",
-			&meta.InstalledAntennas{
+			&meta.InstalledAntennaList{
 				{
 					Install: meta.Install{
 						Equipment: meta.Equipment{
@@ -246,7 +246,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/dataloggers.csv",
-			&meta.DeployedDataloggers{
+			&meta.DeployedDataloggerList{
 				meta.DeployedDatalogger{
 					Install: meta.Install{
 						Equipment: meta.Equipment{
@@ -292,7 +292,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/gauges.csv",
-			&meta.InstalledGauges{
+			&meta.InstalledGaugeList{
 				meta.InstalledGauge{
 					Install: meta.Install{
 						Equipment: meta.Equipment{
@@ -349,7 +349,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/metsensors.csv",
-			&meta.InstalledMetSensors{
+			&meta.InstalledMetSensorList{
 				meta.InstalledMetSensor{
 					Install: meta.Install{
 						Equipment: meta.Equipment{
@@ -406,7 +406,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/radomes.csv",
-			&meta.InstalledRadomes{
+			&meta.InstalledRadomeList{
 				meta.InstalledRadome{
 					Install: meta.Install{
 						Equipment: meta.Equipment{
@@ -451,7 +451,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/receivers.csv",
-			&meta.DeployedReceivers{
+			&meta.DeployedReceiverList{
 				meta.DeployedReceiver{
 					Install: meta.Install{
 						Equipment: meta.Equipment{
@@ -496,7 +496,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/sensors.csv",
-			&meta.InstalledSensors{
+			&meta.InstalledSensorList{
 				meta.InstalledSensor{
 					Install: meta.Install{
 						Equipment: meta.Equipment{
@@ -557,7 +557,7 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/connections.csv",
-			&meta.Connections{
+			&meta.ConnectionList{
 				meta.Connection{
 					StationCode:  "APZ",
 					LocationCode: "10",

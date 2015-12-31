@@ -29,13 +29,13 @@ func (s Site) Less(site Site) bool {
 	}
 }
 
-type Sites []Site
+type SiteList []Site
 
-func (s Sites) Len() int           { return len(s) }
-func (s Sites) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s Sites) Less(i, j int) bool { return s[i].Less(s[j]) }
+func (s SiteList) Len() int           { return len(s) }
+func (s SiteList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
+func (s SiteList) Less(i, j int) bool { return s[i].Less(s[j]) }
 
-func (s Sites) encode() [][]string {
+func (s SiteList) encode() [][]string {
 	data := [][]string{{
 		"Station Code",
 		"Location Code",
@@ -57,7 +57,7 @@ func (s Sites) encode() [][]string {
 	return data
 }
 
-func (s *Sites) decode(data [][]string) error {
+func (s *SiteList) decode(data [][]string) error {
 	var sites []Site
 	if len(data) > 1 {
 		for _, d := range data[1:] {
@@ -89,7 +89,7 @@ func (s *Sites) decode(data [][]string) error {
 			})
 		}
 
-		*s = Sites(sites)
+		*s = SiteList(sites)
 	}
 	return nil
 }
@@ -97,11 +97,11 @@ func (s *Sites) decode(data [][]string) error {
 func LoadSites(path string) ([]Site, error) {
 	var s []Site
 
-	if err := LoadList(path, (*Sites)(&s)); err != nil {
+	if err := LoadList(path, (*SiteList)(&s)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(Sites(s))
+	sort.Sort(SiteList(s))
 
 	return s, nil
 }

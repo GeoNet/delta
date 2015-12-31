@@ -16,13 +16,13 @@ type InstalledMetSensor struct {
 	Comment  string
 }
 
-type InstalledMetSensors []InstalledMetSensor
+type InstalledMetSensorList []InstalledMetSensor
 
-func (m InstalledMetSensors) Len() int           { return len(m) }
-func (m InstalledMetSensors) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
-func (m InstalledMetSensors) Less(i, j int) bool { return m[i].Install.Less(m[j].Install) }
+func (m InstalledMetSensorList) Len() int           { return len(m) }
+func (m InstalledMetSensorList) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
+func (m InstalledMetSensorList) Less(i, j int) bool { return m[i].Install.less(m[j].Install) }
 
-func (m InstalledMetSensors) encode() [][]string {
+func (m InstalledMetSensorList) encode() [][]string {
 	data := [][]string{{
 		"Met Sensor Make",
 		"Met Sensor Model",
@@ -54,7 +54,7 @@ func (m InstalledMetSensors) encode() [][]string {
 	return data
 }
 
-func (m *InstalledMetSensors) decode(data [][]string) error {
+func (m *InstalledMetSensorList) decode(data [][]string) error {
 	var metsensors []InstalledMetSensor
 	if len(data) > 1 {
 		for _, d := range data[1:] {
@@ -105,7 +105,7 @@ func (m *InstalledMetSensors) decode(data [][]string) error {
 			})
 		}
 
-		*m = InstalledMetSensors(metsensors)
+		*m = InstalledMetSensorList(metsensors)
 	}
 	return nil
 }
@@ -113,11 +113,11 @@ func (m *InstalledMetSensors) decode(data [][]string) error {
 func LoadInstalledMetSensors(path string) ([]InstalledMetSensor, error) {
 	var m []InstalledMetSensor
 
-	if err := LoadList(path, (*InstalledMetSensors)(&m)); err != nil {
+	if err := LoadList(path, (*InstalledMetSensorList)(&m)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(InstalledMetSensors(m))
+	sort.Sort(InstalledMetSensorList(m))
 
 	return m, nil
 }

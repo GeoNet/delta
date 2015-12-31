@@ -14,13 +14,13 @@ type DeployedDatalogger struct {
 	Role  string
 }
 
-type DeployedDataloggers []DeployedDatalogger
+type DeployedDataloggerList []DeployedDatalogger
 
-func (d DeployedDataloggers) Len() int           { return len(d) }
-func (d DeployedDataloggers) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
-func (d DeployedDataloggers) Less(i, j int) bool { return d[i].Install.Less(d[j].Install) }
+func (d DeployedDataloggerList) Len() int           { return len(d) }
+func (d DeployedDataloggerList) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
+func (d DeployedDataloggerList) Less(i, j int) bool { return d[i].Install.less(d[j].Install) }
 
-func (d DeployedDataloggers) encode() [][]string {
+func (d DeployedDataloggerList) encode() [][]string {
 	data := [][]string{{
 		"Datalogger Make",
 		"Datalogger Model",
@@ -44,7 +44,7 @@ func (d DeployedDataloggers) encode() [][]string {
 	return data
 }
 
-func (d *DeployedDataloggers) decode(data [][]string) error {
+func (d *DeployedDataloggerList) decode(data [][]string) error {
 	var dataloggers []DeployedDatalogger
 	if len(data) > 1 {
 		for _, v := range data[1:] {
@@ -78,7 +78,7 @@ func (d *DeployedDataloggers) decode(data [][]string) error {
 			})
 		}
 
-		*d = DeployedDataloggers(dataloggers)
+		*d = DeployedDataloggerList(dataloggers)
 	}
 	return nil
 }
@@ -86,11 +86,11 @@ func (d *DeployedDataloggers) decode(data [][]string) error {
 func LoadDeployedDataloggers(path string) ([]DeployedDatalogger, error) {
 	var d []DeployedDatalogger
 
-	if err := LoadList(path, (*DeployedDataloggers)(&d)); err != nil {
+	if err := LoadList(path, (*DeployedDataloggerList)(&d)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(DeployedDataloggers(d))
+	sort.Sort(DeployedDataloggerList(d))
 
 	return d, nil
 }

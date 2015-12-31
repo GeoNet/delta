@@ -17,13 +17,13 @@ type InstalledSensor struct {
 	LocationCode string `csv:"Location Code"`
 }
 
-type InstalledSensors []InstalledSensor
+type InstalledSensorList []InstalledSensor
 
-func (s InstalledSensors) Len() int           { return len(s) }
-func (s InstalledSensors) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s InstalledSensors) Less(i, j int) bool { return s[i].Install.Less(s[j].Install) }
+func (s InstalledSensorList) Len() int           { return len(s) }
+func (s InstalledSensorList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
+func (s InstalledSensorList) Less(i, j int) bool { return s[i].Install.less(s[j].Install) }
 
-func (s InstalledSensors) encode() [][]string {
+func (s InstalledSensorList) encode() [][]string {
 	data := [][]string{{
 		"Sensor Make",
 		"Sensor Model",
@@ -59,7 +59,7 @@ func (s InstalledSensors) encode() [][]string {
 	}
 	return data
 }
-func (s *InstalledSensors) decode(data [][]string) error {
+func (s *InstalledSensorList) decode(data [][]string) error {
 	var sensors []InstalledSensor
 	if len(data) > 1 {
 		for _, d := range data[1:] {
@@ -111,7 +111,7 @@ func (s *InstalledSensors) decode(data [][]string) error {
 			})
 		}
 
-		*s = InstalledSensors(sensors)
+		*s = InstalledSensorList(sensors)
 	}
 	return nil
 }
@@ -119,11 +119,11 @@ func (s *InstalledSensors) decode(data [][]string) error {
 func LoadInstalledSensors(path string) ([]InstalledSensor, error) {
 	var s []InstalledSensor
 
-	if err := LoadList(path, (*InstalledSensors)(&s)); err != nil {
+	if err := LoadList(path, (*InstalledSensorList)(&s)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(InstalledSensors(s))
+	sort.Sort(InstalledSensorList(s))
 
 	return s, nil
 }

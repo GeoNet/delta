@@ -18,13 +18,13 @@ type InstalledGauge struct {
 	CableLength  float64
 }
 
-type InstalledGauges []InstalledGauge
+type InstalledGaugeList []InstalledGauge
 
-func (g InstalledGauges) Len() int           { return len(g) }
-func (g InstalledGauges) Swap(i, j int)      { g[i], g[j] = g[j], g[i] }
-func (g InstalledGauges) Less(i, j int) bool { return g[i].Install.Less(g[j].Install) }
+func (g InstalledGaugeList) Len() int           { return len(g) }
+func (g InstalledGaugeList) Swap(i, j int)      { g[i], g[j] = g[j], g[i] }
+func (g InstalledGaugeList) Less(i, j int) bool { return g[i].Install.less(g[j].Install) }
 
-func (g InstalledGauges) encode() [][]string {
+func (g InstalledGaugeList) encode() [][]string {
 	data := [][]string{{
 		"Gauge Make",
 		"Gauge Model",
@@ -58,7 +58,7 @@ func (g InstalledGauges) encode() [][]string {
 	return data
 }
 
-func (g *InstalledGauges) decode(data [][]string) error {
+func (g *InstalledGaugeList) decode(data [][]string) error {
 	var gauges []InstalledGauge
 	if len(data) > 1 {
 		for _, d := range data[1:] {
@@ -122,7 +122,7 @@ func (g *InstalledGauges) decode(data [][]string) error {
 			})
 		}
 
-		*g = InstalledGauges(gauges)
+		*g = InstalledGaugeList(gauges)
 	}
 	return nil
 }
@@ -130,11 +130,11 @@ func (g *InstalledGauges) decode(data [][]string) error {
 func LoadInstalledGauges(path string) ([]InstalledGauge, error) {
 	var g []InstalledGauge
 
-	if err := LoadList(path, (*InstalledGauges)(&g)); err != nil {
+	if err := LoadList(path, (*InstalledGaugeList)(&g)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(InstalledGauges(g))
+	sort.Sort(InstalledGaugeList(g))
 
 	return g, nil
 }

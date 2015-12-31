@@ -16,13 +16,13 @@ type Station struct {
 	Notes string
 }
 
-type Stations []Station
+type StationList []Station
 
-func (s Stations) Len() int           { return len(s) }
-func (s Stations) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s Stations) Less(i, j int) bool { return s[i].Code < s[j].Code }
+func (s StationList) Len() int           { return len(s) }
+func (s StationList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
+func (s StationList) Less(i, j int) bool { return s[i].Code < s[j].Code }
 
-func (s Stations) encode() [][]string {
+func (s StationList) encode() [][]string {
 	data := [][]string{{
 		"Station Code",
 		"Network Code",
@@ -52,7 +52,7 @@ func (s Stations) encode() [][]string {
 	return data
 }
 
-func (s *Stations) decode(data [][]string) error {
+func (s *StationList) decode(data [][]string) error {
 	var stations []Station
 	if len(data) > 1 {
 		for _, d := range data[1:] {
@@ -100,7 +100,7 @@ func (s *Stations) decode(data [][]string) error {
 			})
 		}
 
-		*s = Stations(stations)
+		*s = StationList(stations)
 	}
 	return nil
 }
@@ -108,11 +108,11 @@ func (s *Stations) decode(data [][]string) error {
 func LoadStations(path string) ([]Station, error) {
 	var s []Station
 
-	if err := LoadList(path, (*Stations)(&s)); err != nil {
+	if err := LoadList(path, (*StationList)(&s)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(Stations(s))
+	sort.Sort(StationList(s))
 
 	return s, nil
 }

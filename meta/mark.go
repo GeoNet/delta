@@ -19,13 +19,13 @@ type Mark struct {
 	GroundRelationship float64
 }
 
-type Marks []Mark
+type MarkList []Mark
 
-func (m Marks) Len() int           { return len(m) }
-func (m Marks) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
-func (m Marks) Less(i, j int) bool { return m[i].Code < m[j].Code }
+func (m MarkList) Len() int           { return len(m) }
+func (m MarkList) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
+func (m MarkList) Less(i, j int) bool { return m[i].Code < m[j].Code }
 
-func (m Marks) encode() [][]string {
+func (m MarkList) encode() [][]string {
 	data := [][]string{{
 		"Mark Code",
 		"Network Code",
@@ -61,7 +61,7 @@ func (m Marks) encode() [][]string {
 	return data
 }
 
-func (m *Marks) decode(data [][]string) error {
+func (m *MarkList) decode(data [][]string) error {
 	var marks []Mark
 	if len(data) > 1 {
 		for _, d := range data[1:] {
@@ -117,7 +117,7 @@ func (m *Marks) decode(data [][]string) error {
 			})
 		}
 
-		*m = Marks(marks)
+		*m = MarkList(marks)
 	}
 	return nil
 }
@@ -125,11 +125,11 @@ func (m *Marks) decode(data [][]string) error {
 func LoadMarks(path string) ([]Mark, error) {
 	var m []Mark
 
-	if err := LoadList(path, (*Marks)(&m)); err != nil {
+	if err := LoadList(path, (*MarkList)(&m)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(Marks(m))
+	sort.Sort(MarkList(m))
 
 	return m, nil
 }

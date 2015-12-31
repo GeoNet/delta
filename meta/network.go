@@ -14,13 +14,13 @@ type Network struct {
 	Restricted   bool
 }
 
-type Networks []Network
+type NetworkList []Network
 
-func (n Networks) Len() int           { return len(n) }
-func (n Networks) Swap(i, j int)      { n[i], n[j] = n[j], n[i] }
-func (n Networks) Less(i, j int) bool { return n[i].NetworkCode < n[j].NetworkCode }
+func (n NetworkList) Len() int           { return len(n) }
+func (n NetworkList) Swap(i, j int)      { n[i], n[j] = n[j], n[i] }
+func (n NetworkList) Less(i, j int) bool { return n[i].NetworkCode < n[j].NetworkCode }
 
-func (n Networks) encode() [][]string {
+func (n NetworkList) encode() [][]string {
 	data := [][]string{{
 		"Network Code",
 		"External Code",
@@ -38,7 +38,7 @@ func (n Networks) encode() [][]string {
 	return data
 }
 
-func (n *Networks) decode(data [][]string) error {
+func (n *NetworkList) decode(data [][]string) error {
 	var networks []Network
 	if len(data) > 1 {
 		for _, d := range data[1:] {
@@ -60,7 +60,7 @@ func (n *Networks) decode(data [][]string) error {
 			})
 		}
 
-		*n = Networks(networks)
+		*n = NetworkList(networks)
 	}
 	return nil
 }
@@ -68,11 +68,11 @@ func (n *Networks) decode(data [][]string) error {
 func LoadNetworks(path string) ([]Network, error) {
 	var n []Network
 
-	if err := LoadList(path, (*Networks)(&n)); err != nil {
+	if err := LoadList(path, (*NetworkList)(&n)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(Networks(n))
+	sort.Sort(NetworkList(n))
 
 	return n, nil
 }

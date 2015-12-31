@@ -15,13 +15,13 @@ type InstalledAntenna struct {
 	MarkCode string
 }
 
-type InstalledAntennas []InstalledAntenna
+type InstalledAntennaList []InstalledAntenna
 
-func (a InstalledAntennas) Len() int           { return len(a) }
-func (a InstalledAntennas) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a InstalledAntennas) Less(i, j int) bool { return a[i].Install.Less(a[j].Install) }
+func (a InstalledAntennaList) Len() int           { return len(a) }
+func (a InstalledAntennaList) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a InstalledAntennaList) Less(i, j int) bool { return a[i].Install.less(a[j].Install) }
 
-func (a InstalledAntennas) encode() [][]string {
+func (a InstalledAntennaList) encode() [][]string {
 	data := [][]string{{
 		"Antenna Make",
 		"Antenna Model",
@@ -49,7 +49,7 @@ func (a InstalledAntennas) encode() [][]string {
 	return data
 }
 
-func (a *InstalledAntennas) decode(data [][]string) error {
+func (a *InstalledAntennaList) decode(data [][]string) error {
 	var antennas []InstalledAntenna
 	if len(data) > 1 {
 		for _, d := range data[1:] {
@@ -98,7 +98,7 @@ func (a *InstalledAntennas) decode(data [][]string) error {
 			})
 		}
 
-		*a = InstalledAntennas(antennas)
+		*a = InstalledAntennaList(antennas)
 	}
 	return nil
 }
@@ -106,11 +106,11 @@ func (a *InstalledAntennas) decode(data [][]string) error {
 func LoadInstalledAntennas(path string) ([]InstalledAntenna, error) {
 	var a []InstalledAntenna
 
-	if err := LoadList(path, (*InstalledAntennas)(&a)); err != nil {
+	if err := LoadList(path, (*InstalledAntennaList)(&a)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(InstalledAntennas(a))
+	sort.Sort(InstalledAntennaList(a))
 
 	return a, nil
 }

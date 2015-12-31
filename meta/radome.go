@@ -13,13 +13,13 @@ type InstalledRadome struct {
 	MarkCode string
 }
 
-type InstalledRadomes []InstalledRadome
+type InstalledRadomeList []InstalledRadome
 
-func (r InstalledRadomes) Len() int           { return len(r) }
-func (r InstalledRadomes) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
-func (r InstalledRadomes) Less(i, j int) bool { return r[i].Install.Less(r[j].Install) }
+func (r InstalledRadomeList) Len() int           { return len(r) }
+func (r InstalledRadomeList) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
+func (r InstalledRadomeList) Less(i, j int) bool { return r[i].Install.less(r[j].Install) }
 
-func (r InstalledRadomes) encode() [][]string {
+func (r InstalledRadomeList) encode() [][]string {
 	data := [][]string{{
 		"Radome Make",
 		"Radome Model",
@@ -41,7 +41,7 @@ func (r InstalledRadomes) encode() [][]string {
 	return data
 }
 
-func (r *InstalledRadomes) decode(data [][]string) error {
+func (r *InstalledRadomeList) decode(data [][]string) error {
 	var radomes []InstalledRadome
 	if len(data) > 1 {
 		for _, d := range data[1:] {
@@ -74,7 +74,7 @@ func (r *InstalledRadomes) decode(data [][]string) error {
 			})
 		}
 
-		*r = InstalledRadomes(radomes)
+		*r = InstalledRadomeList(radomes)
 	}
 	return nil
 }
@@ -82,11 +82,11 @@ func (r *InstalledRadomes) decode(data [][]string) error {
 func LoadInstalledRadomes(path string) ([]InstalledRadome, error) {
 	var r []InstalledRadome
 
-	if err := LoadList(path, (*InstalledRadomes)(&r)); err != nil {
+	if err := LoadList(path, (*InstalledRadomeList)(&r)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(InstalledRadomes(r))
+	sort.Sort(InstalledRadomeList(r))
 
 	return r, nil
 }

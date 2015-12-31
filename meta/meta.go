@@ -42,7 +42,7 @@ type Equipment struct {
 	Serial string
 }
 
-func (e Equipment) Less(eq Equipment) bool {
+func (e Equipment) less(eq Equipment) bool {
 
 	switch {
 	case e.Make < eq.Make:
@@ -69,11 +69,11 @@ type Install struct {
 	Span
 }
 
-func (i Install) Less(in Install) bool {
+func (i Install) less(in Install) bool {
 	switch {
-	case i.Equipment.Less(in.Equipment):
+	case i.Equipment.less(in.Equipment):
 		return true
-	case in.Equipment.Less(i.Equipment):
+	case in.Equipment.less(i.Equipment):
 		return false
 	default:
 		return i.Start.Before(in.Start)
