@@ -7,12 +7,19 @@ import (
 	"path/filepath"
 )
 
-type List interface {
+type ListEncoder interface {
 	encode() [][]string
+}
+type ListDecoder interface {
 	decode([][]string) error
 }
 
-func MarshalList(l List) []byte {
+type List interface {
+	ListEncoder
+	ListDecoder
+}
+
+func MarshalList(l ListEncoder) []byte {
 	var b bytes.Buffer
 
 	csv.NewWriter(&b).WriteAll(EncodeList(l))
@@ -20,7 +27,7 @@ func MarshalList(l List) []byte {
 	return b.Bytes()
 }
 
-func UnmarshalList(b []byte, l List) error {
+func UnmarshalList(b []byte, l ListDecoder) error {
 
 	v, err := csv.NewReader(bytes.NewBuffer(b)).ReadAll()
 	if err != nil {
@@ -33,15 +40,15 @@ func UnmarshalList(b []byte, l List) error {
 	return nil
 }
 
-func DecodeList(data [][]string, l List) error {
+func DecodeList(data [][]string, l ListDecoder) error {
 	return l.decode(data)
 }
 
-func EncodeList(l List) [][]string {
+func EncodeList(l ListEncoder) [][]string {
 	return l.encode()
 }
 
-func LoadList(path string, l List) error {
+func LoadList(path string, l ListDecoder) error {
 
 	file, err := os.OpenFile(path, os.O_RDONLY, 0)
 	if err != nil {
@@ -61,7 +68,7 @@ func LoadList(path string, l List) error {
 	return nil
 }
 
-func StoreList(path string, l List) error {
+func StoreList(path string, l ListEncoder) error {
 
 	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
 		return err
