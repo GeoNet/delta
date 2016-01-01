@@ -1,719 +1,762 @@
-[[model]]
+[[sensor]]
   Model = "2 Hz Duke Malin Seismometer"
+  Type = "Short Period Borehole Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "270-600/12V"
+  Type = "Barometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "270-600/24V"
+  Type = "Barometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "270-800/12V"
+  Type = "Barometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "4.5 Hz Duke Malin Seismometer"
+  Type = "Short Period Borehole Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "CMG-3ESP"
+  Type = "Broadband Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "CMG-3ESP-Z"
+  Type = "Broadband Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "CMG-3ESPC"
+  Type = "Broadband Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "CMG-3T"
+  Type = "Broadband Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "CMG-3TB"
+  Type = "Broadband Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "CMG-3TB-GN"
+  Type = "Broadband Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "CMG-40T-30S"
+  Type = "Broadband Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "CMG-40T-60S"
+  Type = "Broadband Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "CMG-6T"
+  Type = "Accelerometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "CUSP-Me SENSOR"
+  Type = "Building Array Sensor"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 90.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 0.0
     Dip = -90.0
 
-[[model]]
+[[sensor]]
   Model = "CUSP3A SENSOR"
+  Type = "Strong Motion Sensor"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 90.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 0.0
     Dip = -90.0
 
-[[model]]
+[[sensor]]
   Model = "CUSP3B SENSOR"
+  Type = "Strong Motion Sensor"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 90.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 0.0
     Dip = -90.0
 
-[[model]]
+[[sensor]]
   Model = "CUSP3C SENSOR"
+  Type = "Strong Motion Sensor"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 90.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 0.0
     Dip = -90.0
 
-[[model]]
+[[sensor]]
   Model = "CUSP3C3 SENSOR"
+  Type = "Strong Motion Sensor"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 90.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 0.0
     Dip = -90.0
 
-[[model]]
+[[sensor]]
   Model = "CUSP3D SENSOR"
+  Type = "Strong Motion Sensor"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 90.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 0.0
     Dip = -90.0
 
-[[model]]
+[[sensor]]
   Model = "CUSPM SENSOR"
+  Type = "Strong Motion Sensor"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 90.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 0.0
     Dip = -90.0
 
-[[model]]
+[[sensor]]
   Model = "Druck PTX-1830"
+  Type = "Pressure Sensor"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "Druck PTX-1830-LAND"
+  Type = "Pressure Sensor"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "FBA-23-DECK"
+  Type = "Accelerometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 180.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 270.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "FBA-ES-T"
+  Type = "Accelerometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "FBA-ES-T-BASALT"
+  Type = "Accelerometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "FBA-ES-T-DECK"
+  Type = "Accelerometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 90.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 0.0
     Dip = -90.0
 
-[[model]]
+[[sensor]]
   Model = "FBA-ES-T-ISO"
+  Type = "Accelerometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "GS-11D seismometer"
+  Type = "Short Period Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "IESE HS-1-LT Mini 4.5Hz"
+  Type = "Short Period Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "IESE S10g-4.5 (with preamp)"
+  Type = "Short Period Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "IESE S10g-4.5 (without preamp)"
+  Type = "Short Period Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "IESE S31f-15 (with preamp)"
+  Type = "Short Period Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "InfraBSU microphone"
+  Type = "Mirophone"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "Kinemetrics SBEPI"
+  Type = "Accelerometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "L4C"
+  Type = "Short Period Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-[[model]]
+[[sensor]]
   Model = "L4C-3D"
+  Type = "Short Period Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "LE-3Dlite"
+  Type = "Short Period Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "LE-3DliteMkII"
+  Type = "Short Period Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "LM35"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "Nanometrics Trillium 120QA"
+  Type = "Broadband Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "SDP"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 90.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 0.0
     Dip = -90.0
 
-[[model]]
+[[sensor]]
   Model = "SSA-320"
+  Type = "Strong Motion Sensor"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 90.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 0.0
     Dip = -90.0
 
-[[model]]
+[[sensor]]
   Model = "STS-2"
+  Type = "Broadband Seismometer"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = -90.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 1
     Azimuth = 0.0
     Dip = 0.0
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 2
     Azimuth = 90.0
     Dip = 0.0
 
-[[model]]
+[[sensor]]
   Model = "Scout Hydrophone"
+  Type = "Hydrophone"
 
-  [[model.pin]]
+  [[sensor.pin]]
     Pin = 0
     Azimuth = 0.0
     Dip = 0.0
