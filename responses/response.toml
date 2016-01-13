@@ -63,3 +63,119 @@
     ClockDrift    = 0.0001
     Filters       = ["Q330_FLbelow100-200"]
     Match          = "KQ03"
+
+  [[response.dataloggers]]
+    Dataloggers   = ["EARSS/3"]
+    Type          = "TG"
+    Label         = "EH"
+    Rate          = 50.0
+    Frequencey    = 15.0
+    StorageFormat = "Steim2"
+    ClockDrift    = 0.0001
+    Filters       = ["EARSS-50"]
+
+[[response]]
+
+  [[response.sensors]]
+    Sensors  = ["270-600/12V"]
+    Filters  = ["270-600/12V"]
+    Channels = "F"
+    Reversed = false
+
+  [[response.sensors]]
+    Sensors  = ["270-600/24V"]
+    Filters  = ["270-600/24V"]
+    Channels = "F"
+    Reversed = false
+
+  [[response.sensors]]
+    Sensors  = ["270-800/12V"]
+    Filters  = ["270-800/12V"]
+    Channels = "F"
+    Reversed = false
+
+  [[response.dataloggers]]
+    Dataloggers = ["Q330S/3", "Q330S/6"]
+    Type          = "CW"
+    Label         = "LD"
+    Rate          = 1.0
+    Frequencey    = 0.1
+    StorageFormat = "Steim2"
+    ClockDrift    = 0.0001
+    Filters       = ["Q330S+_FLbelow100-1"]
+
+  [[response.dataloggers]]
+    Dataloggers = ["Q330S/3", "Q330S/6"]
+    Type          = "CW"
+    Label         = "LD"
+    Rate          = 100.0
+    Frequencey    = 15.0
+    StorageFormat = "Steim2"
+    ClockDrift    = 0.0001
+    Filters       = ["Q330S+_FLbelow100-100"]
+
+[[response]]
+
+  [[response.sensors]]
+    Sensors     = ["FBA-ES-T-DECK"]
+    Filters     = ["FBA-ES-T-DECK"]
+    Channels    = "Z12"
+    Reversed    = false
+
+  [[response.sensors]]
+    Sensors     = ["FBA-23-DECK"]
+    Filters     = ["FBA-23-DECK"]
+    Channels    = "Z12"
+    Reversed    = true
+
+  [[response.dataloggers]]
+    Dataloggers = ["ETNA"]
+    Type          = "TG"
+    Label         = "HN"
+    Rate          = 200.0
+    Frequencey    = 15.0
+    StorageFormat = "Steim2"
+    ClockDrift    = 0.0001
+    Filters       = ["ALTUS-200"]
+
+[[response]]
+
+  [[response.sensors]]
+    Sensors  = ["FBA-ES-T-DECK"]
+    Filters  = ["FBA-ES-T-DECK"]
+    Channels = "ZNE"
+    Reversed = false
+    Match    = "^[A-Z][A-Z][A-Z]$"
+
+  [[response.sensors]]
+    Sensors  = ["FBA-ES-T-DECK"]
+    Filters  = ["FBA-ES-T-DECK"]
+    Channels = "Z12"
+    Reversed = false
+    Skip     = "^[A-Z][A-Z][A-Z]$"
+
+  [[response.sensors]]
+    Sensors  = ["FBA-ES-T-BASALT"]
+    Filters  = ["FBA-ES-T-BASALT"]
+    Channels = "Z12"
+    Reversed = false
+
+  [[response.dataloggers]]
+    Dataloggers = ["BASALT"]
+    Type          = "CG"
+    Label         = "BN"
+    Rate          = 50.0
+    Frequencey    = 15.0
+    StorageFormat = "Steim2"
+    ClockDrift    = 0.0001
+    Filters       = ["BASALT-50"]
+
+  [[response.dataloggers]]
+    Dataloggers = ["BASALT"]
+    Type          = "TG"
+    Label         = "HN"
+    Rate          = 200.0
+    Frequencey    = 15.0
+    StorageFormat = "Steim2"
+    ClockDrift    = 0.0001
+    Filters       = ["BASALT-200"]

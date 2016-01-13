@@ -10,7 +10,7 @@ import (
 type DeployedReceiver struct {
 	Install
 
-	Place string
+	Mark string
 }
 
 type DeployedReceiverList []DeployedReceiver
@@ -24,7 +24,7 @@ func (r DeployedReceiverList) encode() [][]string {
 		"Receiver Make",
 		"Receiver Model",
 		"Serial Number",
-		"Deployment Place",
+		"Mark",
 		"Installation Date",
 		"Removal Date",
 	}}
@@ -33,7 +33,7 @@ func (r DeployedReceiverList) encode() [][]string {
 			strings.TrimSpace(v.Make),
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.Place),
+			strings.TrimSpace(v.Mark),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -70,7 +70,7 @@ func (r *DeployedReceiverList) decode(data [][]string) error {
 						End:   end,
 					},
 				},
-				Place: strings.TrimSpace(d[3]),
+				Mark: strings.TrimSpace(d[3]),
 			})
 		}
 

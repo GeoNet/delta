@@ -11,8 +11,7 @@ import (
 )
 
 type Coefficient struct {
-	Number int32   `yaml:"number"`
-	Value  float64 `yaml:"value"`
+	Value float64 `yaml:"value"`
 }
 
 type Polynomial struct {
@@ -29,7 +28,7 @@ type Polynomial struct {
 	Coefficients []Coefficient `yaml:"coefficients,omitempty" toml:"coefficient"`
 }
 
-type polynomials struct {
+type polynomialList struct {
 	Polynomials []Polynomial `toml:"polynomial"`
 }
 
@@ -42,7 +41,7 @@ func (p Polynomials) Less(i, j int) bool {
 }
 
 func LoadPolynomialFile(path string) ([]Polynomial, error) {
-	var pols polynomials
+	var pols polynomialList
 	b, err := ioutil.ReadFile(path)
 	if err != nil {
 		return nil, err
@@ -51,6 +50,8 @@ func LoadPolynomialFile(path string) ([]Polynomial, error) {
 	if _, err := toml.Decode(string(b), &pols); err != nil {
 		return nil, err
 	}
+
+	sort.Sort(Polynomials(pols.Polynomials))
 
 	return pols.Polynomials, nil
 }
@@ -72,15 +73,15 @@ func LoadPolynomialFiles(dirname, filename string) ([]Polynomial, error) {
 		return nil, err
 	}
 
+	sort.Sort(Polynomials(pols))
+
 	return pols, nil
 }
 
 func StorePolynomialFile(path string, pols []Polynomial) error {
 
-	sort.Sort(Polynomials(pols))
-
 	buf := new(bytes.Buffer)
-	if err := toml.NewEncoder(buf).Encode(polynomials{pols}); err != nil {
+	if err := toml.NewEncoder(buf).Encode(polynomialList{pols}); err != nil {
 		return err
 	}
 

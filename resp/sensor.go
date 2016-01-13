@@ -10,26 +10,30 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
-type Pin struct {
-	Pin     int32
+type SensorComponent struct {
 	Azimuth float64
 	Dip     float64
 }
 
-type Model struct {
-	Model string
-	Pins  []Pin `toml:"pin"`
+type SensorModel struct {
+	Model        string // FDSN StationXML Sensor Model
+	Type         string // FDSN StationXML Sensor Type
+	Description  string // FDSN StationXML Sensor Description
+	Manufacturer string // FDSN StationXML Vendor Description
+	Vendor       string // FDSN StationXML Vendor Description
+
+	Pins []SensorComponent `toml:"component"`
 }
 
-type models struct {
-	Models []Model `toml:"model"`
+type sensorModelList struct {
+	Models []SensorModel `toml:"sensor"`
 }
 
-type Models []Model
+type SensorModels []SensorModel
 
-func (c Models) Len() int      { return len(c) }
-func (c Models) Swap(i, j int) { c[i], c[j] = c[j], c[i] }
-func (c Models) Less(i, j int) bool {
+func (c SensorModels) Len() int      { return len(c) }
+func (c SensorModels) Swap(i, j int) { c[i], c[j] = c[j], c[i] }
+func (c SensorModels) Less(i, j int) bool {
 	switch {
 	case c[i].Model < c[j].Model:
 		return true
@@ -40,30 +44,32 @@ func (c Models) Less(i, j int) bool {
 	}
 }
 
-func LoadModelFile(path string) ([]Model, error) {
-	var mods models
+func LoadSensorModelFile(path string) ([]SensorModel, error) {
+	var sensors sensorModelList
 	b, err := ioutil.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
 
-	if _, err := toml.Decode(string(b), &mods); err != nil {
+	if _, err := toml.Decode(string(b), &sensors); err != nil {
 		return nil, err
 	}
 
-	return mods.Models, nil
+	sort.Sort(SensorModels(sensors.Models))
+
+	return sensors.Models, nil
 }
 
-func LoadModelFiles(dirname, filename string) ([]Model, error) {
+func LoadSensorModelFiles(dirname, filename string) ([]SensorModel, error) {
 
-	var mods []Model
+	var sensors []SensorModel
 	err := filepath.Walk(dirname, func(path string, fi os.FileInfo, err error) error {
 		if err == nil && filepath.Base(path) == filename {
-			r, err := LoadModelFile(path)
+			s, err := LoadSensorModelFile(path)
 			if err != nil {
 				return err
 			}
-			mods = append(mods, r...)
+			sensors = append(sensors, s...)
 		}
 		return nil
 	})
@@ -71,15 +77,15 @@ func LoadModelFiles(dirname, filename string) ([]Model, error) {
 		return nil, err
 	}
 
-	return mods, nil
+	sort.Sort(SensorModels(sensors))
+
+	return sensors, nil
 }
 
-func StoreModelFile(path string, mods []Model) error {
-
-	sort.Sort(Models(mods))
+func StoreSensorModelFile(path string, sensors []SensorModel) error {
 
 	buf := new(bytes.Buffer)
-	if err := toml.NewEncoder(buf).Encode(models{mods}); err != nil {
+	if err := toml.NewEncoder(buf).Encode(sensorModelList{sensors}); err != nil {
 		return err
 	}
 

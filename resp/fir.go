@@ -20,8 +20,8 @@ type FIR struct {
 	Factors    []float64 `yaml:"factors,omitempty"`
 }
 
-type firs struct {
-	FIRs []FIR `toml:"fir"`
+type firList struct {
+	Filters []FIR `toml:"fir"`
 }
 
 type FIRs []FIR
@@ -33,7 +33,7 @@ func (p FIRs) Less(i, j int) bool {
 }
 
 func LoadFIRFile(path string) ([]FIR, error) {
-	var firs firs
+	var firs firList
 	b, err := ioutil.ReadFile(path)
 	if err != nil {
 		return nil, err
@@ -43,7 +43,9 @@ func LoadFIRFile(path string) ([]FIR, error) {
 		return nil, err
 	}
 
-	return firs.FIRs, nil
+	sort.Sort(FIRs(firs.Filters))
+
+	return firs.Filters, nil
 }
 
 func LoadFIRFiles(dirname, filename string) ([]FIR, error) {
@@ -63,15 +65,15 @@ func LoadFIRFiles(dirname, filename string) ([]FIR, error) {
 		return nil, err
 	}
 
+	sort.Sort(FIRs(filters))
+
 	return filters, nil
 }
 
 func StoreFIRFile(path string, filters []FIR) error {
 
-	sort.Sort(FIRs(filters))
-
 	buf := new(bytes.Buffer)
-	if err := toml.NewEncoder(buf).Encode(firs{filters}); err != nil {
+	if err := toml.NewEncoder(buf).Encode(firList{filters}); err != nil {
 		return err
 	}
 

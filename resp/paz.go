@@ -15,29 +15,6 @@ type Complex struct {
 	Value complex128
 }
 
-/*
-func (c *Complex) UnmarshalYAML(unmarshal func(interface{}) error) error {
-	var params string
-	if err := unmarshal(&params); err != nil {
-		return err
-	}
-
-	var v complex128
-	if _, err := fmt.Sscanf(params, "%g", &v); err != nil {
-		return err
-	}
-
-	//*c = Complex(v)
-	c.Value = v
-
-	return nil
-}
-
-func (c Complex) MarshalYAML() (interface{}, error) {
-	return fmt.Sprintf("%g", complex128(c.Value)), nil
-}
-*/
-
 func (c Complex) MarshalText() ([]byte, error) {
 	return []byte(fmt.Sprintf("%g", complex128(c.Value))), nil
 }
@@ -63,8 +40,8 @@ type PAZ struct {
 	Zeros []Complex
 }
 
-type pazs struct {
-	PAZs []PAZ `toml:"paz"`
+type pazList struct {
+	Filters []PAZ `toml:"paz"`
 }
 
 type PAZs []PAZ
@@ -76,7 +53,7 @@ func (p PAZs) Less(i, j int) bool {
 }
 
 func LoadPAZFile(path string) ([]PAZ, error) {
-	var pazs pazs
+	var pazs pazList
 	b, err := ioutil.ReadFile(path)
 	if err != nil {
 		return nil, err
@@ -86,7 +63,9 @@ func LoadPAZFile(path string) ([]PAZ, error) {
 		return nil, err
 	}
 
-	return pazs.PAZs, nil
+	sort.Sort(PAZs(pazs.Filters))
+
+	return pazs.Filters, nil
 }
 
 func LoadPAZFiles(dirname, filename string) ([]PAZ, error) {
@@ -106,15 +85,15 @@ func LoadPAZFiles(dirname, filename string) ([]PAZ, error) {
 		return nil, err
 	}
 
+	sort.Sort(PAZs(filters))
+
 	return filters, nil
 }
 
 func StorePAZFile(path string, filters []PAZ) error {
 
-	sort.Sort(PAZs(filters))
-
 	buf := new(bytes.Buffer)
-	if err := toml.NewEncoder(buf).Encode(pazs{filters}); err != nil {
+	if err := toml.NewEncoder(buf).Encode(pazList{filters}); err != nil {
 		return err
 	}
 

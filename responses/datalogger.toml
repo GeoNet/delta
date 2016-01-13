@@ -1,0 +1,53 @@
+[[datalogger]]
+  Model = "EARSS/3"
+  Type = "Datalogger"
+  Description = "EARSS"
+  Manufacturer = "GNS Science"
+
+[[datalogger]]
+  Model = "EARSS/16"
+  Type = "Datalogger"
+  Description = "EARSS"
+  Manufacturer = "GNS Science"
+
+[[datalogger]]
+  Model = "Q330/3"
+  Type = "Datalogger"
+  Description = "Q330"
+  Manufacturer = "Quanterra"
+
+[[datalogger]]
+  Model = "Q330S/3"
+  Type = "Datalogger"
+  Description = "Q330"
+  Manufacturer = "Quanterra"
+
+[[datalogger]]
+  Model = "Q330/6"
+  Type = "Datalogger"
+  Description = "Q330"
+  Manufacturer = "Quanterra"
+
+[[datalogger]]
+  Model = "Q330S/6"
+  Type = "Datalogger"
+  Description = "Q330"
+  Manufacturer = "Quanterra"
+
+[[datalogger]]
+  Model = "Q330HR/6"
+  Type = "Datalogger"
+  Description = "Q330HR"
+  Manufacturer = "Quanterra"
+
+[[datalogger]]
+  Model = "ETNA"
+  Type = "Strong Motion Recorder"
+  Description = "Etna"
+  Manufacturer = "Kinemetrics"
+
+[[datalogger]]
+  Model = "BASALT"
+  Type = "Strong Motion Recorder"
+  Description = "Basalt"
+  Manufacturer = "Kinemetrics"

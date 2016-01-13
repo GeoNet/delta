@@ -14,7 +14,7 @@ type Datalogger struct {
 	Type          string
 	Label         string
 	Rate          float64
-	Frequencey    float64
+	Frequency     float64
 	StorageFormat string
 	ClockDrift    float64
 	DLFilters     []string `toml:"filters"`
@@ -39,14 +39,14 @@ type Stream struct {
 	Sensor
 }
 
-type responses struct {
+type responseList struct {
 	Responses []Response `toml:"response"`
 }
 
 type Responses []Response
 
 func LoadResponseFile(path string) ([]Response, error) {
-	var resp responses
+	var resp responseList
 	b, err := ioutil.ReadFile(path)
 	if err != nil {
 		return nil, err
@@ -82,7 +82,7 @@ func LoadResponseFiles(dirname, filename string) ([]Response, error) {
 func StoreResponseFile(path string, resp []Response) error {
 
 	buf := new(bytes.Buffer)
-	if err := toml.NewEncoder(buf).Encode(responses{resp}); err != nil {
+	if err := toml.NewEncoder(buf).Encode(responseList{resp}); err != nil {
 		return err
 	}
 

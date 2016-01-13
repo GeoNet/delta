@@ -8,9 +8,9 @@ import (
 
 func TestModel(t *testing.T) {
 
-	t.Log("Load model file")
+	t.Log("Load sensor model file")
 	{
-		m, err := resp.LoadModelFile("../responses/model.toml")
+		m, err := resp.LoadSensorModelFile("../responses/sensor.toml")
 		if err != nil {
 			t.Fatal(err)
 		}

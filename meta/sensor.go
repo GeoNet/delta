@@ -13,8 +13,8 @@ type InstalledSensor struct {
 	Orientation
 	Offset
 
-	StationCode  string `csv:"Station Code"`
-	LocationCode string `csv:"Location Code"`
+	StationCode  string
+	LocationCode string
 }
 
 type InstalledSensorList []InstalledSensor

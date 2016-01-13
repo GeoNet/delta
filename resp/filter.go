@@ -10,27 +10,23 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
-type Stage struct {
-	Type   string
-	Lookup string
-	Freq   float64
-	Rate   float64
-	Factor int32
-	Gain   float64
-	Scale  float64
-	Corr   float64
-	Delay  float64
-	Input  string
-	Output string
+type ResponseStage struct {
+	Type        string
+	Lookup      string
+	Frequency   float64
+	SampleRate  float64
+	Factor      int32
+	Gain        float64
+	Scale       float64
+	Correction  float64
+	Delay       float64
+	InputUnits  string
+	OutputUnits string
 }
 
 type Filter struct {
 	Name   string
-	Stages []Stage `toml:"stage"`
-}
-
-type filters struct {
-	Filters []Filter `toml:"filter"`
+	Stages []ResponseStage `toml:"stage"`
 }
 
 type Filters []Filter
@@ -48,8 +44,12 @@ func (f Filters) Less(i, j int) bool {
 	}
 }
 
+type filterList struct {
+	Filters []Filter `toml:"filter"`
+}
+
 func LoadFilterFile(path string) ([]Filter, error) {
-	var filts filters
+	var filts filterList
 	b, err := ioutil.ReadFile(path)
 	if err != nil {
 		return nil, err
@@ -58,6 +58,8 @@ func LoadFilterFile(path string) ([]Filter, error) {
 	if _, err := toml.Decode(string(b), &filts); err != nil {
 		return nil, err
 	}
+
+	sort.Sort(Filters(filts.Filters))
 
 	return filts.Filters, nil
 }
@@ -79,15 +81,15 @@ func LoadFilterFiles(dirname, filename string) ([]Filter, error) {
 		return nil, err
 	}
 
+	sort.Sort(Filters(filts))
+
 	return filts, nil
 }
 
 func StoreFilterFile(path string, filts []Filter) error {
 
-	sort.Sort(Filters(filts))
-
 	buf := new(bytes.Buffer)
-	if err := toml.NewEncoder(buf).Encode(filters{filts}); err != nil {
+	if err := toml.NewEncoder(buf).Encode(filterList{filts}); err != nil {
 		return err
 	}
 

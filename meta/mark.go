@@ -93,7 +93,6 @@ func (m *MarkList) decode(data [][]string) error {
 			if end, err = time.Parse(DateTimeFormat, d[12]); err != nil {
 				return err
 			}
-
 			marks = append(marks, Mark{
 				Reference: Reference{
 					Code:    strings.TrimSpace(d[0]),
@@ -115,6 +114,61 @@ func (m *MarkList) decode(data [][]string) error {
 				MonumentType:       strings.TrimSpace(d[9]),
 				DomeNumber:         strings.TrimSpace(d[10]),
 			})
+
+			/*
+				// Mark Code,Network Code,Mark Name,Mark Type,Latitude,Longitude,Height,Datum,Ground Relationship,Start Time,End Time,Dome Number,Plan Reference,Protection,Sky View,Monument Type,Established By
+
+				if len(d) != 17 {
+					return fmt.Errorf("incorrect number of installed mark fields")
+				}
+				var err error
+
+				var lat, lon, elev float64
+				if lat, err = strconv.ParseFloat(d[4], 64); err != nil {
+					return err
+				}
+				if lon, err = strconv.ParseFloat(d[5], 64); err != nil {
+					return err
+				}
+				if elev, err = strconv.ParseFloat(d[6], 64); err != nil {
+					return err
+				}
+
+				var ground float64
+				if ground, err = strconv.ParseFloat(d[8], 64); err != nil {
+					return err
+				}
+
+				var start, end time.Time
+				if start, err = time.Parse(DateTimeFormat, d[9]); err != nil {
+					return err
+				}
+				if end, err = time.Parse(DateTimeFormat, d[10]); err != nil {
+					return err
+				}
+
+				marks = append(marks, Mark{
+					Reference: Reference{
+						Code:    strings.TrimSpace(d[0]),
+						Network: strings.TrimSpace(d[1]),
+						Name:    strings.TrimSpace(d[2]),
+					},
+					Span: Span{
+						Start: start,
+						End:   end,
+					},
+					Point: Point{
+						Latitude:  lat,
+						Longitude: lon,
+						Elevation: elev,
+						Datum:     strings.TrimSpace(d[7]),
+					},
+					GroundRelationship: ground,
+					MarkType:           strings.TrimSpace(d[3]),
+					MonumentType:       strings.TrimSpace(d[15]),
+					DomeNumber:         strings.TrimSpace(d[11]),
+				})
+			*/
 		}
 
 		*m = MarkList(marks)

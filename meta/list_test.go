@@ -470,7 +470,7 @@ func TestList(t *testing.T) {
 							}(),
 						},
 					},
-					Place: "Mount Hodgkinson",
+					Mark: "HORN",
 				},
 				meta.DeployedReceiver{
 					Install: meta.Install{
@@ -490,7 +490,7 @@ func TestList(t *testing.T) {
 							}(),
 						},
 					},
-					Place: "Methven",
+					Mark: "METH",
 				},
 			},
 		},
@@ -552,6 +552,73 @@ func TestList(t *testing.T) {
 					},
 					StationCode:  "INZ",
 					LocationCode: "10",
+				},
+			},
+		},
+		{
+			"testdata/recorders.csv",
+			&meta.InstalledRecorderList{
+				meta.InstalledRecorder{
+					InstalledSensor: meta.InstalledSensor{
+						Install: meta.Install{
+							Equipment: meta.Equipment{
+								Make:   "CSI",
+								Model:  "CUSP3A",
+								Serial: "3A-040001",
+							},
+							Span: meta.Span{
+								Start: func() time.Time {
+									v, _ := time.Parse(meta.DateTimeFormat, "2004-11-27T00:00:00Z")
+									return v
+								}(),
+								End: func() time.Time {
+									v, _ := time.Parse(meta.DateTimeFormat, "2010-03-25T00:30:00Z")
+									return v
+								}(),
+							},
+						},
+						Orientation: meta.Orientation{
+							Azimuth: 266.0,
+							Dip:     0.0,
+						},
+						Offset: meta.Offset{
+							Height: 0.0,
+						},
+						StationCode:  "AMBC",
+						LocationCode: "20",
+					},
+					DataloggerModel: "CUSP3A",
+				},
+				meta.InstalledRecorder{
+					InstalledSensor: meta.InstalledSensor{
+						Install: meta.Install{
+							Equipment: meta.Equipment{
+								Make:   "Kinemetrics",
+								Model:  "FBA-ES-T-DECK",
+								Serial: "1275",
+							},
+							Span: meta.Span{
+								Start: func() time.Time {
+									v, _ := time.Parse(meta.DateTimeFormat, "2014-04-17T00:10:00Z")
+									return v
+								}(),
+								End: func() time.Time {
+									v, _ := time.Parse(meta.DateTimeFormat, "2014-07-29T00:00:00Z")
+									return v
+								}(),
+							},
+						},
+						Orientation: meta.Orientation{
+							Azimuth: 210.0,
+							Dip:     0.0,
+						},
+						Offset: meta.Offset{
+							Height: 0.0,
+						},
+						StationCode:  "EKS3",
+						LocationCode: "20",
+					},
+					DataloggerModel: "BASALT",
 				},
 			},
 		},
