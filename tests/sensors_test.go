@@ -12,7 +12,7 @@ func TestSensors(t *testing.T) {
 
 	t.Log("Load installed sensors file")
 	{
-		if err := meta.LoadList("../installs/sensors.csv", &sensors); err != nil {
+		if err := meta.LoadList("../install/sensors.csv", &sensors); err != nil {
 			t.Fatal(err)
 		}
 	}

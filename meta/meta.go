@@ -42,6 +42,10 @@ type Equipment struct {
 	Serial string
 }
 
+func (e Equipment) String() string {
+	return e.Make + " " + e.Model + " [" + e.Serial + "]"
+}
+
 func (e Equipment) less(eq Equipment) bool {
 
 	switch {

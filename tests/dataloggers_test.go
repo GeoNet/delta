@@ -12,7 +12,7 @@ func TestDataloggers(t *testing.T) {
 
 	t.Log("Load deployed dataloggers file")
 	{
-		if err := meta.LoadList("../installs/dataloggers.csv", &dataloggers); err != nil {
+		if err := meta.LoadList("../install/dataloggers.csv", &dataloggers); err != nil {
 			t.Fatal(err)
 		}
 	}
