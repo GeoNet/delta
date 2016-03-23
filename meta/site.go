@@ -5,10 +5,12 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"time"
 )
 
 type Site struct {
 	Point
+	Span
 
 	StationCode  string
 	LocationCode string
@@ -43,6 +45,8 @@ func (s SiteList) encode() [][]string {
 		"Longitude",
 		"Height",
 		"Datum",
+		"Start Time",
+		"End Time",
 	}}
 	for _, v := range s {
 		data = append(data, []string{
@@ -52,6 +56,8 @@ func (s SiteList) encode() [][]string {
 			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
 			strings.TrimSpace(v.Datum),
+			v.Start.Format(DateTimeFormat),
+			v.End.Format(DateTimeFormat),
 		})
 	}
 	return data
@@ -61,7 +67,7 @@ func (s *SiteList) decode(data [][]string) error {
 	var sites []Site
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 6 {
+			if len(d) != 8 {
 				return fmt.Errorf("incorrect number of installed site fields")
 			}
 			var err error
@@ -77,12 +83,24 @@ func (s *SiteList) decode(data [][]string) error {
 				return err
 			}
 
+			var start, end time.Time
+			if start, err = time.Parse(DateTimeFormat, d[6]); err != nil {
+				return err
+			}
+			if end, err = time.Parse(DateTimeFormat, d[7]); err != nil {
+				return err
+			}
+
 			sites = append(sites, Site{
 				Point: Point{
 					Latitude:  lat,
 					Longitude: lon,
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[5]),
+				},
+				Span: Span{
+					Start: start,
+					End:   end,
 				},
 				StationCode:  strings.TrimSpace(d[0]),
 				LocationCode: strings.TrimSpace(d[1]),

@@ -84,6 +84,57 @@ func TestList(t *testing.T) {
 			},
 		},
 		{
+			"testdata/mounts.csv",
+			&meta.MountList{
+				meta.Mount{
+					Reference: meta.Reference{
+						Code: "MTSR",
+						Name: "Ruapehu South",
+					},
+					Point: meta.Point{
+						Latitude:  -39.384607843,
+						Longitude: 175.470410324,
+						Elevation: 840,
+						Datum:     "WGS84",
+					},
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2011-09-08T00:10:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+					Description: "Images of Mount Ruapehu from the volcano camera situated at Mangateitei.",
+				},
+				meta.Mount{
+					Reference: meta.Reference{
+						Code: "RIMM",
+						Name: "Raoul Island",
+					},
+					Point: meta.Point{
+						Latitude:  -29.267332,
+						Longitude: -177.907235,
+						Elevation: 490,
+						Datum:     "WGS84",
+					},
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2009-05-18T00:00:02Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+					Description: "Images looking into Green Lake on Raoul Island from the volcano camera situated on Mount Moumoukai.",
+				},
+			},
+		},
+		{
 			"testdata/sites.csv",
 			&meta.SiteList{
 				meta.Site{
@@ -92,6 +143,16 @@ func TestList(t *testing.T) {
 						Longitude: 175.547981982,
 						Elevation: 1116.0,
 						Datum:     "WGS84",
+					},
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2014-05-16T00:00:15Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
 					},
 					StationCode:  "CNZ",
 					LocationCode: "12",
@@ -102,6 +163,16 @@ func TestList(t *testing.T) {
 						Longitude: 169.411775594,
 						Elevation: 701.0,
 						Datum:     "WGS84",
+					},
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "1986-12-09T20:10:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "1996-05-01T21:38:00Z")
+							return v
+						}(),
 					},
 					StationCode:  "MSCZ",
 					LocationCode: "10",
@@ -401,6 +472,67 @@ func TestList(t *testing.T) {
 						Datum:     "NZGD2000",
 					},
 					MarkCode: "MTJO",
+				},
+			},
+		},
+		{
+			"testdata/cameras.csv",
+			&meta.InstalledCameraList{
+				meta.InstalledCamera{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
+							Make:   "Axis Communications AB",
+							Model:  "AXIS-221",
+							Serial: "00408C6DC9E1",
+						},
+						Span: meta.Span{
+							Start: func() time.Time {
+								v, _ := time.Parse(meta.DateTimeFormat, "2006-02-24T14:00:00Z")
+								return v
+							}(),
+							End: func() time.Time {
+								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+								return v
+							}(),
+						},
+					},
+					Orientation: meta.Orientation{
+						Dip:     0.0,
+						Azimuth: 20.0,
+					},
+					Offset: meta.Offset{
+						Height: -3.0,
+					},
+					MountCode: "WHWI",
+					Notes:     "Looking at White Island",
+				},
+				meta.InstalledCamera{
+					Install: meta.Install{
+						Equipment: meta.Equipment{
+							Make:   "Mobotix AG",
+							Model:  "M12 3MP",
+							Serial: "0003c5041fc7",
+						},
+						Span: meta.Span{
+							Start: func() time.Time {
+								v, _ := time.Parse(meta.DateTimeFormat, "2009-03-03T02:00:00Z")
+								return v
+							}(),
+							End: func() time.Time {
+								v, _ := time.Parse(meta.DateTimeFormat, "2009-09-18T01:00:00Z")
+								return v
+							}(),
+						},
+					},
+					Orientation: meta.Orientation{
+						Dip:     0.0,
+						Azimuth: 280.0,
+					},
+					Offset: meta.Offset{
+						Height: -10.0,
+					},
+					MountCode: "K",
+					Notes:     "Bearing is magnetic.",
 				},
 			},
 		},
