@@ -761,6 +761,8 @@ func TestList(t *testing.T) {
 					StationCode:  "APZ",
 					LocationCode: "10",
 					Place:        "The Paps",
+					PreAmp:       false,
+					Gain:         0,
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2006-05-07T03:23:54Z")
@@ -776,6 +778,8 @@ func TestList(t *testing.T) {
 					StationCode:  "BSWZ",
 					LocationCode: "10",
 					Place:        "Blackbirch Station",
+					PreAmp:       true,
+					Gain:         1,
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2003-12-09T00:00:00Z")
