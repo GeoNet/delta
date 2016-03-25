@@ -24,15 +24,18 @@ func TestConsistency(t *testing.T) {
 		"recorders":   {f: "../install/recorders.csv", l: &meta.InstalledRecorderList{}},
 		"sensors":     {f: "../install/sensors.csv", l: &meta.InstalledSensorList{}},
 		"firmware":    {f: "../install/firmware.csv", l: &meta.FirmwareHistoryList{}},
+		"networks":    {f: "../network/networks.csv", l: &meta.NetworkList{}},
+		"stations":    {f: "../network/stations.csv", l: &meta.StationList{}},
+		"sites":       {f: "../network/sites.csv", l: &meta.SiteList{}},
+		"marks":       {f: "../network/marks.csv", l: &meta.MarkList{}},
+		"mounts":      {f: "../network/mounts.csv", l: &meta.MountList{}},
 	}
 
 	for k, v := range files {
-		t.Log(k + ": check file can be loaded: " + v.f)
 		if err := meta.LoadList(v.f, v.l); err != nil {
 			t.Fatal(err)
 		}
 
-		t.Log(k + ": load raw file: " + v.f)
 		raw, err := ioutil.ReadFile(v.f)
 		if err != nil {
 			t.Fatal(err)
@@ -44,7 +47,7 @@ func TestConsistency(t *testing.T) {
 		}
 
 		if string(raw) != buf.String() {
-			t.Error(k + ": csv file mismatch: " + v.f)
+			t.Error(k + ": **** csv file mismatch **** : " + v.f)
 		}
 	}
 }

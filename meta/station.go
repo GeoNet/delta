@@ -13,7 +13,7 @@ type Station struct {
 	Point
 	Span
 
-	Notes string
+	//	Notes string
 }
 
 type StationList []Station
@@ -33,7 +33,7 @@ func (s StationList) encode() [][]string {
 		"Datum",
 		"Start Time",
 		"End Time",
-		"Notes",
+		//"Notes",
 	}}
 	for _, v := range s {
 		data = append(data, []string{
@@ -46,7 +46,7 @@ func (s StationList) encode() [][]string {
 			strings.TrimSpace(v.Datum),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
-			strings.TrimSpace(v.Notes),
+			//strings.TrimSpace(v.Notes),
 		})
 	}
 	return data
@@ -56,7 +56,8 @@ func (s *StationList) decode(data [][]string) error {
 	var stations []Station
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 10 {
+			if len(d) != 9 {
+				//if len(d) != 10 {
 				return fmt.Errorf("incorrect number of installed station fields")
 			}
 			var err error
@@ -96,7 +97,7 @@ func (s *StationList) decode(data [][]string) error {
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[6]),
 				},
-				Notes: strings.TrimSpace(d[9]),
+				//Notes: strings.TrimSpace(d[9]),
 			})
 		}
 
