@@ -3,7 +3,6 @@ package meta
 import (
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -15,8 +14,6 @@ type Connection struct {
 	LocationCode string
 	Place        string
 	Role         string
-	PreAmp       bool
-	Gain         int32
 }
 
 func (c Connection) less(con Connection) bool {
@@ -54,8 +51,6 @@ func (c ConnectionList) encode() [][]string {
 		"Location Code",
 		"Datalogger Place",
 		"Datalogger Role",
-		"Pre Amp",
-		"Gain",
 		"Start Date",
 		"End Date",
 	}}
@@ -65,8 +60,6 @@ func (c ConnectionList) encode() [][]string {
 			strings.TrimSpace(v.LocationCode),
 			strings.TrimSpace(v.Place),
 			strings.TrimSpace(v.Role),
-			strconv.FormatBool(v.PreAmp),
-			strconv.FormatInt(int64(v.Gain), 10),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -78,25 +71,16 @@ func (c *ConnectionList) decode(data [][]string) error {
 	var connections []Connection
 	if len(data) > 1 {
 		for _, v := range data[1:] {
-			if len(v) != 8 {
+			if len(v) != 6 {
 				return fmt.Errorf("incorrect number of installed connection fields")
 			}
 			var err error
 
-			var preamp bool
-			if preamp, err = strconv.ParseBool(v[4]); err != nil {
-				return err
-			}
-			var gain int64
-			if gain, err = strconv.ParseInt(v[5], 10, 32); err != nil {
-				return err
-			}
-
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[6]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, v[4]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, v[7]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, v[5]); err != nil {
 				return err
 			}
 
@@ -105,8 +89,6 @@ func (c *ConnectionList) decode(data [][]string) error {
 				LocationCode: strings.TrimSpace(v[1]),
 				Place:        strings.TrimSpace(v[2]),
 				Role:         strings.TrimSpace(v[3]),
-				PreAmp:       preamp,
-				Gain:         int32(gain),
 				Span: Span{
 					Start: start,
 					End:   end,

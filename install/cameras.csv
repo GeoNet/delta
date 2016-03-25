@@ -1,4 +1,4 @@
-Camera Make,Camera Model,Serial Number,Site Code,Dip,Azimuth,Camera Height,Offset North,Offset East,Installation Date,Removal Date,Notes
+Camera Make,Camera Model,Serial Number,Mount Code,Dip,Azimuth,Camera Height,Offset North,Offset East,Installation Date,Removal Date,Notes
 Axis Communications AB,AXIS-221,00408C6DC9E1,WHWI,0,20,-3,0,0,2006-02-24T14:00:00Z,9999-01-01T00:00:00Z,Looking at White Island
 Mobotix AG,M12 3MP,0003c5041fc7,K,0,280,-10,0,0,2009-03-03T02:00:00Z,2009-09-18T01:00:00Z,Bearing is magnetic.
 Mobotix AG,M12 3MP,10.3.234.85,T,0,180,0,0,0,2009-11-24T22:30:00Z,9999-01-01T00:00:00Z,
