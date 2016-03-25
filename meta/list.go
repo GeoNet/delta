@@ -5,6 +5,7 @@ import (
 	"encoding/csv"
 	"os"
 	"path/filepath"
+	"sort"
 )
 
 type ListEncoder interface {
@@ -17,6 +18,8 @@ type ListDecoder interface {
 type List interface {
 	ListEncoder
 	ListDecoder
+
+	sort.Interface
 }
 
 func MarshalList(l ListEncoder) []byte {

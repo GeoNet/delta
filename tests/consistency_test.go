@@ -3,7 +3,11 @@ package delta_test
 import (
 	"bytes"
 	"encoding/csv"
+	//	"io"
 	"io/ioutil"
+	"os"
+	"os/exec"
+	"sort"
 	"testing"
 
 	"github.com/GeoNet/delta/meta"
@@ -36,6 +40,8 @@ func TestConsistency(t *testing.T) {
 			t.Fatal(err)
 		}
 
+		sort.Sort(v.l)
+
 		raw, err := ioutil.ReadFile(v.f)
 		if err != nil {
 			t.Fatal(err)
@@ -48,6 +54,31 @@ func TestConsistency(t *testing.T) {
 
 		if string(raw) != buf.String() {
 			t.Error(k + ": **** csv file mismatch **** : " + v.f)
+
+			file, err := ioutil.TempFile(os.TempDir(), "tst")
+			if err != nil {
+				t.Fatal(err)
+			}
+			defer os.Remove(file.Name())
+			file.Write(buf.Bytes())
+
+			cmd := exec.Command("diff", v.f, file.Name())
+			stdout, err := cmd.StdoutPipe()
+			if err != nil {
+				t.Fatal(err)
+			}
+			err = cmd.Start()
+			if err != nil {
+				t.Fatal(err)
+			}
+			defer cmd.Wait()
+			what, err := ioutil.ReadAll(stdout)
+			if err != nil {
+				t.Fatal(err)
+			}
+			t.Error(string(what))
+
+			//go io.Copy(os.Stdout, stdout)
 		}
 	}
 }
