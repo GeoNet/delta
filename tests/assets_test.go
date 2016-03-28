@@ -4,6 +4,9 @@ import (
 	"bytes"
 	"encoding/csv"
 	"io/ioutil"
+	"os"
+	"os/exec"
+	"sort"
 	"testing"
 
 	"github.com/GeoNet/delta/meta"
@@ -12,14 +15,14 @@ import (
 func TestAssets(t *testing.T) {
 
 	files := map[string]string{
-		"antennas":    "../equipment/antennas.csv",
-		"cameras":     "../equipment/cameras.csv",
-		"dataloggers": "../equipment/dataloggers.csv",
-		"metsensors":  "../equipment/metsensors.csv",
-		"radomes":     "../equipment/radomes.csv",
-		"receivers":   "../equipment/receivers.csv",
-		"recorders":   "../equipment/recorders.csv",
-		"sensors":     "../equipment/sensors.csv",
+		"antennas":    "../assets/antennas.csv",
+		"cameras":     "../assets/cameras.csv",
+		"dataloggers": "../assets/dataloggers.csv",
+		"metsensors":  "../assets/metsensors.csv",
+		"radomes":     "../assets/radomes.csv",
+		"receivers":   "../assets/receivers.csv",
+		"recorders":   "../assets/recorders.csv",
+		"sensors":     "../assets/sensors.csv",
 	}
 
 	reference := make(map[string]string)
@@ -32,10 +35,12 @@ func TestAssets(t *testing.T) {
 			t.Fatal(err)
 		}
 
+		sort.Sort(assets)
+
 		for _, a := range assets {
 			if a.AssetNumber != "" {
-				if _, ok := reference[a.AssetNumber]; ok {
-					t.Error(k + ": Duplicate asset number: " + a.String() + " " + a.AssetNumber)
+				if x, ok := reference[a.AssetNumber]; ok {
+					t.Error(k + ": Duplicate asset number: " + a.String() + " " + a.AssetNumber + " [" + x + "]")
 				}
 				reference[a.AssetNumber] = a.String()
 			}
@@ -54,6 +59,30 @@ func TestAssets(t *testing.T) {
 
 		if string(raw) != buf.String() {
 			t.Error(k + ": Assets file mismatch: " + v)
+
+			file, err := ioutil.TempFile(os.TempDir(), "tst")
+			if err != nil {
+				t.Fatal(err)
+			}
+			defer os.Remove(file.Name())
+			file.Write(buf.Bytes())
+
+			cmd := exec.Command("diff", v, file.Name())
+			stdout, err := cmd.StdoutPipe()
+			if err != nil {
+				t.Fatal(err)
+			}
+			err = cmd.Start()
+			if err != nil {
+				t.Fatal(err)
+			}
+			defer cmd.Wait()
+			diff, err := ioutil.ReadAll(stdout)
+			if err != nil {
+				t.Fatal(err)
+			}
+			t.Error(string(diff))
+
 		}
 	}
 }

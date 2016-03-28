@@ -72,13 +72,11 @@ func TestConsistency(t *testing.T) {
 				t.Fatal(err)
 			}
 			defer cmd.Wait()
-			what, err := ioutil.ReadAll(stdout)
+			diff, err := ioutil.ReadAll(stdout)
 			if err != nil {
 				t.Fatal(err)
 			}
-			t.Error(string(what))
-
-			//go io.Copy(os.Stdout, stdout)
+			t.Error(string(diff))
 		}
 	}
 }

@@ -1,3 +1,3 @@
-Station Code,Location Code,Datalogger Place,Datalogger Role,Pre Amp,Gain,Start Date,End Date
-APZ,10,The Paps,,false,0,2006-05-07T03:23:54Z,9999-01-01T00:00:00Z
-BSWZ,10,Blackbirch Station,,true,1,2003-12-09T00:00:00Z,9999-01-01T00:00:00Z
+Station Code,Location Code,Datalogger Place,Datalogger Role,Start Date,End Date
+APZ,10,The Paps,,2006-05-07T03:23:54Z,9999-01-01T00:00:00Z
+BSWZ,10,Blackbirch Station,,2003-12-09T00:00:00Z,9999-01-01T00:00:00Z

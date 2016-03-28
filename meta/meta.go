@@ -46,7 +46,7 @@ func (e Equipment) String() string {
 	return e.Make + " " + e.Model + " [" + e.Serial + "]"
 }
 
-func (e Equipment) less(eq Equipment) bool {
+func (e Equipment) Less(eq Equipment) bool {
 
 	switch {
 	case e.Make < eq.Make:
@@ -75,9 +75,9 @@ type Install struct {
 
 func (i Install) less(in Install) bool {
 	switch {
-	case i.Equipment.less(in.Equipment):
+	case i.Equipment.Less(in.Equipment):
 		return true
-	case in.Equipment.less(i.Equipment):
+	case in.Equipment.Less(i.Equipment):
 		return false
 	default:
 		return i.Start.Before(in.Start)

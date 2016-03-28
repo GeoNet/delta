@@ -1,3 +1,3 @@
-Station Code,Network Code,Station Name,Latitude,Longitude,Height,Datum,Start Time,End Time,Notes
-DFE,TR,Dawson Falls,-39.325743417,174.103863732,880,WGS84,1993-12-14T00:00:00Z,2010-02-23T00:00:00Z,
-TBAS,SM,Tolaga Bay Area School,-38.372803703,178.300778623,8,WGS84,2002-03-05T00:00:00Z,9999-01-01T00:00:00Z,Is located in the Kiln Shed next to the hall
+Station Code,Network Code,Station Name,Latitude,Longitude,Height,Datum,Start Time,End Time
+DFE,TR,Dawson Falls,-39.325743417,174.103863732,880,WGS84,1993-12-14T00:00:00Z,2010-02-23T00:00:00Z
+TBAS,SM,Tolaga Bay Area School,-38.372803703,178.300778623,8,WGS84,2002-03-05T00:00:00Z,9999-01-01T00:00:00Z

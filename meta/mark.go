@@ -15,7 +15,7 @@ type Mark struct {
 
 	MarkType           string
 	MonumentType       string
-	DomeNumber         string
+	DomesNumber        string
 	GroundRelationship float64
 }
 
@@ -37,7 +37,7 @@ func (m MarkList) encode() [][]string {
 		"Ground Relationship",
 		"Mark Type",
 		"Monument Type",
-		"Dome Number",
+		"Domes Number",
 		"Start Time",
 		"End Time",
 	}}
@@ -53,7 +53,7 @@ func (m MarkList) encode() [][]string {
 			strconv.FormatFloat(v.GroundRelationship, 'g', -1, 64),
 			strings.TrimSpace(v.MarkType),
 			strings.TrimSpace(v.MonumentType),
-			strings.TrimSpace(v.DomeNumber),
+			strings.TrimSpace(v.DomesNumber),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -112,7 +112,7 @@ func (m *MarkList) decode(data [][]string) error {
 				GroundRelationship: ground,
 				MarkType:           strings.TrimSpace(d[8]),
 				MonumentType:       strings.TrimSpace(d[9]),
-				DomeNumber:         strings.TrimSpace(d[10]),
+				DomesNumber:        strings.TrimSpace(d[10]),
 			})
 
 			/*

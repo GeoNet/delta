@@ -17,7 +17,7 @@ type AssetList []Asset
 
 func (a AssetList) Len() int           { return len(a) }
 func (a AssetList) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a AssetList) Less(i, j int) bool { return a[i].Equipment.less(a[j].Equipment) }
+func (a AssetList) Less(i, j int) bool { return a[i].Equipment.Less(a[j].Equipment) }
 
 func (a AssetList) encode() [][]string {
 	data := [][]string{{"Manufacturer", "Make", "Model", "Serial Number", "Asset Number", "Notes"}}

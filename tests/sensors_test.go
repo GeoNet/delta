@@ -8,19 +8,34 @@ import (
 )
 
 func TestSensors(t *testing.T) {
-	var sensors meta.InstalledSensorList
-
+	var installed meta.InstalledSensorList
 	t.Log("Load installed sensors file")
 	{
-		if err := meta.LoadList("../install/sensors.csv", &sensors); err != nil {
+		if err := meta.LoadList("../install/sensors.csv", &installed); err != nil {
 			t.Fatal(err)
+		}
+		sort.Sort(installed)
+	}
+
+	t.Log("Check for missing sensors")
+	{
+		var sensors meta.AssetList
+		if err := meta.LoadList("../assets/sensors.csv", &sensors); err != nil {
+			t.Fatal(err)
+		}
+		sort.Sort(sensors)
+		for _, i := range installed {
+			n := sort.Search(len(sensors), func(j int) bool { return !sensors[j].Equipment.Less(i.Equipment) })
+			if n < 0 || i.Equipment.Less(sensors[n].Equipment) {
+				t.Errorf("unable to find sensor: %s", i.String())
+			}
 		}
 	}
 
-	t.Log("Check for sensor installation equipment overlaps")
+	t.Log("Check for sensor installation overlaps")
 	{
 		installs := make(map[string]meta.InstalledSensorList)
-		for _, s := range sensors {
+		for _, s := range installed {
 			_, ok := installs[s.Model]
 			if ok {
 				installs[s.Model] = append(installs[s.Model], s)
@@ -56,25 +71,72 @@ func TestSensors(t *testing.T) {
 		}
 	}
 
-	t.Log("Check for missing sensor stations")
-	{
-		var stations meta.StationList
+	/*
+		t.Log("Check for missing sensor stations")
+		{
+			var stations meta.StationList
 
-		if err := meta.LoadList("../network/stations.csv", &stations); err != nil {
-			t.Fatal(err)
-		}
-
-		keys := make(map[string]interface{})
-
-		for _, s := range stations {
-			keys[s.Code] = true
-		}
-
-		for _, s := range sensors {
-			if _, ok := keys[s.StationCode]; ok {
-				continue
+			if err := meta.LoadList("../network/stations.csv", &stations); err != nil {
+				t.Fatal(err)
 			}
-			t.Errorf("unable to find sensor installed station %-5s", s.StationCode)
+
+			sort.Sort(stations)
+
+			for _, i := range installed {
+				n := sort.Search(len(stations), func(j int) bool { return !(stations[j].Code < i.StationCode) })
+				if n < 0 || i.StationCode != stations[n].Code {
+					t.Errorf("unable to find station: %s", i.StationCode)
+				} else {
+					if i.Start.Before(stations[n].Start) {
+						t.Errorf("installed sensor before station has been opened: %s: %s (%s %s)", i.String(), i.Start.String(), stations[n].Code, stations[n].Start.String())
+					}
+					if i.End.After(stations[n].End) {
+						t.Errorf("installed sensor after station has been closed: %s: %s (%s %s)", i.String(), i.End.String(), stations[n].Code, stations[n].End.String())
+					}
+				}
+			}
+		}
+
+		t.Log("Check for missing sensor sites")
+		{
+			var sites meta.SiteList
+
+			if err := meta.LoadList("../network/sites.csv", &sites); err != nil {
+				t.Fatal(err)
+			}
+
+			sort.Sort(sites)
+
+			for _, i := range installed {
+				n := sort.Search(len(sites), func(j int) bool {
+					if sites[j].StationCode > i.StationCode {
+						return true
+					}
+					if sites[j].StationCode < i.StationCode {
+						return false
+					}
+					return !(sites[j].LocationCode < i.LocationCode)
+				})
+				if n < 0 || i.StationCode != sites[n].StationCode || i.LocationCode != sites[n].LocationCode {
+					t.Errorf("unable to find site: %s/%s", i.StationCode, i.LocationCode)
+				} else {
+					if i.Start.Before(sites[n].Start) {
+						t.Errorf("installed sensor before site has been opened: %s: %s (%s/%s %s)", i.String(), i.Start.String(), sites[n].StationCode, sites[n].LocationCode, sites[n].Start.String())
+					}
+					if i.End.After(sites[n].End) {
+						t.Errorf("installed sensor after site has been closed: %s: %s (%s/%s %s)", i.String(), i.End.String(), sites[n].StationCode, sites[n].LocationCode, sites[n].End.String())
+					}
+				}
+			}
+		}
+	*/
+
+	for _, i := range installed {
+		if i.Orientation.Azimuth < -360.0 || i.Orientation.Azimuth > 360.0 {
+			t.Errorf("installed sensor has invalid orientation azimuth: %s [%g]", i.String(), i.Orientation.Azimuth)
+		}
+		if i.Orientation.Dip < -90.0 || i.Orientation.Dip > 90.0 {
+			t.Errorf("installed sensor has invalid orientation dip: %s [%g]", i.String(), i.Orientation.Dip)
 		}
 	}
 

@@ -79,7 +79,7 @@ func TestList(t *testing.T) {
 							return v
 						}(),
 					},
-					Notes: "Is located in the Kiln Shed next to the hall",
+					//Notes: "Is located in the Kiln Shed next to the hall",
 				},
 			},
 		},
@@ -223,7 +223,7 @@ func TestList(t *testing.T) {
 					GroundRelationship: -1.25,
 					MarkType:           "Forced Centering",
 					MonumentType:       "Short Braced",
-					DomeNumber:         "50212M003",
+					DomesNumber:        "50212M003",
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2005-08-10T00:00:00Z")
@@ -761,8 +761,8 @@ func TestList(t *testing.T) {
 					StationCode:  "APZ",
 					LocationCode: "10",
 					Place:        "The Paps",
-					PreAmp:       false,
-					Gain:         0,
+					//PreAmp:       false,
+					//Gain:         0,
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2006-05-07T03:23:54Z")
@@ -778,11 +778,33 @@ func TestList(t *testing.T) {
 					StationCode:  "BSWZ",
 					LocationCode: "10",
 					Place:        "Blackbirch Station",
-					PreAmp:       true,
-					Gain:         1,
+					//PreAmp:       true,
+					//Gain:         1,
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2003-12-09T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+				},
+			},
+		},
+		{
+			"testdata/sessions.csv",
+			&meta.SessionList{
+				meta.Session{
+					MarkCode:      "TAUP",
+					Operator:      "GeoNet",
+					Agency:        "GNS",
+					Interval:      time.Second * 30,
+					HeaderComment: "linz",
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2002-03-01T00:00:00Z")
 							return v
 						}(),
 						End: func() time.Time {
