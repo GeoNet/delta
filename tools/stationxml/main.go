@@ -67,14 +67,18 @@ func main() {
 
 	flag.Parse()
 
+	// which stations to process
 	stationMatch, err := regexp.Compile(stationRegexp)
 	if err != nil {
-		panic(err)
+		fmt.Fprintf(os.Stderr, "unable to compile station regexp %s: %v\n", stationRegexp, err)
+		os.Exit(-1)
 	}
 
+	// which networks to process
 	networkMatch, err := regexp.Compile(networkRegexp)
 	if err != nil {
-		panic(err)
+		fmt.Fprintf(os.Stderr, "unable to compile network regexp %s: %v\n", networkRegexp, err)
+		os.Exit(-1)
 	}
 
 	// load network details ...
@@ -82,7 +86,8 @@ func main() {
 	{
 		var n meta.NetworkList
 		if err := meta.LoadList(filepath.Join(network, "networks.csv"), &n); err != nil {
-			panic(err)
+			fmt.Fprintf(os.Stderr, "unable to load network list: %v\n", err)
+			os.Exit(-1)
 		}
 
 		for _, v := range n {
@@ -95,7 +100,8 @@ func main() {
 	{
 		var s meta.StationList
 		if err := meta.LoadList(filepath.Join(network, "stations.csv"), &s); err != nil {
-			panic(err)
+			fmt.Fprintf(os.Stderr, "unable to load station list: %v\n", err)
+			os.Exit(-1)
 		}
 
 		for _, v := range s {
@@ -116,7 +122,8 @@ func main() {
 		{
 			var cons meta.ConnectionList
 			if err := meta.LoadList(filepath.Join(install, "connections.csv"), &cons); err != nil {
-				panic(err)
+				fmt.Fprintf(os.Stderr, "unable to load connection list: %v\n", err)
+				os.Exit(-1)
 			}
 
 			for _, c := range cons {
@@ -131,7 +138,8 @@ func main() {
 
 		var recs meta.InstalledRecorderList
 		if err := meta.LoadList(filepath.Join(install, "recorders.csv"), &recs); err != nil {
-			panic(err)
+			fmt.Fprintf(os.Stderr, "unable to load recorder list: %v\n", err)
+			os.Exit(-1)
 		}
 		for _, r := range recs {
 			c := meta.Connection{
@@ -157,7 +165,8 @@ func main() {
 	{
 		var locs meta.SiteList
 		if err := meta.LoadList(filepath.Join(network, "sites.csv"), &locs); err != nil {
-			panic(err)
+			fmt.Fprintf(os.Stderr, "unable to load site list: %v\n", err)
+			os.Exit(-1)
 		}
 
 		for _, l := range locs {
@@ -173,7 +182,8 @@ func main() {
 	{
 		var loggers meta.DeployedDataloggerList
 		if err := meta.LoadList(filepath.Join(install, "dataloggers.csv"), &loggers); err != nil {
-			panic(err)
+			fmt.Fprintf(os.Stderr, "unable to load datalogger list: %v\n", err)
+			os.Exit(-1)
 		}
 		for _, d := range loggers {
 			if _, ok := dataloggerDeploys[d.Place]; ok {
@@ -185,7 +195,8 @@ func main() {
 
 		var recs meta.InstalledRecorderList
 		if err := meta.LoadList(filepath.Join(install, "recorders.csv"), &recs); err != nil {
-			panic(err)
+			fmt.Fprintf(os.Stderr, "unable to load recorder list: %v\n", err)
+			os.Exit(-1)
 		}
 		for _, r := range recs {
 			d := meta.DeployedDatalogger{
@@ -222,7 +233,8 @@ func main() {
 		{
 			var sensors meta.InstalledSensorList
 			if err := meta.LoadList(filepath.Join(install, "sensors.csv"), &sensors); err != nil {
-				panic(err)
+				fmt.Fprintf(os.Stderr, "unable to load sensor list: %v\n", err)
+				os.Exit(-1)
 			}
 			for _, s := range sensors {
 				if _, ok := sensorInstalls[s.StationCode]; ok {
@@ -235,7 +247,8 @@ func main() {
 		{
 			var recorders meta.InstalledRecorderList
 			if err := meta.LoadList(filepath.Join(install, "recorders.csv"), &recorders); err != nil {
-				panic(err)
+				fmt.Fprintf(os.Stderr, "unable to load recorder list: %v\n", err)
+				os.Exit(-1)
 			}
 			for _, r := range recorders {
 				if _, ok := sensorInstalls[r.StationCode]; ok {
@@ -248,7 +261,8 @@ func main() {
 		{
 			var gauges meta.InstalledGaugeList
 			if err := meta.LoadList(filepath.Join(install, "gauges.csv"), &gauges); err != nil {
-				panic(err)
+				fmt.Fprintf(os.Stderr, "unable to load gauge list: %v\n", err)
+				os.Exit(-1)
 			}
 			for _, g := range gauges {
 				s := meta.InstalledSensor{
@@ -341,7 +355,8 @@ func main() {
 		}
 		n, ok := networkMap[v.Network]
 		if !ok {
-			panic("unknown network " + v.Network)
+			fmt.Fprintf(os.Stderr, "error: unknown network %s\n", v.Network)
+			os.Exit(-1)
 		}
 
 		if _, ok := connectionMap[k]; !ok {
@@ -471,14 +486,16 @@ func main() {
 								var stages []stationxml.ResponseStage
 								for _, v := range f {
 									if _, ok := Filters[v]; !ok {
-										panic("missing filter: " + v)
+										fmt.Fprintf(os.Stderr, "error: unknown filter %s\n", v)
+										os.Exit(-1)
 									}
 									for _, s := range Filters[v] {
 										switch s.Type {
 										case "poly":
 											p, ok := Polynomials[s.Lookup]
 											if !ok {
-												panic("unknown poly filter: " + s.Lookup)
+												fmt.Fprintf(os.Stderr, "error: unknown polynomial filter %s\n", s.Lookup)
+												os.Exit(-1)
 											}
 											var coeffs []stationxml.Coefficient
 											for n, c := range p.Coefficients {
@@ -525,7 +542,8 @@ func main() {
 											})
 										case "paz":
 											if _, ok := PAZs[s.Lookup]; !ok {
-												panic("unknown paz filter: " + s.Lookup)
+												fmt.Fprintf(os.Stderr, "error: unknown paz filter %s\n", s.Lookup)
+												os.Exit(-1)
 											}
 											var poles []stationxml.PoleZero
 											for j, p := range PAZs[s.Lookup].Poles {
@@ -641,7 +659,8 @@ func main() {
 
 										case "fir":
 											if _, ok := FIRs[s.Lookup]; !ok {
-												panic("unknown fir filter: " + s.Lookup)
+												fmt.Fprintf(os.Stderr, "error: unknown fir filter %s\n", s.Lookup)
+												os.Exit(-1)
 											}
 											var coeffs []stationxml.NumeratorCoefficient
 											for j, c := range FIRs[s.Lookup].Factors {
@@ -660,15 +679,12 @@ func main() {
 												},
 												Symmetry: func() stationxml.Symmetry {
 													switch strings.ToUpper(FIRs[s.Lookup].Symmetry) {
-													case "NONE":
-														return stationxml.SymmetryNone
 													case "EVEN":
 														return stationxml.SymmetryEven
 													case "ODD":
 														return stationxml.SymmetryOdd
-
 													default:
-														panic("unknown fir symmetry: " + FIRs[s.Lookup].Symmetry)
+														return stationxml.SymmetryNone
 													}
 												}(),
 												NumeratorCoefficients: coeffs,
@@ -698,7 +714,8 @@ func main() {
 												},
 											})
 										default:
-											panic("unknown filter type: " + v + ":" + s.Type)
+											fmt.Fprintf(os.Stderr, "error: unknown filter type %s: %s\n", v, s.Type)
+											os.Exit(-1)
 										}
 										count++
 									}
@@ -965,7 +982,8 @@ func main() {
 	for k, _ := range stas {
 		n, ok := networkMap[k]
 		if !ok {
-			panic("unknown network " + k)
+			fmt.Fprintf(os.Stderr, "error: unknown network: %s\n", k)
+			os.Exit(-1)
 		}
 		var on, off *stationxml.DateTime
 
@@ -1008,22 +1026,26 @@ func main() {
 
 	root := stationxml.NewFDSNStationXML(source, sender, module, "", networks)
 	if ok := root.IsValid(); ok != nil {
-		panic("invalid stationxml file")
+		fmt.Fprintf(os.Stderr, "error: invalid stationxml file\n")
+		os.Exit(-1)
 	}
 
 	// marshal into xml
 	x, err := root.Marshal()
 	if err != nil {
-		panic(err)
+		fmt.Fprintf(os.Stderr, "error: unable to marshal stationxml\n")
+		os.Exit(-1)
 	}
 
 	// output as needed ...
 	if output != "-" {
 		if err := os.MkdirAll(filepath.Dir(output), 0755); err != nil {
-			panic(err)
+			fmt.Fprintf(os.Stderr, "error: unable to create directory %s: %v\n", filepath.Dir(output), err)
+			os.Exit(-1)
 		}
 		if err := ioutil.WriteFile(output, x, 0644); err != nil {
-			panic(err)
+			fmt.Fprintf(os.Stderr, "error: unable to write file %s: %v\n", output, err)
+			os.Exit(-1)
 		}
 	} else {
 		fmt.Fprintln(os.Stdout, string(x))
