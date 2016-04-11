@@ -3,6 +3,7 @@ package meta
 import (
 	"fmt"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -14,6 +15,7 @@ type Session struct {
 	Operator      string
 	Agency        string
 	Interval      time.Duration
+	ElevationMask float64
 	HeaderComment string
 }
 
@@ -48,6 +50,7 @@ func (s SessionList) encode() [][]string {
 		"Operator",
 		"Agency",
 		"Interval",
+		"Elevation Mask",
 		"Header Comment",
 		"Start Date",
 		"End Date",
@@ -58,6 +61,7 @@ func (s SessionList) encode() [][]string {
 			strings.TrimSpace(v.Operator),
 			strings.TrimSpace(v.Agency),
 			strings.TrimSpace(v.Interval.String()),
+			strings.TrimSpace(strconv.FormatFloat(v.ElevationMask, 'g', -1, 64)),
 			strings.TrimSpace(v.HeaderComment),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
@@ -70,7 +74,7 @@ func (c *SessionList) decode(data [][]string) error {
 	var sessions []Session
 	if len(data) > 1 {
 		for _, v := range data[1:] {
-			if len(v) != 7 {
+			if len(v) != 8 {
 				return fmt.Errorf("incorrect number of installed session fields")
 			}
 			var err error
@@ -81,10 +85,15 @@ func (c *SessionList) decode(data [][]string) error {
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[5]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, v[6]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, v[6]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, v[7]); err != nil {
+				return err
+			}
+
+			var mask float64
+			if mask, err = strconv.ParseFloat(v[4], 64); err != nil {
 				return err
 			}
 
@@ -93,7 +102,8 @@ func (c *SessionList) decode(data [][]string) error {
 				Operator:      strings.TrimSpace(v[1]),
 				Agency:        strings.TrimSpace(v[2]),
 				Interval:      interval,
-				HeaderComment: strings.TrimSpace(v[4]),
+				ElevationMask: mask,
+				HeaderComment: strings.TrimSpace(v[5]),
 				Span: Span{
 					Start: start,
 					End:   end,

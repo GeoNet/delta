@@ -801,6 +801,7 @@ func TestList(t *testing.T) {
 					Operator:      "GeoNet",
 					Agency:        "GNS",
 					Interval:      time.Second * 30,
+					ElevationMask: 0,
 					HeaderComment: "linz",
 					Span: meta.Span{
 						Start: func() time.Time {
