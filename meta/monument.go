@@ -14,6 +14,9 @@ type Monument struct {
 	MarkType     string
 	MonumentType string
 	DomesNumber  string
+
+	Bedrock string
+	Geology string
 }
 
 type MonumentList []Monument
@@ -28,6 +31,8 @@ func (m MonumentList) encode() [][]string {
 		"Mark Type",
 		"Monument Type",
 		"Domes Number",
+		"Bedrock",
+		"Geology",
 	}}
 	for _, v := range m {
 		data = append(data, []string{
@@ -35,6 +40,8 @@ func (m MonumentList) encode() [][]string {
 			strings.TrimSpace(v.MarkType),
 			strings.TrimSpace(v.MonumentType),
 			strings.TrimSpace(v.DomesNumber),
+			strings.TrimSpace(v.Bedrock),
+			strings.TrimSpace(v.Geology),
 		})
 	}
 	return data
@@ -44,7 +51,7 @@ func (m *MonumentList) decode(data [][]string) error {
 	var monuments []Monument
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 4 {
+			if len(d) != 6 {
 				return fmt.Errorf("incorrect number of installed monument fields")
 			}
 			monuments = append(monuments, Monument{
@@ -52,6 +59,8 @@ func (m *MonumentList) decode(data [][]string) error {
 				MarkType:     strings.TrimSpace(d[1]),
 				MonumentType: strings.TrimSpace(d[2]),
 				DomesNumber:  strings.TrimSpace(d[3]),
+				Bedrock:      strings.TrimSpace(d[4]),
+				Geology:      strings.TrimSpace(d[5]),
 			})
 		}
 

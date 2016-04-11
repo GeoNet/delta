@@ -1,3 +1,3 @@
-Mark Code,Network Code,Mark Name,Latitude,Longitude,Height,Datum,Ground Relationship,Mark Type,Monument Type,Domes Number,Start Time,End Time
-AHTI,CG,Ahititi,-38.411447554,178.046002897,563.221,NZGD2000,0,Forced Centering,Deep Braced,,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
-DUND,LI,Dunedin,-45.88366604,170.5971706,386.964,NZGD2000,-1.25,Forced Centering,Short Braced,50212M003,2005-08-10T00:00:00Z,9999-01-01T00:00:00Z
+Mark Code,Network Code,Mark Name,Latitude,Longitude,Height,Datum,Ground Relationship,Start Time,End Time
+AHTI,CG,Ahititi,-38.411447554,178.046002897,563.221,NZGD2000,0,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
+DUND,LI,Dunedin,-45.88366604,170.5971706,386.964,NZGD2000,-1.25,2005-08-10T00:00:00Z,9999-01-01T00:00:00Z
