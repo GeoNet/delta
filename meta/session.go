@@ -11,12 +11,13 @@ import (
 type Session struct {
 	Span
 
-	MarkCode      string
-	Operator      string
-	Agency        string
-	Interval      time.Duration
-	ElevationMask float64
-	HeaderComment string
+	MarkCode        string
+	Operator        string
+	Agency          string
+	SatelliteSystem string
+	Interval        time.Duration
+	ElevationMask   float64
+	HeaderComment   string
 }
 
 func (s Session) Less(session Session) bool {
@@ -49,6 +50,7 @@ func (s SessionList) encode() [][]string {
 		"Mark Code",
 		"Operator",
 		"Agency",
+		"Satellite System",
 		"Interval",
 		"Elevation Mask",
 		"Header Comment",
@@ -60,6 +62,7 @@ func (s SessionList) encode() [][]string {
 			strings.TrimSpace(v.MarkCode),
 			strings.TrimSpace(v.Operator),
 			strings.TrimSpace(v.Agency),
+			strings.TrimSpace(v.SatelliteSystem),
 			strings.TrimSpace(v.Interval.String()),
 			strings.TrimSpace(strconv.FormatFloat(v.ElevationMask, 'g', -1, 64)),
 			strings.TrimSpace(v.HeaderComment),
@@ -74,36 +77,37 @@ func (c *SessionList) decode(data [][]string) error {
 	var sessions []Session
 	if len(data) > 1 {
 		for _, v := range data[1:] {
-			if len(v) != 8 {
+			if len(v) != 9 {
 				return fmt.Errorf("incorrect number of installed session fields")
 			}
 			var err error
 
 			var interval time.Duration
-			if interval, err = time.ParseDuration(v[3]); err != nil {
+			if interval, err = time.ParseDuration(v[4]); err != nil {
 				return err
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[6]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, v[7]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, v[7]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, v[8]); err != nil {
 				return err
 			}
 
 			var mask float64
-			if mask, err = strconv.ParseFloat(v[4], 64); err != nil {
+			if mask, err = strconv.ParseFloat(v[5], 64); err != nil {
 				return err
 			}
 
 			sessions = append(sessions, Session{
-				MarkCode:      strings.TrimSpace(v[0]),
-				Operator:      strings.TrimSpace(v[1]),
-				Agency:        strings.TrimSpace(v[2]),
-				Interval:      interval,
-				ElevationMask: mask,
-				HeaderComment: strings.TrimSpace(v[5]),
+				MarkCode:        strings.TrimSpace(v[0]),
+				Operator:        strings.TrimSpace(v[1]),
+				Agency:          strings.TrimSpace(v[2]),
+				SatelliteSystem: strings.TrimSpace(v[3]),
+				Interval:        interval,
+				ElevationMask:   mask,
+				HeaderComment:   strings.TrimSpace(v[6]),
 				Span: Span{
 					Start: start,
 					End:   end,

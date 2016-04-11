@@ -64,5 +64,11 @@ func TestSessions(t *testing.T) {
 				s.End.String(),
 			}, " "))
 		}
+		switch s.SatelliteSystem {
+		case "GPS":
+		case "GPS+GLONASS":
+		default:
+			t.Error("unknown satellite system: " + s.SatelliteSystem)
+		}
 	}
 }
