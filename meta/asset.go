@@ -8,9 +8,8 @@ import (
 
 type Asset struct {
 	Equipment
-	Manufacturer string
-	AssetNumber  string
-	Notes        string
+	AssetNumber string
+	Notes       string
 }
 
 type AssetList []Asset
@@ -20,10 +19,9 @@ func (a AssetList) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a AssetList) Less(i, j int) bool { return a[i].Equipment.Less(a[j].Equipment) }
 
 func (a AssetList) encode() [][]string {
-	data := [][]string{{"Manufacturer", "Make", "Model", "Serial Number", "Asset Number", "Notes"}}
+	data := [][]string{{"Make", "Model", "Serial Number", "Asset Number", "Notes"}}
 	for _, v := range a {
 		data = append(data, []string{
-			v.Manufacturer,
 			v.Make,
 			v.Model,
 			v.Serial,
@@ -38,18 +36,17 @@ func (a *AssetList) decode(data [][]string) error {
 	var assets []Asset
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 6 {
+			if len(d) != 5 {
 				return fmt.Errorf("incorrect number of asset fields")
 			}
 			assets = append(assets, Asset{
 				Equipment: Equipment{
-					Make:   strings.TrimSpace(d[1]),
-					Model:  strings.TrimSpace(d[2]),
-					Serial: strings.TrimSpace(d[3]),
+					Make:   strings.TrimSpace(d[0]),
+					Model:  strings.TrimSpace(d[1]),
+					Serial: strings.TrimSpace(d[2]),
 				},
-				Manufacturer: strings.TrimSpace(d[0]),
-				AssetNumber:  strings.TrimSpace(d[4]),
-				Notes:        strings.TrimSpace(d[5]),
+				AssetNumber: strings.TrimSpace(d[3]),
+				Notes:       strings.TrimSpace(d[4]),
 			})
 		}
 

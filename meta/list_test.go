@@ -194,11 +194,6 @@ func TestList(t *testing.T) {
 						Elevation: 563.221,
 						Datum:     "NZGD2000",
 					},
-					/*
-						MarkType:           "Forced Centering",
-						MonumentType:       "Deep Braced",
-						GroundRelationship: 0.0,
-					*/
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2009-01-01T00:00:00Z")
@@ -223,11 +218,6 @@ func TestList(t *testing.T) {
 						Datum:     "NZGD2000",
 					},
 					GroundRelationship: -1.25,
-					/*
-						MarkType:           "Forced Centering",
-						MonumentType:       "Short Braced",
-						DomesNumber:        "50212M003",
-					*/
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2005-08-10T00:00:00Z")
@@ -250,8 +240,7 @@ func TestList(t *testing.T) {
 						Model:  "Chokering Model 29659.00",
 						Serial: "0220063995",
 					},
-					Manufacturer: "Trimble Navigation Ltd.",
-					AssetNumber:  "100",
+					AssetNumber: "100",
 				},
 				{
 					Equipment: meta.Equipment{
@@ -259,8 +248,7 @@ func TestList(t *testing.T) {
 						Model:  "Chokering Model 29659.00",
 						Serial: "0220066912",
 					},
-					Manufacturer: "Trimble Navigation Ltd.",
-					AssetNumber:  "101",
+					AssetNumber: "101",
 				},
 			},
 		},
