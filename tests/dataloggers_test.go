@@ -97,4 +97,31 @@ func TestDataloggers(t *testing.T) {
 		}
 	}
 
+	var assets meta.AssetList
+	t.Log("Load datalogger assets file")
+	{
+		if err := meta.LoadList("../assets/dataloggers.csv", &assets); err != nil {
+			t.Fatal(err)
+		}
+	}
+
+	t.Log("Check for datalogger assets")
+	{
+		for _, r := range dataloggers {
+			var found bool
+			for _, a := range assets {
+				if a.Model != r.Model {
+					continue
+				}
+				if a.Serial != r.Serial {
+					continue
+				}
+				found = true
+			}
+			if !found {
+				t.Errorf("unable to find datalogger asset: %s [%s]", r.Model, r.Serial)
+			}
+		}
+	}
+
 }

@@ -7,26 +7,26 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
-func TestReceivers(t *testing.T) {
+func TestRadomes(t *testing.T) {
 
-	var receivers meta.DeployedReceiverList
-	t.Log("Load deployed receivers file")
+	var radomes meta.InstalledRadomeList
+	t.Log("Load deployed radomes file")
 	{
-		if err := meta.LoadList("../install/receivers.csv", &receivers); err != nil {
+		if err := meta.LoadList("../install/radomes.csv", &radomes); err != nil {
 			t.Fatal(err)
 		}
 	}
 
-	t.Log("Check for receivers installation equipment overlaps")
+	t.Log("Check for radomes installation equipment overlaps")
 	{
-		installs := make(map[string]meta.DeployedReceiverList)
-		for _, s := range receivers {
+		installs := make(map[string]meta.InstalledRadomeList)
+		for _, s := range radomes {
 			_, ok := installs[s.Model]
 			if ok {
 				installs[s.Model] = append(installs[s.Model], s)
 
 			} else {
-				installs[s.Model] = meta.DeployedReceiverList{s}
+				installs[s.Model] = meta.InstalledRadomeList{s}
 			}
 		}
 
@@ -48,15 +48,15 @@ func TestReceivers(t *testing.T) {
 					case v[i].End.Equal(v[j].Start):
 					case v[i].Start.Equal(v[j].End):
 					default:
-						t.Errorf("receivers %s at %-5s has location %-2s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+						t.Errorf("radomes %s at %-5s has mark %s overlap between %s and %s",
+							v[i].Model, v[i].Serial, v[i].MarkCode, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
 			}
 		}
 	}
 
-	t.Log("Check for missing receiver marks")
+	t.Log("Check for missing radome marks")
 	{
 		var marks meta.MarkList
 
@@ -70,25 +70,25 @@ func TestReceivers(t *testing.T) {
 			keys[m.Code] = true
 		}
 
-		for _, r := range receivers {
-			if _, ok := keys[r.Mark]; ok {
+		for _, c := range radomes {
+			if _, ok := keys[c.MarkCode]; ok {
 				continue
 			}
-			t.Errorf("unable to find receiver mark %-5s", r.Mark)
+			t.Errorf("unable to find radome mark %-5s", c.MarkCode)
 		}
 	}
 
 	var assets meta.AssetList
-	t.Log("Load receiver assets file")
+	t.Log("Load radome assets file")
 	{
-		if err := meta.LoadList("../assets/receivers.csv", &assets); err != nil {
+		if err := meta.LoadList("../assets/radomes.csv", &assets); err != nil {
 			t.Fatal(err)
 		}
 	}
 
-	t.Log("Check for receiver assets")
+	t.Log("Check for radome assets")
 	{
-		for _, r := range receivers {
+		for _, r := range radomes {
 			var found bool
 			for _, a := range assets {
 				if a.Model != r.Model {
@@ -100,7 +100,7 @@ func TestReceivers(t *testing.T) {
 				found = true
 			}
 			if !found {
-				t.Errorf("unable to find receiver asset: %s [%s]", r.Model, r.Serial)
+				t.Errorf("unable to find radome asset: %s [%s]", r.Model, r.Serial)
 			}
 		}
 	}

@@ -140,4 +140,31 @@ func TestSensors(t *testing.T) {
 		}
 	}
 
+	var assets meta.AssetList
+	t.Log("Load receiver sensors file")
+	{
+		if err := meta.LoadList("../assets/sensors.csv", &assets); err != nil {
+			t.Fatal(err)
+		}
+	}
+
+	t.Log("Check for sensor assets")
+	{
+		for _, s := range installed {
+			var found bool
+			for _, a := range assets {
+				if a.Model != s.Model {
+					continue
+				}
+				if a.Serial != s.Serial {
+					continue
+				}
+				found = true
+			}
+			if !found {
+				t.Errorf("unable to find sensor asset: %s [%s]", s.Model, s.Serial)
+			}
+		}
+	}
+
 }

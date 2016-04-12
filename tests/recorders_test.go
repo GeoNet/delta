@@ -78,4 +78,31 @@ func TestRecorders(t *testing.T) {
 		}
 	}
 
+	var assets meta.AssetList
+	t.Log("Load recorder assets file")
+	{
+		if err := meta.LoadList("../assets/recorders.csv", &assets); err != nil {
+			t.Fatal(err)
+		}
+	}
+
+	t.Log("Check for recorder assets")
+	{
+		for _, r := range recorders {
+			var found bool
+			for _, a := range assets {
+				if a.Model != r.Model {
+					continue
+				}
+				if a.Serial != r.Serial {
+					continue
+				}
+				found = true
+			}
+			if !found {
+				t.Errorf("unable to find recorders asset: %s [%s]", r.Model, r.Serial)
+			}
+		}
+	}
+
 }
