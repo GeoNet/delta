@@ -14,6 +14,10 @@ type Mark struct {
 	Span
 
 	GroundRelationship float64
+
+	Place   string
+	Region  string
+	Country string
 }
 
 type MarkList []Mark
@@ -27,6 +31,9 @@ func (m MarkList) encode() [][]string {
 		"Mark Code",
 		"Network Code",
 		"Mark Name",
+		"Place",
+		"Region",
+		"Country",
 		"Latitude",
 		"Longitude",
 		"Height",
@@ -40,6 +47,9 @@ func (m MarkList) encode() [][]string {
 			strings.TrimSpace(v.Code),
 			strings.TrimSpace(v.Network),
 			strings.TrimSpace(v.Name),
+			strings.TrimSpace(v.Place),
+			strings.TrimSpace(v.Region),
+			strings.TrimSpace(v.Country),
 			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
@@ -56,32 +66,32 @@ func (m *MarkList) decode(data [][]string) error {
 	var marks []Mark
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 10 {
+			if len(d) != 13 {
 				return fmt.Errorf("incorrect number of installed mark fields")
 			}
 			var err error
 
 			var lat, lon, elev float64
-			if lat, err = strconv.ParseFloat(d[3], 64); err != nil {
+			if lat, err = strconv.ParseFloat(d[6], 64); err != nil {
 				return err
 			}
-			if lon, err = strconv.ParseFloat(d[4], 64); err != nil {
+			if lon, err = strconv.ParseFloat(d[7], 64); err != nil {
 				return err
 			}
-			if elev, err = strconv.ParseFloat(d[5], 64); err != nil {
+			if elev, err = strconv.ParseFloat(d[8], 64); err != nil {
 				return err
 			}
 
 			var ground float64
-			if ground, err = strconv.ParseFloat(d[7], 64); err != nil {
+			if ground, err = strconv.ParseFloat(d[10], 64); err != nil {
 				return err
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[8]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[11]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[9]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[12]); err != nil {
 				return err
 			}
 			marks = append(marks, Mark{
@@ -98,9 +108,12 @@ func (m *MarkList) decode(data [][]string) error {
 					Latitude:  lat,
 					Longitude: lon,
 					Elevation: elev,
-					Datum:     strings.TrimSpace(d[6]),
+					Datum:     strings.TrimSpace(d[9]),
 				},
 				GroundRelationship: ground,
+				Place:              strings.TrimSpace(d[3]),
+				Region:             strings.TrimSpace(d[4]),
+				Country:            strings.TrimSpace(d[5]),
 			})
 		}
 
