@@ -1,2 +1,3 @@
 Mark Code,Operator,Agency,Satellite System,Interval,Elevation Mask,Header Comment,Start Date,End Date
-TAUP,GeoNet,GNS,GPS,30s,0,linz,2002-03-01T00:00:00Z,9999-01-01T00:00:00Z
+TAUP,GeoNet,GNS,GPS,30s,4,linz,2002-03-01T00:00:00Z,2010-12-01T22:02:00Z
+TAUP,GeoNet,GNS,GPS+GLO,30s,3,linz,2010-12-01T22:28:00Z,9999-01-01T00:00:00Z
