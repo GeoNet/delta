@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"math"
 	"os"
 	"path/filepath"
 	"sort"
@@ -61,6 +62,32 @@ var responsibleAgency = Agency{
 		Email:              "pgentle@linz.govt.nz",
 	},
 	Notes: "CGPS site is part of the LINZ PositioNZ Network http://www.linz.govt.nz/positionz",
+}
+
+func country(lat, lon float64) string {
+	var countries = []struct {
+		name     string
+		lat, lon float64
+	}{
+		{"New Zealand", -40.0, 174.0},
+		{"Tonga", -21.2, -175.2},
+		{"Samoa", -13.8, -172.1},
+		{"Niue", -19.0, -169.9},
+	}
+	X, Y, _ := WGS842ITRF(lat, lon, 0.0)
+
+	dist := float64(-1.0)
+	country := "Unknown"
+	for _, v := range countries {
+		x, y, _ := WGS842ITRF(v.lat, v.lon, 0.0)
+		r := math.Sqrt((x-X)*(x-X) + (y-Y)*(y-Y))
+		if dist < 0.0 || r < dist {
+			country = v.name
+			dist = r
+		}
+	}
+
+	return country
 }
 
 func main() {
@@ -398,7 +425,7 @@ func main() {
 						return "unknown"
 					}
 				}(),
-				HeightOfTheMonument: strconv.FormatFloat(-m.GroundRelationship, 'g', -1, 64),
+				HeightOfTheMonument: strconv.FormatFloat(-monument.GroundRelationship, 'g', -1, 64),
 				MonumentFoundation: func() string {
 					switch monument.MonumentType {
 					case "Pillar":
@@ -433,9 +460,11 @@ func main() {
 				Notes:                  "",
 			},
 			SiteLocation: SiteLocation{
-				City:          m.Place,
-				State:         m.Region,
-				Country:       m.Country,
+				/*
+					City:          m.Place,
+					State:         m.Region,
+				*/
+				Country:       country(m.Latitude, m.Longitude),
 				TectonicPlate: TectonicPlate(m.Latitude, m.Longitude),
 				ApproximatePositionITRF: ApproximatePositionITRF{
 					XCoordinateInMeters: strconv.FormatFloat(X, 'f', 5, 64),

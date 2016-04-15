@@ -64,8 +64,8 @@ func (m *MonumentList) decode(data [][]string) error {
 		for _, d := range data[1:] {
 			var err error
 
-			if len(d) != 6 {
-				return fmt.Errorf("incorrect number of installed monument fields")
+			if len(d) != 7 {
+				return fmt.Errorf("incorrect number of monument fields")
 			}
 			var ground float64
 			if ground, err = strconv.ParseFloat(d[monumentGroundRelationship], 64); err != nil {
