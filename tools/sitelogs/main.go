@@ -200,65 +200,129 @@ func main() {
 
 		var receivers []GnssReceiver
 		var antennas []GnssAntenna
-		for _, s := range sessions[m.Code] {
-			for _, a := range installedAntenna[m.Code] {
+		for _, a := range installedAntenna[m.Code] {
+			var session *meta.Session
+			for i, s := range sessions[m.Code] {
 				if a.Start.After(s.End) || a.End.Before(s.Start) {
 					continue
 				}
-				radome := "NONE"
-				serial := ""
-				if _, ok := installedRadomes[m.Code]; ok {
-					for _, v := range installedRadomes[m.Code] {
-						if v.Start.After(a.End) || v.End.Before(a.Start) {
-							continue
-						}
-						radome = v.Model
-						serial = v.Serial
-					}
-				}
-
-				antennas = append(antennas, GnssAntenna{
-					AntennaType:            a.Model,
-					SerialNumber:           a.Serial,
-					AntennaReferencePoint:  "BAM",
-					MarkerArpUpEcc:         strconv.FormatFloat(a.Height, 'f', 4, 64),
-					MarkerArpNorthEcc:      strconv.FormatFloat(a.North, 'f', 4, 64),
-					MarkerArpEastEcc:       strconv.FormatFloat(a.East, 'f', 4, 64),
-					AlignmentFromTrueNorth: "0",
-					AntennaRadomeType:      radome,
-					RadomeSerialNumber:     serial,
-					AntennaCableType:       "",
-					AntennaCableLength:     "",
-					DateInstalled:          a.Start.Format(DateTimeFormat),
-					DateRemoved: func() string {
-						if time.Now().After(a.End) {
-							return a.End.Format(DateTimeFormat)
-						} else {
-							return ""
-						}
-					}(),
-					Notes: "",
-				})
+				session = &sessions[m.Code][i]
+				break
+			}
+			if session == nil {
+				continue
 			}
 
-			for _, r := range deployedReceivers[m.Code] {
-				if r.Start.After(s.End) || r.End.Before(s.Start) {
-					continue
+			/*
+				start := a.Start
+				if start.Before(s.Start) {
+					start = s.Start
 				}
-				if _, ok := firmwareHistory[r.Model]; ok {
-					if _, ok := firmwareHistory[r.Model][r.Serial]; ok {
-						for i, _ := range firmwareHistory[r.Model][r.Serial] {
-							fmt.Println(r)
-							v := firmwareHistory[r.Model][r.Serial][len(firmwareHistory[r.Model][r.Serial])-i-1]
-							if v.End.Before(r.Start) || v.Start.After(r.End) {
+
+				end := a.End
+				if end.After(s.End) {
+					end = s.End
+				}
+			*/
+
+			radome := "NONE"
+			serial := ""
+			if _, ok := installedRadomes[m.Code]; ok {
+				for _, v := range installedRadomes[m.Code] {
+					if v.Start.After(a.End) || v.End.Before(a.Start) {
+						continue
+					}
+					radome = v.Model
+					serial = v.Serial
+				}
+			}
+
+			antennas = append(antennas, GnssAntenna{
+				AntennaType:            a.Model,
+				SerialNumber:           a.Serial,
+				AntennaReferencePoint:  "BAM",
+				MarkerArpUpEcc:         strconv.FormatFloat(a.Height, 'f', 4, 64),
+				MarkerArpNorthEcc:      strconv.FormatFloat(a.North, 'f', 4, 64),
+				MarkerArpEastEcc:       strconv.FormatFloat(a.East, 'f', 4, 64),
+				AlignmentFromTrueNorth: "0",
+				AntennaRadomeType:      radome,
+				RadomeSerialNumber:     serial,
+				AntennaCableType:       "",
+				AntennaCableLength:     "",
+				DateInstalled:          a.Start.Format(DateTimeFormat),
+				//DateInstalled: start.Format(DateTimeFormat),
+				DateRemoved: func() string {
+					if time.Now().After(a.End) {
+						return a.End.Format(DateTimeFormat)
+						//if time.Now().After(end) {
+						// return end.Format(DateTimeFormat)
+					} else {
+						return ""
+					}
+				}(),
+				Notes: "",
+			})
+		}
+
+		for _, r := range deployedReceivers[m.Code] {
+			/*
+				for _, s := range sessions[m.Code] {
+					if r.Start.After(s.End) || r.End.Before(s.Start) {
+						continue
+					}
+			*/
+			if _, ok := firmwareHistory[r.Model]; ok {
+				if _, ok := firmwareHistory[r.Model][r.Serial]; ok {
+					for i, _ := range firmwareHistory[r.Model][r.Serial] {
+
+						v := firmwareHistory[r.Model][r.Serial][len(firmwareHistory[r.Model][r.Serial])-i-1]
+						if v.End.Before(r.Start) || v.Start.After(r.End) {
+							continue
+						}
+
+						var session *meta.Session
+						for i, s := range sessions[m.Code] {
+							if r.Start.After(s.End) || r.End.Before(s.Start) {
 								continue
 							}
-							receivers = append(receivers, GnssReceiver{
-								ReceiverType:           r.Model,
-								SatelliteSystem:        s.SatelliteSystem,
-								SerialNumber:           r.Serial,
-								FirmwareVersion:        v.Version,
-								ElevationCutoffSetting: strconv.FormatFloat(s.ElevationMask, 'g', -1, 64),
+							if v.Start.After(s.End) || v.End.Before(s.Start) {
+								continue
+							}
+							session = &sessions[m.Code][i]
+							break
+						}
+						if session == nil {
+							continue
+						}
+
+						start := r.Start
+						/*
+							if start.Before(s.Start) {
+								start = s.Start
+							}
+						*/
+						if start.Before(v.Start) {
+							start = v.Start
+						}
+
+						end := r.End
+						/*
+							if end.After(s.End) {
+								end = s.End
+							}
+						*/
+						if end.After(v.End) {
+							end = v.End
+						}
+
+						receivers = append(receivers, GnssReceiver{
+							ReceiverType:           r.Model,
+							SatelliteSystem:        session.SatelliteSystem,
+							SerialNumber:           r.Serial,
+							FirmwareVersion:        v.Version,
+							ElevationCutoffSetting: strconv.FormatFloat(session.ElevationMask, 'g', -1, 64),
+							DateInstalled:          start.Format(DateTimeFormat),
+							/*
 								DateInstalled: func() string {
 									if v.Start.Before(r.Start) {
 										return r.Start.Format(DateTimeFormat)
@@ -266,7 +330,9 @@ func main() {
 										return v.Start.Format(DateTimeFormat)
 									}
 								}(),
-								DateRemoved: func() string {
+							*/
+							DateRemoved: func() string {
+								/*
 									if v.End.After(r.End) {
 										if time.Now().After(r.End) {
 											return r.End.Format(DateTimeFormat)
@@ -280,11 +346,16 @@ func main() {
 											return ""
 										}
 									}
-								}(),
-								TemperatureStabilization: "",
-								Notes: "",
-							})
-						}
+								*/
+								if time.Now().After(end) {
+									return end.Format(DateTimeFormat)
+								} else {
+									return ""
+								}
+							}(),
+							TemperatureStabilization: "",
+							Notes: "",
+						})
 					}
 				}
 			}

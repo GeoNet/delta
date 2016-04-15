@@ -24,9 +24,4 @@ func TestMarks(t *testing.T) {
 		}
 	}
 
-	for _, m := range marks {
-		if m.GroundRelationship > 0.0 {
-			t.Errorf("positive mark ground relationship: %s [%g]", m.Code, m.GroundRelationship)
-		}
-	}
 }

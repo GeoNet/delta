@@ -24,4 +24,10 @@ func TestMonuments(t *testing.T) {
 		}
 	}
 
+	for _, m := range monuments {
+		if m.GroundRelationship > 0.0 {
+			t.Errorf("positive monuments ground relationship: %s [%g]", m.MarkCode, m.GroundRelationship)
+		}
+	}
+
 }

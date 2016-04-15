@@ -217,7 +217,6 @@ func TestList(t *testing.T) {
 						Elevation: 386.964,
 						Datum:     "NZGD2000",
 					},
-					GroundRelationship: -1.25,
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2005-08-10T00:00:00Z")
@@ -228,6 +227,29 @@ func TestList(t *testing.T) {
 							return v
 						}(),
 					},
+				},
+			},
+		},
+		{
+			"testdata/monuments.csv",
+			&meta.MonumentList{
+				meta.Monument{
+					MarkCode:           "CLIM",
+					DomesNumber:        "",
+					MarkType:           "Forced Centering",
+					MonumentType:       "Deep Braced",
+					GroundRelationship: -1.00,
+					Bedrock:            "Greywacke",
+					Geology:            "",
+				},
+				meta.Monument{
+					MarkCode:           "TAUP",
+					DomesNumber:        "50217M001",
+					MarkType:           "Forced Centering",
+					MonumentType:       "Pillar",
+					GroundRelationship: -1.25,
+					Bedrock:            "Rhyolite",
+					Geology:            "",
 				},
 			},
 		},
