@@ -8,11 +8,26 @@ import (
 	"time"
 )
 
+const (
+	antennaMake int = iota
+	antennaModel
+	antennaSerialNumber
+	antennaMarkCode
+	antennaHeight
+	antennaOffsetNorth
+	antennaOffsetEast
+	antennaAzimuth
+	antennaInstallationDate
+	antennaRemovalDate
+	antennaLast
+)
+
 type InstalledAntenna struct {
 	Install
 	Offset
 
 	MarkCode string
+	Azimuth  float64
 }
 
 type InstalledAntennaList []InstalledAntenna
@@ -30,6 +45,7 @@ func (a InstalledAntennaList) encode() [][]string {
 		"Antenna Height",
 		"Offset North",
 		"Offset East",
+		"Azimuth",
 		"Installation Date",
 		"Removal Date",
 	}}
@@ -42,6 +58,7 @@ func (a InstalledAntennaList) encode() [][]string {
 			strconv.FormatFloat(v.Height, 'g', -1, 64),
 			strconv.FormatFloat(v.North, 'g', -1, 64),
 			strconv.FormatFloat(v.East, 'g', -1, 64),
+			strconv.FormatFloat(v.Azimuth, 'g', -1, 64),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -53,36 +70,41 @@ func (a *InstalledAntennaList) decode(data [][]string) error {
 	var antennas []InstalledAntenna
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 9 {
+			if len(d) != antennaLast {
 				return fmt.Errorf("incorrect number of installed antenna fields")
 			}
 			var err error
 
 			var height, north, east float64
-			if height, err = strconv.ParseFloat(d[4], 64); err != nil {
+			if height, err = strconv.ParseFloat(d[antennaHeight], 64); err != nil {
 				return err
 			}
-			if north, err = strconv.ParseFloat(d[5], 64); err != nil {
+			if north, err = strconv.ParseFloat(d[antennaOffsetNorth], 64); err != nil {
 				return err
 			}
-			if east, err = strconv.ParseFloat(d[6], 64); err != nil {
+			if east, err = strconv.ParseFloat(d[antennaOffsetEast], 64); err != nil {
+				return err
+			}
+
+			var azimuth float64
+			if azimuth, err = strconv.ParseFloat(d[antennaAzimuth], 64); err != nil {
 				return err
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[7]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[antennaInstallationDate]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[8]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[antennaRemovalDate]); err != nil {
 				return err
 			}
 
 			antennas = append(antennas, InstalledAntenna{
 				Install: Install{
 					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[0]),
-						Model:  strings.TrimSpace(d[1]),
-						Serial: strings.TrimSpace(d[2]),
+						Make:   strings.TrimSpace(d[antennaMake]),
+						Model:  strings.TrimSpace(d[antennaModel]),
+						Serial: strings.TrimSpace(d[antennaSerialNumber]),
 					},
 					Span: Span{
 						Start: start,
@@ -94,7 +116,8 @@ func (a *InstalledAntennaList) decode(data [][]string) error {
 					North:  north,
 					East:   east,
 				},
-				MarkCode: strings.TrimSpace(d[3]),
+				MarkCode: strings.TrimSpace(d[antennaMarkCode]),
+				Azimuth:  azimuth,
 			})
 		}
 

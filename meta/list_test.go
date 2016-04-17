@@ -329,6 +329,7 @@ func TestList(t *testing.T) {
 						East:   0.0,
 					},
 					MarkCode: "CNCL",
+					Azimuth:  0.0,
 				},
 				{
 					Install: meta.Install{
@@ -354,6 +355,7 @@ func TestList(t *testing.T) {
 						East:   0.0,
 					},
 					MarkCode: "MTJO",
+					Azimuth:  10.0,
 				},
 			},
 		},

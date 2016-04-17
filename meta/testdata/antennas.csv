@@ -1,3 +1,3 @@
-Antenna Make,Antenna Model,Serial Number,Mark Code,Antenna Height,Offset North,Offset East,Installation Date,Removal Date
-Trimble,Chokering Model 29659.00,0220063995,CNCL,0.0015,0,0,2000-08-02T23:59:01Z,9999-01-01T00:00:00Z
-Trimble,Chokering Model 29659.00,0220066912,MTJO,0.0013,0,0,2000-08-14T23:59:52Z,2011-02-07T22:35:00Z
+Antenna Make,Antenna Model,Serial Number,Mark Code,Antenna Height,Offset North,Offset East,Azimuth,Installation Date,Removal Date
+Trimble,Chokering Model 29659.00,0220063995,CNCL,0.0015,0,0,0,2000-08-02T23:59:01Z,9999-01-01T00:00:00Z
+Trimble,Chokering Model 29659.00,0220066912,MTJO,0.0013,0,0,10,2000-08-14T23:59:52Z,2011-02-07T22:35:00Z
