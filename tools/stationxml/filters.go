@@ -2,6 +2,18 @@ package main
 
 var Filters map[string][]ResponseStage = map[string][]ResponseStage{
 
+	"CMG-3ESP-GN": []ResponseStage{
+		ResponseStage{
+			Type:        "paz",
+			Lookup:      "CMG-3ESP-GN",
+			Frequency:   1.0,
+			Gain:        2000,
+			Scale:       1.0,
+			InputUnits:  "M/S",
+			OutputUnits: "V",
+		},
+	},
+
 	"FBA-ES-T-BASALT": []ResponseStage{
 		ResponseStage{
 			Type:        "paz",
@@ -75,10 +87,20 @@ var Filters map[string][]ResponseStage = map[string][]ResponseStage{
 	},
 	"270-600/12V": []ResponseStage{
 		ResponseStage{
-
 			Type:        "poly",
 			Lookup:      "270-600/12V",
 			Scale:       1.0,
+			Frequency:   1.0,
+			InputUnits:  "hPa",
+			OutputUnits: "V",
+		},
+	},
+	"270-600/24V": []ResponseStage{
+		ResponseStage{
+			Type:        "poly",
+			Lookup:      "270-600/24V",
+			Scale:       1.0,
+			Frequency:   1.0,
 			InputUnits:  "hPa",
 			OutputUnits: "V",
 		},
@@ -134,6 +156,25 @@ var Filters map[string][]ResponseStage = map[string][]ResponseStage{
 	//,
 	// dataloggers,
 	//,
+	"Q330_FLbelow100-1": []ResponseStage{
+		ResponseStage{
+			Type:        "a2d",
+			Lookup:      "A2D",
+			Decimate:    1,
+			SampleRate:  1.0,
+			Gain:        419430.4,
+			InputUnits:  "V",
+			OutputUnits: "COUNTS",
+		}, ResponseStage{
+			Type:        "fir",
+			Lookup:      "Q330_FLbelow100-1",
+			SampleRate:  1.0,
+			Delay:       15.930462,
+			Correction:  15.930462,
+			InputUnits:  "COUNTS",
+			OutputUnits: "COUNTS",
+		},
+	},
 	"Q330_FLbelow100-100": []ResponseStage{
 		ResponseStage{
 

@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"math"
 	"math/cmplx"
 	"os"
@@ -342,15 +341,15 @@ func main() {
 	stas := make(map[string][]stationxml.Station)
 	for _, k := range keys {
 
-		log.Printf("checking station: %s\n", k)
+		fmt.Fprintf(os.Stderr, "checking station: %s\n", k)
 		if !stationMatch.MatchString(k) {
-			log.Printf("skipping station: %s [outside regexp match]\n", k)
+			fmt.Fprintf(os.Stderr, "skipping station: %s [outside regexp match]\n", k)
 			continue
 		}
 
 		v := stationMap[k]
 		if _, ok := siteMap[k]; !ok {
-			log.Printf("skipping station: %s [no site map entry]\n", k)
+			fmt.Fprintf(os.Stderr, "skipping station: %s [no site map entry]\n", k)
 			continue
 		}
 		n, ok := networkMap[v.Network]
@@ -360,12 +359,12 @@ func main() {
 		}
 
 		if _, ok := connectionMap[k]; !ok {
-			log.Printf("skipping station: %s [no connection map entry]\n", k)
+			fmt.Fprintf(os.Stderr, "skipping station: %s [no connection map entry]\n", k)
 			continue
 		}
 
 		if _, ok := sensorInstalls[k]; !ok {
-			log.Printf("skipping station: %s [no sensor installs entry]\n", k)
+			fmt.Fprintf(os.Stderr, "skipping station: %s [no sensor installs entry]\n", k)
 			continue
 		}
 
@@ -373,20 +372,20 @@ func main() {
 		if strings.ToLower(level) != "station" {
 
 			for _, c := range connectionMap[k] {
-				log.Printf("checking station channel: %s %s\n", k, c.LocationCode)
+				fmt.Fprintf(os.Stderr, "checking station channel: %s %s\n", k, c.LocationCode)
 
 				if _, ok := dataloggerDeploys[c.Place]; !ok {
-					log.Printf("skipping station channel: %s %s [no deployed datalogger]\n", k, c.Place)
+					fmt.Fprintf(os.Stderr, "skipping station channel: %s %s [no deployed datalogger]\n", k, c.Place)
 					continue
 				}
 				l, ok := siteMap[k][c.LocationCode]
 				if !ok {
-					log.Printf("skipping station channel: %s %s [no site map]\n", k, c.LocationCode)
+					fmt.Fprintf(os.Stderr, "skipping station channel: %s %s [no site map]\n", k, c.LocationCode)
 					continue
 				}
 
 				for _, s := range sensorInstalls[k] {
-					log.Printf("checking station sensor install: %s %s\n", k, s.LocationCode)
+					fmt.Fprintf(os.Stderr, "checking station sensor install: %s %s\n", k, s.LocationCode)
 					switch {
 					case s.LocationCode != c.LocationCode:
 						continue
@@ -396,7 +395,7 @@ func main() {
 						continue
 					}
 					for _, d := range dataloggerDeploys[c.Place] {
-						log.Printf("checking station datalogger deploys: %s %s %s\n", k, c.Place, d.Role)
+						fmt.Fprintf(os.Stderr, "checking station datalogger deploys: %s %s %s\n", k, c.Place, d.Role)
 						switch {
 						case d.Role != c.Role:
 							continue
@@ -405,6 +404,7 @@ func main() {
 						case d.End.Before(c.Start):
 							continue
 						}
+
 						on := s.Start
 						if d.Start.After(on) {
 							on = d.Start
@@ -414,32 +414,33 @@ func main() {
 							off = d.End
 						}
 
-						log.Printf("checking station datalogger response: %s %s\n", k, d.Model)
+						fmt.Fprintf(os.Stderr, "checking station datalogger response: %s %s\n", k, d.Model)
 						if _, ok := resmap[d.Model]; !ok {
-							log.Printf("skipping station datalogger response: %s \"%s\" no resmap\n", k, d.Model)
+							fmt.Fprintf(os.Stderr, "skipping station datalogger response: %s \"%s\" no resmap\n", k, d.Model)
 							continue
 						}
 						if _, ok := resmap[d.Model][s.Model]; !ok {
-							log.Printf("skipping station datalogger response: %s \"%s\" \"%s\" no resmap\n", k, d.Model, s.Model)
+							fmt.Fprintf(os.Stderr, "skipping station datalogger response: %s \"%s\" \"%s\" no resmap\n", k, d.Model, s.Model)
 							continue
 						}
-						log.Printf("checking station response: %s %s %s\n", k, d.Model, s.Model)
+						fmt.Fprintf(os.Stderr, "checking station response: %s %s %s\n", k, d.Model, s.Model)
 						for _, r := range resmap[d.Model][s.Model] {
+
 							if r.Datalogger.Match != "" && !regexp.MustCompile(r.Datalogger.Match).MatchString(v.Code) {
-								log.Println("skipping!", r.Datalogger.Match, v.Code)
+								fmt.Fprintln(os.Stderr, "skipping!", r.Datalogger.Match, v.Code)
 								continue
 							}
 							if r.Datalogger.Skip != "" && regexp.MustCompile(r.Datalogger.Skip).MatchString(v.Code) {
-								log.Println("skipping!", r.Datalogger.Skip, v.Code)
+								fmt.Fprintln(os.Stderr, "skipping!", r.Datalogger.Skip, v.Code)
 								continue
 							}
 
 							if r.Sensor.Match != "" && !regexp.MustCompile(r.Sensor.Match).MatchString(v.Code) {
-								log.Println("skipping!", r.Sensor.Match, v.Code)
+								fmt.Fprintln(os.Stderr, "skipping!", r.Sensor.Match, v.Code)
 								continue
 							}
 							if r.Sensor.Skip != "" && regexp.MustCompile(r.Sensor.Skip).MatchString(v.Code) {
-								log.Println("skipping!", r.Sensor.Skip, v.Code)
+								fmt.Fprintln(os.Stderr, "skipping!", r.Sensor.Skip, v.Code)
 								continue
 							}
 
@@ -465,10 +466,8 @@ func main() {
 							f = append(f, r.Sensor.Filters...)
 							f = append(f, r.Datalogger.Filters...)
 
+							freq := r.Datalogger.Frequency
 							for p, j := range r.Channels {
-								if p != 0 {
-									continue
-								}
 								c, ok := components[s.Model][p]
 								if !ok {
 									continue
@@ -530,6 +529,7 @@ func main() {
 											stages = append(stages, stationxml.ResponseStage{
 												Number:     stationxml.Counter(uint32(count)),
 												Polynomial: &poly,
+												//TODO: check we may need to adjust gain for different frequency
 												StageGain: stationxml.Gain{
 													Value: func() float64 {
 														if p.Gain != 0.0 {
@@ -537,7 +537,8 @@ func main() {
 														}
 														return 1.0
 													}(),
-													Frequency: s.Frequency,
+													//Frequency: s.Frequency,
+													Frequency: freq,
 												},
 											})
 										case "paz":
@@ -603,12 +604,14 @@ func main() {
 												}(),
 
 												NormalizationFrequency: stationxml.Frequency{
-													stationxml.Float{Value: s.Frequency},
+													//stationxml.Float{Value: s.Frequency},
+													stationxml.Float{Value: freq},
 												},
 												Zeros: zeros,
 												Poles: poles,
 											}
 											stages = append(stages, stationxml.ResponseStage{
+												//TODO: check we may need to adjust gain for different frequency
 												Number:     stationxml.Counter(uint32(count)),
 												PolesZeros: &paz,
 												StageGain: stationxml.Gain{
@@ -618,7 +621,8 @@ func main() {
 														}
 														return 1.0
 													}(),
-													Frequency: s.Frequency,
+													//Frequency: s.Frequency,
+													Frequency: freq,
 												},
 											})
 
@@ -642,7 +646,8 @@ func main() {
 														}
 														return 1.0
 													}(),
-													Frequency: s.Frequency,
+													//Frequency: s.Frequency,
+													Frequency: freq,
 												},
 												Decimation: &stationxml.Decimation{
 													InputSampleRate: stationxml.Frequency{stationxml.Float{Value: s.SampleRate}},
@@ -672,8 +677,16 @@ func main() {
 
 											fir := stationxml.FIR{
 												BaseFilter: stationxml.BaseFilter{
-													ResourceId:  "FIR#" + v,
-													Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
+													ResourceId: "FIR#" + v,
+													//Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
+													Name: func() string {
+														switch s.Lookup {
+														case "Q330_FLbelow100-100":
+															return "Q330XFLBELOW100X100"
+														default:
+															return s.Lookup
+														}
+													}(),
 													InputUnits:  stationxml.Units{Name: s.InputUnits},
 													OutputUnits: stationxml.Units{Name: s.OutputUnits},
 												},
@@ -692,6 +705,7 @@ func main() {
 											stages = append(stages, stationxml.ResponseStage{
 												Number: stationxml.Counter(uint32(count)),
 												FIR:    &fir,
+												//TODO: check we may need to adjust gain for different frequency
 												StageGain: stationxml.Gain{
 													Value: func() float64 {
 														if s.Gain != 0.0 {
@@ -699,7 +713,8 @@ func main() {
 														}
 														return 1.0
 													}(),
-													Frequency: s.Frequency,
+													//Frequency: s.Frequency,
+													Frequency: freq,
 												},
 												Decimation: &stationxml.Decimation{
 													InputSampleRate: stationxml.Frequency{stationxml.Float{Value: FIRs[s.Lookup].Decimation * s.SampleRate}},
@@ -742,6 +757,7 @@ func main() {
 												Value: l.Latitude,
 											},
 										},
+										Datum: v.Datum,
 									},
 									Longitude: stationxml.Longitude{
 										LongitudeBase: stationxml.LongitudeBase{
@@ -749,6 +765,7 @@ func main() {
 												Value: l.Longitude,
 											},
 										},
+										Datum: v.Datum,
 									},
 									Elevation: stationxml.Distance{Float: stationxml.Float{Value: l.Elevation}},
 									Depth:     stationxml.Distance{Float: stationxml.Float{Value: -s.Height}},
@@ -853,6 +870,7 @@ func main() {
 									Response: &stationxml.Response{
 										Stages: stages,
 										InstrumentSensitivity: &stationxml.Sensitivity{
+											//TODO: check we may need to adjust gain for different frequency
 											Gain: stationxml.Gain{
 												Value: func() float64 {
 													var gain float64 = 1.0
@@ -861,13 +879,7 @@ func main() {
 													}
 													return gain
 												}(),
-												Frequency: func() float64 {
-													var freq float64
-													if len(stages) > 0 {
-														freq = stages[0].StageGain.Frequency
-													}
-													return freq
-												}(),
+												Frequency: freq,
 											},
 											InputUnits: func() stationxml.Units {
 												var units stationxml.Units
@@ -988,7 +1000,7 @@ func main() {
 		var on, off *stationxml.DateTime
 
 		if !networkMatch.MatchString(n.ExternalCode) {
-			log.Printf("skipping network: %s [outside regexp match]\n", n.ExternalCode)
+			fmt.Fprintf(os.Stderr, "skipping network: %s [outside regexp match]\n", n.ExternalCode)
 			continue
 		}
 

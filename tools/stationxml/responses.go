@@ -115,6 +115,26 @@ var Responses []Response = []Response{
 
 		Dataloggers: []Datalogger{
 			Datalogger{
+				Dataloggers:   []string{"Q330/3", "Q330/6"},
+				Type:          "CW",
+				Label:         "LD",
+				Rate:          1.0,
+				Frequency:     0.1,
+				StorageFormat: "Steim2",
+				ClockDrift:    0.0001,
+				Filters:       []string{"Q330_FLbelow100-1"},
+			},
+			Datalogger{
+				Dataloggers:   []string{"Q330/3", "Q330/6"},
+				Type:          "CW",
+				Label:         "HD",
+				Rate:          100.0,
+				Frequency:     15.0,
+				StorageFormat: "Steim2",
+				ClockDrift:    0.0001,
+				Filters:       []string{"Q330_FLbelow100-100"},
+			},
+			Datalogger{
 				Dataloggers:   []string{"Q330S/3", "Q330S/6"},
 				Type:          "CW",
 				Label:         "LD",
@@ -127,7 +147,7 @@ var Responses []Response = []Response{
 			Datalogger{
 				Dataloggers:   []string{"Q330S/3", "Q330S/6"},
 				Type:          "CW",
-				Label:         "LD",
+				Label:         "HD",
 				Rate:          100.0,
 				Frequency:     15.0,
 				StorageFormat: "Steim2",
@@ -211,6 +231,39 @@ var Responses []Response = []Response{
 				StorageFormat: "Steim2",
 				ClockDrift:    0.0001,
 				Filters:       []string{"BASALT-200"},
+			},
+		},
+	},
+
+	Response{
+		Dataloggers: []Datalogger{
+			Datalogger{
+				Dataloggers:   []string{"Q330/3", "Q330/6"},
+				Type:          "CG",
+				Label:         "HH",
+				Rate:          100.0,
+				Frequency:     1.0,
+				StorageFormat: "Steim2",
+				ClockDrift:    0.0001,
+				Filters:       []string{"Q330_FLbelow100-100"},
+			},
+			Datalogger{
+				Dataloggers:   []string{"Q330/3", "Q330/6"},
+				Type:          "CG",
+				Label:         "LH",
+				Rate:          1.0,
+				Frequency:     0.1,
+				StorageFormat: "Steim2",
+				ClockDrift:    0.0001,
+				Filters:       []string{"Q330_FLbelow100-1"},
+			},
+		},
+		Sensors: []Sensor{
+			Sensor{
+				Sensors:  []string{"CMG-3ESPC"},
+				Filters:  []string{"CMG-3ESP-GN"},
+				Channels: "ZNE",
+				Reversed: false,
 			},
 		},
 	},
