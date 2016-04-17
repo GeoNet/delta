@@ -27,7 +27,7 @@ func TestSessions(t *testing.T) {
 			if sessions[i].Start.After(sessions[j].End) {
 				continue
 			}
-			if sessions[i].End.Before(sessions[j].Start) {
+			if !sessions[i].End.After(sessions[j].Start) {
 				continue
 			}
 			t.Errorf("session overlap: " + strings.Join([]string{
@@ -35,6 +35,9 @@ func TestSessions(t *testing.T) {
 				sessions[i].Interval.String(),
 				sessions[i].Start.String(),
 				sessions[i].End.String(),
+				sessions[j].Interval.String(),
+				sessions[j].Start.String(),
+				sessions[j].End.String(),
 			}, " "))
 		}
 	}

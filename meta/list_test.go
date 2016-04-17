@@ -56,6 +56,7 @@ func TestList(t *testing.T) {
 							return v
 						}(),
 					},
+					Survey: "GPS",
 				},
 				meta.Station{
 					Reference: meta.Reference{
@@ -79,6 +80,7 @@ func TestList(t *testing.T) {
 							return v
 						}(),
 					},
+					Survey: "Map",
 					//Notes: "Is located in the Kiln Shed next to the hall",
 				},
 			},
@@ -144,6 +146,7 @@ func TestList(t *testing.T) {
 						Elevation: 1116.0,
 						Datum:     "WGS84",
 					},
+					Survey: "GPS",
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2014-05-16T00:00:15Z")
@@ -164,6 +167,7 @@ func TestList(t *testing.T) {
 						Elevation: 701.0,
 						Datum:     "WGS84",
 					},
+					Survey: "Map",
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "1986-12-09T20:10:00Z")
@@ -239,8 +243,20 @@ func TestList(t *testing.T) {
 					MarkType:           "Forced Centering",
 					MonumentType:       "Deep Braced",
 					GroundRelationship: -1.00,
+					FoundationType:     "Steel Rods",
+					FoundationDepth:    10.0,
 					Bedrock:            "Greywacke",
 					Geology:            "",
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2009-01-01T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
 				},
 				meta.Monument{
 					MarkCode:           "TAUP",
@@ -248,8 +264,20 @@ func TestList(t *testing.T) {
 					MarkType:           "Forced Centering",
 					MonumentType:       "Pillar",
 					GroundRelationship: -1.25,
+					FoundationType:     "Concrete",
+					FoundationDepth:    2.0,
 					Bedrock:            "Rhyolite",
 					Geology:            "",
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2005-08-10T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
 				},
 			},
 		},

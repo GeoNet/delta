@@ -8,11 +8,26 @@ import (
 	"time"
 )
 
+const (
+	stationStationCode = iota
+	stationNetworkCode
+	stationStationName
+	stationLatitude
+	stationLongitude
+	stationHeight
+	stationDatum
+	stationSurvey
+	stationStartTime
+	stationEndTime
+	stationLast
+)
+
 type Station struct {
 	Reference
 	Point
 	Span
 
+	Survey string
 	//	Notes string
 }
 
@@ -31,6 +46,7 @@ func (s StationList) encode() [][]string {
 		"Longitude",
 		"Height",
 		"Datum",
+		"Survey",
 		"Start Time",
 		"End Time",
 		//"Notes",
@@ -44,6 +60,7 @@ func (s StationList) encode() [][]string {
 			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
 			strings.TrimSpace(v.Datum),
+			strings.TrimSpace(v.Survey),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 			//strings.TrimSpace(v.Notes),
@@ -56,36 +73,35 @@ func (s *StationList) decode(data [][]string) error {
 	var stations []Station
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 9 {
-				//if len(d) != 10 {
+			if len(d) != stationLast {
 				return fmt.Errorf("incorrect number of installed station fields")
 			}
 			var err error
 
 			var lat, lon, elev float64
-			if lat, err = strconv.ParseFloat(d[3], 64); err != nil {
+			if lat, err = strconv.ParseFloat(d[3], stationLatitude); err != nil {
 				return err
 			}
-			if lon, err = strconv.ParseFloat(d[4], 64); err != nil {
+			if lon, err = strconv.ParseFloat(d[4], stationLongitude); err != nil {
 				return err
 			}
-			if elev, err = strconv.ParseFloat(d[5], 64); err != nil {
+			if elev, err = strconv.ParseFloat(d[5], stationHeight); err != nil {
 				return err
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[7]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[stationStartTime]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[8]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[stationEndTime]); err != nil {
 				return err
 			}
 
 			stations = append(stations, Station{
 				Reference: Reference{
-					Code:    strings.TrimSpace(d[0]),
-					Network: strings.TrimSpace(d[1]),
-					Name:    strings.TrimSpace(d[2]),
+					Code:    strings.TrimSpace(d[stationStationCode]),
+					Network: strings.TrimSpace(d[stationNetworkCode]),
+					Name:    strings.TrimSpace(d[stationStationName]),
 				},
 				Span: Span{
 					Start: start,
@@ -95,8 +111,9 @@ func (s *StationList) decode(data [][]string) error {
 					Latitude:  lat,
 					Longitude: lon,
 					Elevation: elev,
-					Datum:     strings.TrimSpace(d[6]),
+					Datum:     strings.TrimSpace(d[stationDatum]),
 				},
+				Survey: strings.TrimSpace(d[stationSurvey]),
 				//Notes: strings.TrimSpace(d[9]),
 			})
 		}

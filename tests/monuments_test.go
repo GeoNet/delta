@@ -28,6 +28,15 @@ func TestMonuments(t *testing.T) {
 		if m.GroundRelationship > 0.0 {
 			t.Errorf("positive monuments ground relationship: %s [%g]", m.MarkCode, m.GroundRelationship)
 		}
-	}
 
+		switch m.MonumentType {
+		case "Shallow Rod / Braced Antenna Mount":
+		case "Wyatt/Agnew Drilled-Braced":
+		case "Pillar":
+		case "Steel Mast":
+		case "Unknown":
+		default:
+			t.Errorf("unknown monument type: %s [%s]", m.MarkCode, m.MonumentType)
+		}
+	}
 }

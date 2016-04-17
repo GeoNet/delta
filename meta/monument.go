@@ -5,18 +5,8 @@ import (
 	"sort"
 	"strconv"
 	"strings"
-	//	"time"
+	"time"
 )
-
-type Monument struct {
-	MarkCode           string
-	DomesNumber        string
-	MarkType           string
-	MonumentType       string
-	GroundRelationship float64
-	Bedrock            string
-	Geology            string
-}
 
 const (
 	monumentMarkCode int = iota
@@ -24,9 +14,27 @@ const (
 	monumentMarkType
 	monumentMonumentType
 	monumentGroundRelationship
+	monumentFoundationType
+	monumentFoundationDepth
+	monumentStartTime
+	monumentEndTime
 	monumentBedrock
 	monumentGeology
 )
+
+type Monument struct {
+	Span
+
+	MarkCode           string
+	DomesNumber        string
+	MarkType           string
+	MonumentType       string
+	GroundRelationship float64
+	FoundationType     string
+	FoundationDepth    float64
+	Bedrock            string
+	Geology            string
+}
 
 type MonumentList []Monument
 
@@ -41,6 +49,10 @@ func (m MonumentList) encode() [][]string {
 		"Mark Type",
 		"Monument Type",
 		"Ground Relationship",
+		"Foundation Type",
+		"Foundation Depth",
+		"Start Time",
+		"End Time",
 		"Bedrock",
 		"Geology",
 	}}
@@ -51,6 +63,10 @@ func (m MonumentList) encode() [][]string {
 			strings.TrimSpace(v.MarkType),
 			strings.TrimSpace(v.MonumentType),
 			strconv.FormatFloat(v.GroundRelationship, 'g', -1, 64),
+			strings.TrimSpace(v.FoundationType),
+			strconv.FormatFloat(v.FoundationDepth, 'g', -1, 64),
+			v.Start.Format(DateTimeFormat),
+			v.End.Format(DateTimeFormat),
 			strings.TrimSpace(v.Bedrock),
 			strings.TrimSpace(v.Geology),
 		})
@@ -64,19 +80,38 @@ func (m *MonumentList) decode(data [][]string) error {
 		for _, d := range data[1:] {
 			var err error
 
-			if len(d) != 7 {
+			if len(d) != 11 {
 				return fmt.Errorf("incorrect number of monument fields")
 			}
 			var ground float64
 			if ground, err = strconv.ParseFloat(d[monumentGroundRelationship], 64); err != nil {
 				return err
 			}
+			var depth float64
+			if depth, err = strconv.ParseFloat(d[monumentFoundationDepth], 64); err != nil {
+				return err
+			}
+			var start, end time.Time
+			if start, err = time.Parse(DateTimeFormat, d[monumentStartTime]); err != nil {
+				return err
+			}
+			if end, err = time.Parse(DateTimeFormat, d[monumentEndTime]); err != nil {
+				return err
+			}
+
 			monuments = append(monuments, Monument{
+				Span: Span{
+					Start: start,
+					End:   end,
+				},
+
 				MarkCode:           strings.TrimSpace(d[monumentMarkCode]),
 				DomesNumber:        strings.TrimSpace(d[monumentDomesNumber]),
 				MarkType:           strings.TrimSpace(d[monumentMarkType]),
 				MonumentType:       strings.TrimSpace(d[monumentMonumentType]),
 				GroundRelationship: ground,
+				FoundationType:     strings.TrimSpace(d[monumentFoundationType]),
+				FoundationDepth:    depth,
 				Bedrock:            strings.TrimSpace(d[monumentBedrock]),
 				Geology:            strings.TrimSpace(d[monumentGeology]),
 			})
