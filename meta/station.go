@@ -16,7 +16,6 @@ const (
 	stationLongitude
 	stationHeight
 	stationDatum
-	stationSurvey
 	stationStartTime
 	stationEndTime
 	stationLast
@@ -27,7 +26,6 @@ type Station struct {
 	Point
 	Span
 
-	Survey string
 	//	Notes string
 }
 
@@ -44,9 +42,8 @@ func (s StationList) encode() [][]string {
 		"Station Name",
 		"Latitude",
 		"Longitude",
-		"Height",
+		"Elevation",
 		"Datum",
-		"Survey",
 		"Start Time",
 		"End Time",
 		//"Notes",
@@ -60,7 +57,6 @@ func (s StationList) encode() [][]string {
 			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
 			strings.TrimSpace(v.Datum),
-			strings.TrimSpace(v.Survey),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 			//strings.TrimSpace(v.Notes),
@@ -113,7 +109,6 @@ func (s *StationList) decode(data [][]string) error {
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[stationDatum]),
 				},
-				Survey: strings.TrimSpace(d[stationSurvey]),
 				//Notes: strings.TrimSpace(d[9]),
 			})
 		}

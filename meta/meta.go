@@ -1,7 +1,7 @@
 package meta
 
 import (
-	"strconv"
+	//	"strconv"
 	"time"
 )
 
@@ -59,11 +59,14 @@ func (e Equipment) Less(eq Equipment) bool {
 		return false
 	}
 
-	if a, err := strconv.Atoi(e.Serial); err == nil {
-		if b, err := strconv.Atoi(eq.Serial); err == nil {
-			return a < b
+	// too many edge cases depending on the original slice order
+	/*
+		if a, err := strconv.Atoi(e.Serial); err == nil {
+			if b, err := strconv.Atoi(eq.Serial); err == nil {
+				return a < b
+			}
 		}
-	}
+	*/
 
 	return e.Serial < eq.Serial
 }

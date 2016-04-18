@@ -56,7 +56,6 @@ func TestList(t *testing.T) {
 							return v
 						}(),
 					},
-					Survey: "GPS",
 				},
 				meta.Station{
 					Reference: meta.Reference{
@@ -80,7 +79,6 @@ func TestList(t *testing.T) {
 							return v
 						}(),
 					},
-					Survey: "Map",
 					//Notes: "Is located in the Kiln Shed next to the hall",
 				},
 			},

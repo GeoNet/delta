@@ -14,10 +14,11 @@ const (
 	markMarkName
 	markLatitude
 	markLongitude
-	markHeight
+	markElevation
 	markDatum
 	markStartTime
 	markEndTime
+	markLast
 )
 
 type Mark struct {
@@ -39,7 +40,7 @@ func (m MarkList) encode() [][]string {
 		"Mark Name",
 		"Latitude",
 		"Longitude",
-		"Height",
+		"Elevation",
 		"Datum",
 		"Start Time",
 		"End Time",
@@ -64,7 +65,7 @@ func (m *MarkList) decode(data [][]string) error {
 	var marks []Mark
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 9 {
+			if len(d) != markLast {
 				return fmt.Errorf("incorrect number of installed mark fields")
 			}
 			var err error
@@ -76,7 +77,7 @@ func (m *MarkList) decode(data [][]string) error {
 			if lon, err = strconv.ParseFloat(d[markLongitude], 64); err != nil {
 				return err
 			}
-			if elev, err = strconv.ParseFloat(d[markHeight], 64); err != nil {
+			if elev, err = strconv.ParseFloat(d[markElevation], 64); err != nil {
 				return err
 			}
 

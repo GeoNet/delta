@@ -8,12 +8,27 @@ import (
 	"time"
 )
 
+const (
+	metsensorMetSensorMake = iota
+	metsensorMetSensorModel
+	metsensorSerialNumber
+	metsensorMarkCode
+	metsensorIMSComment
+	metsensorLatitude
+	metsensorLongitude
+	metsensorElevation
+	metsensorDatum
+	metsensorInstallationDate
+	metsensorRemovalDate
+	metsensorLast
+)
+
 type InstalledMetSensor struct {
 	Install
 	Point
 
-	MarkCode string
-	Comment  string
+	MarkCode   string
+	IMSComment string
 }
 
 type InstalledMetSensorList []InstalledMetSensor
@@ -31,7 +46,7 @@ func (m InstalledMetSensorList) encode() [][]string {
 		"IMS Comment",
 		"Latitude",
 		"Longitude",
-		"Height",
+		"Elevation",
 		"Datum",
 		"Installation Date",
 		"Removal Date",
@@ -42,7 +57,7 @@ func (m InstalledMetSensorList) encode() [][]string {
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Serial),
 			strings.TrimSpace(v.MarkCode),
-			strings.TrimSpace(v.Comment),
+			strings.TrimSpace(v.IMSComment),
 			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
@@ -58,36 +73,36 @@ func (m *InstalledMetSensorList) decode(data [][]string) error {
 	var metsensors []InstalledMetSensor
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 11 {
+			if len(d) != metsensorLast {
 				return fmt.Errorf("incorrect number of installed metsensor fields")
 			}
 			var err error
 
 			var lat, lon, elev float64
-			if lat, err = strconv.ParseFloat(d[5], 64); err != nil {
+			if lat, err = strconv.ParseFloat(d[metsensorLatitude], 64); err != nil {
 				return err
 			}
-			if lon, err = strconv.ParseFloat(d[6], 64); err != nil {
+			if lon, err = strconv.ParseFloat(d[metsensorLongitude], 64); err != nil {
 				return err
 			}
-			if elev, err = strconv.ParseFloat(d[7], 64); err != nil {
+			if elev, err = strconv.ParseFloat(d[metsensorElevation], 64); err != nil {
 				return err
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[9]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[metsensorInstallationDate]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[10]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[metsensorRemovalDate]); err != nil {
 				return err
 			}
 
 			metsensors = append(metsensors, InstalledMetSensor{
 				Install: Install{
 					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[0]),
-						Model:  strings.TrimSpace(d[1]),
-						Serial: strings.TrimSpace(d[2]),
+						Make:   strings.TrimSpace(d[metsensorMetSensorMake]),
+						Model:  strings.TrimSpace(d[metsensorMetSensorModel]),
+						Serial: strings.TrimSpace(d[metsensorSerialNumber]),
 					},
 					Span: Span{
 						Start: start,
@@ -98,10 +113,10 @@ func (m *InstalledMetSensorList) decode(data [][]string) error {
 					Latitude:  lat,
 					Longitude: lon,
 					Elevation: elev,
-					Datum:     strings.TrimSpace(d[8]),
+					Datum:     strings.TrimSpace(d[metsensorDatum]),
 				},
-				MarkCode: strings.TrimSpace(d[3]),
-				Comment:  strings.TrimSpace(d[4]),
+				MarkCode:   strings.TrimSpace(d[metsensorMarkCode]),
+				IMSComment: strings.TrimSpace(d[metsensorIMSComment]),
 			})
 		}
 

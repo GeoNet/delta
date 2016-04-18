@@ -8,6 +8,20 @@ import (
 	"time"
 )
 
+const (
+	mountMountCode = iota
+	mountMountNetwork
+	mountMountName
+	mountLatitude
+	mountLongitude
+	mountElevation
+	mountDatum
+	mountDescription
+	mountStartTime
+	mountEndTime
+	mountLast
+)
+
 type Mount struct {
 	Reference
 	Point
@@ -29,7 +43,7 @@ func (m MountList) encode() [][]string {
 		"Mount Name",
 		"Latitude",
 		"Longitude",
-		"Height",
+		"Elevation",
 		"Datum",
 		"Description",
 		"Start Time",
@@ -56,47 +70,47 @@ func (m *MountList) decode(data [][]string) error {
 	var mounts []Mount
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 10 {
+			if len(d) != mountLast {
 				return fmt.Errorf("incorrect number of installed mount fields")
 			}
 			var err error
 
 			var lat, lon, elev float64
-			if lat, err = strconv.ParseFloat(d[3], 64); err != nil {
+			if lat, err = strconv.ParseFloat(d[mountLatitude], 64); err != nil {
 				return err
 			}
-			if lon, err = strconv.ParseFloat(d[4], 64); err != nil {
+			if lon, err = strconv.ParseFloat(d[mountLongitude], 64); err != nil {
 				return err
 			}
-			if elev, err = strconv.ParseFloat(d[5], 64); err != nil {
+			if elev, err = strconv.ParseFloat(d[mountElevation], 64); err != nil {
 				return err
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[8]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[mountStartTime]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[9]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[mountEndTime]); err != nil {
 				return err
 			}
 
 			mounts = append(mounts, Mount{
 				Reference: Reference{
-					Code:    strings.TrimSpace(d[0]),
-					Network: strings.TrimSpace(d[1]),
-					Name:    strings.TrimSpace(d[2]),
+					Code:    strings.TrimSpace(d[mountMountCode]),
+					Network: strings.TrimSpace(d[mountMountNetwork]),
+					Name:    strings.TrimSpace(d[mountMountName]),
 				},
 				Point: Point{
 					Latitude:  lat,
 					Longitude: lon,
 					Elevation: elev,
-					Datum:     strings.TrimSpace(d[6]),
+					Datum:     strings.TrimSpace(d[mountDatum]),
 				},
 				Span: Span{
 					Start: start,
 					End:   end,
 				},
-				Description: strings.TrimSpace(d[7]),
+				Description: strings.TrimSpace(d[mountDescription]),
 			})
 		}
 

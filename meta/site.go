@@ -13,7 +13,7 @@ const (
 	siteLocationCode
 	siteLatitude
 	siteLongitude
-	siteHeight
+	siteElevation
 	siteDatum
 	siteSurvey
 	siteStartTime
@@ -57,7 +57,7 @@ func (s SiteList) encode() [][]string {
 		"Location Code",
 		"Latitude",
 		"Longitude",
-		"Height",
+		"Elevation",
 		"Datum",
 		"Survey",
 		"Start Time",
@@ -95,7 +95,7 @@ func (s *SiteList) decode(data [][]string) error {
 			if lon, err = strconv.ParseFloat(d[siteLongitude], 64); err != nil {
 				return err
 			}
-			if elev, err = strconv.ParseFloat(d[siteHeight], 64); err != nil {
+			if elev, err = strconv.ParseFloat(d[siteElevation], 64); err != nil {
 				return err
 			}
 
