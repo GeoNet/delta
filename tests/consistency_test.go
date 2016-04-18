@@ -62,7 +62,7 @@ func TestConsistency(t *testing.T) {
 			defer os.Remove(file.Name())
 			file.Write(buf.Bytes())
 
-			cmd := exec.Command("diff", v.f, file.Name())
+			cmd := exec.Command("diff", "-c", v.f, file.Name())
 			stdout, err := cmd.StdoutPipe()
 			if err != nil {
 				t.Fatal(err)

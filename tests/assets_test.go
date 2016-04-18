@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/exec"
 	"sort"
+	"strings"
 	"testing"
 
 	"github.com/GeoNet/delta/meta"
@@ -46,6 +47,18 @@ func TestAssets(t *testing.T) {
 			}
 		}
 
+		for i := 0; i < len(assets); i++ {
+			for j := i + 1; j < len(assets); j++ {
+				if assets[i].Model != assets[j].Model {
+					continue
+				}
+				if assets[i].Serial != assets[j].Serial {
+					continue
+				}
+				t.Errorf("asset duplication: " + strings.Join([]string{assets[i].Model, assets[i].Serial}, " "))
+			}
+		}
+
 		t.Log("Check asset file consistency: " + k)
 		raw, err := ioutil.ReadFile(v)
 		if err != nil {
@@ -67,7 +80,7 @@ func TestAssets(t *testing.T) {
 			defer os.Remove(file.Name())
 			file.Write(buf.Bytes())
 
-			cmd := exec.Command("diff", v, file.Name())
+			cmd := exec.Command("diff", "-c", v, file.Name())
 			stdout, err := cmd.StdoutPipe()
 			if err != nil {
 				t.Fatal(err)
