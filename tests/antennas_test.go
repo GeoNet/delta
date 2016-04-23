@@ -105,4 +105,30 @@ func TestAntennas(t *testing.T) {
 		}
 	}
 
+	var sessions meta.SessionList
+	t.Log("Load session list")
+	{
+		if err := meta.LoadList("../install/sessions.csv", &sessions); err != nil {
+			t.Fatal(err)
+		}
+	}
+
+	t.Log("Check sessions exist ...")
+	{
+		for _, r := range antennas {
+			var found bool
+			for _, s := range sessions {
+				if s.End.Before(r.Start) {
+					continue
+				}
+				if s.Start.After(r.End) {
+					continue
+				}
+				found = true
+			}
+			if !found {
+				t.Log(r)
+			}
+		}
+	}
 }

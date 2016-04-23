@@ -8,6 +8,21 @@ import (
 	"time"
 )
 
+const (
+	recorderMake int = iota
+	recorderSensorModel
+	recorderDataloggerModel
+	recorderSerialNumber
+	recorderStationCode
+	recorderLocationCode
+	recorderInstallationAzimuth
+	recorderInstallationDip
+	recorderInstallationDepth
+	recorderInstallationDate
+	recorderRemovalDate
+	recorderLast
+)
+
 type InstalledRecorder struct {
 	InstalledSensor
 
@@ -62,27 +77,27 @@ func (r *InstalledRecorderList) decode(data [][]string) error {
 	var recorders []InstalledRecorder
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 11 {
+			if len(d) != recorderLast {
 				return fmt.Errorf("incorrect number of installed recorder fields")
 			}
 			var err error
 
 			var azimuth, dip, depth float64
-			if azimuth, err = strconv.ParseFloat(d[6], 64); err != nil {
+			if azimuth, err = strconv.ParseFloat(d[recorderInstallationAzimuth], 64); err != nil {
 				return err
 			}
-			if dip, err = strconv.ParseFloat(d[7], 64); err != nil {
+			if dip, err = strconv.ParseFloat(d[recorderInstallationDip], 64); err != nil {
 				return err
 			}
-			if depth, err = strconv.ParseFloat(d[8], 64); err != nil {
+			if depth, err = strconv.ParseFloat(d[recorderInstallationDepth], 64); err != nil {
 				return err
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[9]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[recorderInstallationDate]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[10]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[recorderRemovalDate]); err != nil {
 				return err
 			}
 
@@ -90,9 +105,9 @@ func (r *InstalledRecorderList) decode(data [][]string) error {
 				InstalledSensor: InstalledSensor{
 					Install: Install{
 						Equipment: Equipment{
-							Make:   strings.TrimSpace(d[0]),
-							Model:  strings.TrimSpace(d[1]),
-							Serial: strings.TrimSpace(d[3]),
+							Make:   strings.TrimSpace(d[recorderMake]),
+							Model:  strings.TrimSpace(d[recorderSensorModel]),
+							Serial: strings.TrimSpace(d[recorderSerialNumber]),
 						},
 						Span: Span{
 							Start: start,
@@ -106,10 +121,10 @@ func (r *InstalledRecorderList) decode(data [][]string) error {
 					Offset: Offset{
 						Height: -depth,
 					},
-					StationCode:  strings.TrimSpace(d[4]),
-					LocationCode: strings.TrimSpace(d[5]),
+					StationCode:  strings.TrimSpace(d[recorderStationCode]),
+					LocationCode: strings.TrimSpace(d[recorderLocationCode]),
 				},
-				DataloggerModel: strings.TrimSpace(d[2]),
+				DataloggerModel: strings.TrimSpace(d[recorderDataloggerModel]),
 			})
 		}
 
