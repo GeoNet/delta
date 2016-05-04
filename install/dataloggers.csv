@@ -1,9 +1,4 @@
 Datalogger Make,Datalogger Model,Serial Number,Deployment Place,Deployment Role,Installation Date,Removal Date
-CSI,CUSPM16,CSI #1 16 Port,Wellington Regional Hospital Building Array,,2009-04-15T00:00:02Z,9999-01-01T00:00:00Z
-CSI,CUSPM16,CSI #2 16 Port,Wellington Victoria Uni Te Puni Building Array,,2009-04-15T00:00:02Z,9999-01-01T00:00:00Z
-CSI,CUSPM16,CSI #3 16 Port,Wellington CentrePort BNZ Building Array,,2009-04-15T00:00:02Z,9999-01-01T00:00:00Z
-CSI,CUSPM16,PROTOTYPE-1,Canterbury University Physics Department - CPXB,,2007-05-16T00:00:01Z,9999-01-01T00:00:00Z
-CSI,CUSPM16,PROTOTYPE-2,Avalon East Wing,,2007-11-01T00:00:01Z,9999-01-01T00:00:00Z
 GNS Science,EARSS/16,204,Taranaki Emergency Management Office,EARSS Network,1993-12-14T23:51:00Z,2002-09-18T21:00:00Z
 GNS Science,EARSS/16,207,Chateau Observatory,EARSS Network,1993-11-12T03:00:00Z,1998-06-11T09:00:00Z
 GNS Science,EARSS/16,209,Wellington Dominion Observatory,EARSS Network,1995-03-10T23:59:00Z,1998-01-27T01:00:00Z
