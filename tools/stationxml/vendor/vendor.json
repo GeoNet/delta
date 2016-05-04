@@ -1,0 +1,13 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "8A0ee7lvVy7HqKZT0lMUf4gV6YA=",
+			"path": "github.com/ozym/fdsn/stationxml",
+			"revision": "8f86543eeb9f4224325142dd73ec21315406de85",
+			"revisionTime": "2015-09-17T19:42:45+12:00"
+		}
+	],
+	"rootPath": "github.com/GeoNet/delta/tools/stationxml"
+}
