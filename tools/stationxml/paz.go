@@ -47,7 +47,7 @@ var PAZs map[string]PAZ = map[string]PAZ{
 		Code:  "B",
 		Type:  "Analogue response, in Hz.",
 		Notes: "derived from Guralp Test &amp; Calibration Data [Cal 025]",
-		Poles: []complex128{(-0.01178 + 0.01178i), (-0.01178 - 0.01178i), (-180 + 0i), (-80 + 0i), (-160 + 0i)},
+		Poles: []complex128{(-0.01178 + 0.01178i), (-0.01178 - 0.01178i), (-180 + 0i), (-160 + 0i), (-80 + 0i)},
 		Zeros: []complex128{(0 + 0i), (0 + 0i)},
 	},
 
@@ -63,8 +63,8 @@ var PAZs map[string]PAZ = map[string]PAZ{
 		Code:  "B",
 		Type:  "Analogue response, in Hz.",
 		Notes: "Standard GeoNet specification CMG-40T as initially deployed",
-		Poles: []complex128{(-0.01178 + 0.01178i), (-48.4 + 0i), (-0.01178 - 0.01178i)},
-		Zeros: []complex128{(140 + 0i), (0 + 0i), (0 + 0i)},
+		Poles: []complex128{(-0.01178 + 0.01178i), (-0.01178 - 0.01178i), (-48.4 + 0i)},
+		Zeros: []complex128{(0 + 0i), (0 + 0i), (140 + 0i)},
 	},
 
 	"CMG-40T-30S-GN": PAZ{
@@ -95,7 +95,7 @@ var PAZs map[string]PAZ = map[string]PAZ{
 		Code:  "B",
 		Type:  "Analogue response, in Hz.",
 		Notes: "Standard GNS specification CMG-40T as initially deployed",
-		Poles: []complex128{(-50 + 0i), (-0.02356 + 0.02356i), (-0.02356 - 0.02356i)},
+		Poles: []complex128{(-0.02356 + 0.02356i), (-0.02356 - 0.02356i), (-50 + 0i)},
 		Zeros: []complex128{(0 + 0i), (0 + 0i), (159 + 0i)},
 	},
 
@@ -118,7 +118,7 @@ var PAZs map[string]PAZ = map[string]PAZ{
 	"STS-2": PAZ{
 		Code:  "A",
 		Type:  "Laplace transform analog stage response, in rad/sec.",
-		Poles: []complex128{(-0.03701 + 0.03701i), (-251.3 + 0i), (-0.03701 - 0.03701i), (-131 + 467.3i), (-131 - 467.3i)},
+		Poles: []complex128{(-0.03701 + 0.03701i), (-0.03701 - 0.03701i), (-131 + 467.3i), (-131 - 467.3i), (-251.3 + 0i)},
 		Zeros: []complex128{(0 + 0i), (0 + 0i)},
 	},
 
@@ -312,7 +312,7 @@ var PAZs map[string]PAZ = map[string]PAZ{
 		Code:  "A",
 		Type:  "Laplace transform analog stage response, in rad/sec.",
 		Notes: "derived from Lennartz documentation, i.e. 990-0003 page 15 via http://www.lennartz-electronic.de",
-		Poles: []complex128{(-4.444 - 4.444i), (-4.444 + 4.444i), (-1.083 + 0i)},
+		Poles: []complex128{(-4.444 + 4.444i), (-4.444 - 4.444i), (-1.083 + 0i)},
 		Zeros: []complex128{(0 + 0i), (0 + 0i), (0 + 0i)},
 	},
 

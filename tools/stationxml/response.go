@@ -1,12 +1,8 @@
 package main
 
 import (
-//	"bytes"
-//	"io/ioutil"
-//	"os"
-//	"path/filepath"
-//
-//	"github.com/BurntSushi/toml"
+	"math"
+	"math/cmplx"
 )
 
 type Datalogger struct {
@@ -17,7 +13,8 @@ type Datalogger struct {
 	Frequency     float64
 	StorageFormat string
 	ClockDrift    float64
-	Filters       []string `toml:"filters"`
+	Filters       []string
+	Reversed      bool
 	Match         string
 	Skip          string
 }
@@ -31,7 +28,7 @@ type DataloggerModel struct {
 
 type Sensor struct {
 	Sensors  []string
-	Filters  []string `toml:"filters"`
+	Filters  []string
 	Channels string
 	Reversed bool
 	Match    string
@@ -49,12 +46,12 @@ type SensorModel struct {
 	Manufacturer string // FDSN StationXML Vendor Description
 	Vendor       string // FDSN StationXML Vendor Description
 
-	Components []SensorComponent `toml:"component"`
+	Components []SensorComponent
 }
 
 type Response struct {
-	Sensors     []Sensor     `toml:"sensors"`
-	Dataloggers []Datalogger `toml:"dataloggers"`
+	Sensors     []Sensor
+	Dataloggers []Datalogger
 }
 
 type Stream struct {
@@ -77,7 +74,7 @@ type ResponseStage struct {
 }
 
 type Filter struct {
-	Stages []ResponseStage `toml:"stage"`
+	Stages []ResponseStage
 }
 
 type PAZ struct {
@@ -88,95 +85,50 @@ type PAZ struct {
 	Zeros []complex128
 }
 
+func (p PAZ) Gain(freq float64) float64 {
+	w := complex(0.0, func() float64 {
+		switch p.Code {
+		case "A":
+			return 2.0 * math.Pi * freq
+		default:
+			return freq
+		}
+	}())
+	h := complex(float64(1.0), float64(0.0))
+
+	for _, zero := range p.Zeros {
+		h *= (w - zero)
+	}
+
+	for _, pole := range p.Poles {
+		h /= (w - pole)
+	}
+	return cmplx.Abs(h)
+}
+
 type FIR struct {
-	Causal     bool      `yaml:"causal"`
-	Symmetry   string    `yaml:"symmetry"`
-	Decimation float64   `yaml:"decimation"`
-	Gain       float64   `yaml:gain"`
-	Notes      *string   `yaml:"notes,omitempty"`
-	Factors    []float64 `yaml:"factors,omitempty"`
+	Causal     bool
+	Symmetry   string
+	Decimation float64
+	Gain       float64
+	Notes      *string
+	Factors    []float64
+	Reversed   *bool
 }
 
 type Coefficient struct {
-	Value float64 `yaml:"value"`
+	Value float64
 }
 
 type Polynomial struct {
-	Gain                    float64 `yaml:"gain"`
-	ApproximationType       string  `yaml:"approximation_type"`
-	FrequencyLowerBound     float64 `yaml:"frequency_lower_bound"`
-	FrequencyUpperBound     float64 `yaml:"frequency_upper_bound"`
-	ApproximationLowerBound float64 `yaml:"approximation_lower_bound"`
-	ApproximationUpperBound float64 `yaml:"approximation_upper_bound"`
-	MaximumError            float64 `yaml:"maximum_error"`
-	Notes                   *string `yaml:"notes,omitempty"`
+	Gain                    float64
+	ApproximationType       string
+	FrequencyLowerBound     float64
+	FrequencyUpperBound     float64
+	ApproximationLowerBound float64
+	ApproximationUpperBound float64
+	MaximumError            float64
+	Notes                   *string
 
-	Coefficients []Coefficient `yaml:"coefficients,omitempty" toml:"coefficient"`
+	Coefficients []Coefficient
 }
-
-/*
-type responseList struct {
-	Responses []Response `toml:"response"`
-}
-
-type Responses []Response
-
-func LoadResponseFile(path string) ([]Response, error) {
-	var resp responseList
-	b, err := ioutil.ReadFile(path)
-	if err != nil {
-		return nil, err
-	}
-
-	if _, err := toml.Decode(string(b), &resp); err != nil {
-		return nil, err
-	}
-
-	return resp.Responses, nil
-}
-
-func LoadResponseFiles(dirname, filename string) ([]Response, error) {
-
-	var resp []Response
-	err := filepath.Walk(dirname, func(path string, fi os.FileInfo, err error) error {
-		if err == nil && filepath.Base(path) == filename {
-			r, err := LoadResponseFile(path)
-			if err != nil {
-				return err
-			}
-			resp = append(resp, r...)
-		}
-		return nil
-	})
-	if err != nil {
-		return nil, err
-	}
-
-	return resp, nil
-}
-
-func StoreResponseFile(path string, resp []Response) error {
-
-	buf := new(bytes.Buffer)
-	if err := toml.NewEncoder(buf).Encode(responseList{resp}); err != nil {
-		return err
-	}
-
-	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
-		return err
-	}
-
-	f, err := os.Create(path)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	_, err = f.Write(buf.Bytes())
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-*/

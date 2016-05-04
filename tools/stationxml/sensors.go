@@ -259,7 +259,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 			},
 		},
 	},
-	"CUSP3A SENSOR": SensorModel{
+	"CUSP3A": SensorModel{
 		Type:        "Strong Motion Sensor",
 		Description: "CUSP 3A",
 
@@ -335,7 +335,45 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 			},
 		},
 	},
-	"CUSP3D SENSOR": SensorModel{
+	"CUSP3B": SensorModel{
+		Type:        "Strong Motion Sensor",
+		Description: "CUSP 3B",
+
+		Components: []SensorComponent{
+			SensorComponent{
+				Azimuth: 90.0,
+				Dip:     0.0,
+			},
+			SensorComponent{
+				Azimuth: 0.0,
+				Dip:     0.0,
+			},
+			SensorComponent{
+				Azimuth: 0.0,
+				Dip:     -90.0,
+			},
+		},
+	},
+	"CUSP3C": SensorModel{
+		Type:        "Strong Motion Sensor",
+		Description: "CUSP 3C",
+
+		Components: []SensorComponent{
+			SensorComponent{
+				Azimuth: 90.0,
+				Dip:     0.0,
+			},
+			SensorComponent{
+				Azimuth: 0.0,
+				Dip:     0.0,
+			},
+			SensorComponent{
+				Azimuth: 0.0,
+				Dip:     -90.0,
+			},
+		},
+	},
+	"CUSP3D": SensorModel{
 		Type:        "Strong Motion Sensor",
 		Description: "CUSP 3D",
 
@@ -415,6 +453,25 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		},
 	},
 	"FBA-ES-T": SensorModel{
+		Type:        "Accelerometer",
+		Description: "FBA-ES-T",
+
+		Components: []SensorComponent{
+			SensorComponent{
+				Azimuth: 0.0,
+				Dip:     -90.0,
+			},
+			SensorComponent{
+				Azimuth: 0.0,
+				Dip:     0.0,
+			},
+			SensorComponent{
+				Azimuth: 90.0,
+				Dip:     0.0,
+			},
+		},
+	},
+	"FBA-ES-T-OBSIDIAN": SensorModel{
 		Type:        "Accelerometer",
 		Description: "FBA-ES-T",
 

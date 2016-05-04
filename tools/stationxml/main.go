@@ -4,8 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"math"
-	"math/cmplx"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -17,6 +15,12 @@ import (
 	"github.com/GeoNet/delta/meta"
 	"github.com/ozym/fdsn/stationxml"
 )
+
+type Channels []stationxml.Channel
+
+func (c Channels) Len() int           { return len(c) }
+func (c Channels) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
+func (c Channels) Less(i, j int) bool { return c[i].StartDate.Time.Before(c[j].StartDate.Time) }
 
 func main() {
 
@@ -40,9 +44,6 @@ func main() {
 
 	var install string
 	flag.StringVar(&install, "install", "../../install", "base installs directory")
-
-	var level string
-	flag.StringVar(&level, "level", "", "stationxml level")
 
 	var stationRegexp string
 	flag.StringVar(&stationRegexp, "stations", "[A-Z0-9]+", "regex selection of stations")
@@ -341,11 +342,11 @@ func main() {
 	stas := make(map[string][]stationxml.Station)
 	for _, k := range keys {
 
-		fmt.Fprintf(os.Stderr, "checking station: %s\n", k)
 		if !stationMatch.MatchString(k) {
-			fmt.Fprintf(os.Stderr, "skipping station: %s [outside regexp match]\n", k)
 			continue
 		}
+
+		fmt.Fprintf(os.Stderr, "checking station: %s\n", k)
 
 		v := stationMap[k]
 		if _, ok := siteMap[k]; !ok {
@@ -369,561 +370,603 @@ func main() {
 		}
 
 		var chans []stationxml.Channel
-		if strings.ToLower(level) != "station" {
 
-			for _, c := range connectionMap[k] {
-				fmt.Fprintf(os.Stderr, "checking station channel: %s %s\n", k, c.LocationCode)
+		for _, c := range connectionMap[k] {
+			fmt.Fprintf(os.Stderr, "checking station channel: %s %s\n", k, c.LocationCode)
 
-				if _, ok := dataloggerDeploys[c.Place]; !ok {
-					fmt.Fprintf(os.Stderr, "skipping station channel: %s %s [no deployed datalogger]\n", k, c.Place)
+			if _, ok := dataloggerDeploys[c.Place]; !ok {
+				fmt.Fprintf(os.Stderr, "skipping station channel: %s %s [no deployed datalogger]\n", k, c.Place)
+				continue
+			}
+			l, ok := siteMap[k][c.LocationCode]
+			if !ok {
+				fmt.Fprintf(os.Stderr, "skipping station channel: %s %s [no site map]\n", k, c.LocationCode)
+				continue
+			}
+
+			for _, s := range sensorInstalls[k] {
+				fmt.Fprintf(os.Stderr, "checking station sensor install: %s %s\n", k, s.LocationCode)
+				switch {
+				case s.LocationCode != c.LocationCode:
+					continue
+				case s.Start.After(c.End):
+					continue
+				case s.End.Before(c.Start):
+					continue
+				case s.Start == c.End:
 					continue
 				}
-				l, ok := siteMap[k][c.LocationCode]
-				if !ok {
-					fmt.Fprintf(os.Stderr, "skipping station channel: %s %s [no site map]\n", k, c.LocationCode)
-					continue
-				}
-
-				for _, s := range sensorInstalls[k] {
-					fmt.Fprintf(os.Stderr, "checking station sensor install: %s %s\n", k, s.LocationCode)
+				for _, d := range dataloggerDeploys[c.Place] {
+					fmt.Fprintf(os.Stderr, "checking station datalogger deploys: %s %s %s\n", k, c.Place, d.Role)
 					switch {
-					case s.LocationCode != c.LocationCode:
+					case d.Role != c.Role:
 						continue
-					case s.Start.After(c.End):
+					case d.Start.After(c.End):
 						continue
-					case s.End.Before(c.Start):
+					case d.End.Before(c.Start):
+						continue
+					case d.Start == c.End:
+						continue
+					case d.Start.After(s.End):
+						continue
+					case d.End.Before(s.Start):
+						continue
+					case d.Start == s.End:
+						continue
+					case s.End == d.Start:
 						continue
 					}
-					for _, d := range dataloggerDeploys[c.Place] {
-						fmt.Fprintf(os.Stderr, "checking station datalogger deploys: %s %s %s\n", k, c.Place, d.Role)
-						switch {
-						case d.Role != c.Role:
+
+					on := c.Start
+					if s.Start.After(on) {
+						on = s.Start
+					}
+					if d.Start.After(on) {
+						on = d.Start
+					}
+					off := c.End
+					if s.End.Before(off) {
+						off = s.End
+					}
+					if d.End.Before(off) {
+						off = d.End
+					}
+
+					fmt.Fprintf(os.Stderr, "checking station datalogger response: %s %s\n", k, d.Model)
+					if _, ok := resmap[d.Model]; !ok {
+						fmt.Fprintf(os.Stderr, "skipping station datalogger response: %s \"%s\" no resmap\n", k, d.Model)
+						continue
+					}
+					if _, ok := resmap[d.Model][s.Model]; !ok {
+						fmt.Fprintf(os.Stderr, "skipping station datalogger response: %s \"%s\" \"%s\" no resmap\n", k, d.Model, s.Model)
+						continue
+					}
+					fmt.Fprintf(os.Stderr, "checking station response: %s %s %s\n", k, d.Model, s.Model)
+					for _, r := range resmap[d.Model][s.Model] {
+
+						if r.Datalogger.Match != "" && !regexp.MustCompile(r.Datalogger.Match).MatchString(v.Code) {
+							fmt.Fprintln(os.Stderr, "skipping!", r.Datalogger.Match, v.Code)
 							continue
-						case d.Start.After(c.End):
-							continue
-						case d.End.Before(c.Start):
+						}
+						if r.Datalogger.Skip != "" && regexp.MustCompile(r.Datalogger.Skip).MatchString(v.Code) {
+							fmt.Fprintln(os.Stderr, "skipping!", r.Datalogger.Skip, v.Code)
 							continue
 						}
 
-						on := s.Start
-						if d.Start.After(on) {
-							on = d.Start
-						}
-						off := s.End
-						if d.End.Before(off) {
-							off = d.End
-						}
-
-						fmt.Fprintf(os.Stderr, "checking station datalogger response: %s %s\n", k, d.Model)
-						if _, ok := resmap[d.Model]; !ok {
-							fmt.Fprintf(os.Stderr, "skipping station datalogger response: %s \"%s\" no resmap\n", k, d.Model)
+						if r.Sensor.Match != "" && !regexp.MustCompile(r.Sensor.Match).MatchString(v.Code) {
+							fmt.Fprintln(os.Stderr, "skipping!", r.Sensor.Match, v.Code)
 							continue
 						}
-						if _, ok := resmap[d.Model][s.Model]; !ok {
-							fmt.Fprintf(os.Stderr, "skipping station datalogger response: %s \"%s\" \"%s\" no resmap\n", k, d.Model, s.Model)
+						if r.Sensor.Skip != "" && regexp.MustCompile(r.Sensor.Skip).MatchString(v.Code) {
+							fmt.Fprintln(os.Stderr, "skipping!", r.Sensor.Skip, v.Code)
 							continue
 						}
-						fmt.Fprintf(os.Stderr, "checking station response: %s %s %s\n", k, d.Model, s.Model)
-						for _, r := range resmap[d.Model][s.Model] {
 
-							if r.Datalogger.Match != "" && !regexp.MustCompile(r.Datalogger.Match).MatchString(v.Code) {
-								fmt.Fprintln(os.Stderr, "skipping!", r.Datalogger.Match, v.Code)
+						var types []stationxml.Type
+						for _, j := range r.Type {
+							switch j {
+							case 'c', 'C':
+								types = append(types, stationxml.TypeContinuous)
+							case 't', 'T':
+								types = append(types, stationxml.TypeTriggered)
+							case 'g', 'G':
+								types = append(types, stationxml.TypeGeophysical)
+							case 'w', 'W':
+								types = append(types, stationxml.TypeWeather)
+							}
+						}
+
+						if _, ok := components[s.Model]; !ok {
+							fmt.Fprintf(os.Stderr, "no components found, skipping: %s\n", s.Model)
+							continue
+						}
+
+						var f []string
+						f = append(f, r.Sensor.Filters...)
+						f = append(f, r.Datalogger.Filters...)
+
+						freq := r.Datalogger.Frequency
+						for p, j := range r.Channels {
+							c, ok := components[s.Model][p]
+							if !ok {
 								continue
 							}
-							if r.Datalogger.Skip != "" && regexp.MustCompile(r.Datalogger.Skip).MatchString(v.Code) {
-								fmt.Fprintln(os.Stderr, "skipping!", r.Datalogger.Skip, v.Code)
-								continue
-							}
 
-							if r.Sensor.Match != "" && !regexp.MustCompile(r.Sensor.Match).MatchString(v.Code) {
-								fmt.Fprintln(os.Stderr, "skipping!", r.Sensor.Match, v.Code)
-								continue
-							}
-							if r.Sensor.Skip != "" && regexp.MustCompile(r.Sensor.Skip).MatchString(v.Code) {
-								fmt.Fprintln(os.Stderr, "skipping!", r.Sensor.Skip, v.Code)
-								continue
-							}
+							dip := c.Dip
+							azimuth := s.Azimuth + c.Azimuth
+							fmt.Fprintln(os.Stderr, c.Azimuth, c.Dip, s.Azimuth, s.Dip)
 
-							var types []stationxml.Type
-							for _, j := range r.Type {
-								switch j {
-								case 'c', 'C':
-									types = append(types, stationxml.TypeContinuous)
-								case 't', 'T':
-									types = append(types, stationxml.TypeTriggered)
-								case 'g', 'G':
-									types = append(types, stationxml.TypeGeophysical)
-								case 'w', 'W':
-									types = append(types, stationxml.TypeWeather)
+							// only rotate horizontal components
+							if dip == 0.0 {
+								if r.Sensor.Reversed {
+									azimuth += 180.0
+								}
+								if r.Datalogger.Reversed {
+									azimuth += 180.0
+								}
+								// avoid negative zero
+								dip = 0.0
+							} else {
+								if r.Sensor.Reversed {
+									dip *= -1.0
+								}
+								if r.Datalogger.Reversed {
+									dip *= -1.0
 								}
 							}
 
-							if _, ok := components[s.Model]; !ok {
-								continue
+							// bring into positive range
+							for azimuth < 0.0 {
+								azimuth += 360.0
+							}
+							for azimuth > 360.0 {
+								azimuth -= 360.0
 							}
 
-							var f []string
-							f = append(f, r.Sensor.Filters...)
-							f = append(f, r.Datalogger.Filters...)
-
-							freq := r.Datalogger.Frequency
-							for p, j := range r.Channels {
-								c, ok := components[s.Model][p]
-								if !ok {
-									continue
+							count := 1
+							var stages []stationxml.ResponseStage
+							for _, v := range f {
+								if _, ok := Filters[v]; !ok {
+									fmt.Fprintf(os.Stderr, "error: unknown filter %s\n", v)
+									os.Exit(-1)
 								}
-
-								azimuth := s.Azimuth + c.Azimuth
-								for azimuth < 0.0 {
-									azimuth += 360.0
-								}
-								for azimuth > 360.0 {
-									azimuth -= 360.0
-								}
-
-								count := 1
-								var stages []stationxml.ResponseStage
-								for _, v := range f {
-									if _, ok := Filters[v]; !ok {
-										fmt.Fprintf(os.Stderr, "error: unknown filter %s\n", v)
-										os.Exit(-1)
-									}
-									for _, s := range Filters[v] {
-										switch s.Type {
-										case "poly":
-											p, ok := Polynomials[s.Lookup]
-											if !ok {
-												fmt.Fprintf(os.Stderr, "error: unknown polynomial filter %s\n", s.Lookup)
-												os.Exit(-1)
-											}
-											var coeffs []stationxml.Coefficient
-											for n, c := range p.Coefficients {
-												coeffs = append(coeffs, stationxml.Coefficient{
-													Number: uint32(n) + 1,
-													Value:  c.Value,
-												})
-											}
-
-											poly := stationxml.Polynomial{
-												BaseFilter: stationxml.BaseFilter{
-													ResourceId:  "Polynomial#" + v,
-													Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
-													InputUnits:  stationxml.Units{Name: s.InputUnits},
-													OutputUnits: stationxml.Units{Name: s.OutputUnits},
-												},
-												ApproximationType: func() stationxml.ApproximationType {
-													switch p.ApproximationType {
-													case "MACLAURIN":
-														return stationxml.ApproximationTypeMaclaurin
-													default:
-														return stationxml.ApproximationTypeUnknown
-													}
-												}(),
-												FrequencyLowerBound:     stationxml.Frequency{stationxml.Float{Value: p.FrequencyLowerBound}},
-												FrequencyUpperBound:     stationxml.Frequency{stationxml.Float{Value: p.FrequencyUpperBound}},
-												ApproximationLowerBound: strconv.FormatFloat(p.ApproximationLowerBound, 'g', -1, 64),
-												ApproximationUpperBound: strconv.FormatFloat(p.ApproximationUpperBound, 'g', -1, 64),
-												MaximumError:            p.MaximumError,
-												Coefficients:            coeffs,
-											}
-											stages = append(stages, stationxml.ResponseStage{
-												Number:     stationxml.Counter(uint32(count)),
-												Polynomial: &poly,
-												//TODO: check we may need to adjust gain for different frequency
-												StageGain: stationxml.Gain{
-													Value: func() float64 {
-														if p.Gain != 0.0 {
-															return p.Gain
-														}
-														return 1.0
-													}(),
-													//Frequency: s.Frequency,
-													Frequency: freq,
-												},
-											})
-										case "paz":
-											if _, ok := PAZs[s.Lookup]; !ok {
-												fmt.Fprintf(os.Stderr, "error: unknown paz filter %s\n", s.Lookup)
-												os.Exit(-1)
-											}
-											var poles []stationxml.PoleZero
-											for j, p := range PAZs[s.Lookup].Poles {
-												poles = append(poles, stationxml.PoleZero{
-													Number:    uint32(j),
-													Real:      stationxml.FloatNoUnit{Value: real(p)},
-													Imaginary: stationxml.FloatNoUnit{Value: imag(p)},
-												})
-											}
-											var zeros []stationxml.PoleZero
-											for j, z := range PAZs[s.Lookup].Zeros {
-												zeros = append(zeros, stationxml.PoleZero{
-													Number:    uint32(len(PAZs[s.Lookup].Poles) + j),
-													Real:      stationxml.FloatNoUnit{Value: real(z)},
-													Imaginary: stationxml.FloatNoUnit{Value: imag(z)},
-												})
-											}
-											paz := stationxml.PolesZeros{
-												BaseFilter: stationxml.BaseFilter{
-													ResourceId:  "PolesZeros#" + v,
-													Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
-													InputUnits:  stationxml.Units{Name: s.InputUnits},
-													OutputUnits: stationxml.Units{Name: s.OutputUnits},
-												},
-												PzTransferFunction: func() stationxml.PzTransferFunction {
-													switch PAZs[s.Lookup].Code {
-													case "A":
-														return stationxml.PZFunctionLaplaceRadiansPerSecond
-													case "B":
-														return stationxml.PZFunctionLaplaceHertz
-													case "D":
-														return stationxml.PZFunctionLaplaceZTransform
-													default:
-														return stationxml.PZFunctionUnknown
-													}
-												}(),
-												NormalizationFactor: func() float64 {
-													w := complex(0.0, -2.0*math.Pi*s.Frequency)
-													h := complex(float64(1.0), float64(0.0))
-													for _, p := range PAZs[s.Lookup].Poles {
-														switch PAZs[s.Lookup].Code {
-														case "B":
-															h /= (w - 2.0*math.Pi*p)
-														default:
-															h /= (w - p)
-														}
-													}
-													for _, z := range PAZs[s.Lookup].Zeros {
-														switch PAZs[s.Lookup].Code {
-														case "B":
-															h *= (w - 2.0*math.Pi*z)
-														default:
-															h *= (w - z)
-														}
-													}
-													return 1.0 / cmplx.Abs(h)
-												}(),
-
-												NormalizationFrequency: stationxml.Frequency{
-													//stationxml.Float{Value: s.Frequency},
-													stationxml.Float{Value: freq},
-												},
-												Zeros: zeros,
-												Poles: poles,
-											}
-											stages = append(stages, stationxml.ResponseStage{
-												//TODO: check we may need to adjust gain for different frequency
-												Number:     stationxml.Counter(uint32(count)),
-												PolesZeros: &paz,
-												StageGain: stationxml.Gain{
-													Value: func() float64 {
-														if s.Gain != 0.0 {
-															return s.Gain
-														}
-														return 1.0
-													}(),
-													//Frequency: s.Frequency,
-													Frequency: freq,
-												},
-											})
-
-										case "a2d":
-											coefs := stationxml.Coefficients{
-												BaseFilter: stationxml.BaseFilter{
-													ResourceId:  "Coefficients#" + v,
-													Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
-													InputUnits:  stationxml.Units{Name: s.InputUnits},
-													OutputUnits: stationxml.Units{Name: s.OutputUnits},
-												},
-												CfTransferFunctionType: stationxml.CfFunctionDigital,
-											}
-											stages = append(stages, stationxml.ResponseStage{
-												Number:       stationxml.Counter(uint32(count)),
-												Coefficients: &coefs,
-												StageGain: stationxml.Gain{
-													Value: func() float64 {
-														if s.Gain != 0.0 {
-															return s.Gain
-														}
-														return 1.0
-													}(),
-													//Frequency: s.Frequency,
-													Frequency: freq,
-												},
-												Decimation: &stationxml.Decimation{
-													InputSampleRate: stationxml.Frequency{stationxml.Float{Value: s.SampleRate}},
-													Factor: func() int32 {
-														if s.Decimate != 0 {
-															return s.Decimate
-														}
-														return 1
-													}(),
-													Delay:      stationxml.Float{Value: s.Delay},
-													Correction: stationxml.Float{Value: s.Correction},
-												},
-											})
-
-										case "fir":
-											if _, ok := FIRs[s.Lookup]; !ok {
-												fmt.Fprintf(os.Stderr, "error: unknown fir filter %s\n", s.Lookup)
-												os.Exit(-1)
-											}
-											var coeffs []stationxml.NumeratorCoefficient
-											for j, c := range FIRs[s.Lookup].Factors {
-												coeffs = append(coeffs, stationxml.NumeratorCoefficient{
-													Coefficient: int32(j + 1),
-													Value:       c,
-												})
-											}
-
-											fir := stationxml.FIR{
-												BaseFilter: stationxml.BaseFilter{
-													ResourceId: "FIR#" + v,
-													//Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
-													Name: func() string {
-														switch s.Lookup {
-														case "Q330_FLbelow100-100":
-															return "Q330XFLBELOW100X100"
-														default:
-															return s.Lookup
-														}
-													}(),
-													InputUnits:  stationxml.Units{Name: s.InputUnits},
-													OutputUnits: stationxml.Units{Name: s.OutputUnits},
-												},
-												Symmetry: func() stationxml.Symmetry {
-													switch strings.ToUpper(FIRs[s.Lookup].Symmetry) {
-													case "EVEN":
-														return stationxml.SymmetryEven
-													case "ODD":
-														return stationxml.SymmetryOdd
-													default:
-														return stationxml.SymmetryNone
-													}
-												}(),
-												NumeratorCoefficients: coeffs,
-											}
-											stages = append(stages, stationxml.ResponseStage{
-												Number: stationxml.Counter(uint32(count)),
-												FIR:    &fir,
-												//TODO: check we may need to adjust gain for different frequency
-												StageGain: stationxml.Gain{
-													Value: func() float64 {
-														if s.Gain != 0.0 {
-															return s.Gain
-														}
-														return 1.0
-													}(),
-													//Frequency: s.Frequency,
-													Frequency: freq,
-												},
-												Decimation: &stationxml.Decimation{
-													InputSampleRate: stationxml.Frequency{stationxml.Float{Value: FIRs[s.Lookup].Decimation * s.SampleRate}},
-													Factor: func() int32 {
-														if s.Decimate != 0 {
-															return s.Decimate
-														}
-														return 1
-													}(),
-													Delay:      stationxml.Float{Value: s.Delay},
-													Correction: stationxml.Float{Value: s.Correction},
-												},
-											})
-										default:
-											fmt.Fprintf(os.Stderr, "error: unknown filter type %s: %s\n", v, s.Type)
+								for _, s := range Filters[v] {
+									switch s.Type {
+									case "poly":
+										p, ok := Polynomials[s.Lookup]
+										if !ok {
+											fmt.Fprintf(os.Stderr, "error: unknown polynomial filter %s\n", s.Lookup)
 											os.Exit(-1)
 										}
-										count++
-									}
-								}
+										var coeffs []stationxml.Coefficient
+										for n, c := range p.Coefficients {
+											coeffs = append(coeffs, stationxml.Coefficient{
+												Number: uint32(n) + 1,
+												Value:  c.Value,
+											})
+										}
 
-								chans = append(chans, stationxml.Channel{
-									BaseNode: stationxml.BaseNode{
-										Code:      r.Label + string(j),
-										StartDate: &stationxml.DateTime{on},
-										EndDate:   &stationxml.DateTime{off},
-										RestrictedStatus: func() stationxml.RestrictedStatus {
-											switch n.Restricted {
-											case true:
-												return stationxml.StatusClosed
-											default:
-												return stationxml.StatusOpen
-											}
-										}(),
-									},
-									LocationCode: l.LocationCode,
-									Latitude: stationxml.Latitude{
-										LatitudeBase: stationxml.LatitudeBase{
-											Float: stationxml.Float{
-												Value: l.Latitude,
+										poly := stationxml.Polynomial{
+											BaseFilter: stationxml.BaseFilter{
+												ResourceId:  "Polynomial#" + v,
+												Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
+												InputUnits:  stationxml.Units{Name: s.InputUnits},
+												OutputUnits: stationxml.Units{Name: s.OutputUnits},
 											},
-										},
-										Datum: v.Datum,
-									},
-									Longitude: stationxml.Longitude{
-										LongitudeBase: stationxml.LongitudeBase{
-											Float: stationxml.Float{
-												Value: l.Longitude,
-											},
-										},
-										Datum: v.Datum,
-									},
-									Elevation: stationxml.Distance{Float: stationxml.Float{Value: l.Elevation}},
-									Depth:     stationxml.Distance{Float: stationxml.Float{Value: -s.Height}},
-									Azimuth:   &stationxml.Azimuth{Float: stationxml.Float{Value: azimuth}},
-									Dip:       &stationxml.Dip{Float: stationxml.Float{Value: c.Dip}},
-									Types:     types,
-									SampleRateGroup: stationxml.SampleRateGroup{
-										SampleRate: stationxml.SampleRate{Float: stationxml.Float{Value: r.Rate}},
-										SampleRateRatio: func() *stationxml.SampleRateRatio {
-											if r.Rate > 1.0 {
-												return &stationxml.SampleRateRatio{
-													NumberSamples: int32(r.Rate),
-													NumberSeconds: 1,
+											ApproximationType: func() stationxml.ApproximationType {
+												switch p.ApproximationType {
+												case "MACLAURIN":
+													return stationxml.ApproximationTypeMaclaurin
+												default:
+													return stationxml.ApproximationTypeUnknown
 												}
-											} else {
-												return &stationxml.SampleRateRatio{
-													NumberSamples: 1,
-													NumberSeconds: int32(1.0 / r.Rate),
-												}
-											}
-										}(),
-									},
-									StorageFormat: r.StorageFormat,
-									ClockDrift:    &stationxml.ClockDrift{Float: stationxml.Float{Value: r.ClockDrift}},
-									Sensor: &stationxml.Equipment{
-										ResourceId: "Sensor#" + s.Model + ":" + s.Serial,
-										Type: func() string {
-											if t, ok := SensorModels[s.Model]; ok {
-												return t.Type
-											}
-											return ""
-										}(),
-										Description: func() string {
-											if t, ok := SensorModels[s.Model]; ok {
-												return t.Description
-											}
-											return ""
-										}(),
-										Manufacturer: func() string {
-											if t, ok := SensorModels[s.Model]; ok {
-												return t.Manufacturer
-											}
-											return ""
-										}(),
-										Vendor: func() string {
-											if t, ok := SensorModels[s.Model]; ok {
-												return t.Vendor
-											}
-											return ""
-										}(),
-										Model:        s.Model,
-										SerialNumber: s.Serial,
-										InstallationDate: func() *stationxml.DateTime {
-											return &stationxml.DateTime{s.Start}
-										}(),
-										RemovalDate: func() *stationxml.DateTime {
-											if time.Now().After(s.End) {
-												return &stationxml.DateTime{s.End}
-											}
-											return nil
-										}(),
-									},
-
-									DataLogger: &stationxml.Equipment{
-										ResourceId: "Datalogger#" + d.Model + ":" + d.Serial,
-										Type: func() string {
-											if t, ok := DataloggerModels[d.Model]; ok {
-												return t.Type
-											}
-											return ""
-										}(),
-										Description: func() string {
-											if t, ok := DataloggerModels[d.Model]; ok {
-												return t.Description
-											}
-											return ""
-										}(),
-										Manufacturer: func() string {
-											if t, ok := DataloggerModels[d.Model]; ok {
-												return t.Manufacturer
-											}
-											return ""
-										}(),
-										Vendor: func() string {
-											if t, ok := DataloggerModels[d.Model]; ok {
-												return t.Vendor
-											}
-											return ""
-										}(),
-										Model:        d.Model,
-										SerialNumber: d.Serial,
-										InstallationDate: func() *stationxml.DateTime {
-											return &stationxml.DateTime{d.Start}
-										}(),
-										RemovalDate: func() *stationxml.DateTime {
-											if time.Now().After(d.End) {
-												return &stationxml.DateTime{d.End}
-											}
-											return nil
-										}(),
-									},
-									Response: &stationxml.Response{
-										Stages: stages,
-										InstrumentSensitivity: &stationxml.Sensitivity{
+											}(),
+											FrequencyLowerBound:     stationxml.Frequency{stationxml.Float{Value: p.FrequencyLowerBound}},
+											FrequencyUpperBound:     stationxml.Frequency{stationxml.Float{Value: p.FrequencyUpperBound}},
+											ApproximationLowerBound: strconv.FormatFloat(p.ApproximationLowerBound, 'g', -1, 64),
+											ApproximationUpperBound: strconv.FormatFloat(p.ApproximationUpperBound, 'g', -1, 64),
+											MaximumError:            p.MaximumError,
+											Coefficients:            coeffs,
+										}
+										stages = append(stages, stationxml.ResponseStage{
+											Number:     stationxml.Counter(uint32(count)),
+											Polynomial: &poly,
 											//TODO: check we may need to adjust gain for different frequency
-											Gain: stationxml.Gain{
+											StageGain: stationxml.Gain{
 												Value: func() float64 {
-													var gain float64 = 1.0
-													for _, s := range stages {
-														gain *= s.StageGain.Value
+													if p.Gain != 0.0 {
+														return p.Gain
 													}
-													return gain
+													return 1.0
+												}(),
+												//Frequency: s.Frequency,
+												Frequency: freq,
+											},
+										})
+									case "paz":
+										if _, ok := PAZs[s.Lookup]; !ok {
+											fmt.Fprintf(os.Stderr, "error: unknown paz filter %s\n", s.Lookup)
+											os.Exit(-1)
+										}
+										var poles []stationxml.PoleZero
+										for j, p := range PAZs[s.Lookup].Poles {
+											poles = append(poles, stationxml.PoleZero{
+												Number:    uint32(j),
+												Real:      stationxml.FloatNoUnit{Value: real(p)},
+												Imaginary: stationxml.FloatNoUnit{Value: imag(p)},
+											})
+										}
+										var zeros []stationxml.PoleZero
+										for j, z := range PAZs[s.Lookup].Zeros {
+											zeros = append(zeros, stationxml.PoleZero{
+												Number:    uint32(len(PAZs[s.Lookup].Poles) + j),
+												Real:      stationxml.FloatNoUnit{Value: real(z)},
+												Imaginary: stationxml.FloatNoUnit{Value: imag(z)},
+											})
+										}
+										paz := stationxml.PolesZeros{
+											BaseFilter: stationxml.BaseFilter{
+												ResourceId:  "PolesZeros#" + v,
+												Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
+												InputUnits:  stationxml.Units{Name: s.InputUnits},
+												OutputUnits: stationxml.Units{Name: s.OutputUnits},
+											},
+											PzTransferFunction: func() stationxml.PzTransferFunction {
+												switch PAZs[s.Lookup].Code {
+												case "A":
+													return stationxml.PZFunctionLaplaceRadiansPerSecond
+												case "B":
+													return stationxml.PZFunctionLaplaceHertz
+												case "D":
+													return stationxml.PZFunctionLaplaceZTransform
+												default:
+													return stationxml.PZFunctionUnknown
+												}
+											}(),
+											NormalizationFactor: func() float64 {
+												return 1.0 / PAZs[s.Lookup].Gain(freq)
+											}(),
+											NormalizationFrequency: stationxml.Frequency{
+												stationxml.Float{Value: freq},
+											},
+											Zeros: zeros,
+											Poles: poles,
+										}
+										stages = append(stages, stationxml.ResponseStage{
+											Number:     stationxml.Counter(uint32(count)),
+											PolesZeros: &paz,
+											StageGain: stationxml.Gain{
+												Value: func() float64 {
+													if s.Gain != 0.0 {
+														return PAZs[s.Lookup].Gain(freq) * s.Gain / PAZs[s.Lookup].Gain(s.Frequency)
+													}
+													return 1.0
 												}(),
 												Frequency: freq,
 											},
-											InputUnits: func() stationxml.Units {
-												var units stationxml.Units
-												if len(stages) > 0 {
-													s := stages[0]
-													switch {
-													case s.PolesZeros != nil:
-														units = s.PolesZeros.BaseFilter.InputUnits
-													case s.Coefficients != nil:
-														units = s.Coefficients.BaseFilter.InputUnits
-													case s.ResponseList != nil:
-														units = s.ResponseList.BaseFilter.InputUnits
-													case s.FIR != nil:
-														units = s.FIR.BaseFilter.InputUnits
-													case s.Polynomial != nil:
-														units = s.Polynomial.BaseFilter.InputUnits
+										})
+
+									case "a2d":
+										coefs := stationxml.Coefficients{
+											BaseFilter: stationxml.BaseFilter{
+												ResourceId:  "Coefficients#" + v,
+												Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
+												InputUnits:  stationxml.Units{Name: s.InputUnits},
+												OutputUnits: stationxml.Units{Name: s.OutputUnits},
+											},
+											CfTransferFunctionType: stationxml.CfFunctionDigital,
+										}
+										stages = append(stages, stationxml.ResponseStage{
+											Number:       stationxml.Counter(uint32(count)),
+											Coefficients: &coefs,
+											StageGain: stationxml.Gain{
+												Value: func() float64 {
+													if s.Gain != 0.0 {
+														return s.Gain
 													}
+													return 1.0
+												}(),
+												//Frequency: s.Frequency,
+												Frequency: freq,
+											},
+											Decimation: &stationxml.Decimation{
+												InputSampleRate: stationxml.Frequency{stationxml.Float{Value: s.SampleRate}},
+												Factor: func() int32 {
+													if s.Decimate != 0 {
+														return s.Decimate
+													}
+													return 1
+												}(),
+												Delay:      stationxml.Float{Value: s.Delay},
+												Correction: stationxml.Float{Value: s.Correction},
+											},
+										})
+
+									case "fir":
+										if _, ok := FIRs[s.Lookup]; !ok {
+											fmt.Fprintf(os.Stderr, "error: unknown fir filter %s\n", s.Lookup)
+											os.Exit(-1)
+										}
+										var coeffs []stationxml.NumeratorCoefficient
+										for j, c := range FIRs[s.Lookup].Factors {
+											coeffs = append(coeffs, stationxml.NumeratorCoefficient{
+												Coefficient: int32(j + 1),
+												Value:       c,
+											})
+										}
+
+										fir := stationxml.FIR{
+											BaseFilter: stationxml.BaseFilter{
+												ResourceId: "FIR#" + v,
+												//Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
+												Name:        s.Lookup,
+												InputUnits:  stationxml.Units{Name: s.InputUnits},
+												OutputUnits: stationxml.Units{Name: s.OutputUnits},
+											},
+											Symmetry: func() stationxml.Symmetry {
+												switch strings.ToUpper(FIRs[s.Lookup].Symmetry) {
+												case "EVEN":
+													return stationxml.SymmetryEven
+												case "ODD":
+													return stationxml.SymmetryOdd
+												default:
+													return stationxml.SymmetryNone
 												}
-												return units
 											}(),
-											OutputUnits: func() stationxml.Units {
-												var units stationxml.Units
-												if len(stages) > 0 {
-													s := stages[len(stages)-1]
-													switch {
-													case s.PolesZeros != nil:
-														units = s.PolesZeros.BaseFilter.OutputUnits
-													case s.Coefficients != nil:
-														units = s.Coefficients.BaseFilter.OutputUnits
-													case s.ResponseList != nil:
-														units = s.ResponseList.BaseFilter.OutputUnits
-													case s.FIR != nil:
-														units = s.FIR.BaseFilter.OutputUnits
-													case s.Polynomial != nil:
-														units = s.Polynomial.BaseFilter.OutputUnits
+											NumeratorCoefficients: coeffs,
+										}
+										stages = append(stages, stationxml.ResponseStage{
+											Number: stationxml.Counter(uint32(count)),
+											FIR:    &fir,
+											//TODO: check we may need to adjust gain for different frequency
+											StageGain: stationxml.Gain{
+												Value: func() float64 {
+													if s.Gain != 0.0 {
+														return s.Gain
 													}
+													return 1.0
+												}(),
+												//Frequency: s.Frequency,
+												Frequency: freq,
+											},
+											Decimation: &stationxml.Decimation{
+												InputSampleRate: stationxml.Frequency{stationxml.Float{Value: FIRs[s.Lookup].Decimation * s.SampleRate}},
+												Factor: func() int32 {
+													if s.Decimate != 0 {
+														return s.Decimate
+													}
+													return int32(FIRs[s.Lookup].Decimation)
+												}(),
+												Delay:      stationxml.Float{Value: s.Delay},
+												Correction: stationxml.Float{Value: s.Correction},
+											},
+										})
+									default:
+										fmt.Fprintf(os.Stderr, "error: unknown filter type %s: %s\n", v, s.Type)
+										os.Exit(-1)
+									}
+									count++
+								}
+							}
+
+							fmt.Fprintln(os.Stderr, r.Label+string(j), "ca=", c.Azimuth, "cd=", c.Dip, "sa=", s.Azimuth, "sd=", s.Dip, "a=", azimuth, "d=", dip)
+
+							chans = append(chans, stationxml.Channel{
+								BaseNode: stationxml.BaseNode{
+									Code:      r.Label + string(j),
+									StartDate: &stationxml.DateTime{on},
+									EndDate:   &stationxml.DateTime{off},
+									RestrictedStatus: func() stationxml.RestrictedStatus {
+										switch n.Restricted {
+										case true:
+											return stationxml.StatusClosed
+										default:
+											return stationxml.StatusOpen
+										}
+									}(),
+									Comments: []stationxml.Comment{
+										stationxml.Comment{
+											Id: 1,
+											Value: func() string {
+												switch l.Survey {
+												case "Unknown":
+													return "Location estimation method is unknown"
+												case "External GPS Device":
+													return "Location estimated from external GPS measurement"
+												case "Internal GPS Clock":
+													return "Location estimated from internal GPS clock"
+												case "Topographic Map":
+													return "Location estimated from topographic map"
+												case "Site Survey":
+													return "Location estimated from plans and survey to mark"
+												default:
+													return "Location estimation method is unknown"
 												}
-												return units
 											}(),
 										},
+										stationxml.Comment{
+											Id:    2,
+											Value: "Location is given in " + l.Datum,
+										},
+										stationxml.Comment{
+											Id:    3,
+											Value: "Sensor orientation not known",
+										},
 									},
-								})
+								},
+								LocationCode: l.LocationCode,
+								Latitude: stationxml.Latitude{
+									LatitudeBase: stationxml.LatitudeBase{
+										Float: stationxml.Float{
+											Value: l.Latitude,
+										},
+									},
+									Datum: l.Datum,
+								},
+								Longitude: stationxml.Longitude{
+									LongitudeBase: stationxml.LongitudeBase{
+										Float: stationxml.Float{
+											Value: l.Longitude,
+										},
+									},
+									Datum: l.Datum,
+								},
+								Elevation: stationxml.Distance{Float: stationxml.Float{Value: l.Elevation}},
+								Depth:     stationxml.Distance{Float: stationxml.Float{Value: -s.Height}},
+								Azimuth:   &stationxml.Azimuth{Float: stationxml.Float{Value: azimuth}},
+								Dip:       &stationxml.Dip{Float: stationxml.Float{Value: dip}},
+								Types:     types,
+								SampleRateGroup: stationxml.SampleRateGroup{
+									SampleRate: stationxml.SampleRate{Float: stationxml.Float{Value: r.Rate}},
+									SampleRateRatio: func() *stationxml.SampleRateRatio {
+										if r.Rate > 1.0 {
+											return &stationxml.SampleRateRatio{
+												NumberSamples: int32(r.Rate),
+												NumberSeconds: 1,
+											}
+										} else {
+											return &stationxml.SampleRateRatio{
+												NumberSamples: 1,
+												NumberSeconds: int32(1.0 / r.Rate),
+											}
+										}
+									}(),
+								},
+								StorageFormat: r.StorageFormat,
+								ClockDrift:    &stationxml.ClockDrift{Float: stationxml.Float{Value: r.ClockDrift}},
+								Sensor: &stationxml.Equipment{
+									ResourceId: "Sensor#" + s.Model + ":" + s.Serial,
+									Type: func() string {
+										if t, ok := SensorModels[s.Model]; ok {
+											return t.Type
+										}
+										return ""
+									}(),
+									Description: func() string {
+										if t, ok := SensorModels[s.Model]; ok {
+											return t.Description
+										}
+										return ""
+									}(),
+									Manufacturer: func() string {
+										if t, ok := SensorModels[s.Model]; ok {
+											return t.Manufacturer
+										}
+										return ""
+									}(),
+									Vendor: func() string {
+										if t, ok := SensorModels[s.Model]; ok {
+											return t.Vendor
+										}
+										return ""
+									}(),
+									Model:        s.Model,
+									SerialNumber: s.Serial,
+									InstallationDate: func() *stationxml.DateTime {
+										return &stationxml.DateTime{s.Start}
+									}(),
+									RemovalDate: func() *stationxml.DateTime {
+										if time.Now().After(s.End) {
+											return &stationxml.DateTime{s.End}
+										}
+										return nil
+									}(),
+								},
 
-							}
+								DataLogger: &stationxml.Equipment{
+									ResourceId: "Datalogger#" + d.Model + ":" + d.Serial,
+									Type: func() string {
+										if t, ok := DataloggerModels[d.Model]; ok {
+											return t.Type
+										}
+										return ""
+									}(),
+									Description: func() string {
+										if t, ok := DataloggerModels[d.Model]; ok {
+											return t.Description
+										}
+										return ""
+									}(),
+									Manufacturer: func() string {
+										if t, ok := DataloggerModels[d.Model]; ok {
+											return t.Manufacturer
+										}
+										return ""
+									}(),
+									Vendor: func() string {
+										if t, ok := DataloggerModels[d.Model]; ok {
+											return t.Vendor
+										}
+										return ""
+									}(),
+									Model:        d.Model,
+									SerialNumber: d.Serial,
+									InstallationDate: func() *stationxml.DateTime {
+										return &stationxml.DateTime{d.Start}
+									}(),
+									RemovalDate: func() *stationxml.DateTime {
+										if time.Now().After(d.End) {
+											return &stationxml.DateTime{d.End}
+										}
+										return nil
+									}(),
+								},
+								Response: &stationxml.Response{
+									Stages: stages,
+									InstrumentSensitivity: &stationxml.Sensitivity{
+										//TODO: check we may need to adjust gain for different frequency
+										Gain: stationxml.Gain{
+											Value: func() float64 {
+												var gain float64 = 1.0
+												for _, s := range stages {
+													gain *= s.StageGain.Value
+												}
+												return gain
+											}(),
+											Frequency: freq,
+										},
+										InputUnits: func() stationxml.Units {
+											var units stationxml.Units
+											if len(stages) > 0 {
+												s := stages[0]
+												switch {
+												case s.PolesZeros != nil:
+													units = s.PolesZeros.BaseFilter.InputUnits
+												case s.Coefficients != nil:
+													units = s.Coefficients.BaseFilter.InputUnits
+												case s.ResponseList != nil:
+													units = s.ResponseList.BaseFilter.InputUnits
+												case s.FIR != nil:
+													units = s.FIR.BaseFilter.InputUnits
+												case s.Polynomial != nil:
+													units = s.Polynomial.BaseFilter.InputUnits
+												}
+											}
+											return units
+										}(),
+										OutputUnits: func() stationxml.Units {
+											var units stationxml.Units
+											if len(stages) > 0 {
+												s := stages[len(stages)-1]
+												switch {
+												case s.PolesZeros != nil:
+													units = s.PolesZeros.BaseFilter.OutputUnits
+												case s.Coefficients != nil:
+													units = s.Coefficients.BaseFilter.OutputUnits
+												case s.ResponseList != nil:
+													units = s.ResponseList.BaseFilter.OutputUnits
+												case s.FIR != nil:
+													units = s.FIR.BaseFilter.OutputUnits
+												case s.Polynomial != nil:
+													units = s.Polynomial.BaseFilter.OutputUnits
+												}
+											}
+											return units
+										}(),
+									},
+								},
+							})
+
 						}
 					}
 				}
@@ -934,6 +977,8 @@ func main() {
 			Latitude:  v.Latitude,
 			Longitude: v.Longitude,
 		}
+
+		sort.Sort(Channels(chans))
 
 		stas[n.ExternalCode] = append(stas[n.ExternalCode], stationxml.Station{
 			BaseNode: stationxml.BaseNode{
@@ -949,6 +994,12 @@ func main() {
 				}(),
 				StartDate: &(stationxml.DateTime{v.Start}),
 				EndDate:   &(stationxml.DateTime{v.End}),
+				Comments: []stationxml.Comment{
+					stationxml.Comment{
+						Id:    1,
+						Value: "Location is given in " + v.Datum,
+					},
+				},
 			},
 			Latitude: stationxml.Latitude{LatitudeBase: stationxml.LatitudeBase{
 				Float: stationxml.Float{
