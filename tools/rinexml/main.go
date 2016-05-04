@@ -326,7 +326,7 @@ func main() {
 		x := NewSiteXML(
 			MarkXML{
 				GeodeticCode: m.Code,
-				DomesNumber:  m.DomesNumber,
+				//DomesNumber:  m.DomesNumber,
 			},
 			LocationXML{
 				Latitude:  m.Latitude,
