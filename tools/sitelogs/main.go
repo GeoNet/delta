@@ -19,6 +19,8 @@ import (
 const DateTimeFormat = "2006-01-02T15:04Z"
 const DateFormat = "2006-01-02"
 
+var preparedBy = "Elisabetta D'Anastasio"
+
 var primaryDatacentre = "ftp.geonet.org.nz"
 var urlForMoreInformation = "www.geonet.org.nz"
 var extraNotes = "additional information and pictures could be\nfound at http://magma.geonet.org.nz/delta/app\nthen search for CGPS mark"
@@ -44,7 +46,7 @@ var contactAgency = Agency{
 	Notes: "",
 }
 
-var responsibleAgency = Agency{
+var linzAgency = Agency{
 	Agency:                "Land Information New Zealand",
 	PreferredAbbreviation: "LINZ",
 	MailingAddress:        "155 The Terrace, PO Box 5501, Wellington 6145 New Zealand",
@@ -124,31 +126,46 @@ func main() {
 
 	flag.Parse()
 
-	tplFuncMap := make(template.FuncMap)
-	tplFuncMap["empty"] = func(d, s string) string {
-		if s != "" {
-			return s
-		}
-		return d
-	}
-	tplFuncMap["none"] = func(s string) string {
-		if s != "" {
-			return s
-		}
-		return "none"
-	}
-
-	tplFuncMap["unknown"] = func(s string) string {
-		if s != "" {
-			return s
-		}
-		return "unknown"
-	}
-	tplFuncMap["plus"] = func(n int) string {
-		return strconv.Itoa(n + 1)
-	}
-	tplFuncMap["notes"] = func(p, s string) string {
-		return strings.Join(strings.Split(s, "\n"), "\n"+p)
+	var tplFuncMap template.FuncMap = template.FuncMap{
+		"empty": func(d, s string) string {
+			if s != "" {
+				return s
+			}
+			return d
+		},
+		"tolower": func(s string) string {
+			switch t := strings.ToLower(s); t {
+			case "wyatt/agnew drilled-braced":
+				return "Deep Wyatt/Agnew drilled-braced"
+			default:
+				return t
+			}
+		},
+		"lines": func(p, s string) string {
+			switch s {
+			case "":
+				return s
+			default:
+				return strings.Join(strings.Split(s, "\n"), "\n"+p)
+			}
+		},
+		"plus": func(n int) string {
+			return strconv.Itoa(n + 1)
+		},
+		"lat": func(s string) string {
+			if f, err := strconv.ParseFloat(s, 64); err == nil {
+				m := math.Abs(f-float64(int(f))) * 60.0
+				return fmt.Sprintf("%+3d%02d%05.2f", int(f), int(m), (m-float64(int(m)))*60.0)
+			}
+			return ""
+		},
+		"lon": func(s string) string {
+			if f, err := strconv.ParseFloat(s, 64); err == nil {
+				m := math.Abs(f-float64(int(f))) * 60.0
+				return fmt.Sprintf("%+3d%02d%05.2f", int(f), int(m), (m-float64(int(m)))*60.0)
+			}
+			return ""
+		},
 	}
 
 	tmpl, err := template.New("").Funcs(tplFuncMap).Parse(sitelogTemplate)
@@ -277,18 +294,6 @@ func main() {
 				continue
 			}
 
-			/*
-				start := a.Start
-				if start.Before(s.Start) {
-					start = s.Start
-				}
-
-				end := a.End
-				if end.After(s.End) {
-					end = s.End
-				}
-			*/
-
 			radome := "NONE"
 			serial := ""
 			if _, ok := installedRadomes[m.Code]; ok {
@@ -314,12 +319,9 @@ func main() {
 				AntennaCableType:       "",
 				AntennaCableLength:     "",
 				DateInstalled:          a.Start.Format(DateTimeFormat),
-				//DateInstalled: start.Format(DateTimeFormat),
 				DateRemoved: func() string {
 					if time.Now().After(a.End) {
 						return a.End.Format(DateTimeFormat)
-						//if time.Now().After(end) {
-						// return end.Format(DateTimeFormat)
 					} else {
 						return ""
 					}
@@ -329,12 +331,6 @@ func main() {
 		}
 
 		for _, r := range deployedReceivers[m.Code] {
-			/*
-				for _, s := range sessions[m.Code] {
-					if r.Start.After(s.End) || r.End.Before(s.Start) {
-						continue
-					}
-			*/
 			if _, ok := firmwareHistory[r.Model]; ok {
 				if _, ok := firmwareHistory[r.Model][r.Serial]; ok {
 					for i, _ := range firmwareHistory[r.Model][r.Serial] {
@@ -443,7 +439,7 @@ func main() {
 			SchemaLocation:   schemaLocation,
 
 			FormInformation: FormInformation{
-				//PreparedBy:   "",
+				PreparedBy:   preparedBy,
 				DatePrepared: time.Now().Format(DateFormat),
 				ReportType:   "DYNAMIC",
 			},
@@ -498,9 +494,11 @@ func main() {
 			ResponsibleAgency: func() Agency {
 				switch m.Network {
 				case "LI":
-					return responsibleAgency
+					return linzAgency
 				default:
-					return Agency{}
+					return Agency{
+						MailingAddress: "\n",
+					}
 				}
 			}(),
 			MoreInformation: MoreInformation{

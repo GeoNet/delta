@@ -19,12 +19,12 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
 
      Site Name                : {{.SiteIdentification.SiteName}}
      Four Character ID        : {{.SiteIdentification.FourCharacterID}}
-     Monument Inscription     : {{.SiteIdentification.MonumentInscription|none}}
-     IERS DOMES Number        : {{.SiteIdentification.IersDOMESNumber|none}}
-     CDP Number               : {{.SiteIdentification.CdpNumber|none}}
-     Monument Description     : {{.SiteIdentification.MonumentDescription}}
+     Monument Inscription     : {{.SiteIdentification.MonumentInscription|empty "none"}}
+     IERS DOMES Number        : {{.SiteIdentification.IersDOMESNumber|empty "none"}}
+     CDP Number               : {{.SiteIdentification.CdpNumber|empty "none"}}
+     Monument Description     : {{.SiteIdentification.MonumentDescription|tolower}}
        Height of the Monument : {{.SiteIdentification.HeightOfTheMonument}}
-       Monument Foundation    : {{.SiteIdentification.MonumentFoundation}}
+       Monument Foundation    : {{.SiteIdentification.MonumentFoundation|tolower}}
        Foundation Depth       : {{.SiteIdentification.FoundationDepth}}
      Marker Description       : {{.SiteIdentification.MarkerDescription}}
      Date Installed           : {{.SiteIdentification.DateInstalled}}
@@ -34,8 +34,7 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Fracture Spacing       : {{.SiteIdentification.FractureSpacing}}
        Fault zones nearby     : {{.SiteIdentification.FaultZonesNearby}}
          Distance/activity    : {{.SiteIdentification.DistanceActivity}}
-     Additional Information   : 
-
+     Additional Information   : {{.SiteIdentification.Notes}}
 
 
 2.   Site Location Information
@@ -48,27 +47,25 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        X coordinate (m)       : {{.SiteLocation.ApproximatePositionITRF.XCoordinateInMeters}}
        Y coordinate (m)       : {{.SiteLocation.ApproximatePositionITRF.YCoordinateInMeters}}
        Z coordinate (m)       : {{.SiteLocation.ApproximatePositionITRF.ZCoordinateInMeters}}
-       Latitude (N is +)      : {{.SiteLocation.ApproximatePositionITRF.LatitudeNorth}}
-       Longitude (E is +)     : {{.SiteLocation.ApproximatePositionITRF.LongitudeEast}}
+       Latitude (N is +)      : {{.SiteLocation.ApproximatePositionITRF.LatitudeNorth|lat}}
+       Longitude (E is +)     : {{.SiteLocation.ApproximatePositionITRF.LongitudeEast|lon}}
        Elevation (m,ellips.)  : {{.SiteLocation.ApproximatePositionITRF.ElevationMEllips}}
-     Additional Information   : 
+     Additional Information   : {{.SiteLocation.Notes}}
 
 
 3.   GNSS Receiver Information
 
-{{ range $n, $r := .GnssReceivers}}
-3.{{plus $n}}  Receiver Type            : {{$r.ReceiverType}}
+{{ range $n, $r := .GnssReceivers}}3.{{plus $n}}  Receiver Type            : {{$r.ReceiverType}}
      Satellite System         : {{$r.SatelliteSystem}}
      Serial Number            : {{$r.SerialNumber}}
      Firmware Version         : {{$r.FirmwareVersion}}
-     Elevation Cutoff Setting : {{$r.ElevationCutoffSetting}}
+     Elevation Cutoff Setting : {{$r.ElevationCutoffSetting}} deg
      Date Installed           : {{$r.DateInstalled}}
      Date Removed             : {{$r.DateRemoved|empty "CCYY-MM-DDThh:mmZ"}}
-     Temperature Stabiliz.    : {{$r.TemperatureStabilization|none}}
-     Additional Information   : {{$r.Notes}}
-{{end}}
+     Temperature Stabiliz.    : {{$r.TemperatureStabilization|empty "none"}}
+     Additional Information   :  {{$r.Notes}}
 
-3.x  Receiver Type            : (A20, from rcvr_ant.tab; see instructions)
+{{end}}3.x  Receiver Type            : (A20, from rcvr_ant.tab; see instructions)
      Satellite System         : (GPS+GLO+GAL+BDS+QZSS+SBAS)
      Serial Number            : (A20, but note the first A5 is used in SINEX)
      Firmware Version         : (A11)
@@ -81,8 +78,7 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
 
 4.   GNSS Antenna Information
 
-{{ range $n, $a := .GnssAntennas}}
-4.{{plus $n}}  Antenna Type             : {{$a.AntennaType}}     NONE
+{{ range $n, $a := .GnssAntennas}}4.{{plus $n}}  Antenna Type             : {{$a.AntennaType}}     NONE
      Serial Number            : {{$a.SerialNumber}}
      Antenna Reference Point  : {{$a.AntennaReferencePoint}}
      Marker->ARP Up Ecc. (m)  : {{$a.MarkerArpUpEcc}}  
@@ -95,8 +91,7 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
      Antenna Cable Length     :{{$a.AntennaCableLength}}
      Date Installed           : {{$a.DateInstalled}}
      Date Removed             : {{$a.DateRemoved|empty "CCYY-MM-DDThh:mmZ"}}
-     Additional Information   : {{$a.Notes}}
-{{end}}
+     Additional Information   : {{$a.Notes}}{{end}}
 
 4.x  Antenna Type             : (A20, from rcvr_ant.tab; see instructions)
      Serial Number            : (A*, but note the first A5 is used in SINEX)
@@ -215,7 +210,7 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
 
      Agency                   : {{.ContactAgency.Agency}}
      Preferred Abbreviation   : {{.ContactAgency.PreferredAbbreviation}}
-     Mailing Address          : {{.ContactAgency.MailingAddress|notes "                              : "}}
+     Mailing Address          : {{.ContactAgency.MailingAddress|lines "                              : "}}
      Primary Contact
        Contact Name           : {{.ContactAgency.PrimaryContact.Name}}
        Telephone (primary)    : {{.ContactAgency.PrimaryContact.TelephonePrimary}}
@@ -235,7 +230,7 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
 
      Agency                   : {{.ResponsibleAgency.Agency}}
      Preferred Abbreviation   : {{.ResponsibleAgency.PreferredAbbreviation}}
-     Mailing Address          : {{.ResponsibleAgency.MailingAddress|notes "                              : "}}
+     Mailing Address          : {{.ResponsibleAgency.MailingAddress|lines "                              : "}}
      Primary Contact
        Contact Name           : {{.ResponsibleAgency.PrimaryContact.Name}}
        Telephone (primary)    : {{.ResponsibleAgency.PrimaryContact.TelephonePrimary}}
@@ -250,7 +245,6 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        E-mail                 : {{.ResponsibleAgency.SecondaryContact.Email}}
      Additional Information   : {{.ResponsibleAgency.Notes}}
 
-
 13.  More Information
 
      Primary Data Center      : {{.MoreInformation.PrimaryDataCenter}}
@@ -262,7 +256,7 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Horizon Mask           : {{.MoreInformation.HorizonMask}}
        Monument Description   : {{.MoreInformation.MonumentDescription}}
        Site Pictures          : {{.MoreInformation.SitePictures}}
-     Additional Information   : {{.MoreInformation.Notes|notes "                              : "}}
+     Additional Information   : {{.MoreInformation.Notes|lines "                              : "}}
      Antenna Graphics with Dimensions
 
 {{ with .MoreInformation.AntennaGraphicsWithDimensions}}{{.}}{{end}}`
