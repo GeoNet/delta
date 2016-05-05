@@ -1,4 +1,4 @@
-# delta
+# DELTA
 
 Meta information for the GeoNet sensor network.
 
@@ -14,14 +14,45 @@ Physical equipment asset management.
 
 Equipment installation and connections details.
 
-### sensors
+### antennas
 
-A list of _sensor_ installations, these include values for:
-- Sensor Make, Model &amp; Serial Numbers
-- Station &amp; Site Codes
-- Installation Azimuth &amp; Dips [_&deg;_]
-- Installation Depth [_m_]
-- Sensor Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
+A list of _antenna_ installations, these include values for:
+- Antenna Make, Model &amp; Serial Numbers
+- Mark Code
+- Installation Height, Offsets [_m_] &amp; Azimuth [_&deg;_]
+- Antenna Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
+
+### cameras
+
+A list of _camera_ installations, these include values for:
+- Camera Make, Model &amp; Serial Numbers
+- Camera Mount Codes
+- Installation Dip &amp; Azimiths [_&deg;_]
+- Installation Height &amp; Offsets
+- Camera Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
+- Installation Notes
+
+### connections
+
+A list of _datalogger_ connections, these include values for:
+- Station &amp; Site Location Codes
+- Deployment Place and optional Roles
+- Connection Start &amp; End dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
+
+### dataloggers
+
+A list of _datalogger_ installations, these include values for:
+- Datalogger Make, Model &amp; Serial Numbers
+- Deployment Place and optional Roles
+- Datalogger Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
+
+### firmware
+
+A list of _firmware_ versions, these include values for:
+- Device Make, Model &amp; Serial Numbers
+- Version Number
+- Firmware Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
+- Extra Notes
 
 ### gauges
 
@@ -33,19 +64,27 @@ A list of _gauge_ installations, these include values for:
 - Cable Length [_m_]
 - Gauge Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
 
-### dataloggers
+### metsensors
 
-A list of _datalogger_ installations, these include values for:
-- Datalogger Make, Model &amp; Serial Numbers
-- Deployment Place and optional Roles
-- Datalogger Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
+A list of _metsensor_ installations, these include values for:
+- Met Sensor Make, Model &amp; Serial Numbers
+- Mark Code &amp; IMS Comments
+- Installation Location [_&deg;_], Datum &amp; Heights [_m_]
+- Met Sensor Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
 
-### connections
+### radomes
 
-A list of _datalogger_ connections, these include values for:
-- Station &amp; Site Codes
-- Deployment Place and optional Roles
-- Connection Start &amp; End dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
+A list of _radome_ installations, these include values for:
+- Radome Make, Model &amp; Serial Numbers
+- Mark Code
+- Radome Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
+
+### receivers
+
+A list of _receiver_ installations, these include values for:
+- Receiver Make, Model &amp; Serial Numbers
+- Mark Code
+- Receiver Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
 
 ### recorders
 
@@ -56,53 +95,26 @@ A list of _recorder_ installations, these include values for:
 - Installation Depth [_m_]
 - Recorder Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
 
-### antennas
+### sensors
 
-A list of _antenna_ installations, these include values for:
-- Antenna Make, Model &amp; Serial Numbers
+A list of _sensor_ installations, these include values for:
+- Sensor Make, Model &amp; Serial Numbers
+- Station &amp; Site Codes
+- Installation Azimuth &amp; Dips [_&deg;_]
+- Installation Depth [_m_]
+- Sensor Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
+
+### sessions
+
+A list of _gnss_ receiver &amp; antenna recording sessions, these include values for:
 - Mark Code
-- Installation Height &amp; Offsets [_m_]
-- Antenna Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
-
-### radmomes
-
-A list of _radome_ installations, these include values for:
-- Radome Make, Model &amp; Serial Numbers
-- Mark Code
-- Radome Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
-
-### metsensors
-
-A list of _metsensor_ installations, these include values for:
-- Met Sensor Make, Model &amp; Serial Numbers
-- Mark Code &amp; IMS Comments
-- Installation Location [_&deg;_], Datum &amp; Heights [_m_]
-- Met Sensor Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
-
-### receivers
-
-A list of _receiver_ installations, these include values for:
-- Receiver Make, Model &amp; Serial Numbers
-- Mark Code
-- Receiver Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
-
-### firmware
-
-A list of _firmware_ versions, these include values for:
-- Device Make, Model &amp; Serial Numbers
-- Version Number
-- Firmware Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
-- Extra Notes
-
-### cameras
-
-A list of _camera_ installations, these include values for:
-- Camera Make, Model &amp; Serial Numbers
-- Camera Site Codes
-- Installation Dip &amp; Azimiths [_&deg;_]
-- Installation Height &amp; Offsets
-- Camera Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
-- Installation Notes
+- Network Operator
+- Network Agency
+- Satellite System
+- Session Interval
+- Elevation Mask
+- Header Comment
+- Session Start &amp; Stop dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
 
 ## meta
 
