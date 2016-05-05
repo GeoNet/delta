@@ -10,6 +10,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"text/template"
 	"time"
 
 	"github.com/GeoNet/delta/meta"
@@ -20,12 +21,12 @@ const DateFormat = "2006-01-02"
 
 var primaryDatacentre = "ftp.geonet.org.nz"
 var urlForMoreInformation = "www.geonet.org.nz"
-var extraNotes = "additional information and pictures could be found at http://magma.geonet.org.nz/delta/app then search for CGPS mark"
+var extraNotes = "additional information and pictures could be\nfound at http://magma.geonet.org.nz/delta/app\nthen search for CGPS mark"
 
 var contactAgency = Agency{
 	Agency:                "GNS Science",
 	PreferredAbbreviation: "GNS",
-	MailingAddress:        "1 Fairway Drive, Avalon 5010, PO Box 30-368, Lower Hutt, New Zealand",
+	MailingAddress:        "1 Fairway Drive, Avalon 5010,\nPO Box 30-368, Lower Hutt\nNew Zealand",
 	PrimaryContact: Contact{
 		Name:               "GeoNet reception",
 		TelephonePrimary:   "+64 4 570 1444",
@@ -98,6 +99,9 @@ func main() {
 	var output string
 	flag.StringVar(&output, "output", "output", "output directory")
 
+	var logs string
+	flag.StringVar(&logs, "logs", "logs", "logs output directory")
+
 	var network string
 	flag.StringVar(&network, "network", "../../network", "base network directory")
 
@@ -119,6 +123,39 @@ func main() {
 	}
 
 	flag.Parse()
+
+	tplFuncMap := make(template.FuncMap)
+	tplFuncMap["empty"] = func(d, s string) string {
+		if s != "" {
+			return s
+		}
+		return d
+	}
+	tplFuncMap["none"] = func(s string) string {
+		if s != "" {
+			return s
+		}
+		return "none"
+	}
+
+	tplFuncMap["unknown"] = func(s string) string {
+		if s != "" {
+			return s
+		}
+		return "unknown"
+	}
+	tplFuncMap["plus"] = func(n int) string {
+		return strconv.Itoa(n + 1)
+	}
+	tplFuncMap["notes"] = func(p, s string) string {
+		return strings.Join(strings.Split(s, "\n"), "\n"+p)
+	}
+
+	tmpl, err := template.New("").Funcs(tplFuncMap).Parse(sitelogTemplate)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to compile template: %v\n", err)
+		os.Exit(-1)
+	}
 
 	var firmwareHistoryList meta.FirmwareHistoryList
 	if err := meta.LoadList(filepath.Join(install, "firmware.csv"), &firmwareHistoryList); err != nil {
@@ -417,31 +454,10 @@ func main() {
 				MonumentInscription: "",
 				IersDOMESNumber:     monument.DomesNumber,
 				CdpNumber:           "",
-				MonumentDescription: func() string {
-					switch monument.MonumentType {
-					case "Pillar":
-						return "pillar"
-					default:
-						return "unknown"
-					}
-				}(),
+				MonumentDescription: monument.MonumentType,
 				HeightOfTheMonument: strconv.FormatFloat(-monument.GroundRelationship, 'g', -1, 64),
-				MonumentFoundation: func() string {
-					switch monument.MonumentType {
-					case "Pillar":
-						return "reinforced concrete"
-					default:
-						return "unknown"
-					}
-				}(),
-				FoundationDepth: func() string {
-					switch monument.MonumentType {
-					case "Pillar":
-						return "2.0"
-					default:
-						return "unknown"
-					}
-				}(),
+				MonumentFoundation:  monument.FoundationType,
+				FoundationDepth:     strconv.FormatFloat(monument.FoundationDepth, 'g', -1, 64),
 				MarkerDescription: func() string {
 					switch monument.MarkType {
 					case "Forced Centering":
@@ -467,19 +483,26 @@ func main() {
 				Country:       country(m.Latitude, m.Longitude),
 				TectonicPlate: TectonicPlate(m.Latitude, m.Longitude),
 				ApproximatePositionITRF: ApproximatePositionITRF{
-					XCoordinateInMeters: strconv.FormatFloat(X, 'f', 5, 64),
-					YCoordinateInMeters: strconv.FormatFloat(Y, 'f', 5, 64),
-					ZCoordinateInMeters: strconv.FormatFloat(Z, 'f', 5, 64),
+					XCoordinateInMeters: strconv.FormatFloat(X, 'f', 1, 64),
+					YCoordinateInMeters: strconv.FormatFloat(Y, 'f', 1, 64),
+					ZCoordinateInMeters: strconv.FormatFloat(Z, 'f', 1, 64),
 					LatitudeNorth:       strconv.FormatFloat(m.Latitude, 'g', -1, 64),
 					LongitudeEast:       strconv.FormatFloat(m.Longitude, 'g', -1, 64),
-					ElevationMEllips:    strconv.FormatFloat(m.Elevation, 'g', -1, 64),
+					ElevationMEllips:    strconv.FormatFloat(m.Elevation, 'f', 1, 64),
 				},
 				Notes: "",
 			},
-			GnssReceivers:     receivers,
-			GnssAntennas:      antennas,
-			ContactAgency:     contactAgency,
-			ResponsibleAgency: responsibleAgency,
+			GnssReceivers: receivers,
+			GnssAntennas:  antennas,
+			ContactAgency: contactAgency,
+			ResponsibleAgency: func() Agency {
+				switch m.Network {
+				case "LI":
+					return responsibleAgency
+				default:
+					return Agency{}
+				}
+			}(),
 			MoreInformation: MoreInformation{
 				PrimaryDataCenter:     primaryDatacentre,
 				SecondaryDataCenter:   "",
@@ -490,7 +513,7 @@ func main() {
 				HorizonMask:           "",
 				MonumentDescription:   "",
 				SitePictures:          "",
-				Notes:                 extraNotes,
+				Notes:                 extraNotes + " " + m.Code,
 				AntennaGraphicsWithDimensions: func() string {
 					var graphs []string
 					models := make(map[string]interface{})
@@ -522,6 +545,23 @@ func main() {
 		}
 		if err := ioutil.WriteFile(xmlfile, s, 0644); err != nil {
 			fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
+			os.Exit(-1)
+		}
+
+		logfile := filepath.Join(logs, strings.ToLower(m.Code)+".log")
+		if err := os.MkdirAll(filepath.Dir(logfile), 0755); err != nil {
+			fmt.Fprintf(os.Stderr, "error: unable to create logs dir: %v\n", err)
+			os.Exit(-1)
+		}
+		f, err := os.Create(logfile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "error: unable to create log file: %v\n", err)
+			os.Exit(-1)
+		}
+		defer f.Close()
+
+		if err := tmpl.Execute(f, x); err != nil {
+			fmt.Fprintf(os.Stderr, "error: unable to write log file: %v\n", err)
 			os.Exit(-1)
 		}
 	}
