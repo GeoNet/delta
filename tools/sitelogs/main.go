@@ -150,7 +150,7 @@ func main() {
 			}
 		},
 		"plus": func(n int) string {
-			return strconv.Itoa(n + 1)
+			return fmt.Sprintf("%-2s", strconv.Itoa(n+1))
 		},
 		"lat": func(s string) string {
 			if f, err := strconv.ParseFloat(s, 64); err == nil {
@@ -236,6 +236,20 @@ func main() {
 		sort.Sort(meta.InstalledRadomeList(installedRadomes[i]))
 	}
 
+	var installedMetSensorList meta.InstalledMetSensorList
+	if err := meta.LoadList(filepath.Join(install, "metsensors.csv"), &installedMetSensorList); err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to load metsensors list: %v\n", err)
+		os.Exit(-1)
+	}
+
+	installedMetSensors := make(map[string][]meta.InstalledMetSensor)
+	for _, i := range installedMetSensorList {
+		installedMetSensors[i.MarkCode] = append(installedMetSensors[i.MarkCode], i)
+	}
+	for i, _ := range installedMetSensors {
+		sort.Sort(meta.InstalledMetSensorList(installedMetSensors[i]))
+	}
+
 	var markList meta.MarkList
 	if err := meta.LoadList(filepath.Join(network, "marks.csv"), &markList); err != nil {
 		fmt.Fprintf(os.Stderr, "error: unable to load mark list: %v\n", err)
@@ -281,6 +295,26 @@ func main() {
 
 		var receivers []GnssReceiver
 		var antennas []GnssAntenna
+		var metsensors []GnssMetSensor
+
+		for _, m := range installedMetSensors[m.Reference.Code] {
+			var session *meta.Session
+			for i, s := range sessions[m.MarkCode] {
+				if m.Start.After(s.End) || m.End.Before(s.Start) {
+					continue
+				}
+				session = &sessions[m.MarkCode][i]
+				break
+			}
+			if session == nil {
+				continue
+			}
+			metsensors = append(metsensors, GnssMetSensor{
+				SerialNumber: m.Serial,
+				Notes:        "",
+			})
+		}
+
 		for _, a := range installedAntenna[m.Code] {
 			var session *meta.Session
 			for i, s := range sessions[m.Code] {
@@ -488,9 +522,10 @@ func main() {
 				},
 				Notes: "",
 			},
-			GnssReceivers: receivers,
-			GnssAntennas:  antennas,
-			ContactAgency: contactAgency,
+			GnssReceivers:  receivers,
+			GnssAntennas:   antennas,
+			GnssMetSensors: metsensors,
+			ContactAgency:  contactAgency,
 			ResponsibleAgency: func() Agency {
 				switch m.Network {
 				case "LI":
