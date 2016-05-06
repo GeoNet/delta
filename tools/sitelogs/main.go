@@ -310,8 +310,12 @@ func main() {
 				continue
 			}
 			metsensors = append(metsensors, GnssMetSensor{
-				SerialNumber: m.Serial,
-				Notes:        "",
+				Manufacturer:         m.Make,
+				MetSensorModel:       m.Model,
+				SerialNumber:         m.Serial,
+				DataSamplingInterval: "360 sec",
+				EffectiveDates:       "2000-02-05/CCYY-MM-DD",
+				Notes:                "",
 			})
 		}
 
@@ -487,7 +491,7 @@ func main() {
 				MonumentDescription: monument.MonumentType,
 				HeightOfTheMonument: strconv.FormatFloat(-monument.GroundRelationship, 'g', -1, 64),
 				MonumentFoundation:  monument.FoundationType,
-				FoundationDepth:     strconv.FormatFloat(monument.FoundationDepth, 'g', -1, 64),
+				FoundationDepth:     strconv.FormatFloat(monument.FoundationDepth, 'f', 1, 64),
 				MarkerDescription: func() string {
 					switch monument.MarkType {
 					case "Forced Centering":

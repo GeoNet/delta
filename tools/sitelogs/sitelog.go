@@ -64,6 +64,7 @@ type SiteLog struct {
 	SiteLocation       SiteLocation
 	GnssReceivers      []GnssReceiver
 	GnssAntennas       []GnssAntenna
+	GnssMetSensors     []GnssMetSensor
 	ContactAgency      Agency `xml:"contactAgency"`
 	ResponsibleAgency  Agency `xml:"responsibleAgency"`
 	MoreInformation    MoreInformation

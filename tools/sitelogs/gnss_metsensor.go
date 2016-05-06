@@ -8,6 +8,7 @@ type GnssMetSensor struct {
 	XMLName xml.Name `xml:"gnssMetSensor"`
 
 	Manufacturer         string
+	MetSensorModel       string
 	SerialNumber         string
 	DataSamplingInterval string
 	Accuracy             string

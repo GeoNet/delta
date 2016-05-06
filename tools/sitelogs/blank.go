@@ -142,12 +142,12 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
 
 8.   Meteorological Instrumentation
 
-{{ range $n, $m := .GnssMetSensors}}8.1.{{plus $n}}Humidity Sensor Model   : 
+{{ range $n, $m := .GnssMetSensors}}8.1.{{plus $n}}Humidity Sensor Model   : {{$m.MetSensorModel}}
        Manufacturer           : 
        Serial Number          : {{$m.SerialNumber}}
-       Data Sampling Interval : (sec)
-       Accuracy (% rel h)     : (% rel h)
-       Aspiration             : (UNASPIRATED/NATURAL/FAN/etc)
+       Data Sampling Interval : {{$m.DataSamplingInterval}}
+       Accuracy (% rel h)     : 2.0
+       Aspiration             : 
        Height Diff to Ant     : (m)
        Calibration date       : (CCYY-MM-DD)
        Effective Dates        : {{$m.EffectiveDates}}
@@ -165,11 +165,11 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Effective Dates        : (CCYY-MM-DD/CCYY-MM-DD)
        Notes                  : (multiple lines)
 
-{{ range $n, $m := .GnssMetSensors}}8.2.{{plus $n}}Pressure Sensor Model   : 
+{{ range $n, $m := .GnssMetSensors}}8.2.{{plus $n}}Pressure Sensor Model   : {{$m.MetSensorModel}}
        Manufacturer           : {{$m.Manufacturer}}
        Serial Number          : {{$m.SerialNumber}}
-       Data Sampling Interval : (sec)
-       Accuracy               : (hPa)
+       Data Sampling Interval : {{$m.DataSamplingInterval}}
+       Accuracy               : 0.1 hPa
        Height Diff to Ant     : (m)
        Calibration date       : (CCYY-MM-DD)
        Effective Dates        : {{$m.EffectiveDates}}
@@ -186,12 +186,12 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Effective Dates        : (CCYY-MM-DD/CCYY-MM-DD)
        Notes                  : (multiple lines)
 
-{{ range $n, $m := .GnssMetSensors}}8.3.{{plus $n}}Temp. Sensor Model      : 
+{{ range $n, $m := .GnssMetSensors}}8.3.{{plus $n}}Temp. Sensor Model      : {{$m.MetSensorModel}}
        Manufacturer           : {{$m.Manufacturer}}
        Serial Number          : {{$m.SerialNumber}}
-       Data Sampling Interval : (sec)
-       Accuracy               : (deg C)
-       Aspiration             : (UNASPIRATED/NATURAL/FAN/etc)
+       Data Sampling Interval : {{$m.DataSamplingInterval}}
+       Accuracy               : 0.5 deg C
+       Aspiration             : 
        Height Diff to Ant     : (m)
        Calibration date       : (CCYY-MM-DD)
        Effective Dates        : {{$m.EffectiveDates}}
