@@ -11,7 +11,7 @@ AVLN,,Forced Centering,Steel Mast,-14.16,Stainless Steel Rod,0,2006-02-24T00:00:
 BHST,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.55,Stainless Steel Rods,10,2008-06-12T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 BIRF,,Forced Centering,Pillar,-999,Reinforced Concrete,2,2005-01-26T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 BLUF,50234M001,Forced Centering,Pillar,-1.265,Reinforced Concrete,2,2004-03-05T00:00:00Z,9999-01-01T00:00:00Z,,"Mapped As Mi: Devonian-Cretaceous Gabbro, Norite, Peridotite And Serpentinite."
-BM8A,,Unmarked Mark,Steel Mast,-0.95,Stainless Steel Rod,0,2013-01-29T00:00:00Z,9999-01-01T00:00:00Z,,
+BM8A,,Unmarked Mark,Steel Mast,-0.95,Stainless Steel Rod,0,2013-01-29T00:00:00Z,2016-05-06T00:00:00Z,,
 BNET,,Forced Centering,Pillar,-0.45,Reinforced Concrete,2,2005-02-15T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 BTHL,,Forced Centering,Wyatt/Agnew Drilled-Braced,0,Stainless Steel Rods,10,2009-01-13T00:00:00Z,9999-01-01T00:00:00Z,,Flat Top Hill Gently Sloping To The North.
 CAST,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2006-02-08T00:00:00Z,9999-01-01T00:00:00Z,Limestone,
@@ -204,7 +204,7 @@ VGOB,,Forced Centering,Pillar,-1.136,Reinforced Concrete,2,2004-02-11T00:00:00Z,
 VGOT,,Forced Centering,Pillar,-1.19,Reinforced Concrete,2,2004-05-16T00:00:00Z,9999-01-01T00:00:00Z,Andesite,
 VGPK,,Forced Centering,Pillar,-1.215,Reinforced Concrete,2,2005-01-21T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 VGT2,,Iron Rod,Unknown,0,Unknown,0,2012-07-27T00:00:00Z,9999-01-01T00:00:00Z,,
-VGT8,,Iron Rod,Unknown,0,Unknown,0,2013-06-06T00:00:00Z,9999-01-01T00:00:00Z,,
+VGT8,,Iron Rod,Unknown,0,Unknown,0,2013-06-06T00:00:00Z,2016-05-09T00:00:00Z,,
 VGTM,,Forced Centering,Shallow Rod / Braced Antenna Mount,-1.27,Stainless Steel Rods,2.5,2013-02-01T00:00:00Z,9999-01-01T00:00:00Z,,
 VGTR,,Forced Centering,Pillar,-1.39,Reinforced Concrete,2,2005-03-17T00:00:00Z,9999-01-01T00:00:00Z,Andesite,
 VGTS,,Forced Centering,Pillar,-1.555,Reinforced Concrete,2,2005-03-17T00:00:00Z,9999-01-01T00:00:00Z,Andesite,
