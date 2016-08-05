@@ -2,6 +2,10 @@
 
 Meta information for the GeoNet sensor network.
 
+## changes
+
+[Update or Add Station](https://github.com/GeoNet/delta/issues/new?title=Add+%2f+Update+Station&body=%23+Update+or+Add+Station+Details%0d%0a%0d%0a---%0d%0a%0d%0a%23%23+Station+Code%0d%0a%0d%0a%23%23+Network+Code%0d%0a%0d%0a%23%23+Station+Name%0d%0a%0d%0a%23%23+Latitude%0d%0a%0d%0a%23%23+Longitude%0d%0a%0d%0a%23%23+Elevation%0d%0a%0d%0a%23%23+Datum%0d%0a%0d%0a%23%23+Start+Time+%5bYYYY-MM-DDThh%3amm%3assZ%5d%0d%0a%0d%0a%23%23+End+Time+%5bYYYY-MM-DDThh%3amm%3assZ%5d%0d%0a%0d%0a---%0d%0a)
+
 ## network
 
 Geographical and equipment grouping meta data.
