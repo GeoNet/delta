@@ -1,0 +1,901 @@
+---
+response:
+  - sensors:
+    - sensors:
+      - 2 Hz Duke Malin Seismometer
+      filters:
+      - 2_Hz_Duke_Malin_Seismometer
+      channels: Z12
+      reversed: true
+      match: ""
+      skip: ""
+    dataloggers:
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-100-PREAMP32
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-100-PREAMP
+      reversed: false
+      match: ""
+      skip: ""
+  - sensors:
+    - sensors:
+      - L4C
+      filters:
+      - L4C
+      channels: Z
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - L4C-3D
+      filters:
+      - L4C
+      channels: ZNE
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - LE-3Dlite
+      filters:
+      - LE-3Dlite
+      channels: ZNE
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - LE-3DliteMkII
+      filters:
+      - LE-3DliteMkII
+      channels: ZNE
+      reversed: false
+      match: ""
+      skip: ""
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-100
+      reversed: false
+      match: ""
+      skip: KQ03
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: EH
+      samplerate: 200
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-200
+      reversed: false
+      match: KQ03
+      skip: ""
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-100
+      reversed: false
+      match: ""
+      skip: KQ03
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-100
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Taurus
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Taurus-100
+      reversed: false
+      match: ""
+      skip: ""
+  - sensors:
+    - sensors:
+      - STS-2
+      filters:
+      - STS-2
+      channels: ZNE
+      reversed: false
+      match: ""
+      skip: ""
+    dataloggers:
+    - dataloggers:
+      - Q330HR/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-100
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330HR/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330HR/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-0.1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-100
+      reversed: true
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-1
+      reversed: true
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-0.1
+      reversed: true
+      match: ""
+      skip: ""
+  - sensors:
+    - sensors:
+      - Nanometrics Trillium 120QA
+      filters:
+      - TRILLIUM-120QA
+      channels: ZNE
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - CMG-3TB-GN
+      filters:
+      - CMG-3TB-GN
+      channels: Z12
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - CMG-3ESPC
+      - CMG-3ESP
+      filters:
+      - CMG-3ESP-GN
+      channels: ZNE
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - CMG-40T-30S
+      filters:
+      - CMG-40T-30S-GNS
+      channels: ZNE
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - CMG-40T-60S
+      filters:
+      - CMG-40T-60S-GN
+      channels: ZNE
+      reversed: false
+      match: ""
+      skip: ""
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-100
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-0.1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-100
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-0.1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q4120/6
+      - Q730/4
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-0.1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q4120/6
+      - Q730/4
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-100
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q730/4
+      type: CG
+      label: BH
+      samplerate: 40
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-40
+      reversed: false
+      match: FWVZ
+      skip: ""
+    - dataloggers:
+      - Q4120/6
+      - Q730/4
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - ORION
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - ORION-100
+      reversed: false
+      match: ""
+      skip: ""
+  - sensors:
+    - sensors:
+      - FBA-ES-T
+      - FBA-ES-T-ISO
+      filters:
+      - FBA-ES-T
+      channels: ZNE
+      reversed: false
+      match: ""
+      skip: ""
+    dataloggers:
+    - dataloggers:
+      - Q330S/6
+      type: TG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-200
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330S/6
+      type: CG
+      label: BN
+      samplerate: 50
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-50
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330S/6
+      type: CG
+      label: LN
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330/6
+      - Q330HR/6
+      type: TG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-200
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330/6
+      - Q330HR/6
+      type: CG
+      label: BN
+      samplerate: 50
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-50
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330/6
+      - Q330HR/6
+      type: CG
+      label: LN
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q4120/6
+      type: TG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-200
+      reversed: true
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: LN
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-1
+      reversed: true
+      match: ""
+      skip: ""
+  - sensors:
+    - sensors:
+      - FBA-23-DECK
+      filters:
+      - FBA-23-DECK
+      channels: 1Z2
+      reversed: true
+      match: ""
+      skip: ""
+    - sensors:
+      - FBA-ES-T-DECK
+      filters:
+      - FBA-ES-T-DECK
+      channels: ENZ
+      reversed: false
+      match: ^[A-Z][A-Z][A-Z]$
+      skip: ^DCZ$
+    - sensors:
+      - FBA-ES-T-DECK
+      filters:
+      - FBA-ES-T-DECK
+      channels: 21Z
+      reversed: false
+      match: ^DCZ$
+      skip: ""
+    - sensors:
+      - FBA-ES-T-DECK
+      filters:
+      - FBA-ES-T-DECK
+      channels: 21Z
+      reversed: false
+      match: ""
+      skip: ^[A-Z][A-Z][A-Z]$
+    - sensors:
+      - FBA-ES-T-BASALT
+      filters:
+      - FBA-ES-T-BASALT
+      channels: ZNE
+      reversed: false
+      match: ^[A-Z][A-Z][A-Z]$
+      skip: ""
+    - sensors:
+      - FBA-ES-T-BASALT
+      filters:
+      - FBA-ES-T-BASALT
+      channels: Z12
+      reversed: false
+      match: ""
+      skip: ^[A-Z][A-Z][A-Z]$
+    - sensors:
+      - FBA-ES-T-OBSIDIAN
+      filters:
+      - FBA-ES-T-BASALT
+      channels: Z12
+      reversed: false
+      match: ""
+      skip: ^[A-Z][A-Z][A-Z]$
+    - sensors:
+      - CUSP3D
+      filters:
+      - CUSP SENSOR
+      channels: 21Z
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - CUSP3C
+      filters:
+      - CUSP SENSOR
+      channels: 21Z
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - CUSP3B
+      filters:
+      - CUSP SENSOR
+      channels: 21Z
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - CUSP3A
+      filters:
+      - CUSP SENSOR
+      channels: 21Z
+      reversed: false
+      match: ""
+      skip: ""
+    dataloggers:
+    - dataloggers:
+      - OBSIDIAN
+      type: TG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - BASALT-200
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - OBSIDIAN
+      type: CG
+      label: BN
+      samplerate: 50
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - BASALT-50
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - BASALT
+      type: TG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - BASALT-200
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - BASALT
+      type: CG
+      label: BN
+      samplerate: 50
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - BASALT-50
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - ETNA
+      - K2
+      type: TG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - ALTUS-200
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - CUSP3D
+      - CUSP3C
+      type: TG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - CUSP-200
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - CUSP3D
+      - CUSP3C
+      type: CG
+      label: BN
+      samplerate: 50
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - CUSP-50
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - CUSP3A
+      - CUSP3B
+      type: TG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - CUSP-200
+      reversed: false
+      match: ""
+      skip: ""
+  - sensors:
+    - sensors:
+      - 270-600/12V
+      filters:
+      - 270-600/12V
+      channels: F
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - 270-600/24V
+      filters:
+      - 270-600/24V
+      channels: F
+      reversed: false
+      match: ""
+      skip: ""
+    - sensors:
+      - 270-800/12V
+      filters:
+      - 270-800/12V
+      channels: F
+      reversed: false
+      match: ""
+      skip: ""
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CW
+      label: LD
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CW
+      label: HD
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-100
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CW
+      label: LD
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CW
+      label: HD
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-100
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q730/4
+      type: CW
+      label: LD
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-1
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q730/4
+      type: CW
+      label: BD
+      samplerate: 40
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-40
+      reversed: false
+      match: FWVZ
+      skip: ""
+    - dataloggers:
+      - Q730/4
+      type: CW
+      label: HD
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-100
+      reversed: false
+      match: ""
+      skip: ""
+  - sensors:
+    - sensors:
+      - InfraBSU microphone
+      filters:
+      - InfraBSU microphone
+      channels: F
+      reversed: false
+      match: ""
+      skip: ""
+    dataloggers:
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CW
+      label: HD
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-100-PREAMP32
+      reversed: false
+      match: ""
+      skip: ""
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CW
+      label: LD
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-1-PREAMP32
+      reversed: false
+      match: ""
+      skip: ""
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

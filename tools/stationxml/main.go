@@ -8,11 +8,8 @@ import (
 	"path/filepath"
 	"regexp"
 	"sort"
-	"strconv"
-	"strings"
 	"time"
 
-	"github.com/GeoNet/delta/meta"
 	"github.com/ozym/fdsn/stationxml"
 )
 
@@ -81,32 +78,18 @@ func main() {
 		os.Exit(-1)
 	}
 
-	// load network details ...
-	networkMap := make(map[string]meta.Network)
-	{
-		var n meta.NetworkList
-		if err := meta.LoadList(filepath.Join(network, "networks.csv"), &n); err != nil {
-			fmt.Fprintf(os.Stderr, "unable to load network list: %v\n", err)
-			os.Exit(-1)
-		}
-
-		for _, v := range n {
-			networkMap[v.NetworkCode] = v
-		}
+	// load network map from data files
+	networkMap, err := NetworkMap(network)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "unable to load network map: %v\n", err)
+		os.Exit(-1)
 	}
 
-	// load station details
-	stationMap := make(map[string]meta.Station)
-	{
-		var s meta.StationList
-		if err := meta.LoadList(filepath.Join(network, "stations.csv"), &s); err != nil {
-			fmt.Fprintf(os.Stderr, "unable to load station list: %v\n", err)
-			os.Exit(-1)
-		}
-
-		for _, v := range s {
-			stationMap[v.Code] = v
-		}
+	// load station map from data files
+	stationMap, err := StationMap(network)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "unable to load station map: %v\n", err)
+		os.Exit(-1)
 	}
 
 	// sorted station ids
@@ -116,296 +99,109 @@ func main() {
 	}
 	sort.Strings(keys)
 
-	// load connections, i.e. what's connected to where
-	connectionMap := make(map[string]meta.ConnectionList)
-	{
-		{
-			var cons meta.ConnectionList
-			if err := meta.LoadList(filepath.Join(install, "connections.csv"), &cons); err != nil {
-				fmt.Fprintf(os.Stderr, "unable to load connection list: %v\n", err)
-				os.Exit(-1)
-			}
-
-			for _, c := range cons {
-				if _, ok := connectionMap[c.StationCode]; ok {
-					connectionMap[c.StationCode] = append(connectionMap[c.StationCode], c)
-				} else {
-					connectionMap[c.StationCode] = meta.ConnectionList{c}
-				}
-			}
-
-		}
-
-		var recs meta.InstalledRecorderList
-		if err := meta.LoadList(filepath.Join(install, "recorders.csv"), &recs); err != nil {
-			fmt.Fprintf(os.Stderr, "unable to load recorder list: %v\n", err)
-			os.Exit(-1)
-		}
-		for _, r := range recs {
-			c := meta.Connection{
-				StationCode:  r.StationCode,
-				LocationCode: r.LocationCode,
-				Span: meta.Span{
-					Start: r.Start,
-					End:   r.End,
-				},
-				Place: r.StationCode,
-				Role:  r.LocationCode,
-			}
-			if _, ok := connectionMap[c.StationCode]; ok {
-				connectionMap[c.StationCode] = append(connectionMap[c.StationCode], c)
-			} else {
-				connectionMap[c.StationCode] = meta.ConnectionList{c}
-			}
-		}
+	// load connection map from data files
+	connectionMap, err := ConnectionMap(install)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "unable to load connection map: %v\n", err)
+		os.Exit(-1)
 	}
 
-	// where the sensors are installed
-	siteMap := make(map[string]map[string]meta.Site)
-	{
-		var locs meta.SiteList
-		if err := meta.LoadList(filepath.Join(network, "sites.csv"), &locs); err != nil {
-			fmt.Fprintf(os.Stderr, "unable to load site list: %v\n", err)
-			os.Exit(-1)
-		}
-
-		for _, l := range locs {
-			if _, ok := siteMap[l.StationCode]; !ok {
-				siteMap[l.StationCode] = make(map[string]meta.Site)
-			}
-			siteMap[l.StationCode][l.LocationCode] = l
-		}
+	// load site map from data files
+	siteMap, err := SiteMap(network)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "unable to load site map: %v\n", err)
+		os.Exit(-1)
 	}
 
-	// where the dataloggers were deployed
-	dataloggerDeploys := make(map[string]meta.DeployedDataloggerList)
-	{
-		var loggers meta.DeployedDataloggerList
-		if err := meta.LoadList(filepath.Join(install, "dataloggers.csv"), &loggers); err != nil {
-			fmt.Fprintf(os.Stderr, "unable to load datalogger list: %v\n", err)
-			os.Exit(-1)
-		}
-		for _, d := range loggers {
-			if _, ok := dataloggerDeploys[d.Place]; ok {
-				dataloggerDeploys[d.Place] = append(dataloggerDeploys[d.Place], d)
-			} else {
-				dataloggerDeploys[d.Place] = meta.DeployedDataloggerList{d}
-			}
-		}
-
-		var recs meta.InstalledRecorderList
-		if err := meta.LoadList(filepath.Join(install, "recorders.csv"), &recs); err != nil {
-			fmt.Fprintf(os.Stderr, "unable to load recorder list: %v\n", err)
-			os.Exit(-1)
-		}
-		for _, r := range recs {
-			d := meta.DeployedDatalogger{
-				Install: meta.Install{
-					Equipment: meta.Equipment{
-						Make:   r.Make,
-						Model:  r.DataloggerModel,
-						Serial: r.Serial,
-					},
-					Span: meta.Span{
-						Start: r.Start,
-						End:   r.End,
-					},
-				},
-				Place: r.StationCode,
-				Role:  r.LocationCode,
-			}
-			if _, ok := dataloggerDeploys[d.Place]; ok {
-				dataloggerDeploys[d.Place] = append(dataloggerDeploys[d.Place], d)
-			} else {
-				dataloggerDeploys[d.Place] = meta.DeployedDataloggerList{d}
-			}
-		}
+	// load deployed datalogger map from data files
+	dataloggerDeploys, err := DataloggerDeploys(install)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "unable to load deployed datalogger list: %v\n", err)
+		os.Exit(-1)
 	}
 
-	// sort each datalogger deployment
-	for i, _ := range dataloggerDeploys {
-		sort.Sort(dataloggerDeploys[i])
+	// load installed sensor map from data files
+	sensorInstalls, err := SensorInstalls(install)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "unable to load installed sensor list: %v\n", err)
+		os.Exit(-1)
 	}
 
-	// build sensor installation details
-	sensorInstalls := make(map[string]meta.InstalledSensorList)
-	{
-		{
-			var sensors meta.InstalledSensorList
-			if err := meta.LoadList(filepath.Join(install, "sensors.csv"), &sensors); err != nil {
-				fmt.Fprintf(os.Stderr, "unable to load sensor list: %v\n", err)
-				os.Exit(-1)
-			}
-			for _, s := range sensors {
-				if _, ok := sensorInstalls[s.StationCode]; ok {
-					sensorInstalls[s.StationCode] = append(sensorInstalls[s.StationCode], s)
-				} else {
-					sensorInstalls[s.StationCode] = meta.InstalledSensorList{s}
-				}
-			}
-		}
-		{
-			var recorders meta.InstalledRecorderList
-			if err := meta.LoadList(filepath.Join(install, "recorders.csv"), &recorders); err != nil {
-				fmt.Fprintf(os.Stderr, "unable to load recorder list: %v\n", err)
-				os.Exit(-1)
-			}
-			for _, r := range recorders {
-				if _, ok := sensorInstalls[r.StationCode]; ok {
-					sensorInstalls[r.StationCode] = append(sensorInstalls[r.StationCode], r.InstalledSensor)
-				} else {
-					sensorInstalls[r.StationCode] = meta.InstalledSensorList{r.InstalledSensor}
-				}
-			}
-		}
-		{
-			var gauges meta.InstalledGaugeList
-			if err := meta.LoadList(filepath.Join(install, "gauges.csv"), &gauges); err != nil {
-				fmt.Fprintf(os.Stderr, "unable to load gauge list: %v\n", err)
-				os.Exit(-1)
-			}
-			for _, g := range gauges {
-				s := meta.InstalledSensor{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
-							Make:   g.Make,
-							Model:  g.Model,
-							Serial: g.Serial,
-						},
-						Span: meta.Span{
-							Start: g.Start,
-							End:   g.End,
-						},
-					},
-					Offset: meta.Offset{
-						Height: g.Height,
-						North:  g.North,
-						East:   g.East,
-					},
-					Orientation: meta.Orientation{
-						Dip:     g.Dip,
-						Azimuth: g.Azimuth,
-					},
-					StationCode:  g.StationCode,
-					LocationCode: g.LocationCode,
-				}
+	// load response details
+	resmap := ResponseMap()
 
-				if _, ok := sensorInstalls[s.StationCode]; ok {
-					sensorInstalls[s.StationCode] = append(sensorInstalls[s.StationCode], s)
-				} else {
-					sensorInstalls[s.StationCode] = meta.InstalledSensorList{s}
-				}
-			}
-		}
-	}
-
-	// sort each sensor install
-	for i, _ := range sensorInstalls {
-		sort.Sort(sensorInstalls[i])
-	}
+	// load sensor component details
+	components := Components()
 
 	var networks []stationxml.Network
 
-	// load response details
-	resmap := make(map[string]map[string][]Stream)
-	{
-		for _, r := range Responses {
-			for _, l := range r.Dataloggers {
-				for _, a := range l.Dataloggers {
-					if _, ok := resmap[a]; !ok {
-						resmap[a] = make(map[string][]Stream)
-					}
-					for _, x := range r.Sensors {
-						for _, b := range x.Sensors {
-							resmap[a][b] = append(resmap[a][b], Stream{
-								Datalogger: l,
-								Sensor:     x,
-							})
-						}
-					}
-				}
-			}
-		}
-	}
-
-	components := make(map[string]map[int]SensorComponent)
-
-	for k, v := range SensorModels {
-		if _, ok := components[k]; !ok {
-			components[k] = make(map[int]SensorComponent)
-		}
-		for n, p := range v.Components {
-			components[k][n] = p
-		}
-	}
-
 	stas := make(map[string][]stationxml.Station)
-	for _, k := range keys {
+	for _, sta := range keys {
+		station := stationMap[sta]
 
-		if !stationMatch.MatchString(k) {
+		if !stationMatch.MatchString(sta) {
 			continue
 		}
 
-		fmt.Fprintf(os.Stderr, "checking station: %s\n", k)
+		fmt.Fprintf(os.Stderr, "checking station: %s\n", sta)
 
-		v := stationMap[k]
-		if _, ok := siteMap[k]; !ok {
-			fmt.Fprintf(os.Stderr, "skipping station: %s [no site map entry]\n", k)
+		if _, ok := siteMap[sta]; !ok {
+			fmt.Fprintf(os.Stderr, "skipping station: %s [no site map entry]\n", sta)
 			continue
 		}
-		n, ok := networkMap[v.Network]
+		net, ok := networkMap[station.Network]
 		if !ok {
-			fmt.Fprintf(os.Stderr, "error: unknown network %s\n", v.Network)
+			fmt.Fprintf(os.Stderr, "error: unknown network %s\n", station.Network)
 			os.Exit(-1)
 		}
 
-		if _, ok := connectionMap[k]; !ok {
-			fmt.Fprintf(os.Stderr, "skipping station: %s [no connection map entry]\n", k)
+		if _, ok := connectionMap[sta]; !ok {
+			fmt.Fprintf(os.Stderr, "skipping station: %s [no connection map entry]\n", sta)
 			continue
 		}
 
-		if _, ok := sensorInstalls[k]; !ok {
-			fmt.Fprintf(os.Stderr, "skipping station: %s [no sensor installs entry]\n", k)
+		if _, ok := sensorInstalls[sta]; !ok {
+			fmt.Fprintf(os.Stderr, "skipping station: %s [no sensor installs entry]\n", sta)
 			continue
 		}
 
 		var chans []stationxml.Channel
 
-		for _, c := range connectionMap[k] {
-			fmt.Fprintf(os.Stderr, "checking station channel: %s %s\n", k, c.LocationCode)
+		for _, conn := range connectionMap[sta] {
+			fmt.Fprintf(os.Stderr, "checking station channel: %s %s\n", sta, conn.LocationCode)
 
-			if _, ok := dataloggerDeploys[c.Place]; !ok {
-				fmt.Fprintf(os.Stderr, "skipping station channel: %s %s [no deployed datalogger]\n", k, c.Place)
+			if _, ok := dataloggerDeploys[conn.Place]; !ok {
+				fmt.Fprintf(os.Stderr, "skipping station channel: %s %s [no deployed datalogger]\n", sta, conn.Place)
 				continue
 			}
-			l, ok := siteMap[k][c.LocationCode]
+			l, ok := siteMap[sta][conn.LocationCode]
 			if !ok {
-				fmt.Fprintf(os.Stderr, "skipping station channel: %s %s [no site map]\n", k, c.LocationCode)
+				fmt.Fprintf(os.Stderr, "skipping station channel: %s %s [no site map]\n", sta, conn.LocationCode)
 				continue
 			}
 
-			for _, s := range sensorInstalls[k] {
-				fmt.Fprintf(os.Stderr, "checking station sensor install: %s %s\n", k, s.LocationCode)
+			for _, s := range sensorInstalls[sta] {
+				fmt.Fprintf(os.Stderr, "checking station sensor install: %s %s\n", sta, s.LocationCode)
 				switch {
-				case s.LocationCode != c.LocationCode:
+				case s.LocationCode != conn.LocationCode:
 					continue
-				case s.Start.After(c.End):
+				case s.Start.After(conn.End):
 					continue
-				case s.End.Before(c.Start):
+				case s.End.Before(conn.Start):
 					continue
-				case s.Start == c.End:
+				case s.Start == conn.End:
 					continue
 				}
-				for _, d := range dataloggerDeploys[c.Place] {
-					fmt.Fprintf(os.Stderr, "checking station datalogger deploys: %s %s %s\n", k, c.Place, d.Role)
+				for _, d := range dataloggerDeploys[conn.Place] {
+					fmt.Fprintf(os.Stderr, "checking station datalogger deploys: %s %s %s\n", sta, conn.Place, d.Role)
 					switch {
-					case d.Role != c.Role:
+					case d.Role != conn.Role:
 						continue
-					case d.Start.After(c.End):
+					case d.Start.After(conn.End):
 						continue
-					case d.End.Before(c.Start):
+					case d.End.Before(conn.Start):
 						continue
-					case d.Start == c.End:
+					case d.Start == conn.End:
 						continue
 					case d.Start.After(s.End):
 						continue
@@ -417,14 +213,14 @@ func main() {
 						continue
 					}
 
-					on := c.Start
+					on := conn.Start
 					if s.Start.After(on) {
 						on = s.Start
 					}
 					if d.Start.After(on) {
 						on = d.Start
 					}
-					off := c.End
+					off := conn.End
 					if s.End.Before(off) {
 						off = s.End
 					}
@@ -432,39 +228,39 @@ func main() {
 						off = d.End
 					}
 
-					fmt.Fprintf(os.Stderr, "checking station datalogger response: %s %s\n", k, d.Model)
+					fmt.Fprintf(os.Stderr, "checking station datalogger response: %s %s\n", sta, d.Model)
 					if _, ok := resmap[d.Model]; !ok {
-						fmt.Fprintf(os.Stderr, "skipping station datalogger response: %s \"%s\" no resmap\n", k, d.Model)
+						fmt.Fprintf(os.Stderr, "skipping station datalogger response: %s \"%s\" no resmap\n", sta, d.Model)
 						continue
 					}
 					if _, ok := resmap[d.Model][s.Model]; !ok {
-						fmt.Fprintf(os.Stderr, "skipping station datalogger response: %s \"%s\" \"%s\" no resmap\n", k, d.Model, s.Model)
+						fmt.Fprintf(os.Stderr, "skipping station datalogger response: %s \"%s\" \"%s\" no resmap\n", sta, d.Model, s.Model)
 						continue
 					}
-					fmt.Fprintf(os.Stderr, "checking station response: %s %s %s\n", k, d.Model, s.Model)
+					fmt.Fprintf(os.Stderr, "checking station response: %s %s %s\n", sta, d.Model, s.Model)
 					for _, r := range resmap[d.Model][s.Model] {
 
-						if r.Datalogger.Match != "" && !regexp.MustCompile(r.Datalogger.Match).MatchString(v.Code) {
-							fmt.Fprintln(os.Stderr, "skipping!", r.Datalogger.Match, v.Code)
+						if r.Datalogger.Match != "" && !regexp.MustCompile(r.Datalogger.Match).MatchString(station.Code) {
+							fmt.Fprintln(os.Stderr, "skipping!", r.Datalogger.Match, station.Code)
 							continue
 						}
-						if r.Datalogger.Skip != "" && regexp.MustCompile(r.Datalogger.Skip).MatchString(v.Code) {
-							fmt.Fprintln(os.Stderr, "skipping!", r.Datalogger.Skip, v.Code)
+						if r.Datalogger.Skip != "" && regexp.MustCompile(r.Datalogger.Skip).MatchString(station.Code) {
+							fmt.Fprintln(os.Stderr, "skipping!", r.Datalogger.Skip, station.Code)
 							continue
 						}
 
-						if r.Sensor.Match != "" && !regexp.MustCompile(r.Sensor.Match).MatchString(v.Code) {
-							fmt.Fprintln(os.Stderr, "skipping!", r.Sensor.Match, v.Code)
+						if r.Sensor.Match != "" && !regexp.MustCompile(r.Sensor.Match).MatchString(station.Code) {
+							fmt.Fprintln(os.Stderr, "skipping!", r.Sensor.Match, station.Code)
 							continue
 						}
-						if r.Sensor.Skip != "" && regexp.MustCompile(r.Sensor.Skip).MatchString(v.Code) {
-							fmt.Fprintln(os.Stderr, "skipping!", r.Sensor.Skip, v.Code)
+						if r.Sensor.Skip != "" && regexp.MustCompile(r.Sensor.Skip).MatchString(station.Code) {
+							fmt.Fprintln(os.Stderr, "skipping!", r.Sensor.Skip, station.Code)
 							continue
 						}
 
 						var types []stationxml.Type
-						for _, j := range r.Type {
-							switch j {
+						for _, t := range r.Type {
+							switch t {
 							case 'c', 'C':
 								types = append(types, stationxml.TypeContinuous)
 							case 't', 'T':
@@ -481,20 +277,16 @@ func main() {
 							continue
 						}
 
-						var f []string
-						f = append(f, r.Sensor.Filters...)
-						f = append(f, r.Datalogger.Filters...)
-
 						freq := r.Datalogger.Frequency
-						for p, j := range r.Channels {
-							c, ok := components[s.Model][p]
+						for p, cha := range r.Channels {
+							comp, ok := components[s.Model][p]
 							if !ok {
 								continue
 							}
 
-							dip := c.Dip
-							azimuth := s.Azimuth + c.Azimuth
-							fmt.Fprintln(os.Stderr, c.Azimuth, c.Dip, s.Azimuth, s.Dip)
+							dip := comp.Dip
+							azimuth := s.Azimuth + comp.Azimuth
+							fmt.Fprintln(os.Stderr, comp.Azimuth, comp.Dip, s.Azimuth, s.Dip)
 
 							// only rotate horizontal components
 							if dip == 0.0 {
@@ -523,241 +315,33 @@ func main() {
 								azimuth -= 360.0
 							}
 
-							count := 1
+							tag := fmt.Sprintf("%s.%s.%s%c", sta, l.LocationCode, r.Label, cha)
+
 							var stages []stationxml.ResponseStage
-							for _, v := range f {
-								if _, ok := Filters[v]; !ok {
-									fmt.Fprintf(os.Stderr, "error: unknown filter %s\n", v)
-									os.Exit(-1)
-								}
-								for _, s := range Filters[v] {
-									switch s.Type {
-									case "poly":
-										p, ok := Polynomials[s.Lookup]
-										if !ok {
-											fmt.Fprintf(os.Stderr, "error: unknown polynomial filter %s\n", s.Lookup)
-											os.Exit(-1)
-										}
-										var coeffs []stationxml.Coefficient
-										for n, c := range p.Coefficients {
-											coeffs = append(coeffs, stationxml.Coefficient{
-												Number: uint32(n) + 1,
-												Value:  c.Value,
-											})
-										}
-
-										poly := stationxml.Polynomial{
-											BaseFilter: stationxml.BaseFilter{
-												ResourceId:  "Polynomial#" + v,
-												Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
-												InputUnits:  stationxml.Units{Name: s.InputUnits},
-												OutputUnits: stationxml.Units{Name: s.OutputUnits},
-											},
-											ApproximationType: func() stationxml.ApproximationType {
-												switch p.ApproximationType {
-												case "MACLAURIN":
-													return stationxml.ApproximationTypeMaclaurin
-												default:
-													return stationxml.ApproximationTypeUnknown
-												}
-											}(),
-											FrequencyLowerBound:     stationxml.Frequency{stationxml.Float{Value: p.FrequencyLowerBound}},
-											FrequencyUpperBound:     stationxml.Frequency{stationxml.Float{Value: p.FrequencyUpperBound}},
-											ApproximationLowerBound: strconv.FormatFloat(p.ApproximationLowerBound, 'g', -1, 64),
-											ApproximationUpperBound: strconv.FormatFloat(p.ApproximationUpperBound, 'g', -1, 64),
-											MaximumError:            p.MaximumError,
-											Coefficients:            coeffs,
-										}
-										stages = append(stages, stationxml.ResponseStage{
-											Number:     stationxml.Counter(uint32(count)),
-											Polynomial: &poly,
-											//TODO: check we may need to adjust gain for different frequency
-											StageGain: stationxml.Gain{
-												Value: func() float64 {
-													if p.Gain != 0.0 {
-														return p.Gain
-													}
-													return 1.0
-												}(),
-												//Frequency: s.Frequency,
-												Frequency: freq,
-											},
-										})
-									case "paz":
-										if _, ok := PAZs[s.Lookup]; !ok {
-											fmt.Fprintf(os.Stderr, "error: unknown paz filter %s\n", s.Lookup)
-											os.Exit(-1)
-										}
-										var poles []stationxml.PoleZero
-										for j, p := range PAZs[s.Lookup].Poles {
-											poles = append(poles, stationxml.PoleZero{
-												Number:    uint32(j),
-												Real:      stationxml.FloatNoUnit{Value: real(p)},
-												Imaginary: stationxml.FloatNoUnit{Value: imag(p)},
-											})
-										}
-										var zeros []stationxml.PoleZero
-										for j, z := range PAZs[s.Lookup].Zeros {
-											zeros = append(zeros, stationxml.PoleZero{
-												Number:    uint32(len(PAZs[s.Lookup].Poles) + j),
-												Real:      stationxml.FloatNoUnit{Value: real(z)},
-												Imaginary: stationxml.FloatNoUnit{Value: imag(z)},
-											})
-										}
-										paz := stationxml.PolesZeros{
-											BaseFilter: stationxml.BaseFilter{
-												ResourceId:  "PolesZeros#" + v,
-												Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
-												InputUnits:  stationxml.Units{Name: s.InputUnits},
-												OutputUnits: stationxml.Units{Name: s.OutputUnits},
-											},
-											PzTransferFunction: func() stationxml.PzTransferFunction {
-												switch PAZs[s.Lookup].Code {
-												case "A":
-													return stationxml.PZFunctionLaplaceRadiansPerSecond
-												case "B":
-													return stationxml.PZFunctionLaplaceHertz
-												case "D":
-													return stationxml.PZFunctionLaplaceZTransform
-												default:
-													return stationxml.PZFunctionUnknown
-												}
-											}(),
-											NormalizationFactor: func() float64 {
-												return 1.0 / PAZs[s.Lookup].Gain(freq)
-											}(),
-											NormalizationFrequency: stationxml.Frequency{
-												stationxml.Float{Value: freq},
-											},
-											Zeros: zeros,
-											Poles: poles,
-										}
-										stages = append(stages, stationxml.ResponseStage{
-											Number:     stationxml.Counter(uint32(count)),
-											PolesZeros: &paz,
-											StageGain: stationxml.Gain{
-												Value: func() float64 {
-													if s.Gain != 0.0 {
-														return PAZs[s.Lookup].Gain(freq) * s.Gain / PAZs[s.Lookup].Gain(s.Frequency)
-													}
-													return 1.0
-												}(),
-												Frequency: freq,
-											},
-										})
-
-									case "a2d":
-										coefs := stationxml.Coefficients{
-											BaseFilter: stationxml.BaseFilter{
-												ResourceId:  "Coefficients#" + v,
-												Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
-												InputUnits:  stationxml.Units{Name: s.InputUnits},
-												OutputUnits: stationxml.Units{Name: s.OutputUnits},
-											},
-											CfTransferFunctionType: stationxml.CfFunctionDigital,
-										}
-										stages = append(stages, stationxml.ResponseStage{
-											Number:       stationxml.Counter(uint32(count)),
-											Coefficients: &coefs,
-											StageGain: stationxml.Gain{
-												Value: func() float64 {
-													if s.Gain != 0.0 {
-														return s.Gain
-													}
-													return 1.0
-												}(),
-												//Frequency: s.Frequency,
-												Frequency: freq,
-											},
-											Decimation: &stationxml.Decimation{
-												InputSampleRate: stationxml.Frequency{stationxml.Float{Value: s.SampleRate}},
-												Factor: func() int32 {
-													if s.Decimate != 0 {
-														return s.Decimate
-													}
-													return 1
-												}(),
-												Delay:      stationxml.Float{Value: s.Delay},
-												Correction: stationxml.Float{Value: s.Correction},
-											},
-										})
-
-									case "fir":
-										if _, ok := FIRs[s.Lookup]; !ok {
-											fmt.Fprintf(os.Stderr, "error: unknown fir filter %s\n", s.Lookup)
-											os.Exit(-1)
-										}
-										var coeffs []stationxml.NumeratorCoefficient
-										for j, c := range FIRs[s.Lookup].Factors {
-											coeffs = append(coeffs, stationxml.NumeratorCoefficient{
-												Coefficient: int32(j + 1),
-												Value:       c,
-											})
-										}
-
-										fir := stationxml.FIR{
-											BaseFilter: stationxml.BaseFilter{
-												ResourceId: "FIR#" + v,
-												//Name:        fmt.Sprintf("%s.%s.%s%c.%04d.%03d.stage_%d", k, l.LocationCode, r.Label, j, on.Year(), on.YearDay(), count),
-												Name:        s.Lookup,
-												InputUnits:  stationxml.Units{Name: s.InputUnits},
-												OutputUnits: stationxml.Units{Name: s.OutputUnits},
-											},
-											Symmetry: func() stationxml.Symmetry {
-												switch strings.ToUpper(FIRs[s.Lookup].Symmetry) {
-												case "EVEN":
-													return stationxml.SymmetryEven
-												case "ODD":
-													return stationxml.SymmetryOdd
-												default:
-													return stationxml.SymmetryNone
-												}
-											}(),
-											NumeratorCoefficients: coeffs,
-										}
-										stages = append(stages, stationxml.ResponseStage{
-											Number: stationxml.Counter(uint32(count)),
-											FIR:    &fir,
-											//TODO: check we may need to adjust gain for different frequency
-											StageGain: stationxml.Gain{
-												Value: func() float64 {
-													if s.Gain != 0.0 {
-														return s.Gain
-													}
-													return 1.0
-												}(),
-												//Frequency: s.Frequency,
-												Frequency: freq,
-											},
-											Decimation: &stationxml.Decimation{
-												InputSampleRate: stationxml.Frequency{stationxml.Float{Value: FIRs[s.Lookup].Decimation * s.SampleRate}},
-												Factor: func() int32 {
-													if s.Decimate != 0 {
-														return s.Decimate
-													}
-													return int32(FIRs[s.Lookup].Decimation)
-												}(),
-												Delay:      stationxml.Float{Value: s.Delay},
-												Correction: stationxml.Float{Value: s.Correction},
-											},
-										})
-									default:
-										fmt.Fprintf(os.Stderr, "error: unknown filter type %s: %s\n", v, s.Type)
-										os.Exit(-1)
+							for _, x := range append(r.Sensor.Stages, r.Datalogger.Stages...) {
+								for _, s := range x {
+									if s.StageSet == nil {
+										continue
 									}
-									count++
+									stages = append(stages, s.StageSet.ResponseStage(Stage{
+										responseStage: s,
+										count:         len(stages) + 1,
+										id:            s.Filter,
+										name:          fmt.Sprintf("%s.%04d.%03d.stage_%d", tag, on.Year(), on.YearDay(), len(stages)+1),
+										frequency:     freq,
+									}))
 								}
 							}
 
-							fmt.Fprintln(os.Stderr, r.Label+string(j), "ca=", c.Azimuth, "cd=", c.Dip, "sa=", s.Azimuth, "sd=", s.Dip, "a=", azimuth, "d=", dip)
+							fmt.Fprintln(os.Stderr, r.Label+string(cha), "ca=", comp.Azimuth, "cd=", comp.Dip, "sa=", s.Azimuth, "sd=", s.Dip, "a=", azimuth, "d=", dip)
 
 							chans = append(chans, stationxml.Channel{
 								BaseNode: stationxml.BaseNode{
-									Code:      r.Label + string(j),
+									Code:      r.Label + string(cha),
 									StartDate: &stationxml.DateTime{on},
 									EndDate:   &stationxml.DateTime{off},
 									RestrictedStatus: func() stationxml.RestrictedStatus {
-										switch n.Restricted {
+										switch net.Restricted {
 										case true:
 											return stationxml.StatusClosed
 										default:
@@ -817,17 +401,17 @@ func main() {
 								Dip:       &stationxml.Dip{Float: stationxml.Float{Value: dip}},
 								Types:     types,
 								SampleRateGroup: stationxml.SampleRateGroup{
-									SampleRate: stationxml.SampleRate{Float: stationxml.Float{Value: r.Rate}},
+									SampleRate: stationxml.SampleRate{Float: stationxml.Float{Value: r.SampleRate}},
 									SampleRateRatio: func() *stationxml.SampleRateRatio {
-										if r.Rate > 1.0 {
+										if r.SampleRate > 1.0 {
 											return &stationxml.SampleRateRatio{
-												NumberSamples: int32(r.Rate),
+												NumberSamples: int32(r.SampleRate),
 												NumberSeconds: 1,
 											}
 										} else {
 											return &stationxml.SampleRateRatio{
 												NumberSamples: 1,
-												NumberSeconds: int32(1.0 / r.Rate),
+												NumberSeconds: int32(1.0 / r.SampleRate),
 											}
 										}
 									}(),
@@ -974,105 +558,105 @@ func main() {
 		}
 
 		place := Place{
-			Latitude:  v.Latitude,
-			Longitude: v.Longitude,
+			Latitude:  station.Latitude,
+			Longitude: station.Longitude,
 		}
 
 		sort.Sort(Channels(chans))
 
-		stas[n.ExternalCode] = append(stas[n.ExternalCode], stationxml.Station{
+		stas[net.ExternalCode] = append(stas[net.ExternalCode], stationxml.Station{
 			BaseNode: stationxml.BaseNode{
-				Code:        v.Code,
-				Description: n.Description,
+				Code:        station.Code,
+				Description: net.Description,
 				RestrictedStatus: func() stationxml.RestrictedStatus {
-					switch n.Restricted {
+					switch net.Restricted {
 					case true:
 						return stationxml.StatusClosed
 					default:
 						return stationxml.StatusOpen
 					}
 				}(),
-				StartDate: &(stationxml.DateTime{v.Start}),
-				EndDate:   &(stationxml.DateTime{v.End}),
+				StartDate: &(stationxml.DateTime{station.Start}),
+				EndDate:   &(stationxml.DateTime{station.End}),
 				Comments: []stationxml.Comment{
 					stationxml.Comment{
 						Id:    1,
-						Value: "Location is given in " + v.Datum,
+						Value: "Location is given in " + station.Datum,
 					},
 				},
 			},
 			Latitude: stationxml.Latitude{LatitudeBase: stationxml.LatitudeBase{
 				Float: stationxml.Float{
-					Value: v.Latitude,
-				}}, Datum: v.Datum},
+					Value: station.Latitude,
+				}}, Datum: station.Datum},
 			Longitude: stationxml.Longitude{LongitudeBase: stationxml.LongitudeBase{
 				Float: stationxml.Float{
-					Value: v.Longitude,
-				}}, Datum: v.Datum},
+					Value: station.Longitude,
+				}}, Datum: station.Datum},
 			Elevation: stationxml.Distance{
-				Float: stationxml.Float{Value: v.Elevation},
+				Float: stationxml.Float{Value: station.Elevation},
 			},
 			Site: stationxml.Site{
 				Name: func() string {
-					if v.Name != "" {
-						return v.Name
+					if station.Name != "" {
+						return station.Name
 					} else {
-						return v.Code
+						return station.Code
 					}
 				}(),
 				Description: func() string {
-					if l := Locations.Closest(place); l != nil {
-						if d := l.Distance(place); d < 5.0 {
-							return fmt.Sprintf("within 5 km of %s", l.Name)
+					if loc := Locations.Closest(place); loc != nil {
+						if dist := loc.Distance(place); dist < 5.0 {
+							return fmt.Sprintf("within 5 km of %s", loc.Name)
 						} else {
-							return fmt.Sprintf("%.0f km %s of %s", d, l.Compass(place), l.Name)
+							return fmt.Sprintf("%.0f km %s of %s", dist, loc.Compass(place), loc.Name)
 						}
 					}
 					return ""
 				}(),
 			},
-			CreationDate: stationxml.DateTime{v.Start},
+			CreationDate: stationxml.DateTime{station.Start},
 			TerminationDate: func() *stationxml.DateTime {
-				if time.Now().Before(v.End) {
+				if time.Now().Before(station.End) {
 					return nil
 				}
-				return &stationxml.DateTime{v.End}
+				return &stationxml.DateTime{station.End}
 			}(),
 			Channels: chans,
 		})
 	}
 
-	for k, _ := range stas {
-		n, ok := networkMap[k]
+	for sta, _ := range stas {
+		net, ok := networkMap[sta]
 		if !ok {
-			fmt.Fprintf(os.Stderr, "error: unknown network: %s\n", k)
+			fmt.Fprintf(os.Stderr, "error: unknown network: %s\n", sta)
 			os.Exit(-1)
 		}
 		var on, off *stationxml.DateTime
 
-		if !networkMatch.MatchString(n.ExternalCode) {
-			fmt.Fprintf(os.Stderr, "skipping network: %s [outside regexp match]\n", n.ExternalCode)
+		if !networkMatch.MatchString(net.ExternalCode) {
+			fmt.Fprintf(os.Stderr, "skipping network: %s [outside regexp match]\n", net.ExternalCode)
 			continue
 		}
 
-		for _, v := range stas[k] {
-			if v.BaseNode.StartDate != nil {
-				if on == nil || v.BaseNode.StartDate.Before(on.Time) {
-					on = v.BaseNode.StartDate
+		for _, s := range stas[sta] {
+			if s.BaseNode.StartDate != nil {
+				if on == nil || s.BaseNode.StartDate.Before(on.Time) {
+					on = s.BaseNode.StartDate
 				}
 			}
-			if v.BaseNode.EndDate != nil {
-				if off == nil || v.BaseNode.EndDate.After(off.Time) {
-					off = v.BaseNode.EndDate
+			if s.BaseNode.EndDate != nil {
+				if off == nil || s.BaseNode.EndDate.After(off.Time) {
+					off = s.BaseNode.EndDate
 				}
 			}
 		}
 		networks = append(networks, stationxml.Network{
 			BaseNode: stationxml.BaseNode{
-				Code:        n.ExternalCode,
-				Description: n.Description,
+				Code:        net.ExternalCode,
+				Description: net.Description,
 				RestrictedStatus: func() stationxml.RestrictedStatus {
-					switch n.Restricted {
+					switch net.Restricted {
 					case true:
 						return stationxml.StatusClosed
 					default:
@@ -1082,11 +666,12 @@ func main() {
 				StartDate: on,
 				EndDate:   off,
 			},
-			SelectedNumberStations: uint32(len(stas[k])),
-			Stations:               stas[k],
+			SelectedNumberStations: uint32(len(stas[sta])),
+			Stations:               stas[sta],
 		})
 	}
 
+	// render station xml
 	root := stationxml.NewFDSNStationXML(source, sender, module, "", networks)
 	if ok := root.IsValid(); ok != nil {
 		fmt.Fprintf(os.Stderr, "error: invalid stationxml file\n")
@@ -1101,7 +686,10 @@ func main() {
 	}
 
 	// output as needed ...
-	if output != "-" {
+	switch output {
+	case "-":
+		fmt.Fprintln(os.Stdout, string(x))
+	default:
 		if err := os.MkdirAll(filepath.Dir(output), 0755); err != nil {
 			fmt.Fprintf(os.Stderr, "error: unable to create directory %s: %v\n", filepath.Dir(output), err)
 			os.Exit(-1)
@@ -1110,7 +698,5 @@ func main() {
 			fmt.Fprintf(os.Stderr, "error: unable to write file %s: %v\n", output, err)
 			os.Exit(-1)
 		}
-	} else {
-		fmt.Fprintln(os.Stdout, string(x))
 	}
 }
