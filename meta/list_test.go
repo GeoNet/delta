@@ -859,6 +859,45 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
+		{
+			"testdata/streams.csv",
+			&meta.StreamList{
+				meta.Stream{
+					StationCode:  "AKSS",
+					LocationCode: "20",
+					SamplingRate: 50.0,
+					Axial:        true,
+					Reversed:     false,
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2011-08-25T00:25:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+				},
+				meta.Stream{
+					StationCode:  "APZ",
+					LocationCode: "20",
+					SamplingRate: 200.0,
+					Axial:        false,
+					Reversed:     false,
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2007-05-02T22:00:01Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+				},
+			},
+		},
 	}
 
 	for _, tt := range listtests {
