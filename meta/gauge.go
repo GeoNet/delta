@@ -8,10 +8,29 @@ import (
 	"time"
 )
 
+const (
+	gaugeGaugeMake = iota
+	gaugeGaugeModel
+	gaugeSerialNumber
+	gaugeStationCode
+	gaugeLocationCode
+	gaugeInstallationDip
+	gaugeVerticalOffset
+	gaugeOffsetNorth
+	gaugeOffsetEast
+	gaugeScaleFactor
+	gaugeScaleBias
+	gaugeCableLength
+	gaugeInstallationDate
+	gaugeRemovalDate
+	gaugeLast
+)
+
 type InstalledGauge struct {
 	Install
 	Offset
 	Orientation
+	Scale
 
 	StationCode  string
 	LocationCode string
@@ -35,6 +54,8 @@ func (g InstalledGaugeList) encode() [][]string {
 		"Vertical Offset",
 		"Offset North",
 		"Offset East",
+		"Scale Factor",
+		"Scale Bias",
 		"Cable Length",
 		"Installation Date",
 		"Removal Date",
@@ -50,6 +71,8 @@ func (g InstalledGaugeList) encode() [][]string {
 			strconv.FormatFloat(v.Height, 'g', -1, 64),
 			strconv.FormatFloat(v.North, 'g', -1, 64),
 			strconv.FormatFloat(v.East, 'g', -1, 64),
+			strconv.FormatFloat(v.Factor, 'g', -1, 64),
+			strconv.FormatFloat(v.Bias, 'g', -1, 64),
 			strconv.FormatFloat(v.CableLength, 'g', -1, 64),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
@@ -62,46 +85,54 @@ func (g *InstalledGaugeList) decode(data [][]string) error {
 	var gauges []InstalledGauge
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 12 {
+			if len(d) != gaugeLast {
 				return fmt.Errorf("incorrect number of installed gauge fields")
 			}
 			var err error
 
 			var dip float64
-			if dip, err = strconv.ParseFloat(d[5], 64); err != nil {
+			if dip, err = strconv.ParseFloat(d[gaugeInstallationDip], 64); err != nil {
 				return err
 			}
 
 			var height, north, east float64
-			if height, err = strconv.ParseFloat(d[6], 64); err != nil {
+			if height, err = strconv.ParseFloat(d[gaugeVerticalOffset], 64); err != nil {
 				return err
 			}
-			if north, err = strconv.ParseFloat(d[7], 64); err != nil {
+			if north, err = strconv.ParseFloat(d[gaugeOffsetNorth], 64); err != nil {
 				return err
 			}
-			if east, err = strconv.ParseFloat(d[8], 64); err != nil {
+			if east, err = strconv.ParseFloat(d[gaugeOffsetEast], 64); err != nil {
+				return err
+			}
+
+			var factor, bias float64
+			if factor, err = strconv.ParseFloat(d[gaugeScaleFactor], 64); err != nil {
+				return err
+			}
+			if bias, err = strconv.ParseFloat(d[gaugeScaleBias], 64); err != nil {
 				return err
 			}
 
 			var length float64
-			if length, err = strconv.ParseFloat(d[9], 64); err != nil {
+			if length, err = strconv.ParseFloat(d[gaugeCableLength], 64); err != nil {
 				return err
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[10]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[gaugeInstallationDate]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[11]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[gaugeRemovalDate]); err != nil {
 				return err
 			}
 
 			gauges = append(gauges, InstalledGauge{
 				Install: Install{
 					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[0]),
-						Model:  strings.TrimSpace(d[1]),
-						Serial: strings.TrimSpace(d[2]),
+						Make:   strings.TrimSpace(d[gaugeGaugeMake]),
+						Model:  strings.TrimSpace(d[gaugeGaugeModel]),
+						Serial: strings.TrimSpace(d[gaugeSerialNumber]),
 					},
 					Span: Span{
 						Start: start,
@@ -116,8 +147,12 @@ func (g *InstalledGaugeList) decode(data [][]string) error {
 					North:  north,
 					East:   east,
 				},
-				StationCode:  strings.TrimSpace(d[3]),
-				LocationCode: strings.TrimSpace(d[4]),
+				Scale: Scale{
+					Factor: factor,
+					Bias:   bias,
+				},
+				StationCode:  strings.TrimSpace(d[gaugeStationCode]),
+				LocationCode: strings.TrimSpace(d[gaugeLocationCode]),
 				CableLength:  length,
 			})
 		}
