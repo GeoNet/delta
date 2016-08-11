@@ -1,12 +1,14 @@
 package main
 
+import (
+	"sort"
+)
+
 type Sensor struct {
 	Sensors  []string `yaml:"sensors"`
 	Filters  []string `yaml:"filters"`
 	Channels string   `yaml:"channels"`
 	Reversed bool     `yaml:"reversed"`
-	Match    string   `yaml:"match"`
-	Skip     string   `yaml:"skip"`
 }
 
 type Datalogger struct {
@@ -19,11 +21,28 @@ type Datalogger struct {
 	ClockDrift    float64  `yaml:"clockdrift"`
 	Filters       []string `yaml:"filters"`
 	Reversed      bool     `yaml:"reversed"`
-	Match         string   `yaml:"match"`
-	Skip          string   `yaml:"skip"`
 }
 
 type Response struct {
 	Sensors     []Sensor     `yaml:"sensors"`
 	Dataloggers []Datalogger `yaml:"dataloggers"`
+}
+
+type responseMap map[string]Response
+
+func (r responseMap) Keys() []string {
+	var keys []string
+	for k, _ := range r {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	return keys
+}
+
+func (r responseMap) Values() []Response {
+	var values []Response
+	for _, k := range r.Keys() {
+		values = append(values, r[k])
+	}
+	return values
 }

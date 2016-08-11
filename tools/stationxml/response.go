@@ -19,10 +19,8 @@ type Datalogger struct {
 	StorageFormat string
 	ClockDrift    float64
 	Filters       []string
-	Stages        [][]ResponseStage
+	Stages        []ResponseStage
 	Reversed      bool
-	Match         string
-	Skip          string
 }
 
 type DataloggerModel struct {
@@ -35,11 +33,9 @@ type DataloggerModel struct {
 type Sensor struct {
 	Sensors  []string
 	Filters  []string
-	Stages   [][]ResponseStage
+	Stages   []ResponseStage
 	Channels string
 	Reversed bool
-	Match    string
-	Skip     string
 }
 
 type SensorComponent struct {
@@ -57,6 +53,7 @@ type SensorModel struct {
 }
 
 type Response struct {
+	Name        string
 	Sensors     []Sensor
 	Dataloggers []Datalogger
 }
@@ -76,9 +73,6 @@ type ResponseStage struct {
 	Lookup      string
 	Filter      string
 	StageSet    StageSet
-	PAZ         PAZ
-	FIR         FIR
-	Polynomial  Polynomial
 	Frequency   float64
 	SampleRate  float64
 	Decimate    int32

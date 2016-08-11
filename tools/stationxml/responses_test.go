@@ -14,7 +14,7 @@ func TestResponses_Response(t *testing.T) {
 				}
 			}
 			if r.Channels == "" {
-				t.Errorf("%d: empty sensor channels list: %d", n)
+				t.Errorf("%d: empty sensor channels list", n)
 			}
 		}
 		for n, r := range v.Dataloggers {

@@ -9,13 +9,12 @@ import (
 var generateTemplate = `
 
 {{ $b := . }}var Responses []Response = []Response{
-{{ range $r := $b.ResponseList }}    Response{
+{{ range $l, $r := $b.ResponseMap }}    Response{
         Sensors: []Sensor{
   {{ range $v := $r.Sensors }}    Sensor{
                 Sensors: []string{{"{"}}{{range $s := $v.Sensors}}"{{$s}}",{{end}}{{"}"}},
                 Filters: []string{{"{"}}{{range $s := $v.Filters}}"{{$s}}",{{end}}{{"}"}},
-		Stages: [][]ResponseStage{{"{"}}{{range $s := $v.Filters}}{{with $f := $b.Filter $s}}
-		[]ResponseStage{{"{"}}
+		Stages: []ResponseStage{{"{"}}{{range $s := $v.Filters}}{{with $f := $b.Filter $s}}
 		{{ range $v := $f }}ResponseStage{
 		Type: "{{$v.Type}}",
 		Lookup: "{{$v.Lookup}}",
@@ -64,13 +63,10 @@ var generateTemplate = `
 		Delay: {{$v.Delay}},
 		InputUnits: "{{$v.InputUnits}}",
 		OutputUnits: "{{$v.OutputUnits}}",
-		},{{end}}
-		{{"}"}},{{end}}{{end}}
+		},{{end}}{{end}}{{end}}
     		{{"}"}},
                 Channels: "{{$v.Channels}}",
                 Reversed: {{$v.Reversed}},
-                Match: "{{$v.Match}}",
-                Skip: "{{$v.Skip}}",
         },{{end}}
         },
         Dataloggers: []Datalogger{
@@ -83,8 +79,7 @@ var generateTemplate = `
                 StorageFormat: "{{$v.StorageFormat}}",
                 ClockDrift: {{$v.ClockDrift}},
                 Filters: []string{{"{"}}{{range $s := $v.Filters}}"{{$s}}",{{end}}{{"}"}},
-		Stages: [][]ResponseStage{{"{"}}{{range $s := $v.Filters}}{{with $f := $b.Filter $s}}
-		[]ResponseStage{{"{"}}
+		Stages: []ResponseStage{{"{"}}{{range $s := $v.Filters}}{{with $f := $b.Filter $s}}
 		{{ range $v := $f }}ResponseStage{
 		Type: "{{$v.Type}}",
 		Lookup: "{{$v.Lookup}}",
@@ -133,12 +128,9 @@ var generateTemplate = `
 		Delay: {{$v.Delay}},
 		InputUnits: "{{$v.InputUnits}}",
 		OutputUnits: "{{$v.OutputUnits}}",
-		},{{end}}
-		{{"}"}},{{end}}{{end}}
+		},{{end}}{{end}}{{end}}
     		{{"}"}},
                 Reversed: {{$v.Reversed}},
-                Match: "{{$v.Match}}",
-                Skip: "{{$v.Skip}}",
         },{{end}}
         },
   },{{end}}
@@ -146,11 +138,11 @@ var generateTemplate = `
 `
 
 type Generate struct {
-	ResponseList []Response
-	FilterMap    filterMap
-	PazMap       pazMap
-	FirMap       firMap
-	PolyMap      polynomialMap
+	ResponseMap responseMap
+	FilterMap   filterMap
+	PazMap      pazMap
+	FirMap      firMap
+	PolyMap     polynomialMap
 }
 
 func (g Generate) Filter(filter string) *[]ResponseStage {

@@ -669,6 +669,40 @@ filter:
     delay: 0
     inputunits: COUNTS
     outputunits: COUNTS
+  Q330_FLbelow100-1-PREAMP:
+  - type: paz
+    lookup: Q330-PREAMP
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 30
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: V
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 419430.4
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: COUNTS
+  - type: fir
+    lookup: Q330_FLbelow100-1
+    frequency: 0
+    samplerate: 1
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: COUNTS
+    outputunits: COUNTS
   Q330_FLbelow100-100-PREAMP:
   - type: paz
     lookup: Q330-PREAMP
