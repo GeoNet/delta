@@ -322,9 +322,9 @@ func TestList(t *testing.T) {
 						},
 					},
 					Offset: meta.Offset{
-						Height: 0.0015,
-						North:  0.0,
-						East:   0.0,
+						Vertical: 0.0015,
+						North:    0.0,
+						East:     0.0,
 					},
 					MarkCode: "CNCL",
 					Azimuth:  0.0,
@@ -348,9 +348,9 @@ func TestList(t *testing.T) {
 						},
 					},
 					Offset: meta.Offset{
-						Height: 0.0013,
-						North:  0.0,
-						East:   0.0,
+						Vertical: 0.0013,
+						North:    0.0,
+						East:     0.0,
 					},
 					MarkCode: "MTJO",
 					Azimuth:  10.0,
@@ -400,71 +400,6 @@ func TestList(t *testing.T) {
 						},
 					},
 					Place: "Turoa Road End",
-				},
-			},
-		},
-		{
-			"testdata/gauges.csv",
-			&meta.InstalledGaugeList{
-				meta.InstalledGauge{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
-							Make:   "GESensing",
-							Model:  "Druck PDCR-1830",
-							Serial: "2427881",
-						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2007-03-06T00:00:02Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2007-05-22T23:30:00Z")
-								return v
-							}(),
-						},
-					},
-					Offset: meta.Offset{},
-					Orientation: meta.Orientation{
-						Dip: 90.0,
-					},
-					CableLength:  20.0,
-					StationCode:  "WLGT",
-					LocationCode: "41",
-					Scale: meta.Scale{
-						Factor: 1.0,
-						Bias:   0.0,
-					},
-				},
-				meta.InstalledGauge{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
-							Make:   "GESensing",
-							Model:  "Druck PTX-1830",
-							Serial: "2504328",
-						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2007-03-06T00:00:02Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2012-05-29T22:55:00Z")
-								return v
-							}(),
-						},
-					},
-					Offset: meta.Offset{},
-					Orientation: meta.Orientation{
-						Dip: 90.0,
-					},
-					CableLength:  20.0,
-					StationCode:  "WLGT",
-					LocationCode: "40",
-					Scale: meta.Scale{
-						Factor: 1.03,
-						Bias:   0.0,
-					},
 				},
 			},
 		},
@@ -551,7 +486,7 @@ func TestList(t *testing.T) {
 						Azimuth: 20.0,
 					},
 					Offset: meta.Offset{
-						Height: -3.0,
+						Vertical: -3.0,
 					},
 					MountCode: "WHWI",
 					Notes:     "Looking at White Island",
@@ -579,7 +514,7 @@ func TestList(t *testing.T) {
 						Azimuth: 280.0,
 					},
 					Offset: meta.Offset{
-						Height: -10.0,
+						Vertical: -10.0,
 					},
 					MountCode: "K",
 					Notes:     "Bearing is magnetic.",
@@ -702,7 +637,7 @@ func TestList(t *testing.T) {
 						Dip:     0.0,
 					},
 					Offset: meta.Offset{
-						Height: -64.0,
+						Vertical: -64.0,
 					},
 					Scale: meta.Scale{
 						Factor: 1.0,
@@ -734,7 +669,7 @@ func TestList(t *testing.T) {
 						Dip:     0.0,
 					},
 					Offset: meta.Offset{
-						Height: 0.0,
+						Vertical: 0.0,
 					},
 					Scale: meta.Scale{
 						Factor: 1.0,
@@ -772,7 +707,7 @@ func TestList(t *testing.T) {
 							Dip:     0.0,
 						},
 						Offset: meta.Offset{
-							Height: 0.0,
+							Vertical: 0.0,
 						},
 						StationCode:  "AMBC",
 						LocationCode: "20",
@@ -803,7 +738,7 @@ func TestList(t *testing.T) {
 							Dip:     0.0,
 						},
 						Offset: meta.Offset{
-							Height: 0.0,
+							Vertical: 0.0,
 						},
 						StationCode:  "EKS3",
 						LocationCode: "20",

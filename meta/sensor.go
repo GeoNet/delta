@@ -17,6 +17,8 @@ const (
 	sensorInstallationAzimuth
 	sensorInstallationDip
 	sensorInstallationDepth
+	sensorOffsetNorth
+	sensorOffsetEast
 	sensorScaleFactor
 	sensorScaleBias
 	sensorInstallationDate
@@ -50,6 +52,8 @@ func (s InstalledSensorList) encode() [][]string {
 		"Installation Azimuth",
 		"Installation Dip",
 		"Installation Depth",
+		"Offset North",
+		"Offset East",
 		"Scale Factor",
 		"Scale Bias",
 		"Installation Date",
@@ -66,12 +70,14 @@ func (s InstalledSensorList) encode() [][]string {
 			strconv.FormatFloat(v.Azimuth, 'g', -1, 64),
 			strconv.FormatFloat(v.Dip, 'g', -1, 64),
 			func() string {
-				if v.Height == 0.0 {
+				if v.Vertical == 0.0 {
 					return strconv.FormatFloat(0.0, 'g', -1, 64)
 				} else {
-					return strconv.FormatFloat(-v.Height, 'g', -1, 64)
+					return strconv.FormatFloat(-v.Vertical, 'g', -1, 64)
 				}
 			}(),
+			strconv.FormatFloat(v.North, 'g', -1, 64),
+			strconv.FormatFloat(v.East, 'g', -1, 64),
 			strconv.FormatFloat(v.Factor, 'g', -1, 64),
 			strconv.FormatFloat(v.Bias, 'g', -1, 64),
 			v.Start.Format(DateTimeFormat),
@@ -89,14 +95,22 @@ func (s *InstalledSensorList) decode(data [][]string) error {
 			}
 			var err error
 
-			var azimuth, dip, depth float64
+			var azimuth, dip float64
 			if azimuth, err = strconv.ParseFloat(d[sensorInstallationAzimuth], 64); err != nil {
 				return err
 			}
 			if dip, err = strconv.ParseFloat(d[sensorInstallationDip], 64); err != nil {
 				return err
 			}
+
+			var depth, north, east float64
 			if depth, err = strconv.ParseFloat(d[sensorInstallationDepth], 64); err != nil {
+				return err
+			}
+			if north, err = strconv.ParseFloat(d[sensorOffsetNorth], 64); err != nil {
+				return err
+			}
+			if east, err = strconv.ParseFloat(d[sensorOffsetEast], 64); err != nil {
 				return err
 			}
 
@@ -133,7 +147,9 @@ func (s *InstalledSensorList) decode(data [][]string) error {
 					Dip:     dip,
 				},
 				Offset: Offset{
-					Height: -depth,
+					Vertical: -depth,
+					North:    north,
+					East:     east,
 				},
 				Scale: Scale{
 					Factor: factor,
