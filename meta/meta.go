@@ -31,6 +31,11 @@ type Offset struct {
 	East   float64
 }
 
+type Scale struct {
+	Factor float64
+	Bias   float64
+}
+
 type Span struct {
 	Start time.Time
 	End   time.Time

@@ -431,6 +431,10 @@ func TestList(t *testing.T) {
 					CableLength:  20.0,
 					StationCode:  "WLGT",
 					LocationCode: "41",
+					Scale: meta.Scale{
+						Factor: 1.0,
+						Bias:   0.0,
+					},
 				},
 				meta.InstalledGauge{
 					Install: meta.Install{
@@ -457,6 +461,10 @@ func TestList(t *testing.T) {
 					CableLength:  20.0,
 					StationCode:  "WLGT",
 					LocationCode: "40",
+					Scale: meta.Scale{
+						Factor: 1.03,
+						Bias:   0.0,
+					},
 				},
 			},
 		},
@@ -696,6 +704,10 @@ func TestList(t *testing.T) {
 					Offset: meta.Offset{
 						Height: -64.0,
 					},
+					Scale: meta.Scale{
+						Factor: 1.0,
+						Bias:   0.0,
+					},
 					StationCode:  "COVZ",
 					LocationCode: "90",
 				},
@@ -723,6 +735,10 @@ func TestList(t *testing.T) {
 					},
 					Offset: meta.Offset{
 						Height: 0.0,
+					},
+					Scale: meta.Scale{
+						Factor: 1.0,
+						Bias:   0.0,
 					},
 					StationCode:  "INZ",
 					LocationCode: "10",
