@@ -61,10 +61,10 @@ func (r InstalledRecorderList) encode() [][]string {
 			strconv.FormatFloat(v.Azimuth, 'g', -1, 64),
 			strconv.FormatFloat(v.Dip, 'g', -1, 64),
 			func() string {
-				if v.Height == 0.0 {
+				if v.Vertical == 0.0 {
 					return strconv.FormatFloat(0.0, 'g', -1, 64)
 				} else {
-					return strconv.FormatFloat(-v.Height, 'g', -1, 64)
+					return strconv.FormatFloat(-v.Vertical, 'g', -1, 64)
 				}
 			}(),
 			v.Start.Format(DateTimeFormat),
@@ -119,7 +119,7 @@ func (r *InstalledRecorderList) decode(data [][]string) error {
 						Dip:     dip,
 					},
 					Offset: Offset{
-						Height: -depth,
+						Vertical: -depth,
 					},
 					StationCode:  strings.TrimSpace(d[recorderStationCode]),
 					LocationCode: strings.TrimSpace(d[recorderLocationCode]),

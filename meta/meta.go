@@ -26,9 +26,9 @@ type Orientation struct {
 }
 
 type Offset struct {
-	Height float64
-	North  float64
-	East   float64
+	Vertical float64
+	North    float64
+	East     float64
 }
 
 type Scale struct {
