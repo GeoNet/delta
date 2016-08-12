@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 
 	"github.com/ozym/fdsn/stationxml"
@@ -35,38 +36,33 @@ func main() {
 	flag.Parse()
 
 	if err := os.MkdirAll(output, 0755); err != nil {
-		fmt.Fprintf(os.Stderr, "error: unable to create directory %s: %v\n", output, err)
-		os.Exit(-1)
+		log.Fatalf("error: unable to create directory %s: %v", output, err)
 	}
 
 	pod := NewPod(output)
 
 	if err := pod.Header(); err != nil {
-		fmt.Fprintf(os.Stderr, "error: unable to build POD header file: %v\n", err)
-		os.Exit(-1)
+		log.Fatalf("error: unable to build POD header file: %v", err)
 	}
 
 	for _, f := range flag.Args() {
 		if verbose {
-			fmt.Fprintf(os.Stderr, "processing StationXML file: %s\n", f)
+			log.Printf("processing StationXML file: %s", f)
 		}
 
 		x, err := ioutil.ReadFile(f)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "unable to read StationXML file: %s [%v]\n", f, err)
-			os.Exit(1)
+			log.Fatalf("unable to read StationXML file: %s [%v]", f, err)
 		}
 
 		var s stationxml.FDSNStationXML
 		if err := xml.Unmarshal(x, &s); err != nil {
-			fmt.Fprintf(os.Stderr, "unable to decode StationXML file: %s [%v]\n", f, err)
-			os.Exit(1)
+			log.Fatalf("unable to decode StationXML file: %s [%v]", f, err)
 		}
 
 		for i, _ := range s.Networks {
 			if err := pod.Network(&s.Networks[i]); err != nil {
-				fmt.Fprintf(os.Stderr, "unable to build POD files: [%v]\n", err)
-				os.Exit(1)
+				log.Fatalf("unable to build POD files: [%v]", err)
 			}
 		}
 	}
