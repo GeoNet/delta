@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
+	"log"
 	"math"
 	"os"
 	"path/filepath"
@@ -95,8 +95,6 @@ func (p *Pod) Station(net *stationxml.Network, sta *stationxml.Station) error {
 	if err := os.MkdirAll(filepath.Dir(b50), 0755); err != nil {
 		return err
 	}
-
-	fmt.Println(net.Description)
 
 	if err := ioutil.WriteFile(b50, []byte(Blockette{
 		Type: 50,
@@ -264,7 +262,7 @@ func (p *Pod) Channel(cha *stationxml.Channel) []Blockette {
 					case "Nanometrics Trillium 120QA":
 						model = "Nanometrics Nanometrics Trillium 120QA"
 					default:
-						fmt.Fprintln(os.Stderr, "->>>", cha.Sensor.Model, "<<<--")
+						log.Println("missing sensor model lookup ->>>", cha.Sensor.Model, "<<<--")
 						model = cha.Sensor.Model
 					}
 					if abbr := lookupGenericAbbreviation(model); abbr > 0 {
@@ -275,7 +273,7 @@ func (p *Pod) Channel(cha *stationxml.Channel) []Blockette {
 			}(),
 			OptionalComment: func() string {
 				if cha.Sensor != nil {
-					return fmt.Sprintf("S/N %s", cha.Sensor.SerialNumber)
+					return "S/N " + cha.Sensor.SerialNumber
 				}
 				return ""
 			}(),
