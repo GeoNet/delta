@@ -637,9 +637,15 @@ var Responses []Response = []Response{
 				Filters:       []string{"Q330_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
-						Type:        "a2d",
-						Lookup:      "",
-						Filter:      "Q330_FLbelow100-100",
+						Type:   "a2d",
+						Lookup: "A2D",
+						Filter: "Q330_FLbelow100-100",
+						StageSet: A2D{
+							Name:  "A2D",
+							Code:  stationxml.PZFunctionLaplaceZTransform,
+							Type:  "Digital (Z-transform).",
+							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
+						},
 						Frequency:   0,
 						SampleRate:  100,
 						Decimate:    0,
@@ -1236,9 +1242,15 @@ var Responses []Response = []Response{
 				Filters:       []string{"Q330HR_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
-						Type:        "a2d",
-						Lookup:      "",
-						Filter:      "Q330HR_FLbelow100-100",
+						Type:   "a2d",
+						Lookup: "A2D",
+						Filter: "Q330HR_FLbelow100-100",
+						StageSet: A2D{
+							Name:  "A2D",
+							Code:  stationxml.PZFunctionLaplaceZTransform,
+							Type:  "Digital (Z-transform).",
+							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
+						},
 						Frequency:   0,
 						SampleRate:  100,
 						Decimate:    0,
@@ -2057,9 +2069,15 @@ var Responses []Response = []Response{
 				Filters:       []string{"Q330_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
-						Type:        "a2d",
-						Lookup:      "",
-						Filter:      "Q330_FLbelow100-100",
+						Type:   "a2d",
+						Lookup: "A2D",
+						Filter: "Q330_FLbelow100-100",
+						StageSet: A2D{
+							Name:  "A2D",
+							Code:  stationxml.PZFunctionLaplaceZTransform,
+							Type:  "Digital (Z-transform).",
+							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
+						},
 						Frequency:   0,
 						SampleRate:  100,
 						Decimate:    0,
@@ -3610,9 +3628,15 @@ var Responses []Response = []Response{
 				Filters:       []string{"Q330_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
-						Type:        "a2d",
-						Lookup:      "",
-						Filter:      "Q330_FLbelow100-100",
+						Type:   "a2d",
+						Lookup: "A2D",
+						Filter: "Q330_FLbelow100-100",
+						StageSet: A2D{
+							Name:  "A2D",
+							Code:  stationxml.PZFunctionLaplaceZTransform,
+							Type:  "Digital (Z-transform).",
+							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
+						},
 						Frequency:   0,
 						SampleRate:  100,
 						Decimate:    0,
@@ -5419,9 +5443,15 @@ var Responses []Response = []Response{
 				Filters:       []string{"Q330_FLbelow100-50"},
 				Stages: []ResponseStage{
 					ResponseStage{
-						Type:        "a2d",
-						Lookup:      "",
-						Filter:      "Q330_FLbelow100-50",
+						Type:   "a2d",
+						Lookup: "A2D",
+						Filter: "Q330_FLbelow100-50",
+						StageSet: A2D{
+							Name:  "A2D",
+							Code:  stationxml.PZFunctionLaplaceZTransform,
+							Type:  "Digital (Z-transform).",
+							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
+						},
 						Frequency:   0,
 						SampleRate:  50,
 						Decimate:    0,

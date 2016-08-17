@@ -625,7 +625,7 @@ filter:
     outputunits: COUNTS
   Q330_FLbelow100-50:
   - type: a2d
-    lookup: ""
+    lookup: A2D
     frequency: 0
     samplerate: 50
     decimate: 0
@@ -648,7 +648,7 @@ filter:
     outputunits: COUNTS
   Q330_FLbelow100-100:
   - type: a2d
-    lookup: ""
+    lookup: A2D
     frequency: 0
     samplerate: 100
     decimate: 0
@@ -853,7 +853,7 @@ filter:
     outputunits: COUNTS
   Q330HR_FLbelow100-100:
   - type: a2d
-    lookup: ""
+    lookup: A2D
     frequency: 0
     samplerate: 100
     decimate: 0
