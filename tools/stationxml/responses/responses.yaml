@@ -213,6 +213,12 @@ response:
       channels: ZNE
       reversed: false
     - sensors:
+      - CMG-3TB
+      filters:
+      - CMG-3TB-CTBTO
+      channels: Z12
+      reversed: false
+    - sensors:
       - CMG-3TB-GN
       filters:
       - CMG-3TB-GN
@@ -273,6 +279,39 @@ response:
       clockdrift: 0.0001
       filters:
       - Q330_FLbelow100-0.1
+      reversed: false
+    - dataloggers:
+      - Q330HRS/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-100
+      reversed: false
+    - dataloggers:
+      - Q330HRS/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-1
+      reversed: false
+    - dataloggers:
+      - Q330HRS/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-0.1
       reversed: false
     - dataloggers:
       - Q330S/3
