@@ -48,8 +48,20 @@ func main() {
 	var stationRegexp string
 	flag.StringVar(&stationRegexp, "stations", "[A-Z0-9]+", "regex selection of stations")
 
+	var stationList string
+	flag.StringVar(&stationList, "station-list", "", "regex selection of stations from file")
+
+	var channelRegexp string
+	flag.StringVar(&channelRegexp, "channels", "[A-Z0-9]+", "regex selection of channels")
+
+	var channelList string
+	flag.StringVar(&channelList, "channel-list", "", "regex selection of channels from file")
+
 	var networkRegexp string
 	flag.StringVar(&networkRegexp, "networks", "[A-Z0-9]+", "regex selection of networks")
+
+	var networkList string
+	flag.StringVar(&networkList, "network-list", "", "regex selection of networks from file")
 
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "\n")
@@ -67,10 +79,40 @@ func main() {
 
 	flag.Parse()
 
+	if stationList != "" {
+		s, err := loadRegexpList(stationList)
+		if err != nil || s == nil {
+			log.Fatalf("unable to load station list regexp %s: %v", stationList, err)
+		}
+		stationRegexp = string(s)
+	}
+
 	// which stations to process
 	stationMatch, err := regexp.Compile(stationRegexp)
 	if err != nil {
 		log.Fatalf("unable to compile station regexp %s: %v", stationRegexp, err)
+	}
+
+	if channelList != "" {
+		s, err := loadRegexpList(channelList)
+		if err != nil || s == nil {
+			log.Fatalf("unable to load channel list regexp %s: %v", channelList, err)
+		}
+		channelRegexp = string(s)
+	}
+
+	// which stations to process
+	channelMatch, err := regexp.Compile(channelRegexp)
+	if err != nil {
+		log.Fatalf("unable to compile channel regexp %s: %v", channelRegexp, err)
+	}
+
+	if networkList != "" {
+		s, err := loadRegexpList(networkList)
+		if err != nil || s == nil {
+			log.Fatalf("unable to load network list regexp %s: %v", networkList, err)
+		}
+		networkRegexp = string(s)
 	}
 
 	// which networks to process
@@ -226,6 +268,10 @@ func main() {
 						freq := r.Datalogger.Frequency
 						for n := 0; n < len(labels) && n < len(model.Components); n++ {
 							cha, comp := labels[n], model.Components[n]
+
+							if !channelMatch.MatchString(r.Label + string(cha)) {
+								continue
+							}
 
 							dip := comp.Dip
 							azimuth := sensorInstall.Azimuth + comp.Azimuth
