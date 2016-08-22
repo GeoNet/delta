@@ -1,9 +1,11 @@
 package main
 
 import (
+	"encoding/hex"
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"math"
 	"os"
 	"path/filepath"
@@ -16,82 +18,10 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
+//go:generate bash -c "go run generate/*.go | gofmt > config_auto.go"
+
 const DateTimeFormat = "2006-01-02T15:04Z"
 const DateFormat = "2006-01-02"
-
-var preparedBy = "Elisabetta D'Anastasio"
-
-var primaryDatacentre = "ftp.geonet.org.nz"
-var urlForMoreInformation = "www.geonet.org.nz"
-var extraNotes = "additional information and pictures could be\nfound at http://magma.geonet.org.nz/delta/app\nthen search for CGPS mark"
-
-var contactAgency = Agency{
-	Agency:                "GNS Science",
-	PreferredAbbreviation: "GNS",
-	MailingAddress:        "1 Fairway Drive, Avalon 5010,\nPO Box 30-368, Lower Hutt\nNew Zealand",
-	PrimaryContact: Contact{
-		Name:               "GeoNet reception",
-		TelephonePrimary:   "+64 4 570 1444",
-		TelephoneSecondary: "",
-		Fax:                "+64 4 570 4676",
-		Email:              "info@geonet.org.nz",
-	},
-	SecondaryContact: Contact{
-		Name:               "Elisabetta D'Anastasio",
-		TelephonePrimary:   "+64 4 570 4744",
-		TelephoneSecondary: "",
-		Fax:                "",
-		Email:              "e.danastasio@gns.cri.nz",
-	},
-	Notes: "",
-}
-
-var linzAgency = Agency{
-	Agency:                "Land Information New Zealand",
-	PreferredAbbreviation: "LINZ",
-	MailingAddress:        "155 The Terrace, PO Box 5501, Wellington 6145 New Zealand",
-	PrimaryContact: Contact{
-		Name:               "LINZ Reception",
-		TelephonePrimary:   "+64 4 460 0110",
-		TelephoneSecondary: "",
-		Fax:                "+64 4 472 2244",
-		Email:              "positionz@linz.govt.nz",
-	},
-	SecondaryContact: Contact{
-		Name:               "Paula Gentle",
-		TelephonePrimary:   "+64 4 460 2757",
-		TelephoneSecondary: "",
-		Fax:                "",
-		Email:              "pgentle@linz.govt.nz",
-	},
-	Notes: "CGPS site is part of the LINZ PositioNZ Network http://www.linz.govt.nz/positionz",
-}
-
-func country(lat, lon float64) string {
-	var countries = []struct {
-		name     string
-		lat, lon float64
-	}{
-		{"New Zealand", -40.0, 174.0},
-		{"Tonga", -21.2, -175.2},
-		{"Samoa", -13.8, -172.1},
-		{"Niue", -19.0, -169.9},
-	}
-	X, Y, _ := WGS842ITRF(lat, lon, 0.0)
-
-	dist := float64(-1.0)
-	country := "Unknown"
-	for _, v := range countries {
-		x, y, _ := WGS842ITRF(v.lat, v.lon, 0.0)
-		r := math.Sqrt((x-X)*(x-X) + (y-Y)*(y-Y))
-		if dist < 0.0 || r < dist {
-			country = v.name
-			dist = r
-		}
-	}
-
-	return country
-}
 
 func main() {
 
@@ -170,14 +100,12 @@ func main() {
 
 	tmpl, err := template.New("").Funcs(tplFuncMap).Parse(sitelogTemplate)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "error: unable to compile template: %v\n", err)
-		os.Exit(-1)
+		log.Fatalf("error: unable to compile template: %v", err)
 	}
 
 	var firmwareHistoryList meta.FirmwareHistoryList
 	if err := meta.LoadList(filepath.Join(install, "firmware.csv"), &firmwareHistoryList); err != nil {
-		fmt.Fprintf(os.Stderr, "error: unable to load firmware history: %v\n", err)
-		os.Exit(-1)
+		log.Fatalf("error: unable to load firmware history: %v", err)
 	}
 
 	firmwareHistory := make(map[string]map[string][]meta.FirmwareHistory)
@@ -196,8 +124,7 @@ func main() {
 
 	var installedAntennaList meta.InstalledAntennaList
 	if err := meta.LoadList(filepath.Join(install, "antennas.csv"), &installedAntennaList); err != nil {
-		fmt.Fprintf(os.Stderr, "error: unable to load antenna installs: %v\n", err)
-		os.Exit(-1)
+		log.Fatalf("error: unable to load antenna installs: %v", err)
 	}
 
 	installedAntenna := make(map[string][]meta.InstalledAntenna)
@@ -210,8 +137,7 @@ func main() {
 
 	var deployedReceiverList meta.DeployedReceiverList
 	if err := meta.LoadList(filepath.Join(install, "receivers.csv"), &deployedReceiverList); err != nil {
-		fmt.Fprintf(os.Stderr, "error: unable to load receiver installs: %v\n", err)
-		os.Exit(-1)
+		log.Fatalf("error: unable to load receiver installs: %v", err)
 	}
 
 	deployedReceivers := make(map[string][]meta.DeployedReceiver)
@@ -224,8 +150,7 @@ func main() {
 
 	var installedRadomeList meta.InstalledRadomeList
 	if err := meta.LoadList(filepath.Join(install, "radomes.csv"), &installedRadomeList); err != nil {
-		fmt.Fprintf(os.Stderr, "error: unable to load radome installs: %v\n", err)
-		os.Exit(-1)
+		log.Fatalf("error: unable to load radome installs: %v", err)
 	}
 
 	installedRadomes := make(map[string][]meta.InstalledRadome)
@@ -238,8 +163,7 @@ func main() {
 
 	var installedMetSensorList meta.InstalledMetSensorList
 	if err := meta.LoadList(filepath.Join(install, "metsensors.csv"), &installedMetSensorList); err != nil {
-		fmt.Fprintf(os.Stderr, "error: unable to load metsensors list: %v\n", err)
-		os.Exit(-1)
+		log.Fatalf("error: unable to load metsensors list: %v", err)
 	}
 
 	installedMetSensors := make(map[string][]meta.InstalledMetSensor)
@@ -252,14 +176,12 @@ func main() {
 
 	var markList meta.MarkList
 	if err := meta.LoadList(filepath.Join(network, "marks.csv"), &markList); err != nil {
-		fmt.Fprintf(os.Stderr, "error: unable to load mark list: %v\n", err)
-		os.Exit(-1)
+		log.Fatalf("error: unable to load mark list: %v", err)
 	}
 
 	var sessionList meta.SessionList
 	if err := meta.LoadList(filepath.Join(install, "sessions.csv"), &sessionList); err != nil {
-		fmt.Fprintf(os.Stderr, "error: unable to load session list: %v\n", err)
-		os.Exit(-1)
+		log.Fatalf("error: unable to load session list: %v", err)
 	}
 
 	sessions := make(map[string][]meta.Session)
@@ -269,8 +191,7 @@ func main() {
 
 	var monumentList meta.MonumentList
 	if err := meta.LoadList(filepath.Join(network, "monuments.csv"), &monumentList); err != nil {
-		fmt.Fprintf(os.Stderr, "error: unable to load monument list: %v\n", err)
-		os.Exit(-1)
+		log.Fatalf("error: unable to load monument list: %v", err)
 	}
 	monuments := make(map[string]meta.Monument)
 	for _, m := range monumentList {
@@ -348,7 +269,7 @@ func main() {
 				AntennaType:            a.Model,
 				SerialNumber:           a.Serial,
 				AntennaReferencePoint:  "BAM",
-				MarkerArpUpEcc:         strconv.FormatFloat(a.Height, 'f', 4, 64),
+				MarkerArpUpEcc:         strconv.FormatFloat(a.Vertical, 'f', 4, 64),
 				MarkerArpNorthEcc:      strconv.FormatFloat(a.North, 'f', 4, 64),
 				MarkerArpEastEcc:       strconv.FormatFloat(a.East, 'f', 4, 64),
 				AlignmentFromTrueNorth: "0",
@@ -514,7 +435,22 @@ func main() {
 					City:          m.Place,
 					State:         m.Region,
 				*/
-				Country:       country(m.Latitude, m.Longitude),
+				Country: func(lat, lon float64) string {
+					X, Y, _ := WGS842ITRF(lat, lon, 0.0)
+					dist := float64(-1.0)
+					country := "Unknown"
+					for _, v := range countryList {
+						x, y, _ := WGS842ITRF(v.lat, v.lon, 0.0)
+						r := math.Sqrt((x-X)*(x-X) + (y-Y)*(y-Y))
+						if dist < 0.0 || r < dist {
+							country = v.name
+							dist = r
+						}
+					}
+
+					return country
+				}(m.Latitude, m.Longitude),
+
 				TectonicPlate: TectonicPlate(m.Latitude, m.Longitude),
 				ApproximatePositionITRF: ApproximatePositionITRF{
 					XCoordinateInMeters: strconv.FormatFloat(X, 'f', 1, 64),
@@ -533,7 +469,7 @@ func main() {
 			ResponsibleAgency: func() Agency {
 				switch m.Network {
 				case "LI":
-					return linzAgency
+					return responsibleAgency
 				default:
 					return Agency{
 						MailingAddress: "\n",
@@ -559,7 +495,14 @@ func main() {
 							continue
 						}
 						if g, ok := antennaGraphs[a.AntennaType]; ok {
-							graphs = append(graphs, g)
+							b, err := hex.DecodeString(g)
+							if err != nil {
+								log.Printf("error: unable to decode antenna graph for: \"%s\"", a.AntennaType)
+								continue
+							}
+							graphs = append(graphs, strings.Join([]string{a.AntennaType, string(b)}, "\n"))
+						} else {
+							log.Printf("warning: missing antenna graph for: \"%s\"", a.AntennaType)
 						}
 						models[a.AntennaType] = true
 					}
@@ -571,35 +514,29 @@ func main() {
 
 		s, err := x.Marshal()
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to marshal xml: %v\n", err)
-			os.Exit(-1)
+			log.Fatalf("error: unable to marshal xml: %v", err)
 		}
 
 		xmlfile := filepath.Join(output, strings.ToLower(m.Code)+".xml")
 		if err := os.MkdirAll(filepath.Dir(xmlfile), 0755); err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
-			os.Exit(-1)
+			log.Fatalf("error: unable to create dir: %v", err)
 		}
 		if err := ioutil.WriteFile(xmlfile, s, 0644); err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
-			os.Exit(-1)
+			log.Fatalf("error: unable to write file: %v", err)
 		}
 
 		logfile := filepath.Join(logs, strings.ToLower(m.Code)+".log")
 		if err := os.MkdirAll(filepath.Dir(logfile), 0755); err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to create logs dir: %v\n", err)
-			os.Exit(-1)
+			log.Fatalf("error: unable to create logs dir: %v", err)
 		}
 		f, err := os.Create(logfile)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to create log file: %v\n", err)
-			os.Exit(-1)
+			log.Fatalf("error: unable to create log file: %v", err)
 		}
 		defer f.Close()
 
 		if err := tmpl.Execute(f, x); err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to write log file: %v\n", err)
-			os.Exit(-1)
+			log.Fatalf("error: unable to write log file: %v", err)
 		}
 	}
 }
