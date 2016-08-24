@@ -793,6 +793,7 @@ func TestList(t *testing.T) {
 					MarkCode:        "TAUP",
 					Operator:        "GeoNet",
 					Agency:          "GNS",
+					Model:           "TRIMBLE NETRS",
 					SatelliteSystem: "GPS",
 					Interval:        time.Second * 30,
 					ElevationMask:   0,

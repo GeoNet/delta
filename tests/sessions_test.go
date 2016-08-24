@@ -21,6 +21,9 @@ func TestSessions(t *testing.T) {
 			if sessions[i].MarkCode != sessions[j].MarkCode {
 				continue
 			}
+			if sessions[i].Model != sessions[j].Model {
+				continue
+			}
 			if sessions[i].Interval != sessions[j].Interval {
 				continue
 			}

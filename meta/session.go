@@ -8,12 +8,27 @@ import (
 	"time"
 )
 
+const (
+	sessionMarkCode = iota
+	sessionOperator
+	sessionAgency
+	sessionModel
+	sessionSatelliteSystem
+	sessionInterval
+	sessionElevationMask
+	sessionHeaderComment
+	sessionStartTime
+	sessionEndTime
+	sessionLast
+)
+
 type Session struct {
 	Span
 
 	MarkCode        string
 	Operator        string
 	Agency          string
+	Model           string
 	SatelliteSystem string
 	Interval        time.Duration
 	ElevationMask   float64
@@ -25,6 +40,10 @@ func (s Session) Less(session Session) bool {
 	case s.MarkCode < session.MarkCode:
 		return true
 	case s.MarkCode > session.MarkCode:
+		return false
+	case s.Model < session.Model:
+		return true
+	case s.Model > session.Model:
 		return false
 	case s.Interval < session.Interval:
 		return true
@@ -50,6 +69,7 @@ func (s SessionList) encode() [][]string {
 		"Mark Code",
 		"Operator",
 		"Agency",
+		"Model",
 		"Satellite System",
 		"Interval",
 		"Elevation Mask",
@@ -62,6 +82,7 @@ func (s SessionList) encode() [][]string {
 			strings.TrimSpace(v.MarkCode),
 			strings.TrimSpace(v.Operator),
 			strings.TrimSpace(v.Agency),
+			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.SatelliteSystem),
 			strings.TrimSpace(v.Interval.String()),
 			strings.TrimSpace(strconv.FormatFloat(v.ElevationMask, 'g', -1, 64)),
@@ -77,37 +98,38 @@ func (c *SessionList) decode(data [][]string) error {
 	var sessions []Session
 	if len(data) > 1 {
 		for _, v := range data[1:] {
-			if len(v) != 9 {
+			if len(v) != sessionLast {
 				return fmt.Errorf("incorrect number of installed session fields")
 			}
 			var err error
 
 			var interval time.Duration
-			if interval, err = time.ParseDuration(v[4]); err != nil {
+			if interval, err = time.ParseDuration(v[sessionInterval]); err != nil {
 				return err
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[7]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, v[sessionStartTime]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, v[8]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, v[sessionEndTime]); err != nil {
 				return err
 			}
 
 			var mask float64
-			if mask, err = strconv.ParseFloat(v[5], 64); err != nil {
+			if mask, err = strconv.ParseFloat(v[sessionElevationMask], 64); err != nil {
 				return err
 			}
 
 			sessions = append(sessions, Session{
-				MarkCode:        strings.TrimSpace(v[0]),
-				Operator:        strings.TrimSpace(v[1]),
-				Agency:          strings.TrimSpace(v[2]),
-				SatelliteSystem: strings.TrimSpace(v[3]),
+				MarkCode:        strings.TrimSpace(v[sessionMarkCode]),
+				Operator:        strings.TrimSpace(v[sessionOperator]),
+				Agency:          strings.TrimSpace(v[sessionAgency]),
+				Model:           strings.TrimSpace(v[sessionModel]),
+				SatelliteSystem: strings.TrimSpace(v[sessionSatelliteSystem]),
 				Interval:        interval,
 				ElevationMask:   mask,
-				HeaderComment:   strings.TrimSpace(v[6]),
+				HeaderComment:   strings.TrimSpace(v[sessionHeaderComment]),
 				Span: Span{
 					Start: start,
 					End:   end,
