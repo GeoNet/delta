@@ -17,17 +17,14 @@ func TestReceivers(t *testing.T) {
 		}
 	}
 
-	t.Log("Check for receivers installation equipment overlaps")
+	t.Log("Check for particular receiver installation overlaps")
 	{
 		installs := make(map[string]meta.DeployedReceiverList)
 		for _, s := range receivers {
-			_, ok := installs[s.Model]
-			if ok {
-				installs[s.Model] = append(installs[s.Model], s)
-
-			} else {
-				installs[s.Model] = meta.DeployedReceiverList{s}
+			if _, ok := installs[s.Model]; !ok {
+				installs[s.Model] = meta.DeployedReceiverList{}
 			}
+			installs[s.Model] = append(installs[s.Model], s)
 		}
 
 		var keys []string
@@ -48,8 +45,43 @@ func TestReceivers(t *testing.T) {
 					case v[i].End.Equal(v[j].Start):
 					case v[i].Start.Equal(v[j].End):
 					default:
-						t.Errorf("receivers %s at %-5s has location %-2s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+						t.Errorf("receiver %s [%s] at %s has overlap with %s between times %s and %s",
+							v[i].Model, v[i].Serial, v[i].Mark, v[j].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+					}
+				}
+			}
+		}
+	}
+
+	t.Log("Check for receiver sites installation equipment overlaps")
+	{
+		installs := make(map[string]meta.DeployedReceiverList)
+		for _, s := range receivers {
+			if _, ok := installs[s.Mark]; !ok {
+				installs[s.Mark] = meta.DeployedReceiverList{}
+			}
+			installs[s.Mark] = append(installs[s.Model], s)
+		}
+
+		var keys []string
+		for k, _ := range installs {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+
+		for _, k := range keys {
+			v := installs[k]
+
+			for i, n := 0, len(v); i < n; i++ {
+				for j := i + 1; j < n; j++ {
+					switch {
+					case v[i].End.Before(v[j].Start):
+					case v[i].Start.After(v[j].End):
+					case v[i].End.Equal(v[j].Start):
+					case v[i].Start.Equal(v[j].End):
+					default:
+						t.Errorf("receivers %s [%s] / %s [%s] at %s has overlap between %s and %s",
+							v[i].Model, v[i].Serial, v[j].Model, v[j].Serial, v[i].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
 			}
