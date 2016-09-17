@@ -7,6 +7,16 @@ import (
 	"time"
 )
 
+const (
+	connectionStation int = iota
+	connectionLocation
+	connectionPlace
+	connectionRole
+	connectionStart
+	connectionEnd
+	connectionLast
+)
+
 type Connection struct {
 	Span
 
@@ -71,24 +81,24 @@ func (c *ConnectionList) decode(data [][]string) error {
 	var connections []Connection
 	if len(data) > 1 {
 		for _, v := range data[1:] {
-			if len(v) != 6 {
+			if len(v) != connectionLast {
 				return fmt.Errorf("incorrect number of installed connection fields")
 			}
 			var err error
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[4]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, v[connectionStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, v[5]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, v[connectionEnd]); err != nil {
 				return err
 			}
 
 			connections = append(connections, Connection{
-				StationCode:  strings.TrimSpace(v[0]),
-				LocationCode: strings.TrimSpace(v[1]),
-				Place:        strings.TrimSpace(v[2]),
-				Role:         strings.TrimSpace(v[3]),
+				StationCode:  strings.TrimSpace(v[connectionStation]),
+				LocationCode: strings.TrimSpace(v[connectionLocation]),
+				Place:        strings.TrimSpace(v[connectionPlace]),
+				Role:         strings.TrimSpace(v[connectionRole]),
 				Span: Span{
 					Start: start,
 					End:   end,
