@@ -129,7 +129,7 @@ func main() {
 
 	installedAntenna := make(map[string][]meta.InstalledAntenna)
 	for _, i := range installedAntennaList {
-		installedAntenna[i.MarkCode] = append(installedAntenna[i.MarkCode], i)
+		installedAntenna[i.Mark] = append(installedAntenna[i.Mark], i)
 	}
 	for i, _ := range installedAntenna {
 		sort.Sort(meta.InstalledAntennaList(installedAntenna[i]))
@@ -155,7 +155,7 @@ func main() {
 
 	installedRadomes := make(map[string][]meta.InstalledRadome)
 	for _, i := range installedRadomeList {
-		installedRadomes[i.MarkCode] = append(installedRadomes[i.MarkCode], i)
+		installedRadomes[i.Mark] = append(installedRadomes[i.Mark], i)
 	}
 	for i, _ := range installedRadomes {
 		sort.Sort(meta.InstalledRadomeList(installedRadomes[i]))
@@ -168,7 +168,7 @@ func main() {
 
 	installedMetSensors := make(map[string][]meta.InstalledMetSensor)
 	for _, i := range installedMetSensorList {
-		installedMetSensors[i.MarkCode] = append(installedMetSensors[i.MarkCode], i)
+		installedMetSensors[i.Mark] = append(installedMetSensors[i.Mark], i)
 	}
 	for i, _ := range installedMetSensors {
 		sort.Sort(meta.InstalledMetSensorList(installedMetSensors[i]))
@@ -186,7 +186,7 @@ func main() {
 
 	sessions := make(map[string][]meta.Session)
 	for _, s := range sessionList {
-		sessions[s.MarkCode] = append(sessions[s.MarkCode], s)
+		sessions[s.Mark] = append(sessions[s.Mark], s)
 	}
 
 	var monumentList meta.MonumentList
@@ -195,7 +195,7 @@ func main() {
 	}
 	monuments := make(map[string]meta.Monument)
 	for _, m := range monumentList {
-		monuments[m.MarkCode] = m
+		monuments[m.Mark] = m
 	}
 
 	for _, m := range markList {
@@ -220,11 +220,11 @@ func main() {
 
 		for _, m := range installedMetSensors[m.Reference.Code] {
 			var session *meta.Session
-			for i, s := range sessions[m.MarkCode] {
+			for i, s := range sessions[m.Mark] {
 				if m.Start.After(s.End) || m.End.Before(s.Start) {
 					continue
 				}
-				session = &sessions[m.MarkCode][i]
+				session = &sessions[m.Mark][i]
 				break
 			}
 			if session == nil {
@@ -409,7 +409,7 @@ func main() {
 				MonumentInscription: "",
 				IersDOMESNumber:     monument.DomesNumber,
 				CdpNumber:           "",
-				MonumentDescription: monument.MonumentType,
+				MonumentDescription: monument.Type,
 				HeightOfTheMonument: strconv.FormatFloat(-monument.GroundRelationship, 'g', -1, 64),
 				MonumentFoundation:  monument.FoundationType,
 				FoundationDepth:     strconv.FormatFloat(monument.FoundationDepth, 'f', 1, 64),

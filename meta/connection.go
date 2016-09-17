@@ -20,21 +20,21 @@ const (
 type Connection struct {
 	Span
 
-	StationCode  string
-	LocationCode string
-	Place        string
-	Role         string
+	Station  string
+	Location string
+	Place    string
+	Role     string
 }
 
 func (c Connection) less(con Connection) bool {
 	switch {
-	case c.StationCode < con.StationCode:
+	case c.Station < con.Station:
 		return true
-	case c.StationCode > con.StationCode:
+	case c.Station > con.Station:
 		return false
-	case c.LocationCode < con.LocationCode:
+	case c.Location < con.Location:
 		return true
-	case c.LocationCode > con.LocationCode:
+	case c.Location > con.Location:
 		return false
 	case c.Place < con.Place:
 		return true
@@ -66,8 +66,8 @@ func (c ConnectionList) encode() [][]string {
 	}}
 	for _, v := range c {
 		data = append(data, []string{
-			strings.TrimSpace(v.StationCode),
-			strings.TrimSpace(v.LocationCode),
+			strings.TrimSpace(v.Station),
+			strings.TrimSpace(v.Location),
 			strings.TrimSpace(v.Place),
 			strings.TrimSpace(v.Role),
 			v.Start.Format(DateTimeFormat),
@@ -95,10 +95,10 @@ func (c *ConnectionList) decode(data [][]string) error {
 			}
 
 			connections = append(connections, Connection{
-				StationCode:  strings.TrimSpace(v[connectionStation]),
-				LocationCode: strings.TrimSpace(v[connectionLocation]),
-				Place:        strings.TrimSpace(v[connectionPlace]),
-				Role:         strings.TrimSpace(v[connectionRole]),
+				Station:  strings.TrimSpace(v[connectionStation]),
+				Location: strings.TrimSpace(v[connectionLocation]),
+				Place:    strings.TrimSpace(v[connectionPlace]),
+				Role:     strings.TrimSpace(v[connectionRole]),
 				Span: Span{
 					Start: start,
 					End:   end,

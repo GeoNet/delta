@@ -49,7 +49,7 @@ func TestCameras(t *testing.T) {
 					case v[i].Start.Equal(v[j].End):
 					default:
 						t.Errorf("cameras %s at %-5s has mount %s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].MountCode, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+							v[i].Model, v[i].Serial, v[i].Mount, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
 			}
@@ -71,10 +71,10 @@ func TestCameras(t *testing.T) {
 		}
 
 		for _, c := range cameras {
-			if _, ok := keys[c.MountCode]; ok {
+			if _, ok := keys[c.Mount]; ok {
 				continue
 			}
-			t.Errorf("unable to find camera mount %-5s", c.MountCode)
+			t.Errorf("unable to find camera mount %-5s", c.Mount)
 		}
 	}
 

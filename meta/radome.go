@@ -20,7 +20,7 @@ const (
 type InstalledRadome struct {
 	Install
 
-	MarkCode string
+	Mark string
 }
 
 type InstalledRadomeList []InstalledRadome
@@ -43,7 +43,7 @@ func (r InstalledRadomeList) encode() [][]string {
 			strings.TrimSpace(v.Make),
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.MarkCode),
+			strings.TrimSpace(v.Mark),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -80,7 +80,7 @@ func (r *InstalledRadomeList) decode(data [][]string) error {
 						End:   end,
 					},
 				},
-				MarkCode: strings.TrimSpace(d[installedRadomeMark]),
+				Mark: strings.TrimSpace(d[installedRadomeMark]),
 			})
 		}
 

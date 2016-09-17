@@ -120,7 +120,7 @@ func main() {
 
 	installedAntenna := make(map[string][]meta.InstalledAntenna)
 	for _, i := range installedAntennaList {
-		installedAntenna[i.MarkCode] = append(installedAntenna[i.MarkCode], i)
+		installedAntenna[i.Mark] = append(installedAntenna[i.Mark], i)
 	}
 	for i, _ := range installedAntenna {
 		sort.Sort(meta.InstalledAntennaList(installedAntenna[i]))
@@ -148,7 +148,7 @@ func main() {
 
 	installedRadomes := make(map[string][]meta.InstalledRadome)
 	for _, i := range installedRadomeList {
-		installedRadomes[i.MarkCode] = append(installedRadomes[i.MarkCode], i)
+		installedRadomes[i.Mark] = append(installedRadomes[i.Mark], i)
 	}
 	for i, _ := range installedRadomes {
 		sort.Sort(meta.InstalledRadomeList(installedRadomes[i]))
@@ -168,7 +168,7 @@ func main() {
 
 	sessions := make(map[string][]meta.Session)
 	for _, s := range sessionList {
-		sessions[s.MarkCode] = append(sessions[s.MarkCode], s)
+		sessions[s.Mark] = append(sessions[s.Mark], s)
 	}
 
 	for _, m := range markList {
@@ -280,7 +280,7 @@ func main() {
 							FirmwareHistories: firmware,
 						},
 						InstalledCGPSAntenna: InstalledCGPSAntennaXML{
-							Height:      Number{Units: "m", Value: a.Height},
+							Height:      Number{Units: "m", Value: a.Vertical},
 							OffsetNorth: Number{Units: "m", Value: a.North},
 							OffsetEast:  Number{Units: "m", Value: a.East},
 							Radome:      radome,

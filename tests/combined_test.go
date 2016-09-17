@@ -27,9 +27,9 @@ func TestCombined(t *testing.T) {
 
 	for _, r := range recorders {
 		combined = append(combined, meta.InstalledSensor{
-			Install:      r.Install,
-			StationCode:  r.StationCode,
-			LocationCode: r.LocationCode,
+			Install:  r.Install,
+			Station:  r.Station,
+			Location: r.Location,
 		})
 	}
 
@@ -37,12 +37,12 @@ func TestCombined(t *testing.T) {
 	{
 		installs := make(map[string]meta.InstalledSensorList)
 		for _, s := range combined {
-			_, ok := installs[s.StationCode]
+			_, ok := installs[s.Station]
 			if ok {
-				installs[s.StationCode] = append(installs[s.StationCode], s)
+				installs[s.Station] = append(installs[s.Station], s)
 
 			} else {
-				installs[s.StationCode] = meta.InstalledSensorList{s}
+				installs[s.Station] = meta.InstalledSensorList{s}
 			}
 		}
 
@@ -58,14 +58,14 @@ func TestCombined(t *testing.T) {
 			for i, n := 0, len(v); i < n; i++ {
 				for j := i + 1; j < n; j++ {
 					switch {
-					case v[i].LocationCode != v[j].LocationCode:
+					case v[i].Location != v[j].Location:
 					case v[i].End.Before(v[j].Start):
 					case v[i].Start.After(v[j].End):
 					case v[i].End.Equal(v[j].Start):
 					case v[i].Start.Equal(v[j].End):
 					default:
 						t.Errorf("sensor/recorder %s/%s at %-5s has location %-2s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].StationCode, v[i].LocationCode, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+							v[i].Model, v[i].Serial, v[i].Station, v[i].Location, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
 			}

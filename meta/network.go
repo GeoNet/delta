@@ -16,17 +16,17 @@ const (
 )
 
 type Network struct {
-	NetworkCode  string
-	ExternalCode string
-	Description  string
-	Restricted   bool
+	Code        string
+	External    string
+	Description string
+	Restricted  bool
 }
 
 type NetworkList []Network
 
 func (n NetworkList) Len() int           { return len(n) }
 func (n NetworkList) Swap(i, j int)      { n[i], n[j] = n[j], n[i] }
-func (n NetworkList) Less(i, j int) bool { return n[i].NetworkCode < n[j].NetworkCode }
+func (n NetworkList) Less(i, j int) bool { return n[i].Code < n[j].Code }
 
 func (n NetworkList) encode() [][]string {
 	data := [][]string{{
@@ -37,8 +37,8 @@ func (n NetworkList) encode() [][]string {
 	}}
 	for _, v := range n {
 		data = append(data, []string{
-			strings.TrimSpace(v.NetworkCode),
-			strings.TrimSpace(v.ExternalCode),
+			strings.TrimSpace(v.Code),
+			strings.TrimSpace(v.External),
 			strings.TrimSpace(v.Description),
 			strconv.FormatBool(v.Restricted),
 		})
@@ -61,10 +61,10 @@ func (n *NetworkList) decode(data [][]string) error {
 			}
 
 			networks = append(networks, Network{
-				NetworkCode:  strings.TrimSpace(d[networkCode]),
-				ExternalCode: strings.TrimSpace(d[networkExternal]),
-				Description:  strings.TrimSpace(d[networkDescription]),
-				Restricted:   restricted,
+				Code:        strings.TrimSpace(d[networkCode]),
+				External:    strings.TrimSpace(d[networkExternal]),
+				Description: strings.TrimSpace(d[networkDescription]),
+				Restricted:  restricted,
 			})
 		}
 

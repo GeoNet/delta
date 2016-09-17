@@ -18,16 +18,16 @@ func TestList(t *testing.T) {
 			"testdata/networks.csv",
 			&meta.NetworkList{
 				meta.Network{
-					NetworkCode:  "AK",
-					ExternalCode: "NZ",
-					Description:  "Auckland volcano seismic network",
-					Restricted:   false,
+					Code:        "AK",
+					External:    "NZ",
+					Description: "Auckland volcano seismic network",
+					Restricted:  false,
 				},
 				meta.Network{
-					NetworkCode:  "CB",
-					ExternalCode: "NZ",
-					Description:  "Canterbury regional seismic network",
-					Restricted:   false,
+					Code:        "CB",
+					External:    "NZ",
+					Description: "Canterbury regional seismic network",
+					Restricted:  false,
 				},
 			},
 		},
@@ -155,8 +155,8 @@ func TestList(t *testing.T) {
 							return v
 						}(),
 					},
-					StationCode:  "CNZ",
-					LocationCode: "12",
+					Station:  "CNZ",
+					Location: "12",
 				},
 				meta.Site{
 					Point: meta.Point{
@@ -176,8 +176,8 @@ func TestList(t *testing.T) {
 							return v
 						}(),
 					},
-					StationCode:  "MSCZ",
-					LocationCode: "10",
+					Station:  "MSCZ",
+					Location: "10",
 				},
 			},
 		},
@@ -236,10 +236,10 @@ func TestList(t *testing.T) {
 			"testdata/monuments.csv",
 			&meta.MonumentList{
 				meta.Monument{
-					MarkCode:           "CLIM",
+					Mark:               "CLIM",
 					DomesNumber:        "",
 					MarkType:           "Forced Centering",
-					MonumentType:       "Deep Braced",
+					Type:               "Deep Braced",
 					GroundRelationship: -1.00,
 					FoundationType:     "Steel Rods",
 					FoundationDepth:    10.0,
@@ -257,10 +257,10 @@ func TestList(t *testing.T) {
 					},
 				},
 				meta.Monument{
-					MarkCode:           "TAUP",
+					Mark:               "TAUP",
 					DomesNumber:        "50217M001",
 					MarkType:           "Forced Centering",
-					MonumentType:       "Pillar",
+					Type:               "Pillar",
 					GroundRelationship: -1.25,
 					FoundationType:     "Concrete",
 					FoundationDepth:    2.0,
@@ -326,8 +326,8 @@ func TestList(t *testing.T) {
 						North:    0.0,
 						East:     0.0,
 					},
-					MarkCode: "CNCL",
-					Azimuth:  0.0,
+					Mark:    "CNCL",
+					Azimuth: 0.0,
 				},
 				{
 					Install: meta.Install{
@@ -352,8 +352,8 @@ func TestList(t *testing.T) {
 						North:    0.0,
 						East:     0.0,
 					},
-					MarkCode: "MTJO",
-					Azimuth:  10.0,
+					Mark:    "MTJO",
+					Azimuth: 10.0,
 				},
 			},
 		},
@@ -430,7 +430,7 @@ func TestList(t *testing.T) {
 						Elevation: 26,
 						Datum:     "NZGD2000",
 					},
-					MarkCode: "GRAC",
+					Mark: "GRAC",
 				},
 				meta.InstalledMetSensor{
 					Install: meta.Install{
@@ -456,7 +456,7 @@ func TestList(t *testing.T) {
 						Elevation: 1044,
 						Datum:     "NZGD2000",
 					},
-					MarkCode: "MTJO",
+					Mark: "MTJO",
 				},
 			},
 		},
@@ -488,8 +488,8 @@ func TestList(t *testing.T) {
 					Offset: meta.Offset{
 						Vertical: -3.0,
 					},
-					MountCode: "WHWI",
-					Notes:     "Looking at White Island",
+					Mount: "WHWI",
+					Notes: "Looking at White Island",
 				},
 				meta.InstalledCamera{
 					Install: meta.Install{
@@ -516,8 +516,8 @@ func TestList(t *testing.T) {
 					Offset: meta.Offset{
 						Vertical: -10.0,
 					},
-					MountCode: "K",
-					Notes:     "Bearing is magnetic.",
+					Mount: "K",
+					Notes: "Bearing is magnetic.",
 				},
 			},
 		},
@@ -542,7 +542,7 @@ func TestList(t *testing.T) {
 							}(),
 						},
 					},
-					MarkCode: "MQZG",
+					Mark: "MQZG",
 				},
 				meta.InstalledRadome{
 					Install: meta.Install{
@@ -562,7 +562,7 @@ func TestList(t *testing.T) {
 							}(),
 						},
 					},
-					MarkCode: "CNCL",
+					Mark: "CNCL",
 				},
 			},
 		},
@@ -643,8 +643,8 @@ func TestList(t *testing.T) {
 						Factor: 1.0,
 						Bias:   0.0,
 					},
-					StationCode:  "COVZ",
-					LocationCode: "90",
+					Station:  "COVZ",
+					Location: "90",
 				},
 				meta.InstalledSensor{
 					Install: meta.Install{
@@ -675,8 +675,8 @@ func TestList(t *testing.T) {
 						Factor: 1.0,
 						Bias:   0.0,
 					},
-					StationCode:  "INZ",
-					LocationCode: "10",
+					Station:  "INZ",
+					Location: "10",
 				},
 			},
 		},
@@ -709,8 +709,8 @@ func TestList(t *testing.T) {
 						Offset: meta.Offset{
 							Vertical: 0.0,
 						},
-						StationCode:  "AMBC",
-						LocationCode: "20",
+						Station:  "AMBC",
+						Location: "20",
 					},
 					DataloggerModel: "CUSP3A",
 				},
@@ -740,8 +740,8 @@ func TestList(t *testing.T) {
 						Offset: meta.Offset{
 							Vertical: 0.0,
 						},
-						StationCode:  "EKS3",
-						LocationCode: "20",
+						Station:  "EKS3",
+						Location: "20",
 					},
 					DataloggerModel: "BASALT",
 				},
@@ -751,9 +751,9 @@ func TestList(t *testing.T) {
 			"testdata/connections.csv",
 			&meta.ConnectionList{
 				meta.Connection{
-					StationCode:  "APZ",
-					LocationCode: "10",
-					Place:        "The Paps",
+					Station:  "APZ",
+					Location: "10",
+					Place:    "The Paps",
 					//PreAmp:       false,
 					//Gain:         0,
 					Span: meta.Span{
@@ -768,9 +768,9 @@ func TestList(t *testing.T) {
 					},
 				},
 				meta.Connection{
-					StationCode:  "BSWZ",
-					LocationCode: "10",
-					Place:        "Blackbirch Station",
+					Station:  "BSWZ",
+					Location: "10",
+					Place:    "Blackbirch Station",
 					//PreAmp:       true,
 					//Gain:         1,
 					Span: meta.Span{
@@ -790,7 +790,7 @@ func TestList(t *testing.T) {
 			"testdata/sessions.csv",
 			&meta.SessionList{
 				meta.Session{
-					MarkCode:        "TAUP",
+					Mark:            "TAUP",
 					Operator:        "GeoNet",
 					Agency:          "GNS",
 					Model:           "TRIMBLE NETRS",
@@ -815,8 +815,8 @@ func TestList(t *testing.T) {
 			"testdata/streams.csv",
 			&meta.StreamList{
 				meta.Stream{
-					StationCode:  "AKSS",
-					LocationCode: "20",
+					Station:      "AKSS",
+					Location:     "20",
 					SamplingRate: 50.0,
 					Axial:        true,
 					Reversed:     false,
@@ -832,8 +832,8 @@ func TestList(t *testing.T) {
 					},
 				},
 				meta.Stream{
-					StationCode:  "APZ",
-					LocationCode: "20",
+					Station:      "APZ",
+					Location:     "20",
 					SamplingRate: 200.0,
 					Axial:        false,
 					Reversed:     false,

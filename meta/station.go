@@ -9,15 +9,15 @@ import (
 )
 
 const (
-	stationStationCode = iota
-	stationNetworkCode
-	stationStationName
+	stationCode = iota
+	stationNetwork
+	stationName
 	stationLatitude
 	stationLongitude
 	stationHeight
 	stationDatum
-	stationStartTime
-	stationEndTime
+	stationStart
+	stationEnd
 	stationLast
 )
 
@@ -86,18 +86,18 @@ func (s *StationList) decode(data [][]string) error {
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[stationStartTime]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[stationStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[stationEndTime]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[stationEnd]); err != nil {
 				return err
 			}
 
 			stations = append(stations, Station{
 				Reference: Reference{
-					Code:    strings.TrimSpace(d[stationStationCode]),
-					Network: strings.TrimSpace(d[stationNetworkCode]),
-					Name:    strings.TrimSpace(d[stationStationName]),
+					Code:    strings.TrimSpace(d[stationCode]),
+					Network: strings.TrimSpace(d[stationNetwork]),
+					Name:    strings.TrimSpace(d[stationName]),
 				},
 				Span: Span{
 					Start: start,

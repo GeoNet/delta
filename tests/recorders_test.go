@@ -50,7 +50,7 @@ func TestRecorders(t *testing.T) {
 					case v[i].Start.Equal(v[j].End):
 					default:
 						t.Errorf("recorder %s/%s at %-5s has location %-2s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].StationCode, v[i].LocationCode, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+							v[i].Model, v[i].Serial, v[i].Station, v[i].Location, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
 			}
@@ -72,10 +72,10 @@ func TestRecorders(t *testing.T) {
 		}
 
 		for _, s := range recorders {
-			if _, ok := keys[s.StationCode]; ok {
+			if _, ok := keys[s.Station]; ok {
 				continue
 			}
-			t.Errorf("unable to find recorder installed station %-5s", s.StationCode)
+			t.Errorf("unable to find recorder installed station %-5s", s.Station)
 		}
 	}
 

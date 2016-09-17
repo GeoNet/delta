@@ -18,10 +18,10 @@ func TestStreams(t *testing.T) {
 
 	for i := 0; i < len(streams); i++ {
 		for j := i + 1; j < len(streams); j++ {
-			if streams[i].StationCode != streams[j].StationCode {
+			if streams[i].Station != streams[j].Station {
 				continue
 			}
-			if streams[i].LocationCode != streams[j].LocationCode {
+			if streams[i].Location != streams[j].Location {
 				continue
 			}
 			if streams[i].Start.After(streams[j].End) {
@@ -34,8 +34,8 @@ func TestStreams(t *testing.T) {
 				continue
 			}
 			t.Errorf("stream overlap: " + strings.Join([]string{
-				streams[i].StationCode,
-				streams[i].LocationCode,
+				streams[i].Station,
+				streams[i].Location,
 				streams[i].Start.String(),
 				streams[i].End.String(),
 			}, " "))
@@ -62,25 +62,25 @@ func TestStreams(t *testing.T) {
 			t.Fatal(err)
 		}
 		for _, s := range list {
-			if _, ok := sites[s.StationCode]; !ok {
-				sites[s.StationCode] = make(map[string]meta.Site)
+			if _, ok := sites[s.Station]; !ok {
+				sites[s.Station] = make(map[string]meta.Site)
 			}
-			sites[s.StationCode][s.LocationCode] = s
+			sites[s.Station][s.Location] = s
 		}
 	}
 
 	for _, c := range streams {
-		if _, ok := stas[c.StationCode]; !ok {
-			t.Log("unknown stream station: " + c.StationCode)
-		} else if s, ok := sites[c.StationCode]; !ok {
-			t.Log("unknown stream station: " + c.StationCode)
-		} else if _, ok := s[c.LocationCode]; !ok {
-			t.Log("unknown stream station/location: " + c.StationCode + "/" + c.LocationCode)
+		if _, ok := stas[c.Station]; !ok {
+			t.Log("unknown stream station: " + c.Station)
+		} else if s, ok := sites[c.Station]; !ok {
+			t.Log("unknown stream station: " + c.Station)
+		} else if _, ok := s[c.Location]; !ok {
+			t.Log("unknown stream station/location: " + c.Station + "/" + c.Location)
 		}
 		if c.Start.After(c.End) {
 			t.Log("stream span mismatch: " + strings.Join([]string{
-				c.StationCode,
-				c.LocationCode,
+				c.Station,
+				c.Location,
 				c.Start.String(),
 				"after",
 				c.End.String(),

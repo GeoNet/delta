@@ -9,15 +9,15 @@ import (
 )
 
 const (
-	siteStationCode = iota
-	siteLocationCode
+	siteStation = iota
+	siteLocation
 	siteLatitude
 	siteLongitude
 	siteElevation
 	siteDatum
 	siteSurvey
-	siteStartTime
-	siteEndTime
+	siteStart
+	siteEnd
 	siteLast
 )
 
@@ -25,20 +25,20 @@ type Site struct {
 	Point
 	Span
 
-	StationCode  string
-	LocationCode string
-	Survey       string
+	Station  string
+	Location string
+	Survey   string
 }
 
 func (s Site) Less(site Site) bool {
 	switch {
-	case s.StationCode < site.StationCode:
+	case s.Station < site.Station:
 		return true
-	case s.StationCode > site.StationCode:
+	case s.Station > site.Station:
 		return false
-	case s.LocationCode < site.LocationCode:
+	case s.Location < site.Location:
 		return true
-	case s.LocationCode > site.LocationCode:
+	case s.Location > site.Location:
 		return false
 	default:
 		return false
@@ -65,8 +65,8 @@ func (s SiteList) encode() [][]string {
 	}}
 	for _, v := range s {
 		data = append(data, []string{
-			strings.TrimSpace(v.StationCode),
-			strings.TrimSpace(v.LocationCode),
+			strings.TrimSpace(v.Station),
+			strings.TrimSpace(v.Location),
 			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
@@ -100,10 +100,10 @@ func (s *SiteList) decode(data [][]string) error {
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[siteStartTime]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[siteStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[siteEndTime]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[siteEnd]); err != nil {
 				return err
 			}
 
@@ -118,9 +118,9 @@ func (s *SiteList) decode(data [][]string) error {
 					Start: start,
 					End:   end,
 				},
-				StationCode:  strings.TrimSpace(d[siteStationCode]),
-				LocationCode: strings.TrimSpace(d[siteLocationCode]),
-				Survey:       strings.TrimSpace(d[siteSurvey]),
+				Station:  strings.TrimSpace(d[siteStation]),
+				Location: strings.TrimSpace(d[siteLocation]),
+				Survey:   strings.TrimSpace(d[siteSurvey]),
 			})
 		}
 

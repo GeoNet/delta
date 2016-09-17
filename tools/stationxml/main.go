@@ -149,7 +149,7 @@ func main() {
 			continue
 		}
 
-		if !networkMatch.MatchString(net.ExternalCode) {
+		if !networkMatch.MatchString(net.External) {
 			continue
 		}
 
@@ -157,10 +157,10 @@ func main() {
 
 		for _, conn := range metaData.GetConnections(sta) {
 			if verbose {
-				log.Printf("checking station channel: %s %s", sta, conn.LocationCode)
+				log.Printf("checking station channel: %s %s", sta, conn.Location)
 			}
 
-			if metaData.GetStreams(sta, conn.LocationCode) == nil {
+			if metaData.GetStreams(sta, conn.Location) == nil {
 				continue
 			}
 
@@ -170,18 +170,18 @@ func main() {
 				continue
 			}
 
-			l := metaData.GetSite(sta, conn.LocationCode)
+			l := metaData.GetSite(sta, conn.Location)
 			if l == nil {
-				log.Printf("skipping station channel: %s %s [no site map]", sta, conn.LocationCode)
+				log.Printf("skipping station channel: %s %s [no site map]", sta, conn.Location)
 				continue
 			}
 
 			for _, sensorInstall := range metaData.GetInstalls(sta) {
 				if verbose {
-					log.Printf("checking station sensor install: %s %s", sta, sensorInstall.LocationCode)
+					log.Printf("checking station sensor install: %s %s", sta, sensorInstall.Location)
 				}
 				switch {
-				case sensorInstall.LocationCode != conn.LocationCode:
+				case sensorInstall.Location != conn.Location:
 					continue
 				case sensorInstall.Start.After(conn.End):
 					continue
@@ -232,7 +232,7 @@ func main() {
 						log.Printf("checking station response: %s %s %s", sta, dataloggerDeploy.Model, sensorInstall.Model)
 					}
 					for _, r := range GetResponseStreams(dataloggerDeploy.Model, sensorInstall.Model) {
-						stream := metaData.GetStream(sta, conn.LocationCode, r.Datalogger.SampleRate, on)
+						stream := metaData.GetStream(sta, conn.Location, r.Datalogger.SampleRate, on)
 						if stream == nil {
 							continue
 						}
@@ -309,7 +309,7 @@ func main() {
 								azimuth -= 360.0
 							}
 
-							tag := fmt.Sprintf("%s.%s.%s%c", sta, l.LocationCode, r.Label, cha)
+							tag := fmt.Sprintf("%s.%s.%s%c", sta, l.Location, r.Label, cha)
 
 							var stages []stationxml.ResponseStage
 							for _, s := range append(r.Sensor.Stages, r.Datalogger.Stages...) {
@@ -368,7 +368,7 @@ func main() {
 										},
 									},
 								},
-								LocationCode: l.LocationCode,
+								LocationCode: l.Location,
 								Latitude: stationxml.Latitude{
 									LatitudeBase: stationxml.LatitudeBase{
 										Float: stationxml.Float{
@@ -549,7 +549,7 @@ func main() {
 
 		sort.Sort(Channels(channels))
 
-		stas[net.ExternalCode] = append(stas[net.ExternalCode], stationxml.Station{
+		stas[net.External] = append(stas[net.External], stationxml.Station{
 			BaseNode: stationxml.BaseNode{
 				Code:        station.Code,
 				Description: net.Description,
@@ -636,7 +636,7 @@ func main() {
 		}
 		networks = append(networks, stationxml.Network{
 			BaseNode: stationxml.BaseNode{
-				Code:        net.ExternalCode,
+				Code:        net.External,
 				Description: net.Description,
 				RestrictedStatus: func() stationxml.RestrictedStatus {
 					switch net.Restricted {
