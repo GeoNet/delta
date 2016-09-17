@@ -7,6 +7,16 @@ import (
 	"time"
 )
 
+const (
+	deployedReceiverMake int = iota
+	deployedReceiverModel
+	deployedReceiverSerial
+	deployedReceiverMark
+	deployedReceiverStart
+	deployedReceiverEnd
+	deployedReceiverLast
+)
+
 type DeployedReceiver struct {
 	Install
 
@@ -45,32 +55,32 @@ func (r *DeployedReceiverList) decode(data [][]string) error {
 	var receivers []DeployedReceiver
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 6 {
+			if len(d) != deployedReceiverLast {
 				return fmt.Errorf("incorrect number of installed receiver fields")
 			}
 			var err error
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[4]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[deployedReceiverStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[5]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[deployedReceiverEnd]); err != nil {
 				return err
 			}
 
 			receivers = append(receivers, DeployedReceiver{
 				Install: Install{
 					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[0]),
-						Model:  strings.TrimSpace(d[1]),
-						Serial: strings.TrimSpace(d[2]),
+						Make:   strings.TrimSpace(d[deployedReceiverMake]),
+						Model:  strings.TrimSpace(d[deployedReceiverModel]),
+						Serial: strings.TrimSpace(d[deployedReceiverSerial]),
 					},
 					Span: Span{
 						Start: start,
 						End:   end,
 					},
 				},
-				Mark: strings.TrimSpace(d[3]),
+				Mark: strings.TrimSpace(d[deployedReceiverMark]),
 			})
 		}
 

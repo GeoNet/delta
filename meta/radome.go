@@ -7,6 +7,16 @@ import (
 	"time"
 )
 
+const (
+	installedRadomeMake int = iota
+	installedRadomeModel
+	installedRadomeSerial
+	installedRadomeMark
+	installedRadomeStart
+	installedRadomeEnd
+	installedRadomeLast
+)
+
 type InstalledRadome struct {
 	Install
 
@@ -45,32 +55,32 @@ func (r *InstalledRadomeList) decode(data [][]string) error {
 	var radomes []InstalledRadome
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 6 {
+			if len(d) != installedRadomeLast {
 				return fmt.Errorf("incorrect number of installed radome fields")
 			}
 			var err error
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[4]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[installedRadomeStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[5]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[installedRadomeEnd]); err != nil {
 				return err
 			}
 
 			radomes = append(radomes, InstalledRadome{
 				Install: Install{
 					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[0]),
-						Model:  strings.TrimSpace(d[1]),
-						Serial: strings.TrimSpace(d[2]),
+						Make:   strings.TrimSpace(d[installedRadomeMake]),
+						Model:  strings.TrimSpace(d[installedRadomeModel]),
+						Serial: strings.TrimSpace(d[installedRadomeSerial]),
 					},
 					Span: Span{
 						Start: start,
 						End:   end,
 					},
 				},
-				MarkCode: strings.TrimSpace(d[3]),
+				MarkCode: strings.TrimSpace(d[installedRadomeMark]),
 			})
 		}
 

@@ -8,6 +8,22 @@ import (
 	"time"
 )
 
+const (
+	installedCameraMake int = iota
+	installedCameraModel
+	installedCameraSerial
+	installedCameraMountCode
+	installedCameraDip
+	installedCameraAzimuth
+	installedCameraHeight
+	installedCameraOffsetNorth
+	installedCameraOffsetEast
+	installedCameraStart
+	installedCameraEnd
+	installedCameraNotes
+	installedCameraLast
+)
+
 type InstalledCamera struct {
 	Install
 	Orientation
@@ -61,44 +77,44 @@ func (a *InstalledCameraList) decode(data [][]string) error {
 	var cameras []InstalledCamera
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 12 {
+			if len(d) != installedCameraLast {
 				return fmt.Errorf("incorrect number of installed camera fields")
 			}
 			var err error
 
 			var dip, azimuth float64
-			if dip, err = strconv.ParseFloat(d[4], 64); err != nil {
+			if dip, err = strconv.ParseFloat(d[installedCameraDip], 64); err != nil {
 				return err
 			}
-			if azimuth, err = strconv.ParseFloat(d[5], 64); err != nil {
+			if azimuth, err = strconv.ParseFloat(d[installedCameraAzimuth], 64); err != nil {
 				return err
 			}
 
 			var height, north, east float64
-			if height, err = strconv.ParseFloat(d[6], 64); err != nil {
+			if height, err = strconv.ParseFloat(d[installedCameraHeight], 64); err != nil {
 				return err
 			}
-			if north, err = strconv.ParseFloat(d[7], 64); err != nil {
+			if north, err = strconv.ParseFloat(d[installedCameraOffsetNorth], 64); err != nil {
 				return err
 			}
-			if east, err = strconv.ParseFloat(d[8], 64); err != nil {
+			if east, err = strconv.ParseFloat(d[installedCameraOffsetEast], 64); err != nil {
 				return err
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[9]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[installedCameraStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[10]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[installedCameraEnd]); err != nil {
 				return err
 			}
 
 			cameras = append(cameras, InstalledCamera{
 				Install: Install{
 					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[0]),
-						Model:  strings.TrimSpace(d[1]),
-						Serial: strings.TrimSpace(d[2]),
+						Make:   strings.TrimSpace(d[installedCameraMake]),
+						Model:  strings.TrimSpace(d[installedCameraModel]),
+						Serial: strings.TrimSpace(d[installedCameraSerial]),
 					},
 					Span: Span{
 						Start: start,
@@ -114,8 +130,8 @@ func (a *InstalledCameraList) decode(data [][]string) error {
 					North:    north,
 					East:     east,
 				},
-				MountCode: strings.TrimSpace(d[3]),
-				Notes:     strings.TrimSpace(d[11]),
+				MountCode: strings.TrimSpace(d[installedCameraMountCode]),
+				Notes:     strings.TrimSpace(d[installedCameraNotes]),
 			})
 		}
 

@@ -7,6 +7,14 @@ import (
 	"strings"
 )
 
+const (
+	networkCode int = iota
+	networkExternal
+	networkDescription
+	networkRestricted
+	networkLast
+)
+
 type Network struct {
 	NetworkCode  string
 	ExternalCode string
@@ -42,20 +50,20 @@ func (n *NetworkList) decode(data [][]string) error {
 	var networks []Network
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 4 {
+			if len(d) != networkLast {
 				return fmt.Errorf("incorrect number of installed network fields")
 			}
 			var err error
 
 			var restricted bool
-			if restricted, err = strconv.ParseBool(d[3]); err != nil {
+			if restricted, err = strconv.ParseBool(d[networkRestricted]); err != nil {
 				return err
 			}
 
 			networks = append(networks, Network{
-				NetworkCode:  strings.TrimSpace(d[0]),
-				ExternalCode: strings.TrimSpace(d[1]),
-				Description:  strings.TrimSpace(d[2]),
+				NetworkCode:  strings.TrimSpace(d[networkCode]),
+				ExternalCode: strings.TrimSpace(d[networkExternal]),
+				Description:  strings.TrimSpace(d[networkDescription]),
 				Restricted:   restricted,
 			})
 		}

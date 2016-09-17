@@ -7,6 +7,17 @@ import (
 	"time"
 )
 
+const (
+	dataloggerMake int = iota
+	dataloggerModel
+	dataloggerSerial
+	dataloggerPlace
+	dataloggerRole
+	dataloggerStart
+	dataloggerEnd
+	dataloggerLast
+)
+
 type DeployedDatalogger struct {
 	Install
 
@@ -48,33 +59,33 @@ func (d *DeployedDataloggerList) decode(data [][]string) error {
 	var dataloggers []DeployedDatalogger
 	if len(data) > 1 {
 		for _, v := range data[1:] {
-			if len(v) != 7 {
+			if len(v) != dataloggerLast {
 				return fmt.Errorf("incorrect number of installed datalogger fields")
 			}
 			var err error
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[5]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, v[dataloggerStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, v[6]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, v[dataloggerEnd]); err != nil {
 				return err
 			}
 
 			dataloggers = append(dataloggers, DeployedDatalogger{
 				Install: Install{
 					Equipment: Equipment{
-						Make:   strings.TrimSpace(v[0]),
-						Model:  strings.TrimSpace(v[1]),
-						Serial: strings.TrimSpace(v[2]),
+						Make:   strings.TrimSpace(v[dataloggerMake]),
+						Model:  strings.TrimSpace(v[dataloggerModel]),
+						Serial: strings.TrimSpace(v[dataloggerSerial]),
 					},
 					Span: Span{
 						Start: start,
 						End:   end,
 					},
 				},
-				Place: strings.TrimSpace(v[3]),
-				Role:  strings.TrimSpace(v[4]),
+				Place: strings.TrimSpace(v[dataloggerPlace]),
+				Role:  strings.TrimSpace(v[dataloggerRole]),
 			})
 		}
 

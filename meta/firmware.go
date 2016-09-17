@@ -7,6 +7,17 @@ import (
 	"time"
 )
 
+const (
+	firmwareMake int = iota
+	firmwareModel
+	firmwareSerial
+	firmwareVersion
+	firmwareStart
+	firmwareEnd
+	firmwareNotes
+	firmwareLast
+)
+
 type FirmwareHistory struct {
 	Install
 
@@ -48,33 +59,33 @@ func (f *FirmwareHistoryList) decode(data [][]string) error {
 	var histories []FirmwareHistory
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 7 {
+			if len(d) != firmwareLast {
 				return fmt.Errorf("incorrect number of firmware history fields")
 			}
 			var err error
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[4]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[firmwareStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[5]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[firmwareEnd]); err != nil {
 				return err
 			}
 
 			histories = append(histories, FirmwareHistory{
 				Install: Install{
 					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[0]),
-						Model:  strings.TrimSpace(d[1]),
-						Serial: strings.TrimSpace(d[2]),
+						Make:   strings.TrimSpace(d[firmwareMake]),
+						Model:  strings.TrimSpace(d[firmwareModel]),
+						Serial: strings.TrimSpace(d[firmwareSerial]),
 					},
 					Span: Span{
 						Start: start,
 						End:   end,
 					},
 				},
-				Version: strings.TrimSpace(d[3]),
-				Notes:   strings.TrimSpace(d[6]),
+				Version: strings.TrimSpace(d[firmwareVersion]),
+				Notes:   strings.TrimSpace(d[firmwareNotes]),
 			})
 		}
 
