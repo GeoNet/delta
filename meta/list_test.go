@@ -288,7 +288,7 @@ func TestList(t *testing.T) {
 						Model:  "Chokering Model 29659.00",
 						Serial: "0220063995",
 					},
-					AssetNumber: "100",
+					Number: "100",
 				},
 				{
 					Equipment: meta.Equipment{
@@ -296,7 +296,7 @@ func TestList(t *testing.T) {
 						Model:  "Chokering Model 29659.00",
 						Serial: "0220066912",
 					},
-					AssetNumber: "101",
+					Number: "101",
 				},
 			},
 		},
