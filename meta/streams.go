@@ -60,8 +60,8 @@ func (s StreamList) Less(i, j int) bool { return s[i].Less(s[j]) }
 
 func (s StreamList) encode() [][]string {
 	data := [][]string{{
-		"Station Code",
-		"Location Code",
+		"Station",
+		"Location",
 		"Sampling Rate",
 		"Axial",
 		"Reversed",

@@ -1,4 +1,4 @@
-Mark Code,Operator,Agency,Model,Satellite System,Interval,Elevation Mask,Header Comment,Start Date,End Date
+Mark,Operator,Agency,Model,Satellite System,Interval,Elevation Mask,Header Comment,Start Date,End Date
 2406,GeoNet,GNS,TRIMBLE NETR9,GPS+GLO,30s,4,,2012-02-13T00:51:00Z,2015-03-09T00:50:00Z
 2406,GeoNet,GNS,TRIMBLE NETR9,GPS+GLO,30s,0,,2015-03-09T00:50:01Z,9999-01-01T00:00:00Z
 AHTI,GeoNet,GNS,TRIMBLE NETR9,GPS+GLO,30s,0,,2015-12-07T02:04:38Z,9999-01-01T00:00:00Z

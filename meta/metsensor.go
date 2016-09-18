@@ -39,17 +39,17 @@ func (m InstalledMetSensorList) Less(i, j int) bool { return m[i].Install.less(m
 
 func (m InstalledMetSensorList) encode() [][]string {
 	data := [][]string{{
-		"Met Sensor Make",
-		"Met Sensor Model",
-		"Serial Number",
+		"Make",
+		"Model",
+		"Serial",
 		"Mark",
 		"IMS Comment",
 		"Latitude",
 		"Longitude",
 		"Elevation",
 		"Datum",
-		"Installation Date",
-		"Removal Date",
+		"Start Date",
+		"End Date",
 	}}
 	for _, v := range m {
 		data = append(data, []string{

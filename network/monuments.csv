@@ -1,4 +1,4 @@
-Mark Code,Domes Number,Mark Type,Monument Type,Ground Relationship,Foundation Type,Foundation Depth,Start Time,End Time,Bedrock,Geology
+Mark,Domes Number,Mark Type,Type,Ground Relationship,Foundation Type,Foundation Depth,Start Date,End Date,Bedrock,Geology
 2406,,Forced Centering,Pillar,-1.66,Reinforced Concrete,2,2012-02-13T00:00:00Z,9999-01-01T00:00:00Z,,
 AHTI,,Forced Centering,Wyatt/Agnew Drilled-Braced,0,Stainless Steel Rods,10,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,Site On Flat Linear Ridge Line With Steepening Slopes To The North And South.
 AKTO,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2006-04-27T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,

@@ -38,16 +38,16 @@ func (a InstalledAntennaList) Less(i, j int) bool { return a[i].Install.less(a[j
 
 func (a InstalledAntennaList) encode() [][]string {
 	data := [][]string{{
-		"Antenna Make",
-		"Antenna Model",
-		"Serial Number",
-		"Mark Code",
-		"Antenna Height",
-		"Offset North",
-		"Offset East",
+		"Make",
+		"Model",
+		"Serial",
+		"Mark",
+		"Height",
+		"North",
+		"East",
 		"Azimuth",
-		"Installation Date",
-		"Removal Date",
+		"Start Date",
+		"End Date",
 	}}
 	for _, v := range a {
 		data = append(data, []string{

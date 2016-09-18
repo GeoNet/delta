@@ -37,15 +37,15 @@ func (s StationList) Less(i, j int) bool { return s[i].Code < s[j].Code }
 
 func (s StationList) encode() [][]string {
 	data := [][]string{{
-		"Station Code",
-		"Network Code",
-		"Station Name",
+		"Station",
+		"Network",
+		"Name",
 		"Latitude",
 		"Longitude",
 		"Elevation",
 		"Datum",
-		"Start Time",
-		"End Time",
+		"Start Date",
+		"End Date",
 		//"Notes",
 	}}
 	for _, v := range s {

@@ -30,8 +30,8 @@ func (n NetworkList) Less(i, j int) bool { return n[i].Code < n[j].Code }
 
 func (n NetworkList) encode() [][]string {
 	data := [][]string{{
-		"Network Code",
-		"External Code",
+		"Network",
+		"External",
 		"Description",
 		"Restricted",
 	}}

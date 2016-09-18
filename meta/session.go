@@ -66,7 +66,7 @@ func (s SessionList) Less(i, j int) bool { return s[i].Less(s[j]) }
 
 func (s SessionList) encode() [][]string {
 	data := [][]string{{
-		"Mark Code",
+		"Mark",
 		"Operator",
 		"Agency",
 		"Model",

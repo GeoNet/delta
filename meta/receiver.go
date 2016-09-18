@@ -31,12 +31,12 @@ func (r DeployedReceiverList) Less(i, j int) bool { return r[i].Install.less(r[j
 
 func (r DeployedReceiverList) encode() [][]string {
 	data := [][]string{{
-		"Receiver Make",
-		"Receiver Model",
-		"Serial Number",
+		"Make",
+		"Model",
+		"Serial",
 		"Mark",
-		"Installation Date",
-		"Removal Date",
+		"Start Date",
+		"End Date",
 	}}
 	for _, v := range r {
 		data = append(data, []string{

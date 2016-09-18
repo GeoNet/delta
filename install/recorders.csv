@@ -1,4 +1,4 @@
-Recorder Make,Sensor Model,Datalogger Model,Serial Number,Station Code,Location Code,Installation Azimuth,Installation Dip,Installation Depth,Installation Date,Removal Date
+Make,Sensor,Datalogger,Serial,Station,Location,Azimuth,Dip,Depth,Start Date,End Date
 CSI,CUSP-Me,CUSP-Me,3DE-20733,TRAB,21,8,0,-1.2,2013-08-02T00:00:00Z,9999-01-01T00:00:00Z
 CSI,CUSP-Me,CUSP-Me,3DE-20734,TRAB,22,188,0,-1.25,2013-08-02T00:00:00Z,9999-01-01T00:00:00Z
 CSI,CUSP-Me,CUSP-Me,3DE-20735,TRAB,23,188,0,-5.9,2013-08-02T00:00:00Z,9999-01-01T00:00:00Z

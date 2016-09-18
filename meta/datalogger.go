@@ -33,13 +33,13 @@ func (d DeployedDataloggerList) Less(i, j int) bool { return d[i].Install.less(d
 
 func (d DeployedDataloggerList) encode() [][]string {
 	data := [][]string{{
-		"Datalogger Make",
-		"Datalogger Model",
-		"Serial Number",
-		"Deployment Place",
-		"Deployment Role",
-		"Installation Date",
-		"Removal Date",
+		"Make",
+		"Model",
+		"Serial",
+		"Place",
+		"Role",
+		"Start Date",
+		"End Date",
 	}}
 	for _, v := range d {
 		data = append(data, []string{

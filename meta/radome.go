@@ -31,12 +31,12 @@ func (r InstalledRadomeList) Less(i, j int) bool { return r[i].Install.less(r[j]
 
 func (r InstalledRadomeList) encode() [][]string {
 	data := [][]string{{
-		"Radome Make",
-		"Radome Model",
-		"Serial Number",
-		"Mark Code",
-		"Installation Date",
-		"Removal Date",
+		"Make",
+		"Model",
+		"Serial",
+		"Mark",
+		"Start Date",
+		"End Date",
 	}}
 	for _, v := range r {
 		data = append(data, []string{

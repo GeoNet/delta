@@ -37,17 +37,17 @@ func (r InstalledRecorderList) Less(i, j int) bool { return r[i].Install.less(r[
 
 func (r InstalledRecorderList) encode() [][]string {
 	data := [][]string{{
-		"Recorder Make",
-		"Sensor Model",
-		"Datalogger Model",
-		"Serial Number",
-		"Station Code",
-		"Location Code",
-		"Installation Azimuth",
-		"Installation Dip",
-		"Installation Depth",
-		"Installation Date",
-		"Removal Date",
+		"Make",
+		"Sensor",
+		"Datalogger",
+		"Serial",
+		"Station",
+		"Location",
+		"Azimuth",
+		"Dip",
+		"Depth",
+		"Start Date",
+		"End Date",
 	}}
 
 	for _, v := range r {

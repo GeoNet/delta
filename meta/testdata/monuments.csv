@@ -1,3 +1,3 @@
-Mark Code,Domes Number,Mark Type,Monument Type,Ground Relationship,Foundation Type,Foundation Depth,Start Time,End Time,Bedrock,Geology
+Mark,Domes Number,Mark Type,Type,Ground Relationship,Foundation Type,Foundation Depth,Start Date,End Date,Bedrock,Geology
 CLIM,,Forced Centering,Deep Braced,-1,Steel Rods,10,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 TAUP,50217M001,Forced Centering,Pillar,-1.25,Concrete,2,2005-08-10T00:00:00Z,9999-01-01T00:00:00Z,Rhyolite,

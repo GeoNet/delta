@@ -38,16 +38,16 @@ func (m MountList) Less(i, j int) bool { return m[i].Code < m[j].Code }
 
 func (m MountList) encode() [][]string {
 	data := [][]string{{
-		"Mount Code",
-		"Mount Network",
-		"Mount Name",
+		"Mount",
+		"Network",
+		"Name",
 		"Latitude",
 		"Longitude",
 		"Elevation",
 		"Datum",
 		"Description",
-		"Start Time",
-		"End Time",
+		"Start Date",
+		"End Date",
 	}}
 	for _, v := range m {
 		data = append(data, []string{
