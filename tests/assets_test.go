@@ -39,11 +39,11 @@ func TestAssets(t *testing.T) {
 		sort.Sort(assets)
 
 		for _, a := range assets {
-			if a.AssetNumber != "" {
-				if x, ok := reference[a.AssetNumber]; ok {
-					t.Error(k + ": Duplicate asset number: " + a.String() + " " + a.AssetNumber + " [" + x + "]")
+			if a.Number != "" {
+				if x, ok := reference[a.Number]; ok {
+					t.Error(k + ": Duplicate asset number: " + a.String() + " " + a.Number + " [" + x + "]")
 				}
-				reference[a.AssetNumber] = a.String()
+				reference[a.Number] = a.String()
 			}
 		}
 

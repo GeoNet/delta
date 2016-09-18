@@ -49,7 +49,7 @@ func TestMetSensors(t *testing.T) {
 					case v[i].Start.Equal(v[j].End):
 					default:
 						t.Errorf("metsensors %s at %-5s has mark %s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].MarkCode, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+							v[i].Model, v[i].Serial, v[i].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
 			}
@@ -71,10 +71,10 @@ func TestMetSensors(t *testing.T) {
 		}
 
 		for _, c := range metsensors {
-			if _, ok := keys[c.MarkCode]; ok {
+			if _, ok := keys[c.Mark]; ok {
 				continue
 			}
-			t.Errorf("unable to find metsensor mark %-5s", c.MarkCode)
+			t.Errorf("unable to find metsensor mark %-5s", c.Mark)
 		}
 	}
 

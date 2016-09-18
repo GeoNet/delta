@@ -9,9 +9,9 @@ import (
 )
 
 const (
-	markMarkCode = iota
-	markNetworkCode
-	markMarkName
+	markCode = iota
+	markNetwork
+	markName
 	markLatitude
 	markLongitude
 	markElevation
@@ -90,9 +90,9 @@ func (m *MarkList) decode(data [][]string) error {
 			}
 			marks = append(marks, Mark{
 				Reference: Reference{
-					Code:    strings.TrimSpace(d[markMarkCode]),
-					Network: strings.TrimSpace(d[markNetworkCode]),
-					Name:    strings.TrimSpace(d[markMarkName]),
+					Code:    strings.TrimSpace(d[markCode]),
+					Network: strings.TrimSpace(d[markNetwork]),
+					Name:    strings.TrimSpace(d[markName]),
 				},
 				Span: Span{
 					Start: start,

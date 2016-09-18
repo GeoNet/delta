@@ -46,7 +46,7 @@ func TestAntennas(t *testing.T) {
 					case v[i].Start.Equal(v[j].End):
 					default:
 						t.Errorf("antennas %s [%s] at %s has overlap at %s between %s and %s",
-							v[i].Model, v[i].Serial, v[i].MarkCode, v[j].MarkCode, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+							v[i].Model, v[i].Serial, v[i].Mark, v[j].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
 			}
@@ -57,10 +57,10 @@ func TestAntennas(t *testing.T) {
 	{
 		installs := make(map[string]meta.InstalledAntennaList)
 		for _, s := range antennas {
-			if _, ok := installs[s.MarkCode]; !ok {
-				installs[s.MarkCode] = meta.InstalledAntennaList{}
+			if _, ok := installs[s.Mark]; !ok {
+				installs[s.Mark] = meta.InstalledAntennaList{}
 			}
-			installs[s.MarkCode] = append(installs[s.MarkCode], s)
+			installs[s.Mark] = append(installs[s.Mark], s)
 		}
 
 		var keys []string
@@ -81,7 +81,7 @@ func TestAntennas(t *testing.T) {
 					case v[i].Start.Equal(v[j].End):
 					default:
 						t.Errorf("antennas %s [%s] and %s [%s] at %s has overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[j].Model, v[j].Serial, v[i].MarkCode,
+							v[i].Model, v[i].Serial, v[j].Model, v[j].Serial, v[i].Mark,
 							v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
@@ -104,10 +104,10 @@ func TestAntennas(t *testing.T) {
 		}
 
 		for _, c := range antennas {
-			if _, ok := keys[c.MarkCode]; ok {
+			if _, ok := keys[c.Mark]; ok {
 				continue
 			}
-			t.Errorf("unable to find antenna mark %-5s", c.MarkCode)
+			t.Errorf("unable to find antenna mark %-5s", c.Mark)
 		}
 	}
 

@@ -12,12 +12,12 @@ const (
 	installedCameraMake int = iota
 	installedCameraModel
 	installedCameraSerial
-	installedCameraMountCode
+	installedCameraMount
 	installedCameraDip
 	installedCameraAzimuth
 	installedCameraHeight
-	installedCameraOffsetNorth
-	installedCameraOffsetEast
+	installedCameraNorth
+	installedCameraEast
 	installedCameraStart
 	installedCameraEnd
 	installedCameraNotes
@@ -29,8 +29,8 @@ type InstalledCamera struct {
 	Orientation
 	Offset
 
-	MountCode string
-	Notes     string
+	Mount string
+	Notes string
 }
 
 type InstalledCameraList []InstalledCamera
@@ -59,7 +59,7 @@ func (a InstalledCameraList) encode() [][]string {
 			strings.TrimSpace(v.Make),
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.MountCode),
+			strings.TrimSpace(v.Mount),
 			strconv.FormatFloat(v.Dip, 'g', -1, 64),
 			strconv.FormatFloat(v.Azimuth, 'g', -1, 64),
 			strconv.FormatFloat(v.Vertical, 'g', -1, 64),
@@ -94,10 +94,10 @@ func (a *InstalledCameraList) decode(data [][]string) error {
 			if height, err = strconv.ParseFloat(d[installedCameraHeight], 64); err != nil {
 				return err
 			}
-			if north, err = strconv.ParseFloat(d[installedCameraOffsetNorth], 64); err != nil {
+			if north, err = strconv.ParseFloat(d[installedCameraNorth], 64); err != nil {
 				return err
 			}
-			if east, err = strconv.ParseFloat(d[installedCameraOffsetEast], 64); err != nil {
+			if east, err = strconv.ParseFloat(d[installedCameraEast], 64); err != nil {
 				return err
 			}
 
@@ -130,8 +130,8 @@ func (a *InstalledCameraList) decode(data [][]string) error {
 					North:    north,
 					East:     east,
 				},
-				MountCode: strings.TrimSpace(d[installedCameraMountCode]),
-				Notes:     strings.TrimSpace(d[installedCameraNotes]),
+				Mount: strings.TrimSpace(d[installedCameraMount]),
+				Notes: strings.TrimSpace(d[installedCameraNotes]),
 			})
 		}
 

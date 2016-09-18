@@ -27,7 +27,7 @@ func NewMeta(network, install string) (*Meta, error) {
 	}
 
 	for _, v := range n {
-		networkMap[v.NetworkCode] = v
+		networkMap[v.Code] = v
 	}
 
 	stationMap := make(map[string]meta.Station)
@@ -49,10 +49,10 @@ func NewMeta(network, install string) (*Meta, error) {
 	}
 
 	for _, c := range connections {
-		if _, ok := connectionMap[c.StationCode]; ok {
-			connectionMap[c.StationCode] = append(connectionMap[c.StationCode], c)
+		if _, ok := connectionMap[c.Station]; ok {
+			connectionMap[c.Station] = append(connectionMap[c.Station], c)
 		} else {
-			connectionMap[c.StationCode] = meta.ConnectionList{c}
+			connectionMap[c.Station] = meta.ConnectionList{c}
 		}
 	}
 
@@ -62,19 +62,19 @@ func NewMeta(network, install string) (*Meta, error) {
 	}
 	for _, r := range recorders {
 		c := meta.Connection{
-			StationCode:  r.StationCode,
-			LocationCode: r.LocationCode,
+			Station:  r.Station,
+			Location: r.Location,
 			Span: meta.Span{
 				Start: r.Start,
 				End:   r.End,
 			},
-			Place: r.StationCode,
-			Role:  r.LocationCode,
+			Place: r.Station,
+			Role:  r.Location,
 		}
-		if _, ok := connectionMap[c.StationCode]; ok {
-			connectionMap[c.StationCode] = append(connectionMap[c.StationCode], c)
+		if _, ok := connectionMap[c.Station]; ok {
+			connectionMap[c.Station] = append(connectionMap[c.Station], c)
 		} else {
-			connectionMap[c.StationCode] = meta.ConnectionList{c}
+			connectionMap[c.Station] = meta.ConnectionList{c}
 		}
 	}
 
@@ -86,10 +86,10 @@ func NewMeta(network, install string) (*Meta, error) {
 	}
 
 	for _, l := range locations {
-		if _, ok := siteMap[l.StationCode]; !ok {
-			siteMap[l.StationCode] = make(map[string]meta.Site)
+		if _, ok := siteMap[l.Station]; !ok {
+			siteMap[l.Station] = make(map[string]meta.Site)
 		}
-		siteMap[l.StationCode][l.LocationCode] = l
+		siteMap[l.Station][l.Location] = l
 	}
 
 	streamMap := make(map[string]map[string]meta.StreamList)
@@ -100,14 +100,14 @@ func NewMeta(network, install string) (*Meta, error) {
 	}
 
 	for _, s := range streams {
-		if _, ok := streamMap[s.StationCode]; !ok {
-			streamMap[s.StationCode] = make(map[string]meta.StreamList)
+		if _, ok := streamMap[s.Station]; !ok {
+			streamMap[s.Station] = make(map[string]meta.StreamList)
 		}
 
-		if _, ok := streamMap[s.StationCode][s.LocationCode]; ok {
-			streamMap[s.StationCode][s.LocationCode] = append(streamMap[s.StationCode][s.LocationCode], s)
+		if _, ok := streamMap[s.Station][s.Location]; ok {
+			streamMap[s.Station][s.Location] = append(streamMap[s.Station][s.Location], s)
 		} else {
-			streamMap[s.StationCode][s.LocationCode] = meta.StreamList{s}
+			streamMap[s.Station][s.Location] = meta.StreamList{s}
 		}
 	}
 
@@ -119,18 +119,18 @@ func NewMeta(network, install string) (*Meta, error) {
 		return nil, err
 	}
 	for _, s := range sensors {
-		if _, ok := sensorInstalls[s.StationCode]; ok {
-			sensorInstalls[s.StationCode] = append(sensorInstalls[s.StationCode], s)
+		if _, ok := sensorInstalls[s.Station]; ok {
+			sensorInstalls[s.Station] = append(sensorInstalls[s.Station], s)
 		} else {
-			sensorInstalls[s.StationCode] = meta.InstalledSensorList{s}
+			sensorInstalls[s.Station] = meta.InstalledSensorList{s}
 		}
 	}
 
 	for _, r := range recorders {
-		if _, ok := sensorInstalls[r.StationCode]; ok {
-			sensorInstalls[r.StationCode] = append(sensorInstalls[r.StationCode], r.InstalledSensor)
+		if _, ok := sensorInstalls[r.Station]; ok {
+			sensorInstalls[r.Station] = append(sensorInstalls[r.Station], r.InstalledSensor)
 		} else {
-			sensorInstalls[r.StationCode] = meta.InstalledSensorList{r.InstalledSensor}
+			sensorInstalls[r.Station] = meta.InstalledSensorList{r.InstalledSensor}
 		}
 	}
 
@@ -166,8 +166,8 @@ func NewMeta(network, install string) (*Meta, error) {
 					End:   r.End,
 				},
 			},
-			Place: r.StationCode,
-			Role:  r.LocationCode,
+			Place: r.Station,
+			Role:  r.Location,
 		}
 		if _, ok := dataloggerDeploys[d.Place]; ok {
 			dataloggerDeploys[d.Place] = append(dataloggerDeploys[d.Place], d)

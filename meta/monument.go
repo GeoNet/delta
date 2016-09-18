@@ -9,15 +9,15 @@ import (
 )
 
 const (
-	monumentMarkCode int = iota
+	monumentMark int = iota
 	monumentDomesNumber
 	monumentMarkType
-	monumentMonumentType
+	monumentType
 	monumentGroundRelationship
 	monumentFoundationType
 	monumentFoundationDepth
-	monumentStartTime
-	monumentEndTime
+	monumentStart
+	monumentEnd
 	monumentBedrock
 	monumentGeology
 )
@@ -25,10 +25,10 @@ const (
 type Monument struct {
 	Span
 
-	MarkCode           string
+	Mark               string
 	DomesNumber        string
 	MarkType           string
-	MonumentType       string
+	Type               string
 	GroundRelationship float64
 	FoundationType     string
 	FoundationDepth    float64
@@ -40,7 +40,7 @@ type MonumentList []Monument
 
 func (m MonumentList) Len() int           { return len(m) }
 func (m MonumentList) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
-func (m MonumentList) Less(i, j int) bool { return m[i].MarkCode < m[j].MarkCode }
+func (m MonumentList) Less(i, j int) bool { return m[i].Mark < m[j].Mark }
 
 func (m MonumentList) encode() [][]string {
 	data := [][]string{{
@@ -58,10 +58,10 @@ func (m MonumentList) encode() [][]string {
 	}}
 	for _, v := range m {
 		data = append(data, []string{
-			strings.TrimSpace(v.MarkCode),
+			strings.TrimSpace(v.Mark),
 			strings.TrimSpace(v.DomesNumber),
 			strings.TrimSpace(v.MarkType),
-			strings.TrimSpace(v.MonumentType),
+			strings.TrimSpace(v.Type),
 			strconv.FormatFloat(v.GroundRelationship, 'g', -1, 64),
 			strings.TrimSpace(v.FoundationType),
 			strconv.FormatFloat(v.FoundationDepth, 'g', -1, 64),
@@ -92,10 +92,10 @@ func (m *MonumentList) decode(data [][]string) error {
 				return err
 			}
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[monumentStartTime]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[monumentStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[monumentEndTime]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[monumentEnd]); err != nil {
 				return err
 			}
 
@@ -105,10 +105,10 @@ func (m *MonumentList) decode(data [][]string) error {
 					End:   end,
 				},
 
-				MarkCode:           strings.TrimSpace(d[monumentMarkCode]),
+				Mark:               strings.TrimSpace(d[monumentMark]),
 				DomesNumber:        strings.TrimSpace(d[monumentDomesNumber]),
 				MarkType:           strings.TrimSpace(d[monumentMarkType]),
-				MonumentType:       strings.TrimSpace(d[monumentMonumentType]),
+				Type:               strings.TrimSpace(d[monumentType]),
 				GroundRelationship: ground,
 				FoundationType:     strings.TrimSpace(d[monumentFoundationType]),
 				FoundationDepth:    depth,

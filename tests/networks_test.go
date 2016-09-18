@@ -18,8 +18,8 @@ func TestNetworks(t *testing.T) {
 
 	for i := 0; i < len(networks); i++ {
 		for j := i + 1; j < len(networks); j++ {
-			if networks[i].NetworkCode == networks[j].NetworkCode {
-				t.Errorf("network duplication: " + networks[i].NetworkCode)
+			if networks[i].Code == networks[j].Code {
+				t.Errorf("network duplication: " + networks[i].Code)
 			}
 		}
 	}

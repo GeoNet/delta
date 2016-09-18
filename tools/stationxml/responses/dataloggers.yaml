@@ -65,6 +65,11 @@ dataloggermodel:
     description: Q330HR
     manufacturer: Quanterra
     vendor: ""
+  Q330HRS/6:
+    type: Datalogger
+    description: Q330HR
+    manufacturer: Quanterra
+    vendor: ""
   Q330S/3:
     type: Datalogger
     description: Q330

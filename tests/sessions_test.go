@@ -18,7 +18,7 @@ func TestSessions(t *testing.T) {
 
 	for i := 0; i < len(sessions); i++ {
 		for j := i + 1; j < len(sessions); j++ {
-			if sessions[i].MarkCode != sessions[j].MarkCode {
+			if sessions[i].Mark != sessions[j].Mark {
 				continue
 			}
 			if sessions[i].Model != sessions[j].Model {
@@ -34,7 +34,7 @@ func TestSessions(t *testing.T) {
 				continue
 			}
 			t.Errorf("session overlap: " + strings.Join([]string{
-				sessions[i].MarkCode,
+				sessions[i].Mark,
 				sessions[i].Interval.String(),
 				sessions[i].Start.String(),
 				sessions[i].End.String(),
@@ -58,12 +58,12 @@ func TestSessions(t *testing.T) {
 	}
 
 	for _, s := range sessions {
-		if _, ok := marks[s.MarkCode]; !ok {
-			t.Log("unknown session mark: " + s.MarkCode)
+		if _, ok := marks[s.Mark]; !ok {
+			t.Log("unknown session mark: " + s.Mark)
 		}
 		if s.Start.After(s.End) {
 			t.Log("session span mismatch: " + strings.Join([]string{
-				s.MarkCode,
+				s.Mark,
 				s.Interval.String(),
 				s.Start.String(),
 				"after",

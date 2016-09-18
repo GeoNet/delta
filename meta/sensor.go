@@ -9,20 +9,20 @@ import (
 )
 
 const (
-	sensorSensorMake = iota
-	sensorSensorModel
-	sensorSerialNumber
-	sensorStationCode
-	sensorLocationCode
-	sensorInstallationAzimuth
-	sensorInstallationDip
-	sensorInstallationDepth
-	sensorOffsetNorth
-	sensorOffsetEast
+	sensorMake = iota
+	sensorModel
+	sensorSerial
+	sensorStation
+	sensorLocation
+	sensorAzimuth
+	sensorDip
+	sensorDepth
+	sensorNorth
+	sensorEast
 	sensorScaleFactor
 	sensorScaleBias
-	sensorInstallationDate
-	sensorRemovalDate
+	sensorStart
+	sensorEnd
 	sensorLast
 )
 
@@ -32,8 +32,8 @@ type InstalledSensor struct {
 	Offset
 	Scale
 
-	StationCode  string
-	LocationCode string
+	Station  string
+	Location string
 }
 
 type InstalledSensorList []InstalledSensor
@@ -65,8 +65,8 @@ func (s InstalledSensorList) encode() [][]string {
 			strings.TrimSpace(v.Make),
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.StationCode),
-			strings.TrimSpace(v.LocationCode),
+			strings.TrimSpace(v.Station),
+			strings.TrimSpace(v.Location),
 			strconv.FormatFloat(v.Azimuth, 'g', -1, 64),
 			strconv.FormatFloat(v.Dip, 'g', -1, 64),
 			func() string {
@@ -96,21 +96,21 @@ func (s *InstalledSensorList) decode(data [][]string) error {
 			var err error
 
 			var azimuth, dip float64
-			if azimuth, err = strconv.ParseFloat(d[sensorInstallationAzimuth], 64); err != nil {
+			if azimuth, err = strconv.ParseFloat(d[sensorAzimuth], 64); err != nil {
 				return err
 			}
-			if dip, err = strconv.ParseFloat(d[sensorInstallationDip], 64); err != nil {
+			if dip, err = strconv.ParseFloat(d[sensorDip], 64); err != nil {
 				return err
 			}
 
 			var depth, north, east float64
-			if depth, err = strconv.ParseFloat(d[sensorInstallationDepth], 64); err != nil {
+			if depth, err = strconv.ParseFloat(d[sensorDepth], 64); err != nil {
 				return err
 			}
-			if north, err = strconv.ParseFloat(d[sensorOffsetNorth], 64); err != nil {
+			if north, err = strconv.ParseFloat(d[sensorNorth], 64); err != nil {
 				return err
 			}
-			if east, err = strconv.ParseFloat(d[sensorOffsetEast], 64); err != nil {
+			if east, err = strconv.ParseFloat(d[sensorEast], 64); err != nil {
 				return err
 			}
 
@@ -123,19 +123,19 @@ func (s *InstalledSensorList) decode(data [][]string) error {
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[sensorInstallationDate]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[sensorStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[sensorRemovalDate]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[sensorEnd]); err != nil {
 				return err
 			}
 
 			sensors = append(sensors, InstalledSensor{
 				Install: Install{
 					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[0]),
-						Model:  strings.TrimSpace(d[1]),
-						Serial: strings.TrimSpace(d[2]),
+						Make:   strings.TrimSpace(d[sensorMake]),
+						Model:  strings.TrimSpace(d[sensorModel]),
+						Serial: strings.TrimSpace(d[sensorSerial]),
 					},
 					Span: Span{
 						Start: start,
@@ -155,8 +155,8 @@ func (s *InstalledSensorList) decode(data [][]string) error {
 					Factor: factor,
 					Bias:   bias,
 				},
-				StationCode:  strings.TrimSpace(d[3]),
-				LocationCode: strings.TrimSpace(d[4]),
+				Station:  strings.TrimSpace(d[sensorStation]),
+				Location: strings.TrimSpace(d[sensorLocation]),
 			})
 		}
 

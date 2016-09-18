@@ -12,14 +12,14 @@ const (
 	recorderMake int = iota
 	recorderSensorModel
 	recorderDataloggerModel
-	recorderSerialNumber
-	recorderStationCode
-	recorderLocationCode
-	recorderInstallationAzimuth
-	recorderInstallationDip
-	recorderInstallationDepth
-	recorderInstallationDate
-	recorderRemovalDate
+	recorderSerial
+	recorderStation
+	recorderLocation
+	recorderAzimuth
+	recorderDip
+	recorderDepth
+	recorderStart
+	recorderEnd
 	recorderLast
 )
 
@@ -56,8 +56,8 @@ func (r InstalledRecorderList) encode() [][]string {
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.DataloggerModel),
 			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.StationCode),
-			strings.TrimSpace(v.LocationCode),
+			strings.TrimSpace(v.Station),
+			strings.TrimSpace(v.Location),
 			strconv.FormatFloat(v.Azimuth, 'g', -1, 64),
 			strconv.FormatFloat(v.Dip, 'g', -1, 64),
 			func() string {
@@ -83,21 +83,21 @@ func (r *InstalledRecorderList) decode(data [][]string) error {
 			var err error
 
 			var azimuth, dip, depth float64
-			if azimuth, err = strconv.ParseFloat(d[recorderInstallationAzimuth], 64); err != nil {
+			if azimuth, err = strconv.ParseFloat(d[recorderAzimuth], 64); err != nil {
 				return err
 			}
-			if dip, err = strconv.ParseFloat(d[recorderInstallationDip], 64); err != nil {
+			if dip, err = strconv.ParseFloat(d[recorderDip], 64); err != nil {
 				return err
 			}
-			if depth, err = strconv.ParseFloat(d[recorderInstallationDepth], 64); err != nil {
+			if depth, err = strconv.ParseFloat(d[recorderDepth], 64); err != nil {
 				return err
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[recorderInstallationDate]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[recorderStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[recorderRemovalDate]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[recorderEnd]); err != nil {
 				return err
 			}
 
@@ -107,7 +107,7 @@ func (r *InstalledRecorderList) decode(data [][]string) error {
 						Equipment: Equipment{
 							Make:   strings.TrimSpace(d[recorderMake]),
 							Model:  strings.TrimSpace(d[recorderSensorModel]),
-							Serial: strings.TrimSpace(d[recorderSerialNumber]),
+							Serial: strings.TrimSpace(d[recorderSerial]),
 						},
 						Span: Span{
 							Start: start,
@@ -121,8 +121,8 @@ func (r *InstalledRecorderList) decode(data [][]string) error {
 					Offset: Offset{
 						Vertical: -depth,
 					},
-					StationCode:  strings.TrimSpace(d[recorderStationCode]),
-					LocationCode: strings.TrimSpace(d[recorderLocationCode]),
+					Station:  strings.TrimSpace(d[recorderStation]),
+					Location: strings.TrimSpace(d[recorderLocation]),
 				},
 				DataloggerModel: strings.TrimSpace(d[recorderDataloggerModel]),
 			})

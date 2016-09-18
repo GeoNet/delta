@@ -100,6 +100,12 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
+	"Q330HRS/6": DataloggerModel{
+		Type:         "Datalogger",
+		Description:  "Q330HR",
+		Manufacturer: "Quanterra",
+		Vendor:       "",
+	},
 	"Q330S/3": DataloggerModel{
 		Type:         "Datalogger",
 		Description:  "Q330",

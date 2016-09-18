@@ -9,21 +9,21 @@ import (
 )
 
 const (
-	streamStationCode = iota
-	streamLocationCode
+	streamStation = iota
+	streamLocation
 	streamSamplingRate
 	streamAxial
 	streamReversed
-	streamStartTime
-	streamEndTime
+	streamStart
+	streamEnd
 	streamLast
 )
 
 type Stream struct {
 	Span
 
-	StationCode  string
-	LocationCode string
+	Station      string
+	Location     string
 	SamplingRate float64
 	Axial        bool
 	Reversed     bool
@@ -31,13 +31,13 @@ type Stream struct {
 
 func (s Stream) Less(stream Stream) bool {
 	switch {
-	case s.StationCode < stream.StationCode:
+	case s.Station < stream.Station:
 		return true
-	case s.StationCode > stream.StationCode:
+	case s.Station > stream.Station:
 		return false
-	case s.LocationCode < stream.LocationCode:
+	case s.Location < stream.Location:
 		return true
-	case s.LocationCode > stream.LocationCode:
+	case s.Location > stream.Location:
 		return false
 	case s.SamplingRate < stream.SamplingRate:
 		return true
@@ -70,8 +70,8 @@ func (s StreamList) encode() [][]string {
 	}}
 	for _, v := range s {
 		data = append(data, []string{
-			strings.TrimSpace(v.StationCode),
-			strings.TrimSpace(v.LocationCode),
+			strings.TrimSpace(v.Station),
+			strings.TrimSpace(v.Location),
 			strings.TrimSpace(strconv.FormatFloat(v.SamplingRate, 'g', -1, 64)),
 			strings.TrimSpace(strconv.FormatBool(v.Axial)),
 			strings.TrimSpace(strconv.FormatBool(v.Reversed)),
@@ -92,10 +92,10 @@ func (c *StreamList) decode(data [][]string) error {
 			var err error
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[streamStartTime]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, v[streamStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, v[streamEndTime]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, v[streamEnd]); err != nil {
 				return err
 			}
 
@@ -113,8 +113,8 @@ func (c *StreamList) decode(data [][]string) error {
 			}
 
 			streams = append(streams, Stream{
-				StationCode:  strings.TrimSpace(v[streamStationCode]),
-				LocationCode: strings.TrimSpace(v[streamLocationCode]),
+				Station:      strings.TrimSpace(v[streamStation]),
+				Location:     strings.TrimSpace(v[streamLocation]),
 				SamplingRate: rate,
 				Axial:        axial,
 				Reversed:     reversed,

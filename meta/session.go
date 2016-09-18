@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	sessionMarkCode = iota
+	sessionMark = iota
 	sessionOperator
 	sessionAgency
 	sessionModel
@@ -17,15 +17,15 @@ const (
 	sessionInterval
 	sessionElevationMask
 	sessionHeaderComment
-	sessionStartTime
-	sessionEndTime
+	sessionStart
+	sessionEnd
 	sessionLast
 )
 
 type Session struct {
 	Span
 
-	MarkCode        string
+	Mark            string
 	Operator        string
 	Agency          string
 	Model           string
@@ -37,9 +37,9 @@ type Session struct {
 
 func (s Session) Less(session Session) bool {
 	switch {
-	case s.MarkCode < session.MarkCode:
+	case s.Mark < session.Mark:
 		return true
-	case s.MarkCode > session.MarkCode:
+	case s.Mark > session.Mark:
 		return false
 	case s.Model < session.Model:
 		return true
@@ -79,7 +79,7 @@ func (s SessionList) encode() [][]string {
 	}}
 	for _, v := range s {
 		data = append(data, []string{
-			strings.TrimSpace(v.MarkCode),
+			strings.TrimSpace(v.Mark),
 			strings.TrimSpace(v.Operator),
 			strings.TrimSpace(v.Agency),
 			strings.TrimSpace(v.Model),
@@ -109,10 +109,10 @@ func (c *SessionList) decode(data [][]string) error {
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[sessionStartTime]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, v[sessionStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, v[sessionEndTime]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, v[sessionEnd]); err != nil {
 				return err
 			}
 
@@ -122,7 +122,7 @@ func (c *SessionList) decode(data [][]string) error {
 			}
 
 			sessions = append(sessions, Session{
-				MarkCode:        strings.TrimSpace(v[sessionMarkCode]),
+				Mark:            strings.TrimSpace(v[sessionMark]),
 				Operator:        strings.TrimSpace(v[sessionOperator]),
 				Agency:          strings.TrimSpace(v[sessionAgency]),
 				Model:           strings.TrimSpace(v[sessionModel]),

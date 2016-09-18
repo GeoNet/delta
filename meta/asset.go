@@ -8,9 +8,18 @@ import (
 
 type Asset struct {
 	Equipment
-	AssetNumber string
-	Notes       string
+	Number string
+	Notes  string
 }
+
+const (
+	assetMake int = iota
+	assetModel
+	assetSerial
+	assetNumber
+	assetNotes
+	assetLast
+)
 
 type AssetList []Asset
 
@@ -25,7 +34,7 @@ func (a AssetList) encode() [][]string {
 			v.Make,
 			v.Model,
 			v.Serial,
-			v.AssetNumber,
+			v.Number,
 			v.Notes,
 		})
 	}
@@ -36,17 +45,17 @@ func (a *AssetList) decode(data [][]string) error {
 	var assets []Asset
 	if len(data) > 1 {
 		for _, d := range data[1:] {
-			if len(d) != 5 {
+			if len(d) != assetLast {
 				return fmt.Errorf("incorrect number of asset fields")
 			}
 			assets = append(assets, Asset{
 				Equipment: Equipment{
-					Make:   strings.TrimSpace(d[0]),
-					Model:  strings.TrimSpace(d[1]),
-					Serial: strings.TrimSpace(d[2]),
+					Make:   strings.TrimSpace(d[assetMake]),
+					Model:  strings.TrimSpace(d[assetModel]),
+					Serial: strings.TrimSpace(d[assetSerial]),
 				},
-				AssetNumber: strings.TrimSpace(d[3]),
-				Notes:       strings.TrimSpace(d[4]),
+				Number: strings.TrimSpace(d[assetNumber]),
+				Notes:  strings.TrimSpace(d[assetNotes]),
 			})
 		}
 

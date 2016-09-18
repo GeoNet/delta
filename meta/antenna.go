@@ -11,14 +11,14 @@ import (
 const (
 	antennaMake int = iota
 	antennaModel
-	antennaSerialNumber
-	antennaMarkCode
+	antennaSerial
+	antennaMark
 	antennaHeight
-	antennaOffsetNorth
-	antennaOffsetEast
+	antennaNorth
+	antennaEast
 	antennaAzimuth
-	antennaInstallationDate
-	antennaRemovalDate
+	antennaStart
+	antennaEnd
 	antennaLast
 )
 
@@ -26,8 +26,8 @@ type InstalledAntenna struct {
 	Install
 	Offset
 
-	MarkCode string
-	Azimuth  float64
+	Mark    string
+	Azimuth float64
 }
 
 type InstalledAntennaList []InstalledAntenna
@@ -54,7 +54,7 @@ func (a InstalledAntennaList) encode() [][]string {
 			strings.TrimSpace(v.Make),
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.MarkCode),
+			strings.TrimSpace(v.Mark),
 			strconv.FormatFloat(v.Vertical, 'g', -1, 64),
 			strconv.FormatFloat(v.North, 'g', -1, 64),
 			strconv.FormatFloat(v.East, 'g', -1, 64),
@@ -79,10 +79,10 @@ func (a *InstalledAntennaList) decode(data [][]string) error {
 			if height, err = strconv.ParseFloat(d[antennaHeight], 64); err != nil {
 				return err
 			}
-			if north, err = strconv.ParseFloat(d[antennaOffsetNorth], 64); err != nil {
+			if north, err = strconv.ParseFloat(d[antennaNorth], 64); err != nil {
 				return err
 			}
-			if east, err = strconv.ParseFloat(d[antennaOffsetEast], 64); err != nil {
+			if east, err = strconv.ParseFloat(d[antennaEast], 64); err != nil {
 				return err
 			}
 
@@ -92,10 +92,10 @@ func (a *InstalledAntennaList) decode(data [][]string) error {
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[antennaInstallationDate]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[antennaStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[antennaRemovalDate]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[antennaEnd]); err != nil {
 				return err
 			}
 
@@ -104,7 +104,7 @@ func (a *InstalledAntennaList) decode(data [][]string) error {
 					Equipment: Equipment{
 						Make:   strings.TrimSpace(d[antennaMake]),
 						Model:  strings.TrimSpace(d[antennaModel]),
-						Serial: strings.TrimSpace(d[antennaSerialNumber]),
+						Serial: strings.TrimSpace(d[antennaSerial]),
 					},
 					Span: Span{
 						Start: start,
@@ -116,8 +116,8 @@ func (a *InstalledAntennaList) decode(data [][]string) error {
 					North:    north,
 					East:     east,
 				},
-				MarkCode: strings.TrimSpace(d[antennaMarkCode]),
-				Azimuth:  azimuth,
+				Mark:    strings.TrimSpace(d[antennaMark]),
+				Azimuth: azimuth,
 			})
 		}
 

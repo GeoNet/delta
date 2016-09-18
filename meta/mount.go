@@ -9,16 +9,16 @@ import (
 )
 
 const (
-	mountMountCode = iota
-	mountMountNetwork
-	mountMountName
+	mountCode = iota
+	mountNetwork
+	mountName
 	mountLatitude
 	mountLongitude
 	mountElevation
 	mountDatum
 	mountDescription
-	mountStartTime
-	mountEndTime
+	mountStart
+	mountEnd
 	mountLast
 )
 
@@ -87,18 +87,18 @@ func (m *MountList) decode(data [][]string) error {
 			}
 
 			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[mountStartTime]); err != nil {
+			if start, err = time.Parse(DateTimeFormat, d[mountStart]); err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, d[mountEndTime]); err != nil {
+			if end, err = time.Parse(DateTimeFormat, d[mountEnd]); err != nil {
 				return err
 			}
 
 			mounts = append(mounts, Mount{
 				Reference: Reference{
-					Code:    strings.TrimSpace(d[mountMountCode]),
-					Network: strings.TrimSpace(d[mountMountNetwork]),
-					Name:    strings.TrimSpace(d[mountMountName]),
+					Code:    strings.TrimSpace(d[mountCode]),
+					Network: strings.TrimSpace(d[mountNetwork]),
+					Name:    strings.TrimSpace(d[mountName]),
 				},
 				Point: Point{
 					Latitude:  lat,
