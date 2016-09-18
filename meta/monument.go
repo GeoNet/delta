@@ -44,15 +44,15 @@ func (m MonumentList) Less(i, j int) bool { return m[i].Mark < m[j].Mark }
 
 func (m MonumentList) encode() [][]string {
 	data := [][]string{{
-		"Mark Code",
+		"Mark",
 		"Domes Number",
 		"Mark Type",
-		"Monument Type",
+		"Type",
 		"Ground Relationship",
 		"Foundation Type",
 		"Foundation Depth",
-		"Start Time",
-		"End Time",
+		"Start Date",
+		"End Date",
 		"Bedrock",
 		"Geology",
 	}}

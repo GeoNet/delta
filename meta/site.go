@@ -53,15 +53,15 @@ func (s SiteList) Less(i, j int) bool { return s[i].Less(s[j]) }
 
 func (s SiteList) encode() [][]string {
 	data := [][]string{{
-		"Station Code",
-		"Location Code",
+		"Station",
+		"Location",
 		"Latitude",
 		"Longitude",
 		"Elevation",
 		"Datum",
 		"Survey",
-		"Start Time",
-		"End Time",
+		"Start Date",
+		"End Date",
 	}}
 	for _, v := range s {
 		data = append(data, []string{

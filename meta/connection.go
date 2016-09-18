@@ -57,10 +57,10 @@ func (c ConnectionList) Less(i, j int) bool { return c[i].less(c[j]) }
 
 func (c ConnectionList) encode() [][]string {
 	data := [][]string{{
-		"Station Code",
-		"Location Code",
-		"Datalogger Place",
-		"Datalogger Role",
+		"Station",
+		"Location",
+		"Place",
+		"Role",
 		"Start Date",
 		"End Date",
 	}}

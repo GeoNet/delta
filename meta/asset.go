@@ -28,7 +28,7 @@ func (a AssetList) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a AssetList) Less(i, j int) bool { return a[i].Equipment.Less(a[j].Equipment) }
 
 func (a AssetList) encode() [][]string {
-	data := [][]string{{"Make", "Model", "Serial Number", "Asset Number", "Notes"}}
+	data := [][]string{{"Make", "Model", "Serial", "Number", "Notes"}}
 	for _, v := range a {
 		data = append(data, []string{
 			v.Make,

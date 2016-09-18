@@ -1,4 +1,4 @@
-Antenna Make,Antenna Model,Serial Number,Mark Code,Antenna Height,Offset North,Offset East,Azimuth,Installation Date,Removal Date
+Make,Model,Serial,Mark,Height,North,East,Azimuth,Start Date,End Date
 "Allen Osborne Associates, Inc.",AOAD/M_T,132,AUCK,0.0018,0,0,0,1995-09-18T00:00:00Z,2001-10-28T00:00:00Z
 "Allen Osborne Associates, Inc.",AOAD/M_T,133,AUCK,0.0025,0,0,0,1995-05-31T00:00:00Z,1995-06-02T00:00:00Z
 "Allen Osborne Associates, Inc.",AOAD/M_T,133,CHAT,0.0031,0,0,0,1995-10-04T00:00:00Z,2001-11-28T00:00:00Z

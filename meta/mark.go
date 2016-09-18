@@ -35,15 +35,15 @@ func (m MarkList) Less(i, j int) bool { return m[i].Code < m[j].Code }
 
 func (m MarkList) encode() [][]string {
 	data := [][]string{{
-		"Mark Code",
-		"Network Code",
-		"Mark Name",
+		"Mark",
+		"Network",
+		"Name",
 		"Latitude",
 		"Longitude",
 		"Elevation",
 		"Datum",
-		"Start Time",
-		"End Time",
+		"Start Date",
+		"End Date",
 	}}
 	for _, v := range m {
 		data = append(data, []string{

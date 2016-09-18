@@ -41,17 +41,17 @@ func (a InstalledCameraList) Less(i, j int) bool { return a[i].Install.less(a[j]
 
 func (a InstalledCameraList) encode() [][]string {
 	data := [][]string{{
-		"Camera Make",
-		"Camera Model",
-		"Serial Number",
-		"Mount Code",
+		"Make",
+		"Model",
+		"Serial",
+		"Mount",
 		"Dip",
 		"Azimuth",
-		"Camera Height",
-		"Offset North",
-		"Offset East",
-		"Installation Date",
-		"Removal Date",
+		"Height",
+		"North",
+		"East",
+		"Start Date",
+		"End Date",
 		"Notes",
 	}}
 	for _, v := range a {

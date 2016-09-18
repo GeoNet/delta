@@ -1,3 +1,3 @@
-Met Sensor Make,Met Sensor Model,Serial Number,Mark,IMS Comment,Latitude,Longitude,Elevation,Datum,Installation Date,Removal Date
+Make,Model,Serial,Mark,IMS Comment,Latitude,Longitude,Elevation,Datum,Start Date,End Date
 Paroscientific,Paroscientific meterological sensor,65123,GRAC,,-41.2351,174.917,26,NZGD2000,1998-07-09T23:59:59Z,9999-01-01T00:00:00Z
 Paroscientific,Paroscientific meterological sensor,65125,MTJO,,-43.9857,170.4649,1044,NZGD2000,2000-08-15T00:00:00Z,9999-01-01T00:00:00Z

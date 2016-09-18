@@ -35,7 +35,7 @@ func (f FirmwareHistoryList) encode() [][]string {
 	data := [][]string{{
 		"Make",
 		"Model",
-		"Serial Number",
+		"Serial",
 		"Version",
 		"Start Date",
 		"End Date",
