@@ -1,6 +1,6 @@
 ## ASSETS ##
 
-Lists the equipment used to collect the various observations.
+_Lists the equipment used to collect the various observations._
 
 Each file represents an equipment type and is listed with the following attributes:
 
@@ -8,7 +8,7 @@ Each file represents an equipment type and is listed with the following attribut
 * _Model_ - Equipment model name or general identification label.
 * _Serial_ - Equipment serial number, needs to be unique within its set of equipment make & model.
 * _Number_ - Equipment asset number, this is optional and is used primarily for cross-checking
-* _Notes_ - Any extra details which may be relevent to the piece of equipment.
+* _Notes_ - Any extra details which may be relevant to the piece of equipment.
 
 ### FILES ###
 
@@ -17,7 +17,7 @@ Each file represents an equipment type and is listed with the following attribut
 * `dataloggers.csv` - Dataloggers for recording analogue signals.
 * `metsensors.csv` - Meteorological Sensors used primarily with GNSS systems.
 * `radomes.csv` - GNSS Antenna Radomes.
-* `receivers.csv` - GNNS Satellite Receivers
+* `receivers.csv` - GNSS Satellite Receivers
 * `recorders.csv` - Combined datalogger and sensors used primarily for strong motion recording.
 * `sensors.csv` - Analogue sensors which are usually attached to dataloggers.
 
