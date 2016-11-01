@@ -850,6 +850,54 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
+		{
+			"testdata/gauges.csv",
+			&meta.GaugeList{
+				meta.Gauge{
+					Reference: meta.Reference{
+						Code:    "AUCT",
+						Network: "TG",
+					},
+					Number:   "363",
+					TimeZone: 180.0,
+					Point: meta.Point{
+						Latitude:  36.5,
+						Longitude: 174.47,
+					},
+				},
+				meta.Gauge{
+					Reference: meta.Reference{
+						Code:    "CPIT",
+						Network: "TG",
+					},
+					Number:   "313",
+					TimeZone: 180.0,
+					Point: meta.Point{
+						Latitude:  40.55,
+						Longitude: 176.13,
+					},
+				},
+			},
+		},
+		{
+			"testdata/constituents.csv",
+			&meta.ConstituentList{
+				meta.Constituent{
+					Gauge:     "AUCT",
+					Number:    1,
+					Name:      "Z0",
+					Amplitude: 186.2448,
+					Lag:       0,
+				},
+				meta.Constituent{
+					Gauge:     "AUCT",
+					Number:    2,
+					Name:      "SA",
+					Amplitude: 3.8781,
+					Lag:       112.03,
+				},
+			},
+		},
 	}
 
 	for _, tt := range listtests {
