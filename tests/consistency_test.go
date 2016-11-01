@@ -19,21 +19,23 @@ func TestConsistency(t *testing.T) {
 		f string
 		l meta.List
 	}{
-		"connections": {f: "../install/connections.csv", l: &meta.ConnectionList{}},
-		"cameras":     {f: "../install/cameras.csv", l: &meta.InstalledCameraList{}},
-		"dataloggers": {f: "../install/dataloggers.csv", l: &meta.DeployedDataloggerList{}},
-		"metsensors":  {f: "../install/metsensors.csv", l: &meta.InstalledMetSensorList{}},
-		"radomes":     {f: "../install/radomes.csv", l: &meta.InstalledRadomeList{}},
-		"receivers":   {f: "../install/receivers.csv", l: &meta.DeployedReceiverList{}},
-		"recorders":   {f: "../install/recorders.csv", l: &meta.InstalledRecorderList{}},
-		"sensors":     {f: "../install/sensors.csv", l: &meta.InstalledSensorList{}},
-		"firmware":    {f: "../install/firmware.csv", l: &meta.FirmwareHistoryList{}},
-		"streams":     {f: "../install/streams.csv", l: &meta.StreamList{}},
-		"networks":    {f: "../network/networks.csv", l: &meta.NetworkList{}},
-		"stations":    {f: "../network/stations.csv", l: &meta.StationList{}},
-		"sites":       {f: "../network/sites.csv", l: &meta.SiteList{}},
-		"marks":       {f: "../network/marks.csv", l: &meta.MarkList{}},
-		"mounts":      {f: "../network/mounts.csv", l: &meta.MountList{}},
+		"connections":  {f: "../install/connections.csv", l: &meta.ConnectionList{}},
+		"cameras":      {f: "../install/cameras.csv", l: &meta.InstalledCameraList{}},
+		"dataloggers":  {f: "../install/dataloggers.csv", l: &meta.DeployedDataloggerList{}},
+		"metsensors":   {f: "../install/metsensors.csv", l: &meta.InstalledMetSensorList{}},
+		"radomes":      {f: "../install/radomes.csv", l: &meta.InstalledRadomeList{}},
+		"receivers":    {f: "../install/receivers.csv", l: &meta.DeployedReceiverList{}},
+		"recorders":    {f: "../install/recorders.csv", l: &meta.InstalledRecorderList{}},
+		"sensors":      {f: "../install/sensors.csv", l: &meta.InstalledSensorList{}},
+		"firmware":     {f: "../install/firmware.csv", l: &meta.FirmwareHistoryList{}},
+		"streams":      {f: "../install/streams.csv", l: &meta.StreamList{}},
+		"networks":     {f: "../network/networks.csv", l: &meta.NetworkList{}},
+		"stations":     {f: "../network/stations.csv", l: &meta.StationList{}},
+		"sites":        {f: "../network/sites.csv", l: &meta.SiteList{}},
+		"marks":        {f: "../network/marks.csv", l: &meta.MarkList{}},
+		"mounts":       {f: "../network/mounts.csv", l: &meta.MountList{}},
+		"gauges":       {f: "../network/gauges.csv", l: &meta.GaugeList{}},
+		"constituents": {f: "../network/constituents.csv", l: &meta.ConstituentList{}},
 	}
 
 	for k, v := range files {
