@@ -1,0 +1,103 @@
+---
+dataloggermodel:
+  BASALT:
+    type: Strong Motion Recorder
+    description: Basalt
+    manufacturer: Kinemetrics
+    vendor: ""
+  OBSIDIAN:
+    type: Strong Motion Recorder
+    description: Obsidian
+    manufacturer: Kinemetrics
+    vendor: ""
+  ETNA:
+    type: Strong Motion Recorder
+    description: Etna
+    manufacturer: Kinemetrics
+    vendor: ""
+  K2:
+    type: Strong Motion Recorder
+    description: K2
+    manufacturer: Kinemetrics
+    vendor: ""
+  CUSP3A:
+    type: Strong Motion Recorder
+    description: Cusp3A
+    manufacturer: CSI
+    vendor: ""
+  CUSP3B:
+    type: Strong Motion Recorder
+    description: Cusp3B
+    manufacturer: CSI
+    vendor: ""
+  CUSP3C:
+    type: Strong Motion Recorder
+    description: Cusp3C
+    manufacturer: CSI
+    vendor: ""
+  CUSP3D:
+    type: Strong Motion Recorder
+    description: Cusp3D
+    manufacturer: CSI
+    vendor: ""
+  EARSS/3:
+    type: Datalogger
+    description: EARSS
+    manufacturer: GNS Science
+    vendor: ""
+  EARSS/16:
+    type: Datalogger
+    description: EARSS
+    manufacturer: GNS Science
+    vendor: ""
+  Q330/3:
+    type: Datalogger
+    description: Q330
+    manufacturer: Quanterra
+    vendor: ""
+  Q330/6:
+    type: Datalogger
+    description: Q330
+    manufacturer: Quanterra
+    vendor: ""
+  Q330HR/6:
+    type: Datalogger
+    description: Q330HR
+    manufacturer: Quanterra
+    vendor: ""
+  Q330HRS/6:
+    type: Datalogger
+    description: Q330HR
+    manufacturer: Quanterra
+    vendor: ""
+  Q330S/3:
+    type: Datalogger
+    description: Q330
+    manufacturer: Quanterra
+    vendor: ""
+  Q330S/6:
+    type: Datalogger
+    description: Q330
+    manufacturer: Quanterra
+    vendor: ""
+  Q730/4:
+    type: Datalogger
+    description: Q730
+    manufacturer: Quanterra
+    vendor: ""
+  Q4120/6:
+    type: Datalogger
+    description: Q4120
+    manufacturer: Quanterra
+    vendor: ""
+  ORION:
+    type: Datalogger
+    description: Orion
+    manufacturer: Nanometrics
+    vendor: ""
+  Taurus:
+    type: Datalogger
+    description: Taurus
+    manufacturer: Nanometrics
+    vendor: ""
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
