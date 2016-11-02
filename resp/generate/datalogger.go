@@ -17,6 +17,7 @@ var dataloggerModelTemplate = `
 
 var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 {{ range $k, $v := . }}	"{{ $k}}": DataloggerModel{
+	        Name: "{{$k}}",
 		Type: "{{$v.Type}}",
 		Description: "{{$v.Description}}",
 		Manufacturer: "{{$v.Manufacturer}}",

@@ -10,6 +10,7 @@ var generateTemplate = `
 
 {{ $b := . }}var Responses []Response = []Response{
 {{ range $l, $r := $b.ResponseMap }}    Response{
+	Name: "{{$l}}",
         Sensors: []Sensor{
   {{ range $v := $r.Sensors }}    Sensor{
                 Sensors: []string{{"{"}}{{range $s := $v.Sensors}}"{{$s}}",{{end}}{{"}"}},

@@ -24,6 +24,7 @@ var sensorModelTemplate = `
 
 var SensorModels map[string]SensorModel = map[string]SensorModel{
 {{ range $k, $v := . }}	"{{ $k}}": SensorModel{
+		Name: "{{$k}}",
 		Type: "{{$v.Type}}",
 		Description: "{{$v.Description}}",
 		Manufacturer: "{{$v.Manufacturer}}",

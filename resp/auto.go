@@ -13,120 +13,140 @@ package resp
 
 var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 	"BASALT": DataloggerModel{
+		Name:         "BASALT",
 		Type:         "Strong Motion Recorder",
 		Description:  "Basalt",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
 	"CUSP3A": DataloggerModel{
+		Name:         "CUSP3A",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3A",
 		Manufacturer: "CSI",
 		Vendor:       "",
 	},
 	"CUSP3B": DataloggerModel{
+		Name:         "CUSP3B",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3B",
 		Manufacturer: "CSI",
 		Vendor:       "",
 	},
 	"CUSP3C": DataloggerModel{
+		Name:         "CUSP3C",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3C",
 		Manufacturer: "CSI",
 		Vendor:       "",
 	},
 	"CUSP3D": DataloggerModel{
+		Name:         "CUSP3D",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3D",
 		Manufacturer: "CSI",
 		Vendor:       "",
 	},
 	"EARSS/16": DataloggerModel{
+		Name:         "EARSS/16",
 		Type:         "Datalogger",
 		Description:  "EARSS",
 		Manufacturer: "GNS Science",
 		Vendor:       "",
 	},
 	"EARSS/3": DataloggerModel{
+		Name:         "EARSS/3",
 		Type:         "Datalogger",
 		Description:  "EARSS",
 		Manufacturer: "GNS Science",
 		Vendor:       "",
 	},
 	"ETNA": DataloggerModel{
+		Name:         "ETNA",
 		Type:         "Strong Motion Recorder",
 		Description:  "Etna",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
 	"K2": DataloggerModel{
+		Name:         "K2",
 		Type:         "Strong Motion Recorder",
 		Description:  "K2",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
 	"OBSIDIAN": DataloggerModel{
+		Name:         "OBSIDIAN",
 		Type:         "Strong Motion Recorder",
 		Description:  "Obsidian",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
 	"ORION": DataloggerModel{
+		Name:         "ORION",
 		Type:         "Datalogger",
 		Description:  "Orion",
 		Manufacturer: "Nanometrics",
 		Vendor:       "",
 	},
 	"Q330/3": DataloggerModel{
+		Name:         "Q330/3",
 		Type:         "Datalogger",
 		Description:  "Q330",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
 	"Q330/6": DataloggerModel{
+		Name:         "Q330/6",
 		Type:         "Datalogger",
 		Description:  "Q330",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
 	"Q330HR/6": DataloggerModel{
+		Name:         "Q330HR/6",
 		Type:         "Datalogger",
 		Description:  "Q330HR",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
 	"Q330HRS/6": DataloggerModel{
+		Name:         "Q330HRS/6",
 		Type:         "Datalogger",
 		Description:  "Q330HR",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
 	"Q330S/3": DataloggerModel{
+		Name:         "Q330S/3",
 		Type:         "Datalogger",
 		Description:  "Q330",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
 	"Q330S/6": DataloggerModel{
+		Name:         "Q330S/6",
 		Type:         "Datalogger",
 		Description:  "Q330",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
 	"Q4120/6": DataloggerModel{
+		Name:         "Q4120/6",
 		Type:         "Datalogger",
 		Description:  "Q4120",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
 	"Q730/4": DataloggerModel{
+		Name:         "Q730/4",
 		Type:         "Datalogger",
 		Description:  "Q730",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
 	"Taurus": DataloggerModel{
+		Name:         "Taurus",
 		Type:         "Datalogger",
 		Description:  "Taurus",
 		Manufacturer: "Nanometrics",
@@ -136,6 +156,7 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 
 var SensorModels map[string]SensorModel = map[string]SensorModel{
 	"2 Hz Duke Malin Seismometer": SensorModel{
+		Name:         "2 Hz Duke Malin Seismometer",
 		Type:         "Short Period Borehole Seismometer",
 		Description:  "Duke Malin",
 		Manufacturer: "",
@@ -143,6 +164,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"270-600/12V": SensorModel{
+		Name:         "270-600/12V",
 		Type:         "Barometer",
 		Description:  "Setra 270",
 		Manufacturer: "",
@@ -150,6 +172,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
 	},
 	"270-600/24V": SensorModel{
+		Name:         "270-600/24V",
 		Type:         "Barometer",
 		Description:  "Setra 270",
 		Manufacturer: "",
@@ -157,6 +180,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
 	},
 	"270-800/12V": SensorModel{
+		Name:         "270-800/12V",
 		Type:         "Barometer",
 		Description:  "Setra 270",
 		Manufacturer: "",
@@ -164,6 +188,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
 	},
 	"4.5 Hz Duke Malin Seismometer": SensorModel{
+		Name:         "4.5 Hz Duke Malin Seismometer",
 		Type:         "Short Period Borehole Seismometer",
 		Description:  "Duke Malin",
 		Manufacturer: "",
@@ -171,6 +196,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"CMG-3ESP": SensorModel{
+		Name:         "CMG-3ESP",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3ESP",
 		Manufacturer: "",
@@ -178,6 +204,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"CMG-3ESP-Z": SensorModel{
+		Name:         "CMG-3ESP-Z",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3ESP",
 		Manufacturer: "",
@@ -185,6 +212,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"CMG-3ESPC": SensorModel{
+		Name:         "CMG-3ESPC",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3ESP",
 		Manufacturer: "",
@@ -192,6 +220,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"CMG-3T": SensorModel{
+		Name:         "CMG-3T",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3T",
 		Manufacturer: "Guralp",
@@ -199,6 +228,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"CMG-3TB": SensorModel{
+		Name:         "CMG-3TB",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3T",
 		Manufacturer: "Guralp",
@@ -206,6 +236,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"CMG-3TB-GN": SensorModel{
+		Name:         "CMG-3TB-GN",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3T",
 		Manufacturer: "",
@@ -213,6 +244,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"CMG-40T-30S": SensorModel{
+		Name:         "CMG-40T-30S",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-40T",
 		Manufacturer: "",
@@ -220,6 +252,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"CMG-40T-60S": SensorModel{
+		Name:         "CMG-40T-60S",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-40T",
 		Manufacturer: "",
@@ -227,6 +260,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"CMG-6T": SensorModel{
+		Name:         "CMG-6T",
 		Type:         "Accelerometer",
 		Description:  "CMG-6T",
 		Manufacturer: "",
@@ -234,6 +268,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"CUSP-Me SENSOR": SensorModel{
+		Name:         "CUSP-Me SENSOR",
 		Type:         "Building Array Sensor",
 		Description:  "CUSP Me",
 		Manufacturer: "",
@@ -241,6 +276,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"CUSP3A": SensorModel{
+		Name:         "CUSP3A",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3A",
 		Manufacturer: "",
@@ -248,6 +284,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"CUSP3B": SensorModel{
+		Name:         "CUSP3B",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3B",
 		Manufacturer: "",
@@ -255,6 +292,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"CUSP3B SENSOR": SensorModel{
+		Name:         "CUSP3B SENSOR",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3B",
 		Manufacturer: "",
@@ -262,6 +300,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"CUSP3C": SensorModel{
+		Name:         "CUSP3C",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3C",
 		Manufacturer: "",
@@ -269,6 +308,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"CUSP3C SENSOR": SensorModel{
+		Name:         "CUSP3C SENSOR",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3C",
 		Manufacturer: "",
@@ -276,6 +316,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"CUSP3C3 SENSOR": SensorModel{
+		Name:         "CUSP3C3 SENSOR",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3C",
 		Manufacturer: "",
@@ -283,6 +324,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"CUSP3D": SensorModel{
+		Name:         "CUSP3D",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3D",
 		Manufacturer: "",
@@ -290,6 +332,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"CUSPM SENSOR": SensorModel{
+		Name:         "CUSPM SENSOR",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP M",
 		Manufacturer: "",
@@ -297,6 +340,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"Druck PTX-1830": SensorModel{
+		Name:         "Druck PTX-1830",
 		Type:         "Pressure Sensor",
 		Description:  "Druck PTX",
 		Manufacturer: "",
@@ -304,6 +348,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
 	},
 	"Druck PTX-1830-LAND": SensorModel{
+		Name:         "Druck PTX-1830-LAND",
 		Type:         "Pressure Sensor",
 		Description:  "Druck PTX",
 		Manufacturer: "",
@@ -311,6 +356,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
 	},
 	"FBA-23-DECK": SensorModel{
+		Name:         "FBA-23-DECK",
 		Type:         "Accelerometer",
 		Description:  "FBA-23",
 		Manufacturer: "",
@@ -318,6 +364,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 180, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 90}, SensorComponent{Azimuth: 270, Dip: 0}},
 	},
 	"FBA-ES-T": SensorModel{
+		Name:         "FBA-ES-T",
 		Type:         "Accelerometer",
 		Description:  "FBA-ES-T",
 		Manufacturer: "",
@@ -325,6 +372,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"FBA-ES-T-BASALT": SensorModel{
+		Name:         "FBA-ES-T-BASALT",
 		Type:         "Accelerometer",
 		Description:  "FBA-ES-T",
 		Manufacturer: "",
@@ -332,6 +380,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"FBA-ES-T-DECK": SensorModel{
+		Name:         "FBA-ES-T-DECK",
 		Type:         "Accelerometer",
 		Description:  "FBA-ES-T",
 		Manufacturer: "",
@@ -339,6 +388,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"FBA-ES-T-ISO": SensorModel{
+		Name:         "FBA-ES-T-ISO",
 		Type:         "Accelerometer",
 		Description:  "FBA-ES-T",
 		Manufacturer: "",
@@ -346,6 +396,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"FBA-ES-T-OBSIDIAN": SensorModel{
+		Name:         "FBA-ES-T-OBSIDIAN",
 		Type:         "Accelerometer",
 		Description:  "FBA-ES-T",
 		Manufacturer: "",
@@ -353,6 +404,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"GS-11D seismometer": SensorModel{
+		Name:         "GS-11D seismometer",
 		Type:         "Short Period Seismometer",
 		Description:  "GS-11D",
 		Manufacturer: "",
@@ -360,6 +412,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"IESE HS-1-LT Mini 4.5Hz": SensorModel{
+		Name:         "IESE HS-1-LT Mini 4.5Hz",
 		Type:         "Short Period Seismometer",
 		Description:  "HS1-1-LT",
 		Manufacturer: "",
@@ -367,6 +420,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"IESE S10g-4.5 (with preamp)": SensorModel{
+		Name:         "IESE S10g-4.5 (with preamp)",
 		Type:         "Short Period Seismometer",
 		Description:  "S10g-4.5",
 		Manufacturer: "",
@@ -374,6 +428,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"IESE S10g-4.5 (without preamp)": SensorModel{
+		Name:         "IESE S10g-4.5 (without preamp)",
 		Type:         "Short Period Seismometer",
 		Description:  "S10g-4.5",
 		Manufacturer: "",
@@ -381,6 +436,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"IESE S31f-15 (with preamp)": SensorModel{
+		Name:         "IESE S31f-15 (with preamp)",
 		Type:         "Short Period Seismometer",
 		Description:  "S31f-15",
 		Manufacturer: "",
@@ -388,6 +444,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"InfraBSU microphone": SensorModel{
+		Name:         "InfraBSU microphone",
 		Type:         "Mirophone",
 		Description:  "InfraBSU",
 		Manufacturer: "",
@@ -395,6 +452,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
 	},
 	"Kinemetrics SBEPI": SensorModel{
+		Name:         "Kinemetrics SBEPI",
 		Type:         "Accelerometer",
 		Description:  "SBEPI",
 		Manufacturer: "",
@@ -402,6 +460,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"L4C": SensorModel{
+		Name:         "L4C",
 		Type:         "Short Period Seismometer",
 		Description:  "L4C",
 		Manufacturer: "",
@@ -409,6 +468,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"L4C-3D": SensorModel{
+		Name:         "L4C-3D",
 		Type:         "Short Period Seismometer",
 		Description:  "L4C-3D",
 		Manufacturer: "",
@@ -416,6 +476,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"LE-3Dlite": SensorModel{
+		Name:         "LE-3Dlite",
 		Type:         "Short Period Seismometer",
 		Description:  "LE-3Dlite",
 		Manufacturer: "",
@@ -423,6 +484,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"LE-3DliteMkII": SensorModel{
+		Name:         "LE-3DliteMkII",
 		Type:         "Short Period Seismometer",
 		Description:  "LE-3DliteMkII",
 		Manufacturer: "",
@@ -430,6 +492,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"LM35": SensorModel{
+		Name:         "LM35",
 		Type:         "",
 		Description:  "LM35",
 		Manufacturer: "",
@@ -437,6 +500,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
 	},
 	"Nanometrics Trillium 120QA": SensorModel{
+		Name:         "Nanometrics Trillium 120QA",
 		Type:         "Broadband Seismometer",
 		Description:  "Trillium 120",
 		Manufacturer: "",
@@ -444,6 +508,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"SDP": SensorModel{
+		Name:         "SDP",
 		Type:         "",
 		Description:  "SDP",
 		Manufacturer: "",
@@ -451,6 +516,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"SSA-320": SensorModel{
+		Name:         "SSA-320",
 		Type:         "Strong Motion Sensor",
 		Description:  "SSA-320",
 		Manufacturer: "",
@@ -458,6 +524,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
 	},
 	"STS-2": SensorModel{
+		Name:         "STS-2",
 		Type:         "Broadband Seismometer",
 		Description:  "STS-2",
 		Manufacturer: "",
@@ -465,6 +532,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
 	"Scout Hydrophone": SensorModel{
+		Name:         "Scout Hydrophone",
 		Type:         "Hydrophone",
 		Description:  "Scout",
 		Manufacturer: "",
@@ -475,6 +543,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 
 var Responses []Response = []Response{
 	Response{
+		Name: "Barometers",
 		Sensors: []Sensor{
 			Sensor{
 				Sensors: []string{"270-600/12V"},
@@ -1201,6 +1270,7 @@ var Responses []Response = []Response{
 			},
 		},
 	}, Response{
+		Name: "Broadband STS-2",
 		Sensors: []Sensor{
 			Sensor{
 				Sensors: []string{"STS-2"},
@@ -1911,6 +1981,7 @@ var Responses []Response = []Response{
 			},
 		},
 	}, Response{
+		Name: "Broadband Sensors",
 		Sensors: []Sensor{
 			Sensor{
 				Sensors: []string{"Nanometrics Trillium 120QA"},
@@ -3357,6 +3428,7 @@ var Responses []Response = []Response{
 			},
 		},
 	}, Response{
+		Name: "Microphones",
 		Sensors: []Sensor{
 			Sensor{
 				Sensors: []string{"InfraBSU microphone"},
@@ -3685,6 +3757,7 @@ var Responses []Response = []Response{
 			},
 		},
 	}, Response{
+		Name: "Short Period",
 		Sensors: []Sensor{
 			Sensor{
 				Sensors: []string{"L4C"},
@@ -4249,6 +4322,7 @@ var Responses []Response = []Response{
 			},
 		},
 	}, Response{
+		Name: "Short Period Pre Amp",
 		Sensors: []Sensor{
 			Sensor{
 				Sensors: []string{"2 Hz Duke Malin Seismometer"},
@@ -4429,6 +4503,7 @@ var Responses []Response = []Response{
 			},
 		},
 	}, Response{
+		Name: "Strong Motion Recorders",
 		Sensors: []Sensor{
 			Sensor{
 				Sensors: []string{"FBA-23-DECK"},
@@ -5376,6 +5451,7 @@ var Responses []Response = []Response{
 			},
 		},
 	}, Response{
+		Name: "Strong Motion Sensors",
 		Sensors: []Sensor{
 			Sensor{
 				Sensors: []string{"FBA-ES-T", "FBA-ES-T-ISO"},

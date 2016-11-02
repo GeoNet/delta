@@ -41,6 +41,7 @@ type Datalogger struct {
 }
 
 type DataloggerModel struct {
+	Name         string
 	Type         string // FDSN StationXML Datalogger Type
 	Description  string // FDSN StationXML Datalogger Description
 	Manufacturer string // FDSN StationXML Datalogger Manufacturer
@@ -61,6 +62,7 @@ type SensorComponent struct {
 }
 
 type SensorModel struct {
+	Name         string
 	Type         string // FDSN StationXML Sensor Type
 	Description  string // FDSN StationXML Sensor Description
 	Manufacturer string // FDSN StationXML Vendor Description
