@@ -19,6 +19,10 @@ type IntegerFieldIndex struct {
 	Field string
 }
 
+func integerIndex(v int64) string {
+	return fmt.Sprintf("%021d", v)
+}
+
 func (i *IntegerFieldIndex) FromObject(obj interface{}) (bool, []byte, error) {
 	v := reflect.ValueOf(obj)
 	v = reflect.Indirect(v) // Dereference the pointer if any
@@ -30,7 +34,7 @@ func (i *IntegerFieldIndex) FromObject(obj interface{}) (bool, []byte, error) {
 	}
 
 	// Add the null character as a terminator
-	out := fmt.Sprintf("%021d", int(fv.Int())) + "\x00"
+	out := integerIndex(fv.Int()) + "\x00"
 
 	return true, []byte(out), nil
 }
@@ -41,11 +45,15 @@ func (i *IntegerFieldIndex) FromArgs(args ...interface{}) ([]byte, error) {
 	}
 
 	var out string
-	switch arg := args[0].(type) {
-	case int, uint, int8, uint8, int16, uint16, int32, uint32, int64, uint64:
-		out = fmt.Sprintf("%021d", arg) + "\x00"
+	switch args[0].(type) {
+	case int:
+		out = integerIndex(int64(args[0].(int))) + "\x00"
+	case int32:
+		out = integerIndex(int64(args[0].(int32))) + "\x00"
+	case int64:
+		out = integerIndex(args[0].(int64)) + "\x00"
 	default:
-		return nil, fmt.Errorf("argument must be an integer: %#v", args[0])
+		return nil, fmt.Errorf("argument must be an int: %#v", args[0])
 	}
 
 	return []byte(out), nil
@@ -125,6 +133,10 @@ type DurationFieldIndex struct {
 	Field string
 }
 
+func durationIndex(v time.Duration) string {
+	return integerIndex(int64(v))
+}
+
 func (d *DurationFieldIndex) FromObject(obj interface{}) (bool, []byte, error) {
 	v := reflect.ValueOf(obj)
 	v = reflect.Indirect(v) // Dereference the pointer if any
@@ -142,7 +154,7 @@ func (d *DurationFieldIndex) FromObject(obj interface{}) (bool, []byte, error) {
 	}
 
 	// Add the null character as a terminator
-	out := fmt.Sprintf("%021d", arg) + "\x00"
+	out := durationIndex(arg) + "\x00"
 
 	return true, []byte(out), nil
 }
@@ -154,10 +166,10 @@ func (d *DurationFieldIndex) FromArgs(args ...interface{}) ([]byte, error) {
 
 	var out string
 	switch arg := args[0].(type) {
-	case time.Time:
-		out = fmt.Sprintf("%021d", arg) + "\x00"
+	case time.Duration:
+		out = durationIndex(arg) + "\x00"
 	default:
-		return nil, fmt.Errorf("argument must be a time: %#v", args[0])
+		return nil, fmt.Errorf("argument must be a duration: %#v", args[0])
 	}
 
 	return []byte(out), nil
@@ -181,6 +193,13 @@ type SampleRateFieldIndex struct {
 	Field string
 }
 
+func sampleRateIndex(r float64) string {
+	if r != 0.0 {
+		r = float64(time.Second) / r
+	}
+	return integerIndex(int64(r))
+}
+
 func (s *SampleRateFieldIndex) FromObject(obj interface{}) (bool, []byte, error) {
 	v := reflect.ValueOf(obj)
 	v = reflect.Indirect(v) // Dereference the pointer if any
@@ -196,12 +215,9 @@ func (s *SampleRateFieldIndex) FromObject(obj interface{}) (bool, []byte, error)
 		return false, nil,
 			fmt.Errorf("field '%s' for %#v is invalid", s.Field, arg)
 	}
-	if arg != 0.0 {
-		arg = float64(time.Second) / arg
-	}
 
 	// Add the null character as a terminator
-	out := fmt.Sprintf("%021d", time.Duration(arg)) + "\x00"
+	out := sampleRateIndex(arg) + "\x00"
 
 	return true, []byte(out), nil
 }
@@ -212,7 +228,6 @@ func (s *SampleRateFieldIndex) FromArgs(args ...interface{}) ([]byte, error) {
 	}
 
 	var f float64
-	var out string
 
 	switch args[0].(type) {
 	case float32:
@@ -222,11 +237,8 @@ func (s *SampleRateFieldIndex) FromArgs(args ...interface{}) ([]byte, error) {
 	default:
 		return nil, fmt.Errorf("argument must be a time: %#v", args[0])
 	}
-	if f != 0.0 {
-		f = float64(time.Second) / f
-	}
 
-	out = fmt.Sprintf("%021d", time.Duration(f)) + "\x00"
+	out := sampleRateIndex(f) + "\x00"
 
 	return []byte(out), nil
 }
@@ -937,8 +949,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -948,8 +959,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -959,8 +969,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -970,8 +979,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -981,8 +989,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -992,8 +999,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1003,8 +1009,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1014,8 +1019,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1046,8 +1050,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 			return nil, err
 		}
 		for _, i := range input {
-			i = i // dereference loop variable
-			if err := txn.Insert("asset", &i); err != nil {
+			if err := txn.Insert("asset", i); err != nil {
 				return nil, err
 			}
 		}
@@ -1083,8 +1086,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1094,8 +1096,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1105,8 +1106,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1116,8 +1116,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1127,8 +1126,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1138,8 +1136,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1149,8 +1146,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1160,8 +1156,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1171,8 +1166,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1182,8 +1176,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1193,8 +1186,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}
@@ -1204,8 +1196,7 @@ func NewMetaDB(base string) (*MetaDB, error) {
 				return nil, err
 			}
 			for _, i := range input {
-				i = i // dereference loop variable
-				if err := txn.Insert(list.table, &i); err != nil {
+				if err := txn.Insert(list.table, i); err != nil {
 					return nil, err
 				}
 			}

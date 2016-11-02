@@ -22,46 +22,46 @@ func TestMetaDB_Schema(t *testing.T) {
 		r interface{}
 	}{
 
-		{"asset", "id", []interface{}{"TEST", "TEST", "TEST"}, &meta.Asset{
+		{"asset", "id", []interface{}{"TEST", "TEST", "TEST"}, meta.Asset{
 			Equipment: meta.Equipment{
 				Make:   "TEST",
 				Model:  "TEST",
 				Serial: "TEST",
 			},
 		}},
-		{"constituent", "id", []interface{}{"TEST", 1}, &meta.Constituent{
+		{"constituent", "id", []interface{}{"TEST", 1}, meta.Constituent{
 			Gauge:  "TEST",
 			Number: 1,
 		}},
-		{"gauge", "id", []interface{}{"TEST"}, &meta.Gauge{
+		{"gauge", "id", []interface{}{"TEST"}, meta.Gauge{
 			Reference: meta.Reference{
 				Code:    "TEST",
 				Network: "TEST",
 			},
 		}},
-		{"mark", "id", []interface{}{"TEST"}, &meta.Mark{
+		{"mark", "id", []interface{}{"TEST"}, meta.Mark{
 			Reference: meta.Reference{
 				Code:    "TEST",
 				Network: "TEST",
 			},
 		}},
-		{"monument", "id", []interface{}{"TEST"}, &meta.Monument{
+		{"monument", "id", []interface{}{"TEST"}, meta.Monument{
 			Mark: "TEST",
 		}},
-		{"mount", "id", []interface{}{"TEST"}, &meta.Mount{
+		{"mount", "id", []interface{}{"TEST"}, meta.Mount{
 			Reference: meta.Reference{
 				Code:    "TEST",
 				Network: "TEST",
 			},
 		}},
-		{"network", "id", []interface{}{"TEST"}, &meta.Network{
+		{"network", "id", []interface{}{"TEST"}, meta.Network{
 			Code: "TEST",
 		}},
-		{"site", "id", []interface{}{"TEST", "TEST"}, &meta.Site{
+		{"site", "id", []interface{}{"TEST", "TEST"}, meta.Site{
 			Station:  "TEST",
 			Location: "TEST",
 		}},
-		{"station", "id", []interface{}{"TEST"}, &meta.Mark{
+		{"station", "id", []interface{}{"TEST"}, meta.Mark{
 			Reference: meta.Reference{
 				Code:    "TEST",
 				Network: "TEST",
@@ -145,8 +145,7 @@ func TestMetaDB_Multiple(t *testing.T) {
 
 	txn := db.Txn(true)
 	for _, a := range entries {
-		a = a // dereference loop variable
-		if err := txn.Insert("asset", &a); err != nil {
+		if err := txn.Insert("asset", a); err != nil {
 			t.Fatal(err)
 		}
 	}
