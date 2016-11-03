@@ -1,3 +1,3 @@
-Gauge,Network,LINZ Number,Analysis Time Zone,Analysis Latitude,Analysis Longitude
-AUCT,TG,363,180,36.5,174.47
-CPIT,TG,313,180,40.55,176.13
+Gauge,Network,LINZ Number,Analysis Time Zone,Analysis Latitude,Analysis Longitude,Crex Tag
+AUCT,TG,363,180,36.5,174.47,-3683144 17478654 AUCT
+CPIT,TG,313,180,40.55,176.13,-4089929 17623168 CPIT
