@@ -864,6 +864,7 @@ func TestList(t *testing.T) {
 						Latitude:  36.5,
 						Longitude: 174.47,
 					},
+					Crex: "-3683144 17478654 AUCT",
 				},
 				meta.Gauge{
 					Reference: meta.Reference{
@@ -876,6 +877,7 @@ func TestList(t *testing.T) {
 						Latitude:  40.55,
 						Longitude: 176.13,
 					},
+					Crex: "-4089929 17623168 CPIT",
 				},
 			},
 		},

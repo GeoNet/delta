@@ -11,9 +11,10 @@ const (
 	gaugeCode = iota
 	gaugeNetwork
 	gaugeNumber
-	gaugeTimeZone
-	gaugeLatitude
-	gaugeLongitude
+	gaugeAnalysisTimeZone
+	gaugeAnalysisLatitude
+	gaugeAnalysisLongitude
+	gaugeCrex
 	gaugeLast
 )
 
@@ -23,6 +24,7 @@ type Gauge struct {
 
 	Number   string
 	TimeZone float64
+	Crex     string
 }
 
 type GaugeList []Gauge
@@ -39,6 +41,7 @@ func (g GaugeList) encode() [][]string {
 		"Analysis Time Zone",
 		"Analysis Latitude",
 		"Analysis Longitude",
+		"Crex Tag",
 	}}
 	for _, v := range g {
 		data = append(data, []string{
@@ -48,6 +51,7 @@ func (g GaugeList) encode() [][]string {
 			strconv.FormatFloat(v.TimeZone, 'g', -1, 64),
 			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
+			strings.TrimSpace(v.Crex),
 		})
 	}
 	return data
@@ -63,13 +67,13 @@ func (g *GaugeList) decode(data [][]string) error {
 			var err error
 
 			var lat, lon, zone float64
-			if zone, err = strconv.ParseFloat(d[gaugeTimeZone], 64); err != nil {
+			if zone, err = strconv.ParseFloat(d[gaugeAnalysisTimeZone], 64); err != nil {
 				return err
 			}
-			if lat, err = strconv.ParseFloat(d[gaugeLatitude], 64); err != nil {
+			if lat, err = strconv.ParseFloat(d[gaugeAnalysisLatitude], 64); err != nil {
 				return err
 			}
-			if lon, err = strconv.ParseFloat(d[gaugeLongitude], 64); err != nil {
+			if lon, err = strconv.ParseFloat(d[gaugeAnalysisLongitude], 64); err != nil {
 				return err
 			}
 
@@ -83,6 +87,7 @@ func (g *GaugeList) decode(data [][]string) error {
 					Latitude:  lat,
 					Longitude: lon,
 				},
+				Crex:     strings.TrimSpace(d[gaugeCrex]),
 				TimeZone: zone,
 			})
 		}
