@@ -127,3 +127,9 @@ Golang module to load network list files (csv).
 ## tests
 
 Consistency checking of the network meta data.
+
+
+## protobufs
+
+There are protobuf definitions that follow the naming in `meta`.  Tests generate protobuf files
+for syncing to S3.  

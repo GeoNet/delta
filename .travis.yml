@@ -14,9 +14,20 @@ script:
   - ./test.sh
 
 deploy:
-  provider: script
-  script: ./deploy.sh
-  on:
-    branch: master
-          
+     - provider: s3
+       skip_cleanup: true
+       access_key_id: AKIAJ7KAYTEDAR345M7A
+       secret_access_key:
+         secure: SachpaN3cRFeR3Pr3VURGqtnlD8RfPoNeyKvECxfLJ4IozzKbxZRP9unKW7DsWrr+eQ225/jnJ36JzvXRZIkBj793m03QTxXSdCWGVUs/4bOxwBBtLlqjbEcUEZ9GiOlX4blMD/emmi8JZkSEkmnHaP0XHKyAudApuiKKGF4+re3qNh+a8Tg6gKqnBnfCtx6TFB9nkZ3+iyQJ4oGxrdnrXBlxNfHlPREBcFGAh7nW7bwlVbvpjFy4IwMrqiRItC65YG5B2jw2ZQR8ul7o9MOPHpx29CGTqA2C3dBpglQubCbqOzcT8EWvC2mQ9EhJR9Pz1oRvmIARG3NEQ66JSpF1VUBzwjeG3kazpFiMBnBPWy+0pi6+rAfHJsJq/WPuEWHI6iqYiNXNsW9/6glYba72fyEqgEELsXwy/Fy30DIxsOyzoLeyBbGDSYTeQNY7pfMgmyHdnSFWW2lny9MTV1EAYJ5/oEEuic5Dv7OIx2iwmAV03axemhU0h6O6BgK8Pccz1rPajG9P0fwgK/O7RlttAfvmqg0r+KucBFVs+HrfbpzPVMLw6SpWBpQPXoLCSs0gyMvs7JOxfWVih3QE/wR3hdrUfPPC/K8A+uhrerDtUfHRLKjT78sgXLaZyOdyap0n6YHHHoxUy3aevdowz3xpnwNzT2ktMGqpep4rqUGuSc=
+       bucket: api.geonet.org.nz
+       region: ap-southeast-2
+       local_dir: .tmp/api/delta
+       upload-dir: delta
+       on:
+          branch: master
+     - provider: script
+       script: ./deploy.sh
+       on:
+         branch: master
+
 # vim: set ts=2 sw=2 tw=0 et:
