@@ -18,7 +18,7 @@ deploy:
        skip_cleanup: true
        access_key_id: AKIAJ7KAYTEDAR345M7A
        secret_access_key:
-         secure: CEU38LANOevDCsDOeM9I9uLwyWneW8lkNTJQc58ZzIThCqSJ9zpbUW+k4tWWPg5yZYtQ8nudB17Z+WuteMCialr+ZbApn2DaCEgczL27/SRwyA5GMfLBVXIPW+1BpBvspHbwk9X1l+RdVOllr+5uVjq/gdhBhHYTrVht4+DNSJ3pr4IZU4r8E5p+7q0m/8ocQv+ED9suaBJH37ujiz17YV86q3KTRHn8MW9sCpzPb/xiXPPpj/ZP3I2Cd7M48UvjlBNAdCJdrH45h7ThIM4Ezwii3x20XSxp/ROL+buGARn8qxgGDBgAKuBjGKnYjvQHqYh0LN91LUrJElnefp2CRA2/JgdmTxQoQ4vG++0RRmJifWnnoPzHZJKJscoxYvUmkYIuRLFc/ZJZ5i3KnKyDSD4qTZ+/3dUDyCYxP3fTyYgcyno/SXF8V21KU9GLjlyTgxs/A2heotvW8SAHDfSd03hT9PHkeVbnuIzpSipHhNIkwPiKbvTtE0uaa+M/lkVtOR0Z2Pmc9L1cHFtZd6vuX9WwEN4LNN0e48TmrLyJjx9JlG5YWX+NIl7mLCtlVA3Mqg1UKdIvFDhpUq3gOfMzAEMRgBnZwQYK3ghrjCg/8+P1V6AjP1hbTe0YPTYVoJ8NClhQ29kfkdpIsRc0YhV8pUh30DHAqRpC2YeYpF3xPWU=
+         secure: Ag5GS9De5AeOs6lAYS2EkhHRwC8mdFfmuCNfQ+QOx/HSPSLNuP1TbKFQ17/3cAfWFJ/oIr3xHXAHz0fqWExJtedOusRLsfwdlFrtnagYcloEYnqnQnG9gYZuXMek2Cv1D8xRDx6mZ8evRPDhoWH8blVJdGgnj8dFQnSmRJJBdKzPv1jeSp1rOnC3ZrABbShKBDfsQKq4VRWQ4lAmS6AJEogbyJKhrNRSLEKIISCInW2+zK3uI1+y9vjPh05djiOr0RoeabBfdTWuJPOPmXaDxvII80UP+bJ/uXI+t1e28h4I8RCGtLs3sZHuozjg8L0Yewcdp4yi0LOxSEA/VuD5/+PyivyWOmxBzdaVA20Seyw2GR2Jxt1G+n8//AHXpt+iOkKbFR+QCNSwSX/uTPDyUXRnF4BgqIvy+epuYK69uQ180Sq+5m0R7AfaojNY1hgQWkFtnNPtdwY7/Xql/i0q1Sqou5qYaBqVSgvpjNjA9iwfDg9QXwaUHaHZQWMWAVHvnBqsde+eRbkZkmeT2nkAXR8Nsq4qW0XRmauIrnzKOowiZ8e2r0An4hldtJs2IOqmf6787l//OrcGaoIgFzSQRhXzKp98iOAjlHIYYu806mAHAwOOkrm6bJ3uCBiixiVec4WZV8LZl5kTU0WAIu1HJtj1bPl7rlHVChm+jaLUEcc=
        bucket: api.geonet.org.nz
        region: ap-southeast-2
        local_dir: .tmp/api/delta
