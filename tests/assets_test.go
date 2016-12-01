@@ -55,7 +55,7 @@ func TestAssets(t *testing.T) {
 				if assets[i].Serial != assets[j].Serial {
 					continue
 				}
-				t.Errorf("asset duplication: " + strings.Join([]string{assets[i].Model, assets[i].Serial}, " "))
+				t.Errorf("equipment duplication: " + strings.Join([]string{assets[i].Model, assets[i].Serial}, " "))
 			}
 		}
 
