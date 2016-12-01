@@ -11,6 +11,7 @@ trap error_handler ERR
 
 go test ./meta
 go test ./tests
+go test .
 
 exit $errcount
 

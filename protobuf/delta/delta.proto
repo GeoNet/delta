@@ -36,6 +36,12 @@ message Mark {
     Network network = 3;
     Point point = 4;
     Span span = 5;
+    Monument monument = 6;
+    repeated InstalledAntenna installed_antenna = 7;
+    repeated InstalledRadome installed_radome = 8;
+    repeated DeployedReceiver deployed_receiver = 9;
+    repeated Session session = 10;
+    repeated InstalledMetSensor installed_met_sensor = 11;
 }
 
 message Marks {
@@ -55,4 +61,75 @@ message Station {
 
 message Stations {
     map<string, Station> stations = 1;
+}
+
+message Monument {
+    string domes_number = 1;
+    string mark_type = 2;
+    string type = 3;
+    double ground_relationship = 4;
+    string foundation_type = 5;
+    double foundation_depth = 6;
+    string bedrock = 7;
+    string geology = 8;
+    Span span = 9;
+}
+
+message Offset {
+    double vertical = 1;
+    double north = 2;
+    double east = 3;
+}
+
+message Equipment {
+    string Make = 1;
+    string Model = 2;
+    string Serial = 3;
+}
+
+message InstalledAntenna {
+    Equipment equipment = 1;
+    Offset offset = 2;
+    Span span = 3;
+    double azimuth = 4;
+}
+
+message InstalledRadome {
+    Equipment equipment = 1;
+    Span span = 2;
+}
+
+message Firmware {
+    string version = 1;
+    string notes = 2;
+    Span span = 3;
+}
+
+message Receiver {
+    Equipment equipment = 1;
+    repeated Firmware firmware = 2;
+}
+
+message DeployedReceiver {
+    Receiver receiver = 1;
+    Span span = 2;
+}
+
+message Session {
+    string operator = 1;
+    string agency = 2;
+    string model = 3;
+    string satellite_system = 4;
+    // Interval - sample interval in nanoseconds
+    int64 interval = 5;
+    double elevation_mask = 6;
+    string header_comment = 7;
+    Span span = 8;
+}
+
+message InstalledMetSensor {
+    Equipment equipment = 1;
+    Span span = 2;
+    Point point = 3;
+    string iMS_comment = 4;
 }
