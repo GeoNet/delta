@@ -1,8 +1,10 @@
 package delta_test
 
 import (
+	"sort"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/GeoNet/delta/meta"
 )
@@ -113,19 +115,129 @@ func TestConnections(t *testing.T) {
 		}
 	}
 
-	/*
-		Station Code,Location Code,Datalogger Place,Datalogger Role,Pre Amp,Gain,Start Date,End Date
-		A11,10,Alfredton,Short Period,false,0,1993-02-01T01:23:00Z,1993-02-21T08:48:00Z
-		ABAZ,10,Whangaparaoa Navy Base,,false,0,2008-10-13T04:00:00Z,9999-01-01T00:00:00Z
-		AC1A,10,Wards Pass #1,,false,0,2001-09-12T03:00:01Z,2002-01-22T22:00:00Z
-		AC2A,10,Wards Pass #2,,false,0,2001-09-13T02:00:01Z,2002-01-22T22:00:00Z
-		AC3A,10,Acheron #3,,false,0,2001-07-31T23:00:00Z,2002-01-22T23:00:00Z
-		AC4A,10,Acheron #4,Short Period,false,0,2001-08-01T01:00:00Z,2002-01-22T23:00:00Z
-		AC5A,10,Wards Pass #5,,false,0,2001-08-01T04:00:00Z,2001-11-27T23:00:00Z
-		AGA,10,Angora Road,Short Period,false,0,1990-02-20T22:33:00Z,1992-04-07T17:01:00Z
-		AHAA,10,Ahaura,Short Period,false,0,1995-11-19T17:31:00Z,1995-12-12T01:28:00Z
-	*/
+	var missing []meta.Connection
 
-	/*
-	 */
+	var assets = make(map[string]meta.Asset)
+	{
+		var list meta.AssetList
+		t.Log("Load datalogger assets file")
+		if err := meta.LoadList("../assets/dataloggers.csv", &list); err != nil {
+			t.Fatal(err)
+		}
+		for _, d := range list {
+			assets[d.Model+":::"+d.Serial] = d
+		}
+		t.Log("Load sensor assets file")
+		if err := meta.LoadList("../assets/sensors.csv", &list); err != nil {
+			t.Fatal(err)
+		}
+		for _, s := range list {
+			assets[s.Model+":::"+s.Serial] = s
+		}
+	}
+
+	var sensors []meta.InstalledSensor
+	{
+		var list meta.InstalledSensorList
+		t.Log("Load stations file")
+		if err := meta.LoadList("../install/sensors.csv", &list); err != nil {
+			t.Fatal(err)
+		}
+		for _, s := range list {
+			sensors = append(sensors, s)
+		}
+	}
+
+	for _, s := range sensors {
+		if a, ok := assets[s.Model+":::"+s.Serial]; !ok || a.Number == "" {
+			continue
+		}
+		if s.End.Before(time.Now()) {
+			continue
+		}
+		var handled bool
+		for _, c := range connections {
+			if c.Station != s.Station || c.Location != s.Location {
+				continue
+			}
+			if c.Start.After(s.End) || c.End.Before(s.Start) {
+				continue
+			}
+			handled = true
+		}
+		if !handled {
+			var place string
+			if p, ok := stas[s.Station]; ok {
+				place = p.Name
+			}
+			missing = append(missing, meta.Connection{
+				Station:  s.Station,
+				Location: s.Location,
+				Place:    place,
+				Span: meta.Span{
+					Start: s.Start,
+					End:   s.End,
+				},
+			})
+			t.Errorf("no current connection defined for sensor: %s [%s/%s] %s %s", s.String(), s.Station, s.Location, s.Start, s.End)
+		}
+	}
+
+	var dataloggers []meta.DeployedDatalogger
+	{
+		var list meta.DeployedDataloggerList
+		t.Log("Load stations file")
+		if err := meta.LoadList("../install/dataloggers.csv", &list); err != nil {
+			t.Fatal(err)
+		}
+		for _, d := range list {
+			dataloggers = append(dataloggers, d)
+		}
+	}
+
+	for _, d := range dataloggers {
+		if a, ok := assets[d.Model+":::"+d.Serial]; !ok || a.Number == "" {
+			continue
+		}
+		if d.End.Before(time.Now()) {
+			continue
+		}
+		var handled bool
+		for _, c := range connections {
+			if c.Place != d.Place || c.Role != d.Role {
+				continue
+			}
+			if c.Start.After(d.End) || c.End.Before(d.Start) {
+				continue
+			}
+			handled = true
+		}
+		if !handled {
+			s, l := "XXXX", "LL"
+			for k, v := range stas {
+				if v.Name == d.Place {
+					s = k
+				}
+			}
+
+			missing = append(missing, meta.Connection{
+				Station:  s,
+				Location: l,
+				Place:    d.Place,
+				Role:     d.Role,
+				Span: meta.Span{
+					Start: d.Start,
+					End:   d.End,
+				},
+			})
+
+			t.Errorf("no current connection defined for datalogger: %s [%s/%s] %s %s", d.String(), d.Place, d.Role, d.Start, d.End)
+		}
+	}
+
+	if len(missing) > 0 {
+		sort.Sort(meta.ConnectionList(missing))
+		t.Log("\n" + string(meta.MarshalList(meta.ConnectionList(missing))))
+	}
+
 }
