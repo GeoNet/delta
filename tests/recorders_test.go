@@ -11,15 +11,23 @@ import (
 func TestRecorders(t *testing.T) {
 	var recorders meta.InstalledRecorderList
 
-	t.Log("Load installed recorders file")
-	{
-		if err := meta.LoadList("../install/recorders.csv", &recorders); err != nil {
-			t.Fatal(err)
-		}
+	if err := meta.LoadList("../install/recorders.csv", &recorders); err != nil {
+		t.Fatal(err)
 	}
 
-	t.Log("Check for recorder installation equipment overlaps")
-	{
+	var stations meta.StationList
+
+	if err := meta.LoadList("../network/stations.csv", &stations); err != nil {
+		t.Fatal(err)
+	}
+
+	var assets meta.AssetList
+
+	if err := meta.LoadList("../assets/recorders.csv", &assets); err != nil {
+		t.Fatal(err)
+	}
+
+	t.Run("Check for recorder installation equipment overlaps", func(t *testing.T) {
 		installs := make(map[string]meta.InstalledRecorderList)
 		for _, s := range recorders {
 			_, ok := installs[s.Model]
@@ -38,33 +46,27 @@ func TestRecorders(t *testing.T) {
 		sort.Strings(keys)
 
 		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
+			for i, v, n := 0, installs[k], len(installs[k]); i < n; i++ {
 				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].Serial != v[j].Serial:
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					case v[i].End.Equal(v[j].Start):
-					case v[i].Start.Equal(v[j].End):
-					default:
-						t.Errorf("recorder %s/%s at %-5s has location %-2s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Station, v[i].Location, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+					if v[i].Serial != v[j].Serial {
+						continue
 					}
+					if v[i].End.Before(v[j].Start) || v[i].Start.After(v[j].End) {
+						continue
+					}
+					if v[i].End.Equal(v[j].Start) || v[i].Start.Equal(v[j].End) {
+						continue
+					}
+					t.Errorf("recorder %s/%s at %-5s has location %-2s overlap between %s and %s",
+						v[i].Model, v[i].Serial, v[i].Station, v[i].Location,
+						v[i].Start.Format(meta.DateTimeFormat),
+						v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
+	})
 
-	t.Log("Check for missing recorder stations")
-	{
-		var stations meta.StationList
-
-		if err := meta.LoadList("../network/stations.csv", &stations); err != nil {
-			t.Fatal(err)
-		}
-
+	t.Run("Check for missing recorder stations", func(t *testing.T) {
 		keys := make(map[string]interface{})
 
 		for _, s := range stations {
@@ -77,18 +79,9 @@ func TestRecorders(t *testing.T) {
 			}
 			t.Errorf("unable to find recorder installed station %-5s", s.Station)
 		}
-	}
+	})
 
-	var assets meta.AssetList
-	t.Log("Load recorder assets file")
-	{
-		if err := meta.LoadList("../assets/recorders.csv", &assets); err != nil {
-			t.Fatal(err)
-		}
-	}
-
-	t.Log("Check for recorder assets")
-	{
+	t.Run("Check for recorder assets", func(t *testing.T) {
 		for _, r := range recorders {
 			model := r.DataloggerModel
 			if r.DataloggerModel != r.Model {
@@ -109,6 +102,6 @@ func TestRecorders(t *testing.T) {
 				t.Errorf("unable to find recorders asset: %s [%s]", model, r.Serial)
 			}
 		}
-	}
+	})
 
 }

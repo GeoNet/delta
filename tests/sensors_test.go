@@ -8,34 +8,30 @@ import (
 )
 
 func TestSensors(t *testing.T) {
-	var installed meta.InstalledSensorList
-	t.Log("Load installed sensors file")
-	{
-		if err := meta.LoadList("../install/sensors.csv", &installed); err != nil {
-			t.Fatal(err)
-		}
-		sort.Sort(installed)
+	var sensors meta.InstalledSensorList
+
+	if err := meta.LoadList("../install/sensors.csv", &sensors); err != nil {
+		t.Fatal(err)
 	}
 
-	t.Log("Check for missing sensors")
-	{
-		var sensors meta.AssetList
-		if err := meta.LoadList("../assets/sensors.csv", &sensors); err != nil {
-			t.Fatal(err)
-		}
-		sort.Sort(sensors)
-		for _, i := range installed {
-			n := sort.Search(len(sensors), func(j int) bool { return !sensors[j].Equipment.Less(i.Equipment) })
-			if n < 0 || i.Equipment.Less(sensors[n].Equipment) {
+	var assets meta.AssetList
+
+	if err := meta.LoadList("../assets/sensors.csv", &assets); err != nil {
+		t.Fatal(err)
+	}
+
+	t.Run("Check for missing sensors", func(t *testing.T) {
+		for _, i := range sensors {
+			n := sort.Search(len(assets), func(j int) bool { return !assets[j].Equipment.Less(i.Equipment) })
+			if n < 0 || i.Equipment.Less(assets[n].Equipment) {
 				t.Errorf("unable to find sensor: %s", i.String())
 			}
 		}
-	}
+	})
 
-	t.Log("Check for sensor installation overlaps")
-	{
+	t.Log("Check for sensor installation overlaps", func(t *testing.T) {
 		installs := make(map[string]meta.InstalledSensorList)
-		for _, s := range installed {
+		for _, s := range sensors {
 			_, ok := installs[s.Model]
 			if ok {
 				installs[s.Model] = append(installs[s.Model], s)
@@ -52,24 +48,25 @@ func TestSensors(t *testing.T) {
 		sort.Strings(keys)
 
 		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
+			for i, v, n := 0, installs[k], len(installs[k]); i < n; i++ {
 				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].Serial != v[j].Serial:
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					case v[i].End.Equal(v[j].Start):
-					case v[i].Start.Equal(v[j].End):
-					default:
-						t.Errorf("sensor %s/%s at %-5s has location %-2s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Station, v[i].Location, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+					if v[i].Serial != v[j].Serial {
+						continue
 					}
+					if v[i].End.Before(v[j].Start) || v[i].Start.After(v[j].End) {
+						continue
+					}
+					if v[i].End.Equal(v[j].Start) || v[i].Start.Equal(v[j].End) {
+						continue
+					}
+					t.Errorf("sensor %s/%s at %-5s has location %-2s overlap between %s and %s",
+						v[i].Model, v[i].Serial, v[i].Station, v[i].Location,
+						v[i].Start.Format(meta.DateTimeFormat),
+						v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
+	})
 
 	/*
 		t.Log("Check for missing sensor stations")
@@ -131,26 +128,19 @@ func TestSensors(t *testing.T) {
 		}
 	*/
 
-	for _, i := range installed {
-		if i.Orientation.Azimuth < -360.0 || i.Orientation.Azimuth > 360.0 {
-			t.Errorf("installed sensor has invalid orientation azimuth: %s [%g]", i.String(), i.Orientation.Azimuth)
+	t.Run("Check for sensor installations", func(t *testing.T) {
+		for _, i := range sensors {
+			if i.Orientation.Azimuth < -360.0 || i.Orientation.Azimuth > 360.0 {
+				t.Errorf("installed sensor has invalid orientation azimuth: %s [%g]", i.String(), i.Orientation.Azimuth)
+			}
+			if i.Orientation.Dip < -90.0 || i.Orientation.Dip > 90.0 {
+				t.Errorf("installed sensor has invalid orientation dip: %s [%g]", i.String(), i.Orientation.Dip)
+			}
 		}
-		if i.Orientation.Dip < -90.0 || i.Orientation.Dip > 90.0 {
-			t.Errorf("installed sensor has invalid orientation dip: %s [%g]", i.String(), i.Orientation.Dip)
-		}
-	}
+	})
 
-	var assets meta.AssetList
-	t.Log("Load receiver sensors file")
-	{
-		if err := meta.LoadList("../assets/sensors.csv", &assets); err != nil {
-			t.Fatal(err)
-		}
-	}
-
-	t.Log("Check for sensor assets")
-	{
-		for _, s := range installed {
+	t.Run("Check for sensor assets", func(t *testing.T) {
+		for _, s := range sensors {
 			var found bool
 			for _, a := range assets {
 				if a.Model != s.Model {
@@ -165,6 +155,6 @@ func TestSensors(t *testing.T) {
 				t.Errorf("unable to find sensor asset: %s [%s]", s.Model, s.Serial)
 			}
 		}
-	}
+	})
 
 }

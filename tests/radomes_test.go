@@ -8,17 +8,25 @@ import (
 )
 
 func TestRadomes(t *testing.T) {
-
 	var radomes meta.InstalledRadomeList
-	t.Log("Load deployed radomes file")
-	{
-		if err := meta.LoadList("../install/radomes.csv", &radomes); err != nil {
-			t.Fatal(err)
-		}
+
+	if err := meta.LoadList("../install/radomes.csv", &radomes); err != nil {
+		t.Fatal(err)
 	}
 
-	t.Log("Check for radomes installation equipment overlaps")
-	{
+	var marks meta.MarkList
+
+	if err := meta.LoadList("../network/marks.csv", &marks); err != nil {
+		t.Fatal(err)
+	}
+
+	var assets meta.AssetList
+
+	if err := meta.LoadList("../assets/radomes.csv", &assets); err != nil {
+		t.Fatal(err)
+	}
+
+	t.Run("Check for radomes installation equipment overlaps", func(t *testing.T) {
 		installs := make(map[string]meta.InstalledRadomeList)
 		for _, s := range radomes {
 			_, ok := installs[s.Model]
@@ -37,33 +45,27 @@ func TestRadomes(t *testing.T) {
 		sort.Strings(keys)
 
 		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
+			for i, v, n := 0, installs[k], len(installs[k]); i < n; i++ {
 				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].Serial != v[j].Serial:
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					case v[i].End.Equal(v[j].Start):
-					case v[i].Start.Equal(v[j].End):
-					default:
-						t.Errorf("radomes %s at %-5s has mark %s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+					if v[i].Serial != v[j].Serial {
+						continue
 					}
+					if v[i].End.Before(v[j].Start) || v[i].Start.After(v[j].End) {
+						continue
+					}
+					if v[i].End.Equal(v[j].Start) || v[i].Start.Equal(v[j].End) {
+						continue
+					}
+					t.Errorf("radomes %s at %-5s has mark %s overlap between %s and %s",
+						v[i].Model, v[i].Serial, v[i].Mark,
+						v[i].Start.Format(meta.DateTimeFormat),
+						v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
+	})
 
-	t.Log("Check for missing radome marks")
-	{
-		var marks meta.MarkList
-
-		if err := meta.LoadList("../network/marks.csv", &marks); err != nil {
-			t.Fatal(err)
-		}
-
+	t.Run("Check for missing radome marks", func(t *testing.T) {
 		keys := make(map[string]interface{})
 
 		for _, m := range marks {
@@ -76,18 +78,9 @@ func TestRadomes(t *testing.T) {
 			}
 			t.Errorf("unable to find radome mark %-5s", c.Mark)
 		}
-	}
+	})
 
-	var assets meta.AssetList
-	t.Log("Load radome assets file")
-	{
-		if err := meta.LoadList("../assets/radomes.csv", &assets); err != nil {
-			t.Fatal(err)
-		}
-	}
-
-	t.Log("Check for radome assets")
-	{
+	t.Run("Check for radome assets", func(t *testing.T) {
 		for _, r := range radomes {
 			var found bool
 			for _, a := range assets {
@@ -103,6 +96,6 @@ func TestRadomes(t *testing.T) {
 				t.Errorf("unable to find radome asset: %s [%s]", r.Model, r.Serial)
 			}
 		}
-	}
+	})
 
 }

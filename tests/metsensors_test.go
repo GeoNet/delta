@@ -8,17 +8,25 @@ import (
 )
 
 func TestMetSensors(t *testing.T) {
-
 	var metsensors meta.InstalledMetSensorList
-	t.Log("Load deployed metsensors file")
-	{
-		if err := meta.LoadList("../install/metsensors.csv", &metsensors); err != nil {
-			t.Fatal(err)
-		}
+
+	if err := meta.LoadList("../install/metsensors.csv", &metsensors); err != nil {
+		t.Fatal(err)
 	}
 
-	t.Log("Check for metsensors installation equipment overlaps")
-	{
+	var marks meta.MarkList
+
+	if err := meta.LoadList("../network/marks.csv", &marks); err != nil {
+		t.Fatal(err)
+	}
+
+	var assets meta.AssetList
+
+	if err := meta.LoadList("../assets/metsensors.csv", &assets); err != nil {
+		t.Fatal(err)
+	}
+
+	t.Run("Check for metsensors installation equipment overlaps", func(t *testing.T) {
 		installs := make(map[string]meta.InstalledMetSensorList)
 		for _, s := range metsensors {
 			_, ok := installs[s.Model]
@@ -37,33 +45,27 @@ func TestMetSensors(t *testing.T) {
 		sort.Strings(keys)
 
 		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
+			for i, v, n := 0, installs[k], len(installs[k]); i < n; i++ {
 				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].Serial != v[j].Serial:
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					case v[i].End.Equal(v[j].Start):
-					case v[i].Start.Equal(v[j].End):
-					default:
-						t.Errorf("metsensors %s at %-5s has mark %s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+					if v[i].Serial != v[j].Serial {
+						continue
 					}
+					if v[i].End.Before(v[j].Start) || v[i].Start.After(v[j].End) {
+						continue
+					}
+					if v[i].End.Equal(v[j].Start) || v[i].Start.Equal(v[j].End) {
+						continue
+					}
+					t.Errorf("metsensors %s at %-5s has mark %s overlap between %s and %s",
+						v[i].Model, v[i].Serial, v[i].Mark,
+						v[i].Start.Format(meta.DateTimeFormat),
+						v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
+	})
 
-	t.Log("Check for missing metsensor marks")
-	{
-		var marks meta.MarkList
-
-		if err := meta.LoadList("../network/marks.csv", &marks); err != nil {
-			t.Fatal(err)
-		}
-
+	t.Run("Check for missing metsensor marks", func(t *testing.T) {
 		keys := make(map[string]interface{})
 
 		for _, m := range marks {
@@ -76,18 +78,9 @@ func TestMetSensors(t *testing.T) {
 			}
 			t.Errorf("unable to find metsensor mark %-5s", c.Mark)
 		}
-	}
+	})
 
-	var assets meta.AssetList
-	t.Log("Load metsensor assets file")
-	{
-		if err := meta.LoadList("../assets/metsensors.csv", &assets); err != nil {
-			t.Fatal(err)
-		}
-	}
-
-	t.Log("Check for metsensor assets")
-	{
+	t.Run("Check for metsensor assets", func(t *testing.T) {
 		for _, r := range metsensors {
 			var found bool
 			for _, a := range assets {
@@ -103,6 +96,6 @@ func TestMetSensors(t *testing.T) {
 				t.Errorf("unable to find metsensor asset: %s [%s]", r.Model, r.Serial)
 			}
 		}
-	}
+	})
 
 }

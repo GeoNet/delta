@@ -1,11 +1,6 @@
 package delta_test
 
 import (
-	"bytes"
-	"encoding/csv"
-	"io/ioutil"
-	"os"
-	"os/exec"
 	"sort"
 	"strings"
 	"testing"
@@ -14,6 +9,7 @@ import (
 )
 
 func TestAssets(t *testing.T) {
+	var assets meta.AssetList
 
 	files := map[string]string{
 		"antennas":    "../assets/antennas.csv",
@@ -26,25 +22,28 @@ func TestAssets(t *testing.T) {
 		"sensors":     "../assets/sensors.csv",
 	}
 
-	reference := make(map[string]string)
-
 	for k, v := range files {
-		var assets meta.AssetList
-
-		t.Log("Check asset file can be loaded: " + k)
-		if err := meta.LoadList(v, &assets); err != nil {
+		var a meta.AssetList
+		t.Logf("Load %s assets file", k)
+		if err := meta.LoadList(v, &a); err != nil {
 			t.Fatal(err)
 		}
+		assets = append(assets, a...)
+	}
 
-		sort.Sort(assets)
+	sort.Sort(assets)
+
+	t.Run("check duplicate assets", func(t *testing.T) {
+		reference := make(map[string]string)
 
 		for _, a := range assets {
-			if a.Number != "" {
-				if x, ok := reference[a.Number]; ok {
-					t.Error(k + ": Duplicate asset number: " + a.String() + " " + a.Number + " [" + x + "]")
-				}
-				reference[a.Number] = a.String()
+			if a.Number == "" {
+				continue
 			}
+			if x, ok := reference[a.Number]; ok {
+				t.Error("duplicate asset number: " + a.String() + " " + a.Number + " [" + x + "]")
+			}
+			reference[a.Number] = a.String()
 		}
 
 		for i := 0; i < len(assets); i++ {
@@ -58,44 +57,5 @@ func TestAssets(t *testing.T) {
 				t.Errorf("equipment duplication: " + strings.Join([]string{assets[i].Model, assets[i].Serial}, " "))
 			}
 		}
-
-		t.Log("Check asset file consistency: " + k)
-		raw, err := ioutil.ReadFile(v)
-		if err != nil {
-			t.Fatal(err)
-		}
-
-		var buf bytes.Buffer
-		if err := csv.NewWriter(&buf).WriteAll(meta.EncodeList(assets)); err != nil {
-			t.Fatal(err)
-		}
-
-		if string(raw) != buf.String() {
-			t.Error(k + ": Assets file mismatch: " + v)
-
-			file, err := ioutil.TempFile(os.TempDir(), "tst")
-			if err != nil {
-				t.Fatal(err)
-			}
-			defer os.Remove(file.Name())
-			file.Write(buf.Bytes())
-
-			cmd := exec.Command("diff", "-c", v, file.Name())
-			stdout, err := cmd.StdoutPipe()
-			if err != nil {
-				t.Fatal(err)
-			}
-			err = cmd.Start()
-			if err != nil {
-				t.Fatal(err)
-			}
-			defer cmd.Wait()
-			diff, err := ioutil.ReadAll(stdout)
-			if err != nil {
-				t.Fatal(err)
-			}
-			t.Error(string(diff))
-
-		}
-	}
+	})
 }
