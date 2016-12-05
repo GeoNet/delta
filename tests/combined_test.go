@@ -7,34 +7,30 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
-func TestCombined(t *testing.T) {
+func testCombined(t *testing.T) {
+	var sensors meta.InstalledSensorList
 
-	var combined meta.InstalledSensorList
-	t.Log("Load installed sensors file")
-	{
-		if err := meta.LoadList("../install/sensors.csv", &combined); err != nil {
-			t.Fatal(err)
-		}
+	if err := meta.LoadList("../install/sensors.csv", &sensors); err != nil {
+		t.Fatal(err)
 	}
 
 	var recorders meta.InstalledRecorderList
-	t.Log("Load installed recorders file")
-	{
-		if err := meta.LoadList("../install/recorders.csv", &recorders); err != nil {
-			t.Fatal(err)
+
+	if err := meta.LoadList("../install/recorders.csv", &recorders); err != nil {
+		t.Fatal(err)
+	}
+
+	t.Run("Check for sensor/recorder installation location overlaps", func(t *testing.T) {
+		combined := append(meta.InstalledSensorList{}, sensors...)
+
+		for _, r := range recorders {
+			combined = append(combined, meta.InstalledSensor{
+				Install:  r.Install,
+				Station:  r.Station,
+				Location: r.Location,
+			})
 		}
-	}
 
-	for _, r := range recorders {
-		combined = append(combined, meta.InstalledSensor{
-			Install:  r.Install,
-			Station:  r.Station,
-			Location: r.Location,
-		})
-	}
-
-	t.Log("Check for sensor/recorder installation location overlaps")
-	{
 		installs := make(map[string]meta.InstalledSensorList)
 		for _, s := range combined {
 			_, ok := installs[s.Station]
@@ -50,26 +46,28 @@ func TestCombined(t *testing.T) {
 		for k, _ := range installs {
 			keys = append(keys, k)
 		}
+
 		sort.Strings(keys)
 
 		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
+			for i, v, n := 0, installs[k], len(installs[k]); i < n; i++ {
 				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].Location != v[j].Location:
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					case v[i].End.Equal(v[j].Start):
-					case v[i].Start.Equal(v[j].End):
-					default:
-						t.Errorf("sensor/recorder %s/%s at %-5s has location %-2s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Station, v[i].Location, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+					if v[i].Location != v[j].Location {
+						continue
 					}
+					if v[i].End.Before(v[j].Start) || v[i].Start.After(v[j].End) {
+						continue
+					}
+					if v[i].End.Equal(v[j].Start) || v[i].Start.Equal(v[j].End) {
+						continue
+					}
+					t.Errorf("sensor/recorder %s/%s at %-5s has location %-2s overlap between %s and %s",
+						v[i].Model, v[i].Serial,
+						v[i].Station, v[i].Location,
+						v[i].Start.Format(meta.DateTimeFormat),
+						v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
-
+	})
 }

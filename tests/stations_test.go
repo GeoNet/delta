@@ -3,30 +3,29 @@ package delta_test
 import (
 	"testing"
 
-	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/delta"
+	"github.com/GeoNet/delta/meta"
 	"github.com/golang/protobuf/proto"
-	"os"
 	"io/ioutil"
+	"os"
 )
 
 func TestStations(t *testing.T) {
-
 	var stations meta.StationList
-	t.Log("Load installed sensors file")
-	{
-		if err := meta.LoadList("../network/stations.csv", &stations); err != nil {
-			t.Fatal(err)
-		}
+
+	if err := meta.LoadList("../network/stations.csv", &stations); err != nil {
+		t.Fatal(err)
 	}
 
-	for i := 0; i < len(stations); i++ {
-		for j := i + 1; j < len(stations); j++ {
-			if stations[i].Code == stations[j].Code {
-				t.Errorf("station duplication: " + stations[i].Code)
+	t.Run("check for duplicate stations", func(t *testing.T) {
+		for i := 0; i < len(stations); i++ {
+			for j := i + 1; j < len(stations); j++ {
+				if stations[i].Code == stations[j].Code {
+					t.Errorf("station duplication: " + stations[i].Code)
+				}
 			}
 		}
-	}
+	})
 
 }
 
@@ -42,10 +41,10 @@ func TestStationsProto(t *testing.T) {
 
 	for _, v := range networks {
 		n := delta.Network{
-			Code: v.Code,
-			External: v.External,
+			Code:        v.Code,
+			External:    v.External,
 			Description: v.Description,
-			Restricted: v.Restricted,
+			Restricted:  v.Restricted,
 		}
 
 		net[v.Code] = &n
@@ -65,23 +64,23 @@ func TestStationsProto(t *testing.T) {
 
 	for _, v := range stations {
 		pt := delta.Point{
-			Longitude:v.Longitude,
-			Latitude:v.Latitude,
-			Elevation:v.Elevation,
-			Datum:v.Datum,
+			Longitude: v.Longitude,
+			Latitude:  v.Latitude,
+			Elevation: v.Elevation,
+			Datum:     v.Datum,
 		}
 
 		sp := delta.Span{
-			Start:v.Start.Unix(),
-			End:v.End.Unix(),
+			Start: v.Start.Unix(),
+			End:   v.End.Unix(),
 		}
 
 		st := delta.Station{
-			Code:v.Code,
-			Name:v.Name,
+			Code:    v.Code,
+			Name:    v.Name,
 			Network: net[v.Network],
-			Point:&pt,
-			Span:&sp,
+			Point:   &pt,
+			Span:    &sp,
 		}
 
 		s.Stations[st.Code] = &st
@@ -98,7 +97,7 @@ func TestStationsProto(t *testing.T) {
 		t.Error(err)
 	}
 
-	if err := ioutil.WriteFile(apiDir + "/stations.pb", b, 0644); err != nil {
+	if err := ioutil.WriteFile(apiDir+"/stations.pb", b, 0644); err != nil {
 		t.Error(err)
 	}
 }

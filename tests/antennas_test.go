@@ -8,17 +8,31 @@ import (
 )
 
 func TestAntennas(t *testing.T) {
-
 	var antennas meta.InstalledAntennaList
-	t.Log("Load deployed antennas file")
-	{
-		if err := meta.LoadList("../install/antennas.csv", &antennas); err != nil {
-			t.Fatal(err)
-		}
+
+	if err := meta.LoadList("../install/antennas.csv", &antennas); err != nil {
+		t.Fatal(err)
 	}
 
-	t.Log("Check for antenna installation equipment overlaps")
-	{
+	var marks meta.MarkList
+
+	if err := meta.LoadList("../network/marks.csv", &marks); err != nil {
+		t.Fatal(err)
+	}
+
+	var sessions meta.SessionList
+
+	if err := meta.LoadList("../install/sessions.csv", &sessions); err != nil {
+		t.Fatal(err)
+	}
+
+	var assets meta.AssetList
+
+	if err := meta.LoadList("../assets/antennas.csv", &assets); err != nil {
+		t.Fatal(err)
+	}
+
+	t.Run("Check for antenna installation equipment overlaps", func(*testing.T) {
 		installs := make(map[string]meta.InstalledAntennaList)
 		for _, s := range antennas {
 			if _, ok := installs[s.Model]; !ok {
@@ -34,27 +48,25 @@ func TestAntennas(t *testing.T) {
 		sort.Strings(keys)
 
 		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
+			for i, n, v := 0, len(installs[k]), installs[k]; i < n; i++ {
 				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].Serial != v[j].Serial:
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					case v[i].End.Equal(v[j].Start):
-					case v[i].Start.Equal(v[j].End):
-					default:
-						t.Errorf("antennas %s [%s] at %s has overlap at %s between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Mark, v[j].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+					if v[i].Serial != v[j].Serial {
+						continue
 					}
+					if v[i].End.Before(v[j].Start) || v[i].Start.After(v[j].End) {
+						continue
+					}
+					if v[i].End.Equal(v[j].Start) || v[i].Start.Equal(v[j].End) {
+						continue
+					}
+					t.Errorf("antennas %s [%s] at %s has overlap at %s between %s and %s",
+						v[i].Model, v[i].Serial, v[i].Mark, v[j].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
+	})
 
-	t.Log("Check for antenna installation mark overlaps")
-	{
+	t.Run("Check for antenna installation mark overlaps", func(*testing.T) {
 		installs := make(map[string]meta.InstalledAntennaList)
 		for _, s := range antennas {
 			if _, ok := installs[s.Mark]; !ok {
@@ -70,32 +82,23 @@ func TestAntennas(t *testing.T) {
 		sort.Strings(keys)
 
 		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
+			for i, n, v := 0, len(installs[k]), installs[k]; i < n; i++ {
 				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					case v[i].End.Equal(v[j].Start):
-					case v[i].Start.Equal(v[j].End):
-					default:
-						t.Errorf("antennas %s [%s] and %s [%s] at %s has overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[j].Model, v[j].Serial, v[i].Mark,
-							v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+					if v[i].End.Before(v[j].Start) || v[i].Start.After(v[j].End) {
+						continue
 					}
+					if v[i].End.Equal(v[j].Start) || v[i].Start.Equal(v[j].End) {
+						continue
+					}
+					t.Errorf("antennas %s [%s] and %s [%s] at %s has overlap between %s and %s",
+						v[i].Model, v[i].Serial, v[j].Model, v[j].Serial, v[i].Mark,
+						v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
+	})
 
-	t.Log("Check for missing antenna marks")
-	{
-		var marks meta.MarkList
-
-		if err := meta.LoadList("../network/marks.csv", &marks); err != nil {
-			t.Fatal(err)
-		}
+	t.Run("Check for missing antenna marks", func(*testing.T) {
 
 		keys := make(map[string]interface{})
 
@@ -109,18 +112,9 @@ func TestAntennas(t *testing.T) {
 			}
 			t.Errorf("unable to find antenna mark %-5s", c.Mark)
 		}
-	}
+	})
 
-	var assets meta.AssetList
-	t.Log("Load antenna assets file")
-	{
-		if err := meta.LoadList("../assets/antennas.csv", &assets); err != nil {
-			t.Fatal(err)
-		}
-	}
-
-	t.Log("Check for antenna assets")
-	{
+	t.Run("Check for antenna assets", func(*testing.T) {
 		for _, r := range antennas {
 			var found bool
 			for _, a := range assets {
@@ -136,18 +130,9 @@ func TestAntennas(t *testing.T) {
 				t.Errorf("unable to find antenna asset: %s [%s]", r.Model, r.Serial)
 			}
 		}
-	}
+	})
 
-	var sessions meta.SessionList
-	t.Log("Load session list")
-	{
-		if err := meta.LoadList("../install/sessions.csv", &sessions); err != nil {
-			t.Fatal(err)
-		}
-	}
-
-	t.Log("Check sessions exist ...")
-	{
+	t.Run("Check sessions exist ...", func(*testing.T) {
 		for _, r := range antennas {
 			var found bool
 			for _, s := range sessions {
@@ -163,5 +148,5 @@ func TestAntennas(t *testing.T) {
 				t.Log(r)
 			}
 		}
-	}
+	})
 }
