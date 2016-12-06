@@ -900,6 +900,40 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
+		{
+			"testdata/services.csv",
+			&meta.ServiceList{
+				meta.Service{
+					Tag:         "igs",
+					Description: "IGS Service",
+				},
+				meta.Service{
+					Tag:         "linz",
+					Description: "LINZ Service",
+				},
+				meta.Service{
+					Tag:         "rt",
+					Description: "Real-Time Streaming",
+				},
+			},
+		},
+		{
+			"testdata/associations.csv",
+			&meta.AssociationList{
+				meta.Association{
+					Code: "AUCK",
+					Tags: []string{"igs", "linz", "rt"},
+				},
+				meta.Association{
+					Code: "BLUF",
+					Tags: []string{"linz", "rt"},
+				},
+				meta.Association{
+					Code: "CHTI",
+					Tags: []string{"igs", "linz", "rt"},
+				},
+			},
+		},
 	}
 
 	for _, tt := range listtests {
