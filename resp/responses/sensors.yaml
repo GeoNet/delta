@@ -413,7 +413,7 @@ sensormodel:
     - azimuth: 90
       dip: 0
   InfraBSU microphone:
-    type: Mirophone
+    type: Microphone
     description: InfraBSU
     manufacturer: ""
     vendor: ""
