@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+// protoc --proto_path=protobuf/delta --go_out=. protobuf/delta/delta.proto
+
 package delta;
 option go_package = "delta";
 
@@ -48,21 +50,6 @@ message Marks {
     map<string, Mark> marks = 1;
 }
 
-message Station {
-    // Code used to uniquely identify the Station.
-    string code = 1;
-    // Name used to describe the general geographical location of the Station.
-    string name = 2;
-
-    Network network = 3;
-    Point point = 4;
-    Span span = 5;
-}
-
-message Stations {
-    map<string, Station> stations = 1;
-}
-
 message Monument {
     string domes_number = 1;
     string mark_type = 2;
@@ -82,9 +69,11 @@ message Offset {
 }
 
 message Equipment {
-    string Make = 1;
-    string Model = 2;
-    string Serial = 3;
+    string make = 1;
+    string model = 2;
+    string serial = 3;
+    // Type e.g., Strong Motion Sensor
+    string type = 4;
 }
 
 message InstalledAntenna {
@@ -133,3 +122,52 @@ message InstalledMetSensor {
     Point point = 3;
     string iMS_comment = 4;
 }
+
+// Station is a seismic or guage station.  It is the general location
+// location of recording equipment.
+message Station {
+    // Code used to uniquely identify the Station.
+    string code = 1;
+    // Name used to describe the general geographical location of the Station.
+    string name = 2;
+
+    Network network = 3;
+    Point point = 4;
+    Span span = 5;
+
+    map<string, Site> sites = 6;  // sites_test.go ensures sites are unique at a station.
+}
+
+message Stations {
+    map<string, Station> stations = 1;
+}
+
+// a seismic sensor or gauge is located at a site.
+message Site {
+    string location = 1;
+    string survey = 2;
+    Point point = 3;
+    Span span = 4;
+
+    repeated InstalledSensor installed_sensor = 5;
+}
+
+message Orientation {
+    double dip = 1;
+    double azimuth = 2;
+}
+
+message Scale {
+    double factor = 1;
+    double bias = 2;
+}
+
+message InstalledSensor {
+    Equipment equipment = 1;
+    Span span = 2;
+
+    Orientation orientation = 3;
+    Offset offset = 4;
+    Scale scale = 5;
+}
+
