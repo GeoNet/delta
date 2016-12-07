@@ -445,7 +445,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 	},
 	"InfraBSU microphone": SensorModel{
 		Name:         "InfraBSU microphone",
-		Type:         "Mirophone",
+		Type:         "Microphone",
 		Description:  "InfraBSU",
 		Manufacturer: "",
 		Vendor:       "",
