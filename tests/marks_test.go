@@ -11,6 +11,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"bytes"
+	"time"
 )
 
 const apiDir = "../.tmp/api/delta"
@@ -344,8 +345,8 @@ func TestMarks(t *testing.T) {
 		 bf.WriteString(fmt.Sprintf(",\"name\":\"%s\"", v.Name))
 		 bf.WriteString(fmt.Sprintf(",\"datum\":\"%s\"", v.Point.Datum))
 		 bf.WriteString(fmt.Sprintf(",\"elevation\":%f", v.Point.Elevation))
-		 bf.WriteString(fmt.Sprintf(",\"start\":\"%d\"", v.Span.Start))
-		 bf.WriteString(fmt.Sprintf(",\"end\":\"%d\"", v.Span.End))
+		 bf.WriteString(fmt.Sprintf(",\"start\":\"%s\"", time.Unix(v.Span.Start, 0).UTC().Format(time.RFC3339)))
+		 bf.WriteString(fmt.Sprintf(",\"end\":\"%s\"", time.Unix(v.Span.End, 0).UTC().Format(time.RFC3339)))
 
 		 var group string
 
