@@ -13,6 +13,7 @@ import (
 	"fmt"
 	"strings"
 	"encoding/json"
+	"time"
 )
 
 func TestStations(t *testing.T) {
@@ -320,8 +321,8 @@ func writeProps(station *delta.Station, site *delta.Site, sensor *delta.Installe
 	b.WriteString(fmt.Sprintf(",\"datum\":\"%s\"", site.Point.Datum))
 	b.WriteString(fmt.Sprintf(",\"elevation\":%f", site.Point.Elevation))
 	b.WriteString(fmt.Sprintf(",\"vertical_offset\":%f", sensor.Offset.Vertical))
-	b.WriteString(fmt.Sprintf(",\"start\":\"%d\"", sensor.Span.Start))
-	b.WriteString(fmt.Sprintf(",\"end\":\"%d\"", sensor.Span.End))
+	b.WriteString(fmt.Sprintf(",\"start\":\"%s\"", time.Unix(sensor.Span.Start, 0).UTC().Format(time.RFC3339)))
+	b.WriteString(fmt.Sprintf(",\"end\":\"%s\"", time.Unix(sensor.Span.End, 0).UTC().Format(time.RFC3339)))
 
 	b.WriteString(`}}`)
 }
