@@ -9,8 +9,8 @@ import (
 	"github.com/GeoNet/delta"
 	"github.com/golang/protobuf/proto"
 	"encoding/json"
-	"fmt"
 	"bytes"
+	"fmt"
 	"time"
 )
 
@@ -323,50 +323,97 @@ func TestMarks(t *testing.T) {
 		 t.Error(err)
 	 }
 
-	 var bf bytes.Buffer
+	 // GeoJSON files of site for each sensor type.
+	 // This is similar to the sensor type output in stations_test.go
+	 // There is no other sensor type lookup so handle that switching here.
+	 // There is fractionally more work as this is two different installed types
+	 // (antenna and metsensor).
 
-	 bf.WriteString(`{"type": "FeatureCollection","features": [`)
+	 out := map[string]*bytes.Buffer{
+		 "metsensor": &bytes.Buffer{},
+		 "gpsantenna": &bytes.Buffer{},
+	 }
 
-	 f := false
-	 for _, v := range m.Marks {
-		 if v.GetSpan() == nil || v.GetPoint() == nil || v.GetNetwork() == nil {
+	 for k := range out {
+		 out[k].WriteString(`{"type": "FeatureCollection","features": [`)
+	 }
+
+	 for _, mark := range m.Marks {
+		 if mark.GetSpan() == nil || mark.GetPoint() == nil || mark.GetNetwork() == nil {
 			 continue
 		 }
 
-		 if f {
-			 bf.WriteString(`,`)
-		 }
-		 f = true
-
-		 bf.WriteString(`{"type":"Feature","geometry":{"type": "Point","coordinates": [`)
-		 bf.WriteString(fmt.Sprintf("%f,%f", v.Point.Longitude, v.Point.Latitude))
-		 bf.WriteString(`]},"properties":{`)
-		 bf.WriteString(fmt.Sprintf("\"code\":\"%s\"", v.Code))
-		 bf.WriteString(fmt.Sprintf(",\"name\":\"%s\"", v.Name))
-		 bf.WriteString(fmt.Sprintf(",\"datum\":\"%s\"", v.Point.Datum))
-		 bf.WriteString(fmt.Sprintf(",\"elevation\":%f", v.Point.Elevation))
-		 bf.WriteString(fmt.Sprintf(",\"start\":\"%s\"", time.Unix(v.Span.Start, 0).UTC().Format(time.RFC3339)))
-		 bf.WriteString(fmt.Sprintf(",\"end\":\"%s\"", time.Unix(v.Span.End, 0).UTC().Format(time.RFC3339)))
-
-		 var group string
-
-		 switch v.Network.Code {
-		 case "LI", "IG":
-			 group = "LINZ"
-		 case "CG", "SA":
-			 group = "GeoNet"
-		 default:
-			 group = "other"
+		 if mark.InstalledAntenna != nil && len(mark.InstalledAntenna) > 0 {
+			 for _, v := range mark.InstalledAntenna {
+				 writeAntennaProps(mark, v, out["gpsantenna"])
+			 }
 		 }
 
-		 bf.WriteString(fmt.Sprintf(",\"group\":\"%s\"", group))
-
-		 bf.WriteString(`}}`)
+		 if mark.InstalledMetSensor != nil && len(mark.InstalledMetSensor) > 0 {
+			 for _,v := range mark.InstalledMetSensor {
+				 writeMetsensorProps(mark, v, out["metsensor"])
+			 }
+		 }
 	 }
 
-	 bf.WriteString(`]}`)
+	 for k := range out {
+		 out[k].WriteString(`]}`)
 
-	 if err := ioutil.WriteFile(apiDir + "/marks.geojson", bf.Bytes(), 0644); err != nil {
-		 t.Error(err)
+		 fn := apiDir + "/" + k + ".geojson"
+
+		 if err := ioutil.WriteFile(fn, out[k].Bytes(), 0644); err != nil {
+			 t.Error(err)
+		 }
 	 }
  }
+
+func writeAntennaProps(mark *delta.Mark, antenna *delta.InstalledAntenna, b *bytes.Buffer) {
+	if !bytes.HasSuffix(b.Bytes(), []byte("[")) {
+		b.WriteString(",")
+	}
+
+	b.WriteString(`{"type":"Feature","geometry":{"type": "Point","coordinates": [`)
+	b.WriteString(fmt.Sprintf("%f,%f", mark.Point.Longitude, mark.Point.Latitude))
+	b.WriteString(`]},"properties":{`)
+	b.WriteString(fmt.Sprintf("\"code\":\"%s\"", mark.Code))
+	b.WriteString(fmt.Sprintf(",\"datum\":\"%s\"", mark.Point.Datum))
+	b.WriteString(fmt.Sprintf(",\"elevation\":%f", mark.Point.Elevation))
+	b.WriteString(fmt.Sprintf(",\"start\":\"%s\"", time.Unix(antenna.Span.Start, 0).UTC().Format(time.RFC3339)))
+	b.WriteString(fmt.Sprintf(",\"end\":\"%s\"", time.Unix(antenna.Span.End, 0).UTC().Format(time.RFC3339)))
+
+	// GNSS Marks are grouped for display (there is no semantic meaning for data access).
+	var group string
+
+	switch mark.Network.Code {
+	case "LI", "IG":
+		group = "LINZ"
+	case "CG", "SA":
+		group = "GeoNet"
+	default:
+		group = "other"
+	}
+
+	b.WriteString(fmt.Sprintf(",\"group\":\"%s\"", group))
+
+	b.WriteString(`}}`)
+}
+
+// where there is a metsensor it is installed close to the Mark.
+// not sure that the offset from the Mark has been tracked, or that it matters.
+func writeMetsensorProps(mark *delta.Mark, metsensor *delta.InstalledMetSensor, b *bytes.Buffer) {
+	if !bytes.HasSuffix(b.Bytes(), []byte("[")) {
+		b.WriteString(",")
+	}
+
+	b.WriteString(`{"type":"Feature","geometry":{"type": "Point","coordinates": [`)
+	b.WriteString(fmt.Sprintf("%f,%f", mark.Point.Longitude, mark.Point.Latitude))
+	b.WriteString(`]},"properties":{`)
+	b.WriteString(fmt.Sprintf("\"code\":\"%s\"", mark.Code))
+	b.WriteString(fmt.Sprintf(",\"datum\":\"%s\"", mark.Point.Datum))
+	b.WriteString(fmt.Sprintf(",\"elevation\":%f", mark.Point.Elevation))
+	b.WriteString(fmt.Sprintf(",\"start\":\"%s\"", time.Unix(metsensor.Span.Start, 0).UTC().Format(time.RFC3339)))
+	b.WriteString(fmt.Sprintf(",\"end\":\"%s\"", time.Unix(metsensor.Span.End, 0).UTC().Format(time.RFC3339)))
+	b.WriteString(`}}`)
+}
+
+
