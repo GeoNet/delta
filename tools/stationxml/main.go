@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"github.com/GeoNet/delta/meta"
+	"github.com/GeoNet/delta/resp"
 	"github.com/ozym/fdsn/stationxml"
 )
 
@@ -260,7 +261,7 @@ func main() {
 							labels = strings.Replace(labels, "2", "E", -1)
 						}
 
-						model, ok := SensorModels[sensorInstall.Model]
+						model, ok := resp.SensorModels[sensorInstall.Model]
 						if !ok {
 							continue
 						}
@@ -316,13 +317,40 @@ func main() {
 								if s.StageSet == nil {
 									continue
 								}
-								stages = append(stages, s.StageSet.ResponseStage(Stage{
-									responseStage: s,
-									count:         len(stages) + 1,
-									id:            s.Filter,
-									name:          fmt.Sprintf("%s.%04d.%03d.stage_%d", tag, on.Year(), on.YearDay(), len(stages)+1),
-									frequency:     freq,
-								}))
+								switch s.StageSet.GetType() {
+								case "poly":
+									stages = append(stages, polyResponseStage(s.StageSet.(resp.Polynomial), Stage{
+										responseStage: s,
+										count:         len(stages) + 1,
+										id:            s.Filter,
+										name:          fmt.Sprintf("%s.%04d.%03d.stage_%d", tag, on.Year(), on.YearDay(), len(stages)+1),
+										frequency:     freq,
+									}))
+								case "paz":
+									stages = append(stages, pazResponseStage(s.StageSet.(resp.PAZ), Stage{
+										responseStage: s,
+										count:         len(stages) + 1,
+										id:            s.Filter,
+										name:          fmt.Sprintf("%s.%04d.%03d.stage_%d", tag, on.Year(), on.YearDay(), len(stages)+1),
+										frequency:     freq,
+									}))
+								case "a2d":
+									stages = append(stages, a2dResponseStage(Stage{
+										responseStage: s,
+										count:         len(stages) + 1,
+										id:            s.Filter,
+										name:          fmt.Sprintf("%s.%04d.%03d.stage_%d", tag, on.Year(), on.YearDay(), len(stages)+1),
+										frequency:     freq,
+									}))
+								case "fir":
+									stages = append(stages, firResponseStage(s.StageSet.(resp.FIR), Stage{
+										responseStage: s,
+										count:         len(stages) + 1,
+										id:            s.Filter,
+										name:          fmt.Sprintf("%s.%04d.%03d.stage_%d", tag, on.Year(), on.YearDay(), len(stages)+1),
+										frequency:     freq,
+									}))
+								}
 							}
 
 							channels = append(channels, stationxml.Channel{
@@ -411,25 +439,25 @@ func main() {
 								Sensor: &stationxml.Equipment{
 									ResourceId: "Sensor#" + sensorInstall.Model + ":" + sensorInstall.Serial,
 									Type: func() string {
-										if t, ok := SensorModels[sensorInstall.Model]; ok {
+										if t, ok := resp.SensorModels[sensorInstall.Model]; ok {
 											return t.Type
 										}
 										return ""
 									}(),
 									Description: func() string {
-										if t, ok := SensorModels[sensorInstall.Model]; ok {
+										if t, ok := resp.SensorModels[sensorInstall.Model]; ok {
 											return t.Description
 										}
 										return ""
 									}(),
 									Manufacturer: func() string {
-										if t, ok := SensorModels[sensorInstall.Model]; ok {
+										if t, ok := resp.SensorModels[sensorInstall.Model]; ok {
 											return t.Manufacturer
 										}
 										return ""
 									}(),
 									Vendor: func() string {
-										if t, ok := SensorModels[sensorInstall.Model]; ok {
+										if t, ok := resp.SensorModels[sensorInstall.Model]; ok {
 											return t.Vendor
 										}
 										return ""
@@ -450,25 +478,25 @@ func main() {
 								DataLogger: &stationxml.Equipment{
 									ResourceId: "Datalogger#" + dataloggerDeploy.Model + ":" + dataloggerDeploy.Serial,
 									Type: func() string {
-										if t, ok := DataloggerModels[dataloggerDeploy.Model]; ok {
+										if t, ok := resp.DataloggerModels[dataloggerDeploy.Model]; ok {
 											return t.Type
 										}
 										return ""
 									}(),
 									Description: func() string {
-										if t, ok := DataloggerModels[dataloggerDeploy.Model]; ok {
+										if t, ok := resp.DataloggerModels[dataloggerDeploy.Model]; ok {
 											return t.Description
 										}
 										return ""
 									}(),
 									Manufacturer: func() string {
-										if t, ok := DataloggerModels[dataloggerDeploy.Model]; ok {
+										if t, ok := resp.DataloggerModels[dataloggerDeploy.Model]; ok {
 											return t.Manufacturer
 										}
 										return ""
 									}(),
 									Vendor: func() string {
-										if t, ok := DataloggerModels[dataloggerDeploy.Model]; ok {
+										if t, ok := resp.DataloggerModels[dataloggerDeploy.Model]; ok {
 											return t.Vendor
 										}
 										return ""
