@@ -1,0 +1,4 @@
+Station,Location,Sampling Rate,Axial,Reversed,Start Date,End Date
+CMWZ,10,100,false,false,2003-12-10T19:00:02Z,9999-01-01T00:00:00Z
+CMWZ,20,50,false,false,2016-12-05T06:30:00Z,9999-01-01T00:00:00Z
+CMWZ,20,200,false,false,2016-12-05T06:30:00Z,9999-01-01T00:00:00Z

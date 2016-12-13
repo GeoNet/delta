@@ -4,11 +4,12 @@ import (
 	"strconv"
 	//	"strings"
 
+	"github.com/GeoNet/delta/resp"
 	"github.com/ozym/fdsn/stationxml"
 )
 
 type Stage struct {
-	responseStage ResponseStage
+	responseStage resp.ResponseStage
 	count         int
 	id            string
 	name          string
@@ -16,7 +17,7 @@ type Stage struct {
 }
 
 type Stager interface {
-	ResponseStage(stage ResponseStage, count int, id, name string, frequency float64) stationxml.ResponseStage
+	ResponseStage(stage resp.ResponseStage, count int, id, name string, frequency float64) stationxml.ResponseStage
 }
 
 func (s Stage) a2d() stationxml.ResponseStage {
@@ -58,7 +59,7 @@ func (s Stage) a2d() stationxml.ResponseStage {
 	}
 }
 
-func (s Stage) paz(pz PAZ) stationxml.ResponseStage {
+func (s Stage) paz(pz resp.PAZ) stationxml.ResponseStage {
 
 	var poles []stationxml.PoleZero
 	for j, p := range pz.Poles {
@@ -84,7 +85,7 @@ func (s Stage) paz(pz PAZ) stationxml.ResponseStage {
 			InputUnits:  stationxml.Units{Name: s.responseStage.InputUnits},
 			OutputUnits: stationxml.Units{Name: s.responseStage.OutputUnits},
 		},
-		PzTransferFunction: pz.Code,
+		PzTransferFunction: stationxml.PzTransferFunction(pz.Code),
 		NormalizationFactor: func() float64 {
 			return 1.0 / pz.Gain(s.frequency)
 		}(),
@@ -111,7 +112,7 @@ func (s Stage) paz(pz PAZ) stationxml.ResponseStage {
 
 }
 
-func (s Stage) polynomial(p Polynomial) stationxml.ResponseStage {
+func (s Stage) polynomial(p resp.Polynomial) stationxml.ResponseStage {
 
 	var coeffs []stationxml.Coefficient
 	for n, c := range p.Coefficients {
@@ -128,7 +129,7 @@ func (s Stage) polynomial(p Polynomial) stationxml.ResponseStage {
 			InputUnits:  stationxml.Units{Name: s.responseStage.InputUnits},
 			OutputUnits: stationxml.Units{Name: s.responseStage.OutputUnits},
 		},
-		ApproximationType:       p.ApproximationType,
+		ApproximationType:       stationxml.ApproximationType(p.ApproximationType),
 		FrequencyLowerBound:     stationxml.Frequency{stationxml.Float{Value: p.FrequencyLowerBound}},
 		FrequencyUpperBound:     stationxml.Frequency{stationxml.Float{Value: p.FrequencyUpperBound}},
 		ApproximationLowerBound: strconv.FormatFloat(p.ApproximationLowerBound, 'g', -1, 64),
@@ -154,7 +155,7 @@ func (s Stage) polynomial(p Polynomial) stationxml.ResponseStage {
 	}
 }
 
-func (s Stage) fir(f FIR) stationxml.ResponseStage {
+func (s Stage) fir(f resp.FIR) stationxml.ResponseStage {
 
 	var coeffs []stationxml.NumeratorCoefficient
 	for j, c := range f.Factors {
@@ -171,7 +172,7 @@ func (s Stage) fir(f FIR) stationxml.ResponseStage {
 			InputUnits:  stationxml.Units{Name: s.responseStage.InputUnits},
 			OutputUnits: stationxml.Units{Name: s.responseStage.OutputUnits},
 		},
-		Symmetry: f.Symmetry,
+		Symmetry: stationxml.Symmetry(f.Symmetry),
 		/*
 			func() stationxml.Symmetry {
 				switch strings.ToUpper(f.Symmetry) {

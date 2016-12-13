@@ -1,9 +1,13 @@
 package main
 
-func GetResponseStreams(datalogger, sensor string) []Stream {
-	var streams []Stream
+import (
+	"github.com/GeoNet/delta/resp"
+)
 
-	for _, r := range Responses {
+func GetResponseStreams(datalogger, sensor string) []resp.Stream {
+	var streams []resp.Stream
+
+	for _, r := range resp.Responses {
 		for _, l := range r.Dataloggers {
 			for _, d := range l.Dataloggers {
 				if datalogger != d {
@@ -12,7 +16,7 @@ func GetResponseStreams(datalogger, sensor string) []Stream {
 				for _, x := range r.Sensors {
 					for _, b := range x.Sensors {
 						if sensor == b {
-							streams = append(streams, Stream{
+							streams = append(streams, resp.Stream{
 								Datalogger: l,
 								Sensor:     x,
 							})

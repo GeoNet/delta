@@ -2,6 +2,11 @@ package resp
 
 //go:generate bash -c "go run generate/*.go | gofmt > auto.go"
 
+import (
+	"math"
+	"math/cmplx"
+)
+
 type Symmetry uint
 
 const (
@@ -113,6 +118,27 @@ type PAZ struct {
 
 func (p PAZ) GetType() string {
 	return "paz"
+}
+
+func (p PAZ) Gain(freq float64) float64 {
+	w := complex(0.0, func() float64 {
+		switch p.Code {
+		case PZFunctionLaplaceRadiansPerSecond:
+			return 2.0 * math.Pi * freq
+		default:
+			return freq
+		}
+	}())
+	h := complex(float64(1.0), float64(0.0))
+
+	for _, zero := range p.Zeros {
+		h *= (w - zero)
+	}
+
+	for _, pole := range p.Poles {
+		h /= (w - pole)
+	}
+	return cmplx.Abs(h)
 }
 
 type FIR struct {
