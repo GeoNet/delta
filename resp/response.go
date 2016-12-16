@@ -33,16 +33,16 @@ const (
 )
 
 type Datalogger struct {
-	Dataloggers   []string
-	Type          string
-	Label         string
-	SampleRate    float64
-	Frequency     float64
-	StorageFormat string
-	ClockDrift    float64
-	Filters       []string
-	Stages        []ResponseStage
-	Reversed      bool
+	DataloggerList []string
+	Type           string
+	Label          string
+	SampleRate     float64
+	Frequency      float64
+	StorageFormat  string
+	ClockDrift     float64
+	FilterList     []string
+	Stages         []ResponseStage
+	Reversed       bool
 }
 
 type DataloggerModel struct {
@@ -54,11 +54,11 @@ type DataloggerModel struct {
 }
 
 type Sensor struct {
-	Sensors  []string
-	Filters  []string
-	Stages   []ResponseStage
-	Channels string
-	Reversed bool
+	SensorList []string
+	FilterList []string
+	Stages     []ResponseStage
+	Channels   string
+	Reversed   bool
 }
 
 type SensorComponent struct {

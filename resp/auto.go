@@ -546,8 +546,8 @@ var Responses []Response = []Response{
 		Name: "Barometers",
 		Sensors: []Sensor{
 			Sensor{
-				Sensors: []string{"270-600/12V"},
-				Filters: []string{"270-600/12V"},
+				SensorList: []string{"270-600/12V"},
+				FilterList: []string{"270-600/12V"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "poly",
@@ -578,8 +578,8 @@ var Responses []Response = []Response{
 				Channels: "F",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"270-600/24V"},
-				Filters: []string{"270-600/24V"},
+				SensorList: []string{"270-600/24V"},
+				FilterList: []string{"270-600/24V"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "poly",
@@ -610,8 +610,8 @@ var Responses []Response = []Response{
 				Channels: "F",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"270-800/12V"},
-				Filters: []string{"270-800/12V"},
+				SensorList: []string{"270-800/12V"},
+				FilterList: []string{"270-800/12V"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "poly",
@@ -645,14 +645,14 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			Datalogger{
-				Dataloggers:   []string{"Q330/3", "Q330/6"},
-				Type:          "CW",
-				Label:         "LD",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-1"},
+				DataloggerList: []string{"Q330/3", "Q330/6"},
+				Type:           "CW",
+				Label:          "LD",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -698,14 +698,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330/3", "Q330/6"},
-				Type:          "CW",
-				Label:         "HD",
-				SampleRate:    100,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-100"},
+				DataloggerList: []string{"Q330/3", "Q330/6"},
+				Type:           "CW",
+				Label:          "HD",
+				SampleRate:     100,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -751,14 +751,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330S/3", "Q330S/6"},
-				Type:          "CW",
-				Label:         "LD",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-1"},
+				DataloggerList: []string{"Q330S/3", "Q330S/6"},
+				Type:           "CW",
+				Label:          "LD",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -804,14 +804,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330S/3", "Q330S/6"},
-				Type:          "CW",
-				Label:         "HD",
-				SampleRate:    100,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-100"},
+				DataloggerList: []string{"Q330S/3", "Q330S/6"},
+				Type:           "CW",
+				Label:          "HD",
+				SampleRate:     100,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -857,14 +857,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q730/4"},
-				Type:          "CW",
-				Label:         "LD",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-1"},
+				DataloggerList: []string{"Q730/4"},
+				Type:           "CW",
+				Label:          "LD",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -1036,14 +1036,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q730/4"},
-				Type:          "CW",
-				Label:         "BD",
-				SampleRate:    40,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-40"},
+				DataloggerList: []string{"Q730/4"},
+				Type:           "CW",
+				Label:          "BD",
+				SampleRate:     40,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-40"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -1152,14 +1152,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q730/4"},
-				Type:          "CW",
-				Label:         "HD",
-				SampleRate:    100,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-100"},
+				DataloggerList: []string{"Q730/4"},
+				Type:           "CW",
+				Label:          "HD",
+				SampleRate:     100,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -1273,8 +1273,8 @@ var Responses []Response = []Response{
 		Name: "Broadband STS-2",
 		Sensors: []Sensor{
 			Sensor{
-				Sensors: []string{"STS-2"},
-				Filters: []string{"STS-2"},
+				SensorList: []string{"STS-2"},
+				FilterList: []string{"STS-2"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -1304,14 +1304,14 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			Datalogger{
-				Dataloggers:   []string{"Q330HR/6"},
-				Type:          "CG",
-				Label:         "HH",
-				SampleRate:    100,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330HR_FLbelow100-100"},
+				DataloggerList: []string{"Q330HR/6"},
+				Type:           "CG",
+				Label:          "HH",
+				SampleRate:     100,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330HR_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -1357,14 +1357,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330HR/6"},
-				Type:          "CG",
-				Label:         "LH",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330HR_FLbelow100-1"},
+				DataloggerList: []string{"Q330HR/6"},
+				Type:           "CG",
+				Label:          "LH",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330HR_FLbelow100-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -1410,14 +1410,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330HR/6"},
-				Type:          "CG",
-				Label:         "VH",
-				SampleRate:    0.1,
-				Frequency:     0.05,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330HR_FLbelow100-0.1"},
+				DataloggerList: []string{"Q330HR/6"},
+				Type:           "CG",
+				Label:          "VH",
+				SampleRate:     0.1,
+				Frequency:      0.05,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330HR_FLbelow100-0.1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -1484,14 +1484,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q4120/6"},
-				Type:          "CG",
-				Label:         "HH",
-				SampleRate:    100,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-100"},
+				DataloggerList: []string{"Q4120/6"},
+				Type:           "CG",
+				Label:          "HH",
+				SampleRate:     100,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -1600,14 +1600,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: true,
 			}, Datalogger{
-				Dataloggers:   []string{"Q4120/6"},
-				Type:          "CG",
-				Label:         "LH",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-1"},
+				DataloggerList: []string{"Q4120/6"},
+				Type:           "CG",
+				Label:          "LH",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -1779,14 +1779,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: true,
 			}, Datalogger{
-				Dataloggers:   []string{"Q4120/6"},
-				Type:          "CG",
-				Label:         "VH",
-				SampleRate:    0.1,
-				Frequency:     0.05,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-0.1"},
+				DataloggerList: []string{"Q4120/6"},
+				Type:           "CG",
+				Label:          "VH",
+				SampleRate:     0.1,
+				Frequency:      0.05,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-0.1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -1984,8 +1984,8 @@ var Responses []Response = []Response{
 		Name: "Broadband Sensors",
 		Sensors: []Sensor{
 			Sensor{
-				Sensors: []string{"Nanometrics Trillium 120QA"},
-				Filters: []string{"TRILLIUM-120QA"},
+				SensorList: []string{"Nanometrics Trillium 120QA"},
+				FilterList: []string{"TRILLIUM-120QA"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -2013,14 +2013,14 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, Sensor{
-				Sensors:  []string{"CMG-3TB"},
-				Filters:  []string{"CMG-3TB-CTBTO"},
-				Stages:   []ResponseStage{},
-				Channels: "Z12",
-				Reversed: false,
+				SensorList: []string{"CMG-3TB"},
+				FilterList: []string{"CMG-3TB-CTBTO"},
+				Stages:     []ResponseStage{},
+				Channels:   "Z12",
+				Reversed:   false,
 			}, Sensor{
-				Sensors: []string{"CMG-3TB-GN"},
-				Filters: []string{"CMG-3TB-GN"},
+				SensorList: []string{"CMG-3TB-GN"},
+				FilterList: []string{"CMG-3TB-GN"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -2048,8 +2048,8 @@ var Responses []Response = []Response{
 				Channels: "Z12",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"CMG-3ESPC", "CMG-3ESP"},
-				Filters: []string{"CMG-3ESP-GN"},
+				SensorList: []string{"CMG-3ESPC", "CMG-3ESP"},
+				FilterList: []string{"CMG-3ESP-GN"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -2077,8 +2077,8 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"CMG-40T-30S"},
-				Filters: []string{"CMG-40T-30S-GNS"},
+				SensorList: []string{"CMG-40T-30S"},
+				FilterList: []string{"CMG-40T-30S-GNS"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -2106,8 +2106,8 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"CMG-40T-60S"},
-				Filters: []string{"CMG-40T-60S-GN"},
+				SensorList: []string{"CMG-40T-60S"},
+				FilterList: []string{"CMG-40T-60S-GN"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -2138,14 +2138,14 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			Datalogger{
-				Dataloggers:   []string{"Q330/3", "Q330/6"},
-				Type:          "CG",
-				Label:         "HH",
-				SampleRate:    100,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-100"},
+				DataloggerList: []string{"Q330/3", "Q330/6"},
+				Type:           "CG",
+				Label:          "HH",
+				SampleRate:     100,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -2191,14 +2191,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330/3", "Q330/6"},
-				Type:          "CG",
-				Label:         "LH",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-1"},
+				DataloggerList: []string{"Q330/3", "Q330/6"},
+				Type:           "CG",
+				Label:          "LH",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -2244,14 +2244,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330/3", "Q330/6"},
-				Type:          "CG",
-				Label:         "VH",
-				SampleRate:    0.1,
-				Frequency:     0.05,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-0.1"},
+				DataloggerList: []string{"Q330/3", "Q330/6"},
+				Type:           "CG",
+				Label:          "VH",
+				SampleRate:     0.1,
+				Frequency:      0.05,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-0.1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -2318,14 +2318,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330HRS/6"},
-				Type:          "CG",
-				Label:         "HH",
-				SampleRate:    100,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330HR_FLbelow100-100"},
+				DataloggerList: []string{"Q330HRS/6"},
+				Type:           "CG",
+				Label:          "HH",
+				SampleRate:     100,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330HR_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -2371,14 +2371,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330HRS/6"},
-				Type:          "CG",
-				Label:         "LH",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330HR_FLbelow100-1"},
+				DataloggerList: []string{"Q330HRS/6"},
+				Type:           "CG",
+				Label:          "LH",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330HR_FLbelow100-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -2424,14 +2424,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330HRS/6"},
-				Type:          "CG",
-				Label:         "VH",
-				SampleRate:    0.1,
-				Frequency:     0.05,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330HR_FLbelow100-0.1"},
+				DataloggerList: []string{"Q330HRS/6"},
+				Type:           "CG",
+				Label:          "VH",
+				SampleRate:     0.1,
+				Frequency:      0.05,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330HR_FLbelow100-0.1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -2498,14 +2498,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330S/3", "Q330S/6"},
-				Type:          "CG",
-				Label:         "HH",
-				SampleRate:    100,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-100"},
+				DataloggerList: []string{"Q330S/3", "Q330S/6"},
+				Type:           "CG",
+				Label:          "HH",
+				SampleRate:     100,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -2551,14 +2551,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330S/3", "Q330S/6"},
-				Type:          "CG",
-				Label:         "LH",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-1"},
+				DataloggerList: []string{"Q330S/3", "Q330S/6"},
+				Type:           "CG",
+				Label:          "LH",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -2604,14 +2604,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330S/3", "Q330S/6"},
-				Type:          "CG",
-				Label:         "VH",
-				SampleRate:    0.1,
-				Frequency:     0.05,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-0.1"},
+				DataloggerList: []string{"Q330S/3", "Q330S/6"},
+				Type:           "CG",
+				Label:          "VH",
+				SampleRate:     0.1,
+				Frequency:      0.05,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-0.1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -2678,14 +2678,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q4120/6", "Q730/4"},
-				Type:          "CG",
-				Label:         "VH",
-				SampleRate:    0.1,
-				Frequency:     0.05,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-0.1"},
+				DataloggerList: []string{"Q4120/6", "Q730/4"},
+				Type:           "CG",
+				Label:          "VH",
+				SampleRate:     0.1,
+				Frequency:      0.05,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-0.1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -2878,14 +2878,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q4120/6", "Q730/4"},
-				Type:          "CG",
-				Label:         "HH",
-				SampleRate:    100,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-100"},
+				DataloggerList: []string{"Q4120/6", "Q730/4"},
+				Type:           "CG",
+				Label:          "HH",
+				SampleRate:     100,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -2994,14 +2994,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q730/4"},
-				Type:          "CG",
-				Label:         "BH",
-				SampleRate:    40,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-40"},
+				DataloggerList: []string{"Q730/4"},
+				Type:           "CG",
+				Label:          "BH",
+				SampleRate:     40,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-40"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -3110,14 +3110,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q4120/6", "Q730/4"},
-				Type:          "CG",
-				Label:         "LH",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-1"},
+				DataloggerList: []string{"Q4120/6", "Q730/4"},
+				Type:           "CG",
+				Label:          "LH",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -3289,14 +3289,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"ORION"},
-				Type:          "CG",
-				Label:         "HH",
-				SampleRate:    100,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"ORION-100"},
+				DataloggerList: []string{"ORION"},
+				Type:           "CG",
+				Label:          "HH",
+				SampleRate:     100,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"ORION-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -3431,8 +3431,8 @@ var Responses []Response = []Response{
 		Name: "Microphones",
 		Sensors: []Sensor{
 			Sensor{
-				Sensors: []string{"InfraBSU microphone"},
-				Filters: []string{"InfraBSU microphone"},
+				SensorList: []string{"InfraBSU microphone"},
+				FilterList: []string{"InfraBSU microphone"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "poly",
@@ -3467,14 +3467,14 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			Datalogger{
-				Dataloggers:   []string{"Q330S/3", "Q330S/6"},
-				Type:          "CW",
-				Label:         "HD",
-				SampleRate:    100,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-100-PREAMP32"},
+				DataloggerList: []string{"Q330S/3", "Q330S/6"},
+				Type:           "CW",
+				Label:          "HD",
+				SampleRate:     100,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-100-PREAMP32"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -3539,14 +3539,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330S/3", "Q330S/6"},
-				Type:          "CW",
-				Label:         "LD",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-1-PREAMP32"},
+				DataloggerList: []string{"Q330S/3", "Q330S/6"},
+				Type:           "CW",
+				Label:          "LD",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-1-PREAMP32"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -3611,14 +3611,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330/3", "Q330/6"},
-				Type:          "CW",
-				Label:         "HD",
-				SampleRate:    100,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-100-PREAMP"},
+				DataloggerList: []string{"Q330/3", "Q330/6"},
+				Type:           "CW",
+				Label:          "HD",
+				SampleRate:     100,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-100-PREAMP"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -3683,14 +3683,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330/3", "Q330/6"},
-				Type:          "CW",
-				Label:         "LD",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-1-PREAMP"},
+				DataloggerList: []string{"Q330/3", "Q330/6"},
+				Type:           "CW",
+				Label:          "LD",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-1-PREAMP"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -3760,8 +3760,8 @@ var Responses []Response = []Response{
 		Name: "Short Period",
 		Sensors: []Sensor{
 			Sensor{
-				Sensors: []string{"L4C"},
-				Filters: []string{"L4C"},
+				SensorList: []string{"L4C"},
+				FilterList: []string{"L4C"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -3789,8 +3789,8 @@ var Responses []Response = []Response{
 				Channels: "Z",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"L4C-3D"},
-				Filters: []string{"L4C"},
+				SensorList: []string{"L4C-3D"},
+				FilterList: []string{"L4C"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -3818,8 +3818,8 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"LE-3Dlite"},
-				Filters: []string{"LE-3Dlite"},
+				SensorList: []string{"LE-3Dlite"},
+				FilterList: []string{"LE-3Dlite"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -3847,8 +3847,8 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"LE-3DliteMkII"},
-				Filters: []string{"LE-3DliteMkII"},
+				SensorList: []string{"LE-3DliteMkII"},
+				FilterList: []string{"LE-3DliteMkII"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -3879,14 +3879,14 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			Datalogger{
-				Dataloggers:   []string{"Q330/3", "Q330/6"},
-				Type:          "CG",
-				Label:         "EH",
-				SampleRate:    100,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-100"},
+				DataloggerList: []string{"Q330/3", "Q330/6"},
+				Type:           "CG",
+				Label:          "EH",
+				SampleRate:     100,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -3932,14 +3932,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330/3", "Q330/6"},
-				Type:          "CG",
-				Label:         "EH",
-				SampleRate:    200,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-200"},
+				DataloggerList: []string{"Q330/3", "Q330/6"},
+				Type:           "CG",
+				Label:          "EH",
+				SampleRate:     200,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-200"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -3985,14 +3985,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330S/3", "Q330S/6"},
-				Type:          "CG",
-				Label:         "EH",
-				SampleRate:    100,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-100"},
+				DataloggerList: []string{"Q330S/3", "Q330S/6"},
+				Type:           "CG",
+				Label:          "EH",
+				SampleRate:     100,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -4038,14 +4038,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q4120/6"},
-				Type:          "CG",
-				Label:         "EH",
-				SampleRate:    100,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-100"},
+				DataloggerList: []string{"Q4120/6"},
+				Type:           "CG",
+				Label:          "EH",
+				SampleRate:     100,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -4154,14 +4154,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"EARSS/3"},
-				Type:          "TG",
-				Label:         "EH",
-				SampleRate:    50,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"EARSS-50"},
+				DataloggerList: []string{"EARSS/3"},
+				Type:           "TG",
+				Label:          "EH",
+				SampleRate:     50,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"EARSS-50"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4225,14 +4225,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Taurus"},
-				Type:          "CG",
-				Label:         "EH",
-				SampleRate:    100,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Taurus-100"},
+				DataloggerList: []string{"Taurus"},
+				Type:           "CG",
+				Label:          "EH",
+				SampleRate:     100,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Taurus-100"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -4325,8 +4325,8 @@ var Responses []Response = []Response{
 		Name: "Short Period Pre Amp",
 		Sensors: []Sensor{
 			Sensor{
-				Sensors: []string{"2 Hz Duke Malin Seismometer"},
-				Filters: []string{"2_Hz_Duke_Malin_Seismometer"},
+				SensorList: []string{"2 Hz Duke Malin Seismometer"},
+				FilterList: []string{"2_Hz_Duke_Malin_Seismometer"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4357,14 +4357,14 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			Datalogger{
-				Dataloggers:   []string{"Q330S/3", "Q330S/6"},
-				Type:          "CG",
-				Label:         "EH",
-				SampleRate:    100,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-100-PREAMP32"},
+				DataloggerList: []string{"Q330S/3", "Q330S/6"},
+				Type:           "CG",
+				Label:          "EH",
+				SampleRate:     100,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-100-PREAMP32"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4429,14 +4429,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330/3", "Q330/6"},
-				Type:          "CG",
-				Label:         "EH",
-				SampleRate:    100,
-				Frequency:     15,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-100-PREAMP"},
+				DataloggerList: []string{"Q330/3", "Q330/6"},
+				Type:           "CG",
+				Label:          "EH",
+				SampleRate:     100,
+				Frequency:      15,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-100-PREAMP"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4506,8 +4506,8 @@ var Responses []Response = []Response{
 		Name: "Strong Motion Recorders",
 		Sensors: []Sensor{
 			Sensor{
-				Sensors: []string{"FBA-23-DECK"},
-				Filters: []string{"FBA-23-DECK"},
+				SensorList: []string{"FBA-23-DECK"},
+				FilterList: []string{"FBA-23-DECK"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4534,8 +4534,8 @@ var Responses []Response = []Response{
 				Channels: "1Z2",
 				Reversed: true,
 			}, Sensor{
-				Sensors: []string{"FBA-ES-T-DECK"},
-				Filters: []string{"FBA-ES-T-DECK"},
+				SensorList: []string{"FBA-ES-T-DECK"},
+				FilterList: []string{"FBA-ES-T-DECK"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4562,8 +4562,8 @@ var Responses []Response = []Response{
 				Channels: "ENZ",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"FBA-ES-T-BASALT"},
-				Filters: []string{"FBA-ES-T-BASALT"},
+				SensorList: []string{"FBA-ES-T-BASALT"},
+				FilterList: []string{"FBA-ES-T-BASALT"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4590,8 +4590,8 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"FBA-ES-T-OBSIDIAN"},
-				Filters: []string{"FBA-ES-T-BASALT"},
+				SensorList: []string{"FBA-ES-T-OBSIDIAN"},
+				FilterList: []string{"FBA-ES-T-BASALT"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4618,8 +4618,8 @@ var Responses []Response = []Response{
 				Channels: "Z12",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"CUSP3D"},
-				Filters: []string{"CUSP SENSOR"},
+				SensorList: []string{"CUSP3D"},
+				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4645,8 +4645,8 @@ var Responses []Response = []Response{
 				Channels: "21Z",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"CUSP3C"},
-				Filters: []string{"CUSP SENSOR"},
+				SensorList: []string{"CUSP3C"},
+				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4672,8 +4672,8 @@ var Responses []Response = []Response{
 				Channels: "21Z",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"CUSP3B"},
-				Filters: []string{"CUSP SENSOR"},
+				SensorList: []string{"CUSP3B"},
+				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4699,8 +4699,8 @@ var Responses []Response = []Response{
 				Channels: "21Z",
 				Reversed: false,
 			}, Sensor{
-				Sensors: []string{"CUSP3A"},
-				Filters: []string{"CUSP SENSOR"},
+				SensorList: []string{"CUSP3A"},
+				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -4729,14 +4729,14 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			Datalogger{
-				Dataloggers:   []string{"OBSIDIAN"},
-				Type:          "TG",
-				Label:         "HN",
-				SampleRate:    200,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"BASALT-200"},
+				DataloggerList: []string{"OBSIDIAN"},
+				Type:           "TG",
+				Label:          "HN",
+				SampleRate:     200,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"BASALT-200"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -4845,14 +4845,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"OBSIDIAN"},
-				Type:          "CG",
-				Label:         "BN",
-				SampleRate:    50,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"BASALT-50"},
+				DataloggerList: []string{"OBSIDIAN"},
+				Type:           "CG",
+				Label:          "BN",
+				SampleRate:     50,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"BASALT-50"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -4982,14 +4982,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"BASALT"},
-				Type:          "TG",
-				Label:         "HN",
-				SampleRate:    200,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"BASALT-200"},
+				DataloggerList: []string{"BASALT"},
+				Type:           "TG",
+				Label:          "HN",
+				SampleRate:     200,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"BASALT-200"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5098,14 +5098,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"BASALT"},
-				Type:          "CG",
-				Label:         "BN",
-				SampleRate:    50,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"BASALT-50"},
+				DataloggerList: []string{"BASALT"},
+				Type:           "CG",
+				Label:          "BN",
+				SampleRate:     50,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"BASALT-50"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5235,14 +5235,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"ETNA", "K2"},
-				Type:          "TG",
-				Label:         "HN",
-				SampleRate:    200,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"ALTUS-200"},
+				DataloggerList: []string{"ETNA", "K2"},
+				Type:           "TG",
+				Label:          "HN",
+				SampleRate:     200,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"ALTUS-200"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5311,14 +5311,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"CUSP3D", "CUSP3C"},
-				Type:          "TG",
-				Label:         "HN",
-				SampleRate:    200,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"CUSP-200"},
+				DataloggerList: []string{"CUSP3D", "CUSP3C"},
+				Type:           "TG",
+				Label:          "HN",
+				SampleRate:     200,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"CUSP-200"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5343,14 +5343,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"CUSP3D", "CUSP3C"},
-				Type:          "CG",
-				Label:         "BN",
-				SampleRate:    50,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"CUSP-50"},
+				DataloggerList: []string{"CUSP3D", "CUSP3C"},
+				Type:           "CG",
+				Label:          "BN",
+				SampleRate:     50,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"CUSP-50"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5417,14 +5417,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"CUSP3A", "CUSP3B"},
-				Type:          "TG",
-				Label:         "HN",
-				SampleRate:    200,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"CUSP-200"},
+				DataloggerList: []string{"CUSP3A", "CUSP3B"},
+				Type:           "TG",
+				Label:          "HN",
+				SampleRate:     200,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"CUSP-200"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5454,8 +5454,8 @@ var Responses []Response = []Response{
 		Name: "Strong Motion Sensors",
 		Sensors: []Sensor{
 			Sensor{
-				Sensors: []string{"FBA-ES-T", "FBA-ES-T-ISO"},
-				Filters: []string{"FBA-ES-T"},
+				SensorList: []string{"FBA-ES-T", "FBA-ES-T-ISO"},
+				FilterList: []string{"FBA-ES-T"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "paz",
@@ -5485,14 +5485,14 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			Datalogger{
-				Dataloggers:   []string{"Q330S/6"},
-				Type:          "TG",
-				Label:         "HN",
-				SampleRate:    200,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-200"},
+				DataloggerList: []string{"Q330S/6"},
+				Type:           "TG",
+				Label:          "HN",
+				SampleRate:     200,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-200"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5538,14 +5538,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330S/6"},
-				Type:          "CG",
-				Label:         "BN",
-				SampleRate:    50,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-50"},
+				DataloggerList: []string{"Q330S/6"},
+				Type:           "CG",
+				Label:          "BN",
+				SampleRate:     50,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-50"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5591,14 +5591,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330S/6"},
-				Type:          "CG",
-				Label:         "LN",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330S+_FLbelow100-1"},
+				DataloggerList: []string{"Q330S/6"},
+				Type:           "CG",
+				Label:          "LN",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330S+_FLbelow100-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5644,14 +5644,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330/6", "Q330HR/6"},
-				Type:          "TG",
-				Label:         "HN",
-				SampleRate:    200,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-200"},
+				DataloggerList: []string{"Q330/6", "Q330HR/6"},
+				Type:           "TG",
+				Label:          "HN",
+				SampleRate:     200,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-200"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5697,14 +5697,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330/6", "Q330HR/6"},
-				Type:          "CG",
-				Label:         "BN",
-				SampleRate:    50,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-50"},
+				DataloggerList: []string{"Q330/6", "Q330HR/6"},
+				Type:           "CG",
+				Label:          "BN",
+				SampleRate:     50,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-50"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5750,14 +5750,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q330/6", "Q330HR/6"},
-				Type:          "CG",
-				Label:         "LN",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q330_FLbelow100-1"},
+				DataloggerList: []string{"Q330/6", "Q330HR/6"},
+				Type:           "CG",
+				Label:          "LN",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5803,14 +5803,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				Dataloggers:   []string{"Q4120/6"},
-				Type:          "TG",
-				Label:         "HN",
-				SampleRate:    200,
-				Frequency:     1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-200"},
+				DataloggerList: []string{"Q4120/6"},
+				Type:           "TG",
+				Label:          "HN",
+				SampleRate:     200,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-200"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
@@ -5898,14 +5898,14 @@ var Responses []Response = []Response{
 				},
 				Reversed: true,
 			}, Datalogger{
-				Dataloggers:   []string{"Q4120/6"},
-				Type:          "CG",
-				Label:         "LN",
-				SampleRate:    1,
-				Frequency:     0.1,
-				StorageFormat: "Steim2",
-				ClockDrift:    0.0001,
-				Filters:       []string{"Q4120-1"},
+				DataloggerList: []string{"Q4120/6"},
+				Type:           "CG",
+				Label:          "LN",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q4120-1"},
 				Stages: []ResponseStage{
 					ResponseStage{
 						Type:   "a2d",
