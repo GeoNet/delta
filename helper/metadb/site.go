@@ -4,6 +4,19 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
+func (db *MetaDB) Site(station, code string) (*meta.Site, error) {
+	txn := db.Txn(false)
+	defer txn.Abort()
+
+	lookup, err := txn.First("site", "id", station, code)
+	if err != nil {
+		return nil, err
+	}
+	site := lookup.(meta.Site)
+
+	return &site, nil
+}
+
 func (db *MetaDB) Sites(station string) ([]meta.Site, error) {
 	txn := db.Txn(false)
 	defer txn.Abort()

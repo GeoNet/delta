@@ -52,11 +52,26 @@ func NewSchema() *memdb.DBSchema {
 					},
 				},
 			},
+			"stream": &memdb.TableSchema{
+				Name: "stream",
+				Indexes: map[string]*memdb.IndexSchema{
+					"id": &memdb.IndexSchema{
+						Name:   "id",
+						Unique: true,
+						Indexer: &memdb.CompoundIndex{
+							Indexes: []memdb.Indexer{
+								&memdb.StringFieldIndex{Field: "Datalogger"},
+								&memdb.StringFieldIndex{Field: "Sensor"},
+							},
+						},
+					},
+				},
+			},
 		},
 	}
 }
 
-func NewRespDB(base string) (*RespDB, error) {
+func NewRespDB() (*RespDB, error) {
 
 	db, err := memdb.NewMemDB(NewSchema())
 	if err != nil {
@@ -79,6 +94,36 @@ func NewRespDB(base string) (*RespDB, error) {
 			return nil, err
 		}
 	}
+
+	/*
+	   // Provide a stream list for a given datalogger and sensor pair
+	   func Streams(datalogger, sensor string) []Stream {
+	           var streams []Stream
+
+	           for _, r := range Responses {
+	                   for _, l := range r.Dataloggers {
+	                           for _, d := range l.Dataloggers {
+	                                   if datalogger != d {
+	                                           continue
+	                                   }
+	                                   for _, x := range r.Sensors {
+	                                           for _, b := range x.Sensors {
+	                                                   if sensor == b {
+	                                                           streams = append(streams, Stream{
+	                                                                   Datalogger: l,
+	                                                                   Sensor:     x,
+	                                                           })
+	                                                   }
+	                                           }
+	                                   }
+	                           }
+	                   }
+	           }
+
+	           return streams
+	   }
+	*/
+
 	txn.Commit()
 
 	return &RespDB{MemDB: db}, nil

@@ -2,6 +2,7 @@ package metadb
 
 import (
 	"fmt"
+	"os"
 	"path/filepath"
 	"reflect"
 	"strings"
@@ -919,7 +920,6 @@ func NewSchema() *memdb.DBSchema {
 }
 
 func NewMetaDB(base string) (*MetaDB, error) {
-
 	db, err := memdb.NewMemDB(NewSchema())
 	if err != nil {
 		return nil, err
@@ -942,6 +942,10 @@ func NewMetaDB(base string) (*MetaDB, error) {
 
 	txn := db.Txn(true)
 	for _, list := range networks {
+		if _, err := os.Stat(filepath.Join(base, list.path)); os.IsNotExist(err) {
+			continue
+		}
+
 		switch list.list.(type) {
 		case *meta.ConstituentList:
 			var input meta.ConstituentList
@@ -1045,6 +1049,10 @@ func NewMetaDB(base string) (*MetaDB, error) {
 
 	txn = db.Txn(true)
 	for _, list := range assets {
+		if _, err := os.Stat(filepath.Join(base, list.path)); os.IsNotExist(err) {
+			continue
+		}
+
 		var input meta.AssetList
 		if err := meta.LoadList(filepath.Join(base, list.path), &input); err != nil {
 			return nil, err
@@ -1079,6 +1087,10 @@ func NewMetaDB(base string) (*MetaDB, error) {
 
 	txn = db.Txn(true)
 	for _, list := range installs {
+		if _, err := os.Stat(filepath.Join(base, list.path)); os.IsNotExist(err) {
+			continue
+		}
+
 		switch list.list.(type) {
 		case *meta.InstalledAntennaList:
 			var input meta.InstalledAntennaList
