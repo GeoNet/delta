@@ -9,7 +9,7 @@ func (db *MetaDB) Network(code string) (*meta.Network, error) {
 	defer txn.Abort()
 
 	check, err := txn.First("network", "id", code)
-	if err != nil {
+	if err != nil || check == nil {
 		return nil, err
 	}
 

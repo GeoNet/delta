@@ -5,6 +5,7 @@ package resp
 import (
 	"math"
 	"math/cmplx"
+	"strings"
 )
 
 type Symmetry uint
@@ -61,6 +62,18 @@ type Sensor struct {
 	Reversed   bool
 }
 
+func (s Sensor) Labels(axial bool) string {
+	labels := s.Channels
+	if axial {
+		labels = strings.Replace(labels, "N", "1", -1)
+		labels = strings.Replace(labels, "E", "2", -1)
+	} else {
+		labels = strings.Replace(labels, "1", "N", -1)
+		labels = strings.Replace(labels, "2", "E", -1)
+	}
+	return labels
+}
+
 type SensorComponent struct {
 	Azimuth float64
 	Dip     float64
@@ -85,6 +98,41 @@ type Response struct {
 type Stream struct {
 	Datalogger
 	Sensor
+
+	Components []SensorComponent
+}
+
+func (s Stream) Channels(axial bool) []string {
+	var channels []string
+
+	labels := s.Sensor.Labels(axial)
+	if len(s.Components) < len(labels) && len(labels) > 0 {
+		labels = labels[0:len(s.Components)]
+	}
+
+	for _, component := range labels {
+		channels = append(channels, s.Datalogger.Label+string(component))
+	}
+
+	return channels
+}
+
+func (s Stream) Gain() float64 {
+	var gain float64 = 1.0
+
+	for _, stage := range append(s.Sensor.Stages, s.Datalogger.Stages...) {
+		if stage.StageSet == nil {
+			continue
+		}
+		switch stage.StageSet.GetType() {
+		case "fir":
+			gain *= stage.StageSet.(FIR).Gain
+		default:
+			gain *= stage.Gain
+		}
+	}
+
+	return gain
 }
 
 type StageSet interface {

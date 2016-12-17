@@ -4,20 +4,28 @@ package resp
 func Streams(datalogger, sensor string) []Stream {
 	var streams []Stream
 
-	for _, r := range Responses {
-		for _, l := range r.Dataloggers {
-			for _, d := range l.DataloggerList {
-				if datalogger != d {
+	// make sure we know about the sensor model - for the components
+	model, ok := SensorModels[sensor]
+	if !ok {
+		return nil
+	}
+
+	for _, response := range Responses {
+		for _, lo := range response.Dataloggers {
+			for _, dataloggerModel := range lo.DataloggerList {
+				if datalogger != dataloggerModel {
 					continue
 				}
-				for _, x := range r.Sensors {
-					for _, b := range x.SensorList {
-						if sensor == b {
-							streams = append(streams, Stream{
-								Datalogger: l,
-								Sensor:     x,
-							})
+				for _, se := range response.Sensors {
+					for _, sensorModel := range se.SensorList {
+						if sensor != sensorModel {
+							continue
 						}
+						streams = append(streams, Stream{
+							Datalogger: lo,
+							Sensor:     se,
+							Components: model.Components,
+						})
 					}
 				}
 			}
