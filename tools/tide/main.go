@@ -14,6 +14,7 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
+// Install represents an installed datalogger and pressure sensor
 type Install struct {
 	Sensor     meta.InstalledSensor
 	Datalogger meta.DeployedDatalogger
@@ -21,6 +22,9 @@ type Install struct {
 	End        time.Time
 }
 
+// Tide represents a model of the tidal parameters at a recording station
+// together with the installed datalogger pairs, allowing for multiple sensors
+// at the same time but different locations.
 type Tide struct {
 	Station      meta.Station
 	Gauge        meta.Gauge
@@ -54,98 +58,93 @@ func main() {
 
 	flag.Parse()
 
+	// load delta meta helper
 	db, err := metadb.NewMetaDB(base)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "problem loading meta db %s: %v\n", base, err)
 		os.Exit(1)
 	}
 
+	// build the set of known tidal
 	tides := make(map[string]Tide)
 
+	// recover linz tide gauge sites
 	gauges, err := db.Gauges()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "problem loading gauges from db %s: %v\n", base, err)
 		os.Exit(1)
 	}
 
+	// for each linz gauge site
 	for _, gauge := range gauges {
 
+		// find the delta recoding station
 		station, err := db.Station(gauge.Code)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "problem loading stations from db %s [%s]: %v\n", base, gauge.Code, err)
 			os.Exit(1)
 		}
 
+		// and the associated linz tidal constituents
 		constituents, err := db.Constituents(gauge.Code)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "problem loading constituents from db %s [%s]: %v\n", base, gauge.Code, err)
 			os.Exit(1)
 		}
 
+		// multiple recording site locations at a station
 		sites, err := db.Sites(gauge.Code)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "problem loading sites from db %s [%s]: %v\n", base, gauge.Code, err)
 			os.Exit(1)
 		}
 
+		// find all installed sensors
 		installs := make(map[string][]Install)
 		for _, site := range sites {
-			sensors, err := db.InstalledSensors(gauge.Code, site.Location)
+			sensors, err := db.StationLocationInstalledSensors(gauge.Code, site.Location)
 			if err != nil {
 				fmt.Fprintf(os.Stderr, "problem loading sensors from db %s [%s]: %v\n", base, gauge.Code, err)
 				os.Exit(1)
 			}
 
+			// loop over each sensor
 			for _, sensor := range sensors {
-				connections, err := db.Connections(gauge.Code, site.Location)
+				// and find any associated dataloggers
+				dataloggers, err := db.DeployedDataloggerConnections(sensor, gauge.Code, site.Location)
 				if err != nil {
-					fmt.Fprintf(os.Stderr, "problem loading connections from db %s [%s]: %v\n", base, gauge.Code, err)
+					fmt.Fprintf(os.Stderr, "problem loading datalogger connections from db %s [%s]: %v\n", base, gauge.Code, err)
 					os.Exit(1)
 				}
-				for _, connection := range connections {
-					if connection.Start.After(sensor.End) {
-						continue
+				// loop over each co-existing datalogger
+				for _, datalogger := range dataloggers {
+					// check the location exists in the installs map
+					if _, ok := installs[site.Location]; !ok {
+						installs[site.Location] = []Install{}
 					}
-					if connection.End.Before(sensor.Start) {
-						continue
-					}
-					dataloggers, err := db.DeployedDataloggers(connection.Place, connection.Role)
-					if err != nil {
-						fmt.Fprintf(os.Stderr, "problem loading connections from db %s [%s]: %v\n", base, gauge.Code, err)
-						os.Exit(1)
-					}
-					for _, datalogger := range dataloggers {
-						if connection.Start.After(datalogger.End) {
-							continue
-						}
-						if connection.End.Before(datalogger.Start) {
-							continue
-						}
 
-						if _, ok := installs[site.Location]; !ok {
-							installs[site.Location] = []Install{}
-						}
-						installs[site.Location] = append(installs[site.Location], Install{
-							Sensor:     sensor,
-							Datalogger: datalogger,
-							Start: func() time.Time {
-								if sensor.Start.After(datalogger.Start) {
-									return sensor.Start
-								}
-								return datalogger.Start
-							}(),
-							End: func() time.Time {
-								if sensor.End.Before(datalogger.End) {
-									return sensor.End
-								}
-								return datalogger.End
-							}(),
-						})
-					}
+					// found a new installation
+					installs[site.Location] = append(installs[site.Location], Install{
+						Sensor:     sensor,
+						Datalogger: datalogger,
+						Start: func() time.Time {
+							if sensor.Start.After(datalogger.Start) {
+								return sensor.Start
+							}
+							return datalogger.Start
+						}(),
+						End: func() time.Time {
+							if sensor.End.Before(datalogger.End) {
+								return sensor.End
+							}
+							return datalogger.End
+						}(),
+					})
 				}
 			}
 		}
 
+		// remember this tide
 		tides[gauge.Code] = Tide{
 			Gauge:        gauge,
 			Station:      station,
@@ -158,6 +157,7 @@ func main() {
 		fmt.Fprintln(os.Stdout, header)
 	}
 
+	// process each template given on the command line
 	for _, t := range flag.Args() {
 		conf, err := ioutil.ReadFile(t)
 		if err != nil {

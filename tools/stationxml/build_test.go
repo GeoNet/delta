@@ -5,24 +5,18 @@ import (
 	"io/ioutil"
 	"os"
 	"os/exec"
-	"regexp"
 	"testing"
 
+	"github.com/GeoNet/delta/helper/metadb"
 	"github.com/ozym/fdsn/stationxml"
 )
 
 func TestBuild(t *testing.T) {
 
-	// load meta information
-	md, err := NewMeta("./testdata/network", "./testdata/install")
+	// load delta meta helper
+	db, err := metadb.NewMetaDB("./testdata")
 	if err != nil {
-		t.Fatalf("unable to load meta data: %v", err)
-	}
-
-	// select all test networks/stations/channels
-	re, err := regexp.Compile("[A-Z0-9]+")
-	if err != nil {
-		t.Fatalf("unable to compile regexp: %v", err)
+		t.Fatalf("problem loading meta db: %v\n", err)
 	}
 
 	// load in the test data and convert to stationxml indented text
@@ -41,8 +35,10 @@ func TestBuild(t *testing.T) {
 		t.Fatalf("error: unable to unmarshal stationxml file: %v", err)
 	}
 
+	var builder Build
+
 	// build networks and construct stationxml
-	n, err := buildNetworks(md, re, re, re)
+	n, err := builder.Construct(db)
 	if err != nil {
 		t.Fatalf("error: unable to build networks list: %v", err)
 	}

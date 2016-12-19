@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 	"regexp"
 
+	"github.com/GeoNet/delta/helper/metadb"
 	"github.com/ozym/fdsn/stationxml"
 )
 
@@ -25,6 +26,9 @@ func main() {
 
 	var output string
 	flag.StringVar(&output, "output", "-", "output xml file")
+
+	var base string
+	flag.StringVar(&base, "base", "../..", "base of delta files on disk")
 
 	var network string
 	flag.StringVar(&network, "network", "../../network", "base network directory")
@@ -66,55 +70,39 @@ func main() {
 
 	flag.Parse()
 
-	if stationList != "" {
-		s, err := loadRegexpList(stationList)
-		if err != nil || s == nil {
-			log.Fatalf("unable to load station list regexp %s: %v", stationList, err)
-		}
-		stationRegexp = string(s)
-	}
-
-	// which stations to process
-	stationMatch, err := regexp.Compile(stationRegexp)
+	// load delta meta helper
+	db, err := metadb.NewMetaDB(base)
 	if err != nil {
-		log.Fatalf("unable to compile station regexp %s: %v", stationRegexp, err)
+		fmt.Fprintf(os.Stderr, "problem loading meta db %s: %v\n", base, err)
+		os.Exit(1)
 	}
 
-	if channelList != "" {
-		s, err := loadRegexpList(channelList)
-		if err != nil || s == nil {
-			log.Fatalf("unable to load channel list regexp %s: %v", channelList, err)
-		}
-		channelRegexp = string(s)
+	builder := Build{
+		Networks: func() *regexp.Regexp {
+			re, err := Matcher(networkList, networkRegexp)
+			if err != nil {
+				log.Fatalf("unable to compile network matcher: %v", err)
+			}
+			return re
+		}(),
+		Stations: func() *regexp.Regexp {
+			re, err := Matcher(stationList, stationRegexp)
+			if err != nil {
+				log.Fatalf("unable to compile network matcher: %v", err)
+			}
+			return re
+		}(),
+		Channels: func() *regexp.Regexp {
+			re, err := Matcher(channelList, channelRegexp)
+			if err != nil {
+				log.Fatalf("unable to compile network matcher: %v", err)
+			}
+			return re
+		}(),
 	}
 
-	// which stations to process
-	channelMatch, err := regexp.Compile(channelRegexp)
-	if err != nil {
-		log.Fatalf("unable to compile channel regexp %s: %v", channelRegexp, err)
-	}
-
-	if networkList != "" {
-		s, err := loadRegexpList(networkList)
-		if err != nil || s == nil {
-			log.Fatalf("unable to load network list regexp %s: %v", networkList, err)
-		}
-		networkRegexp = string(s)
-	}
-
-	// which networks to process
-	networkMatch, err := regexp.Compile(networkRegexp)
-	if err != nil {
-		log.Fatalf("unable to compile network regexp %s: %v", networkRegexp, err)
-	}
-
-	// load meta information
-	metaData, err := NewMeta(network, install)
-	if err != nil {
-		log.Fatalf("unable to load meta data: %v", err)
-	}
-
-	networks, err := buildNetworks(metaData, networkMatch, stationMatch, channelMatch)
+	// build a representation of the network
+	networks, err := builder.Construct(db)
 	if err != nil {
 		log.Fatalf("error: unable to build networks list: %v", err)
 	}

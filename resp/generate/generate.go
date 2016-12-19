@@ -13,8 +13,8 @@ var generateTemplate = `
 	Name: "{{$l}}",
         Sensors: []Sensor{
   {{ range $v := $r.Sensors }}    Sensor{
-                Sensors: []string{{"{"}}{{range $s := $v.Sensors}}"{{$s}}",{{end}}{{"}"}},
-                Filters: []string{{"{"}}{{range $s := $v.Filters}}"{{$s}}",{{end}}{{"}"}},
+                SensorList: []string{{"{"}}{{range $s := $v.Sensors}}"{{$s}}",{{end}}{{"}"}},
+                FilterList: []string{{"{"}}{{range $s := $v.Filters}}"{{$s}}",{{end}}{{"}"}},
 		Stages: []ResponseStage{{"{"}}{{range $s := $v.Filters}}{{with $f := $b.Filter $s}}
 		{{ range $v := $f }}ResponseStage{
 		Type: "{{$v.Type}}",
@@ -72,14 +72,14 @@ var generateTemplate = `
         },
         Dataloggers: []Datalogger{
   {{ range $v := $r.Dataloggers }}    Datalogger{
-                Dataloggers: []string{{"{"}}{{range $s := $v.Dataloggers}}"{{$s}}",{{end}}{{"}"}},
+                DataloggerList: []string{{"{"}}{{range $s := $v.Dataloggers}}"{{$s}}",{{end}}{{"}"}},
                 Type: "{{$v.Type}}",
                 Label: "{{$v.Label}}",
                 SampleRate: {{$v.SampleRate}},
                 Frequency: {{$v.Frequency}},
                 StorageFormat: "{{$v.StorageFormat}}",
                 ClockDrift: {{$v.ClockDrift}},
-                Filters: []string{{"{"}}{{range $s := $v.Filters}}"{{$s}}",{{end}}{{"}"}},
+                FilterList: []string{{"{"}}{{range $s := $v.Filters}}"{{$s}}",{{end}}{{"}"}},
 		Stages: []ResponseStage{{"{"}}{{range $s := $v.Filters}}{{with $f := $b.Filter $s}}
 		{{ range $v := $f }}ResponseStage{
 		Type: "{{$v.Type}}",

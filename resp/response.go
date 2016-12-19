@@ -5,6 +5,7 @@ package resp
 import (
 	"math"
 	"math/cmplx"
+	"strings"
 )
 
 type Symmetry uint
@@ -33,16 +34,16 @@ const (
 )
 
 type Datalogger struct {
-	Dataloggers   []string
-	Type          string
-	Label         string
-	SampleRate    float64
-	Frequency     float64
-	StorageFormat string
-	ClockDrift    float64
-	Filters       []string
-	Stages        []ResponseStage
-	Reversed      bool
+	DataloggerList []string
+	Type           string
+	Label          string
+	SampleRate     float64
+	Frequency      float64
+	StorageFormat  string
+	ClockDrift     float64
+	FilterList     []string
+	Stages         []ResponseStage
+	Reversed       bool
 }
 
 type DataloggerModel struct {
@@ -54,11 +55,23 @@ type DataloggerModel struct {
 }
 
 type Sensor struct {
-	Sensors  []string
-	Filters  []string
-	Stages   []ResponseStage
-	Channels string
-	Reversed bool
+	SensorList []string
+	FilterList []string
+	Stages     []ResponseStage
+	Channels   string
+	Reversed   bool
+}
+
+func (s Sensor) Labels(axial bool) string {
+	labels := s.Channels
+	if axial {
+		labels = strings.Replace(labels, "N", "1", -1)
+		labels = strings.Replace(labels, "E", "2", -1)
+	} else {
+		labels = strings.Replace(labels, "1", "N", -1)
+		labels = strings.Replace(labels, "2", "E", -1)
+	}
+	return labels
 }
 
 type SensorComponent struct {
@@ -85,6 +98,41 @@ type Response struct {
 type Stream struct {
 	Datalogger
 	Sensor
+
+	Components []SensorComponent
+}
+
+func (s Stream) Channels(axial bool) []string {
+	var channels []string
+
+	labels := s.Sensor.Labels(axial)
+	if len(s.Components) < len(labels) && len(labels) > 0 {
+		labels = labels[0:len(s.Components)]
+	}
+
+	for _, component := range labels {
+		channels = append(channels, s.Datalogger.Label+string(component))
+	}
+
+	return channels
+}
+
+func (s Stream) Gain() float64 {
+	var gain float64 = 1.0
+
+	for _, stage := range append(s.Sensor.Stages, s.Datalogger.Stages...) {
+		if stage.StageSet == nil {
+			continue
+		}
+		switch stage.StageSet.GetType() {
+		case "fir":
+			gain *= stage.StageSet.(FIR).Gain
+		default:
+			gain *= stage.Gain
+		}
+	}
+
+	return gain
 }
 
 type StageSet interface {
