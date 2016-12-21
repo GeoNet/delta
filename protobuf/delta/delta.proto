@@ -171,3 +171,29 @@ message InstalledSensor {
     Scale scale = 5;
 }
 
+// for configuring shakenz-slink only.
+message ShakeNZStream {
+    // the stream id in the form received from SEEDLink e.g., NN_SSSSS_LL_CCC
+    string stream_id = 1;
+    // source for identity at the site level e.g., NN.SSSSS.LL
+    string source = 2;
+    string datalogger = 3;
+    string sensor = 4;
+    string network = 5;
+    string station = 6;
+    string location = 7;
+    double latitude = 8;
+    double longitude = 9;
+    string channel = 10;
+    double sample_rate = 11;
+    double gain = 12;
+    double q = 13;
+    bool horizontal = 14;
+    bool vertical = 15;
+}
+
+// for configuring shakenz-slink only.
+message ShakeNZStreams {
+    map<string, ShakeNZStream> streams =1;
+}
+
