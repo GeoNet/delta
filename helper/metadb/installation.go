@@ -57,7 +57,7 @@ func (m *MetaDB) Installations(station string) ([]Installation, error) {
 			return nil, nil
 		}
 
-		installs, err := m.StationInstalledSensors(station)
+		installs, err := m.StationLocationInstalledSensors(station, connection.Location)
 		if err != nil {
 			return nil, err
 		}
