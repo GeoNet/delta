@@ -41,187 +41,10 @@ func TestStations(t *testing.T) {
 // JSON file of Stations
 // GeoJSON of Site for each sensor type.
 func TestStationsProto(t *testing.T) {
-	var networks meta.NetworkList
 
-	if err := meta.LoadList("../network/networks.csv", &networks); err != nil {
-		t.Error(err)
-	}
-
-	var net = make(map[string]*delta.Network)
-
-	for _, v := range networks {
-		n := delta.Network{
-			Code: v.Code,
-			External: v.External,
-			Description: v.Description,
-			Restricted: v.Restricted,
-		}
-
-		net[v.Code] = &n
-	}
-
-	var stations meta.StationList
-	if err := meta.LoadList("../network/stations.csv", &stations); err != nil {
-		t.Error(err)
-	}
-
-	if len(stations) == 0 {
-		t.Error("zero length stations list.")
-	}
-
-	var s delta.Stations
-	s.Stations = make(map[string]*delta.Station)
-
-	for _, v := range stations {
-		pt := delta.Point{
-			Longitude:v.Longitude,
-			Latitude:v.Latitude,
-			Elevation:v.Elevation,
-			Datum:v.Datum,
-		}
-
-		sp := delta.Span{
-			Start:v.Start.Unix(),
-			End:v.End.Unix(),
-		}
-
-		st := delta.Station{
-			Code:v.Code,
-			Name:v.Name,
-			Network: net[v.Network],
-			Point:&pt,
-			Span:&sp,
-		}
-
-		s.Stations[st.Code] = &st
-	}
-
-	var sites meta.SiteList
-	if err := meta.LoadList("../network/sites.csv", &sites); err != nil {
-		t.Error(err)
-	}
-
-	for _, v := range sites {
-		pt := delta.Point{
-			Longitude:v.Longitude,
-			Latitude:v.Latitude,
-			Elevation:v.Elevation,
-			Datum:v.Datum,
-		}
-		sp := delta.Span{
-			Start:v.Start.Unix(),
-			End:v.End.Unix(),
-		}
-		si := delta.Site{
-			Location: v.Location,
-			Survey: v.Survey,
-			Span: &sp,
-			Point: &pt,
-		}
-
-		if _, ok := s.Stations[v.Station]; ok {
-			if s.Stations[v.Station].Sites == nil {
-				s.Stations[v.Station].Sites = make(map[string]*delta.Site)
-			}
-			s.Stations[v.Station].Sites[si.Location] = &si
-		}
-	}
-
-	var installed meta.InstalledSensorList
-	if err := meta.LoadList("../install/sensors.csv", &installed); err != nil {
+	s,err := stations()
+	if err != nil {
 		t.Fatal(err)
-	}
-
-	for _, v := range installed {
-		st := resp.SensorModels[v.Model]
-
-		e := delta.Equipment{
-			Make: v.Make,
-			Model: v.Model,
-			Serial: v.Serial,
-			Type: st.Type,
-		}
-		sp := delta.Span{
-			Start:v.Start.Unix(),
-			End:v.End.Unix(),
-		}
-		o := delta.Orientation{
-			Dip: v.Dip,
-			Azimuth: v.Azimuth,
-		}
-		off := delta.Offset{
-			North: v.North,
-			East: v.East,
-			Vertical: v.Vertical,
-		}
-		sc := delta.Scale{
-			Bias: v.Bias,
-			Factor: v.Factor,
-		}
-		is := delta.InstalledSensor{
-			Equipment: &e,
-			Span: &sp,
-			Orientation: &o,
-			Offset: &off,
-			Scale: &sc,
-		}
-
-		if _, ok := s.Stations[v.Station]; ok {
-			if _, ok := s.Stations[v.Station].Sites[v.Location]; ok {
-				s.Stations[v.Station].Sites[v.Location].InstalledSensor = append(s.Stations[v.Station].Sites[v.Location].InstalledSensor, &is)
-			}
-		}
-	}
-
-	// strong motion recorders that are a sensor and a datalogger as a package.
-	var recorders meta.InstalledRecorderList
-	if err := meta.LoadList("../install/recorders.csv", &recorders); err != nil {
-		t.Fatal(err)
-	}
-
-	for _, v := range recorders {
-		st, ok := resp.SensorModels[v.InstalledSensor.Model]
-		if !ok {
-			// in resp/auto.go some models have " SENSOR" appended.
-			st, ok = resp.SensorModels[v.InstalledSensor.Model + " SENSOR"]
-		}
-
-		e := delta.Equipment{
-			Make: v.Make,
-			Model: v.Model,
-			Serial: v.Serial,
-			Type: st.Type,
-		}
-		sp := delta.Span{
-			Start:v.Start.Unix(),
-			End:v.End.Unix(),
-		}
-		o := delta.Orientation{
-			Dip: v.Dip,
-			Azimuth: v.Azimuth,
-		}
-		off := delta.Offset{
-			North: v.North,
-			East: v.East,
-			Vertical: v.Vertical,
-		}
-		sc := delta.Scale{
-			Bias: v.Bias,
-			Factor: v.Factor,
-		}
-		is := delta.InstalledSensor{
-			Equipment: &e,
-			Span: &sp,
-			Orientation: &o,
-			Offset: &off,
-			Scale: &sc,
-		}
-
-		if _, ok := s.Stations[v.Station]; ok {
-			if _, ok := s.Stations[v.Station].Sites[v.Location]; ok {
-				s.Stations[v.Station].Sites[v.Location].InstalledSensor = append(s.Stations[v.Station].Sites[v.Location].InstalledSensor, &is)
-			}
-		}
 	}
 
 	// protobuf of all station information
@@ -325,4 +148,190 @@ func writeProps(station *delta.Station, site *delta.Site, sensor *delta.Installe
 	b.WriteString(fmt.Sprintf(",\"end\":\"%s\"", time.Unix(sensor.Span.End, 0).UTC().Format(time.RFC3339)))
 
 	b.WriteString(`}}`)
+}
+
+func stations() (s delta.Stations, err error) {
+	var networks meta.NetworkList
+
+	if err = meta.LoadList("../network/networks.csv", &networks); err != nil {
+		return
+	}
+
+	var net = make(map[string]*delta.Network)
+
+	for _, v := range networks {
+		n := delta.Network{
+			Code: v.Code,
+			External: v.External,
+			Description: v.Description,
+			Restricted: v.Restricted,
+		}
+
+		net[v.Code] = &n
+	}
+
+	var stations meta.StationList
+	if err = meta.LoadList("../network/stations.csv", &stations); err != nil {
+		return
+	}
+
+	if len(stations) == 0 {
+		return
+	}
+
+	s.Stations = make(map[string]*delta.Station)
+
+	for _, v := range stations {
+		pt := delta.Point{
+			Longitude:v.Longitude,
+			Latitude:v.Latitude,
+			Elevation:v.Elevation,
+			Datum:v.Datum,
+		}
+
+		sp := delta.Span{
+			Start:v.Start.Unix(),
+			End:v.End.Unix(),
+		}
+
+		st := delta.Station{
+			Code:v.Code,
+			Name:v.Name,
+			Network: net[v.Network],
+			Point:&pt,
+			Span:&sp,
+		}
+
+		s.Stations[st.Code] = &st
+	}
+
+	var sites meta.SiteList
+	if err = meta.LoadList("../network/sites.csv", &sites); err != nil {
+		return
+	}
+
+	for _, v := range sites {
+		pt := delta.Point{
+			Longitude:v.Longitude,
+			Latitude:v.Latitude,
+			Elevation:v.Elevation,
+			Datum:v.Datum,
+		}
+		sp := delta.Span{
+			Start:v.Start.Unix(),
+			End:v.End.Unix(),
+		}
+		si := delta.Site{
+			Location: v.Location,
+			Survey: v.Survey,
+			Span: &sp,
+			Point: &pt,
+		}
+
+		if _, ok := s.Stations[v.Station]; ok {
+			if s.Stations[v.Station].Sites == nil {
+				s.Stations[v.Station].Sites = make(map[string]*delta.Site)
+			}
+			s.Stations[v.Station].Sites[si.Location] = &si
+		}
+	}
+
+	var installed meta.InstalledSensorList
+	if err = meta.LoadList("../install/sensors.csv", &installed); err != nil {
+		return
+	}
+
+	for _, v := range installed {
+		st := resp.SensorModels[v.Model]
+
+		e := delta.Equipment{
+			Make: v.Make,
+			Model: v.Model,
+			Serial: v.Serial,
+			Type: st.Type,
+		}
+		sp := delta.Span{
+			Start:v.Start.Unix(),
+			End:v.End.Unix(),
+		}
+		o := delta.Orientation{
+			Dip: v.Dip,
+			Azimuth: v.Azimuth,
+		}
+		off := delta.Offset{
+			North: v.North,
+			East: v.East,
+			Vertical: v.Vertical,
+		}
+		sc := delta.Scale{
+			Bias: v.Bias,
+			Factor: v.Factor,
+		}
+		is := delta.InstalledSensor{
+			Equipment: &e,
+			Span: &sp,
+			Orientation: &o,
+			Offset: &off,
+			Scale: &sc,
+		}
+
+		if _, ok := s.Stations[v.Station]; ok {
+			if _, ok := s.Stations[v.Station].Sites[v.Location]; ok {
+				s.Stations[v.Station].Sites[v.Location].InstalledSensor = append(s.Stations[v.Station].Sites[v.Location].InstalledSensor, &is)
+			}
+		}
+	}
+
+	// strong motion recorders that are a sensor and a datalogger as a package.
+	var recorders meta.InstalledRecorderList
+	if err = meta.LoadList("../install/recorders.csv", &recorders); err != nil {
+		return
+	}
+
+	for _, v := range recorders {
+		st, ok := resp.SensorModels[v.InstalledSensor.Model]
+		if !ok {
+			// in resp/auto.go some models have " SENSOR" appended.
+			st, ok = resp.SensorModels[v.InstalledSensor.Model + " SENSOR"]
+		}
+
+		e := delta.Equipment{
+			Make: v.Make,
+			Model: v.Model,
+			Serial: v.Serial,
+			Type: st.Type,
+		}
+		sp := delta.Span{
+			Start:v.Start.Unix(),
+			End:v.End.Unix(),
+		}
+		o := delta.Orientation{
+			Dip: v.Dip,
+			Azimuth: v.Azimuth,
+		}
+		off := delta.Offset{
+			North: v.North,
+			East: v.East,
+			Vertical: v.Vertical,
+		}
+		sc := delta.Scale{
+			Bias: v.Bias,
+			Factor: v.Factor,
+		}
+		is := delta.InstalledSensor{
+			Equipment: &e,
+			Span: &sp,
+			Orientation: &o,
+			Offset: &off,
+			Scale: &sc,
+		}
+
+		if _, ok := s.Stations[v.Station]; ok {
+			if _, ok := s.Stations[v.Station].Sites[v.Location]; ok {
+				s.Stations[v.Station].Sites[v.Location].InstalledSensor = append(s.Stations[v.Station].Sites[v.Location].InstalledSensor, &is)
+			}
+		}
+	}
+
+	return
 }
