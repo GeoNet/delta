@@ -240,6 +240,18 @@ sensormodel:
       dip: 0
     - azimuth: 0
       dip: -90
+  CUSP3C3:
+    type: Strong Motion Sensor
+    description: CUSP 3C
+    manufacturer: ""
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
   CUSP3D:
     type: Strong Motion Sensor
     description: CUSP 3D

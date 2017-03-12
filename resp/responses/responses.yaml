@@ -511,6 +511,12 @@ response:
   Strong Motion Recorders:
     sensors:
     - sensors:
+      - FBA-ES-T
+      filters:
+        - FBA-ES-T
+      channels: Z12
+      reversed: false
+    - sensors:
       - FBA-23-DECK
       filters:
       - FBA-23-DECK
@@ -535,6 +541,18 @@ response:
       channels: Z12
       reversed: false
     - sensors:
+      - Kinemetrics SBEPI
+      filters:
+      - Kinemetrics SBEPI
+      channels: Z12
+      reversed: false
+    - sensors:
+      - SDP
+      filters:
+      - SDP
+      channels: 12Z
+      reversed: false
+    - sensors:
       - CUSP3D
       filters:
       - CUSP SENSOR
@@ -545,6 +563,12 @@ response:
       filters:
       - CUSP SENSOR
       channels: 21Z
+      reversed: false
+    - sensors:
+      - CUSP3C3
+      filters:
+      - CUSP SENSOR
+      channels: XYZ
       reversed: false
     - sensors:
       - CUSP3B
@@ -583,6 +607,7 @@ response:
       reversed: false
     - dataloggers:
       - BASALT
+      - BASALT 8X DATALOGGER
       type: TG
       label: HN
       samplerate: 200
@@ -594,6 +619,7 @@ response:
       reversed: false
     - dataloggers:
       - BASALT
+      - BASALT 8X DATALOGGER
       type: CG
       label: BN
       samplerate: 50
@@ -618,6 +644,7 @@ response:
     - dataloggers:
       - CUSP3D
       - CUSP3C
+      - CUSP3C3
       type: TG
       label: HN
       samplerate: 200
@@ -630,6 +657,7 @@ response:
     - dataloggers:
       - CUSP3D
       - CUSP3C
+      - CUSP3C3
       type: CG
       label: BN
       samplerate: 50

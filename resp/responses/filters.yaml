@@ -427,6 +427,18 @@ filter:
     delay: 0
     inputunits: M/S**2
     outputunits: V
+  Kinemetrics SBEPI:
+  - type: paz
+    lookup: Kinemetrics SBEPI
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 2.0376974
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: M/S**2
+    outputunits: V
   FBA-ES-T-BASALT:
   - type: paz
     lookup: FBA-ES-T

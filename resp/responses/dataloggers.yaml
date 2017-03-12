@@ -5,6 +5,11 @@ dataloggermodel:
     description: Basalt
     manufacturer: Kinemetrics
     vendor: ""
+  BASALT 8X DATALOGGER:
+    type: Strong Motion Recorder
+    description: Basalt
+    manufacturer: Kinemetrics
+    vendor: ""
   OBSIDIAN:
     type: Strong Motion Recorder
     description: Obsidian
@@ -33,6 +38,11 @@ dataloggermodel:
   CUSP3C:
     type: Strong Motion Recorder
     description: Cusp3C
+    manufacturer: CSI
+    vendor: ""
+  CUSP3C3:
+    type: Strong Motion Recorder
+    description: Cusp3C3
     manufacturer: CSI
     vendor: ""
   CUSP3D:
