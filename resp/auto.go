@@ -19,6 +19,13 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
+	"BASALT 8X DATALOGGER": DataloggerModel{
+		Name:         "BASALT 8X DATALOGGER",
+		Type:         "Strong Motion Recorder",
+		Description:  "Basalt",
+		Manufacturer: "Kinemetrics",
+		Vendor:       "",
+	},
 	"CUSP3A": DataloggerModel{
 		Name:         "CUSP3A",
 		Type:         "Strong Motion Recorder",
@@ -37,6 +44,13 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Name:         "CUSP3C",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3C",
+		Manufacturer: "CSI",
+		Vendor:       "",
+	},
+	"CUSP3C3": DataloggerModel{
+		Name:         "CUSP3C3",
+		Type:         "Strong Motion Recorder",
+		Description:  "Cusp3C3",
 		Manufacturer: "CSI",
 		Vendor:       "",
 	},
@@ -309,6 +323,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 	},
 	"CUSP3C SENSOR": SensorModel{
 		Name:         "CUSP3C SENSOR",
+		Type:         "Strong Motion Sensor",
+		Description:  "CUSP 3C",
+		Manufacturer: "",
+		Vendor:       "",
+		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+	},
+	"CUSP3C3": SensorModel{
+		Name:         "CUSP3C3",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3C",
 		Manufacturer: "",
@@ -4506,6 +4528,34 @@ var Responses []Response = []Response{
 		Name: "Strong Motion Recorders",
 		Sensors: []Sensor{
 			Sensor{
+				SensorList: []string{"FBA-ES-T"},
+				FilterList: []string{"FBA-ES-T"},
+				Stages: []ResponseStage{
+					ResponseStage{
+						Type:   "paz",
+						Lookup: "FBA-ES-T",
+						Filter: "FBA-ES-T",
+						StageSet: PAZ{
+							Name:  "FBA-ES-T",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "Standard response of an Kinemetric's EpiSensor FBA-ES sensor, they are built with a wide range of gains. We use +/- 20V @ +/-2 g for the National Network, and +/- 2.5V @ +/- 2g for the ETNA strong motion recorders.",
+							Poles: []complex128{(-981 + 1009i), (-981 - 1009i), (-3290 + 1263i), (-3290 - 1263i)},
+						},
+						Frequency:   1,
+						SampleRate:  0,
+						Decimate:    0,
+						Gain:        1.0188487,
+						Scale:       1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "M/S**2",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "Z12",
+				Reversed: false,
+			}, Sensor{
 				SensorList: []string{"FBA-23-DECK"},
 				FilterList: []string{"FBA-23-DECK"},
 				Stages: []ResponseStage{
@@ -4618,6 +4668,54 @@ var Responses []Response = []Response{
 				Channels: "Z12",
 				Reversed: false,
 			}, Sensor{
+				SensorList: []string{"Kinemetrics SBEPI"},
+				FilterList: []string{"Kinemetrics SBEPI"},
+				Stages: []ResponseStage{
+					ResponseStage{
+						Type:        "paz",
+						Lookup:      "Kinemetrics SBEPI",
+						Filter:      "Kinemetrics SBEPI",
+						Frequency:   1,
+						SampleRate:  0,
+						Decimate:    0,
+						Gain:        2.0376974,
+						Scale:       1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "M/S**2",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "Z12",
+				Reversed: false,
+			}, Sensor{
+				SensorList: []string{"SDP"},
+				FilterList: []string{"SDP"},
+				Stages: []ResponseStage{
+					ResponseStage{
+						Type:   "paz",
+						Lookup: "SDP",
+						Filter: "SDP",
+						StageSet: PAZ{
+							Name:  "SDP",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "A simple place holder for the SDP down-hole sensor",
+						},
+						Frequency:   1,
+						SampleRate:  0,
+						Decimate:    0,
+						Gain:        0.1273560875,
+						Scale:       1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "M/S**2",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "12Z",
+				Reversed: false,
+			}, Sensor{
 				SensorList: []string{"CUSP3D"},
 				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
@@ -4670,6 +4768,33 @@ var Responses []Response = []Response{
 					},
 				},
 				Channels: "21Z",
+				Reversed: false,
+			}, Sensor{
+				SensorList: []string{"CUSP3C3"},
+				FilterList: []string{"CUSP SENSOR"},
+				Stages: []ResponseStage{
+					ResponseStage{
+						Type:   "paz",
+						Lookup: "CUSP",
+						Filter: "CUSP SENSOR",
+						StageSet: PAZ{
+							Name:  "CUSP",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "A simple place holder for the CSI CUSP strong motion sensors",
+						},
+						Frequency:   1,
+						SampleRate:  0,
+						Decimate:    0,
+						Gain:        0.10197162129779283,
+						Scale:       1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "M/S**2",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "XYZ",
 				Reversed: false,
 			}, Sensor{
 				SensorList: []string{"CUSP3B"},
@@ -4982,7 +5107,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				DataloggerList: []string{"BASALT"},
+				DataloggerList: []string{"BASALT", "BASALT 8X DATALOGGER"},
 				Type:           "TG",
 				Label:          "HN",
 				SampleRate:     200,
@@ -5098,7 +5223,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				DataloggerList: []string{"BASALT"},
+				DataloggerList: []string{"BASALT", "BASALT 8X DATALOGGER"},
 				Type:           "CG",
 				Label:          "BN",
 				SampleRate:     50,
@@ -5311,7 +5436,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				DataloggerList: []string{"CUSP3D", "CUSP3C"},
+				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3"},
 				Type:           "TG",
 				Label:          "HN",
 				SampleRate:     200,
@@ -5343,7 +5468,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				DataloggerList: []string{"CUSP3D", "CUSP3C"},
+				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3"},
 				Type:           "CG",
 				Label:          "BN",
 				SampleRate:     50,
