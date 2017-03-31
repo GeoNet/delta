@@ -160,7 +160,7 @@ func pazResponseStage(filter resp.PAZ, stage Stage) stationxml.ResponseStage {
 			InputUnits:  stationxml.Units{Name: stage.responseStage.InputUnits},
 			OutputUnits: stationxml.Units{Name: stage.responseStage.OutputUnits},
 		},
-		PzTransferFunction: stationxml.PzTransferFunction(filter.Code),
+		PzTransferFunctionType: stationxml.PzTransferFunctionType(filter.Code),
 		NormalizationFactor: func() float64 {
 			return 1.0 / filter.Gain(stage.frequency)
 		}(),
