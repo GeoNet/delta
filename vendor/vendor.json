@@ -15,10 +15,10 @@
 			"revisionTime": "2016-03-01T23:01:42Z"
 		},
 		{
-			"checksumSHA1": "8A0ee7lvVy7HqKZT0lMUf4gV6YA=",
+			"checksumSHA1": "GoEtguzRyXdK8vyOEKFLynWOIcM=",
 			"path": "github.com/ozym/fdsn/stationxml",
-			"revision": "8f86543eeb9f4224325142dd73ec21315406de85",
-			"revisionTime": "2015-09-17T07:42:45Z"
+			"revision": "fb491902e5f3d19c617a215b80cfe895e8db35e3",
+			"revisionTime": "2017-03-31T10:01:14Z"
 		}
 	],
 	"rootPath": "github.com/GeoNet/delta"
