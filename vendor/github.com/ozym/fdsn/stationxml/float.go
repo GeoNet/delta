@@ -2,7 +2,7 @@ package stationxml
 
 type Float struct {
 	UncertaintyDouble
-	Unit string `xml:"unit,attr,omitempty" json:",omitempty" yaml:",omitempty"`
+	Unit string `xml:"unit,attr,omitempty" json:",omitempty"`
 
 	Value float64 `xml:",chardata"`
 }

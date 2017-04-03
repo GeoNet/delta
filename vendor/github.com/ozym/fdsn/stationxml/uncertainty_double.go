@@ -7,8 +7,8 @@ import (
 // Expressing uncertainties or errors with a positive and a negative component.
 // Both values should be given as positive integers, but minus_error is understood to actually be negative.
 type UncertaintyDouble struct {
-	PlusError  float64 `xml:"plusError,attr,omitempty" json:",omitempty" yaml:",omitempty"`
-	MinusError float64 `xml:"minusError,attr,omitempty" json:",omitempty" yaml:",omitempty"`
+	PlusError  float64 `xml:"plusError,attr,omitempty" json:",omitempty"`
+	MinusError float64 `xml:"minusError,attr,omitempty" json:",omitempty"`
 }
 
 func (f UncertaintyDouble) IsValid() error {

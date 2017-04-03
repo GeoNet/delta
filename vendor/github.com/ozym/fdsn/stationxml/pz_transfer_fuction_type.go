@@ -8,10 +8,10 @@ import (
 // The type of data this channel collects. Corresponds to
 // channel flags in SEED blockette 52. The SEED volume producer could
 // use the first letter of an Output value as the SEED channel flag.
-type PzTransferFunction uint
+type PzTransferFunctionType uint
 
 const (
-	PZFunctionUnknown PzTransferFunction = iota
+	PZFunctionUnknown PzTransferFunctionType = iota
 	PZFunctionLaplaceRadiansPerSecond
 	PZFunctionLaplaceHertz
 	PZFunctionLaplaceZTransform
@@ -25,14 +25,14 @@ var pzFunctionLookup = []string{
 	PZFunctionLaplaceZTransform:       "DIGITAL (Z-TRANSFORM)",
 }
 
-var pzFunctionMap = map[string]PzTransferFunction{
+var pzFunctionMap = map[string]PzTransferFunctionType{
 	"UNKNOWN":                  PZFunctionUnknown,
 	"LAPLACE (RADIANS/SECOND)": PZFunctionLaplaceRadiansPerSecond,
 	"LAPLACE (HERTZ)":          PZFunctionLaplaceHertz,
 	"DIGITAL (Z-TRANSFORM)":    PZFunctionLaplaceZTransform,
 }
 
-func (f PzTransferFunction) IsValid() error {
+func (f PzTransferFunctionType) IsValid() error {
 
 	if !(f < pzFunctionEnd) {
 		return fmt.Errorf("invalid transfer function type: %d", f)
@@ -41,14 +41,14 @@ func (f PzTransferFunction) IsValid() error {
 	return nil
 }
 
-func (f PzTransferFunction) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+func (f PzTransferFunctionType) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	if !(f < pzFunctionEnd) {
 		return fmt.Errorf("invalid function entry: %d", f)
 	}
 	return e.EncodeElement(pzFunctionLookup[f], start)
 }
 
-func (f *PzTransferFunction) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+func (f *PzTransferFunctionType) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 
 	var s string
 	err := d.DecodeElement(&s, &start)

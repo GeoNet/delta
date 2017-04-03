@@ -85,7 +85,7 @@ func (s Stage) paz(pz resp.PAZ) stationxml.ResponseStage {
 			InputUnits:  stationxml.Units{Name: s.responseStage.InputUnits},
 			OutputUnits: stationxml.Units{Name: s.responseStage.OutputUnits},
 		},
-		PzTransferFunction: stationxml.PzTransferFunction(pz.Code),
+		PzTransferFunctionType: stationxml.PzTransferFunctionType(pz.Code),
 		NormalizationFactor: func() float64 {
 			return 1.0 / pz.Gain(s.frequency)
 		}(),

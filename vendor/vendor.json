@@ -7,6 +7,18 @@
 			"path": "github.com/golang/protobuf/proto",
 			"revision": "1f49d83d9aa00e6ce4fc8258c71cc7786aec968a",
 			"revisionTime": "2016-08-24T20:12:15Z"
+		},
+		{
+			"checksumSHA1": "/V57CyN7x2NUlHoOzVL5GgGXX84=",
+			"path": "github.com/hashicorp/go-memdb",
+			"revision": "98f52f52d7a476958fa9da671354d270c50661a7",
+			"revisionTime": "2016-03-01T23:01:42Z"
+		},
+		{
+			"checksumSHA1": "GoEtguzRyXdK8vyOEKFLynWOIcM=",
+			"path": "github.com/ozym/fdsn/stationxml",
+			"revision": "fb491902e5f3d19c617a215b80cfe895e8db35e3",
+			"revisionTime": "2017-03-31T10:01:14Z"
 		}
 	],
 	"rootPath": "github.com/GeoNet/delta"

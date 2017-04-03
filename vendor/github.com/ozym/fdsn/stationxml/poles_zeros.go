@@ -3,11 +3,11 @@ package stationxml
 type PolesZeros struct {
 	BaseFilter
 
-	PzTransferFunction     PzTransferFunction
+	PzTransferFunctionType PzTransferFunctionType
 	NormalizationFactor    float64
 	NormalizationFrequency Frequency
-	Zeros                  []PoleZero `xml:"Zero,omitempty" json:",omitempty" yaml:",omitempty"`
-	Poles                  []PoleZero `xml:"Pole,omitempty" json:",omitempty" yaml:",omitempty"`
+	Zeros                  []PoleZero `xml:"Zero,omitempty" json:",omitempty"`
+	Poles                  []PoleZero `xml:"Pole,omitempty" json:",omitempty"`
 }
 
 func (pz PolesZeros) IsValid() error {
@@ -16,7 +16,7 @@ func (pz PolesZeros) IsValid() error {
 		return err
 	}
 
-	if err := Validate(pz.PzTransferFunction); err != nil {
+	if err := Validate(pz.PzTransferFunctionType); err != nil {
 		return err
 	}
 	if err := Validate(pz.NormalizationFrequency); err != nil {

@@ -178,7 +178,7 @@ func (b *Build) Construct(mdb *metadb.MetaDB) ([]stationxml.Network, error) {
 					for azimuth < 0.0 {
 						azimuth += 360.0
 					}
-					for azimuth > 360.0 {
+					for azimuth >= 360.0 {
 						azimuth -= 360.0
 					}
 
