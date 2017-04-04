@@ -122,11 +122,13 @@ var generateTemplate = `
 		},{{end}}{{end}}
 		Frequency: {{$v.Frequency}},
 		SampleRate: {{$v.SampleRate}},
-		Decimate: {{$v.Decimate}},
+		Decimate: {{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{.Decimation}}{{end}}{{else}}{{$v.Decimate}}{{end}},
 		Gain: {{$v.Gain}},
-		Scale: {{$v.Scale}},
+		Scale: {{$v.Scale}},{{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{if and (eq $v.Correction 0.0) (gt .Decimation 1.0)}}
+		Correction: {{.Correction $v.SampleRate}},
+		Delay: {{.Correction $v.SampleRate}},{{else}}
 		Correction: {{$v.Correction}},
-		Delay: {{$v.Delay}},
+		Delay: {{$v.Correction}},{{end}}{{end}}{{end}}
 		InputUnits: "{{$v.InputUnits}}",
 		OutputUnits: "{{$v.OutputUnits}}",
 		},{{end}}{{end}}{{end}}

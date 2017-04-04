@@ -86,6 +86,9 @@ func (m *MetaDB) Installations(station string) ([]Installation, error) {
 				if dataloggerDeploy.End.Before(end) {
 					end = dataloggerDeploy.End
 				}
+				if !start.Before(end) {
+					continue
+				}
 
 				installations = append(installations, Installation{
 					Station:    station,

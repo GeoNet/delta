@@ -27,6 +27,18 @@ func (f FIR) SymmetryLookup() string {
 
 }
 
+func (f FIR) Correction(sps float64) float64 {
+
+	switch strings.ToUpper(f.Symmetry) {
+	case "EVEN":
+		return float64(len(f.Factors)*2-1) / (2.0 * sps)
+	case "ODD":
+		return float64((len(f.Factors)-1)*2+1-1) / (2.0 * sps)
+	default:
+		return float64(len(f.Factors)-1) / (2.0 * sps)
+	}
+}
+
 type firMap map[string]FIR
 
 func (f firMap) Keys() []string {
