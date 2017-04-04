@@ -66,21 +66,21 @@
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHZ.2003.344.stage_1">
               <InputUnits>
-                <Name>M/S</Name>
+                <Name>m/s</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>0.9995555150145211</NormalizationFactor>
               <NormalizationFrequency>15</NormalizationFrequency>
               <Zero number="2">
@@ -111,7 +111,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -130,10 +130,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">1.3154932e-11</NumeratorCoefficient>
@@ -262,21 +262,21 @@
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHN.2003.344.stage_1">
               <InputUnits>
-                <Name>M/S</Name>
+                <Name>m/s</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>0.9995555150145211</NormalizationFactor>
               <NormalizationFrequency>15</NormalizationFrequency>
               <Zero number="2">
@@ -307,7 +307,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -326,10 +326,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">1.3154932e-11</NumeratorCoefficient>
@@ -458,21 +458,21 @@
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHE.2003.344.stage_1">
               <InputUnits>
-                <Name>M/S</Name>
+                <Name>m/s</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>0.9995555150145211</NormalizationFactor>
               <NormalizationFrequency>15</NormalizationFrequency>
               <Zero number="2">
@@ -503,7 +503,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -522,10 +522,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">1.3154932e-11</NumeratorCoefficient>
@@ -654,21 +654,21 @@
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHN.2014.246.stage_1">
               <InputUnits>
-                <Name>M/S</Name>
+                <Name>m/s</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>0.9995555150145211</NormalizationFactor>
               <NormalizationFrequency>15</NormalizationFrequency>
               <Zero number="2">
@@ -699,7 +699,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -718,10 +718,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">1.3154932e-11</NumeratorCoefficient>
@@ -850,21 +850,21 @@
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHE.2014.246.stage_1">
               <InputUnits>
-                <Name>M/S</Name>
+                <Name>m/s</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>0.9995555150145211</NormalizationFactor>
               <NormalizationFrequency>15</NormalizationFrequency>
               <Zero number="2">
@@ -895,7 +895,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -914,10 +914,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">1.3154932e-11</NumeratorCoefficient>
@@ -1046,21 +1046,21 @@
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHZ.2014.246.stage_1">
               <InputUnits>
-                <Name>M/S</Name>
+                <Name>m/s</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>0.9995555150145211</NormalizationFactor>
               <NormalizationFrequency>15</NormalizationFrequency>
               <Zero number="2">
@@ -1091,7 +1091,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -1110,10 +1110,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">1.3154932e-11</NumeratorCoefficient>
@@ -1241,21 +1241,21 @@
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHE.2016.340.stage_1">
               <InputUnits>
-                <Name>M/S</Name>
+                <Name>m/s</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>0.9995555150145211</NormalizationFactor>
               <NormalizationFrequency>15</NormalizationFrequency>
               <Zero number="2">
@@ -1286,7 +1286,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -1305,10 +1305,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330S+_FLbelow100-100" name="Q330S+_FLbelow100-100">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">-9.9507037e-15</NumeratorCoefficient>
@@ -1442,21 +1442,21 @@
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHZ.2016.340.stage_1">
               <InputUnits>
-                <Name>M/S</Name>
+                <Name>m/s</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>0.9995555150145211</NormalizationFactor>
               <NormalizationFrequency>15</NormalizationFrequency>
               <Zero number="2">
@@ -1487,7 +1487,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -1506,10 +1506,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330S+_FLbelow100-100" name="Q330S+_FLbelow100-100">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">-9.9507037e-15</NumeratorCoefficient>
@@ -1643,21 +1643,21 @@
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHN.2016.340.stage_1">
               <InputUnits>
-                <Name>M/S</Name>
+                <Name>m/s</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>0.9995555150145211</NormalizationFactor>
               <NormalizationFrequency>15</NormalizationFrequency>
               <Zero number="2">
@@ -1688,7 +1688,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -1707,10 +1707,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330S+_FLbelow100-100" name="Q330S+_FLbelow100-100">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">-9.9507037e-15</NumeratorCoefficient>
@@ -1844,21 +1844,21 @@
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
             <InputUnits>
-              <Name>M/S**2</Name>
+              <Name>m/s**2</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.HNZ.2016.340.stage_1">
               <InputUnits>
-                <Name>M/S**2</Name>
+                <Name>m/s**2</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>2.4595686247489332e+13</NormalizationFactor>
               <NormalizationFrequency>1</NormalizationFrequency>
               <Pole number="0">
@@ -1889,7 +1889,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -1908,10 +1908,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330S+_FLbelow100-200" name="Q330S+_FLbelow100-200">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">-6.4679876e-12</NumeratorCoefficient>
@@ -2021,21 +2021,21 @@
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
             <InputUnits>
-              <Name>M/S**2</Name>
+              <Name>m/s**2</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.HNN.2016.340.stage_1">
               <InputUnits>
-                <Name>M/S**2</Name>
+                <Name>m/s**2</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>2.4595686247489332e+13</NormalizationFactor>
               <NormalizationFrequency>1</NormalizationFrequency>
               <Pole number="0">
@@ -2066,7 +2066,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -2085,10 +2085,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330S+_FLbelow100-200" name="Q330S+_FLbelow100-200">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">-6.4679876e-12</NumeratorCoefficient>
@@ -2198,21 +2198,21 @@
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
             <InputUnits>
-              <Name>M/S**2</Name>
+              <Name>m/s**2</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.HNE.2016.340.stage_1">
               <InputUnits>
-                <Name>M/S**2</Name>
+                <Name>m/s**2</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>2.4595686247489332e+13</NormalizationFactor>
               <NormalizationFrequency>1</NormalizationFrequency>
               <Pole number="0">
@@ -2243,7 +2243,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -2262,10 +2262,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330S+_FLbelow100-200" name="Q330S+_FLbelow100-200">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">-6.4679876e-12</NumeratorCoefficient>
@@ -2375,21 +2375,21 @@
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
             <InputUnits>
-              <Name>M/S**2</Name>
+              <Name>m/s**2</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.BNZ.2016.340.stage_1">
               <InputUnits>
-                <Name>M/S**2</Name>
+                <Name>m/s**2</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>2.4595686247489332e+13</NormalizationFactor>
               <NormalizationFrequency>1</NormalizationFrequency>
               <Pole number="0">
@@ -2420,7 +2420,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -2439,10 +2439,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330S+_FLbelow100-50" name="Q330S+_FLbelow100-50">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">1.0161363e-14</NumeratorCoefficient>
@@ -2589,21 +2589,21 @@
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
             <InputUnits>
-              <Name>M/S**2</Name>
+              <Name>m/s**2</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.BNN.2016.340.stage_1">
               <InputUnits>
-                <Name>M/S**2</Name>
+                <Name>m/s**2</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>2.4595686247489332e+13</NormalizationFactor>
               <NormalizationFrequency>1</NormalizationFrequency>
               <Pole number="0">
@@ -2634,7 +2634,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -2653,10 +2653,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330S+_FLbelow100-50" name="Q330S+_FLbelow100-50">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">1.0161363e-14</NumeratorCoefficient>
@@ -2803,21 +2803,21 @@
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
             <InputUnits>
-              <Name>M/S**2</Name>
+              <Name>m/s**2</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.BNE.2016.340.stage_1">
               <InputUnits>
-                <Name>M/S**2</Name>
+                <Name>m/s**2</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
               </OutputUnits>
-              <PzTransferFunction>LAPLACE (RADIANS/SECOND)</PzTransferFunction>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
               <NormalizationFactor>2.4595686247489332e+13</NormalizationFactor>
               <NormalizationFrequency>1</NormalizationFrequency>
               <Pole number="0">
@@ -2848,7 +2848,7 @@
                 <Name>V</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
             </Coefficients>
@@ -2867,10 +2867,10 @@
           <Stage number="3">
             <FIR resourceId="FIR#Q330S+_FLbelow100-50" name="Q330S+_FLbelow100-50">
               <InputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </InputUnits>
               <OutputUnits>
-                <Name>COUNTS</Name>
+                <Name>count</Name>
               </OutputUnits>
               <Symmetry>NONE</Symmetry>
               <NumeratorCoefficient i="1">1.0161363e-14</NumeratorCoefficient>

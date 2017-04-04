@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/GeoNet/delta/helper/metadb"
+	"github.com/GeoNet/delta/metadb"
 	"github.com/GeoNet/delta/resp"
 
 	"github.com/ozym/fdsn/stationxml"
@@ -65,7 +65,9 @@ func (b *Build) MatchChannel(cha string) bool {
 	return b.Channels.MatchString(cha)
 }
 
-func (b *Build) Construct(mdb *metadb.MetaDB) ([]stationxml.Network, error) {
+func (b *Build) Construct(base string) ([]stationxml.Network, error) {
+
+	mdb := metadb.NewMetaDB(base)
 
 	var networks []stationxml.Network
 
