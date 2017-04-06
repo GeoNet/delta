@@ -162,6 +162,13 @@ func (b *Build) Construct(mdb *metadb.MetaDB) ([]stationxml.Network, error) {
 						}
 						// avoid negative zero
 						dip = 0.0
+						// bring into positive range
+						for azimuth < 0.0 {
+							azimuth += 360.0
+						}
+						for azimuth >= 360.0 {
+							azimuth -= 360.0
+						}
 					} else {
 						if response.Sensor.Reversed {
 							dip *= -1.0
@@ -172,14 +179,8 @@ func (b *Build) Construct(mdb *metadb.MetaDB) ([]stationxml.Network, error) {
 						if stream.Reversed {
 							dip *= -1.0
 						}
-					}
-
-					// bring into positive range
-					for azimuth < 0.0 {
-						azimuth += 360.0
-					}
-					for azimuth >= 360.0 {
-						azimuth -= 360.0
+						// no azimuth on verticals
+						azimuth = 0.0
 					}
 
 					tag := fmt.Sprintf(
