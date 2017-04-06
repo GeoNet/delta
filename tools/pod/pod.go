@@ -377,7 +377,7 @@ func (p *Pod) Channel(cha *stationxml.Channel) []Blockette {
 					Type: 53,
 					Content: ResponsePolesZeros{
 						TransferFunctionType: func() string {
-							switch s.PolesZeros.PzTransferFunction {
+							switch s.PolesZeros.PzTransferFunctionType {
 							case stationxml.PZFunctionLaplaceRadiansPerSecond:
 								return "A"
 							case stationxml.PZFunctionLaplaceHertz:
