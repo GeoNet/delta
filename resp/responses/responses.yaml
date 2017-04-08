@@ -213,6 +213,13 @@ response:
       channels: ZNE
       reversed: false
     - sensors:
+      - Nanometrics Trillium Compact PH TC120-PH2
+      filters:
+        #- TRILLIUM-120PH-2
+      - TRILLIUM-COMPACT-120
+      channels: Z12
+      reversed: false
+    - sensors:
       - CMG-3TB
       filters:
       - CMG-3TB-CTBTO
@@ -282,6 +289,7 @@ response:
       reversed: false
     - dataloggers:
       - Q330HRS/6
+      - Q330HR/6
       type: CG
       label: HH
       samplerate: 100
@@ -293,6 +301,7 @@ response:
       reversed: false
     - dataloggers:
       - Q330HRS/6
+      - Q330HR/6
       type: CG
       label: LH
       samplerate: 1
@@ -304,6 +313,7 @@ response:
       reversed: false
     - dataloggers:
       - Q330HRS/6
+      - Q330HR/6
       type: CG
       label: VH
       samplerate: 0.1
@@ -837,5 +847,271 @@ response:
       clockdrift: 0.0001
       filters:
       - Q330_FLbelow100-1-PREAMP
+      reversed: false
+  Sea Water Depth Sensors:
+    sensors:
+    - sensors:
+      - Druck PTX-1830
+      filters:
+      - Druck PTX-1830
+      - Sea Water
+      channels: Z
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: LT
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-10
+      reversed: false
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: LT
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-1
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: BT
+      samplerate: 10
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-10
+      reversed: false
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: BT
+      samplerate: 10
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-10
+      reversed: false
+  Fresh Water Depth Sensors:
+    sensors:
+    - sensors:
+      - Druck PTX-1830-LAND
+      filters:
+      - Druck PTX-1830
+      channels: Z
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: LT
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-10
+      reversed: false
+    - dataloggers:
+      - Q330S/6
+      type: CG
+      label: LT
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-1
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: BT
+      samplerate: 10
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-10
+      reversed: false
+    - dataloggers:
+      - Q330S/6
+      type: CG
+      label: BT
+      samplerate: 10
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-10
+      reversed: false
+  Water Depth Sensors:
+    sensors:
+    - sensors:
+      - Druck PTX-1830-LAND
+      - Druck PTX-1830
+      filters: []
+      channels: H
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: VT
+      samplerate: 0.1
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Water Depth 0.1
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: LT
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Water Depth 1
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: BT
+      samplerate: 10
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Water Depth 10
+      reversed: false
+  Tidal Sensors:
+    sensors:
+    - sensors:
+      - Druck PTX-1830
+      filters: []
+      channels: T
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: VT
+      samplerate: 0.1
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Water Depth 0.1
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: LT
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Water Depth 1
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: BT
+      samplerate: 10
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Water Depth 10
+      reversed: false
+  Temperature Sensors:
+    sensors:
+    - sensors:
+      - LM35
+      filters:
+      - LM35
+      channels: O
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330/6
+      type: CW
+      label: LK
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-1
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330S/6
+      type: CW
+      label: LK
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-1
+      reversed: false
+  Hydrophones:
+    sensors:
+    - sensors:
+      - Scout Hydrophone
+      filters:
+      - Scout Hydrophone
+      channels: H
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      type: CG
+      label: HD
+      samplerate: 200
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-200
       reversed: false
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

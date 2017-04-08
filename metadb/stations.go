@@ -8,9 +8,10 @@ import (
 )
 
 type stations struct {
-	list   meta.StationList
-	lookup map[string]meta.Station
-	once   sync.Once
+	list     meta.StationList
+	lookup   map[string]meta.Station
+	networks map[string][]meta.Station
+	once     sync.Once
 }
 
 func (s *stations) loadStations(base string) error {
@@ -23,6 +24,15 @@ func (s *stations) loadStations(base string) error {
 				lookup[v.Code] = v
 			}
 			s.lookup = lookup
+
+			networks := make(map[string][]meta.Station)
+			for _, v := range s.list {
+				if _, ok := networks[v.Network]; !ok {
+					networks[v.Network] = []meta.Station{}
+				}
+				networks[v.Network] = append(networks[v.Network], v)
+			}
+			s.networks = networks
 		}
 	})
 
@@ -46,6 +56,19 @@ func (m *MetaDB) Station(code string) (*meta.Station, error) {
 
 	if s, ok := m.stations.lookup[code]; ok {
 		return &s, nil
+	}
+
+	return nil, nil
+}
+
+func (m *MetaDB) NetworkStation(code string) ([]meta.Station, error) {
+
+	if err := m.loadStations(m.base); err != nil {
+		return nil, err
+	}
+
+	if s, ok := m.stations.networks[code]; ok {
+		return s, nil
 	}
 
 	return nil, nil

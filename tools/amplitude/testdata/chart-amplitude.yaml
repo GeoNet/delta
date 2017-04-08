@@ -1,0 +1,388 @@
+---
+depth:
+  archive: 300
+  components:
+    - Z
+    - H
+  days: 366
+  delta: 10
+  dir: depth/%s.%n
+  file: '%s.%l%-%c.%n.rrd'
+  forever: 366
+  loggers:
+    - Q330/6
+    - Q330S/6
+  networks:
+    - KI
+  rates:
+    1:
+      q: 0
+      scale: 1
+    10:
+      q: 0
+      scale: 1
+  sensors:
+    - Druck PTX-1830-LAND
+  step: 60
+drum:
+  archive: 10
+  components:
+    - Z
+    - H
+    - F
+  daemon: /home/chart/var/rrdcached.sock
+  days: 7
+  delta: 1
+  dir: drum/%s.%n
+  extra:
+    - locations:
+        10:
+          BHZ:
+            gain: 8.5266
+            high: 15
+            low: 2
+            rate: 40
+      name: South Karori
+      network_id: IU
+      station_id: SNZO
+    - locations:
+        10:
+          BHZ:
+            gain: 8.5266
+            high: 15
+            low: 2
+            rate: 40
+      name: Rarotonga
+      network_id: IU
+      station_id: RAR
+    - locations:
+        10:
+          BHZ:
+            gain: 0.6291456
+            high: 15
+            low: 2
+            rate: 40
+      name: Raoul Island
+      network_id: IU
+      station_id: RAO
+  file: '%s.%l%-%c.%n.rrd'
+  forever: 20
+  loggers:
+    - Q4120/6
+    - Q330S/3
+    - Q330S/6
+    - Q330/3
+    - Q330/6
+    - Q330HR/6
+    - Q330HRS/6
+  networks:
+    - NZ
+    - AK
+    - RT
+    - TP
+    - CH
+    - TR
+    - HA
+    - NX
+    - KI
+  rates:
+    100:
+      high: 15
+      low: 2
+      order: 3
+      scale: 1e-09
+    200:
+      high: 15
+      low: 2
+      order: 3
+      scale: 1e-09
+    40:
+      high: 15
+      low: 2
+      order: 3
+      scale: 1e-09
+  sensors:
+    - L4C
+    - L4C-3D
+    - LE-3DliteMkII
+    - LE-3Dlite
+    - STS-2
+    - CMG-3TB
+    - CMG-3TB-GN
+    - CMG-3ESP
+    - CMG-3ESPC
+    - CMG-3ESP-Z
+    - CMG-40T-30S
+    - CMG-40T-60S
+    - 270-600/12V
+    - 270-600/24V
+    - 270-800/12V
+    - InfraBSU microphone
+    - Scout Hydrophone
+    - 2 Hz Duke Malin Seismometer
+    - SM-6 Geophone
+    - Nanometrics Trillium 120QA
+    - Nanometrics Trillium Compact PH TC120-PH2
+  settling: 5
+  step: 2
+gauge:
+  archive: 120
+  components:
+    - Z
+    - H
+    - T
+  daemon: /home/chart/var/rrdcached.sock
+  days: 90
+  delta: 1
+  dir: gauge/%s.%n
+  file: '%s.%l%-%c.%n.rrd'
+  forever: 180
+  loggers:
+    - Q330/3
+    - Q330S/3
+    - Q330/6
+  networks:
+    - TG
+  rates:
+    10:
+      q: 0
+      scales:
+        H: 0.001
+        T: 0.001
+        Z: 0.001
+  sensors:
+    - Druck PTX-1830
+  step: 10
+pressure:
+  archive: 300
+  components:
+    - F
+    - B
+  daemon: /home/chart/var/rrdcached.sock
+  days: 366
+  delta: 10
+  dir: pressure/%s.%n
+  file: '%s.%l%-%c.%n.rrd'
+  forever: 366
+  loggers:
+    - Q330S/3
+    - Q330S/6
+    - Q330/3
+    - Q330/6
+  networks:
+    - TR
+    - RT
+    - CH
+    - KI
+  rates:
+    1:
+      q: 0
+      scale: 1
+    100:
+      high: 15
+      low: 2
+      order: 3
+      scale: 1
+  sensors:
+    - 270-600/12V
+    - 270-600/24V
+    - 270-800/12V
+    - InfraBSU microphone
+  step: 60
+rsam:
+  archive: 3600
+  components:
+    - Z
+    - H
+    - F
+  daemon: /home/chart/var/rrdcached.sock
+  days: 366
+  delta: 60
+  dir: rsam/%s.%n
+  extra:
+    - locations:
+        10:
+          BHZ:
+            gain: 0.6291456
+            q: 0.98829
+            rate: 40
+      name: Raoul Island
+      network_id: IU
+      station_id: RAO
+    - locations:
+        10:
+          BHZ:
+            gain: 8.5266
+            high: 15
+            low: 2
+            rate: 40
+      name: Rarotonga
+      network_id: IU
+      station_id: RAR
+  file: '%s.%l%-%c.%n.rrd'
+  forever: 7320
+  loggers:
+    - Q4120/6
+    - Q330S/3
+    - Q330S/6
+    - Q330/3
+    - Q330/6
+    - Q330HR/6
+    - Q330HRS/6
+  networks:
+    - AK
+    - RT
+    - TP
+    - CH
+    - TR
+    - NX
+    - HA
+    - KI
+  rates:
+    100:
+      q: 0.98829
+      scale: 1e-09
+    200:
+      q: 0.98829
+      scale: 1e-09
+    40:
+      q: 0.98829
+      scale: 1e-09
+  sensors:
+    - 2 Hz Duke Malin Seismometer
+    - STS-2
+    - L4C
+    - L4C-3D
+    - CMG-3ESP
+    - CMG-3ESPC
+    - CMG-40T-30S
+    - CMG-40T-60S
+    - Scout Hydrophone
+    - Microphone
+    - 270-600/12V
+    - 270-600/24V
+    - 270-800/12V
+    - InfraBSU microphone
+    - SM-6 Geophone
+    - LE-3DliteMkII
+    - CMG-3TB-GN
+    - Nanometrics Trillium 120QA
+    - Nanometrics Trillium Compact PH TC120-PH2
+  stations:
+    - WCZ
+    - OUZ
+    - RIZ
+    - GRZ
+  step: 600
+temperature:
+  archive: 300
+  components:
+    - O
+  daemon: /home/chart/var/rrdcached.sock
+  days: 366
+  delta: 10
+  dir: temperature/%s.%n
+  file: '%s.%l%-%c.%n.rrd'
+  forever: 366
+  loggers:
+    - Q330/6
+    - Q330S/6
+  networks:
+    - KI
+  rates:
+    1:
+      q: 0
+      scale: 1
+  sensors:
+    - LM35
+  step: 60
+tilt:
+  archive: 300
+  components:
+    - 1
+    - 2
+  days: 366
+  delta: 10
+  dir: tilt/%s.%n
+  extra:
+    - locations:
+        90:
+          LA1:
+            gain: 1000
+            rate: 1
+          LA2:
+            gain: 1000
+            rate: 1
+          LFD:
+            gain: 100
+            rate: 1
+      name: Chateau Observatory
+      network_id: NZ
+      station_id: COVZ
+  file: '%s.%l%-%c.%n.rrd'
+  forever: 366
+  loggers: []
+  networks:
+    - CH
+  rates:
+    1:
+      q: 0
+      scale: 1
+  sensors: []
+  step: 60
+tsunami:
+  archive: 300
+  components:
+    - Z
+    - H
+    - T
+  daemon: /home/chart/var/rrdcached.sock
+  days: 366
+  delta: 10
+  dir: tsunami/%s.%n
+  file: '%s.%l%-%c.%n.rrd'
+  forever: 366
+  loggers:
+    - Q330/3
+    - Q330S/3
+    - Q330/6
+  networks:
+    - TG
+  rates:
+    10:
+      q: 0
+      scales:
+        H: 0.001
+        T: 0.001
+        Z: 0.001
+  sensors:
+    - Druck PTX-1830
+  step: 60
+wave:
+  archive: 10
+  components:
+    - Z
+    - H
+    - T
+  daemon: /home/chart/var/rrdcached.sock
+  days: 7
+  delta: 1
+  dir: wave/%s.%n
+  file: '%s.%l%-%c.%n.rrd'
+  forever: 20
+  loggers:
+    - Q330/3
+    - Q330S/3
+    - Q330/6
+  networks:
+    - TG
+  rates:
+    10:
+      q: 0
+      scales:
+        H: 0.001
+        T: 0.001
+        Z: 0.001
+  sensors:
+    - Druck PTX-1830
+  step: 10
