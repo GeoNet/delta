@@ -229,6 +229,18 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
+  CMG-3TB-CTBTO:
+  - type: paz
+    lookup: CMG-3TB-CTBTO
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 10000
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
   CMG-3TB-GN:
   - type: paz
     lookup: CMG-3TB-GN
@@ -635,6 +647,29 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
+  Q330_FLbelow100-10:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 10
+    decimate: 1
+    gain: 419430.4
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: Q330_FLbelow100-10
+    frequency: 0
+    samplerate: 10
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
   Q330_FLbelow100-50:
   - type: a2d
     lookup: A2D
@@ -970,6 +1005,29 @@ filter:
     lookup: Q330S+_FLbelow100-1
     frequency: 0
     samplerate: 1
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  Q330S+_FLbelow100-10:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 419430.4
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: Q330S+_FLbelow100-10
+    frequency: 0
+    samplerate: 10
     decimate: 0
     gain: 0
     scale: 0
@@ -1462,6 +1520,30 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
+  TRILLIUM-COMPACT-120:
+  - type: paz
+    lookup: TRILLIUM-120PH-2
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 754.3
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  TRILLIUM-120PH-2:
+  - type: paz
+    lookup: TRILLIUM-120PH-2
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1200.7
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
   TRILLIUM-120QA:
   - type: paz
     lookup: TRILLIUM-120QA
@@ -1564,4 +1646,99 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
+  Druck PTX-1830:
+  - type: poly
+    lookup: Druck PTX-1830-A
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m
+    outputunits: A
+  - type: poly
+    lookup: Druck PTX-1830-B
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: A
+    outputunits: V
+  Sea Water:
+  - type: poly
+    lookup: SEAWATER
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: V
+  Water Depth 0.1:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 0.1
+    decimate: 1
+    gain: 10000.0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: m
+    outputunits: count
+  Water Depth 1:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 10000.0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: m
+    outputunits: count
+  Water Depth 10:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 10
+    decimate: 1
+    gain: 10000.0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: m
+    outputunits: count
+  LM35:
+  - type: poly
+    lookup: LM35
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: C
+    outputunits: V
+  Scout Hydrophone:
+  - type: paz
+    lookup: HYDROPHONE
+    frequency: 15.0
+    samplerate: 0
+    decimate: 0
+    gain: 25700
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: PA
+    outputunits: V
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
