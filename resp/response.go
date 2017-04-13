@@ -140,15 +140,15 @@ type StageSet interface {
 }
 
 type ResponseStage struct {
-	Type        string
-	Lookup      string
-	Filter      string
-	StageSet    StageSet
-	Frequency   float64
-	SampleRate  float64
-	Decimate    int32
-	Gain        float64
-	Scale       float64
+	Type       string
+	Lookup     string
+	Filter     string
+	StageSet   StageSet
+	Frequency  float64
+	SampleRate float64
+	Decimate   int32
+	Gain       float64
+	//	Scale       float64
 	Correction  float64
 	Delay       float64
 	InputUnits  string

@@ -59,7 +59,7 @@ var generateTemplate = `
 		SampleRate: {{$v.SampleRate}},
 		Decimate: {{$v.Decimate}},
 		Gain: {{$v.Gain}},
-		Scale: {{$v.Scale}},
+		//Scale: {{$v.Scale}},
 		Correction: {{$v.Correction}},
 		Delay: {{$v.Delay}},
 		InputUnits: "{{$v.InputUnits}}",
@@ -124,7 +124,7 @@ var generateTemplate = `
 		SampleRate: {{$v.SampleRate}},
 		Decimate: {{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{.Decimation}}{{end}}{{else}}{{$v.Decimate}}{{end}},
 		Gain: {{$v.Gain}},
-		Scale: {{$v.Scale}},{{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{if and (eq $v.Correction 0.0) (gt .Decimation 1.0)}}
+		//Scale: {{$v.Scale}},{{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{if and (eq $v.Correction 0.0) (gt .Decimation 1.0)}}
 		Correction: {{.Correction $v.SampleRate}},
 		Delay: {{.Correction $v.SampleRate}},{{else}}
 		Correction: {{$v.Correction}},
