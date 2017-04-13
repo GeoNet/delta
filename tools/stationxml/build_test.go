@@ -7,17 +7,10 @@ import (
 	"os/exec"
 	"testing"
 
-	"github.com/GeoNet/delta/helper/metadb"
 	"github.com/ozym/fdsn/stationxml"
 )
 
 func TestBuild(t *testing.T) {
-
-	// load delta meta helper
-	db, err := metadb.NewMetaDB("./testdata")
-	if err != nil {
-		t.Fatalf("problem loading meta db: %v\n", err)
-	}
 
 	// load in the test data and convert to stationxml indented text
 	raw, err := ioutil.ReadFile("./testdata/test.xml")
@@ -38,7 +31,7 @@ func TestBuild(t *testing.T) {
 	var builder Build
 
 	// build networks and construct stationxml
-	n, err := builder.Construct(db)
+	n, err := builder.Construct("./testdata")
 	if err != nil {
 		t.Fatalf("error: unable to build networks list: %v", err)
 	}

@@ -9,7 +9,6 @@ import (
 	"path/filepath"
 	"regexp"
 
-	"github.com/GeoNet/delta/helper/metadb"
 	"github.com/ozym/fdsn/stationxml"
 )
 
@@ -70,13 +69,6 @@ func main() {
 
 	flag.Parse()
 
-	// load delta meta helper
-	db, err := metadb.NewMetaDB(base)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "problem loading meta db %s: %v\n", base, err)
-		os.Exit(1)
-	}
-
 	builder := Build{
 		Networks: func() *regexp.Regexp {
 			re, err := Matcher(networkList, networkRegexp)
@@ -102,7 +94,7 @@ func main() {
 	}
 
 	// build a representation of the network
-	networks, err := builder.Construct(db)
+	networks, err := builder.Construct(base)
 	if err != nil {
 		log.Fatalf("error: unable to build networks list: %v", err)
 	}

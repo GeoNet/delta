@@ -10,8 +10,8 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/GeoNet/delta/helper/metadb"
 	"github.com/GeoNet/delta/meta"
+	"github.com/GeoNet/delta/metadb"
 )
 
 // Install represents an installed datalogger and pressure sensor
@@ -59,11 +59,7 @@ func main() {
 	flag.Parse()
 
 	// load delta meta helper
-	db, err := metadb.NewMetaDB(base)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "problem loading meta db %s: %v\n", base, err)
-		os.Exit(1)
-	}
+	db := metadb.NewMetaDB(base)
 
 	// build the set of known tidal
 	tides := make(map[string]Tide)
@@ -86,7 +82,7 @@ func main() {
 		}
 
 		// and the associated linz tidal constituents
-		constituents, err := db.Constituents(gauge.Code)
+		constituents, err := db.GaugeConstituents(gauge.Code)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "problem loading constituents from db %s [%s]: %v\n", base, gauge.Code, err)
 			os.Exit(1)
@@ -147,7 +143,7 @@ func main() {
 		// remember this tide
 		tides[gauge.Code] = Tide{
 			Gauge:        gauge,
-			Station:      station,
+			Station:      *station,
 			Constituents: constituents,
 			Installs:     installs,
 		}

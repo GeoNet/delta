@@ -140,6 +140,11 @@ var generateTemplate = `
 {{"}"}}
 `
 
+//{{with $b.FIR $v.Lookup}}{{if and (gt .Decimation 1) (eq $v.Correction 0.0)}}{{.Correction $v.SampleRate}}{{else}}{{$v.Correction}}{{end}}{{end}}{{else}}{{$v.Correction}}{{end}},
+//{{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{if gt .Decimation 1}}Correction: {{if eq $v.Correction 0.0}}{{.Correction $v.SampleRate}}{{else}}{{$v.Correction}}{{end}},
+//{{if gt .Decimation 1}}Delay: {{if eq $v.Correction 0.0}}{{.Correction $v.SampleRate}}{{else}}{{$v.Correction}}{{end}},{{else}}Correction: {{$v.Correction}},
+//Delay: {{$v.Delay}},{{end}}
+
 type Generate struct {
 	ResponseMap responseMap
 	FilterMap   filterMap
