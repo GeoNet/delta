@@ -1,0 +1,91 @@
+---
+ssam:
+  archive: 3600
+  bins: 199
+  components:
+    - Z
+    - H
+    - F
+  daemon: /home/chart/var/rrdcached.sock
+  days: 90
+  delta: 1
+  dir: ssam/%s.%n
+  extra:
+    - locations:
+        10:
+          BHZ:
+            gain: 629145600
+            high: 15
+            low: 2
+            rate: 40
+      name: Raoul Island
+      network_id: IU
+      station_id: RAO
+    - locations:
+        10:
+          BHZ:
+            gain: 629145600
+            high: 15
+            low: 2
+            rate: 40
+      name: Rarotonga
+      network_id: IU
+      station_id: RAR
+  file: '%s.%l%-%c.%n.rrd'
+  forever: 7320
+  log: no
+  loggers:
+    - Q4120/6
+    - Q330S/3
+    - Q330S/6
+    - Q330/3
+    - Q330/6
+    - Q330HR/6
+    - Q330HRS/6
+  max: 20
+  min: 0.1
+  networks:
+    - AK
+    - RT
+    - TP
+    - CH
+    - TR
+    - NX
+    - HA
+    - KI
+  period: no
+  rates:
+    100:
+      mod: 4
+      nfft: 1024
+    200:
+      mod: 4
+      nfft: 2048
+    40:
+      mod: 4
+      nfft: 512
+  sensors:
+    - Scout Hydrophone
+    - SM-6 Geophone
+    - 2 Hz Duke Malin Seismometer
+    - 270-600/12V
+    - 270-600/24V
+    - 270-800/12V
+    - InfraBSU microphone
+    - L4C
+    - L4C-3D
+    - LE-3DliteMkII
+    - STS-2
+    - CMG-3TB-GN
+    - CMG-3ESP
+    - CMG-3ESPC
+    - CMG-40T-30S
+    - CMG-40T-60S
+    - Nanometrics Trillium 120QA
+    - Nanometrics Trillium Compact PH TC120-PH2
+  stations:
+    - OUZ
+    - WCZ
+    - RIZ
+    - GRZ
+  step: 600

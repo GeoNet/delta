@@ -11,6 +11,12 @@ trap error_handler ERR
 
 go test ./meta
 go test ./tests
+go test ./tools/stationxml
+go test ./tools/altus
+go test ./tools/cusp
+go test ./tools/amplitude
+go test ./tools/spectra
+go test ./tools/chart
 go test .
 
 exit $errcount
