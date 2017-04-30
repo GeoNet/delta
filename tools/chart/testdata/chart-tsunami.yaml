@@ -1,48 +1,53 @@
 ---
-gauges:
-  filename: tsunami-gauge.xml
-  pages:
-    detide:
-      rrd: /work/chart
-      base: /work/chart/plots
-#      lags:
-#        PUYT: 0.0
-      bands:
+plots:
+  gauges:
+    filename: tsunami-gauge.xml
+    pages:
+    - type: tsunami
+      options:
+        label: detide
+        rrd: /work/chart
+        base: /work/chart/plots
+#        lags:
+#          PUYT: 0.0
+        bands:
+          - B
+        sensors:
+        - T
+        orients:
+        - T
+        networks:
+        - TG
+        location: 40
+        override:
+          RFRT: 41
+          CPIT: 41
+          WLGT: 41
+          SUMT: 41
+        detide: 1
+        reference: -2
+    - type: tsunami
+      options:
+        label: height
+        rrd: /work/chart
+        base: /work/chart/plots
+#        lags:
+#          PUYT: 0.0
+        bands: 
         - B
-      sensors:
-      - T
-      orients:
-      - T
-      networks:
-      - TG
-      location: 40
-      override:
-        RFRT: 41
-        CPIT: 41
-        WLGT: 41
-        SUMT: 41
-      detide: 1
-      reference: -2
-    height:
-      rrd: /work/chart
-      base: /work/chart/plots
-#      lags:
-#        PUYT: 0.0
-      bands: 
-      - B
-      sensors:
-      - T
-      orients:
-      - Z
-      networks:
-      - TG
-      location: 40
-      override:
-        RFRT: 41
-        CPIT: 41
-        WLGT: 41
-        SUMT: 41
-      detide: 0
-      reference: -2
-
+        sensors:
+        - T
+        orients:
+        - Z
+        networks:
+        - TG
+        location: 40
+        override:
+          RFRT: 41
+          CPIT: 41
+          WLGT: 41
+          SUMT: 41
+        detide: 0
+        reference: -2
+  
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
