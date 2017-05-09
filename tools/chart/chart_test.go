@@ -15,17 +15,22 @@ func TestBuild_Tsunami(t *testing.T) {
 		t.Fatalf("error: unable to load test amplitudes file: %v", err)
 	}
 
-	cfgs, err := loadConfig("./testdata/chart-tsunami.yaml")
+	plots, err := ReadPlots("./testdata/chart-tsunami.yaml")
 	if err != nil {
 		t.Fatalf("error: unable to load test tsunami config file: %v", err)
 	}
-
-	tsunami, err := buildPages(cfgs, "./testdata")
-	if err != nil {
-		t.Fatalf("error: unable to build test tsunami file: %v", err)
+	var pages []Page
+	for plot, cfg := range plots.Configs {
+		for _, p := range cfg.Pages {
+			res, err := p.Tsunami("./testdata")
+			if err != nil {
+				t.Fatalf("problem build tsunami pages %s: %v", plot, err)
+			}
+			pages = append(pages, res...)
+		}
 	}
 
-	b2, err := encodePages(tsunami)
+	b2, err := Pages(pages).Marshal()
 	if err != nil {
 		t.Fatalf("error: unable to encode test tsunami file: %v", err)
 	}
