@@ -30,7 +30,11 @@ func TestBuild_Tsunami(t *testing.T) {
 		}
 	}
 
-	b2, err := Pages(pages).Marshal()
+	c := Chart{
+		Pages: pages,
+	}
+
+	b2, err := c.Marshal()
 	if err != nil {
 		t.Fatalf("error: unable to encode test tsunami file: %v", err)
 	}

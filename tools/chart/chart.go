@@ -14,6 +14,7 @@ type Chart struct {
 	XMLName xml.Name `xml:"chart"`
 
 	Pages []Page
+	Plots []Plot
 }
 
 type Page struct {
@@ -38,11 +39,14 @@ type Plot struct {
 	Id      string `xml:"id,attr,omitempty"`
 	Clip    string `xml:"clip,attr,omitempty"`
 	Height  string `xml:"height,attr,omitempty"`
+	Caption string `xml:"label,attr,omitempty"`
 	Length  string `xml:"length,attr,omitempty"`
 	Max     string `xml:"max,attr,omitempty"`
 	Min     string `xml:"min,attr,omitempty"`
 	Missing string `xml:"missing,attr,omitempty"`
 	Overlap string `xml:"overlap,attr,omitempty"`
+	Pdf     string `xml:"pdf,attr,omitempty"`
+	Png     string `xml:"png,attr,omitempty"`
 	Width   string `xml:"width,attr,omitempty"`
 	X       string `xml:"x,attr,omitempty"`
 	Y       string `xml:"y,attr,omitempty"`
@@ -109,6 +113,8 @@ type Stream struct {
 	Format   string `xml:"format,attr,omitempty"`
 	Gain     string `xml:"gain,attr,omitempty"`
 	High     string `xml:"high,attr,omitempty"`
+	Id       string `xml:"id,attr,omitempty"`
+	Srcname  string `xml:"label,attr,omitempty"`
 	Low      string `xml:"low,attr,omitempty"`
 	Map      string `xml:"map,attr,omitempty"`
 	Missing  string `xml:"missing,attr,omitempty"`
@@ -280,13 +286,9 @@ func (s Streams) Len() int           { return len(s) }
 func (s Streams) Swap(a, b int)      { s[a], s[b] = s[b], s[a] }
 func (s Streams) Less(a, b int) bool { return s[a].lag > s[b].lag }
 
-type Pages []Page
+func (c *Chart) Marshal() ([]byte, error) {
 
-func (p Pages) Marshal() ([]byte, error) {
-
-	res, err := xml.MarshalIndent(&Chart{
-		Pages: p,
-	}, "", "  ")
+	res, err := xml.MarshalIndent(c, "", "  ")
 	if err != nil {
 		return nil, err
 	}
