@@ -1,0 +1,4 @@
+Station,Location,Sampling Rate,Axial,Reversed,Start Date,End Date
+KIW,10,100,false,false,2004-06-09T23:00:00Z,9999-01-01T00:00:00Z
+DKHS,20,50,true,false,2014-09-08T05:00:00Z,9999-01-01T00:00:00Z
+DKHS,20,200,true,false,2002-06-06T00:00:00Z,9999-01-01T00:00:00Z

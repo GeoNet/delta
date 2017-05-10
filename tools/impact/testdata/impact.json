@@ -1,0 +1,18 @@
+{
+   "NZ_DKHS_20_BNZ": {
+      "Longitude": 170.492935221,
+      "Gain": 101971.62129779284,
+      "Q": 0.95395,
+      "Rate": 50,
+      "Name": "Dunedin Kings High School",
+      "Latitude": -45.902225879
+   },
+   "NZ_KIW_10_EHZ": {
+      "Longitude": 174.909727546,
+      "Gain": 74574725.12,
+      "Q": 0.97671,
+      "Rate": 100,
+      "Name": "Kapiti Island",
+      "Latitude": -40.8608783
+   }
+}

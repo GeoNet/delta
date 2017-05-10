@@ -17,6 +17,7 @@ go test ./tools/cusp
 go test ./tools/amplitude
 go test ./tools/spectra
 go test ./tools/chart
+go test ./tools/impact
 go test .
 
 exit $errcount
