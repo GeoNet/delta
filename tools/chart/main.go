@@ -33,15 +33,16 @@ func main() {
 
 	flag.Parse()
 
-	for _, config := range flag.Args() {
+	for _, path := range flag.Args() {
 
-		plots, err := ReadPlots(config)
+		charts, err := ReadPlots(path)
 		if err != nil {
-			log.Fatalf("problem loading config file %s: %v", config, err)
+			log.Fatalf("problem loading config file %s: %v", path, err)
 		}
-		for plot, cfg := range plots.Configs {
+		for plot, config := range charts.Configs {
 			var pages []Page
-			for _, p := range cfg.Pages {
+			var plots []Plot
+			for _, p := range config.Pages {
 				switch p.Type {
 				case "tsunami":
 					res, err := p.Tsunami(base)
@@ -109,17 +110,28 @@ func main() {
 						log.Fatalf("problem build networks pages %s: %v", plot, err)
 					}
 					pages = append(pages, res...)
+				case "wave":
+					res, err := p.Wave(base)
+					if err != nil {
+						log.Fatalf("problem build wave pages %s: %v", plot, err)
+					}
+					plots = append(plots, res...)
 				default:
 					log.Fatalf("unknown plot type %s", p.Type)
 				}
 			}
 
-			res, err := Pages(pages).Marshal()
+			settings := Chart{
+				Pages: pages,
+				Plots: plots,
+			}
+
+			res, err := settings.Marshal()
 			if err != nil {
 				log.Fatalf("error: unable to marshal xml: %v", err)
 			}
 
-			outfile := filepath.Join(output, cfg.Filename)
+			outfile := filepath.Join(output, config.Filename)
 			if err := os.MkdirAll(filepath.Dir(outfile), 0755); err != nil {
 				log.Fatalf("error: unable to create directory %s: %v", filepath.Dir(output), err)
 			}
