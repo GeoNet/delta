@@ -2,7 +2,6 @@ package main
 
 import (
 	"io/ioutil"
-	"log"
 	"math"
 	"os"
 	"path/filepath"
@@ -262,7 +261,6 @@ func (p *Pod) Channel(cha *stationxml.Channel) []Blockette {
 					case "Nanometrics Trillium 120QA":
 						model = "Nanometrics Nanometrics Trillium 120QA"
 					default:
-						log.Println("missing sensor model lookup ->>>", cha.Sensor.Model, "<<<--")
 						model = cha.Sensor.Model
 					}
 					if abbr := lookupGenericAbbreviation(model); abbr > 0 {

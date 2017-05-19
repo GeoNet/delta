@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"strings"
 	"time"
 )
@@ -46,7 +47,7 @@ var unitsAbbreviation = []UnitsAbbreviation{
 	{Key: "M/S", Code: 1, Description: "Velocity in Meters Per Second"},
 	{Key: "A", Code: 2, Description: "Amperes"},
 	{Key: "V", Code: 3, Description: "Volts"},
-	{Key: "COUNTS", Code: 4, Description: "Digital Counts"},
+	{Key: "COUNT", Code: 4, Description: "Digital Counts"},
 	{Key: "M/S**2", Code: 5, Description: "Acceleration in Meters Per Second Per Second"},
 	{Key: "C", Code: 6, Description: "Degrees Centigrade"},
 	{Key: "M", Code: 7, Description: "Displacement in Meters"},
@@ -54,12 +55,14 @@ var unitsAbbreviation = []UnitsAbbreviation{
 }
 
 func lookupUnitsAbbreviation(key string) int {
-	for _, a := range unitsAbbreviation {
-		if a.Key == key {
-			return a.Code
+	for _, k := range []string{key, strings.ToUpper(key)} {
+		for _, a := range unitsAbbreviation {
+			if a.Key == k {
+				return a.Code
+			}
 		}
 	}
-	fmt.Println("UNABLE TO FIND: ", key)
+	log.Println("UNABLE TO FIND: ", key)
 	return 0
 }
 
@@ -124,12 +127,16 @@ var genericAbbreviations = []GenericAbbreviation{
 }
 
 func lookupGenericAbbreviation(desc string) int {
-	var abbr int
 	for _, a := range genericAbbreviations {
 		if a.Description == desc {
-			abbr = a.Code
+			return a.Code
 		}
 	}
+	abbr := len(genericAbbreviations)
+	genericAbbreviations = append(genericAbbreviations, GenericAbbreviation{
+		Code:        abbr,
+		Description: desc,
+	})
 	return abbr
 }
 
