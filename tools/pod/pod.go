@@ -104,11 +104,11 @@ func (p *Pod) Station(net *stationxml.Network, sta *stationxml.Station) error {
 			Elevation: sta.Elevation.Value,
 			Name:      sta.Site.Name,
 			Description: func() int {
-				switch lookupGenericAbbreviation(sta.Description) {
+				switch lookupGenericAbbreviation(net.Description) {
 				case 0:
 					return lookupGenericAbbreviation("New Zealand National Seismograph Network")
 				default:
-					return lookupGenericAbbreviation(sta.Description)
+					return lookupGenericAbbreviation(net.Description)
 				}
 			}(),
 			Opened: sta.CreationDate.Time,
