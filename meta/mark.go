@@ -18,6 +18,7 @@ const (
 	markDatum
 	markStartTime
 	markEndTime
+	markNotes
 	markLast
 )
 
@@ -25,6 +26,8 @@ type Mark struct {
 	Reference
 	Point
 	Span
+
+	Notes string
 }
 
 type MarkList []Mark
@@ -44,6 +47,7 @@ func (m MarkList) encode() [][]string {
 		"Datum",
 		"Start Date",
 		"End Date",
+		"Notes",
 	}}
 	for _, v := range m {
 		data = append(data, []string{
@@ -56,6 +60,7 @@ func (m MarkList) encode() [][]string {
 			strings.TrimSpace(v.Datum),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(v.Notes),
 		})
 	}
 	return data
@@ -104,6 +109,7 @@ func (m *MarkList) decode(data [][]string) error {
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[markDatum]),
 				},
+				Notes: strings.TrimSpace(d[markNotes]),
 			})
 		}
 
