@@ -299,7 +299,7 @@ Trimble Navigation Ltd.,TRIMBLE NETRS,4429236325,9806,Broken
 Trimble Navigation Ltd.,TRIMBLE NETRS,4429236327,,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4429236328,9785,Broken
 Trimble Navigation Ltd.,TRIMBLE NETRS,4429236329,9797,Broken
-Trimble Navigation Ltd.,TRIMBLE NETRS,4429236334,9788,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4429236334,9788,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4429236335,,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4429236336,9796,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4429236339,,
@@ -309,10 +309,10 @@ Trimble Navigation Ltd.,TRIMBLE NETRS,4429236345,,Broken
 Trimble Navigation Ltd.,TRIMBLE NETRS,4429236346,9786,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4431236756,04OSU G20142,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4431236764,,
-Trimble Navigation Ltd.,TRIMBLE NETRS,4435237644,9875,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4435237644,9875,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4435237646,9890,obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4435237647,9884,
-Trimble Navigation Ltd.,TRIMBLE NETRS,4435237648,9903,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4435237648,9903,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4435237651,9880,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4435237652,9901,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4435237653,9893,
@@ -330,7 +330,7 @@ Trimble Navigation Ltd.,TRIMBLE NETRS,4435237666,9899,Broken
 Trimble Navigation Ltd.,TRIMBLE NETRS,4435237667,9881,obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4435237669,9886,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4435237672,9882,
-Trimble Navigation Ltd.,TRIMBLE NETRS,4435237673,9889,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4435237673,9889,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4435237674,9887,obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4435237675,9874,obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4435237678,9871,
@@ -356,8 +356,8 @@ Trimble Navigation Ltd.,TRIMBLE NETRS,4445240302,10494,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4445240307,10074,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4445240309,10075,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4445240405,10492,obsolete
-Trimble Navigation Ltd.,TRIMBLE NETRS,4445240406,10071,
-Trimble Navigation Ltd.,TRIMBLE NETRS,4445240407,10100,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4445240406,10071,Obsolete
+Trimble Navigation Ltd.,TRIMBLE NETRS,4445240407,10100,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4445240408,10493,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4445240409,10491,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4445240410,10072,
@@ -384,7 +384,7 @@ Trimble Navigation Ltd.,TRIMBLE NETRS,4635120796,10787,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4635120797,10788,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4635120801,10789,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4636121868,10790,obsolete
-Trimble Navigation Ltd.,TRIMBLE NETRS,4636121871,10791,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4636121871,10791,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4636121872,12956,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4636121874,10792,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4636121877,10793,
@@ -393,10 +393,10 @@ Trimble Navigation Ltd.,TRIMBLE NETRS,4636121883,10795,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4644124589,12957,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4702126990,12958,obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4702126997,12959,
-Trimble Navigation Ltd.,TRIMBLE NETRS,4702127046,12960,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4702127046,12960,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4702127056,12961,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4705127700,12962,Obsolete
-Trimble Navigation Ltd.,TRIMBLE NETRS,4705127715,MIT-0417898,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4705127715,MIT-0417898,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4705127717,10882,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4705127719,12963,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4705127721,12964,obsolete
@@ -411,8 +411,8 @@ Trimble Navigation Ltd.,TRIMBLE NETRS,4705127758,12970,obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4705127759,12971,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4705127761,20000,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4706128309,10879,
-Trimble Navigation Ltd.,TRIMBLE NETRS,4706128310,10880,
-Trimble Navigation Ltd.,TRIMBLE NETRS,4706128311,12972,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4706128310,10880,Obsolete
+Trimble Navigation Ltd.,TRIMBLE NETRS,4706128311,12972,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4706128313,10884,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4706128315,10876,obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4706128317,10886,Broken
@@ -421,7 +421,7 @@ Trimble Navigation Ltd.,TRIMBLE NETRS,4706128321,12973,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4706128326,12974,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4706128328,20001,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4706128332,10881,Broken
-Trimble Navigation Ltd.,TRIMBLE NETRS,4706128334,MIT-0417897,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4706128334,MIT-0417897,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4706128341,10877,Broken
 Trimble Navigation Ltd.,TRIMBLE NETRS,4706128344,12975,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4731136286,13177,obsolete
@@ -433,14 +433,14 @@ Trimble Navigation Ltd.,TRIMBLE NETRS,4751143366,13163,obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4751143370,13176,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4751143371,13170,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4751143372,13180,
-Trimble Navigation Ltd.,TRIMBLE NETRS,4751143373,13167,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4751143373,13167,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4751143375,13178,
-Trimble Navigation Ltd.,TRIMBLE NETRS,4752143421,13173,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4752143421,13173,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4752143422,13174,Broken
 Trimble Navigation Ltd.,TRIMBLE NETRS,4752143424,13171,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4752143426,13172,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4752143427,13168,
 Trimble Navigation Ltd.,TRIMBLE NETRS,4752143428,13181,
-Trimble Navigation Ltd.,TRIMBLE NETRS,4752143452,13179,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4752143452,13179,Obsolete
 Trimble Navigation Ltd.,TRIMBLE NETRS,4805144941,13166,Broken
-Trimble Navigation Ltd.,TRIMBLE NETRS,4808145640,13175,
+Trimble Navigation Ltd.,TRIMBLE NETRS,4808145640,13175,Obsolete
