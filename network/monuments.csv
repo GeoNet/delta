@@ -166,7 +166,7 @@ RIPA,,Forced Centering,Pillar,-1.6,Reinforced Concrete,2,2004-02-20T00:00:00Z,99
 SCTB,66071M001,Forced Centering,Pillar,-0.361,Reinforced Concrete,2,2004-10-28T00:00:00Z,9999-01-01T00:00:00Z,,
 SEDD,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.53,Stainless Steel Rods,10,2014-06-01T00:00:00Z,9999-01-01T00:00:00Z,,Situated On Quaternary Gravels. Depth To Underlying Strata Unknown.
 SNST,,Forced Centering,Wyatt/Agnew Drilled-Braced,0,Stainless Steel Rods,10,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z,Mudstone,Top Of Ridge Line Adjacent To Steep Grassy Slope
-SUTT,,Unmarked Mark,Unknown,0,Unknown,0,2016-05-26T00:00:00Z,9999-01-01T00:00:00Z,,
+SUTT,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2016-05-26T00:00:00Z,9999-01-01T00:00:00Z,,
 TAKL,50216S001,Forced Centering,Pillar,-3.2,Reinforced Concrete,2,2001-07-11T00:00:00Z,2007-07-05T00:00:00Z,,
 TAKP,,Forced Centering,Pillar,-1.09,Reinforced Concrete,2,2004-01-14T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 TAUP,50217M001,Forced Centering,Pillar,-1.15,Reinforced Concrete,2,2002-03-22T00:00:00Z,9999-01-01T00:00:00Z,Rhyolite,
@@ -235,7 +235,7 @@ WITH,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.505,Stainless Steel Rods,10
 WMAT,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.42,Stainless Steel Rods,10,2010-03-15T00:00:00Z,9999-01-01T00:00:00Z,,
 WPAW,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2006-04-20T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 WPUK,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2006-04-19T00:00:00Z,9999-01-01T00:00:00Z,Limestone,
-WRA1,,Iron Rod,Unknown,0,Unknown,0,2016-11-15T00:00:00Z,2017-04-05T00:00:00Z,,
+WRA1,,Iron Rod,Unknown,0,Unknown,0,2016-11-15T00:00:00Z,2017-05-28T00:00:00Z,,
 WRAU,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.46,Stainless Steel Rods,10,2017-02-12T00:00:00Z,9999-01-01T00:00:00Z,,
 WRPA,50220M002,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.495,Stainless Steel Rods,10,2016-01-06T00:00:00Z,9999-01-01T00:00:00Z,,
 YALD,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.61,Stainless Steel Rods,10,2014-09-16T00:00:00Z,9999-01-01T00:00:00Z,,Test
