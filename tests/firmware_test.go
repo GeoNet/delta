@@ -3,6 +3,7 @@ package delta_test
 import (
 	"sort"
 	"testing"
+	"time"
 
 	"github.com/GeoNet/delta/meta"
 )
@@ -83,4 +84,30 @@ func TestFirmware(t *testing.T) {
 		}
 	}
 
+	var receivers meta.DeployedReceiverList
+	t.Log("Load installed receivers file")
+	{
+		if err := meta.LoadList("../install/receivers.csv", &receivers); err != nil {
+			t.Fatal(err)
+		}
+	}
+
+	t.Log("Check for latest installed receiver firmware")
+	{
+		installs := make(map[string]meta.FirmwareHistory)
+		for _, s := range firmwares {
+			if s.End.Before(time.Now()) {
+				continue
+			}
+			installs[s.Model+"/"+s.Serial] = s
+		}
+		for _, r := range receivers {
+			if r.End.Before(time.Now()) {
+				continue
+			}
+			if _, ok := installs[r.Model+"/"+r.Serial]; !ok {
+				t.Errorf("deployed receiver has no current firmware %s / %s at %s between %s and %s", r.Model, r.Serial, r.Mark, r.Start.Format(meta.DateTimeFormat), r.End.Format(meta.DateTimeFormat))
+			}
+		}
+	}
 }
