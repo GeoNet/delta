@@ -189,17 +189,9 @@ func main() {
 				if a.Start.After(s.End) || a.End.Before(s.Start) {
 					continue
 				}
-				if _, ok := IGSModels[a.Model]; !ok {
-					fmt.Fprintf(os.Stderr, "%s: no igs designation for: %s [%s], skipping\n", m.Code, a.Model, a.Serial)
-					continue
-				}
 
 				for _, r := range deployedReceivers[m.Code] {
 					if r.Start.After(a.End) || r.End.Before(a.Start) {
-						continue
-					}
-					if _, ok := IGSModels[r.Model]; !ok {
-						fmt.Fprintf(os.Stderr, "%s: no igs designation for: %s [%s]", m.Code, r.Model, r.Serial)
 						continue
 					}
 
@@ -212,11 +204,7 @@ func main() {
 							if v.End.Before(a.Start) || v.End.Before(r.Start) {
 								continue
 							}
-							if _, ok := IGSModels[v.Model]; !ok {
-								fmt.Fprintf(os.Stderr, "%s: no igs designation for: %s [%s]", m.Code, v.Model, v.Serial)
-								continue
-							}
-							radome = IGSModels[v.Model]
+							radome = v.Model
 						}
 					}
 
@@ -276,7 +264,7 @@ func main() {
 						}(),
 						Receiver: ReceiverXML{
 							SerialNumber:      r.Serial,
-							IGSDesignation:    IGSModels[r.Model],
+							IGSDesignation:    r.Model,
 							FirmwareHistories: firmware,
 						},
 						InstalledCGPSAntenna: InstalledCGPSAntennaXML{
@@ -286,7 +274,7 @@ func main() {
 							Radome:      radome,
 							CGPSAntenna: CGPSAntennaXML{
 								SerialNumber:   a.Serial,
-								IGSDesignation: IGSModels[a.Model],
+								IGSDesignation: a.Model,
 							},
 						},
 						ObservationInterval: Number{
