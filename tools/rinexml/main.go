@@ -15,25 +15,21 @@ import (
 
 var HeaderComments map[string]string = map[string]string{
 	"linz": `
-			Data supplied by the GeoNet project.
-			GeoNet is core funded by EQC and is operated by GNS on behalf of EQC and all New Zealanders.
-			Contact: www.geonet.org.nz  email: info@geonet.org.nz.
+			Data supplied by the GeoNet project. GeoNet is core funded by EQC, with support from LINZ, and is operated by GNS on behalf of EQC and all New Zealanders. Contact: www.geonet.org.nz  email: info@geonet.org.nz,
 		`,
 	"geonet": `
-			Data supplied by the GeoNet project.
-			GeoNet is core funded by EQC and is operated by GNS on behalf of EQC and all New Zealanders.
-			Contact: www.geonet.org.nz  email: info@geonet.org.nz.
+			Data supplied by the GeoNet project. GeoNet is core funded by EQC and is operated by GNS on behalf of EQC and all New Zealanders. Contact: www.geonet.org.nz  email: info@geonet.org.nz.
 		`,
 }
 
 var DataFormats map[string]string = map[string]string{
-	"5700":  "trimble_5700",
-	"NetRS": "trimble_netrs",
-	"NetR9": "trimble_netr9",
+	"TRIMBLE 5700":  "trimble_5700",
+	"TRIMBLE NETRS": "trimble_netrs",
+	"TRIMBLE NETR9": "trimble_netr9",
 }
 
 var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNameFormatXML{
-	"5700": DownloadNameFormatXML{
+	"TRIMBLE 5700": DownloadNameFormatXML{
 		Type:   "long",
 		Year:   "x4 A4 x*",
 		Month:  "x8 A2 x*",
@@ -42,7 +38,7 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 		Minute: "x14 A2 x*",
 		Second: "x16 A2 x*",
 	},
-	"NetRS": DownloadNameFormatXML{
+	"TRIMBLE NETRS": DownloadNameFormatXML{
 		Type:   "long",
 		Year:   "x4 A4 x*",
 		Month:  "x8 A2 x*",
@@ -51,7 +47,7 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 		Minute: "x14 A2 x*",
 		Second: "x16 A2 x*",
 	},
-	"NetR9": DownloadNameFormatXML{
+	"TRIMBLE NETR9": DownloadNameFormatXML{
 		Type:   "long",
 		Year:   "x4 A4 x*",
 		Month:  "x8 A2 x*",
