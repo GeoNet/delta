@@ -2,6 +2,9 @@ package main
 
 import (
 	"encoding/xml"
+	"io/ioutil"
+	"os"
+	"os/exec"
 	"strings"
 	"testing"
 )
@@ -14,6 +17,7 @@ func TestSiteXML_Marshal(t *testing.T) {
 	}{
 		{
 			strings.Join([]string{
+				`<?xml version="1.0" encoding="UTF-8"?>`,
 				"<SITE>",
 				"  <mark>",
 				"    <geodetic-code>YALD</geodetic-code>",
@@ -66,9 +70,9 @@ func TestSiteXML_Marshal(t *testing.T) {
 				"      </firmware-history>",
 				"    </receiver>",
 				"    <installed-cgps-antenna>",
-				`      <height unit="m">0.035</height>`,
-				`      <offset-east unit="m">0</offset-east>`,
-				`      <offset-north unit="m">0</offset-north>`,
+				`      <height unit="m">0.0350</height>`,
+				`      <offset-east unit="m">0.0000</offset-east>`,
+				`      <offset-north unit="m">0.0000</offset-north>`,
 				"      <radome>NONE</radome>",
 				"      <cgps-antenna>",
 				"        <serial-number>1441040153</serial-number>",
@@ -77,6 +81,7 @@ func TestSiteXML_Marshal(t *testing.T) {
 				"    </installed-cgps-antenna>",
 				"  </cgps-session>",
 				"</SITE>",
+				"",
 				"",
 			}, "\n"),
 			SiteXML{
@@ -97,7 +102,7 @@ func TestSiteXML_Marshal(t *testing.T) {
 						StopTime:  "open",
 						ObservationInterval: Number{
 							Units: "s",
-							Value: 30,
+							Value: "30",
 						},
 						Operator: OperatorXML{
 							Name:   "GeoNet",
@@ -139,9 +144,9 @@ func TestSiteXML_Marshal(t *testing.T) {
 							},
 						},
 						InstalledCGPSAntenna: InstalledCGPSAntennaXML{
-							Height:      Number{Units: "m", Value: 0.0350},
-							OffsetEast:  Number{Units: "m", Value: 0.0000},
-							OffsetNorth: Number{Units: "m", Value: 0.0000},
+							Height:      Number{Units: "m", Value: "0.0350"},
+							OffsetEast:  Number{Units: "m", Value: "0.0000"},
+							OffsetNorth: Number{Units: "m", Value: "0.0000"},
 							Radome:      "NONE",
 							CGPSAntenna: CGPSAntennaXML{
 								SerialNumber:   "1441040153",
@@ -160,8 +165,40 @@ func TestSiteXML_Marshal(t *testing.T) {
 			t.Error(err)
 		}
 
-		if (string)(s) != test.s {
-			t.Error(strings.Join([]string{"marshalling mismatch:", (string)(s), test.s, ""}, "\n=========\n"))
+		// compare stored with computed
+		if string(s) != test.s {
+			t.Error("**** rinexml mismatch ****")
+
+			f1, err := ioutil.TempFile(os.TempDir(), "tmp")
+			if err != nil {
+				t.Fatal(err)
+			}
+			defer os.Remove(f1.Name())
+			f1.Write(s)
+
+			f2, err := ioutil.TempFile(os.TempDir(), "tmp")
+			if err != nil {
+				t.Fatal(err)
+			}
+			defer os.Remove(f2.Name())
+			f2.Write([]byte(test.s))
+
+			cmd := exec.Command("diff", "-c", f1.Name(), f2.Name())
+			stdout, err := cmd.StdoutPipe()
+			if err != nil {
+				t.Fatal(err)
+			}
+			err = cmd.Start()
+			if err != nil {
+				t.Fatal(err)
+			}
+			defer cmd.Wait()
+			diff, err := ioutil.ReadAll(stdout)
+			if err != nil {
+				t.Fatal(err)
+			}
+			t.Error(string(diff))
 		}
+
 	}
 }
