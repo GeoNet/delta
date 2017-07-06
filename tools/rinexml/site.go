@@ -26,8 +26,8 @@ type LocationXML struct {
 }
 
 type Number struct {
-	Units string  `xml:"unit,attr"`
-	Value float64 `xml:",chardata"`
+	Units string `xml:"unit,attr"`
+	Value string `xml:",chardata"`
 }
 
 type OperatorXML struct {
@@ -41,13 +41,14 @@ type RinexXML struct {
 }
 
 type DownloadNameFormatXML struct {
-	Type   string `xml:"type,attr"`
-	Year   string `xml:"year"`
-	Month  string `xml:"month"`
-	Day    string `xml:"day"`
-	Hour   string `xml:"hour"`
-	Minute string `xml:"minute"`
-	Second string `xml:"second"`
+	Type    string `xml:"type,attr"`
+	Year    string `xml:"year,omitempty"`
+	YearDay string `xml:"year-day,omitempty"`
+	Month   string `xml:"month,omitempty"`
+	Day     string `xml:"day,omitempty"`
+	Hour    string `xml:"hour,omitempty"`
+	Minute  string `xml:"minute,omitempty"`
+	Second  string `xml:"second,omitempty"`
 }
 
 type FirmwareHistoryXML struct {
@@ -75,6 +76,14 @@ type InstalledCGPSAntennaXML struct {
 	CGPSAntenna CGPSAntennaXML `xml:"cgps-antenna"`
 }
 
+type MetSensor struct {
+	Model      string `xml:"model"`
+	Type       string `xml:"type"`
+	HrAccuracy string `xml:"hr>accuracy"`
+	PrAccuracy string `xml:"pr>accuracy"`
+	TdAccuracy string `xml:"td>accuracy"`
+}
+
 type CGPSSessionXML struct {
 	StartTime            string                  `xml:"start-time"`
 	StopTime             string                  `xml:"stop-time"`
@@ -85,6 +94,7 @@ type CGPSSessionXML struct {
 	DownloadNameFormat   DownloadNameFormatXML   `xml:"download-name-format"`
 	Receiver             ReceiverXML             `xml:"receiver"`
 	InstalledCGPSAntenna InstalledCGPSAntennaXML `xml:"installed-cgps-antenna"`
+	MetSensor            *MetSensor              `xml:"met-sensor,omitempty"`
 }
 
 func NewSiteXML(mark MarkXML, location LocationXML, sessions []CGPSSessionXML) SiteXML {
@@ -101,5 +111,5 @@ func (x SiteXML) Marshal() ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	return append(s, '\n'), nil
+	return append([]byte(xml.Header), append(s, []byte{'\n', '\n'}...)...), nil
 }

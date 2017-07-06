@@ -798,6 +798,7 @@ func TestList(t *testing.T) {
 					Interval:        time.Second * 30,
 					ElevationMask:   0,
 					HeaderComment:   "linz",
+					Format:          "trimble_5700 x5",
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2002-03-01T00:00:00Z")
