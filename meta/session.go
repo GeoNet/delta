@@ -17,6 +17,7 @@ const (
 	sessionInterval
 	sessionElevationMask
 	sessionHeaderComment
+	sessionFormat
 	sessionStart
 	sessionEnd
 	sessionLast
@@ -33,6 +34,7 @@ type Session struct {
 	Interval        time.Duration
 	ElevationMask   float64
 	HeaderComment   string
+	Format          string
 }
 
 func (s Session) Less(session Session) bool {
@@ -74,6 +76,7 @@ func (s SessionList) encode() [][]string {
 		"Interval",
 		"Elevation Mask",
 		"Header Comment",
+		"Format",
 		"Start Date",
 		"End Date",
 	}}
@@ -87,6 +90,7 @@ func (s SessionList) encode() [][]string {
 			strings.TrimSpace(v.Interval.String()),
 			strings.TrimSpace(strconv.FormatFloat(v.ElevationMask, 'g', -1, 64)),
 			strings.TrimSpace(v.HeaderComment),
+			strings.TrimSpace(v.Format),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -130,6 +134,7 @@ func (c *SessionList) decode(data [][]string) error {
 				Interval:        interval,
 				ElevationMask:   mask,
 				HeaderComment:   strings.TrimSpace(v[sessionHeaderComment]),
+				Format:          strings.TrimSpace(v[sessionFormat]),
 				Span: Span{
 					Start: start,
 					End:   end,

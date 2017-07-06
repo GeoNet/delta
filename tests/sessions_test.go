@@ -27,6 +27,18 @@ func TestSessions(t *testing.T) {
 			if sessions[i].Interval != sessions[j].Interval {
 				continue
 			}
+			if sessions[i].End.Equal(sessions[j].Start) {
+				t.Errorf("session start matches end: " + strings.Join([]string{
+					sessions[i].Mark,
+					sessions[i].Interval.String(),
+					sessions[i].Start.String(),
+					sessions[i].End.String(),
+					sessions[j].Interval.String(),
+					sessions[j].Start.String(),
+					sessions[j].End.String(),
+				}, " "))
+				continue
+			}
 			if sessions[i].Start.After(sessions[j].End) {
 				continue
 			}
