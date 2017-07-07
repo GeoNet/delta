@@ -152,7 +152,7 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Calibration date       : (CCYY-MM-DD)
        Effective Dates        : {{$m.EffectiveDates}}
        Notes                  : {{$m.Notes}}
-{{end}}
+{{end }}
 
 8.1.x Humidity Sensor Model   : 
        Manufacturer           : 
