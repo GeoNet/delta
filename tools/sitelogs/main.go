@@ -506,7 +506,7 @@ func main() {
 						}
 						models[a.AntennaType] = true
 					}
-					return strings.Join(graphs, "\n") // + "\n"
+					return strings.Join(graphs, "\n")
 				}(),
 				InsertTextGraphicFromAntenna: "",
 			},

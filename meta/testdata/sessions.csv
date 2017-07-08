@@ -1,2 +1,2 @@
-Mark,Operator,Agency,Model,Satellite System,Interval,Elevation Mask,Header Comment,Start Date,End Date
-TAUP,GeoNet,GNS,TRIMBLE NETRS,GPS,30s,0,linz,2002-03-01T00:00:00Z,9999-01-01T00:00:00Z
+Mark,Operator,Agency,Model,Satellite System,Interval,Elevation Mask,Header Comment,Format,Start Date,End Date
+TAUP,GeoNet,GNS,TRIMBLE NETRS,GPS,30s,0,linz,trimble_5700 x5,2002-03-01T00:00:00Z,9999-01-01T00:00:00Z

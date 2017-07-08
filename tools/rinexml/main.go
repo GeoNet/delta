@@ -310,7 +310,7 @@ func main() {
 					var metsensor *MetSensor
 					if _, ok := installedMetSensors[m.Code]; ok {
 						for _, v := range installedMetSensors[m.Code] {
-							if v.Start.After(s.End) || v.End.Before(s.Start) {
+							if (!v.Start.Before(s.End)) || (!v.End.After(s.Start)) {
 								continue
 							}
 							if k, ok := MetSensors[v.Model]; ok {
