@@ -1,6 +1,7 @@
 package main
 
-var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site Information Form (site log)
+var sitelogTemplate string = `{{ "" -}}
+     {{.SiteIdentification.FourCharacterID}} Site Information Form (site log)
      International GNSS Service
      See Instructions at:
        ftp://igscb.jpl.nasa.gov/pub/station/general/sitelog_instr.txt 
@@ -55,7 +56,8 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
 
 3.   GNSS Receiver Information
 
-{{ range $n, $r := .GnssReceivers}}3.{{plus $n}} Receiver Type            : {{$r.ReceiverType}}
+{{ range $n, $r := .GnssReceivers -}}
+3.{{plus $n}} Receiver Type            : {{$r.ReceiverType}}
      Satellite System         : {{$r.SatelliteSystem}}
      Serial Number            : {{$r.SerialNumber}}
      Firmware Version         : {{$r.FirmwareVersion}}
@@ -65,7 +67,8 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
      Temperature Stabiliz.    : {{$r.TemperatureStabilization|empty "none"}}
      Additional Information   :  {{$r.Notes}}
 
-{{end}}3.x  Receiver Type            : (A20, from rcvr_ant.tab; see instructions)
+{{end -}}
+3.x  Receiver Type            : (A20, from rcvr_ant.tab; see instructions)
      Satellite System         : (GPS+GLO+GAL+BDS+QZSS+SBAS)
      Serial Number            : (A20, but note the first A5 is used in SINEX)
      Firmware Version         : (A11)
@@ -78,7 +81,8 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
 
 4.   GNSS Antenna Information
 
-{{ range $n, $a := .GnssAntennas}}4.{{plus $n}} Antenna Type             : {{$a.AntennaType|printf "%-16s"}}{{$a.AntennaRadomeType|empty "NONE"}}
+{{ range $n, $a := .GnssAntennas -}}
+4.{{plus $n}} Antenna Type             : {{$a.AntennaType|printf "%-16s"}}{{$a.AntennaRadomeType|empty "NONE"}}
      Serial Number            : {{$a.SerialNumber}}
      Antenna Reference Point  : {{$a.AntennaReferencePoint}}
      Marker->ARP Up Ecc. (m)  : {{$a.MarkerArpUpEcc}}  
@@ -93,7 +97,8 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
      Date Removed             : {{$a.DateRemoved|empty "CCYY-MM-DDThh:mmZ"}}
      Additional Information   : {{$a.Notes}}
 
-{{end}}4.x  Antenna Type             : (A20, from rcvr_ant.tab; see instructions)
+{{end -}}
+4.x  Antenna Type             : (A20, from rcvr_ant.tab; see instructions)
      Serial Number            : (A*, but note the first A5 is used in SINEX)
      Antenna Reference Point  : (BPA/BCR/XXX from "antenna.gra"; see instr.)
      Marker->ARP Up Ecc. (m)  : (F8.4)
@@ -142,7 +147,8 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
 
 8.   Meteorological Instrumentation
 
-{{ range $n, $m := .GnssMetSensors}}8.1.{{plus $n}}Humidity Sensor Model   : {{$m.MetSensorModel}}
+{{ range $n, $m := .GnssMetSensors -}}
+8.1.{{plus $n}}Humidity Sensor Model   : {{$m.MetSensorModel}}
        Manufacturer           : 
        Serial Number          : {{$m.SerialNumber}}
        Data Sampling Interval : {{$m.DataSamplingInterval}}
@@ -152,8 +158,8 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Calibration date       : (CCYY-MM-DD)
        Effective Dates        : {{$m.EffectiveDates}}
        Notes                  : {{$m.Notes}}
-{{end }}
 
+{{end -}}
 8.1.x Humidity Sensor Model   : 
        Manufacturer           : 
        Serial Number          : 
@@ -165,7 +171,8 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Effective Dates        : (CCYY-MM-DD/CCYY-MM-DD)
        Notes                  : (multiple lines)
 
-{{ range $n, $m := .GnssMetSensors}}8.2.{{plus $n}}Pressure Sensor Model   : {{$m.MetSensorModel}}
+{{ range $n, $m := .GnssMetSensors -}}
+8.2.{{plus $n}}Pressure Sensor Model   : {{$m.MetSensorModel}}
        Manufacturer           : {{$m.Manufacturer}}
        Serial Number          : {{$m.SerialNumber}}
        Data Sampling Interval : {{$m.DataSamplingInterval}}
@@ -174,8 +181,8 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Calibration date       : (CCYY-MM-DD)
        Effective Dates        : {{$m.EffectiveDates}}
        Notes                  : {{$m.Notes}}
-{{end}}
 
+{{end -}}
 8.2.x Pressure Sensor Model   : 
        Manufacturer           : 
        Serial Number          : 
@@ -186,7 +193,8 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Effective Dates        : (CCYY-MM-DD/CCYY-MM-DD)
        Notes                  : (multiple lines)
 
-{{ range $n, $m := .GnssMetSensors}}8.3.{{plus $n}}Temp. Sensor Model      : {{$m.MetSensorModel}}
+{{ range $n, $m := .GnssMetSensors -}}
+8.3.{{plus $n}}Temp. Sensor Model      : {{$m.MetSensorModel}}
        Manufacturer           : {{$m.Manufacturer}}
        Serial Number          : {{$m.SerialNumber}}
        Data Sampling Interval : {{$m.DataSamplingInterval}}
@@ -196,8 +204,8 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Calibration date       : (CCYY-MM-DD)
        Effective Dates        : {{$m.EffectiveDates}}
        Notes                  : {{$m.Notes}}
-{{end}}
 
+{{end -}}
 8.3.x Temp. Sensor Model      : 
        Manufacturer           : 
        Serial Number          : 
@@ -294,4 +302,8 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
      Additional Information   : {{.MoreInformation.Notes|lines "                              : "}}
      Antenna Graphics with Dimensions
 
-{{ with .MoreInformation.AntennaGraphicsWithDimensions}}{{.}}{{end}}`
+
+{{ with .MoreInformation.AntennaGraphicsWithDimensions -}}
+
+{{.}}
+{{end -}}`

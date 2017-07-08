@@ -500,7 +500,6 @@ func main() {
 								log.Printf("error: unable to decode antenna graph for: \"%s\"", a.AntennaType)
 								continue
 							}
-							log.Println(a.AntennaType + "\n" + string(b))
 							graphs = append(graphs, strings.Join([]string{a.AntennaType, "", string(b)}, "\n"))
 						} else {
 							log.Printf("warning: missing antenna graph for: \"%s\"", a.AntennaType)
