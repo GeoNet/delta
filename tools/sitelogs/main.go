@@ -18,7 +18,7 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
-//go:generate bash -c "go run generate/*.go | gofmt > config_auto.go"
+//go:generate bash -c "rm -f config_auto.go; go run generate/*.go | gofmt > config_auto.go"
 
 const DateTimeFormat = "2006-01-02T15:04Z"
 const DateFormat = "2006-01-02"
@@ -500,13 +500,13 @@ func main() {
 								log.Printf("error: unable to decode antenna graph for: \"%s\"", a.AntennaType)
 								continue
 							}
-							graphs = append(graphs, strings.Join([]string{a.AntennaType, string(b)}, "\n"))
+							graphs = append(graphs, strings.Join([]string{a.AntennaType, "", string(b)}, "\n"))
 						} else {
 							log.Printf("warning: missing antenna graph for: \"%s\"", a.AntennaType)
 						}
 						models[a.AntennaType] = true
 					}
-					return strings.Join(graphs, "\n") + "\n"
+					return strings.Join(graphs, "\n")
 				}(),
 				InsertTextGraphicFromAntenna: "",
 			},

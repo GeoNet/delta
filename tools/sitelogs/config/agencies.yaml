@@ -1,0 +1,39 @@
+---
+
+"GNS Science":
+  Agency:    "GNS Science"
+  PreferredAbbreviation: "GNS"
+  MailingAddress:  "1 Fairway Drive, Avalon 5010,\nPO Box 30-368, Lower Hutt\nNew Zealand"
+  PrimaryContact:
+    Name:         "GeoNet reception"
+    TelephonePrimary:   "+64 4 570 1444"
+    TelephoneSecondary: ""
+    Fax:    "+64 4 570 4676"
+    Email:        "info@geonet.org.nz"
+  SecondaryContact:
+    Name:         "Elisabetta D'Anastasio"
+    TelephonePrimary:   "+64 4 570 4744"
+    TelephoneSecondary: ""
+    Fax:    ""
+    Email:        "e.danastasio@gns.cri.nz"
+  Notes: ""
+
+"Land Information New Zealand":
+  Agency:    "Land Information New Zealand"
+  PreferredAbbreviation: "LINZ"
+  MailingAddress:  "155 The Terrace, PO Box 5501, Wellington 6145 New Zealand"
+  PrimaryContact:
+    Name:         "LINZ Reception"
+    TelephonePrimary:   "+64 4 460 0110"
+    TelephoneSecondary: ""
+    Fax:    "+64 4 472 2244"
+    Email:        "positionz@linz.govt.nz"
+  SecondaryContact:
+    Name:         "Paula Gentle"
+    TelephonePrimary:   "+64 4 460 2757"
+    TelephoneSecondary: ""
+    Fax:    ""
+    Email:        "pgentle@linz.govt.nz"
+  Notes: "CGPS site is part of the LINZ PositioNZ Network http://www.linz.govt.nz/positionz"
+
+#vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
