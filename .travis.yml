@@ -15,16 +15,38 @@ script:
   - ./build.sh
 
 deploy:
-     - provider: s3
-       skip_cleanup: true
-       access_key_id: AKIAJ7KAYTEDAR345M7A
-       secret_access_key:
-         secure: Ag5GS9De5AeOs6lAYS2EkhHRwC8mdFfmuCNfQ+QOx/HSPSLNuP1TbKFQ17/3cAfWFJ/oIr3xHXAHz0fqWExJtedOusRLsfwdlFrtnagYcloEYnqnQnG9gYZuXMek2Cv1D8xRDx6mZ8evRPDhoWH8blVJdGgnj8dFQnSmRJJBdKzPv1jeSp1rOnC3ZrABbShKBDfsQKq4VRWQ4lAmS6AJEogbyJKhrNRSLEKIISCInW2+zK3uI1+y9vjPh05djiOr0RoeabBfdTWuJPOPmXaDxvII80UP+bJ/uXI+t1e28h4I8RCGtLs3sZHuozjg8L0Yewcdp4yi0LOxSEA/VuD5/+PyivyWOmxBzdaVA20Seyw2GR2Jxt1G+n8//AHXpt+iOkKbFR+QCNSwSX/uTPDyUXRnF4BgqIvy+epuYK69uQ180Sq+5m0R7AfaojNY1hgQWkFtnNPtdwY7/Xql/i0q1Sqou5qYaBqVSgvpjNjA9iwfDg9QXwaUHaHZQWMWAVHvnBqsde+eRbkZkmeT2nkAXR8Nsq4qW0XRmauIrnzKOowiZ8e2r0An4hldtJs2IOqmf6787l//OrcGaoIgFzSQRhXzKp98iOAjlHIYYu806mAHAwOOkrm6bJ3uCBiixiVec4WZV8LZl5kTU0WAIu1HJtj1bPl7rlHVChm+jaLUEcc=
-       bucket: api.geonet.org.nz
-       region: ap-southeast-2
-       local_dir: .tmp/api/delta
-       upload-dir: delta
-       on:
-          branch: master
+  - provider: s3
+    skip_cleanup: true
+    access_key_id: AKIAJ7KAYTEDAR345M7A
+    secret_access_key:
+      secure: Ag5GS9De5AeOs6lAYS2EkhHRwC8mdFfmuCNfQ+QOx/HSPSLNuP1TbKFQ17/3cAfWFJ/oIr3xHXAHz0fqWExJtedOusRLsfwdlFrtnagYcloEYnqnQnG9gYZuXMek2Cv1D8xRDx6mZ8evRPDhoWH8blVJdGgnj8dFQnSmRJJBdKzPv1jeSp1rOnC3ZrABbShKBDfsQKq4VRWQ4lAmS6AJEogbyJKhrNRSLEKIISCInW2+zK3uI1+y9vjPh05djiOr0RoeabBfdTWuJPOPmXaDxvII80UP+bJ/uXI+t1e28h4I8RCGtLs3sZHuozjg8L0Yewcdp4yi0LOxSEA/VuD5/+PyivyWOmxBzdaVA20Seyw2GR2Jxt1G+n8//AHXpt+iOkKbFR+QCNSwSX/uTPDyUXRnF4BgqIvy+epuYK69uQ180Sq+5m0R7AfaojNY1hgQWkFtnNPtdwY7/Xql/i0q1Sqou5qYaBqVSgvpjNjA9iwfDg9QXwaUHaHZQWMWAVHvnBqsde+eRbkZkmeT2nkAXR8Nsq4qW0XRmauIrnzKOowiZ8e2r0An4hldtJs2IOqmf6787l//OrcGaoIgFzSQRhXzKp98iOAjlHIYYu806mAHAwOOkrm6bJ3uCBiixiVec4WZV8LZl5kTU0WAIu1HJtj1bPl7rlHVChm+jaLUEcc=
+    bucket: api.geonet.org.nz
+    region: ap-southeast-2
+    local_dir: .tmp/api/delta
+    upload-dir: delta
+    on:
+      branch: master
+  - provider: s3
+    skip_cleanup: true
+    access_key_id: AKIAI7G4Z55FHOINX4IA
+    secret_access_key:
+      secure: G/K4ChM39OtOpyTaTTv9yqK9tfv3McDNGZBgcsMcElES8fBSLanlIanyU18yLNg/RyCSEBPvqO6ZFVchyVXkizuJsXpU4fbaBZYc0uu/hEOTcKjSWOGcdrb1TFpWoHFM/2aXeDrR6/R2Ik76PzILjM5GFOgENtKgnS1ntGztSgCw0T1KzapVmHM9T4uTxhTBG4jOMq4qbvr8QZCRMA4wyCAyOTqLT7IVIBglRTE1zK75DGjc51blLFQcAv48A27tbiQvUg/ro3eJ3+hu7pFumfyBmImNwlcUrJk7grdC8vEicE14FpZe0AKeJCBmWqBStsMseOSqux2ZEOs6jJFRe5oq/Jt0cN/yBIMRYEgWTYIVmTxQe276CCossUVpeQnezD4QLXju3mQE/qS9H0NkgM7HL7r78kcEMrB9NzHSYt14Creq8T2Ha0TJJZ0coRm9L8+NboZWBgKbR7YkRNMyt3GB90isPy0/JVY/NE+AaOOVbizUXoR10CsM4ePvwp2ccyDdyxM53T/gCa6u0/XobytYCyiX++QjsE/fiyZ4iFABIRIMbb2zGmRBKjrc5ivyle6+ePDbzBDVquShQ2GrAF1LosQ1YpaSTPaG8L8ptFNOracpjBDxZlJPhyO0bvNngsXpH5po9rq1Q0opzfIR1NDSz+Sh+KyjZEKbXrrl+KQ=
+    bucket: geonet-meta
+    region: ap-southeast-2
+    local_dir: .tmp/geonet-meta/stationxml
+    upload-dir: stationxml
+    on:
+      branch: master
+  - provider: s3
+    skip_cleanup: true
+    access_key_id: AKIAIYOQNM47ZCTP6RKQ
+    secret_access_key:
+      secure: TnZurw++bdbFt6sH8cWdQzSpoFvZDEeVFUnvBtsYSrIylmAradaQ6BwM14cv+N04enB3mSKWxyd6E2sJV3AT9iHYMpNzLa78cu/KU59BoHUuFaT+7oFdP+JvUFZaWh2Bs0zaJOYKvd7tfkAetvEFlGEX3gQ5+KQffzzxNgk2mDNfGxWxwpXPweDwRc8GR4sekeeGyRmEbkLjgng5aqeoDjf+Y4/eWDT7AcPTmGHmVYV1LWaM2IzpiSb7UjIM4EnRvSrWgMlo5MDYG0qOvwrRtcCBY3DezVREXp5yBW0ixdIS2j8nhFdExATD1na1wDVzcCBsD181EojYCrVhgp/Wp6h9IU9RP18ZRmi8Qn7x37Tq41SlMg4qQvF37ZQaG10D17Ebiv2zbW78DP6nxFqd1Flf9Y5+t9/TeGZw+UkoWJYPpMxzRNIglekIn81s+Cl0w6iMJxq25hqQtpoKlH+eDPt0sdBM0lY9KCEMoPWiYReyGWfYpVcjKdpe4fjRzmUzi89wzUaueEX0fkyXWpV+f20fqlKpHxcaUFiBOor8w/+EVNBY8GM3JGpsRNL7/hpd15ZfWkq8CZexKTq6ZqMs5AB75gdmn3VtrlgBkHDk4QHLa6PidkH9/uW4fUr13h3nSPIr7Ma3EUPLsIQAvUsLrUVLf37FzyBHBpG+gekVewo=
+    bucket: geonet-meta
+    region: ap-southeast-2
+    local_dir: .tmp/geonet-meta/seed
+    upload-dir: seed
+    on:
+      branch: master
 
 # vim: set ts=2 sw=2 tw=0 et:

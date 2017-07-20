@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 errcount=0
 
@@ -12,6 +12,8 @@ trap error_handler ERR
 mkdir -p .tmp/geonet-meta/stationxml || exit 255
 
 (cd ./tools/stationxml; go build; ./stationxml -output ../../.tmp/geonet-meta/stationxml/complete.xml)
+
+mkdir -p .tmp/geonet-meta/seed || exit 255
 
 exit $errcount
 
