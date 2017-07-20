@@ -12,6 +12,7 @@ install: true
 
 script:
   - ./test.sh
+  - ./build.sh
 
 deploy:
      - provider: s3
@@ -25,9 +26,5 @@ deploy:
        upload-dir: delta
        on:
           branch: master
-     - provider: script
-       script: ./deploy.sh
-       on:
-         branch: master
 
 # vim: set ts=2 sw=2 tw=0 et:
