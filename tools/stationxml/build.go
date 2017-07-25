@@ -41,11 +41,20 @@ func Matcher(path, def string) (*regexp.Regexp, error) {
 }
 
 type Build struct {
-	Networks *regexp.Regexp
-	Stations *regexp.Regexp
-	Channels *regexp.Regexp
+	Operational *time.Time
+	Networks    *regexp.Regexp
+	Stations    *regexp.Regexp
+	Channels    *regexp.Regexp
+	Sensors     *regexp.Regexp
+	Dataloggers *regexp.Regexp
 }
 
+func (b *Build) MatchOperational(at time.Time) bool {
+	if b.Operational == nil {
+		return true
+	}
+	return !(b.Operational.After(at))
+}
 func (b *Build) MatchNetwork(net string) bool {
 	if b.Networks == nil {
 		return true
@@ -63,6 +72,18 @@ func (b *Build) MatchChannel(cha string) bool {
 		return true
 	}
 	return b.Channels.MatchString(cha)
+}
+func (b *Build) MatchSensor(sensor string) bool {
+	if b.Sensors == nil {
+		return true
+	}
+	return b.Sensors.MatchString(sensor)
+}
+func (b *Build) MatchDatalogger(logger string) bool {
+	if b.Dataloggers == nil {
+		return true
+	}
+	return b.Dataloggers.MatchString(logger)
 }
 
 func (b *Build) Construct(base string) ([]stationxml.Network, error) {
@@ -105,6 +126,15 @@ func (b *Build) Construct(base string) ([]stationxml.Network, error) {
 				return nil, err
 			}
 			if location == nil {
+				continue
+			}
+			if !b.MatchSensor(installation.Sensor.Model) {
+				continue
+			}
+			if !b.MatchDatalogger(installation.Datalogger.Model) {
+				continue
+			}
+			if !b.MatchOperational(installation.End) {
 				continue
 			}
 
