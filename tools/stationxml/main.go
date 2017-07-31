@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"time"
 
 	"github.com/ozym/fdsn/stationxml"
 )
@@ -53,6 +54,24 @@ func main() {
 	var networkList string
 	flag.StringVar(&networkList, "network-list", "", "regex selection of networks from file")
 
+	var sensorRegexp string
+	flag.StringVar(&sensorRegexp, "sensors", ".*", "regex selection of sensors")
+
+	var sensorList string
+	flag.StringVar(&sensorList, "sensor-list", "", "regex selection of sensors from file")
+
+	var dataloggerRegexp string
+	flag.StringVar(&dataloggerRegexp, "dataloggers", ".*", "regex selection of dataloggers")
+
+	var dataloggerList string
+	flag.StringVar(&dataloggerList, "datalogger-list", "", "regex selection of dataloggers from file")
+
+	var operational bool
+	flag.BoolVar(&operational, "operational", false, "only output operational channels")
+
+	var offset time.Duration
+	flag.DurationVar(&offset, "operational-offset", 0, "provide a recently closed window for operational only requests")
+
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "\n")
 		fmt.Fprintf(os.Stderr, "Build a network StationXML file from delta meta & response information\n")
@@ -70,6 +89,13 @@ func main() {
 	flag.Parse()
 
 	builder := Build{
+		Operational: func() *time.Time {
+			if operational {
+				t := time.Now().Add(-offset)
+				return &t
+			}
+			return nil
+		}(),
 		Networks: func() *regexp.Regexp {
 			re, err := Matcher(networkList, networkRegexp)
 			if err != nil {
@@ -88,6 +114,20 @@ func main() {
 			re, err := Matcher(channelList, channelRegexp)
 			if err != nil {
 				log.Fatalf("unable to compile network matcher: %v", err)
+			}
+			return re
+		}(),
+		Sensors: func() *regexp.Regexp {
+			re, err := Matcher(sensorList, sensorRegexp)
+			if err != nil {
+				log.Fatalf("unable to compile sensor matcher: %v", err)
+			}
+			return re
+		}(),
+		Dataloggers: func() *regexp.Regexp {
+			re, err := Matcher(dataloggerList, dataloggerRegexp)
+			if err != nil {
+				log.Fatalf("unable to compile datalogger matcher: %v", err)
 			}
 			return re
 		}(),
