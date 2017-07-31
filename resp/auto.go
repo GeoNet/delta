@@ -103,6 +103,13 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Manufacturer: "Nanometrics",
 		Vendor:       "",
 	},
+	"Obsidian 4X Datalogger": DataloggerModel{
+		Name:         "Obsidian 4X Datalogger",
+		Type:         "Strong Motion Recorder",
+		Description:  "Obsidian",
+		Manufacturer: "Kinemetrics",
+		Vendor:       "",
+	},
 	"Q330/3": DataloggerModel{
 		Name:         "Q330/3",
 		Type:         "Datalogger",
@@ -6138,7 +6145,7 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			Datalogger{
-				DataloggerList: []string{"OBSIDIAN"},
+				DataloggerList: []string{"OBSIDIAN", "Obsidian 4X Datalogger"},
 				Type:           "TG",
 				Label:          "HN",
 				SampleRate:     200,
@@ -6252,7 +6259,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				DataloggerList: []string{"OBSIDIAN"},
+				DataloggerList: []string{"OBSIDIAN", "Obsidian 4X Datalogger"},
 				Type:           "CG",
 				Label:          "BN",
 				SampleRate:     50,

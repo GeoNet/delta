@@ -15,6 +15,11 @@ dataloggermodel:
     description: Obsidian
     manufacturer: Kinemetrics
     vendor: ""
+  Obsidian 4X Datalogger:
+    type: Strong Motion Recorder
+    description: Obsidian
+    manufacturer: Kinemetrics
+    vendor: ""
   ETNA:
     type: Strong Motion Recorder
     description: Etna
