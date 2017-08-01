@@ -85,7 +85,7 @@ func buildStreams(base, channels string) (map[string]Stream, error) {
 
 				switch installation.Datalogger.Model {
 				case "Q330/3", "Q330/6", "Q330HR/6", "Q330S/3", "Q330S/6", "Q330HRS/6":
-				case "BASALT", "OBSIDIAN", "CUSP3D", "CUSP3C":
+				case "BASALT", "OBSIDIAN", "CUSP3D", "CUSP3C", "Obsidian 4X Datalogger":
 				default:
 					continue
 				}
