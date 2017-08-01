@@ -24,11 +24,12 @@ mkdir -p .tmp/geonet-meta/stationxml || exit 255
     -output ../../.tmp/geonet-meta/stationxml/iris.xml
 )
 
-mkdir -p .tmp/geonet-meta/seed || exit 255
+mkdir -p .tmp/geonet-meta/seed/pod || exit 255
 
-(cd ./tools/pod; go build; ./pod --output  ../../.tmp/geonet-meta/seed/pod/complete ../../.tmp/geonet-meta/stationxml/complete.xml)
-(cd ./tools/pod; go build; ./pod --output  ../../.tmp/geonet-meta/seed/pod/scp ../../.tmp/geonet-meta/stationxml/scp.xml)
-(cd ./tools/pod; go build; ./pod --output  ../../.tmp/geonet-meta/seed/pod/iris ../../.tmp/geonet-meta/stationxml/iris.xml)
+for output in complete scp iris; do
+    (cd ./tools/pod; go build; ./pod --output  ../../.tmp/pod/$output ../../.tmp/geonet-meta/stationxml/$output.xml)
+    (cd .tmp/pod/$output; tar cfz ../../geonet-meta/seed/pod/$output.tar.gz HDR000)
+done
 
 exit $errcount
 
