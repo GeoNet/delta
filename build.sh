@@ -32,6 +32,11 @@ for input in .tmp/geonet-meta/stationxml/*.xml; do
     (cd .tmp/pod/$output; tar cfz ../../geonet-meta/seed/pod/$output.tar.gz HDR000)
 done
 
+mkdir -p .tmp/geonet-meta/config || exit 255
+go build ./tools/impact || exit 255
+
+./impact -base . -channels "[BH]N[ZNE12XY]" -output .tmp/geonet-meta/config/impact.json
+
 exit $errcount
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
