@@ -1,0 +1,43 @@
+---
+sensormodel:
+  InfraBSU microphone:
+    type: Microphone
+    description: InfraBSU
+    manufacturer: "Boise State Univeristy"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: 0
+
+polynomial:
+  InfraBSU microphone:
+    gain: 0.008
+    approximationtype: MACLAURIN
+    frequencylowerbound: 0
+    frequencyupperbound: 0
+    approximationlowerbound: 0
+    approximationupperbound: 0
+    maximumerror: 0
+    notes: |
+      this is incorrect, enough to get a plot
+      in theory this is linear with +/- 10mV for +/- 125Pa (1.25 mbar)
+       which translates to +/- 1V for +/- 125mbar
+    coefficients:
+    - 0
+    - 125
+
+filter:
+  InfraBSU microphone:
+  - type: poly
+    lookup: InfraBSU microphone
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: hPa
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

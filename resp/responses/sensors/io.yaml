@@ -1,0 +1,16 @@
+---
+sensormodel:
+  GS-11D seismometer:
+    type: Short Period Seismometer
+    description: GS-11D
+    manufacturer: ""
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

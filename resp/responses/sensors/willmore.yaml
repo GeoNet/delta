@@ -1,0 +1,24 @@
+---
+paz:
+  W1:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard response for a Willmore Mark I
+    poles:
+    - (-2.5132+5.7586i)
+    - (-2.5132-5.7586i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+  W2:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard response for a Willmore Mark II
+    poles:
+    - (-4.5239+4.3604i)
+    - (-4.5239-4.3604i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+  
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

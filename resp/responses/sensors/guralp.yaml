@@ -1,0 +1,358 @@
+---
+sensormodel:
+  CMG-3ESP:
+    type: Broadband Seismometer
+    description: CMG-3ESP
+    manufacturer: "Guralp"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  CMG-3ESP-Z:
+    type: Broadband Seismometer
+    description: CMG-3ESP
+    manufacturer: "Guralp"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  CMG-3ESPC:
+    type: Broadband Seismometer
+    description: CMG-3ESP
+    manufacturer: "Guralp"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  CMG-3T:
+    type: Broadband Seismometer
+    description: CMG-3T
+    manufacturer: "Guralp"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  CMG-3TB:
+    type: Broadband Seismometer
+    description: CMG-3T
+    manufacturer: "Guralp"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  CMG-3TB-GN:
+    type: Broadband Seismometer
+    description: CMG-3T
+    manufacturer: "Guralp"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  CMG-6T:
+    type: Accelerometer
+    description: CMG-6T
+    manufacturer: "Guralp"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  CMG-40T-30S:
+    type: Broadband Seismometer
+    description: CMG-40T
+    manufacturer: "Guralp"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  CMG-40T-60S:
+    type: Broadband Seismometer
+    description: CMG-40T
+    manufacturer: "Guralp"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+
+paz:
+  CMG-3ESP-GN:
+    code: B
+    type: Analogue response, in Hz.
+    notes: derived from Guralp Test &amp; Calibration Data [Cal 025]
+    poles:
+    - (-0.01178+0.01178i)
+    - (-0.01178-0.01178i)
+    - (-180+0i)
+    - (-160+0i)
+    - (-80+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+  CMG-3ESP-UC:
+    code: B
+    type: Analogue response, in Hz.
+    notes: These are the Canterbury Ring Laser sensor response specifications.
+    poles:
+    - (-0.025356+0.025356i)
+    - (-0.025356-0.025356i)
+    - (-50-32.2i)
+    - (-50+32.2i)
+    zeros:
+    - (138-144i)
+    - (0+0i)
+    - (0+0i)
+    - (138+144i)
+  CMG-3T:
+    code: B
+    type: Analogue response, in Hz.
+    notes: derived from IRIS web page
+    poles:
+    - (-0.03701+0.03701i)
+    - (-0.03701-0.03701i)
+    - (-1131+0i)
+    - (-1005+0i)
+    - (-502.7+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+  CMG-3TB-CTBTO:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard CTBTO specification downhole broadband sensor.
+    poles:
+    - (-0.00589+0.00589i)
+    - (-0.00589-0.00589i)
+    - (-73.2-37.6i)
+    - (-73.2+37.6i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (146.5+0i)
+  CMG-3TB-GN:
+    code: B
+    type: Analogue response, in Hz.
+    notes: derived from Guralp documentation for T35920, i.e. caldoc@guralp.com
+    poles:
+    - (-0.00589-0.00589i)
+    - (-0.00589+0.00589i)
+    - (-180+0i)
+    - (-160+0i)
+    - (-80+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+  CMG-6T:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard CMG-6T as per T6262
+    poles:
+    - (-0.148597+0.148597i)
+    - (-0.148597-0.148597i)
+    - (-336.766+136.656i)
+    - (-336.766-136.656i)
+    - (-2469.36+0i)
+    - (-47.0636+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (-31.6+0i)
+  CMG-40T-30S:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard GNS specification CMG-40T as initially deployed
+    poles:
+    - (-0.02356+0.02356i)
+    - (-0.02356-0.02356i)
+    - (-50+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (159+0i)
+  CMG-40T-30S-GN:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard GeoNet specification CMG-40T as initially deployed
+    poles:
+    - (-0.02365+0.02365i)
+    - (-0.02365-0.02365i)
+    - (-159+0i)
+    - (-66+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (189+0i)
+  CMG-40T-30S-GN-H:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard GeoNet specification CMG-40T as initially deployed
+    poles:
+    - (-91.297-20.011i)
+    - (-0.02365+0.02365i)
+    - (-0.02365-0.02365i)
+    - (-91.297+20.011i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (174.208+0i)
+  CMG-40T-30S-GNS:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard GNS specification CMG-40T as initially deployed
+    poles:
+    - (-0.02356+0.02356i)
+    - (-0.02356-0.02356i)
+    - (-50+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (159+0i)
+  CMG-40T-30S-GNS-H:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard GeoNet specification CMG-40T as initially deployed
+    poles:
+    - (-0.02356+0.02356i)
+    - (-250+0i)
+    - (-0.02356-0.02356i)
+    - (-61+0i)
+    - (-200+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+  CMG-40T-30S-GNS-Z:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard GeoNet specification CMG-40T as initially deployed
+    poles:
+    - (-0.02356+0.02356i)
+    - (-0.02356-0.02356i)
+    - (-250+0i)
+    - (-61+0i)
+    - (-200+0i)
+    - (-200+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+  CMG-40T-60S-GN:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard GeoNet specification CMG-40T as initially deployed
+    poles:
+    - (-0.01178+0.01178i)
+    - (-0.01178-0.01178i)
+    - (-48.4+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (140+0i)
+
+filter:
+  CMG-3ESP-GN:
+  - type: paz
+    lookup: CMG-3ESP-GN
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 2000
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  CMG-3TB-CTBTO:
+  - type: paz
+    lookup: CMG-3TB-CTBTO
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 10000
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  CMG-3TB-GN:
+  - type: paz
+    lookup: CMG-3TB-GN
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 2000
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  CMG-40T-30S-GN:
+  - type: paz
+    lookup: CMG-40T-30S-GN
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 800
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  CMG-40T-30S-GNS:
+  - type: paz
+    lookup: CMG-40T-30S-GNS
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 800
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  CMG-40T-60S-GN:
+  - type: paz
+    lookup: CMG-40T-60S-GN
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 800
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

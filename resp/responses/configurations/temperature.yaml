@@ -1,0 +1,36 @@
+---
+response:
+  Quanterra Dataloggers Connected to Temperature Sensors:
+    sensors:
+    - sensors:
+      - LM35
+      filters:
+      - LM35
+      channels: O
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330/6
+      type: CW
+      label: LK
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-1
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330S/6
+      type: CW
+      label: LK
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-1
+      reversed: false
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

@@ -1,0 +1,54 @@
+---
+sensormodel:
+  2 Hz Duke Malin Seismometer:
+    type: Short Period Borehole Seismometer
+    description: Duke Malin
+    manufacturer: "Duke University"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  4.5 Hz Duke Malin Seismometer:
+    type: Short Period Borehole Seismometer
+    description: Duke Malin
+    manufacturer: "Duke University"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+
+paz:
+  MALIN:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from information passed on from Eylon Shalev <shalev@duke.edu>
+    poles:
+    - (-7.6654860747591+9.95760983645695i)
+    - (-7.6654860747591-9.95760983645695i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+
+filter:
+  2_Hz_Duke_Malin_Seismometer:
+  - type: paz
+    lookup: MALIN
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 62.2
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

@@ -1,0 +1,64 @@
+---
+sensormodel:
+  IESE HS-1-LT Mini 4.5Hz:
+    type: Short Period Seismometer
+    description: HS1-1-LT
+    manufacturer: ""
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  IESE S10g-4.5 (with preamp):
+    type: Short Period Seismometer
+    description: S10g-4.5
+    manufacturer: ""
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  IESE S10g-4.5 (without preamp):
+    type: Short Period Seismometer
+    description: S10g-4.5
+    manufacturer: ""
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  IESE S31f-15 (with preamp):
+    type: Short Period Seismometer
+    description: S31f-15
+    manufacturer: ""
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+
+paz:
+  IESE-4.5Hz-10K-SHUNT:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: from Carolin Boese IESE, damping 0.5 gain 50.4
+    poles:
+    - (-14.137167+24.486291i)
+    - (-14.137167-24.486291i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

@@ -1,0 +1,205 @@
+---
+dataloggermodel:
+  BASALT:
+    type: Strong Motion Recorder
+    description: Basalt
+    manufacturer: Kinemetrics
+    vendor: ""
+  BASALT 8X DATALOGGER:
+    type: Strong Motion Recorder
+    description: Basalt
+    manufacturer: Kinemetrics
+    vendor: ""
+  OBSIDIAN:
+    type: Strong Motion Recorder
+    description: Obsidian
+    manufacturer: Kinemetrics
+    vendor: ""
+  Obsidian 4X Datalogger:
+    type: Strong Motion Recorder
+    description: Obsidian
+    manufacturer: Kinemetrics
+    vendor: ""
+  ETNA:
+    type: Strong Motion Recorder
+    description: Etna
+    manufacturer: Kinemetrics
+    vendor: ""
+  K2:
+    type: Strong Motion Recorder
+    description: K2
+    manufacturer: Kinemetrics
+    vendor: ""
+
+filter:
+  ALTUS-200:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 2000
+    decimate: 1
+    gain: 3.3554432e+06
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: ALTUS_A200
+    frequency: 0
+    samplerate: 400
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: ALTUS_BNC
+    frequency: 0
+    samplerate: 200
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  BASALT-1:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 1.6777216e+06
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  BASALT-50:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 1.6777216e+06
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50-S5C
+    frequency: 0
+    samplerate: 6000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A3-50
+    frequency: 0
+    samplerate: 2000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A4-50
+    frequency: 0
+    samplerate: 500
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50
+    frequency: 0
+    samplerate: 100
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_B2-80
+    frequency: 0
+    samplerate: 50
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  BASALT-200:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 1.6777216e+06
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50-S5C
+    frequency: 0
+    samplerate: 6000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A3-50
+    frequency: 0
+    samplerate: 2000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50
+    frequency: 0
+    samplerate: 400
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_B2-80
+    frequency: 0
+    samplerate: 200
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

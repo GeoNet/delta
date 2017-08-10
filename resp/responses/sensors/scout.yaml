@@ -1,0 +1,26 @@
+---
+sensormodel:
+  Scout Hydrophone:
+    type: Hydrophone
+    description: Scout
+    manufacturer: ""
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: 0
+
+filter:
+  Scout Hydrophone:
+  - type: paz
+    lookup: HYDROPHONE
+    frequency: 15.0
+    samplerate: 0
+    decimate: 0
+    gain: 25700
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: PA
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

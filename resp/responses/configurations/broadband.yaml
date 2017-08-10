@@ -1,0 +1,427 @@
+---
+response:
+  Quanterra Dataloggers Connected to STS-2 Sensors:
+    sensors:
+    - sensors:
+      - STS-2
+      filters:
+      - STS-2
+      channels: ZNE
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330HR/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-100
+      reversed: false
+    - dataloggers:
+      - Q330HR/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-1
+      reversed: false
+    - dataloggers:
+      - Q330HR/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-0.1
+      reversed: false
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-100
+      reversed: true
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-1
+      reversed: true
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-0.1
+      reversed: true
+
+  Quanterra Dataloggers Connected to CMG-3TB Sensors:
+    sensors:
+    - sensors:
+      - CMG-3TB
+      filters:
+      - CMG-3TB-CTBTO
+      channels: Z12
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330HR/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-100
+      reversed: false
+    - dataloggers:
+      - Q330HR/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-1
+      reversed: false
+    - dataloggers:
+      - Q330HR/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-0.1
+      reversed: false
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-100
+      reversed: false
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-1
+      reversed: false
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-0.1
+      reversed: false
+
+  Quanterra Dataloggers Connected to Broadband Sensors:
+    sensors:
+    - sensors:
+      - Nanometrics Trillium 120QA
+      filters:
+      - TRILLIUM-120QA
+      channels: ZNE
+      reversed: false
+#    - sensors:
+#      - Trillium Compact
+#      filters:
+#      - TRILLIUM-COMPACT-120
+#      channels: ZNE
+#      reversed: false
+    - sensors:
+      - Nanometrics Trillium Compact PH TC120-PH2
+      filters:
+#      - TRILLIUM-120PH-2
+      - TRILLIUM-COMPACT-120
+      channels: Z12
+      reversed: false
+    - sensors:
+      - CMG-3TB-GN
+      filters:
+      - CMG-3TB-GN
+      channels: Z12
+      reversed: false
+    - sensors:
+      - CMG-3ESPC
+      - CMG-3ESP
+      filters:
+      - CMG-3ESP-GN
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - CMG-40T-30S
+      filters:
+      - CMG-40T-30S-GNS
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - CMG-40T-60S
+      filters:
+      - CMG-40T-60S-GN
+      channels: ZNE
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-100
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-1
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-0.1
+      reversed: false
+    - dataloggers:
+      - Q330HRS/6
+      - Q330HR/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-100
+      reversed: false
+    - dataloggers:
+      - Q330HRS/6
+      - Q330HR/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-1
+      reversed: false
+    - dataloggers:
+      - Q330HRS/6
+      - Q330HR/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330HR_FLbelow100-0.1
+      reversed: false
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-100
+      reversed: false
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-1
+      reversed: false
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-0.1
+      reversed: false
+    - dataloggers:
+      - Q4120/6
+      - Q730/4
+      type: CG
+      label: VH
+      samplerate: 0.1
+      frequency: 0.05
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-0.1
+      reversed: false
+    - dataloggers:
+      - Q4120/6
+      - Q730/4
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-100
+      reversed: false
+    - dataloggers:
+      - Q730/4
+      type: CG
+      label: BH
+      samplerate: 40
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-40
+      reversed: false
+    - dataloggers:
+      - Q4120/6
+      - Q730/4
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-1
+      reversed: false
+
+  Nanometrics Dataloggers Connected to Broadband Sensors:
+    sensors:
+#    - sensors:
+#      - Nanometrics Trillium 120QA
+#      filters:
+#      - TRILLIUM-120QA
+#      channels: ZNE
+#      reversed: false
+#    - sensors:
+#      - Trillium Compact
+#      filters:
+#      - TRILLIUM-COMPACT-120
+#      channels: ZNE
+#      reversed: false
+#    - sensors:
+#      - Nanometrics Trillium Compact PH TC120-PH2
+#      filters:
+#      - TRILLIUM-120PH-2
+#      channels: Z12
+#      reversed: false
+#    - sensors:
+#      - CMG-3TB-GN
+#      filters:
+#      - CMG-3TB-GN
+#      channels: Z12
+#      reversed: false
+    - sensors:
+      - CMG-3ESPC
+      - CMG-3ESP
+      filters:
+      - CMG-3ESP-GN
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - CMG-40T-30S
+      filters:
+      - CMG-40T-30S-GNS
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - CMG-40T-60S
+      filters:
+      - CMG-40T-60S-GN
+      channels: ZNE
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - ORION
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - ORION-100
+      reversed: false
+    - dataloggers:
+      - Taurus
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Taurus-100
+      reversed: false
+ 
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
