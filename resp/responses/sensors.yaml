@@ -508,6 +508,18 @@ sensormodel:
       dip: 0
     - azimuth: 90
       dip: 0
+  Trillium Compact:
+    type: Broadband Seismometer
+    description: Trillium 120 Compact
+    manufacturer: ""
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
   Nanometrics Trillium Compact PH TC120-PH2:
     type: Broadband Seismometer
     description: Trillium 120 Posthole

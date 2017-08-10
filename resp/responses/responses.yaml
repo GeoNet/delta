@@ -288,10 +288,15 @@ response:
       channels: ZNE
       reversed: false
     - sensors:
+      - Trillium Compact
+      filters:
+      - TRILLIUM-COMPACT-120
+      channels: ZNE
+      reversed: false
+    - sensors:
       - Nanometrics Trillium Compact PH TC120-PH2
       filters:
-        #- TRILLIUM-120PH-2
-      - TRILLIUM-COMPACT-120
+      - TRILLIUM-120PH-2
       channels: Z12
       reversed: false
     - sensors:
@@ -485,6 +490,17 @@ response:
       clockdrift: 0.0001
       filters:
       - ORION-100
+      reversed: false
+    - dataloggers:
+      - Taurus
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Taurus-100
       reversed: false
   Strong Motion Sensors:
     sensors:

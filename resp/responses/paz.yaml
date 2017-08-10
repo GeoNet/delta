@@ -502,6 +502,29 @@ paz:
     - (-160+0i)
     - (-350+0i)
     - (-3177+0i)
+  TRILLIUM-120-COMPACT:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from IRIS NRL Trillium 120 Compact
+    poles:
+    - (-0.03691+0.03702i)
+    - (-0.03691-0.03702i)
+    - (-343+0i)
+    - (-370+467i)
+    - (-370-467i)
+    - (-836+1522i)
+    - (-836-1522i)
+    - (-4900+4700i)
+    - (-4900-4700i)
+    - (-6900+0i)
+    - (-15000+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (-39.2+0i)
+    - (-196+0i)
+    - (-1490+1740i)
+    - (-1490-1740i)
   TRILLIUM-120PH-2:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
