@@ -1522,7 +1522,7 @@ filter:
     outputunits: V
   TRILLIUM-COMPACT-120:
   - type: paz
-    lookup: TRILLIUM-120PH-2
+    lookup: TRILLIUM-120-COMPACT
     frequency: 1
     samplerate: 0
     decimate: 0
