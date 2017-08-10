@@ -1556,6 +1556,18 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
+  TRILLIUM-360:
+  - type: paz
+    lookup: TRILLIUM-360
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1100.0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
   Taurus-100:
   - type: a2d
     lookup: A2D

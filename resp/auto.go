@@ -576,6 +576,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
 	},
+	"Trillium Vault 360": SensorModel{
+		Name:         "Trillium Vault 360",
+		Type:         "Broadband Seismometer",
+		Description:  "Trillium 360 Vault",
+		Manufacturer: "Nanometrics Inc.",
+		Vendor:       "",
+		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+	},
 }
 
 var Responses []Response = []Response{
