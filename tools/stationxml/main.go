@@ -7,7 +7,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"regexp"
 	"time"
 
 	"github.com/ozym/fdsn/stationxml"
@@ -66,6 +65,9 @@ func main() {
 	var dataloggerList string
 	flag.StringVar(&dataloggerList, "datalogger-list", "", "regex selection of dataloggers from file")
 
+	var installed bool
+	flag.BoolVar(&installed, "installed", false, "set station times based on installation dates")
+
 	var operational bool
 	flag.BoolVar(&operational, "operational", false, "only output operational channels")
 
@@ -88,49 +90,17 @@ func main() {
 
 	flag.Parse()
 
-	builder := Build{
-		Operational: func() *time.Time {
-			if operational {
-				t := time.Now().Add(-offset)
-				return &t
-			}
-			return nil
-		}(),
-		Networks: func() *regexp.Regexp {
-			re, err := Matcher(networkList, networkRegexp)
-			if err != nil {
-				log.Fatalf("unable to compile network matcher: %v", err)
-			}
-			return re
-		}(),
-		Stations: func() *regexp.Regexp {
-			re, err := Matcher(stationList, stationRegexp)
-			if err != nil {
-				log.Fatalf("unable to compile network matcher: %v", err)
-			}
-			return re
-		}(),
-		Channels: func() *regexp.Regexp {
-			re, err := Matcher(channelList, channelRegexp)
-			if err != nil {
-				log.Fatalf("unable to compile network matcher: %v", err)
-			}
-			return re
-		}(),
-		Sensors: func() *regexp.Regexp {
-			re, err := Matcher(sensorList, sensorRegexp)
-			if err != nil {
-				log.Fatalf("unable to compile sensor matcher: %v", err)
-			}
-			return re
-		}(),
-		Dataloggers: func() *regexp.Regexp {
-			re, err := Matcher(dataloggerList, dataloggerRegexp)
-			if err != nil {
-				log.Fatalf("unable to compile datalogger matcher: %v", err)
-			}
-			return re
-		}(),
+	builder, err := NewBuilder(
+		SetInstalled(installed),
+		SetOperational(operational, offset),
+		SetNetworks(networkList, networkRegexp),
+		SetStations(stationList, stationRegexp),
+		SetChannels(channelList, channelRegexp),
+		SetSensors(sensorList, sensorRegexp),
+		SetDataloggers(dataloggerList, dataloggerRegexp),
+	)
+	if err != nil {
+		log.Fatalf("unable to make builder: %v", err)
 	}
 
 	// build a representation of the network

@@ -20,7 +20,7 @@ func (c Channels) Len() int           { return len(c) }
 func (c Channels) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
 func (c Channels) Less(i, j int) bool { return c[i].StartDate.Time.Before(c[j].StartDate.Time) }
 
-func Matcher(path, def string) (*regexp.Regexp, error) {
+func matcher(path, def string) (*regexp.Regexp, error) {
 
 	// no list given
 	if path == "" {
@@ -40,53 +40,137 @@ func Matcher(path, def string) (*regexp.Regexp, error) {
 	return regexp.Compile("^(" + strings.Join(strings.Fields(string(buf)), "|") + ")$")
 }
 
-type Build struct {
-	Operational *time.Time
-	Networks    *regexp.Regexp
-	Stations    *regexp.Regexp
-	Channels    *regexp.Regexp
-	Sensors     *regexp.Regexp
-	Dataloggers *regexp.Regexp
+type Builder struct {
+	operational *time.Time
+	networks    *regexp.Regexp
+	stations    *regexp.Regexp
+	channels    *regexp.Regexp
+	sensors     *regexp.Regexp
+	dataloggers *regexp.Regexp
+	installed   bool
 }
 
-func (b *Build) MatchOperational(at time.Time) bool {
-	if b.Operational == nil {
-		return true
+func SetInstalled(installed bool) func(*Builder) error {
+	return func(b *Builder) error {
+		b.installed = installed
+		return nil
 	}
-	return !(b.Operational.After(at))
-}
-func (b *Build) MatchNetwork(net string) bool {
-	if b.Networks == nil {
-		return true
-	}
-	return b.Networks.MatchString(net)
-}
-func (b *Build) MatchStation(sta string) bool {
-	if b.Stations == nil {
-		return true
-	}
-	return b.Stations.MatchString(sta)
-}
-func (b *Build) MatchChannel(cha string) bool {
-	if b.Channels == nil {
-		return true
-	}
-	return b.Channels.MatchString(cha)
-}
-func (b *Build) MatchSensor(sensor string) bool {
-	if b.Sensors == nil {
-		return true
-	}
-	return b.Sensors.MatchString(sensor)
-}
-func (b *Build) MatchDatalogger(logger string) bool {
-	if b.Dataloggers == nil {
-		return true
-	}
-	return b.Dataloggers.MatchString(logger)
 }
 
-func (b *Build) Construct(base string) ([]stationxml.Network, error) {
+func SetOperational(operational bool, offset time.Duration) func(*Builder) error {
+	return func(b *Builder) error {
+		t := time.Now().Add(-offset)
+		if operational {
+			b.operational = &t
+		}
+		return nil
+	}
+}
+
+func SetNetworks(list, match string) func(*Builder) error {
+	return func(b *Builder) error {
+		re, err := matcher(list, match)
+		if err != nil {
+			return err
+		}
+		b.networks = re
+		return nil
+	}
+}
+func SetStations(list, match string) func(*Builder) error {
+	return func(b *Builder) error {
+		re, err := matcher(list, match)
+		if err != nil {
+			return err
+		}
+		b.stations = re
+		return nil
+	}
+}
+func SetChannels(list, match string) func(*Builder) error {
+	return func(b *Builder) error {
+		re, err := matcher(list, match)
+		if err != nil {
+			return err
+		}
+		b.channels = re
+		return nil
+	}
+}
+func SetSensors(list, match string) func(*Builder) error {
+	return func(b *Builder) error {
+		re, err := matcher(list, match)
+		if err != nil {
+			return err
+		}
+		b.sensors = re
+		return nil
+	}
+}
+func SetDataloggers(list, match string) func(*Builder) error {
+	return func(b *Builder) error {
+		re, err := matcher(list, match)
+		if err != nil {
+			return err
+		}
+		b.dataloggers = re
+		return nil
+	}
+}
+
+func NewBuilder(opts ...func(*Builder) error) (*Builder, error) {
+	var b Builder
+
+	for _, opt := range opts {
+		if err := opt(&b); err != nil {
+			return nil, err
+		}
+	}
+
+	return &b, nil
+}
+
+func (b *Builder) MatchOperational(at time.Time) bool {
+	if b.operational == nil {
+		return true
+	}
+	return !(b.operational.After(at))
+}
+func (b *Builder) MatchNetwork(net string) bool {
+	if b.networks == nil {
+		return true
+	}
+	return b.networks.MatchString(net)
+}
+func (b *Builder) MatchStation(sta string) bool {
+	if b.stations == nil {
+		return true
+	}
+	return b.stations.MatchString(sta)
+}
+func (b *Builder) MatchChannel(cha string) bool {
+	if b.channels == nil {
+		return true
+	}
+	return b.channels.MatchString(cha)
+}
+func (b *Builder) MatchSensor(sensor string) bool {
+	if b.sensors == nil {
+		return true
+	}
+	return b.sensors.MatchString(sensor)
+}
+func (b *Builder) MatchDatalogger(logger string) bool {
+	if b.dataloggers == nil {
+		return true
+	}
+	return b.dataloggers.MatchString(logger)
+}
+func (b *Builder) Installed() bool {
+	return b.installed
+}
+
+func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 
 	mdb := metadb.NewMetaDB(base)
 
@@ -170,14 +254,12 @@ func (b *Build) Construct(base string) ([]stationxml.Network, error) {
 					if !(pin < len(lookup)) {
 						continue
 					}
-					channel := lookup[pin]
-
-					freq := response.Datalogger.Frequency
-
-					if b.Channels != nil && !b.Channels.MatchString(channel) {
+					if !b.MatchChannel(lookup[pin]) {
 						continue
 					}
 
+					channel := lookup[pin]
+					freq := response.Datalogger.Frequency
 					dip := comp.Dip
 					azimuth := installation.Sensor.Azimuth + comp.Azimuth
 
@@ -510,6 +592,15 @@ func (b *Build) Construct(base string) ([]stationxml.Network, error) {
 
 		sort.Sort(Channels(channels))
 
+		start, end := &(stationxml.DateTime{station.Start}), &(stationxml.DateTime{station.End})
+		if b.Installed() && len(channels) > 0 {
+			start, end = channels[0].StartDate, channels[len(channels)-1].EndDate
+		}
+
+		if !b.MatchOperational(end.Time) {
+			continue
+		}
+
 		stas[network.External] = append(stas[network.External], stationxml.Station{
 			BaseNode: stationxml.BaseNode{
 				Code:        station.Code,
@@ -522,8 +613,8 @@ func (b *Build) Construct(base string) ([]stationxml.Network, error) {
 						return stationxml.StatusOpen
 					}
 				}(),
-				StartDate: &(stationxml.DateTime{station.Start}),
-				EndDate:   &(stationxml.DateTime{station.End}),
+				StartDate: start,
+				EndDate:   end,
 				Comments: []stationxml.Comment{
 					stationxml.Comment{
 						Id:    1,
