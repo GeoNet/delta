@@ -48,6 +48,7 @@
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
+          <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
@@ -244,6 +245,7 @@
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
+          <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
@@ -440,6 +442,7 @@
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
+          <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
@@ -636,6 +639,7 @@
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
+          <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
@@ -832,6 +836,7 @@
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
+          <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
@@ -1028,6 +1033,7 @@
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
+          <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
@@ -1224,6 +1230,7 @@
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
+          <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
@@ -1425,6 +1432,7 @@
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
+          <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
@@ -1626,6 +1634,7 @@
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
+          <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
@@ -1827,6 +1836,7 @@
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>
@@ -2004,6 +2014,7 @@
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>
@@ -2181,6 +2192,7 @@
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>
@@ -2358,6 +2370,7 @@
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>
@@ -2572,6 +2585,7 @@
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>
@@ -2786,6 +2800,7 @@
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>

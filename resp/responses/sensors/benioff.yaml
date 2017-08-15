@@ -1,0 +1,13 @@
+---
+paz:
+  BENIOFF:SP:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Guessed response based on 1s critical period and critical damping
+    poles:
+    - (-4.44288-4.44288i)
+    - (-4.44288+4.44288i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

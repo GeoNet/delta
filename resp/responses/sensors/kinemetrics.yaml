@@ -1,0 +1,194 @@
+---
+sensormodel:
+   FBA-23-DECK:
+     type: Accelerometer
+     description: FBA-23
+     manufacturer: "Kinemetrics"
+     vendor: ""
+     components:
+     - azimuth: 180
+       dip: 0
+     - azimuth: 0
+       dip: 90
+     - azimuth: 270
+       dip: 0
+   FBA-ES-T:
+     type: Accelerometer
+     description: FBA-ES-T
+     manufacturer: "Kinemetrics"
+     vendor: ""
+     components:
+     - azimuth: 0
+       dip: -90
+     - azimuth: 0
+       dip: 0
+     - azimuth: 90
+       dip: 0
+   FBA-ES-T-BASALT:
+     type: Accelerometer
+     description: FBA-ES-T
+     manufacturer: "Kinemetrics"
+     vendor: ""
+     components:
+     - azimuth: 0
+       dip: -90
+     - azimuth: 0
+       dip: 0
+     - azimuth: 90
+       dip: 0
+   FBA-ES-T-DECK:
+     type: Accelerometer
+     description: FBA-ES-T
+     manufacturer: "Kinemetrics"
+     vendor: ""
+     components:
+     - azimuth: 90
+       dip: 0
+     - azimuth: 0
+       dip: 0
+     - azimuth: 0
+       dip: -90
+   FBA-ES-T-ISO:
+     type: Accelerometer
+     description: FBA-ES-T
+     manufacturer: "Kinemetrics"
+     vendor: ""
+     components:
+     - azimuth: 0
+       dip: -90
+     - azimuth: 0
+       dip: 0
+     - azimuth: 90
+       dip: 0
+   FBA-ES-T-OBSIDIAN:
+     type: Accelerometer
+     description: FBA-ES-T
+     manufacturer: "Kinemetrics"
+     vendor: ""
+     components:
+     - azimuth: 0
+       dip: -90
+     - azimuth: 0
+       dip: 0
+     - azimuth: 90
+       dip: 0
+   Kinemetrics SBEPI:
+     type: Accelerometer
+     description: SBEPI
+     manufacturer: "Kinemetrics"
+     vendor: ""
+     components:
+     - azimuth: 0
+       dip: -90
+     - azimuth: 0
+       dip: 0
+     - azimuth: 90
+       dip: 0
+
+paz:
+  FBA-23-50Hz:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: This is the standard response of a Kinemetrics FBA-23 @ a gain of +/- .5g
+      full scale. It is assumed that the natural frequency is 50Hz.
+    poles:
+    - (-1000+0i)
+    - (-222.1+222.1i)
+    - (-222.1-222.1i)
+    zeros: []
+  FBA-23-50Hz-2g:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: This is the standard response of a Kinemetrics FBA-23 @ a gain of +/- 2g
+      full scale. It is assumed that the natural frequency is 50Hz.
+    poles:
+    - (-222.1+222.1i)
+    - (-222.1-222.1i)
+    - (-1500+0i)
+    zeros: []
+  FBA-23-100Hz:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: This is the standard response of a Kinemetrics FBA-23 @ a gain of +/- .5g
+      full scale. It is assumed that the natural frequency is 100Hz.
+    poles:
+    - (-1000+0i)
+    - (-444.2+444.2i)
+    - (-444.2-444.2i)
+    zeros: []
+  FBA-ES-T:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: Standard response of an Kinemetric's EpiSensor FBA-ES sensor, they are built
+      with a wide range of gains. We use +/- 20V @ +/-2 g for the National Network,
+      and +/- 2.5V @ +/- 2g for the ETNA strong motion recorders.
+    poles:
+    - (-981+1009i)
+    - (-981-1009i)
+    - (-3290+1263i)
+    - (-3290-1263i)
+    zeros: []
+
+filter:
+  FBA-23-DECK:
+  - type: paz
+    lookup: FBA-ES-T
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0.1273560875
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s**2
+    outputunits: V
+  FBA-ES-T:
+  - type: paz
+    lookup: FBA-ES-T
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1.0188487
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s**2
+    outputunits: V
+  Kinemetrics SBEPI:
+  - type: paz
+    lookup: Kinemetrics SBEPI
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 2.0376974
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s**2
+    outputunits: V
+  FBA-ES-T-BASALT:
+  - type: paz
+    lookup: FBA-ES-T
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0.254712175
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s**2
+    outputunits: V
+  FBA-ES-T-DECK:
+  - type: paz
+    lookup: FBA-ES-T
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0.1273560875
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s**2
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

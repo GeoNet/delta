@@ -1,0 +1,16 @@
+---
+paz:
+  REFTEK:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: ""
+    poles:
+    - (-1517+406.6i)
+    - (-1517-406.6i)
+    - (-1111+1111i)
+    - (-1111-1111i)
+    - (-406.6+1517i)
+    - (-406.6-1517i)
+    zeros: []
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

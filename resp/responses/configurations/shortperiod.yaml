@@ -1,0 +1,166 @@
+---
+response:
+  Quanterra Dataloggers Connected to Short Period Sensors with Pre Amp:
+    sensors:
+    - sensors:
+      - 2 Hz Duke Malin Seismometer
+      filters:
+      - 2_Hz_Duke_Malin_Seismometer
+      channels: Z12
+      reversed: true
+    dataloggers:
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-100-PREAMP32
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-100-PREAMP
+      reversed: false
+
+  Quanterra Dataloggers Connected to Short Period Sensors:
+    sensors:
+    - sensors:
+      - L4C
+      filters:
+      - L4C
+      channels: Z
+      reversed: false
+    - sensors:
+      - L4C-3D
+      filters:
+      - L4C
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - LE-3Dlite
+      filters:
+      - LE-3Dlite
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - LE-3DliteMkII
+      filters:
+      - LE-3DliteMkII
+      channels: ZNE
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-100
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CG
+      label: EH
+      samplerate: 200
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-200
+      reversed: false
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-100
+      reversed: false
+    - dataloggers:
+      - Q4120/6
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-100
+      reversed: false
+
+  GNS Dataloggers Connected to Short Period Sensors:
+    sensors:
+    - sensors:
+      - L4C
+      filters:
+      - L4C
+      channels: Z
+      reversed: false
+    - sensors:
+      - L4C-3D
+      filters:
+      - L4C
+      channels: ZNE
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - EARSS/3
+      type: TG
+      label: EH
+      samplerate: 50
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - EARSS-50
+      reversed: false
+
+  Nanometrics Dataloggers Connected to Short Period Sensors:
+    sensors:
+    - sensors:
+      - LE-3Dlite
+      filters:
+      - LE-3Dlite
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - LE-3DliteMkII
+      filters:
+      - LE-3DliteMkII
+      channels: ZNE
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Taurus
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Taurus-100
+      reversed: false
+ 
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

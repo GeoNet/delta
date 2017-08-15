@@ -1,0 +1,143 @@
+---
+dataloggermodel:
+  EARSS/3:
+    type: Datalogger
+    description: EARSS
+    manufacturer: GNS Science
+    vendor: ""
+  EARSS/16:
+    type: Datalogger
+    description: EARSS
+    manufacturer: GNS Science
+    vendor: ""
+
+paz:
+  EARSS-25Hz:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: EARSS running at 25Hz
+    poles:
+    - (-33.3216-33.3216i)
+    - (-33.3216+33.3216i)
+    zeros: []
+  EARSS-50Hz:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: EARSS running at 50Hz
+    poles:
+    - (-66.6432-66.6432i)
+    - (-66.6432+66.6432i)
+    zeros: []
+  EARSS-100Hz:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: EARSS running at 100Hz
+    poles:
+    - (-133.2865-133.2865i)
+    - (-133.2865+133.2865i)
+    zeros: []
+  EARSS-GAIN:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: A simple place holder indicating we have an analogue EARSS gain stage
+    poles: []
+    zeros: []
+  EARSS-HP:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: EARSS single pole high pass filter with corner @ 2 pi Hz
+    poles:
+    - (-6.283185+0i)
+    zeros:
+    - (0+0i)
+  EARSS-XHP:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: EARSS single pole high pass filter with corner @ 2 pi * 4.7 Hz as used for
+      CRLZ
+    poles:
+    - (-29.530971+0i)
+    zeros:
+    - (0+0i)
+  SNARE-50Hz:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: SNARE running at 50Hz
+    poles:
+    - (-66.6432+66.6432i)
+    - (-66.6432-66.6432i)
+    - (-66.6432-66.6432i)
+    - (-66.6432+66.6432i)
+    zeros: []
+
+filter:
+  EARSS-50:
+  - type: paz
+    lookup: EARSS-GAIN
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 1
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: V
+  - type: paz
+    lookup: EARSS-50Hz
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 1
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: V
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 50
+    decimate: 1
+    gain: 104857.6
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  EARSS-100:
+  - type: paz
+    lookup: EARSS-GAIN
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 1
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: V
+  - type: paz
+    lookup: EARSS-100Hz
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 1
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: V
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 100
+    decimate: 1
+    gain: 104857.6
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
