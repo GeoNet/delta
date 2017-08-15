@@ -1,0 +1,71 @@
+---
+sensormodel:
+  LM35:
+    type: ""
+    description: LM35
+    manufacturer: "GNS Science"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: 0
+  SDP:
+    type: ""
+    description: SDP
+    manufacturer: "GNS Science"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: -90
+
+polynomial:
+  LM35:
+    gain: 0.01
+    approximationtype: MACLAURIN
+    frequencylowerbound: 0
+    frequencyupperbound: 0
+    approximationlowerbound: -55
+    approximationupperbound: 150
+    maximumerror: 0
+    coefficients:
+    - 0
+    - 100
+
+paz:
+  SDP:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: A simple place holder for the SDP down-hole sensor
+    poles: []
+    zeros: []
+
+filter:
+  LM35:
+  - type: poly
+    lookup: LM35
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: C
+    outputunits: V
+  SDP:
+  - type: paz
+    lookup: SDP
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0.1273560875
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s**2
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

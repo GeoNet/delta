@@ -1,0 +1,106 @@
+---
+response:
+  Quanterra Dataloggers Connected to Setra Barometers:
+    sensors:
+    - sensors:
+      - 270-600/12V
+      filters:
+      - 270-600/12V
+      channels: F
+      reversed: false
+    - sensors:
+      - 270-600/24V
+      filters:
+      - 270-600/24V
+      channels: F
+      reversed: false
+    - sensors:
+      - 270-800/12V
+      filters:
+      - 270-800/12V
+      channels: F
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CW
+      label: LD
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-1
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      type: CW
+      label: HD
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330_FLbelow100-100
+      reversed: false
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CW
+      label: LD
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-1
+      reversed: false
+    - dataloggers:
+      - Q330S/3
+      - Q330S/6
+      type: CW
+      label: HD
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-100
+      reversed: false
+    - dataloggers:
+      - Q730/4
+      type: CW
+      label: LD
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-1
+      reversed: false
+    - dataloggers:
+      - Q730/4
+      type: CW
+      label: BD
+      samplerate: 40
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-40
+      reversed: false
+    - dataloggers:
+      - Q730/4
+      type: CW
+      label: HD
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q4120-100
+      reversed: false
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

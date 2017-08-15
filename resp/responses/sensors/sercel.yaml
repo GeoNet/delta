@@ -1,0 +1,70 @@
+---
+sensormodel:
+  L4C:
+    type: Short Period Seismometer
+    description: L4C
+    manufacturer: "Sercel"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+  L4C-3D:
+    type: Short Period Seismometer
+    description: L4C-3D
+    manufacturer: "Sercel"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+
+paz:
+  L4C:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: Standard response for a Mark Products L4C (Sercel)
+    poles:
+    - (-4.2097+4.6644i)
+    - (-4.2097-4.6644i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+  L4C-OD:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Overdamped response for a Mark Products L4C (Sercel) - using 560 ohm resistors
+    poles:
+    - (13.03+0i)
+    - (3.03+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+  L15:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: Standard response for a Mark Products L15 4.5 Hz sensor (Sercel)
+    poles:
+    - (-17.8128+21.9577i)
+    - (-17.8128-21.9577i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+
+filter:
+  L4C:
+  - type: paz
+    lookup: L4C
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 177.8
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

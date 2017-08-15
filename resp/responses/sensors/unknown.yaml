@@ -1,0 +1,12 @@
+---
+paz:
+  SM-6 Geophone:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from information 10K shunt and instrument docs
+    poles:
+    - (-19.5092903787926+20.4652277144474i)
+    - (-19.5092903787926-20.4652277144474i)
+    zeros:
+    - (0+0i)
+    - (0+0i)

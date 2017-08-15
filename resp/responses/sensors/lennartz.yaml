@@ -1,0 +1,104 @@
+---
+sensormodel:
+  LE-3Dlite:
+    type: Short Period Seismometer
+    description: LE-3Dlite
+    manufacturer: "Lennartz"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  LE-3DliteMkII:
+    type: Short Period Seismometer
+    description: LE-3DliteMkII
+    manufacturer: "Lennartz"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+
+paz:
+  LE-3D:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: Standard response for a Lennartz LE-3D (Lite)
+    poles:
+    - (-4.21+4.66i)
+    - (-4.21-4.66i)
+    - (-2.105+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (0+0i)
+  LE-3D-MKII:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: ""
+    poles:
+    - (-4.44+4.44i)
+    - (-4.44-4.44i)
+    - (-1.083+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (0+0i)
+  LE-3Dlite:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from Lennartz documentation, i.e. 990-0003 page 15 via http://www.lennartz-electronic.de
+    poles:
+    - (-4.444+4.444i)
+    - (-4.444-4.444i)
+    - (-1.083+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (0+0i)
+  LE-3DliteMkII:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from Lennartz documentation, i.e. 990-0003 page 15 via http://www.lennartz-electronic.de
+    poles:
+    - (-4.444+4.444i)
+    - (-4.444-4.444i)
+    - (-1.083+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (0+0i)
+
+filter:
+  LE-3Dlite:
+  - type: paz
+    lookup: LE-3Dlite
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 400
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  LE-3DliteMkII:
+  - type: paz
+    lookup: LE-3DliteMkII
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 400
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

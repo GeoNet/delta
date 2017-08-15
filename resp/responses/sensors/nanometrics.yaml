@@ -1,0 +1,196 @@
+---
+sensormodel:
+  Nanometrics Trillium 120QA:
+    type: Broadband Seismometer
+    description: Trillium 120
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  Trillium Compact:
+    type: Broadband Seismometer
+    description: Trillium 120 Compact
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  Nanometrics Trillium Compact PH TC120-PH2:
+    type: Broadband Seismometer
+    description: Trillium 120 Posthole
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  Trillium Vault 360:
+    type: Broadband Seismometer
+    description: Trillium 360 Vault
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+
+paz:
+  TRILLIUM-120QA:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from Nanometrics documentation for Trillium 120QA
+    poles:
+    - (-0.036614+0.037059i)
+    - (-0.036614-0.037059i)
+    - (-32.55+0i)
+    - (-142+0i)
+    - (-364+404i)
+    - (-364-404i)
+    - (-1260+0i)
+    - (-4900+5200i)
+    - (-4900-5200i)
+    - (-7100+1700i)
+    - (-7100-1700i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (-31.63+0i)
+    - (-160+0i)
+    - (-350+0i)
+    - (-3177+0i)
+  #TRILLIUM-120-COMPACT:
+  TRILLIUM-120PH-2:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from IRIS NRL Trillium 120 Compact
+    poles:
+    - (-0.03691+0.03702i)
+    - (-0.03691-0.03702i)
+    - (-343+0i)
+    - (-370+467i)
+    - (-370-467i)
+    - (-836+1522i)
+    - (-836-1522i)
+    - (-4900+4700i)
+    - (-4900-4700i)
+    - (-6900+0i)
+    - (-15000+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (-39.2+0i)
+    - (-196+0i)
+    - (-1490+1740i)
+    - (-1490-1740i)
+  #TRILLIUM-120PH-2:
+  TRILLIUM-120-COMPACT:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from IRIS NRL Trillium 120PH Generation 2
+    poles:
+    - (-0.036614+0.037059i)
+    - (-0.036614-0.037059i)
+    - (-32.55+0i)
+    - (-142+0i)
+    - (-364+404i)
+    - (-364-404i)
+    - (-1260+0i)
+    - (-4900+5200i)
+    - (-4900-5200i)
+    - (-7100+1700i)
+    - (-7100-1700i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (-31.63+0i)
+    - (-160+0i)
+    - (-350+0i)
+    - (-3177+0i)
+  TRILLIUM-360:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from Nanometrics documentation for Trillium 360
+    poles:
+    - (-0.01189+0.01189i)
+    - (-0.01189-0.01189i)
+    - (-146+0i)
+    - (-360+405i)
+    - (-360-405i)
+    - (-1234+0i)
+    - (-4900+5200i)
+    - (-4900-5200i)
+    - (-7200+1700i)
+    - (-7200-1700i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (-160+0i)
+    - (-350+0i)
+    - (-3079+0i)
+  
+filter:
+  TRILLIUM-COMPACT-120:
+  - type: paz
+    lookup: TRILLIUM-120-COMPACT
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 754.3
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  TRILLIUM-120PH-2:
+  - type: paz
+    lookup: TRILLIUM-120PH-2
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1200.7
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  TRILLIUM-120QA:
+  - type: paz
+    lookup: TRILLIUM-120QA
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1202.5
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  TRILLIUM-360:
+  - type: paz
+    lookup: TRILLIUM-360
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1100.0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

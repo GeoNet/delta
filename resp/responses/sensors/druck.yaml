@@ -1,0 +1,69 @@
+---
+sensormodel:
+  Druck PTX-1830:
+    type: Pressure Sensor
+    description: Druck PTX
+    manufacturer: "GE Druck"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: 0
+  Druck PTX-1830-LAND:
+    type: Pressure Sensor
+    description: Druck PTX
+    manufacturer: "GE Druck"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: 0
+
+polynomial:
+  Druck PTX-1830-A:
+    gain: 0.0008
+    approximationtype: MACLAURIN
+    frequencylowerbound: 0
+    frequencyupperbound: 0
+    approximationlowerbound: 0
+    approximationupperbound: 20
+    maximumerror: 0
+    coefficients:
+    - 0.004
+    - 0.0008
+  Druck PTX-1830-B:
+    gain: 250
+    approximationtype: MACLAURIN
+    frequencylowerbound: 0
+    frequencyupperbound: 0
+    approximationlowerbound: 0.004
+    approximationupperbound: 0.02
+    maximumerror: 0
+    coefficients:
+    - 0
+    - 250
+
+filter:
+  Druck PTX-1830:
+  - type: poly
+    lookup: Druck PTX-1830-A
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m
+    outputunits: A
+  - type: poly
+    lookup: Druck PTX-1830-B
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: A
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

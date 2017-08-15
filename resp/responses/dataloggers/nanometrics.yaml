@@ -1,0 +1,173 @@
+---
+dataloggermodel:
+  ORION:
+    type: Datalogger
+    description: Orion
+    manufacturer: Nanometrics
+    vendor: ""
+  Taurus:
+    type: Datalogger
+    description: Taurus
+    manufacturer: Nanometrics
+    vendor: ""
+
+filter:
+  ORION-100:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 788033
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: ORION_FIR_1_FILTER
+    frequency: 0
+    samplerate: 6000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: ORION_FIR_2_FILTER
+    frequency: 0
+    samplerate: 2000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: ORION_FIR_3_FILTER
+    frequency: 0
+    samplerate: 1000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: ORION_FIR_5_FILTER
+    frequency: 0
+    samplerate: 200
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: ORION_FIR_3_FILTER
+    frequency: 0
+    samplerate: 100
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  Taurus-100:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 400000
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: TAURUS_100HZ_STAGE_1
+    frequency: 0
+    samplerate: 2000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: TAURUS_100HZ_STAGE_2
+    frequency: 0
+    samplerate: 200
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: TAURUS_100HZ_STAGE_3
+    frequency: 0
+    samplerate: 100
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  Taurus-100-LOWINPUT:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 8e+06
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: TAURUS_100HZ_STAGE_1
+    frequency: 0
+    samplerate: 2000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: TAURUS_100HZ_STAGE_2
+    frequency: 0
+    samplerate: 200
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: TAURUS_100HZ_STAGE_3
+    frequency: 0
+    samplerate: 100
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

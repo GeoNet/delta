@@ -1,0 +1,101 @@
+---
+sensormodel:
+  270-600/12V:
+    type: Barometer
+    description: Setra 270
+    manufacturer: "Setra"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: 0
+  270-600/24V:
+    type: Barometer
+    description: Setra 270
+    manufacturer: "Setra"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: 0
+  270-800/12V:
+    type: Barometer
+    description: Setra 270
+    manufacturer: "Setra"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: 0
+
+polynomial:
+  270-600/12V:
+    gain: 0.01
+    approximationtype: MACLAURIN
+    frequencylowerbound: 0
+    frequencyupperbound: 0
+    approximationlowerbound: 600
+    approximationupperbound: 1100
+    maximumerror: 0
+    coefficients:
+    - 600
+    - 100
+  270-600/24V:
+    gain: 0.01
+    approximationtype: MACLAURIN
+    frequencylowerbound: 0
+    frequencyupperbound: 0
+    approximationlowerbound: 600
+    approximationupperbound: 1100
+    maximumerror: 0
+    coefficients:
+    - 600
+    - 100
+  270-800/12V:
+    gain: 0.016666668
+    approximationtype: MACLAURIN
+    frequencylowerbound: 0
+    frequencyupperbound: 0
+    approximationlowerbound: 800
+    approximationupperbound: 1100
+    maximumerror: 0
+    coefficients:
+    - 800
+    - 100
+
+filter:
+  270-600/12V:
+  - type: poly
+    lookup: 270-600/12V
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: hPa
+    outputunits: V
+  270-600/24V:
+  - type: poly
+    lookup: 270-600/24V
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: hPa
+    outputunits: V
+  270-800/12V:
+  - type: poly
+    lookup: 270-800/12V
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: hPa
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

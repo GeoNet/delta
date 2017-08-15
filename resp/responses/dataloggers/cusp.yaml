@@ -1,0 +1,85 @@
+---
+dataloggermodel:
+  CUSP3A:
+    type: Strong Motion Recorder
+    description: Cusp3A
+    manufacturer: Canterbury Seismic Instruments
+    vendor: ""
+  CUSP3B:
+    type: Strong Motion Recorder
+    description: Cusp3B
+    manufacturer: Canterbury Seismic Instruments
+    vendor: ""
+  CUSP3C:
+    type: Strong Motion Recorder
+    description: Cusp3C
+    manufacturer: Canterbury Seismic Instruments
+    vendor: ""
+  CUSP3C3:
+    type: Strong Motion Recorder
+    description: Cusp3C3
+    manufacturer: Canterbury Seismic Instruments
+    vendor: ""
+  CUSP3D:
+    type: Strong Motion Recorder
+    description: Cusp3D
+    manufacturer: Canterbury Seismic Instruments
+    vendor: ""
+
+paz:
+  CUSP:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: A simple place holder for the CSI CUSP strong motion sensors
+    poles: []
+    zeros: []
+
+filter:
+  CUSP-50:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 200
+    decimate: 1
+    gain: 1e+06
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: QUANTERRA_F96CM
+    frequency: 0
+    samplerate: 100
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: QUANTERRA_F96CM
+    frequency: 0
+    samplerate: 50
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  CUSP-200:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 200
+    decimate: 1
+    gain: 1e+06
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

@@ -1,0 +1,138 @@
+---
+sensormodel:
+  CUSP-Me SENSOR:
+    type: Building Array Sensor
+    description: CUSP Me
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
+  CUSP3A:
+    type: Strong Motion Sensor
+    description: CUSP 3A
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
+  CUSP3B:
+    type: Strong Motion Sensor
+    description: CUSP 3B
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
+  CUSP3B SENSOR:
+    type: Strong Motion Sensor
+    description: CUSP 3B
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
+  CUSP3C:
+    type: Strong Motion Sensor
+    description: CUSP 3C
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
+  CUSP3C SENSOR:
+    type: Strong Motion Sensor
+    description: CUSP 3C
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
+  CUSP3C3 SENSOR:
+    type: Strong Motion Sensor
+    description: CUSP 3C
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
+  CUSP3C3:
+    type: Strong Motion Sensor
+    description: CUSP 3C
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
+  CUSP3D:
+    type: Strong Motion Sensor
+    description: CUSP 3D
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
+  CUSPM SENSOR:
+    type: Strong Motion Sensor
+    description: CUSP M
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
+
+filter:
+  CUSP SENSOR:
+  - type: paz
+    lookup: CUSP
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0.10197162129779283
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s**2
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

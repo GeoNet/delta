@@ -1,0 +1,45 @@
+---
+sensormodel:
+  STS-2:
+    type: Broadband Seismometer
+    description: STS-2
+    manufacturer: "Streckeisen"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+
+paz:
+  STS-2:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: ""
+    poles:
+    - (-0.03701+0.03701i)
+    - (-0.03701-0.03701i)
+    - (-131+467.3i)
+    - (-131-467.3i)
+    - (-251.3+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+
+filter:
+  STS-2:
+  - type: paz
+    lookup: STS-2
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1500
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
