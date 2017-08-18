@@ -7,6 +7,8 @@ import (
 )
 
 type DataloggerModel struct {
+	ResourceId string
+
 	Type         string `yaml:"type"`
 	Description  string `yaml:"description"`
 	Manufacturer string `yaml:"manufacturer"`
@@ -18,6 +20,7 @@ var dataloggerModelTemplate = `
 var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 {{ range $k, $v := . }}	"{{ $k}}": DataloggerModel{
 	        Name: "{{$k}}",
+		ResourceId: "{{.ResourceId}}",
 		Type: "{{$v.Type}}",
 		Description: "{{$v.Description}}",
 		Manufacturer: "{{$v.Manufacturer}}",

@@ -6,6 +6,8 @@ import (
 )
 
 type FIR struct {
+	ResourceId string
+
 	Causal     bool      `yaml:"causal"`
 	Symmetry   string    `yaml:"symmetry"`
 	Decimation float64   `yaml:"decimation"`

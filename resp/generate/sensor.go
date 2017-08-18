@@ -12,6 +12,8 @@ type SensorComponent struct {
 }
 
 type SensorModel struct {
+	ResourceId string
+
 	Type         string `yaml:"type"`
 	Description  string `yaml:"description"`
 	Manufacturer string `yaml:"manufacturer"`
@@ -25,6 +27,7 @@ var sensorModelTemplate = `
 var SensorModels map[string]SensorModel = map[string]SensorModel{
 {{ range $k, $v := . }}	"{{ $k}}": SensorModel{
 		Name: "{{$k}}",
+		ResourceId: "{{.ResourceId}}",
 		Type: "{{$v.Type}}",
 		Description: "{{$v.Description}}",
 		Manufacturer: "{{$v.Manufacturer}}",

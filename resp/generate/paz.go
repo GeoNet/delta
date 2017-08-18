@@ -5,11 +5,13 @@ import (
 )
 
 type PAZ struct {
-	Code  string       `yaml:"code"`
-	Type  string       `yaml:"type"`
-	Notes string       `yaml:"notes"`
-	Poles []Complex128 `yaml:"poles"`
-	Zeros []Complex128 `yaml:"zeros"`
+	ResourceId string
+
+	Code  string      `yaml:"code"`
+	Type  string      `yaml:"type"`
+	Notes string      `yaml:"notes"`
+	Poles []Complex64 `yaml:"poles"`
+	Zeros []Complex64 `yaml:"zeros"`
 }
 
 func (p PAZ) PzTransferFunction() string {
