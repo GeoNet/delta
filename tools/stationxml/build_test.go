@@ -10,7 +10,7 @@ import (
 	"github.com/ozym/fdsn/stationxml"
 )
 
-func TestBuild(t *testing.T) {
+func TestBuilder(t *testing.T) {
 
 	// load in the test data and convert to stationxml indented text
 	raw, err := ioutil.ReadFile("./testdata/test.xml")
@@ -28,7 +28,7 @@ func TestBuild(t *testing.T) {
 		t.Fatalf("error: unable to unmarshal stationxml file: %v", err)
 	}
 
-	var builder Build
+	var builder Builder
 
 	// build networks and construct stationxml
 	n, err := builder.Construct("./testdata")
