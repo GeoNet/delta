@@ -36,7 +36,7 @@ func TestBuilder(t *testing.T) {
 		t.Fatalf("error: unable to build networks list: %v", err)
 	}
 
-	c, err := stationxml.ParseDateTime("2016-12-13T11:40:46")
+	c, err := stationxml.ParseDateTime("2017-08-21T09:09:26")
 	if err != nil {
 		t.Fatalf("error: unable to parse creation date: %v", err)
 	}
