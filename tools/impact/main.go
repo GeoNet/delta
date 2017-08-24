@@ -47,15 +47,15 @@ func main() {
 		log.Fatalf("problem marshalling streams %s: %v\n", base, err)
 	}
 
-	switch {
-	case output != "":
+	switch output {
+	case "", "-":
+		os.Stdout.Write(res)
+	default:
 		if err := os.MkdirAll(filepath.Dir(output), 0755); err != nil {
 			log.Fatalf("error: unable to create directory %s: %v", filepath.Dir(output), err)
 		}
 		if err := ioutil.WriteFile(output, res, 0644); err != nil {
 			log.Fatalf("error: unable to write file %s: %v", output, err)
 		}
-	default:
-		os.Stdout.Write(res)
 	}
 }

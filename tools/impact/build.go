@@ -83,18 +83,11 @@ func buildStreams(base, channels string) (map[string]Stream, error) {
 					continue
 				}
 
-				switch installation.Datalogger.Model {
-				case "Q330/3", "Q330/6", "Q330HR/6", "Q330S/3", "Q330S/6", "Q330HRS/6":
-				case "BASALT", "OBSIDIAN", "CUSP3D", "CUSP3C", "Obsidian 4X Datalogger":
-				default:
+				if !isBlessedDatalogger(installation.Datalogger.Model) {
 					continue
 				}
 
-				switch installation.Sensor.Model {
-				case "FBA-ES-T", "FBA-ES-T-ISO", "FBA-ES-T-BASALT", "FBA-ES-T-OBSIDIAN", "CUSP3C", "CUSP3D":
-				case "CMG-3ESP", "CMG-3ESPC", "CMG-3TB", "CMG-3TB-GN", "STS-2", "Nanometrics Trillium 120QA", "Nanometrics Trillium Compact PH TC120-PH2":
-				case "L4C-3D", "L4C", "LE-3Dlite", "LE-3DliteMkII":
-				default:
+				if !isBlessedSensor(installation.Sensor.Model) {
 					continue
 				}
 

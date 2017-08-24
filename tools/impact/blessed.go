@@ -1,0 +1,63 @@
+package main
+
+// list sensors that can be used
+var blessedSensorList = []string{
+	"FBA-ES-T",
+	"FBA-ES-T-ISO",
+	"FBA-ES-T-BASALT",
+	"FBA-ES-T-OBSIDIAN",
+	"CUSP3C",
+	"CUSP3D",
+	"CMG-3ESP",
+	"CMG-3ESPC",
+	"CMG-3TB",
+	"CMG-3TB-GN",
+	"STS-2",
+	"Nanometrics Trillium 120QA",
+	"Nanometrics Trillium Compact PH TC120-PH2",
+	"L4C-3D",
+	"L4C",
+	"LE-3Dlite",
+	"LE-3DliteMkII",
+}
+
+// list dataloggers that can be used
+var blessedDataloggerList = []string{
+	"Q330/3",
+	"Q330/6",
+	"Q330HR/6",
+	"Q330S/3",
+	"Q330S/6",
+	"Q330HRS/6",
+	"BASALT",
+	"OBSIDIAN",
+	"CUSP3D",
+	"CUSP3C",
+	"Obsidian 4X Datalogger",
+}
+
+var blessedSensors = make(map[string]bool)
+var blessedDataloggers = make(map[string]bool)
+
+func init() {
+	for _, s := range blessedSensorList {
+		blessedSensors[s] = true
+	}
+	for _, s := range blessedDataloggerList {
+		blessedDataloggers[s] = true
+	}
+}
+
+func isBlessedSensor(model string) bool {
+	if _, ok := blessedSensors[model]; ok {
+		return true
+	}
+	return false
+}
+
+func isBlessedDatalogger(model string) bool {
+	if _, ok := blessedDataloggers[model]; ok {
+		return true
+	}
+	return false
+}
