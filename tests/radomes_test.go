@@ -45,11 +45,46 @@ func TestRadomes(t *testing.T) {
 					case v[i].Serial != v[j].Serial:
 					case v[i].End.Before(v[j].Start):
 					case v[i].Start.After(v[j].End):
-					case v[i].End.Equal(v[j].Start):
-					case v[i].Start.Equal(v[j].End):
 					default:
 						t.Errorf("radomes %s at %-5s has mark %s overlap between %s and %s",
 							v[i].Model, v[i].Serial, v[i].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+					}
+				}
+			}
+		}
+	}
+
+	t.Log("Check for overlapping radomes installations")
+	{
+		installs := make(map[string]meta.InstalledRadomeList)
+		for _, s := range radomes {
+			_, ok := installs[s.Mark]
+			if ok {
+				installs[s.Mark] = append(installs[s.Mark], s)
+
+			} else {
+				installs[s.Mark] = meta.InstalledRadomeList{s}
+			}
+		}
+
+		var keys []string
+		for k, _ := range installs {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+
+		for _, k := range keys {
+			v := installs[k]
+
+			for i, n := 0, len(v); i < n; i++ {
+				for j := i + 1; j < n; j++ {
+					switch {
+					case v[i].Serial != v[j].Serial:
+					case v[i].End.Before(v[j].Start):
+					case v[i].Start.After(v[j].End):
+					default:
+						t.Errorf("mark %-5s has radome %s/%s overlap wth %s/%s between %s and %s",
+							v[i].Mark, v[i].Model, v[i].Serial, v[j].Model, v[j].Serial, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
 			}
