@@ -48,5 +48,16 @@ deploy:
     upload-dir: seed
     on:
       branch: master
+  - provider: s3
+    skip_cleanup: true
+    access_key_id: AKIAICVSINVWUYFAZ45A
+    secret_access_key:
+      secure: L34urckbUAm3wbgvFtIjmLSpPdDZdnM06DC4f3OczJZasybVmhBijFDJsUldNfFycjIAfqZ9g9azCsioDPcJ1qSAv0+qfOpmf9kV6BgWvioAk9lISkARehgGaQ3Yrgps8PfT5q2nmFR6ern54Uh/PBlqnwAWLBWvKSOkyZj7SV6SHqQykl0sE7zbveZkSimZzpyy72OlgW/J3FX9eSrX6vNdfTQ/LVnbXMxbdUfXEXjyQfTUDXTSKILj2FA25d1LvRdf4qglqxXO5Q+fQf0c6ucHdm7XVRZ7ueMAhTt7AQX2Bf/564NdOFmpy8thegZRVD373KZGm+olrAc2vNH+vjqcMgb27Mi3BEyYDKocn+5bOxXAlw3s6Ygmk6C+rAel7JZwPnDrQ6N3T0s7OlcjjaKtctIkTXrPBHUiG6mMRdz4uXdiZOD9rXhD0upiSJvtr+8kmVn+uHVE5qMZs20ycBveA/HxRfLwtCuzxDw8Nv3Oye7ll1fPre12BE+nM+qYZeETdm9t8CpdEFIrYlb3R2DpE9u2v5ldvpvTPn0mtEhF+6H31bpQRKT1hXCUfUVYNNqABqPHOGIv2N1Q06R7mlsQ/aLuy/UZaKvMOjwbaYvMPMht9d8QiCkOrp19JAH5oG/MLPvdBogXS3HgWe7HW15QS5Dgg3sLvtwQeQf9H+w=
+    bucket: geonet-meta
+    region: ap-southeast-2
+    local_dir: .tmp/geonet-meta/config
+    upload-dir: config
+    on:
+      branch: master
 
 # vim: set ts=2 sw=2 tw=0 et:
