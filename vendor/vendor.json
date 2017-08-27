@@ -3,6 +3,12 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "kBeNcaKk56FguvPSUCEaH6AxpRc=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "18c9bb3261723cd5401db4d0c9fbc5c3b6c70fe8",
+			"revisionTime": "2017-04-27T21:32:20Z"
+		},
+		{
 			"checksumSHA1": "GoEtguzRyXdK8vyOEKFLynWOIcM=",
 			"path": "github.com/ozym/fdsn/stationxml",
 			"revision": "fb491902e5f3d19c617a215b80cfe895e8db35e3",
