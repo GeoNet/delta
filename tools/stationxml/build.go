@@ -454,7 +454,7 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 						StorageFormat: response.StorageFormat,
 						ClockDrift:    &stationxml.ClockDrift{Float: stationxml.Float{Value: response.ClockDrift}},
 						Sensor: &stationxml.Equipment{
-							ResourceId: "Sensor#" + installation.Sensor.Model + ":" + installation.Sensor.Serial,
+							//ResourceId: "Sensor#" + installation.Sensor.Model + ":" + installation.Sensor.Serial,
 							Type: func() string {
 								if t, ok := resp.SensorModels[installation.Sensor.Model]; ok {
 									return t.Type
@@ -493,7 +493,7 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 						},
 
 						DataLogger: &stationxml.Equipment{
-							ResourceId: "Datalogger#" + installation.Datalogger.Model + ":" + installation.Datalogger.Serial,
+							//ResourceId: "Datalogger#" + installation.Datalogger.Model + ":" + installation.Datalogger.Serial,
 							Type: func() string {
 								if t, ok := resp.DataloggerModels[installation.Datalogger.Model]; ok {
 									return t.Type
