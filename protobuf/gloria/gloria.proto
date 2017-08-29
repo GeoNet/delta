@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-// protoc --proto_path=protobuf/gloria --go_out=internal/gloria protobuf/gloria/gloria.proto
+// protoc --proto_path=protobuf/gloria --go_out=internal/gloria_pb protobuf/gloria/gloria.proto
 
 package gloria;
-option go_package = "gloria";
+option go_package = "gloria_pb";
 
 // A GNSS Mark.
 message Mark {
@@ -20,6 +20,7 @@ message Mark {
     repeated InstalledAntenna installed_antenna = 5;
     repeated InstalledRadome installed_radome = 6;
 
+    string comment = 7;
 }
 
 // A geographical point on NZGD2000
