@@ -2,3 +2,6 @@
 .tmp/
 delta.iml
 tools/rinexml/rinexml
+
+tools/gloria/output
+tools/gloria/gloria
