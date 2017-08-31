@@ -24,7 +24,7 @@ func (s Stage) a2d() stationxml.ResponseStage {
 
 	coefs := stationxml.Coefficients{
 		BaseFilter: stationxml.BaseFilter{
-			ResourceId:  "Coefficients#" + s.id,
+			//ResourceId:  "Coefficients#" + s.id,
 			Name:        s.name,
 			InputUnits:  stationxml.Units{Name: s.responseStage.InputUnits},
 			OutputUnits: stationxml.Units{Name: s.responseStage.OutputUnits},
@@ -80,7 +80,7 @@ func (s Stage) paz(pz resp.PAZ) stationxml.ResponseStage {
 
 	paz := stationxml.PolesZeros{
 		BaseFilter: stationxml.BaseFilter{
-			ResourceId:  "PolesZeros#" + s.id,
+			//ResourceId:  "PolesZeros#" + s.id,
 			Name:        s.name,
 			InputUnits:  stationxml.Units{Name: s.responseStage.InputUnits},
 			OutputUnits: stationxml.Units{Name: s.responseStage.OutputUnits},
@@ -124,7 +124,7 @@ func (s Stage) polynomial(p resp.Polynomial) stationxml.ResponseStage {
 
 	poly := stationxml.Polynomial{
 		BaseFilter: stationxml.BaseFilter{
-			ResourceId:  "Polynomial#" + s.id,
+			//ResourceId:  "Polynomial#" + s.id,
 			Name:        s.name,
 			InputUnits:  stationxml.Units{Name: s.responseStage.InputUnits},
 			OutputUnits: stationxml.Units{Name: s.responseStage.OutputUnits},
@@ -167,7 +167,7 @@ func (s Stage) fir(f resp.FIR) stationxml.ResponseStage {
 
 	fir := stationxml.FIR{
 		BaseFilter: stationxml.BaseFilter{
-			ResourceId:  "FIR#" + s.id,
+			//ResourceId:  "FIR#" + s.id,
 			Name:        s.responseStage.Lookup,
 			InputUnits:  stationxml.Units{Name: s.responseStage.InputUnits},
 			OutputUnits: stationxml.Units{Name: s.responseStage.OutputUnits},
