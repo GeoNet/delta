@@ -38,6 +38,11 @@ go build ./tools/impact || exit 255
 
 ./impact -base . -channels "[BH]N[ZNE12XY]" -output .tmp/geonet-meta/config/impact.json
 
+mkdir -p .tmp/geonet-meta/config/rinex || exit 255
+go build ./tools/rinexml || exit 255
+
+./rinexml -install ./install -network ./network -output .tmp/geonet-meta/config/rinex
+
 mkdir -p .tmp/geonet-meta/config/gloria || exit 255
 go build ./tools/gloria || exit 255
 
