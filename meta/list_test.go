@@ -190,6 +190,7 @@ func TestList(t *testing.T) {
 						Network: "CG",
 						Name:    "Ahititi",
 					},
+					Igs: false,
 					Point: meta.Point{
 						Latitude:  -38.411447554,
 						Longitude: 178.046002897,
@@ -213,6 +214,7 @@ func TestList(t *testing.T) {
 						Network: "LI",
 						Name:    "Dunedin",
 					},
+					Igs: true,
 					Point: meta.Point{
 						Latitude:  -45.88366604,
 						Longitude: 170.5971706,

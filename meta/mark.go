@@ -11,6 +11,7 @@ import (
 const (
 	markCode = iota
 	markNetwork
+	markIgs
 	markName
 	markLatitude
 	markLongitude
@@ -25,6 +26,8 @@ type Mark struct {
 	Reference
 	Point
 	Span
+
+	Igs bool
 }
 
 type MarkList []Mark
@@ -37,6 +40,7 @@ func (m MarkList) encode() [][]string {
 	data := [][]string{{
 		"Mark",
 		"Network",
+		"Igs",
 		"Name",
 		"Latitude",
 		"Longitude",
@@ -49,6 +53,12 @@ func (m MarkList) encode() [][]string {
 		data = append(data, []string{
 			strings.TrimSpace(v.Code),
 			strings.TrimSpace(v.Network),
+			func() string {
+				if v.Igs {
+					return "yes"
+				}
+				return "no"
+			}(),
 			strings.TrimSpace(v.Name),
 			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
@@ -69,6 +79,18 @@ func (m *MarkList) decode(data [][]string) error {
 				return fmt.Errorf("incorrect number of installed mark fields")
 			}
 			var err error
+
+			var igs bool
+			if igs, err = strconv.ParseBool(d[markIgs]); err != nil {
+				switch d[markIgs] {
+				case "y", "Y", "yes", "YES":
+					igs = true
+				case "n", "N", "no", "NO":
+					igs = false
+				default:
+					return err
+				}
+			}
 
 			var lat, lon, elev float64
 			if lat, err = strconv.ParseFloat(d[markLatitude], 64); err != nil {
@@ -104,6 +126,7 @@ func (m *MarkList) decode(data [][]string) error {
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[markDatum]),
 				},
+				Igs: igs,
 			})
 		}
 
