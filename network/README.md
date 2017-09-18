@@ -15,6 +15,7 @@ _Lists the geographical and physical characteristics of collection points._
 
 * _Mark_ - Code used to uniquely identify GNSS _Mark_.
 * _Network_ - Code used to group marks together by project or operator.
+* _Igs_ - Whether the _Mark_ is used by the IGS service, *yes* or *no*.
 * _Name_ - Used to describe the general geographical location of the _Mark_.
 * _Latitude_ - Geographical latitude of the _Mark_ for the given _Datum_.
 * _Longitude_ - Geographical longitude of the _Mark_ for the given _Datum_.
