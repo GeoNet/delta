@@ -8,8 +8,8 @@ import (
 
 	"gopkg.in/yaml.v2"
 
+	"github.com/GeoNet/delta/internal/metadb"
 	"github.com/GeoNet/delta/meta"
-	"github.com/GeoNet/delta/metadb"
 )
 
 type Plots struct {

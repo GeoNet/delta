@@ -4,8 +4,8 @@ import (
 	"sort"
 	"time"
 
+	"github.com/GeoNet/delta/internal/metadb"
 	"github.com/GeoNet/delta/meta"
-	"github.com/GeoNet/delta/metadb"
 )
 
 func (cp ConfigPage) Combined(base string) ([]Page, error) {
