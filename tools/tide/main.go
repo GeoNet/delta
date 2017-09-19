@@ -10,8 +10,8 @@ import (
 	"text/template"
 	"time"
 
+	"github.com/GeoNet/delta/internal/metadb"
 	"github.com/GeoNet/delta/meta"
-	"github.com/GeoNet/delta/metadb"
 )
 
 // Install represents an installed datalogger and pressure sensor

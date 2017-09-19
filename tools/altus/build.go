@@ -7,7 +7,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/GeoNet/delta/metadb"
+	"github.com/GeoNet/delta/internal/metadb"
 	"github.com/GeoNet/delta/resp"
 )
 

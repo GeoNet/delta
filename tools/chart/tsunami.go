@@ -4,7 +4,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/GeoNet/delta/metadb"
+	"github.com/GeoNet/delta/internal/metadb"
 )
 
 func (cp ConfigPage) Tsunami(base string) ([]Page, error) {

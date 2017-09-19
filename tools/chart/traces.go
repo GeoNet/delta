@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/GeoNet/delta/internal/metadb"
 	"github.com/GeoNet/delta/meta"
-	"github.com/GeoNet/delta/metadb"
 )
 
 func (cp ConfigPage) Traces(base string) ([]Page, error) {

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/GeoNet/delta/metadb"
+	"github.com/GeoNet/delta/internal/metadb"
 )
 
 type Channels []metadb.Channel

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/GeoNet/delta/metadb"
+	"github.com/GeoNet/delta/internal/metadb"
 	"github.com/GeoNet/delta/resp"
 
 	"github.com/ozym/fdsn/stationxml"

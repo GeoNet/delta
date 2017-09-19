@@ -4,7 +4,7 @@ import (
 	"encoding/xml"
 	"strings"
 
-	"github.com/GeoNet/delta/metadb"
+	"github.com/GeoNet/delta/internal/metadb"
 )
 
 const header = "<?xml version=\"1.0\" standalone=\"yes\"?>\n"
