@@ -137,6 +137,18 @@ func main() {
 			InstalledRadome:  make([]*gloria_pb.InstalledRadome, 0),
 		}
 
+		// Higher download priority marks are scheduled for download first.
+		// Download rate can be restricted here as well.
+		switch {
+		case m.Igs:
+			mark_pb.Download = &gloria_pb.Download{Priority: 1000}
+			mark_pb.Distribution = &gloria_pb.Distribution{Igs: true}
+		case m.Network == "LI":
+			mark_pb.Download = &gloria_pb.Download{Priority: 100}
+		default:
+			mark_pb.Download = &gloria_pb.Download{Priority: 0}
+		}
+
 		if m.Network == "LI" {
 			mark_pb.Comment = `Data supplied by the GeoNet project.  GeoNet is core
 funded by EQC, with support from LINZ, and is

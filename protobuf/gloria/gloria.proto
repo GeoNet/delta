@@ -21,6 +21,10 @@ message Mark {
     repeated InstalledRadome installed_radome = 6;
 
     string comment = 7;
+
+    Download download = 8;
+
+    Distribution distribution = 9;
 }
 
 // A geographical point on NZGD2000
@@ -108,4 +112,16 @@ message DeployedReceiver {
 message InstalledRadome {
     Radome radome = 1;
     Span span = 2;
+}
+
+message Download {
+    // The download priority, 0 for lowest, higher numbers for higher priority.
+    int64 priority = 1;
+    // Download rate limit in KBytes/sec. 0 = no limit.
+    int64 rate = 2;
+}
+
+message Distribution {
+    // Set true if data should be sent to the IGS
+    bool igs = 1;
 }
