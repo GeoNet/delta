@@ -138,7 +138,7 @@ func TestStreams(t *testing.T) {
 	var missing []meta.Stream
 
 	for _, r := range recorders {
-		if a, ok := assets[r.Model+":::"+r.Serial]; !ok || a.Number == "" {
+		if a, ok := assets[r.DataloggerModel+":::"+r.Serial]; !ok || a.Number == "" {
 			continue
 		}
 		if r.End.Before(time.Now()) {
