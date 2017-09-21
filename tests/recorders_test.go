@@ -2,7 +2,6 @@ package delta_test
 
 import (
 	"sort"
-	"strings"
 	"testing"
 
 	"github.com/GeoNet/delta/meta"
@@ -90,14 +89,9 @@ func TestRecorders(t *testing.T) {
 	t.Log("Check for recorder assets")
 	{
 		for _, r := range recorders {
-			model := r.DataloggerModel
-			if r.DataloggerModel != r.Model {
-				model = strings.Join([]string{r.DataloggerModel, r.Model}, " ")
-			}
-
 			var found bool
 			for _, a := range assets {
-				if a.Model != model {
+				if a.Model != r.DataloggerModel {
 					continue
 				}
 				if a.Serial != r.Serial {
@@ -106,7 +100,7 @@ func TestRecorders(t *testing.T) {
 				found = true
 			}
 			if !found {
-				t.Errorf("unable to find recorders asset: %s [%s]", model, r.Serial)
+				t.Errorf("unable to find recorders asset: %s [%s]", r.DataloggerModel, r.Serial)
 			}
 		}
 	}
