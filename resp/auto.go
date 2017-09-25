@@ -3594,7 +3594,7 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			Datalogger{
-				DataloggerList: []string{"Q330HR/6"},
+				DataloggerList: []string{"Q330HR/6", "Q330HRS/6"},
 				Type:           "CG",
 				Label:          "HH",
 				SampleRate:     100,
@@ -3645,7 +3645,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				DataloggerList: []string{"Q330HR/6"},
+				DataloggerList: []string{"Q330HR/6", "Q330HRS/6"},
 				Type:           "CG",
 				Label:          "LH",
 				SampleRate:     1,
@@ -3696,7 +3696,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, Datalogger{
-				DataloggerList: []string{"Q330HR/6"},
+				DataloggerList: []string{"Q330HR/6", "Q330HRS/6"},
 				Type:           "CG",
 				Label:          "VH",
 				SampleRate:     0.1,
