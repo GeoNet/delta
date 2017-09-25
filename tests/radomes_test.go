@@ -1,7 +1,6 @@
 package delta_test
 
 import (
-	"sort"
 	"testing"
 
 	"github.com/GeoNet/delta/meta"
@@ -10,119 +9,84 @@ import (
 func TestRadomes(t *testing.T) {
 
 	var radomes meta.InstalledRadomeList
-	t.Log("Load deployed radomes file")
-	{
-		if err := meta.LoadList("../install/radomes.csv", &radomes); err != nil {
-			t.Fatal(err)
-		}
-	}
+	loadListFile(t, "../install/radomes.csv", &radomes)
 
-	t.Log("Check for radomes installation equipment overlaps")
-	{
+	t.Run("check for radomes installation equipment overlaps", func(t *testing.T) {
 		installs := make(map[string]meta.InstalledRadomeList)
 		for _, s := range radomes {
-			_, ok := installs[s.Model]
-			if ok {
-				installs[s.Model] = append(installs[s.Model], s)
-
-			} else {
-				installs[s.Model] = meta.InstalledRadomeList{s}
+			if _, ok := installs[s.Model]; !ok {
+				installs[s.Model] = meta.InstalledRadomeList{}
 			}
+			installs[s.Model] = append(installs[s.Model], s)
 		}
-
-		var keys []string
-		for k, _ := range installs {
-			keys = append(keys, k)
-		}
-		sort.Strings(keys)
-
-		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
-				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].Serial != v[j].Serial:
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					default:
-						t.Errorf("radomes %s at %-5s has mark %s overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+		for _, v := range installs {
+			for i := 0; i < len(v); i++ {
+				for j := i + 1; j < len(v); j++ {
+					if v[i].Serial != v[j].Serial {
+						continue
 					}
+					if v[i].End.Before(v[j].Start) {
+						continue
+					}
+					if v[i].Start.After(v[j].End) {
+						continue
+					}
+					t.Errorf("radomes %s at %-5s has mark %s overlap between %s and %s",
+						v[i].Model, v[i].Serial, v[i].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
+	})
 
-	t.Log("Check for overlapping radomes installations")
-	{
+	t.Run("check for overlapping radomes installations", func(t *testing.T) {
 		installs := make(map[string]meta.InstalledRadomeList)
 		for _, s := range radomes {
-			_, ok := installs[s.Mark]
-			if ok {
-				installs[s.Mark] = append(installs[s.Mark], s)
-
-			} else {
-				installs[s.Mark] = meta.InstalledRadomeList{s}
+			if _, ok := installs[s.Mark]; !ok {
+				installs[s.Mark] = meta.InstalledRadomeList{}
 			}
+			installs[s.Mark] = append(installs[s.Mark], s)
 		}
 
-		var keys []string
-		for k, _ := range installs {
-			keys = append(keys, k)
-		}
-		sort.Strings(keys)
-
-		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
-				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].Serial != v[j].Serial:
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					default:
-						t.Errorf("mark %-5s has radome %s/%s overlap wth %s/%s between %s and %s",
-							v[i].Mark, v[i].Model, v[i].Serial, v[j].Model, v[j].Serial, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+		for _, v := range installs {
+			for i := 0; i < len(v); i++ {
+				for j := i + 1; j < len(v); j++ {
+					if v[i].Serial != v[j].Serial {
+						continue
 					}
+					if v[i].End.Before(v[j].Start) {
+						continue
+					}
+					if v[i].Start.After(v[j].End) {
+						continue
+					}
+
+					t.Errorf("mark %-5s has radome %s/%s overlap wth %s/%s between %s and %s",
+						v[i].Mark, v[i].Model, v[i].Serial, v[j].Model, v[j].Serial, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
+	})
 
-	t.Log("Check for missing radome marks")
-	{
+	t.Run("check for missing radome marks", func(t *testing.T) {
 		var marks meta.MarkList
-
-		if err := meta.LoadList("../network/marks.csv", &marks); err != nil {
-			t.Fatal(err)
-		}
+		loadListFile(t, "../network/marks.csv", &marks)
 
 		keys := make(map[string]interface{})
-
 		for _, m := range marks {
 			keys[m.Code] = true
 		}
 
 		for _, c := range radomes {
-			if _, ok := keys[c.Mark]; ok {
-				continue
+			if _, ok := keys[c.Mark]; !ok {
+				t.Errorf("unable to find radome mark %-5s", c.Mark)
 			}
-			t.Errorf("unable to find radome mark %-5s", c.Mark)
 		}
-	}
+	})
 
-	var assets meta.AssetList
-	t.Log("Load radome assets file")
-	{
-		if err := meta.LoadList("../assets/radomes.csv", &assets); err != nil {
-			t.Fatal(err)
-		}
-	}
+	t.Run("check for missing radome assets", func(t *testing.T) {
+		var assets meta.AssetList
+		loadListFile(t, "../assets/radomes.csv", &assets)
 
-	t.Log("Check for radome assets")
-	{
 		for _, r := range radomes {
 			var found bool
 			for _, a := range assets {
@@ -134,10 +98,10 @@ func TestRadomes(t *testing.T) {
 				}
 				found = true
 			}
-			if !found {
-				t.Errorf("unable to find radome asset: %s [%s]", r.Model, r.Serial)
+			if found {
+				continue
 			}
+			t.Errorf("unable to find radome asset: %s [%s]", r.Model, r.Serial)
 		}
-	}
-
+	})
 }
