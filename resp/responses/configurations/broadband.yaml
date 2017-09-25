@@ -87,6 +87,7 @@ response:
     dataloggers:
     - dataloggers:
       - Q330HR/6
+      - Q330HRS/6
       type: CG
       label: HH
       samplerate: 100
@@ -98,6 +99,7 @@ response:
       reversed: false
     - dataloggers:
       - Q330HR/6
+      - Q330HRS/6
       type: CG
       label: LH
       samplerate: 1
@@ -109,6 +111,7 @@ response:
       reversed: false
     - dataloggers:
       - Q330HR/6
+      - Q330HRS/6
       type: CG
       label: VH
       samplerate: 0.1
