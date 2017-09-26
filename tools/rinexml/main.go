@@ -7,13 +7,17 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
 
 	"github.com/GeoNet/delta/meta"
 )
 
-const DateTimeFormat = "2006-01-02T15:04:05"
+const (
+	DateFormat     = "2006-01-02"
+	DateTimeFormat = "2006-01-02T15:04:05"
+)
 
 var HeaderComments map[string]string = map[string]string{
 	"linz": `
@@ -139,6 +143,12 @@ func main() {
 	var output string
 	flag.StringVar(&output, "output", "output", "output directory")
 
+	var operational string
+	flag.StringVar(&operational, "operational", "operational.xml", "operational status file name")
+
+	var stopped string
+	flag.StringVar(&stopped, "stopped", "stopped.xml", "stopped status file name")
+
 	var network string
 	flag.StringVar(&network, "network", "../../network", "base network directory")
 
@@ -261,6 +271,8 @@ func main() {
 
 	sort.Sort(SessionList(sessionList))
 
+	var on, off []Mark
+
 	sessions := make(map[string][]meta.Session)
 	for _, s := range sessionList {
 		sessions[s.Mark] = append(sessions[s.Mark], s)
@@ -279,8 +291,6 @@ func main() {
 
 		var list []CGPSSessionXML
 		for _, s := range sessions[m.Code] {
-			//log.Println(s)
-
 			for _, a := range installedAntenna[m.Code] {
 				if a.Start.After(s.End) || a.End.Before(s.Start) {
 					continue
@@ -445,6 +455,27 @@ func main() {
 			}
 		}
 
+		if time.Now().Before(m.End) {
+			on = append(on, Mark{
+				Name:    m.Name,
+				Code:    m.Code,
+				Lat:     strconv.FormatFloat(m.Latitude, 'f', 14, 64),
+				Lon:     strconv.FormatFloat(m.Longitude, 'f', 14, 64),
+				Network: m.Network,
+				Opened:  m.Start.Format(DateFormat),
+			})
+		} else {
+			off = append(off, Mark{
+				Name:    m.Name,
+				Code:    m.Code,
+				Lat:     strconv.FormatFloat(m.Latitude, 'f', 14, 64),
+				Lon:     strconv.FormatFloat(m.Longitude, 'f', 14, 64),
+				Network: m.Network,
+				Opened:  m.Start.Format(DateFormat),
+				Closed:  m.End.Format(DateFormat),
+			})
+		}
+
 		x := NewSiteXML(
 			MarkXML{
 				GeodeticCode: m.Code,
@@ -481,5 +512,37 @@ func main() {
 			fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 			os.Exit(-1)
 		}
+	}
+
+	s, err := (Marks{Name: "CGPS Marks. Status: Operational. ", Marks: on}).Marshal()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to marsh xml: %v\n", err)
+		os.Exit(-1)
+	}
+	s = []byte(strings.Replace(string(s), "></mark>", "/>", -1))
+	xmlfile := filepath.Join(output, operational)
+	if err := os.MkdirAll(filepath.Dir(xmlfile), 0755); err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
+		os.Exit(-1)
+	}
+	if err := ioutil.WriteFile(xmlfile, s, 0644); err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
+		os.Exit(-1)
+	}
+
+	s, err = (Marks{Name: "CGPS Marks. Status: Stopped. ", Marks: off}).Marshal()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to marsh xml: %v\n", err)
+		os.Exit(-1)
+	}
+	s = []byte(strings.Replace(string(s), "></mark>", "/>", -1))
+	xmlfile = filepath.Join(output, stopped)
+	if err := os.MkdirAll(filepath.Dir(xmlfile), 0755); err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
+		os.Exit(-1)
+	}
+	if err := ioutil.WriteFile(xmlfile, s, 0644); err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
+		os.Exit(-1)
 	}
 }
