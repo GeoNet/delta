@@ -156,8 +156,8 @@ operated by GNS on behalf of EQC and all New Zealanders.
 Contact: www.geonet.org.nz  email: info@geonet.org.nz`
 		} else {
 			mark_pb.Comment = `Data supplied by the GeoNet project.  GeoNet is core
-funded by EQC, with support from LINZ, and is
-operated by GNS on behalf of EQC and all New Zealanders.
+funded by EQC and is operated by GNS on behalf of
+EQC and all New Zealanders.
 Contact: www.geonet.org.nz  email: info@geonet.org.nz`
 		}
 
