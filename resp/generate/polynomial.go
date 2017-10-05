@@ -5,6 +5,8 @@ import (
 )
 
 type Polynomial struct {
+	ResourceId string
+
 	Gain                    float64 `yaml:"gain"`
 	ApproximationType       string  `yaml:"approximationtype"`
 	FrequencyLowerBound     float64 `yaml:"frequencylowerbound"`

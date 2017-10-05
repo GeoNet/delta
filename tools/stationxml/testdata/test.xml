@@ -3,7 +3,7 @@
   <Source>GeoNet</Source>
   <Sender>WEL(GNS_Test)</Sender>
   <Module>Delta</Module>
-  <Created>2016-12-13T11:40:46</Created>
+  <Created>2017-08-21T09:09:26</Created>
   <Network code="NZ" startDate="2003-12-10T00:00:00" endDate="9999-01-01T00:00:00" restrictedStatus="open">
     <Description>New Zealand National Seismograph Network</Description>
     <SelectedNumberStations>1</SelectedNumberStations>
@@ -45,7 +45,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#L4C-3D:2820">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#92151660b7845619-L4c-3d:2820-e5640edb68764b1">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
           <Manufacturer>Sercel</Manufacturer>
@@ -53,7 +53,7 @@
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330/3:507">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330:507-e5640edb68764b1">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -62,7 +62,7 @@
           <InstallationDate>2003-06-15T04:50:00</InstallationDate>
           <RemovalDate>2014-09-03T03:00:00</RemovalDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#3795caa50edb125f">
           <InstrumentSensitivity>
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
@@ -74,7 +74,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHZ.2003.344.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#dee8e5efadd401f7-9701cd2eba58f83b" name="ResponsePAZ#CMWZ.10.EHZ.2003.344.1900.stage_1">
               <InputUnits>
                 <Name>m/s</Name>
               </InputUnits>
@@ -107,7 +107,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330_FLbelow100-100" name="CMWZ.10.EHZ.2003.344.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-aa5ff7e3bc937c60" name="ResponseA2D#CMWZ.10.EHZ.2003.344.1900.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -129,7 +129,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#19f3ab81772aedbf-b8f35bb51d80419b" name="ResponseFIR#CMWZ.10.EHZ.2003.344.1900.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -242,7 +242,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#L4C-3D:2820">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#92151660b7845619-L4c-3d:2820-1bf60aa24e84e5d5">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
           <Manufacturer>Sercel</Manufacturer>
@@ -250,7 +250,7 @@
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330/3:507">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330:507-1bf60aa24e84e5d5">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -259,7 +259,7 @@
           <InstallationDate>2003-06-15T04:50:00</InstallationDate>
           <RemovalDate>2014-09-03T03:00:00</RemovalDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#cdd28ee95d149012">
           <InstrumentSensitivity>
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
@@ -271,7 +271,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHN.2003.344.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#dee8e5efadd401f7-63beb6ec3d124bcf" name="ResponsePAZ#CMWZ.10.EHN.2003.344.1900.stage_1">
               <InputUnits>
                 <Name>m/s</Name>
               </InputUnits>
@@ -304,7 +304,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330_FLbelow100-100" name="CMWZ.10.EHN.2003.344.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-d4c14f789a93ca6c" name="ResponseA2D#CMWZ.10.EHN.2003.344.1900.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -326,7 +326,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#19f3ab81772aedbf-f9efa772c0047da7" name="ResponseFIR#CMWZ.10.EHN.2003.344.1900.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -439,7 +439,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#L4C-3D:2820">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#92151660b7845619-L4c-3d:2820-54b8f8d77501dc36">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
           <Manufacturer>Sercel</Manufacturer>
@@ -447,7 +447,7 @@
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330/3:507">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330:507-54b8f8d77501dc36">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -456,7 +456,7 @@
           <InstallationDate>2003-06-15T04:50:00</InstallationDate>
           <RemovalDate>2014-09-03T03:00:00</RemovalDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#bafb0f47e73de353">
           <InstrumentSensitivity>
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
@@ -468,7 +468,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHE.2003.344.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#dee8e5efadd401f7-6088fb38f3c5349a" name="ResponsePAZ#CMWZ.10.EHE.2003.344.1900.stage_1">
               <InputUnits>
                 <Name>m/s</Name>
               </InputUnits>
@@ -501,7 +501,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330_FLbelow100-100" name="CMWZ.10.EHE.2003.344.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-bebb2407923fbb5" name="ResponseA2D#CMWZ.10.EHE.2003.344.1900.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -523,7 +523,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#19f3ab81772aedbf-5b3c9c1c9e76b85a" name="ResponseFIR#CMWZ.10.EHE.2003.344.1900.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -636,7 +636,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#L4C-3D:2820">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#92151660b7845619-L4c-3d:2820-3f6a2efd027b5723">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
           <Manufacturer>Sercel</Manufacturer>
@@ -644,7 +644,7 @@
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330/3:2464">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330:2464-3f6a2efd027b5723">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -653,7 +653,7 @@
           <InstallationDate>2014-09-03T03:00:01</InstallationDate>
           <RemovalDate>2016-12-05T06:25:00</RemovalDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#d5d30b22bff05baf">
           <InstrumentSensitivity>
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
@@ -665,7 +665,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHN.2014.246.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#dee8e5efadd401f7-46d5021c083cd257" name="ResponsePAZ#CMWZ.10.EHN.2014.246.0300.stage_1">
               <InputUnits>
                 <Name>m/s</Name>
               </InputUnits>
@@ -698,7 +698,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330_FLbelow100-100" name="CMWZ.10.EHN.2014.246.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-1ca68d4f4fc77030" name="ResponseA2D#CMWZ.10.EHN.2014.246.0300.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -720,7 +720,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#19f3ab81772aedbf-f153a811140e597b" name="ResponseFIR#CMWZ.10.EHN.2014.246.0300.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -833,7 +833,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#L4C-3D:2820">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#92151660b7845619-L4c-3d:2820-2524486de344efc8">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
           <Manufacturer>Sercel</Manufacturer>
@@ -841,7 +841,7 @@
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330/3:2464">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330:2464-2524486de344efc8">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -850,7 +850,7 @@
           <InstallationDate>2014-09-03T03:00:01</InstallationDate>
           <RemovalDate>2016-12-05T06:25:00</RemovalDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#19de3b69cfd305eb">
           <InstrumentSensitivity>
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
@@ -862,7 +862,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHE.2014.246.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#dee8e5efadd401f7-ba14abc4e640af5a" name="ResponsePAZ#CMWZ.10.EHE.2014.246.0300.stage_1">
               <InputUnits>
                 <Name>m/s</Name>
               </InputUnits>
@@ -895,7 +895,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330_FLbelow100-100" name="CMWZ.10.EHE.2014.246.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-370fd82c31f56a21" name="ResponseA2D#CMWZ.10.EHE.2014.246.0300.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -917,7 +917,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#19f3ab81772aedbf-33ca649866f12956" name="ResponseFIR#CMWZ.10.EHE.2014.246.0300.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -1030,7 +1030,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#L4C-3D:2820">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#92151660b7845619-L4c-3d:2820-a96518725311177">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
           <Manufacturer>Sercel</Manufacturer>
@@ -1038,7 +1038,7 @@
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330/3:2464">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330:2464-a96518725311177">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -1047,7 +1047,7 @@
           <InstallationDate>2014-09-03T03:00:01</InstallationDate>
           <RemovalDate>2016-12-05T06:25:00</RemovalDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#1bc762cd0535757c">
           <InstrumentSensitivity>
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
@@ -1059,7 +1059,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHZ.2014.246.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#dee8e5efadd401f7-c7fd3ee1d56211db" name="ResponsePAZ#CMWZ.10.EHZ.2014.246.0300.stage_1">
               <InputUnits>
                 <Name>m/s</Name>
               </InputUnits>
@@ -1092,7 +1092,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330_FLbelow100-100" name="CMWZ.10.EHZ.2014.246.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-d352bb0584bb544c" name="ResponseA2D#CMWZ.10.EHZ.2014.246.0300.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -1114,7 +1114,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330_FLbelow100-100" name="Q330_FLbelow100-100">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#19f3ab81772aedbf-f289ae88e1ecb197" name="ResponseFIR#CMWZ.10.EHZ.2014.246.0300.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -1227,7 +1227,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#L4C-3D:2820">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#92151660b7845619-L4c-3d:2820-dc0b0091c0e98e10">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
           <Manufacturer>Sercel</Manufacturer>
@@ -1235,7 +1235,7 @@
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330S/6:6065">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330s:6065-dc0b0091c0e98e10">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -1243,7 +1243,7 @@
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#ba9372dec33f48b3">
           <InstrumentSensitivity>
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
@@ -1255,7 +1255,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHE.2016.340.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#dee8e5efadd401f7-9e848728ea9250a1" name="ResponsePAZ#CMWZ.10.EHE.2016.340.0625.stage_1">
               <InputUnits>
                 <Name>m/s</Name>
               </InputUnits>
@@ -1288,7 +1288,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330S+_FLbelow100-100" name="CMWZ.10.EHE.2016.340.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-f2226b53770e4ff6" name="ResponseA2D#CMWZ.10.EHE.2016.340.0625.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -1310,7 +1310,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330S+_FLbelow100-100" name="Q330S+_FLbelow100-100">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#f1822c6db4c3967e-9a31a25de00599b1" name="ResponseFIR#CMWZ.10.EHE.2016.340.0625.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -1429,7 +1429,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#L4C-3D:2820">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#92151660b7845619-L4c-3d:2820-cab70ff85d892f2f">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
           <Manufacturer>Sercel</Manufacturer>
@@ -1437,7 +1437,7 @@
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330S/6:6065">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330s:6065-cab70ff85d892f2f">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -1445,7 +1445,7 @@
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#a688c821b9857364">
           <InstrumentSensitivity>
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
@@ -1457,7 +1457,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHZ.2016.340.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#dee8e5efadd401f7-822401039750b300" name="ResponsePAZ#CMWZ.10.EHZ.2016.340.0625.stage_1">
               <InputUnits>
                 <Name>m/s</Name>
               </InputUnits>
@@ -1490,7 +1490,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330S+_FLbelow100-100" name="CMWZ.10.EHZ.2016.340.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-7ade533151166f13" name="ResponseA2D#CMWZ.10.EHZ.2016.340.0625.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -1512,7 +1512,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330S+_FLbelow100-100" name="Q330S+_FLbelow100-100">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#f1822c6db4c3967e-3abdd07c659cfd8" name="ResponseFIR#CMWZ.10.EHZ.2016.340.0625.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -1631,7 +1631,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#L4C-3D:2820">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#92151660b7845619-L4c-3d:2820-70070918771321f3">
           <Type>Short Period Seismometer</Type>
           <Description>L4C-3D</Description>
           <Manufacturer>Sercel</Manufacturer>
@@ -1639,7 +1639,7 @@
           <SerialNumber>2820</SerialNumber>
           <InstallationDate>2003-12-10T19:00:02</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330S/6:6065">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330s:6065-70070918771321f3">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -1647,7 +1647,7 @@
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#4d8a035aeceaf94b">
           <InstrumentSensitivity>
             <Value>7.457472512e+07</Value>
             <Frequency>15</Frequency>
@@ -1659,7 +1659,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#L4C" name="CMWZ.10.EHN.2016.340.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#dee8e5efadd401f7-93e351d17e9f6254" name="ResponsePAZ#CMWZ.10.EHN.2016.340.0625.stage_1">
               <InputUnits>
                 <Name>m/s</Name>
               </InputUnits>
@@ -1692,7 +1692,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330S+_FLbelow100-100" name="CMWZ.10.EHN.2016.340.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-41c7cf7c5fd1c9af" name="ResponseA2D#CMWZ.10.EHN.2016.340.0625.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -1714,7 +1714,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330S+_FLbelow100-100" name="Q330S+_FLbelow100-100">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#f1822c6db4c3967e-240ab1f418708154" name="ResponseFIR#CMWZ.10.EHN.2016.340.0625.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -1833,7 +1833,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#FBA-ES-T:2264">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#fade260bba094aa6-Fba-Es-T:2264-f7668b2f8ae4486">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
@@ -1841,7 +1841,7 @@
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330S/6:6065">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330s:6065-f7668b2f8ae4486">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -1849,7 +1849,7 @@
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#3d1bbab299e9e7cc">
           <InstrumentSensitivity>
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
@@ -1861,7 +1861,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.HNZ.2016.340.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#b4dc2217c9d4fbe1-bd3c9042831a2f20" name="ResponsePAZ#CMWZ.20.HNZ.2016.340.0630.stage_1">
               <InputUnits>
                 <Name>m/s**2</Name>
               </InputUnits>
@@ -1894,7 +1894,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330S+_FLbelow100-200" name="CMWZ.20.HNZ.2016.340.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-5b166fa7d2c7ce03" name="ResponseA2D#CMWZ.20.HNZ.2016.340.0630.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -1916,7 +1916,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330S+_FLbelow100-200" name="Q330S+_FLbelow100-200">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#6dfd0ef66c4c612e-37d499099546d6d8" name="ResponseFIR#CMWZ.20.HNZ.2016.340.0630.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -2011,7 +2011,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#FBA-ES-T:2264">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#fade260bba094aa6-Fba-Es-T:2264-84415c72fc6156c2">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
@@ -2019,7 +2019,7 @@
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330S/6:6065">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330s:6065-84415c72fc6156c2">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -2027,7 +2027,7 @@
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#7ac6c2a781901483">
           <InstrumentSensitivity>
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
@@ -2039,7 +2039,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.HNN.2016.340.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#b4dc2217c9d4fbe1-5d0c9ef7ec39870c" name="ResponsePAZ#CMWZ.20.HNN.2016.340.0630.stage_1">
               <InputUnits>
                 <Name>m/s**2</Name>
               </InputUnits>
@@ -2072,7 +2072,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330S+_FLbelow100-200" name="CMWZ.20.HNN.2016.340.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-6eed50f6b15a6bbf" name="ResponseA2D#CMWZ.20.HNN.2016.340.0630.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -2094,7 +2094,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330S+_FLbelow100-200" name="Q330S+_FLbelow100-200">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#6dfd0ef66c4c612e-73419e96de44b3d4" name="ResponseFIR#CMWZ.20.HNN.2016.340.0630.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -2189,7 +2189,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#FBA-ES-T:2264">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#fade260bba094aa6-Fba-Es-T:2264-396f7dd5c45a6c61">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
@@ -2197,7 +2197,7 @@
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330S/6:6065">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330s:6065-396f7dd5c45a6c61">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -2205,7 +2205,7 @@
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#406fd705e053bd7b">
           <InstrumentSensitivity>
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
@@ -2217,7 +2217,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.HNE.2016.340.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#b4dc2217c9d4fbe1-4e5e29d351242521" name="ResponsePAZ#CMWZ.20.HNE.2016.340.0630.stage_1">
               <InputUnits>
                 <Name>m/s**2</Name>
               </InputUnits>
@@ -2250,7 +2250,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330S+_FLbelow100-200" name="CMWZ.20.HNE.2016.340.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-6d98e027b83a6fb6" name="ResponseA2D#CMWZ.20.HNE.2016.340.0630.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -2272,7 +2272,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330S+_FLbelow100-200" name="Q330S+_FLbelow100-200">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#6dfd0ef66c4c612e-5b76b57cd2c0da1" name="ResponseFIR#CMWZ.20.HNE.2016.340.0630.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -2367,7 +2367,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#FBA-ES-T:2264">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#fade260bba094aa6-Fba-Es-T:2264-270859719f0c5fd0">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
@@ -2375,7 +2375,7 @@
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330S/6:6065">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330s:6065-270859719f0c5fd0">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -2383,7 +2383,7 @@
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#d72b71464cb9101">
           <InstrumentSensitivity>
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
@@ -2395,7 +2395,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.BNZ.2016.340.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#b4dc2217c9d4fbe1-6da5ba99f7bc254e" name="ResponsePAZ#CMWZ.20.BNZ.2016.340.0630.stage_1">
               <InputUnits>
                 <Name>m/s**2</Name>
               </InputUnits>
@@ -2428,7 +2428,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330S+_FLbelow100-50" name="CMWZ.20.BNZ.2016.340.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-500b25e7ffa87731" name="ResponseA2D#CMWZ.20.BNZ.2016.340.0630.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -2450,7 +2450,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330S+_FLbelow100-50" name="Q330S+_FLbelow100-50">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#dc3eccacc82b4c3e-6ac5899616edd576" name="ResponseFIR#CMWZ.20.BNZ.2016.340.0630.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -2582,7 +2582,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#FBA-ES-T:2264">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#fade260bba094aa6-Fba-Es-T:2264-67b176a2dc966e6c">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
@@ -2590,7 +2590,7 @@
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330S/6:6065">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330s:6065-67b176a2dc966e6c">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -2598,7 +2598,7 @@
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#106cb05d8870adf2">
           <InstrumentSensitivity>
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
@@ -2610,7 +2610,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.BNN.2016.340.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#b4dc2217c9d4fbe1-22109625494b48aa" name="ResponsePAZ#CMWZ.20.BNN.2016.340.0630.stage_1">
               <InputUnits>
                 <Name>m/s**2</Name>
               </InputUnits>
@@ -2643,7 +2643,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330S+_FLbelow100-50" name="CMWZ.20.BNN.2016.340.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-faaa497a2af22c5d" name="ResponseA2D#CMWZ.20.BNN.2016.340.0630.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -2665,7 +2665,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330S+_FLbelow100-50" name="Q330S+_FLbelow100-50">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#dc3eccacc82b4c3e-47f8bf5ce569da42" name="ResponseFIR#CMWZ.20.BNN.2016.340.0630.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>
@@ -2797,7 +2797,7 @@
         </SampleRateRatio>
         <StorageFormat>Steim2</StorageFormat>
         <ClockDrift>0.0001</ClockDrift>
-        <Sensor resourceId="Sensor#FBA-ES-T:2264">
+        <Sensor resourceId="smi:geonet.org.nz/Sensor#fade260bba094aa6-Fba-Es-T:2264-fb01649685478cef">
           <Type>Accelerometer</Type>
           <Description>FBA-ES-T</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
@@ -2805,7 +2805,7 @@
           <SerialNumber>2264</SerialNumber>
           <InstallationDate>2016-12-05T06:30:00</InstallationDate>
         </Sensor>
-        <DataLogger resourceId="Datalogger#Q330S/6:6065">
+        <DataLogger resourceId="smi:geonet.org.nz/Datalogger#6c80aefbf4b1f1ca-Q330s:6065-fb01649685478cef">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
           <Manufacturer>Quanterra</Manufacturer>
@@ -2813,7 +2813,7 @@
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
         </DataLogger>
-        <Response>
+        <Response resourceId="smi:geonet.org.nz/Response#ad8761d4e0f3c642">
           <InstrumentSensitivity>
             <Value>427336.11778048</Value>
             <Frequency>1</Frequency>
@@ -2825,7 +2825,7 @@
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
-            <PolesZeros resourceId="PolesZeros#FBA-ES-T" name="CMWZ.20.BNE.2016.340.stage_1">
+            <PolesZeros resourceId="smi:geonet.org.nz/ResponsePAZ#b4dc2217c9d4fbe1-57495857c2bf832b" name="ResponsePAZ#CMWZ.20.BNE.2016.340.0630.stage_1">
               <InputUnits>
                 <Name>m/s**2</Name>
               </InputUnits>
@@ -2858,7 +2858,7 @@
             </StageGain>
           </Stage>
           <Stage number="2">
-            <Coefficients resourceId="Coefficients#Q330S+_FLbelow100-50" name="CMWZ.20.BNE.2016.340.stage_2">
+            <Coefficients resourceId="smi:geonet.org.nz/ResponsePAZ#479175d8beb4965c-4ab34af36aa9c930" name="ResponseA2D#CMWZ.20.BNE.2016.340.0630.stage_2">
               <InputUnits>
                 <Name>V</Name>
               </InputUnits>
@@ -2880,7 +2880,7 @@
             </StageGain>
           </Stage>
           <Stage number="3">
-            <FIR resourceId="FIR#Q330S+_FLbelow100-50" name="Q330S+_FLbelow100-50">
+            <FIR resourceId="smi:geonet.org.nz/ResponseFIR#dc3eccacc82b4c3e-dcee0997ba48480b" name="ResponseFIR#CMWZ.20.BNE.2016.340.0630.stage_3">
               <InputUnits>
                 <Name>count</Name>
               </InputUnits>

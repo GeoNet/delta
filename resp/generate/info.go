@@ -3,6 +3,10 @@ package main
 import (
 	"fmt"
 	"io"
+	"strconv"
+	"strings"
+
+	"github.com/mitchellh/hashstructure"
 )
 
 var header = `
@@ -21,15 +25,33 @@ package resp
 
 `
 
-// yaml is unable to handle complex numbers
-type Complex128 complex128
+func hash(v interface{}) string {
+	i, err := hashstructure.Hash(v, nil)
+	if err != nil {
+		panic(err)
+	}
+	return strconv.FormatUint(i, 16)
+}
 
-func (c *Complex128) UnmarshalText(text []byte) error {
+func join(s string) string {
+	s = strings.Split(s, "/")[0]
+	s = strings.Title(strings.ToLower(s))
+	s = strings.Join(strings.Fields(s), "-")
+	for _, k := range []string{"/", "#"} {
+		s = strings.Replace(s, k, "-", -1)
+	}
+	return s
+}
+
+// yaml is unable to handle complex numbers
+type Complex64 complex64
+
+func (c *Complex64) UnmarshalText(text []byte) error {
 	_, err := fmt.Sscanf(string(text), "%v", c)
 	return err
 }
 
-func (c Complex128) MarshalText() ([]byte, error) {
+func (c Complex64) MarshalText() ([]byte, error) {
 	return []byte(fmt.Sprintf("%v", c)), nil
 }
 
@@ -58,18 +80,23 @@ func NewResponseInfo() *ResponseInfo {
 
 func (r *ResponseInfo) Merge(resp ResponseInfo) {
 	for k, v := range resp.PAZ {
+		v.ResourceId = fmt.Sprintf("smi:geonet.org.nz/ResponsePAZ#%s", hash(v))
 		r.PAZ[k] = v
 	}
 	for k, v := range resp.Polynomial {
+		v.ResourceId = fmt.Sprintf("smi:geonet.org.nz/ResponsePolynomial#%s", hash(v))
 		r.Polynomial[k] = v
 	}
 	for k, v := range resp.FIR {
+		v.ResourceId = fmt.Sprintf("smi:geonet.org.nz/ResponseFIR#%s", hash(v))
 		r.FIR[k] = v
 	}
 	for k, v := range resp.DataloggerModel {
+		v.ResourceId = fmt.Sprintf("smi:geonet.org.nz/Datalogger#%s-%s", hash(v), join(k))
 		r.DataloggerModel[k] = v
 	}
 	for k, v := range resp.SensorModel {
+		v.ResourceId = fmt.Sprintf("smi:geonet.org.nz/Sensor#%s-%s", hash(v), join(k))
 		r.SensorModel[k] = v
 	}
 	for k, v := range resp.Filter {

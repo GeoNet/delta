@@ -22,6 +22,7 @@ var generateTemplate = `
 		Filter: "{{$s}}",{{if eq $v.Type "paz" }}{{with $b.PAZ $v.Lookup}}
 		StageSet: PAZ{
 			Name: "{{$v.Lookup}}",
+			ResourceId: "{{.ResourceId}}",
 			Code: {{.PzTransferFunction}},
 			Type: "{{.Type}}",{{if .Notes }}
 			Notes: "{{.Notes|escape}}",{{end}}{{if .Poles }}
@@ -30,12 +31,14 @@ var generateTemplate = `
 		},{{end}}{{end}}{{if eq $v.Type "a2d" }}{{with $b.PAZ $v.Lookup}}
 		StageSet: A2D{
 			Name: "{{$v.Lookup}}",
+			ResourceId: "{{.ResourceId}}",
 			Code: {{.PzTransferFunction}},
 			Type: "{{.Type}}",{{if .Notes }}
 			Notes: "{{.Notes|escape}}",{{end}}
 		},{{end}}{{end}}{{if eq $v.Type "fir" }}{{with $b.FIR $v.Lookup}}
 		StageSet: FIR{
 			Name: "{{$v.Lookup}}",
+			ResourceId: "{{.ResourceId}}",
 			Causal: {{.Causal}},
 			Symmetry: {{.SymmetryLookup}},
 			Decimation: {{.Decimation}},
@@ -45,6 +48,7 @@ var generateTemplate = `
 		},{{end}}{{end}}{{if eq $v.Type "poly" }}{{with $b.Polynomial $v.Lookup}}
 		StageSet: Polynomial{
 			Name: "{{$v.Lookup}}",
+			ResourceId: "{{.ResourceId}}",
 			Gain: {{.Gain}},
 			ApproximationType: {{.ApproximationTypeLookup}},
 			FrequencyLowerBound: {{.FrequencyLowerBound}},
@@ -87,6 +91,7 @@ var generateTemplate = `
 		Filter: "{{$s}}",{{if eq $v.Type "paz" }}{{with $b.PAZ $v.Lookup}}
 		StageSet: PAZ{
 			Name: "{{$v.Lookup}}",
+			ResourceId: "{{.ResourceId}}",
 			Code: {{.PzTransferFunction}},
 			Type: "{{.Type}}",{{if .Notes }}
 			Notes: "{{.Notes|escape}}",{{end}}{{if .Poles }}
@@ -95,12 +100,14 @@ var generateTemplate = `
 		},{{end}}{{end}}{{if eq $v.Type "a2d" }}{{with $b.PAZ $v.Lookup}}
 		StageSet: A2D{
 			Name: "{{$v.Lookup}}",
+			ResourceId: "{{.ResourceId}}",
 			Code: {{.PzTransferFunction}},
 			Type: "{{.Type}}",{{if .Notes }}
 			Notes: "{{.Notes|escape}}",{{end}}
 		},{{end}}{{end}}{{if eq $v.Type "fir" }}{{with $b.FIR $v.Lookup}}
 		StageSet: FIR{
 			Name: "{{$v.Lookup}}",
+			ResourceId: "{{.ResourceId}}",
 			Causal: {{.Causal}},
 			Symmetry: {{.SymmetryLookup}},
 			Decimation: {{.Decimation}},
@@ -110,6 +117,7 @@ var generateTemplate = `
 		},{{end}}{{end}}{{if eq $v.Type "poly" }}{{with $b.Polynomial $v.Lookup}}
 		StageSet: Polynomial{
 			Name: "{{$v.Lookup}}",
+			ResourceId: "{{.ResourceId}}",
 			Gain: {{.Gain}},
 			ApproximationType: {{.ApproximationTypeLookup}},
 			FrequencyLowerBound: {{.FrequencyLowerBound}},
@@ -146,6 +154,7 @@ var generateTemplate = `
 //Delay: {{$v.Delay}},{{end}}
 
 type Generate struct {
+	ResourceId  string
 	ResponseMap responseMap
 	FilterMap   filterMap
 	PazMap      pazMap

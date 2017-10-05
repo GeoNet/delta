@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
 
@@ -316,10 +317,12 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 								count:         len(stages) + 1,
 								id:            s.Filter,
 								name: fmt.Sprintf(
-									"%s.%04d.%03d.stage_%d",
+									"ResponsePOLY#%s.%04d.%03d.%02d%02d.stage_%d",
 									tag,
 									installation.Start.Year(),
 									installation.Start.YearDay(),
+									installation.Start.Hour(),
+									installation.Start.Minute(),
 									len(stages)+1,
 								),
 								frequency: freq,
@@ -330,24 +333,28 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 								count:         len(stages) + 1,
 								id:            s.Filter,
 								name: fmt.Sprintf(
-									"%s.%04d.%03d.stage_%d",
+									"ResponsePAZ#%s.%04d.%03d.%02d%02d.stage_%d",
 									tag,
 									installation.Start.Year(),
 									installation.Start.YearDay(),
+									installation.Start.Hour(),
+									installation.Start.Minute(),
 									len(stages)+1,
 								),
 								frequency: freq,
 							}))
 						case "a2d":
-							stages = append(stages, a2dResponseStage(Stage{
+							stages = append(stages, a2dResponseStage(s.StageSet.(resp.A2D), Stage{
 								responseStage: s,
 								count:         len(stages) + 1,
 								id:            s.Filter,
 								name: fmt.Sprintf(
-									"%s.%04d.%03d.stage_%d",
+									"ResponseA2D#%s.%04d.%03d.%02d%02d.stage_%d",
 									tag,
 									installation.Start.Year(),
 									installation.Start.YearDay(),
+									installation.Start.Hour(),
+									installation.Start.Minute(),
 									len(stages)+1,
 								),
 								frequency: freq,
@@ -358,10 +365,12 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 								count:         len(stages) + 1,
 								id:            s.Filter,
 								name: fmt.Sprintf(
-									"%s.%04d.%03d.stage_%d",
+									"ResponseFIR#%s.%04d.%03d.%02d%02d.stage_%d",
 									tag,
 									installation.Start.Year(),
 									installation.Start.YearDay(),
+									installation.Start.Hour(),
+									installation.Start.Minute(),
 									len(stages)+1,
 								),
 								frequency: freq,
@@ -454,7 +463,12 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 						StorageFormat: response.StorageFormat,
 						ClockDrift:    &stationxml.ClockDrift{Float: stationxml.Float{Value: response.ClockDrift}},
 						Sensor: &stationxml.Equipment{
-							ResourceId: "Sensor#" + installation.Sensor.Model + ":" + installation.Sensor.Serial,
+							ResourceId: func() string {
+								if t, ok := resp.SensorModels[installation.Sensor.Model]; ok {
+									return t.ResourceId + ":" + installation.Sensor.Serial + "-" + hashTag(tag, installation.Start)
+								}
+								return ""
+							}(),
 							Type: func() string {
 								if t, ok := resp.SensorModels[installation.Sensor.Model]; ok {
 									return t.Type
@@ -493,7 +507,12 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 						},
 
 						DataLogger: &stationxml.Equipment{
-							ResourceId: "Datalogger#" + installation.Datalogger.Model + ":" + installation.Datalogger.Serial,
+							ResourceId: func() string {
+								if t, ok := resp.DataloggerModels[installation.Datalogger.Model]; ok {
+									return t.ResourceId + ":" + installation.Datalogger.Serial + "-" + hashTag(tag, installation.Start)
+								}
+								return ""
+							}(),
 							Type: func() string {
 								if t, ok := resp.DataloggerModels[installation.Datalogger.Model]; ok {
 									return t.Type
@@ -531,6 +550,28 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 							}(),
 						},
 						Response: &stationxml.Response{
+							ResourceId: func() string {
+								id := ""
+								for _, s := range stages {
+									if s.PolesZeros != nil {
+										id += s.PolesZeros.ResourceId + s.PolesZeros.Name
+									}
+									if s.Coefficients != nil {
+										id += s.Coefficients.ResourceId + s.Coefficients.Name
+									}
+									if s.ResponseList != nil {
+										id += s.ResponseList.ResourceId + s.ResponseList.Name
+									}
+									if s.FIR != nil {
+										id += s.FIR.ResourceId + s.FIR.Name
+									}
+									if s.Polynomial != nil {
+										id += s.Polynomial.ResourceId + s.Polynomial.Name
+									}
+									id += strconv.Itoa(int(s.Number))
+								}
+								return "smi:geonet.org.nz/Response#" + hashString(id)
+							}(),
 							Stages: stages,
 							InstrumentSensitivity: &stationxml.Sensitivity{
 								//TODO: check we may need to adjust gain for different frequency

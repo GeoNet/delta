@@ -48,6 +48,7 @@ type Datalogger struct {
 
 type DataloggerModel struct {
 	Name         string
+	ResourceId   string
 	Type         string // FDSN StationXML Datalogger Type
 	Description  string // FDSN StationXML Datalogger Description
 	Manufacturer string // FDSN StationXML Datalogger Manufacturer
@@ -81,6 +82,7 @@ type SensorComponent struct {
 
 type SensorModel struct {
 	Name         string
+	ResourceId   string
 	Type         string // FDSN StationXML Sensor Type
 	Description  string // FDSN StationXML Sensor Description
 	Manufacturer string // FDSN StationXML Vendor Description
@@ -156,12 +158,13 @@ type ResponseStage struct {
 }
 
 type PAZ struct {
-	Name  string
-	Code  PzTransferFunction
-	Type  string
-	Notes string
-	Poles []complex128
-	Zeros []complex128
+	Name       string
+	ResourceId string
+	Code       PzTransferFunction
+	Type       string
+	Notes      string
+	Poles      []complex128
+	Zeros      []complex128
 }
 
 func (p PAZ) GetType() string {
@@ -191,6 +194,7 @@ func (p PAZ) Gain(freq float64) float64 {
 
 type FIR struct {
 	Name       string
+	ResourceId string
 	Causal     bool
 	Symmetry   Symmetry
 	Decimation float64
@@ -210,6 +214,7 @@ type Coefficient struct {
 
 type Polynomial struct {
 	Name                    string
+	ResourceId              string
 	Gain                    float64
 	ApproximationType       ApproximationType
 	FrequencyLowerBound     float64
@@ -227,10 +232,11 @@ func (p Polynomial) GetType() string {
 }
 
 type A2D struct {
-	Name  string
-	Code  PzTransferFunction
-	Type  string
-	Notes string
+	Name       string
+	ResourceId string
+	Code       PzTransferFunction
+	Type       string
+	Notes      string
 }
 
 func (a A2D) GetType() string {
