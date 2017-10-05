@@ -181,6 +181,28 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 		return nil, err
 	}
 
+	earliest, latest := make(map[string]time.Time), make(map[string]time.Time)
+	for _, station := range stations {
+		installations, err := mdb.Installations(station.Code)
+		if err != nil {
+			return nil, err
+		}
+		for _, installation := range installations {
+			if _, ok := earliest[station.Code]; !ok {
+				earliest[station.Code] = installation.Start
+			}
+			if earliest[station.Code].After(installation.Start) {
+				earliest[station.Code] = installation.Start
+			}
+			if _, ok := latest[station.Code]; !ok {
+				latest[station.Code] = installation.Start
+			}
+			if latest[station.Code].Before(installation.End) {
+				latest[station.Code] = installation.End
+			}
+		}
+	}
+
 	stas := make(map[string][]stationxml.Station)
 	for _, station := range stations {
 		if !b.MatchStation(station.Code) {
@@ -593,12 +615,21 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 		sort.Sort(Channels(channels))
 
 		start, end := &(stationxml.DateTime{station.Start}), &(stationxml.DateTime{station.End})
-		if b.Installed() && len(channels) > 0 {
+		if b.Installed() {
+			if !(len(channels) > 0) {
+				continue
+			}
 			start, end = channels[0].StartDate, channels[len(channels)-1].EndDate
 		}
-
 		if !b.MatchOperational(end.Time) {
 			continue
+		}
+
+		if t, ok := earliest[station.Code]; b.Installed() && ok {
+			start = &(stationxml.DateTime{t})
+		}
+		if t, ok := latest[station.Code]; b.Installed() && ok {
+			end = &(stationxml.DateTime{t})
 		}
 
 		stas[network.External] = append(stas[network.External], stationxml.Station{
@@ -656,7 +687,12 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 					return ""
 				}(),
 			},
-			CreationDate: stationxml.DateTime{station.Start},
+			CreationDate: func() stationxml.DateTime {
+				if b.Installed() && start != nil {
+					return *start
+				}
+				return stationxml.DateTime{station.Start}
+			}(),
 			TerminationDate: func() *stationxml.DateTime {
 				if time.Now().Before(station.End) {
 					return nil
