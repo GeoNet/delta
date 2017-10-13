@@ -41,7 +41,7 @@ go build ./tools/impact || exit 255
 mkdir -p .tmp/geonet-meta/config/rinex || exit 255
 go build ./tools/rinexml || exit 255
 
-./rinexml -install ./install -network ./network -output .tmp/geonet-meta/config/rinex
+./rinexml -install ./install -network ./network -output .tmp/geonet-meta/config/gnsssitexml
 
 mkdir -p .tmp/geonet-meta/config/gloria || exit 255
 go build ./tools/gloria || exit 255
