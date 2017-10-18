@@ -79,7 +79,7 @@ A list of _metsensor_ installations, these include values for:
 ### radomes
 
 A list of _radome_ installations, these include values for:
-- Radome Make, Model &amp; Serial Numbers
+- Radome Make, Model &amp; Serial Numbers of the associated GNSS antenna
 - Mark Code
 - Radome Installation &amp; Removal dates [_&lt;yyyy&gt;-&lt;mm&gt;-&lt;dd&gt;T&lt;hh&gt;-&lt;mm&gt;-&lt;ss&gt;Z_]
 
