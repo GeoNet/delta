@@ -1,0 +1,3 @@
+Station,Class,Vs30,Tsite,Zb,Q_Vs30,Q_Tsite,D_Tsite,Q_Zb,References
+WHAS,C,270,0.4,40,Q3,Q3,I,Q3,Perrin et al. 2015
+WKZ,B,1000,<0.1,0,Q3,Q3,I,Q3,Perrin et al. 2015

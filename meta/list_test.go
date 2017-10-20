@@ -903,6 +903,40 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
+		{
+			"testdata/classes.csv",
+			&meta.ClassList{
+				meta.Class{
+					Station: "WHAS",
+					Class:   "C",
+					Vs30:    270,
+					Tsite: meta.Range{
+						Value: 0.4,
+					},
+					Zb:         40,
+					QVs30:      "Q3",
+					QTsite:     "Q3",
+					DTsite:     "I",
+					QZb:        "Q3",
+					References: "Perrin et al. 2015",
+				},
+				meta.Class{
+					Station: "WKZ",
+					Class:   "B",
+					Vs30:    1000,
+					Tsite: meta.Range{
+						Compare: meta.LessThan,
+						Value:   0.1,
+					},
+					Zb:         0,
+					QVs30:      "Q3",
+					QTsite:     "Q3",
+					DTsite:     "I",
+					QZb:        "Q3",
+					References: "Perrin et al. 2015",
+				},
+			},
+		},
 	}
 
 	for _, tt := range listtests {
