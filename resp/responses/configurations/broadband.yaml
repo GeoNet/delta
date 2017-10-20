@@ -158,22 +158,21 @@ response:
   Quanterra Dataloggers Connected to Broadband Sensors:
     sensors:
     - sensors:
-      - Nanometrics Trillium 120QA
+      - Trillium 120QA
       filters:
       - TRILLIUM-120QA
       channels: ZNE
       reversed: false
-#    - sensors:
-#      - Trillium Compact
-#      filters:
-#      - TRILLIUM-COMPACT-120
-#      channels: ZNE
-#      reversed: false
     - sensors:
-      - Nanometrics Trillium Compact PH TC120-PH2
+      - Trillium Compact 120
       filters:
-#      - TRILLIUM-120PH-2
       - TRILLIUM-COMPACT-120
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - Trillium Compact 120PH-2
+      filters:
+      - TRILLIUM-COMPACT-120PH-2
       channels: Z12
       reversed: false
     - sensors:
@@ -360,30 +359,24 @@ response:
 
   Nanometrics Dataloggers Connected to Broadband Sensors:
     sensors:
-#    - sensors:
-#      - Nanometrics Trillium 120QA
-#      filters:
-#      - TRILLIUM-120QA
-#      channels: ZNE
-#      reversed: false
-#    - sensors:
-#      - Trillium Compact
-#      filters:
-#      - TRILLIUM-COMPACT-120
-#      channels: ZNE
-#      reversed: false
-#    - sensors:
-#      - Nanometrics Trillium Compact PH TC120-PH2
-#      filters:
-#      - TRILLIUM-120PH-2
-#      channels: Z12
-#      reversed: false
-#    - sensors:
-#      - CMG-3TB-GN
-#      filters:
-#      - CMG-3TB-GN
-#      channels: Z12
-#      reversed: false
+    - sensors:
+      - Trillium 120QA
+      filters:
+      - TRILLIUM-120QA
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - Trillium Compact 120
+      filters:
+      - TRILLIUM-COMPACT-120
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - Trillium Compact 120PH-2
+      filters:
+      - TRILLIUM-COMPACT-120PH-2
+      channels: Z12
+      reversed: false
     - sensors:
       - CMG-3ESPC
       - CMG-3ESP
