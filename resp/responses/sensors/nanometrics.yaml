@@ -1,8 +1,8 @@
 ---
 sensormodel:
-  Nanometrics Trillium 120QA:
+  Trillium 120QA:
     type: Broadband Seismometer
-    description: Trillium 120
+    description: Trillium 120 QA
     manufacturer: "Nanometrics Inc."
     vendor: ""
     components:
@@ -12,9 +12,9 @@ sensormodel:
       dip: 0
     - azimuth: 90
       dip: 0
-  Trillium Compact:
+  Trillium Compact 120:
     type: Broadband Seismometer
-    description: Trillium 120 Compact
+    description: Trillium Compact 120
     manufacturer: "Nanometrics Inc."
     vendor: ""
     components:
@@ -24,9 +24,9 @@ sensormodel:
       dip: 0
     - azimuth: 90
       dip: 0
-  Nanometrics Trillium Compact PH TC120-PH2:
+  Trillium Compact 120PH-2:
     type: Broadband Seismometer
-    description: Trillium 120 Posthole
+    description: Trillium Compact 120 Posthole Generation 2
     manufacturer: "Nanometrics Inc."
     vendor: ""
     components:
@@ -38,7 +38,7 @@ sensormodel:
       dip: 0
   Trillium Vault 360:
     type: Broadband Seismometer
-    description: Trillium 360 Vault
+    description: Trillium Vault 360
     manufacturer: "Nanometrics Inc."
     vendor: ""
     components:
@@ -73,11 +73,10 @@ paz:
     - (-160+0i)
     - (-350+0i)
     - (-3177+0i)
-  #TRILLIUM-120-COMPACT:
-  TRILLIUM-120PH-2:
+  TRILLIUM-COMPACT-120:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
-    notes: derived from IRIS NRL Trillium 120 Compact
+    notes: derived from IRIS NRL Trillium Compact 120
     poles:
     - (-0.03691+0.03702i)
     - (-0.03691-0.03702i)
@@ -97,8 +96,7 @@ paz:
     - (-196+0i)
     - (-1490+1740i)
     - (-1490-1740i)
-  #TRILLIUM-120PH-2:
-  TRILLIUM-120-COMPACT:
+  TRILLIUM-COMPACT-120PH-2:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
     notes: derived from IRIS NRL Trillium 120PH Generation 2
@@ -146,7 +144,7 @@ paz:
 filter:
   TRILLIUM-COMPACT-120:
   - type: paz
-    lookup: TRILLIUM-120-COMPACT
+    lookup: TRILLIUM-COMPACT-120
     frequency: 1
     samplerate: 0
     decimate: 0
@@ -156,9 +154,9 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
-  TRILLIUM-120PH-2:
+  TRILLIUM-COMPACT-120PH-2:
   - type: paz
-    lookup: TRILLIUM-120PH-2
+    lookup: TRILLIUM-COMPACT-120PH-2
     frequency: 1
     samplerate: 0
     decimate: 0
