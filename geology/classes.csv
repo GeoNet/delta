@@ -1,0 +1,696 @@
+Station,", NEHRP 2000 ( )",", Geomatrix ( )",", NZS 1170.5 ( )",", NZS 4203 ( )",", Ground Class (Additional )"
+001A,,B - Shallow soil,B - Rock,B - Intermediate soil,
+002A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+003A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+007A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - not soft
+007B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - not soft
+012A,,A - Rock or very thin soil over rock,C - Shallow soil,A - Rock or very stiff soil,
+012B,,A - Rock or very thin soil over rock,C - Shallow soil,A - Rock or very stiff soil,
+013A,,A - Rock or very thin soil over rock,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+014A,E - Soft soil,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,soft and deep
+015A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,possible topographic effects
+016A,,C - Deep soil in narrow canyon,C - Shallow soil,B - Intermediate soil,topographic effects likely
+017A,E - Soft soil,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft and deep
+017B,E - Soft soil,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft and deep
+018A,E - Soft soil,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft and deep
+019B,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+019C,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+019D,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+020A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+020B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+021A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,deep
+022A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+023A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+024A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+025A,,E - Soft soil,D - Deep or soft Soil,B - Intermediate soil,soft
+027A,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,soft and deep
+027C,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,soft and deep
+027D,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,soft and deep
+027E,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+027F,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+027G,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+028A,,E - Soft soil,E - Very soft soil,C - Flexible or deep soil,deep - perhaps soft
+029A,D - Stiff soil,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+030A,,E - Soft soil,E - Very soft soil,C - Flexible or deep soil,deep - possibly soft
+031A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+032A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+033A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+033B,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+033C,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+033D,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+034A,,E - Soft soil,D - Deep or soft Soil,B - Intermediate soil,soft - not deep
+035A,,E - Soft soil,D - Deep or soft Soil,B - Intermediate soil,soft - not deep
+038A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+039A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - probably not soft
+039C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - probably not soft
+039D,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - probably not soft
+039E,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - probably not soft
+040A,,B - Shallow soil,B - Rock,A - Rock or very stiff soil,thin soil layer
+041A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+042A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - resonant type response
+043A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+043B,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+044A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft - not deep
+045A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+046A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+047A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+048A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+048B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+048C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+048D,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+049A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+050A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+051A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+051B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+051C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+051D,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+052A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+053A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+054A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,deep - perhaps soft
+055A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+056A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer - possible topographic effects
+057A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+057B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+057C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+058A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+059A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+060A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+060B,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+060C,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+061A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+061B,,C - Deep soil in narrow canyon,C - Shallow soil,A - Rock or very stiff soil,
+061C,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+062A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+063A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,probable topographic effects
+064A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+065A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+066A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+066B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+067A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+067B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+068B,,B - Shallow soil,B - Rock,A - Rock or very stiff soil,very thin soil layer - possibly soft
+070A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+073A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+074A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,very thin soil layer
+077A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+077B,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+078A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+079A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+080A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,A - Rock or very stiff soil,thin soil layer - possibly soft
+080B,,C - Deep soil in narrow canyon,D - Deep or soft Soil,A - Rock or very stiff soil,thin soil layer - possibly soft
+081A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep and soft
+081B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep and soft
+081C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep and soft
+082A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+083A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+084A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+085D,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+085M,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+085N,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+086A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+086B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+087A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,topographic effects likely - prone to extensive deep-seated landslides and superficial shallow slides and earthflows
+087B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,topographic effects possible - but less likely than at sites 087A and 087D - prone to extensive deep-seated landslides and superficial shallow slides and earthflows
+087C,,E - Soft soil,E - Very soft soil,C - Flexible or deep soil,soft
+087D,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,topographic effects likely
+088A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+089A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+090A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+091A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,topographic effects possible
+091B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,topographic effects possible
+091C,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+092A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+093A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+094A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+095B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+096A,E - Soft soil,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep and soft
+097A,,B - Shallow soil,D - Deep or soft Soil,B - Intermediate soil,
+098A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+099A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft
+099B,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft
+100A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+100B,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+102A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,soft
+103A,,B - Shallow soil,D - Deep or soft Soil,B - Intermediate soil,
+103B,,B - Shallow soil,D - Deep or soft Soil,B - Intermediate soil,
+104A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+105A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+106A,,D - Deep soil in broad canyon,C - Shallow soil,C - Flexible or deep soil,
+107A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+108A,,A - Rock or very thin soil over rock,A - Strong rock,A - Rock or very stiff soil,possibly topographic effects
+110C,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+111A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+111B,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+112A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+112B,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+113A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer - soft
+114A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+114B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+114C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+115A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+116A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+117A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+117B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+118A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+118B,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+119A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+120A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+120B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+120C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+121A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+122A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+123A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+124A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+124B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+125A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+125D,,B - Shallow soil,B - Rock,B - Intermediate soil,
+126C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+127A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+128A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+129A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+130A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - not soft
+130B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - not soft
+131A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+132A,,B - Shallow soil,D - Deep or soft Soil,B - Intermediate soil,
+134A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+200A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+201A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+201B,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+202A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+203A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+203B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+204A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+205A,,A - Rock or very thin soil over rock,C - Shallow soil,A - Rock or very stiff soil,
+206A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+207A,,A - Rock or very thin soil over rock,C - Shallow soil,A - Rock or very stiff soil,very thin soil layer
+208A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+209A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - not soft
+209B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - not soft
+210A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+211A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+212A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+213A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+214A,,E - Soft soil,E - Very soft soil,C - Flexible or deep soil,deep - perhaps soft
+214B,,E - Soft soil,E - Very soft soil,C - Flexible or deep soil,deep - perhaps soft
+215A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+215B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+215C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+216A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft
+216B,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft
+217A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+218A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft and deep
+219A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+220A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+221A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+221B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+222A,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,
+223A,,A - Rock or very thin soil over rock,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+223B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+224A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+225A,E - Soft soil,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep and soft
+225B,E - Soft soil,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep and soft
+226B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+228A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+229A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+230A,,E - Soft soil,D - Deep or soft Soil,B - Intermediate soil,soft
+231A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+232A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,soft
+234A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+235A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+236A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+236B,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+237A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+238A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+239A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+240A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+242A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+243A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+243B,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+244A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - probably not soft
+245A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+246A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+248A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+249A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+249B,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+250A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+251A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer (perhaps) - possible topographic effects
+252A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+253A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+254A,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,soft and deep
+255A,,B - Shallow soil,B - Rock,A - Rock or very stiff soil,thin soil layer
+256A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+257A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+259A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+260A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+261A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+262A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+263A,,B - Shallow soil,B - Rock,B - Intermediate soil,
+264A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+265A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+265B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+266A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+266B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+267A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+267B,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+268A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+270A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+270B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+271A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - resonant type response
+272A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+272B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+272C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+273A,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,deep
+274A,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,deep
+275A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+276A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+277A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+278A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+279A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+280A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+281A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer - soft
+283A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+283B,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+284A,,D - Deep soil in broad canyon,C - Shallow soil,B - Intermediate soil,
+284B,,D - Deep soil in broad canyon,C - Shallow soil,B - Intermediate soil,
+285A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+286A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+287A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+288A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+289A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+289B,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+290A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+291A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+292A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft - not deep
+293A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+293B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+294A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+294B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+295A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+296A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+297A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+297B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+299A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+301A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+302A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+303A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+304A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,deep - perhaps soft
+305A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+306A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+340A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+464A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+465A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+467A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+468A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+469A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - posibly soft
+501A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+502A,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,deep
+503A,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,deep
+504A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+505A,,C - Deep soil in narrow canyon,C - Shallow soil,B - Intermediate soil,
+506A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer - possibly soft
+506B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer - possibly soft
+507A,,D - Deep soil in broad canyon,C - Shallow soil,B - Intermediate soil,
+508A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+601A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+602A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+602B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+602C,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+603A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+603B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+604A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+605A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,possible topographic effects
+605B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,possible topographic effects
+606A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,possible topographic effects - but appears to be a good rock reference site
+606B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,possible topographic effects - but appears to be a good rock reference site
+607A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+608A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+608B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+640A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,
+640B,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,
+641A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+642A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+642B,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+642C,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+642E,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+642F,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+642G,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+642H,,B - Shallow soil,D - Deep or soft Soil,B - Intermediate soil,
+642T,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+642V,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+643A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer (perhaps) - possible topographic effects
+643B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer (perhaps) - possible topographic effects
+644A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+644C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+645A,E - Soft soil,E - Soft soil,E - Very soft soil,C - Flexible or deep soil,deep and soft
+646A,E - Soft soil,E - Soft soil,E - Very soft soil,C - Flexible or deep soil,deep and soft
+646B,E - Soft soil,E - Soft soil,E - Very soft soil,C - Flexible or deep soil,deep and soft
+646C,E - Soft soil,E - Soft soil,E - Very soft soil,C - Flexible or deep soil,deep and soft
+647A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+647D,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+648A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+651A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+700A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+701A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+701C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+702A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+703C,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,
+704A,,E - Soft soil,D - Deep or soft Soil,B - Intermediate soil,soft
+705A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+705B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+706A,,E - Soft soil,D - Deep or soft Soil,B - Intermediate soil,soft
+707A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+708A,,E - Soft soil,D - Deep or soft Soil,B - Intermediate soil,soft
+709A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - and possibly soft
+710A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+711A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+712A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+713A,,E - Soft soil,D - Deep or soft Soil,B - Intermediate soil,soft
+801A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+802A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+803A,,A - Rock or very thin soil over rock,C - Shallow soil,A - Rock or very stiff soil,
+804A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,NB: building piled to bedrock
+806C,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,NB: building piled to bedrock
+900A,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,deep - possibly soft
+900B,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,deep - possibly soft
+900C,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,deep - possibly soft
+901A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+902A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+903A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+904A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+904D,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+905A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+906A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+907A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+908C,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+910A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+911A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+911B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+912A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+913A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+914A,,D - Deep soil in broad canyon,C - Shallow soil,B - Intermediate soil,
+914B,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+914C,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+916A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+917A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+918A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,topographic effects likely
+918B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,topographic effects likely
+919A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+921A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+922A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+922B,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+923A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+924A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+924B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+924F,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+924G,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+925A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+925B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+926A,,A - Rock or very thin soil over rock,C - Shallow soil,A - Rock or very stiff soil,very thin soil layer
+928A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+929A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+930A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+931A,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+931B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+931C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+932A,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+933A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+933B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+934A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+934B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+934C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+935A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+935B,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+935C,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+936A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+937A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+937B,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+938A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,
+940A,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+941A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+942A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+943A,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer - soft
+944A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+945A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+946A,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+946B,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+948A,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+954A,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+ADCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+AICS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep or flexible soil site
+AKUS,,A - Rock or very thin soil over rock,C - Shallow soil,A - Rock or very stiff soil,
+AMBC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+APPS,,C - Deep soil in narrow canyon,C - Shallow soil,B - Intermediate soil,
+APUS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+APZ,,A - Rock or very thin soil over rock,A - Strong rock,A - Rock or very stiff soil,
+ARKS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,possible very thin soil layer
+ARPS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+ASHS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+AVIS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+AXZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+BCZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+BDCS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer - possibly soft
+BENS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+BFZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+BKZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+BSZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+BTWS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+CACS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+CBGS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+CCCC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+CCPS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+CDZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+CECS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+CHHC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+CMHS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+CPFS,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+CRLZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+CSHS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+CSTC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+CULC,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+DCDS,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,very thin soil layer
+DCZ,,A - Rock or very thin soil over rock,A - Strong rock,A - Rock or very stiff soil,
+DFHS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+DGNS,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+DKHS,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,
+DORC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+DSLC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+DSZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+DUNS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+DVHS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+EAZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+EBPS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+EKTS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+FAHS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+FDCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+FGPS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+FJDS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+FKPS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+FOZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+FTPS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+FXBS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+GDLC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+GISS,E - Soft soil,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft and deep
+GLWS,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+GMTS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+GORS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+GWTS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - and possibly soft
+HAFS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+HCDS,D - Stiff soil,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+HDWS,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,deep - perhaps soft
+HECS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+HIZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+HMCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+HNPS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+HOCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+HORC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+HSES,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - resonant type response
+HSSS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer (perhaps) - possible topographic effects
+HUKS,,B - Shallow soil,B - Rock,A - Rock or very stiff soil,
+HWHS,,E - Soft soil,C - Shallow soil,B - Intermediate soil,soft
+ICCS,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,
+IFPS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+INGS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+INHS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+INSS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,possible topographic effects - but appears to be a good rock reference site
+JACS,,A - Rock or very thin soil over rock,A - Strong rock,A - Rock or very stiff soil,
+JCZ,,A - Rock or very thin soil over rock,A - Strong rock,A - Rock or very stiff soil,
+KAFS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+KAPS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+KARS,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+KFHS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+KHZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+KIKS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+KIRS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,possibly very thin soil layer
+KLDS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+KNZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+KOKS,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+KOWC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+KPOC,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,deep and soft
+KUZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+LBZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+LHBS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+LHES,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - posibly soft
+LHRS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+LHUS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+LIHR,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+LINC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+LMZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+LPCC,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+LPLS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+LRSC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+LSRC,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+LTZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+MAGS,,B - Shallow soil,B - Rock,A - Rock or very stiff soil,
+MANS,,A - Rock or very thin soil over rock,A - Strong rock,A - Rock or very stiff soil,
+MAVS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+MAYC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+MCAS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+MCPS,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+MECS,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,
+MGCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+MISS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+MLZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+MMCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+MNG,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+MNGS,,B - Shallow soil,B - Rock,A - Rock or very stiff soil,
+MOA,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+MOLS,,B - Shallow soil,B - Rock,A - Rock or very stiff soil,
+MOSS,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+MOTS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+MOZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+MQZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+MRZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+MSMC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+MSZ,,A - Rock or very thin soil over rock,A - Strong rock,A - Rock or very stiff soil,
+MSZS,,B - Shallow soil,B - Rock,A - Rock or very stiff soil,very thin soil layer - possibly soft
+MTDS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+MWDS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+MWFS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+MWZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+MXZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+NAMS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+NCBS,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+NCDS,E - Soft soil,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,soft and deep
+NCHS,E - Soft soil,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,
+NELS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+NGHS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,possible topographic effects
+NLMS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+NMPS,,B - Shallow soil,B - Rock,A - Rock or very stiff soil,thin soil layer
+NNBS,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,
+NNZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+NPCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+NSBS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+NSPS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+NWFS,,B - Shallow soil,B - Rock,A - Rock or very stiff soil,
+OAMS,,D - Deep soil in broad canyon,C - Shallow soil,B - Intermediate soil,
+ODZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+OHKS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+OIZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+ONIS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+OPCS,,E - Soft soil,E - Very soft soil,C - Flexible or deep soil,deep - possibly soft
+ORCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+OTKS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+OUZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+PAPS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+PEEC,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+PFAS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+PGFS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+PGMS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+PHFS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,Topographic effects possible
+PKIS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+PNBS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+POLS,,E - Soft soil,D - Deep or soft Soil,B - Intermediate soil,soft
+POTS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+PPHS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+PRPC,,D - Deep soil in broad canyon,E - Very soft soil,C - Flexible or deep soil,deep and soft
+PTHS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+PUZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+PXZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+QCCS,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+QRZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+QTPS,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+RDCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+REHS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+RKAC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+ROLC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+ROPS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+RPCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+RPZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+RQGS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+RRKS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+RUAS,,C - Deep soil in narrow canyon,C - Shallow soil,B - Intermediate soil,
+RUZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+SBRC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+SCAC,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+SHFC,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+SIZ,,A - Rock or very thin soil over rock,A - Strong rock,A - Rock or very stiff soil,
+SJFS,,B - Shallow soil,D - Deep or soft Soil,B - Intermediate soil,
+SKFS,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft - not deep
+SOCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+SPFS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+SWNC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+SYZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+TACS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+TAFS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+TBAS,,E - Soft soil,D - Deep or soft Soil,C - Flexible or deep soil,soft
+TBCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+TDHS,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - possibly soft
+TEPS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+TFSS,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+THPS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,very thin soil layer
+THZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+TIRS,,D - Deep soil in broad canyon,C - Shallow soil,B - Intermediate soil,
+TKAS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+TKHS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+TMBS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+TMDS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+TMHS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+TOZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+TPLC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+TPPS,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,thin soil layer
+TRCS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+TSFS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+TSZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+TTHS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+TUDS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,thin soil layer
+TUHS,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+TUZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+TWAS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+UHCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+URZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+URZ (old),,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+VRZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+WAIS,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+WAKC,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+WAKS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+WAZ,,B - Shallow soil,C - Shallow soil,A - Rock or very stiff soil,
+WBCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+WBFS,,E - Soft soil,D - Deep or soft Soil,B - Intermediate soil,soft - not deep
+WBHS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+WCDS,,C - Deep soil in narrow canyon,D - Deep or soft Soil,B - Intermediate soil,
+WCZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+WDAS,E - Soft soil,E - Soft soil,E - Very soft soil,C - Flexible or deep soil,deep and soft
+WDFS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+WDPS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+WEL,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,topographic effects likely
+WEMS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+WHZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+WICS,E - Soft soil,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+WIGC,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+WKHS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+WKZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+WLZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+WNAS,,D - Deep soil in broad canyon,D - Deep or soft Soil,B - Intermediate soil,
+WNHS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+WNKS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+WNPS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+WPBS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+WPWS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+WRCS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep - probably not soft
+WSFC,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,deep
+WTMC,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+WVAS,,C - Deep soil in narrow canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+WVFS,,D - Deep soil in broad canyon,D - Deep or soft Soil,C - Flexible or deep soil,
+WVHS,,B - Shallow soil,C - Shallow soil,B - Intermediate soil,
+WVZ,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
+WVZS,,A - Rock or very thin soil over rock,B - Rock,A - Rock or very stiff soil,
