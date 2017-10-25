@@ -3,6 +3,12 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "EJgo2+4yX5QuQcUHgkG+eNS0YDw=",
+			"path": "github.com/GeoNet/kit/gloria_pb",
+			"revision": "1f2a09b182f37ebb343745666a0de81e89362b19",
+			"revisionTime": "2017-10-25T08:02:27Z"
+		},
+		{
 			"checksumSHA1": "kBeNcaKk56FguvPSUCEaH6AxpRc=",
 			"path": "github.com/golang/protobuf/proto",
 			"revision": "18c9bb3261723cd5401db4d0c9fbc5c3b6c70fe8",
