@@ -11,7 +11,7 @@ func TestVs30s(t *testing.T) {
 	var vs30s meta.Vs30List
 	t.Log("Load site vs30 file")
 	{
-		if err := meta.LoadList("../geology/vs30.csv", &vs30s); err != nil {
+		if err := meta.LoadList("../environment/vs30.csv", &vs30s); err != nil {
 			t.Fatal(err)
 		}
 	}
