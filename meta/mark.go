@@ -17,12 +17,8 @@ const (
 	markLongitude
 	markElevation
 	markDatum
-	markProtection
-	markPlaqueExists
-	markPlateExists
 	markStartTime
 	markEndTime
-	markSkyVisibility
 	markLast
 )
 
@@ -31,11 +27,7 @@ type Mark struct {
 	Point
 	Span
 
-	Igs           bool
-	Protection    string
-	PlaqueExists  bool
-	PlateExists   bool
-	SkyVisibility string
+	Igs bool
 }
 
 type MarkList []Mark
@@ -54,12 +46,8 @@ func (m MarkList) encode() [][]string {
 		"Longitude",
 		"Elevation",
 		"Datum",
-		"Protection",
-		"Plaque",
-		"Plate",
 		"Start Date",
 		"End Date",
-		"Sky Visibility",
 	}}
 	for _, v := range m {
 		data = append(data, []string{
@@ -76,22 +64,8 @@ func (m MarkList) encode() [][]string {
 			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
 			strings.TrimSpace(v.Datum),
-			strings.TrimSpace(v.Protection),
-			func() string {
-				if v.PlaqueExists {
-					return "yes"
-				}
-				return "no"
-			}(),
-			func() string {
-				if v.PlateExists {
-					return "yes"
-				}
-				return "no"
-			}(),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
-			strings.TrimSpace(v.SkyVisibility),
 		})
 	}
 	return data
@@ -129,28 +103,6 @@ func (m *MarkList) decode(data [][]string) error {
 				return err
 			}
 
-			var plaque, plate bool
-			if plaque, err = strconv.ParseBool(d[markPlaqueExists]); err != nil {
-				switch d[markPlaqueExists] {
-				case "y", "Y", "yes", "YES":
-					plaque = true
-				case "n", "N", "no", "NO":
-					plaque = false
-				default:
-					return err
-				}
-			}
-			if plate, err = strconv.ParseBool(d[markPlateExists]); err != nil {
-				switch d[markPlateExists] {
-				case "y", "Y", "yes", "YES":
-					plate = true
-				case "n", "N", "no", "NO":
-					plate = false
-				default:
-					return err
-				}
-			}
-
 			var start, end time.Time
 			if start, err = time.Parse(DateTimeFormat, d[markStartTime]); err != nil {
 				return err
@@ -174,11 +126,7 @@ func (m *MarkList) decode(data [][]string) error {
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[markDatum]),
 				},
-				Igs:           igs,
-				Protection:    strings.TrimSpace(d[markProtection]),
-				PlaqueExists:  plaque,
-				PlateExists:   plate,
-				SkyVisibility: strings.TrimSpace(d[markSkyVisibility]),
+				Igs: igs,
 			})
 		}
 
