@@ -21,19 +21,8 @@ _Lists the geographical and physical characteristics of collection points._
 * _Longitude_ - Geographical longitude of the _Mark_ for the given _Datum_.
 * _Elevation_ - Height in meters of the _Mark_ for the given _Datum_.
 * _Datum_ - Geographical reference system used for the latitude, longitude & elevation.
-* _Protection_ - Used to describe the method, or otherwise, used to protect the _Mark_.
-* _Plaque_ - Does a plaque exist for the _Mark_, *yes* or *no*.
-* _Plate_ - Does a plate exist for the _Mark_, *yes* or *no*.
 * _Start Date_ - General date and time at which the _Mark_ was operational.
 * _End Date_ - General date and time at which the _Mark_ was no longer operational.
-* _Sky Visibility_ - Used to describe the general visibility and possible obstructions seen by the _Mark_.
-
-Valid Protection values are:
-
-* `Post and Rail Enclosure`       
-* `Marker Post`   
-* `No Protection` 
-* `Not Specified` 
 
 #### _MONUMENTS_ ####
 
