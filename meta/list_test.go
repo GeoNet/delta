@@ -904,11 +904,10 @@ func TestList(t *testing.T) {
 			},
 		},
 		{
-			"testdata/classes.csv",
-			&meta.ClassList{
-				meta.Class{
+			"testdata/vs30.csv",
+			&meta.Vs30List{
+				meta.Vs30{
 					Station: "WHAS",
-					Class:   "C",
 					Vs30:    270,
 					Tsite: meta.Range{
 						Value: 0.4,
@@ -920,9 +919,8 @@ func TestList(t *testing.T) {
 					QZb:        "Q3",
 					References: "Perrin et al. 2015",
 				},
-				meta.Class{
+				meta.Vs30{
 					Station: "WKZ",
-					Class:   "B",
 					Vs30:    1000,
 					Tsite: meta.Range{
 						Compare: meta.LessThan,
