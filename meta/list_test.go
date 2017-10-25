@@ -197,6 +197,10 @@ func TestList(t *testing.T) {
 						Elevation: 563.221,
 						Datum:     "NZGD2000",
 					},
+					Protection:    "Post and rail enclosure",
+					PlaqueExists:  true,
+					PlateExists:   false,
+					SkyVisibility: "good",
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2009-01-01T00:00:00Z")
@@ -221,6 +225,10 @@ func TestList(t *testing.T) {
 						Elevation: 386.964,
 						Datum:     "NZGD2000",
 					},
+					Protection:    "Post and rail enclosure",
+					PlaqueExists:  false,
+					PlateExists:   true,
+					SkyVisibility: "clear to NW",
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2005-08-10T00:00:00Z")
