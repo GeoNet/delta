@@ -48,11 +48,19 @@ type Builder struct {
 	sensors     *regexp.Regexp
 	dataloggers *regexp.Regexp
 	installed   bool
+	active      bool
 }
 
 func SetInstalled(installed bool) func(*Builder) error {
 	return func(b *Builder) error {
 		b.installed = installed
+		return nil
+	}
+}
+
+func SetActive(active bool) func(*Builder) error {
+	return func(b *Builder) error {
+		b.active = active
 		return nil
 	}
 }
@@ -168,6 +176,9 @@ func (b *Builder) MatchDatalogger(logger string) bool {
 }
 func (b *Builder) Installed() bool {
 	return b.installed
+}
+func (b *Builder) Active() bool {
+	return b.active
 }
 
 func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
@@ -587,6 +598,12 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 					})
 
 				}
+			}
+		}
+
+		if b.Active() {
+			if !(len(channels) > 0) {
+				continue
 			}
 		}
 
