@@ -282,6 +282,39 @@ func TestList(t *testing.T) {
 			},
 		},
 		{
+			"testdata/visibility.csv",
+			&meta.VisibilityList{
+				meta.Visibility{
+					Code:          "AHTI",
+					SkyVisibility: "good",
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2009-01-01T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+				},
+				meta.Visibility{
+					Code:          "DUND",
+					SkyVisibility: "clear to NW",
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2005-08-10T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+				},
+			},
+		},
+		{
 			"testdata/assets.csv",
 			&meta.AssetList{
 				{

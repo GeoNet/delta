@@ -11,7 +11,7 @@ _Lists the geographical and physical characteristics of collection points._
 * `sites.csv` - Specific Observation Points at a Specific Recording Station.
 * `stations.csv` - Location for a Group of Recording Sites.
 
-#### MARK ####
+#### _MARK_ ####
 
 * _Mark_ - Code used to uniquely identify GNSS _Mark_.
 * _Network_ - Code used to group marks together by project or operator.
@@ -24,7 +24,7 @@ _Lists the geographical and physical characteristics of collection points._
 * _Start Date_ - General date and time at which the _Mark_ was operational.
 * _End Date_ - General date and time at which the _Mark_ was no longer operational.
 
-#### MONUMENTS ####
+#### _MONUMENTS_ ####
 
 * _Mark_ - Code used to uniquely identify GNSS _Mark_.
 * _Domes Number_ -
@@ -46,7 +46,7 @@ Valid Monument Types are:
 * `Steel Mast`
 * `Unknown`
 
-#### MOUNTS ####
+#### _MOUNTS_ ####
 
 * _Mount_ - Code used to uniquely identify Camera _Mount_.
 * _Network_ - Code used to group marks together by project or operator.
@@ -59,14 +59,14 @@ Valid Monument Types are:
 * _Start Date_ - General date and time at which the _Mount_ was operational.
 * _End Date_ - General date and time at which the _Mount_ was no longer operational.
 
-#### NETWORKS ####
+#### _NETWORKS_ ####
 
 * _Network_ - Code used to group GNSS _Marks_ and Recording _Stations_ together by project or operator.
 * _External_ - Alternative code used to externally represent this _Network_.
 * _Description_ - Information about the _Network_.
 * _Restricted_ - Whether the _Network_ has restrictions, a Boolean value [`true` or `false`].
 
-#### SITES ####
+#### _SITES_ ####
 
 * _Station_ - Code used to uniquely identify Recording _Station_.
 * _Location_ - Code used to uniquely identify the _Site_ at the  Recording _Stations_.
@@ -77,7 +77,7 @@ Valid Monument Types are:
 * _Start Date_ - General date and time at which the _Site_ was operational.
 * _End Date_ - General date and time at which the _Site_ was no longer operational.
 
-#### STATIONS ####
+#### _STATIONS_ ####
 
 * _Station_ - Code used to uniquely identify Recording _Station_.
 * _Network_ - Code used to group Recording _Stations_ together by project or operator.
@@ -89,7 +89,7 @@ Valid Monument Types are:
 * _Start Date_ - General date and time at which the _Station_ was operational.
 * _End Date_ - General date and time at which the _Station_ was no longer operational.
 
-#### GAUGES ####
+#### _GAUGES_ ####
 * _Gauge_ - Code used to uniquely identify Tide Gauge _Stations_.
 * _Network_ - Code used to group Tide Gauge _Stations_ together by project or operator.
 * _LINZ Number_ - Code used by _LINZ_ to identify the Tide Gauge _Station_.
@@ -97,7 +97,7 @@ Valid Monument Types are:
 * _Analysis Latitude_ - Latitude used in the Tidal Constituent Analysis, usually positive.
 * _Analysis Longitude_ - Longitude used in the Tidal Constituent Analysis.
 
-#### CONSTITUENTS ####
+#### _CONSTITUENTS_ ####
 * _Gauge_ - Code used to uniquely identify Tide Gauge _Station_.
 * _Number_ - Consituent number, used mainly for display and sorting.
 * _Constituent_ - Standard Consituent Name.

@@ -20,6 +20,7 @@ const (
 	monumentEnd
 	monumentBedrock
 	monumentGeology
+	monumentLast
 )
 
 type Monument struct {
@@ -80,7 +81,7 @@ func (m *MonumentList) decode(data [][]string) error {
 		for _, d := range data[1:] {
 			var err error
 
-			if len(d) != 11 {
+			if len(d) != monumentLast {
 				return fmt.Errorf("incorrect number of monument fields")
 			}
 			var ground float64
@@ -91,6 +92,7 @@ func (m *MonumentList) decode(data [][]string) error {
 			if depth, err = strconv.ParseFloat(d[monumentFoundationDepth], 64); err != nil {
 				return err
 			}
+
 			var start, end time.Time
 			if start, err = time.Parse(DateTimeFormat, d[monumentStart]); err != nil {
 				return err
