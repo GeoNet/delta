@@ -14,6 +14,7 @@ go build ./tools/stationxml || exit 255
 
 ./stationxml -base . -output .tmp/geonet-meta/stationxml/complete.xml
 ./stationxml -base . -output .tmp/geonet-meta/stationxml/scp.xml \
+    -active \
     -installed \
     -operational \
     -channels '([EHB][HN][ZNE12])'

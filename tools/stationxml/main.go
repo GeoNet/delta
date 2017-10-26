@@ -71,6 +71,9 @@ func main() {
 	var operational bool
 	flag.BoolVar(&operational, "operational", false, "only output operational channels")
 
+	var active bool
+	flag.BoolVar(&active, "active", false, "only output stations with active channels")
+
 	var offset time.Duration
 	flag.DurationVar(&offset, "operational-offset", 0, "provide a recently closed window for operational only requests")
 
@@ -92,6 +95,7 @@ func main() {
 
 	builder, err := NewBuilder(
 		SetInstalled(installed),
+		SetActive(active),
 		SetOperational(operational, offset),
 		SetNetworks(networkList, networkRegexp),
 		SetStations(stationList, stationRegexp),
