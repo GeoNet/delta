@@ -1,7 +1,6 @@
 package delta_test
 
 import (
-	"sort"
 	"testing"
 
 	"github.com/GeoNet/delta/meta"
@@ -9,119 +8,98 @@ import (
 
 func TestAntennas(t *testing.T) {
 
-	var antennas meta.InstalledAntennaList
-	t.Log("Load deployed antennas file")
-	{
-		if err := meta.LoadList("../install/antennas.csv", &antennas); err != nil {
-			t.Fatal(err)
-		}
-	}
+	var installedAntennas meta.InstalledAntennaList
+	loadListFile(t, "../install/antennas.csv", &installedAntennas)
 
-	t.Log("Check for antenna installation equipment overlaps")
-	{
+	t.Run("check for antenna installation equipment overlaps", func(t *testing.T) {
 		installs := make(map[string]meta.InstalledAntennaList)
-		for _, s := range antennas {
+		for _, s := range installedAntennas {
 			if _, ok := installs[s.Model]; !ok {
 				installs[s.Model] = meta.InstalledAntennaList{}
 			}
 			installs[s.Model] = append(installs[s.Model], s)
 		}
 
-		var keys []string
-		for k, _ := range installs {
-			keys = append(keys, k)
-		}
-		sort.Strings(keys)
-
-		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
-				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].Serial != v[j].Serial:
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					case v[i].End.Equal(v[j].Start):
-					case v[i].Start.Equal(v[j].End):
-					default:
-						t.Errorf("antennas %s [%s] at %s has overlap at %s between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Mark, v[j].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+		for _, v := range installs {
+			for i := 0; i < len(v); i++ {
+				for j := i + 1; j < len(v); j++ {
+					if v[i].Serial != v[j].Serial {
+						continue
 					}
+					if v[i].End.Before(v[j].Start) {
+						continue
+					}
+					if v[i].Start.After(v[j].End) {
+						continue
+					}
+					if v[i].End.Equal(v[j].Start) {
+						continue
+					}
+					if v[i].Start.Equal(v[j].End) {
+						continue
+					}
+					t.Errorf("installed antennas %s [%s] at %s has overlap at %s between %s and %s",
+						v[i].Model, v[i].Serial, v[i].Mark, v[j].Mark,
+						v[i].Start.Format(meta.DateTimeFormat),
+						v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
+	})
 
-	t.Log("Check for antenna installation mark overlaps")
-	{
+	t.Run("check for antenna installation mark overlaps", func(t *testing.T) {
 		installs := make(map[string]meta.InstalledAntennaList)
-		for _, s := range antennas {
+		for _, s := range installedAntennas {
 			if _, ok := installs[s.Mark]; !ok {
 				installs[s.Mark] = meta.InstalledAntennaList{}
 			}
 			installs[s.Mark] = append(installs[s.Mark], s)
 		}
 
-		var keys []string
-		for k, _ := range installs {
-			keys = append(keys, k)
-		}
-		sort.Strings(keys)
-
-		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
-				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					case v[i].End.Equal(v[j].Start):
-					case v[i].Start.Equal(v[j].End):
-					default:
-						t.Errorf("antennas %s [%s] and %s [%s] at %s has overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[j].Model, v[j].Serial, v[i].Mark,
-							v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+		for _, v := range installs {
+			for i := 0; i < len(v); i++ {
+				for j := i + 1; j < len(v); j++ {
+					if v[i].End.Before(v[j].Start) {
+						continue
 					}
+					if v[i].Start.After(v[j].End) {
+						continue
+					}
+					if v[i].End.Equal(v[j].Start) {
+						continue
+					}
+					if v[i].Start.Equal(v[j].End) {
+						continue
+					}
+					t.Errorf("installed antennas %s [%s] and %s [%s] at %s has an overlap between %s and %s",
+						v[i].Model, v[i].Serial, v[j].Model, v[j].Serial, v[i].Mark,
+						v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
+	})
 
-	t.Log("Check for missing antenna marks")
-	{
+	t.Run("check for missing antenna marks", func(t *testing.T) {
 		var marks meta.MarkList
-
-		if err := meta.LoadList("../network/marks.csv", &marks); err != nil {
-			t.Fatal(err)
-		}
+		loadListFile(t, "../network/marks.csv", &marks)
 
 		keys := make(map[string]interface{})
-
 		for _, m := range marks {
 			keys[m.Code] = true
 		}
 
-		for _, c := range antennas {
-			if _, ok := keys[c.Mark]; ok {
-				continue
+		for _, c := range installedAntennas {
+			if _, ok := keys[c.Mark]; !ok {
+				t.Errorf("unable to find antenna mark %-5s", c.Mark)
 			}
-			t.Errorf("unable to find antenna mark %-5s", c.Mark)
 		}
-	}
+	})
 
-	var assets meta.AssetList
-	t.Log("Load antenna assets file")
-	{
-		if err := meta.LoadList("../assets/antennas.csv", &assets); err != nil {
-			t.Fatal(err)
-		}
-	}
+	t.Run("check for missing antenna assets", func(t *testing.T) {
+		var assets meta.AssetList
+		loadListFile(t, "../assets/antennas.csv", &assets)
 
-	t.Log("Check for antenna assets")
-	{
-		for _, r := range antennas {
+		for _, r := range installedAntennas {
 			var found bool
 			for _, a := range assets {
 				if a.Model != r.Model {
@@ -132,23 +110,17 @@ func TestAntennas(t *testing.T) {
 				}
 				found = true
 			}
-			if !found {
-				t.Errorf("unable to find antenna asset: %s [%s]", r.Model, r.Serial)
+			if found {
+				continue
 			}
+			t.Errorf("unable to find antenna asset: %s [%s]", r.Model, r.Serial)
 		}
-	}
+	})
 
-	var sessions meta.SessionList
-	t.Log("Load session list")
-	{
-		if err := meta.LoadList("../install/sessions.csv", &sessions); err != nil {
-			t.Fatal(err)
-		}
-	}
-
-	t.Log("Check sessions exist ...")
-	{
-		for _, r := range antennas {
+	t.Run("check for missing antenna sessions", func(t *testing.T) {
+		var sessions meta.SessionList
+		loadListFile(t, "../install/sessions.csv", &sessions)
+		for _, r := range installedAntennas {
 			var found bool
 			for _, s := range sessions {
 				if s.End.Before(r.Start) {
@@ -159,9 +131,10 @@ func TestAntennas(t *testing.T) {
 				}
 				found = true
 			}
-			if !found {
-				t.Log(r)
+			if found {
+				continue
 			}
+			t.Errorf("unable to find antenna session: %s [%s]", r.Model, r.Serial)
 		}
-	}
+	})
 }

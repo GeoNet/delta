@@ -1,7 +1,6 @@
 package delta_test
 
 import (
-	"sort"
 	"testing"
 	"time"
 
@@ -11,62 +10,47 @@ import (
 func TestFirmware(t *testing.T) {
 
 	var firmwares meta.FirmwareHistoryList
-	t.Log("Load firmware history file")
-	{
-		if err := meta.LoadList("../install/firmware.csv", &firmwares); err != nil {
-			t.Fatal(err)
-		}
-	}
+	loadListFile(t, "../install/firmware.csv", &firmwares)
 
-	t.Log("Check for firmware history overlaps")
-	{
+	t.Run("check for firmware history overlaps", func(t *testing.T) {
 		installs := make(map[string]meta.FirmwareHistoryList)
 		for _, s := range firmwares {
-			_, ok := installs[s.Model]
-			if ok {
-				installs[s.Model] = append(installs[s.Model], s)
-
-			} else {
-				installs[s.Model] = meta.FirmwareHistoryList{s}
+			if _, ok := installs[s.Model]; !ok {
+				installs[s.Model] = meta.FirmwareHistoryList{}
 			}
+			installs[s.Model] = append(installs[s.Model], s)
 		}
 
-		var keys []string
-		for k, _ := range installs {
-			keys = append(keys, k)
-		}
-		sort.Strings(keys)
-
-		for _, k := range keys {
-			v := installs[k]
-
-			for i, n := 0, len(v); i < n; i++ {
-				for j := i + 1; j < n; j++ {
-					switch {
-					case v[i].Serial != v[j].Serial:
-					case v[i].End.Before(v[j].Start):
-					case v[i].Start.After(v[j].End):
-					case v[i].End.Equal(v[j].Start):
-					case v[i].Start.Equal(v[j].End):
-					default:
-						t.Errorf("firmware %s / %s has overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
+		for _, v := range installs {
+			for i := 0; i < len(v); i++ {
+				for j := i + 1; j < len(v); j++ {
+					if v[i].Serial != v[j].Serial {
+						continue
 					}
+					if v[i].End.Before(v[j].Start) {
+						continue
+					}
+					if v[i].Start.After(v[j].End) {
+						continue
+					}
+					if v[i].End.Equal(v[j].Start) {
+						continue
+					}
+					if v[i].Start.Equal(v[j].End) {
+						continue
+					}
+
+					t.Errorf("firmware %s / %s has overlap between %s and %s",
+						v[i].Model, v[i].Serial, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 				}
 			}
 		}
-	}
+	})
 
-	var assets meta.AssetList
-	t.Log("Load firmware assets file")
-	{
-		if err := meta.LoadList("../assets/receivers.csv", &assets); err != nil {
-			t.Fatal(err)
-		}
-	}
+	t.Run("Check for firmware receiver assets", func(t *testing.T) {
+		var assets meta.AssetList
+		loadListFile(t, "../assets/receivers.csv", &assets)
 
-	t.Log("Check for firmware receiver assets")
-	{
 		for _, r := range firmwares {
 			var found bool
 			for _, a := range assets {
@@ -78,22 +62,17 @@ func TestFirmware(t *testing.T) {
 				}
 				found = true
 			}
-			if !found {
-				t.Errorf("unable to find firmware receiver asset: %s [%s]", r.Model, r.Serial)
+			if found {
+				continue
 			}
+			t.Errorf("unable to find firmware receiver asset: %s [%s]", r.Model, r.Serial)
 		}
-	}
+	})
 
-	var receivers meta.DeployedReceiverList
-	t.Log("Load installed receivers file")
-	{
-		if err := meta.LoadList("../install/receivers.csv", &receivers); err != nil {
-			t.Fatal(err)
-		}
-	}
+	t.Run("check for latest installed receiver firmware", func(t *testing.T) {
+		var receivers meta.DeployedReceiverList
+		loadListFile(t, "../install/receivers.csv", &receivers)
 
-	t.Log("Check for latest installed receiver firmware")
-	{
 		installs := make(map[string]meta.FirmwareHistory)
 		for _, s := range firmwares {
 			if s.End.Before(time.Now()) {
@@ -106,8 +85,11 @@ func TestFirmware(t *testing.T) {
 				continue
 			}
 			if _, ok := installs[r.Model+"/"+r.Serial]; !ok {
-				t.Errorf("deployed receiver has no current firmware %s / %s at %s between %s and %s", r.Model, r.Serial, r.Mark, r.Start.Format(meta.DateTimeFormat), r.End.Format(meta.DateTimeFormat))
+				t.Errorf("deployed receiver has no current firmware %s / %s at %s between %s and %s",
+					r.Model, r.Serial, r.Mark,
+					r.Start.Format(meta.DateTimeFormat),
+					r.End.Format(meta.DateTimeFormat))
 			}
 		}
-	}
+	})
 }
