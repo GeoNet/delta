@@ -320,8 +320,8 @@ Station,", Bedrock Type ()",", Intact Strength ()",", Bedrock (Weathering)",", S
 604A,Greywacke,very strong,,,,,"Fry, B. (1980)",,,,,,,170,Approximate value
 605A,Greywacke,weak,,,"yellow-brown hard sandy silt, in-situ weathered bedrock, stronger within a few metres depth",,,,,,,,,0,
 605B,Greywacke,weak,,,"yellow-brown hard sandy silt, in-situ weathered bedrock, stronger within a few metres depth",,,,,,,,,0,
-606A,Greywacke,weak,completely weathered,,"weak, stronger with depth",,Soil Bureau file 9/28.,,,,,,,0,
-606B,Greywacke,weak,completely weathered,,"weak, stronger with depth",,Soil Bureau file 9/28.,,,,,,,0,
+606A,Greywacke,weak,completely weathered,,"weak, stronger with depth",,NZ Soil Bureau Job File 9/28.,,,,,,,0,
+606B,Greywacke,weak,completely weathered,,"weak, stronger with depth",,NZ Soil Bureau Job File 9/28.,,,,,,,0,
 607A,Greywacke,strong,,,,,"Fry, B. (1980)",,,,,,,270,250-300 m
 608A,Greywacke,strong,,,,,"Fry, B. (1980)",,,,,,,275,250-300 m
 608B,Greywacke,strong,,,,,"Fry, B. (1980)",,,,,,,250,Approximate value
@@ -511,7 +511,7 @@ ICCS,Mudstone,moderately strong,,,Tertiary mudstone,,"Wood, B.L. (1966); Watters
 IFPS,Schist,strong,,,garnet schist,,"Warren, G. (1967)",,,,,,,80,Approximate value
 INGS,Mudstone,strong,slightly weathered,,"Tertiary calacreous mudstone (""Blue Bottom"")",,"Nathan, S. (1978)",,,,,,,10,
 INHS,Mudstone,moderately strong,,,Tertairy Mudstone (Matemateonga Fm),,"Hay, R.F. (1967)",,,,,,,200,Approximate value
-INSS,Greywacke,weak,completely weathered,,"weak, stronger with depth",,Soil Bureau file 9/28.,,,,,,,0,
+INSS,Greywacke,weak,completely weathered,,"weak, stronger with depth",,NZ Soil Bureau Job File 9/28.,,,,,,,0,
 JACS,Greywacke,strong,,,,,"Mutch, A.R., & McKellar, I.C. (1964)",,,,,,,2,Maximum value
 JCZ,Greywacke,strong,,,,,"Mutch, A.R., & McKellar, I.C. (1964)",,,,,,,0,
 KAFS,Ignimbrite,moderately strong,,,welded ignimbrite (Matahina Ignimbrite),,"Barker, P.R. (1995); Healy, J. et al. (1964)",,,,,,,50,Approximate value
@@ -550,7 +550,7 @@ MECS,Schist,moderately strong," ",,Chlorite Subzone IV- strongly foliated,Haast 
 MGCS,Greywacke,strong,,,Torlesse Supergroup,,"Brown, L.J. (1981)",,,,,,,1000,Effective bedrock 70 m?
 MISS,Greywacke,moderately strong,,,,Surface of bedrock weathered,"Begg, J,G. et al. (1992)",2.6,,150,,1000,,60,Approximate value
 MLZ,Greywacke,moderately strong,,,"spilite,dolerite,gabbro,breccia, greywacke (Livingstone Volcanics)",,"Wood, B.L. (1962)",,,,,,,0,
-MMCS,Greywacke,strong,,,,,"NZ Soil Bureau Job File 44 - Investigations at Hotel, Arawa St..; Healy, J. et al. (1964)",,,,,,,2000,Probably effective bedrock at 50 m
+MMCS,Greywacke,strong,,,,,"NZ Soil Bureau Job File 44.; Healy, J. et al. (1964)",,,,,,,2000,Probably effective bedrock at 50 m
 MNG,Greywacke,moderately strong,,,,,"Cousins, W.J. et al. (1999)",,,,,,,0,
 MNGS,Mudstone,weak,,,,,"Campbell, I.B. (1979); Kingma, J.T. (1962)",,,,,,,3,Effective bedrock at 3 m ?
 MOA,Limestone,weak,,,," In thin beds. Most of the rock under it is grey siltstone",,,,,,,,0,
@@ -578,7 +578,7 @@ NLMS,Siltstone,weak,,,clay-bound gravels,Port Hills Gravel,"Johnston, M.R. (1979
 NMPS,Greywacke,strong,,,Cretaceous,same site as 040A and 255A,"Kingma, J.T. (1967)",,,,,,,7,"5 to 10 m, this site is close to toe of steep slope, so may be nearly on rock"
 NNBS,Greywacke,strong,,,,,"Brown, L.J. (1975)",,,,,,,1000,"Probably 1000 m to bedrock, c. 30 m to effective bedrock"
 NNZ,,moderately strong,,,Brook Street Grp,,"Beck, A.C. (1964)",,,,,,,0,
-NPCS,Sandstone,weak,,,soft rock or stiff / hard soil,,"NZ Soil Bureau job File 9/2.- For NP Hospiital about 300m away.; Hay, R.F. (1967)",,,,,,,25,Minimum value
+NPCS,Sandstone,weak,,,soft rock or stiff / hard soil,,"NZ Soil Bureau Job File 9/2.; Hay, R.F. (1967)",,,,,,,25,Minimum value
 NSBS,Greywacke,very strong,,,"Greywacke, schist, gneiss, granite",,"Mutch, A.R., & McKellar, I.C. (1964)",,,,,,,,Unknown - insufficient subsurface data
 NSPS,Limestone,moderately weak,,,Limestone,moderately weak to moderately strong,"Kingma, J.T. (1970)",,,,,,,2,Minimum value
 NWFS,Greywacke,strong,,,Cretaceous,,"Kingma, J.T. (1967)",,,,,,,7,Approximate value
@@ -601,7 +601,7 @@ PKIS,Greywacke,strong,,,,,"Gair, H.S. (1967)",,,,,,,0,
 PNBS,Greywacke,very strong,,,,,"Cowie, J.D. (1974)",,,,,,,2000,c. 60m to effective bedrock
 POLS,Greywacke,weak,moderately weathered,,moderately to highly weathered,shear zone between two strands of the Ohariu fault,"Stephenson, W.R., & Barker, P.R. (1992); Dellow, G.D. et al. (1991)",,,,,,,20,
 POTS,Greywacke,moderately strong,moderately weathered,,moderately to highly weathered,weak to strong,"Perrin, N.D., & Campbell, H.J. (1992)",,,,,,,0,
-PPHS,Greywacke,strong,,,,,"Brown, L.J. (1975); NZSoil Bureau File SML 12/1.",,,,,,,1000,
+PPHS,Greywacke,strong,,,,,"Brown, L.J. (1975); NZ Soil Bureau Job File 12/1.",,,,,,,1000,
 PRPC,Greywacke,strong,,,,,"Brown, L.J. (1975)",,,,,,,,Unknown - insufficient subsurface data
 PTHS,Mudstone,weak,,,Puketoka Fm ?,,"Kermode, L.O. (1966)",,,,,,,,Unknown - insufficient subsurface data
 PUZ,Sandstone,moderately strong,,,,"Site is on a thin slab of Cretaceous sandstone (c 5km x 3km x few hundred metres thick) thrust over younger, weaker rocks (1-2km thick), forming diapirs.","Cousins, W.J. et al. (1999)",,,,,,,0,
@@ -630,7 +630,7 @@ SOCS,Greywacke,very strong,,,,,"Fry, B. (1980)",,,,,,,15,Minimum value
 SPFS,Greywacke,strong,,,Springston Fm,,"Kear, B.S. et al. (1967)",,,,,,,10,"10 m is minimum value, possibly 50 m."
 SWNC,Greywacke,strong,,,,,"Wilson, D.D. (1989)",,,,,,,,Unknown - insufficient subsurface data
 SYZ,Sandstone,moderately strong,,,"sandstone, mudstone and conglomerate",,"Watters, W.A. et al. (1968)",,,,,,,0,
-TACS,Sandstone,moderately strong,,,,,"NZ Soil Bureau job File 17.; Wilson, A.D. (1980); Healy, J. et al. (1964)",,,,,,,25,Approximate value
+TACS,Sandstone,moderately strong,,,,,"NZ Soil Bureau Job File 17.; Wilson, A.D. (1980); Healy, J. et al. (1964)",,,,,,,25,Approximate value
 TAFS,Sandstone,moderately strong,unweathered,,hard - Tertiary sandstone (some conglomerate),Few. Major fault down centre of lake,"Wood, B.L. (1962)",,,,1-20?,,,200,Approximate value
 TBAS,Siltstone,weak,,,Pliocene sandy siltstone,Conditions same at all 5 locations in Tolaga Bay,"Rijske, W.C., & Pullar, W.A. (1978)",,,,,,,20,Minimum value
 TBCS,Ignimbrite,weak,,,,,"Healy, J. et al. (1964)",,,,,,,120,
@@ -644,7 +644,7 @@ TKAS,Greywacke,strong,,,Torlesse Group,,"Gair, H.S. (1967)",,,,,,,0,
 TKHS,Siltstone,Weak,,,"siltstone, sandstone, limestone",,"Kear, D. (1960)",,,,,,,40,Approximate value
 TMBS,Schist,moderately strong,,,Chlorite Subzone 2 (Haast Schist Grp),,"Barrell, D.J. et al. (1998); McKellar, I.C. (1966)",,,,,,,5,Approximate value
 TMDS,Greywacke,moderately weak,moderately weathered,,,,"Kingma, J.T. (1967)",,,,,,,10,
-TMHS,Andesite,weak,,,,,"NZ Soil Bureau Job Files 33 & 53 - Thames Hospital Bore 7.; Schofield, J.C. (1967)",,,,,,,20,Approximate value
+TMHS,Andesite,weak,,,,,"NZ Soil Bureau Job Files 33 & 53.; Schofield, J.C. (1967)",,,,,,,20,Approximate value
 TOZ,Siltstone,moderately strong,,,"siltstone, sandstone & conglomerate",,"Healy, J. et al. (1964)",,,,,,,0,
 TPLC,Greywacke,strong,,,,,"Wilson, D.D. (1989)",,,,,,,,Unknown - insufficient subsurface data
 TPPS,Siltstone,moderately strong,,,siltstone / pumice breccia,Huka formation,"Grindley, G.W. (1960)",,,,,,,30,"10 - 50 m, may be effective bedrock at 50 m, possibly less"
