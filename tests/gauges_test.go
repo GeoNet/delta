@@ -9,7 +9,7 @@ import (
 func TestGauges(t *testing.T) {
 
 	var gauges meta.GaugeList
-	loadListFile(t, "../network/gauges.csv", &gauges)
+	loadListFile(t, "../environment/gauges.csv", &gauges)
 
 	t.Run("check for gauge duplication", func(t *testing.T) {
 		for i := 0; i < len(gauges); i++ {
