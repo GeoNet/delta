@@ -145,6 +145,7 @@ func main() {
 			mark_pb.Distribution = &gloria_pb.Distribution{Igs: true}
 		case m.Network == "LI":
 			mark_pb.Download = &gloria_pb.Download{Priority: 100}
+			mark_pb.Distribution = &gloria_pb.Distribution{Linz: true}
 		default:
 			mark_pb.Download = &gloria_pb.Download{Priority: 0}
 		}
