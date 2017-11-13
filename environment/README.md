@@ -13,7 +13,7 @@ _Lists the geological and physical environment details of collection points._
 | _Code_ | Code to uniquely identify GNSS _Mark_ (or recording _Station_)
 | _Sky Visibility_ | Free form description of the site sky visibility and obstructions
 | _Start Date_ | General date and time at which the visibility was accurate
-| _Start Date_ | General date and time at which the visibility was no longer accurate
+| _End Date_ | General date and time at which the visibility was no longer accurate
 
 ### CHECKS ###
 
