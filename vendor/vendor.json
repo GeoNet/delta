@@ -3,10 +3,10 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "uTD1qNJwBgxUdiGZLc7c8Ua4P/g=",
+			"checksumSHA1": "+i9FIyYfPr/lGT3+eXLwdGZgCFI=",
 			"path": "github.com/GeoNet/kit/gloria_pb",
-			"revision": "2a8011896ec4440dec30b972eabd77445f2a3749",
-			"revisionTime": "2017-11-07T22:54:58Z"
+			"revision": "36355c79499e61e8c9992f9e8148e00d323796a1",
+			"revisionTime": "2017-11-13T23:53:48Z"
 		},
 		{
 			"checksumSHA1": "kBeNcaKk56FguvPSUCEaH6AxpRc=",
