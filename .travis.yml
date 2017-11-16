@@ -10,6 +10,10 @@ go:
 
 install: true
 
+env:
+  global: #The TRAVIS_API_TOKEN for triggering SIT build
+    secure: fVKWnQE9GDIJIwqU+gwfGLfZi6ZGHkoeIFwv0d0R1YAxiv0dIkG1F/tvmqOm82wHPiKgB9kBHVVgxfz8miALpkCsVAeVss4g/hpbjG9vlIm26vpvonw+2FUe04jBpf1gtEAy8waTwHYcAPm58W8Q72/P8unlc7onOuLRYBNabVdtE36An34Yq0bTmc8cUyCP6Gg14SzAmYl6A5fOtbgUc72EgJ7MGnaeifjIaH+CQSVWK5SSuANv70v4aD18P2Fwe5TNSa1Loah/AE33xgeCbiYeZsjUCQ0b7HEbhT+22gh2wORlLIM58SKE10dx/O1pI2axoTeqUjLKCs8TqkHtwc82h8wt4uDwqsH8zCwpYqjr2bSyzoG+9mV+AdB135EtBT6NrIB9vDbr/0u35D61LUrbPZnPARVyzrT9WvYG0B8/HkEayrBWWX+chRUCARDghSEKfBmH9HqXwJenYTau6AuqkqBh/pt54MvNzg8uk+HNzUSpxxLPVq1Xix/QC/uf43VNaavF7ZfzAYMHBr6Kg+/qcAWsNGw3Gf+45EHTedQdetdPdzTTdqeF5SN7kNtP+NSuAwsSgwekqcX0hPD+BsIjAOHCOG5M/09NYJvA5vJ/cMMnxBaPXH3I0lG96TXO7t3yq6Nncit1D6Np9XlDPOgBJDlEQvEdER/4XMT+jKQ=
+
 script:
   - ./test.sh
   - ./build.sh
@@ -48,5 +52,8 @@ deploy:
     upload-dir: config
     on:
       branch: master
+
+after_deploy:
+  - ./tools/sit/sit_build.sh
 
 # vim: set ts=2 sw=2 tw=0 et:
