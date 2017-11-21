@@ -1,5 +1,5 @@
 ---
-dataloggermodel:
+datalogger-model:
   ORION:
     type: Datalogger
     description: Orion

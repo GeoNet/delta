@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   IESE HS-1-LT Mini 4.5Hz:
     type: Short Period Seismometer
     description: HS1-1-LT

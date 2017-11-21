@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   Scout Hydrophone:
     type: Hydrophone
     description: Scout
