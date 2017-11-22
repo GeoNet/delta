@@ -120,7 +120,7 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 }
 
 var MetSensors map[string]MetSensor = map[string]MetSensor{
-	"Paroscientific meterological sensor": MetSensor{
+	"Paroscientific MET3": MetSensor{
 		Model:      "PAROSCIENTIFIC",
 		Type:       "MET3",
 		HrAccuracy: "2.0",
