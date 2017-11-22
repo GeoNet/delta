@@ -466,6 +466,11 @@ func TestList(t *testing.T) {
 						Datum:     "NZGD2000",
 					},
 					Mark: "GRAC",
+					Accuracy: meta.MetSensorAccuracy{
+						Humidity:    2.0,
+						Pressure:    0.5,
+						Temperature: 1,
+					},
 				},
 				meta.InstalledMetSensor{
 					Install: meta.Install{
@@ -492,6 +497,11 @@ func TestList(t *testing.T) {
 						Datum:     "NZGD2000",
 					},
 					Mark: "MTJO",
+					Accuracy: meta.MetSensorAccuracy{
+						Humidity:    2.0,
+						Pressure:    0.5,
+						Temperature: 1,
+					},
 				},
 			},
 		},
