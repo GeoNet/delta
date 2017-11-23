@@ -65,6 +65,9 @@ to GNSS receivers
 | _Serial_ | Installed met sensor serial number
 | _Mark_ | Installed met sensor associated GNSS _Mark_
 | _IMS Comment_ | Header comments
+| _Humidity_ | Humidity sensor accuracy | % rel H
+| _Pressure_ | Pressure sensor accuracy | hPa
+| _Temperature_ | Temperature sensor accuracy | deg C
 | _Latitude_ | Installed met sensor latitude | degrees north
 | _Longitude_ | Installed met sensor longitude | degrees east
 | _Elevation_ | Installed met sensor elevation | metres
