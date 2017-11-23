@@ -14,6 +14,9 @@ const (
 	installedMetsensorSerial
 	installedMetsensorMark
 	installedMetsensorIMSComment
+	installedMetsensorHumidityAccuracy
+	installedMetsensorPressureAccuracy
+	installedMetsensorTemperatureAccuracy
 	installedMetsensorLatitude
 	installedMetsensorLongitude
 	installedMetsensorElevation
@@ -23,12 +26,19 @@ const (
 	installedMetsensorLast
 )
 
+type MetSensorAccuracy struct {
+	Humidity    float64
+	Pressure    float64
+	Temperature float64
+}
+
 type InstalledMetSensor struct {
 	Install
 	Point
 
 	Mark       string
 	IMSComment string
+	Accuracy   MetSensorAccuracy
 }
 
 type InstalledMetSensorList []InstalledMetSensor
@@ -44,6 +54,9 @@ func (m InstalledMetSensorList) encode() [][]string {
 		"Serial",
 		"Mark",
 		"IMS Comment",
+		"Humidity",
+		"Pressure",
+		"Temperature",
 		"Latitude",
 		"Longitude",
 		"Elevation",
@@ -58,6 +71,9 @@ func (m InstalledMetSensorList) encode() [][]string {
 			strings.TrimSpace(v.Serial),
 			strings.TrimSpace(v.Mark),
 			strings.TrimSpace(v.IMSComment),
+			strconv.FormatFloat(v.Accuracy.Humidity, 'g', -1, 64),
+			strconv.FormatFloat(v.Accuracy.Pressure, 'g', -1, 64),
+			strconv.FormatFloat(v.Accuracy.Temperature, 'g', -1, 64),
 			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
 			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
@@ -77,6 +93,17 @@ func (m *InstalledMetSensorList) decode(data [][]string) error {
 				return fmt.Errorf("incorrect number of installed metsensor fields")
 			}
 			var err error
+
+			var h, p, t float64
+			if h, err = strconv.ParseFloat(d[installedMetsensorHumidityAccuracy], 64); err != nil {
+				return err
+			}
+			if p, err = strconv.ParseFloat(d[installedMetsensorPressureAccuracy], 64); err != nil {
+				return err
+			}
+			if t, err = strconv.ParseFloat(d[installedMetsensorTemperatureAccuracy], 64); err != nil {
+				return err
+			}
 
 			var lat, lon, elev float64
 			if lat, err = strconv.ParseFloat(d[installedMetsensorLatitude], 64); err != nil {
@@ -117,6 +144,11 @@ func (m *InstalledMetSensorList) decode(data [][]string) error {
 				},
 				Mark:       strings.TrimSpace(d[installedMetsensorMark]),
 				IMSComment: strings.TrimSpace(d[installedMetsensorIMSComment]),
+				Accuracy: MetSensorAccuracy{
+					Humidity:    h,
+					Pressure:    p,
+					Temperature: t,
+				},
 			})
 		}
 
