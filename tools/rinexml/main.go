@@ -119,16 +119,6 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 	},
 }
 
-var MetSensors map[string]MetSensor = map[string]MetSensor{
-	"Paroscientific MET3": MetSensor{
-		Model:      "PAROSCIENTIFIC",
-		Type:       "MET3",
-		HrAccuracy: "2.0",
-		PrAccuracy: "0.1",
-		TdAccuracy: "0.5",
-	},
-}
-
 type SessionList []meta.Session
 
 func (s SessionList) Len() int           { return len(s) }
@@ -323,14 +313,12 @@ func main() {
 							if (!v.Start.Before(s.End)) || (!v.End.After(s.Start)) {
 								continue
 							}
-							if k, ok := MetSensors[v.Model]; ok {
-								metsensor = &MetSensor{
-									Model:      k.Model,
-									Type:       k.Type + " S/N " + v.Serial,
-									HrAccuracy: k.HrAccuracy,
-									PrAccuracy: k.PrAccuracy,
-									TdAccuracy: k.TdAccuracy,
-								}
+							metsensor = &MetSensor{
+								Model:      v.Make,
+								Type:       v.Model + " S/N " + v.Serial,
+								HrAccuracy: strconv.FormatFloat(v.Accuracy.Humidity, 'g', -1, 64),
+								PrAccuracy: strconv.FormatFloat(v.Accuracy.Pressure, 'g', -1, 64),
+								TdAccuracy: strconv.FormatFloat(v.Accuracy.Temperature, 'g', -1, 64),
 							}
 						}
 					}

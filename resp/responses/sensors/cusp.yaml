@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   CUSP-Me SENSOR:
     type: Building Array Sensor
     description: CUSP Me

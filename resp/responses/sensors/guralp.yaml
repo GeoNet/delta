@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   CMG-3ESP:
     type: Broadband Seismometer
     description: CMG-3ESP

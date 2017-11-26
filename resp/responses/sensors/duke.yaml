@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   2 Hz Duke Malin Seismometer:
     type: Short Period Borehole Seismometer
     description: Duke Malin
