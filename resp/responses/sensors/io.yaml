@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   GS-11D seismometer:
     type: Short Period Seismometer
     description: GS-11D

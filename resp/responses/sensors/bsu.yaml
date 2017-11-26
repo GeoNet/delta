@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   InfraBSU microphone:
     type: Microphone
     description: InfraBSU

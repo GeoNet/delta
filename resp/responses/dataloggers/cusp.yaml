@@ -1,5 +1,5 @@
 ---
-dataloggermodel:
+datalogger-model:
   CUSP3A:
     type: Strong Motion Recorder
     description: Cusp3A
