@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   270-600/12V:
     type: Barometer
     description: Setra 270

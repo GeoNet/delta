@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   L4C:
     type: Short Period Seismometer
     description: L4C
