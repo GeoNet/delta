@@ -350,43 +350,33 @@ func main() {
 
 					list = append(list, CGPSSessionXML{
 						StartTime: func() string {
-							/*
-								if r.Start.After(s.Start) && r.Start.After(a.Start) {
-									return r.Start.Format(DateTimeFormat)
-								} else if a.Start.After(s.Start) {
-									return a.Start.Format(DateTimeFormat)
-								} else {
-									return s.Start.Format(DateTimeFormat)
-								}
-							*/
-							return s.Start.Format(DateTimeFormat)
+							if r.Start.After(s.Start) && r.Start.After(a.Start) {
+								return r.Start.Format(DateTimeFormat)
+							} else if a.Start.After(s.Start) {
+								return a.Start.Format(DateTimeFormat)
+							} else {
+								return s.Start.Format(DateTimeFormat)
+							}
 						}(),
 						StopTime: func() string {
-							/*
-								if r.End.Before(s.End) && r.End.Before(a.End) {
-									if time.Now().After(r.End) {
-										return r.End.Format(DateTimeFormat)
-									} else {
-										return "open"
-									}
-								} else if a.End.Before(s.End) {
-									if time.Now().After(a.End) {
-										return a.End.Format(DateTimeFormat)
-									} else {
-										return "open"
-									}
+							if r.End.Before(s.End) && r.End.Before(a.End) {
+								if time.Now().After(r.End) {
+									return r.End.Format(DateTimeFormat)
 								} else {
-									if time.Now().After(s.End) {
-										return s.End.Format(DateTimeFormat)
-									} else {
-										return "open"
-									}
+									return "open"
 								}
-							*/
-							if time.Now().After(s.End) {
-								return s.End.Format(DateTimeFormat)
+							} else if a.End.Before(s.End) {
+								if time.Now().After(a.End) {
+									return a.End.Format(DateTimeFormat)
+								} else {
+									return "open"
+								}
 							} else {
-								return "open"
+								if time.Now().After(s.End) {
+									return s.End.Format(DateTimeFormat)
+								} else {
+									return "open"
+								}
 							}
 						}(),
 						Receiver: ReceiverXML{
