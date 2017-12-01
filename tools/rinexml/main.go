@@ -433,6 +433,8 @@ func main() {
 			}
 		}
 
+		sort.Sort(CGPSSessionXMLs(list))
+
 		if time.Now().Before(m.End) {
 			on = append(on, Mark{
 				Name:    m.Name,
