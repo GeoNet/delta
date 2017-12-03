@@ -119,16 +119,6 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 	},
 }
 
-var MetSensors map[string]MetSensor = map[string]MetSensor{
-	"Paroscientific meterological sensor": MetSensor{
-		Model:      "PAROSCIENTIFIC",
-		Type:       "MET3",
-		HrAccuracy: "2.0",
-		PrAccuracy: "0.1",
-		TdAccuracy: "0.5",
-	},
-}
-
 type SessionList []meta.Session
 
 func (s SessionList) Len() int           { return len(s) }
@@ -323,14 +313,12 @@ func main() {
 							if (!v.Start.Before(s.End)) || (!v.End.After(s.Start)) {
 								continue
 							}
-							if k, ok := MetSensors[v.Model]; ok {
-								metsensor = &MetSensor{
-									Model:      k.Model,
-									Type:       k.Type + " S/N " + v.Serial,
-									HrAccuracy: k.HrAccuracy,
-									PrAccuracy: k.PrAccuracy,
-									TdAccuracy: k.TdAccuracy,
-								}
+							metsensor = &MetSensor{
+								Model:      v.Make,
+								Type:       v.Model + " S/N " + v.Serial,
+								HrAccuracy: strconv.FormatFloat(v.Accuracy.Humidity, 'g', -1, 64),
+								PrAccuracy: strconv.FormatFloat(v.Accuracy.Pressure, 'g', -1, 64),
+								TdAccuracy: strconv.FormatFloat(v.Accuracy.Temperature, 'g', -1, 64),
 							}
 						}
 					}
@@ -362,43 +350,33 @@ func main() {
 
 					list = append(list, CGPSSessionXML{
 						StartTime: func() string {
-							/*
-								if r.Start.After(s.Start) && r.Start.After(a.Start) {
-									return r.Start.Format(DateTimeFormat)
-								} else if a.Start.After(s.Start) {
-									return a.Start.Format(DateTimeFormat)
-								} else {
-									return s.Start.Format(DateTimeFormat)
-								}
-							*/
-							return s.Start.Format(DateTimeFormat)
+							if r.Start.After(s.Start) && r.Start.After(a.Start) {
+								return r.Start.Format(DateTimeFormat)
+							} else if a.Start.After(s.Start) {
+								return a.Start.Format(DateTimeFormat)
+							} else {
+								return s.Start.Format(DateTimeFormat)
+							}
 						}(),
 						StopTime: func() string {
-							/*
-								if r.End.Before(s.End) && r.End.Before(a.End) {
-									if time.Now().After(r.End) {
-										return r.End.Format(DateTimeFormat)
-									} else {
-										return "open"
-									}
-								} else if a.End.Before(s.End) {
-									if time.Now().After(a.End) {
-										return a.End.Format(DateTimeFormat)
-									} else {
-										return "open"
-									}
+							if r.End.Before(s.End) && r.End.Before(a.End) {
+								if time.Now().After(r.End) {
+									return r.End.Format(DateTimeFormat)
 								} else {
-									if time.Now().After(s.End) {
-										return s.End.Format(DateTimeFormat)
-									} else {
-										return "open"
-									}
+									return "open"
 								}
-							*/
-							if time.Now().After(s.End) {
-								return s.End.Format(DateTimeFormat)
+							} else if a.End.Before(s.End) {
+								if time.Now().After(a.End) {
+									return a.End.Format(DateTimeFormat)
+								} else {
+									return "open"
+								}
 							} else {
-								return "open"
+								if time.Now().After(s.End) {
+									return s.End.Format(DateTimeFormat)
+								} else {
+									return "open"
+								}
 							}
 						}(),
 						Receiver: ReceiverXML{

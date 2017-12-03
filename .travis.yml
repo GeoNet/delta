@@ -10,6 +10,7 @@ go:
 
 install: true
 
+
 script:
   - ./test.sh
   - ./build.sh
@@ -48,5 +49,8 @@ deploy:
     upload-dir: config
     on:
       branch: master
+
+after_script:
+  - ./tools/sit/sit_build.sh
 
 # vim: set ts=2 sw=2 tw=0 et:

@@ -122,6 +122,8 @@ func main() {
 		monuments[m.Mark] = m
 	}
 
+	var marks = gloria_pb.Marks{Marks: make(map[string]*gloria_pb.Mark)}
+
 	for _, m := range markList {
 
 		mark_pb := gloria_pb.Mark{
@@ -145,6 +147,7 @@ func main() {
 			mark_pb.Distribution = &gloria_pb.Distribution{Igs: true}
 		case m.Network == "LI":
 			mark_pb.Download = &gloria_pb.Download{Priority: 100}
+			mark_pb.Distribution = &gloria_pb.Distribution{Linz: true}
 		default:
 			mark_pb.Download = &gloria_pb.Download{Priority: 0}
 		}
@@ -239,5 +242,16 @@ Contact: www.geonet.org.nz  email: info@geonet.org.nz`
 			os.Exit(-1)
 		}
 
+		marks.Marks[m.Code] = &mark_pb
+	}
+
+	b, err := proto.Marshal(&marks)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to marshal marks index protobuf: %v\n", err)
+		os.Exit(-1)
+	}
+	if err := ioutil.WriteFile(filepath.Join(output, "mark-index.pb"), b, 0644); err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
+		os.Exit(-1)
 	}
 }

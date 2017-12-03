@@ -49,6 +49,11 @@ go build ./tools/gloria || exit 255
 
 ./gloria --install install --network network -output .tmp/geonet-meta/config/gloria
 
+mkdir -p .tmp/geonet-meta/config/sit || exit 255
+go build ./tools/sit || exit 255
+
+./sit -install install -network network -asset assets -output .tmp/geonet-meta/config/sit
+
 exit $errcount
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4

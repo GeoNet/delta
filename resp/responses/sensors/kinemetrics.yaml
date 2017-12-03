@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
    FBA-23-DECK:
      type: Accelerometer
      description: FBA-23

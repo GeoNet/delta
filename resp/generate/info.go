@@ -38,8 +38,8 @@ type ResponseInfo struct {
 	PAZ             map[string]PAZ             `yaml:"paz"`
 	Polynomial      map[string]Polynomial      `yaml:"polynomial"`
 	FIR             map[string]FIR             `yaml:"fir"`
-	DataloggerModel map[string]DataloggerModel `yaml:"dataloggermodel"`
-	SensorModel     map[string]SensorModel     `yaml:"sensormodel"`
+	DataloggerModel map[string]DataloggerModel `yaml:"datalogger-model"`
+	SensorModel     map[string]SensorModel     `yaml:"sensor-model"`
 	Filter          map[string][]ResponseStage `yaml:"filter"`
 	Response        map[string]Response        `yaml:"response"`
 }
