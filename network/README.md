@@ -37,6 +37,7 @@ _Lists the geographical and physical characteristics of collection points._
 * _End Date_ - General date and time at which the _Monument_ was operational.
 * _Bedrock_ -
 * _Geology_ -
+* _Description_ - GNSS reference point and monument description
 
 Valid Monument Types are:
 
