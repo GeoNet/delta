@@ -10,10 +10,10 @@ error_handler () {
 trap error_handler ERR
 
 echo "go formatting" 1>&2
-test -z "$(find ./meta ./resp ./tests ./tools -name "*.go" -exec gofmt -l {} \; | tee /dev/stderr)"
+test -z "$(find ./meta ./resp ./internal ./tests ./tools -name "*.go" -exec gofmt -l {} \; | tee /dev/stderr)"
 
 echo "go vetting" 1>&2
-go vet ./meta ./resp ./tests ./tools/...
+go vet ./meta ./resp ./internal/... ./tests ./tools/...
 
 echo "go testing" 1>&2
 go test ./meta
