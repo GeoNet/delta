@@ -60,7 +60,7 @@ func main() {
 			log.Fatalf("unable to decode StationXML file: %s [%v]", f, err)
 		}
 
-		for i, _ := range s.Networks {
+		for i := range s.Networks {
 			if err := pod.Network(&s.Networks[i]); err != nil {
 				log.Fatalf("unable to build POD files: [%v]", err)
 			}

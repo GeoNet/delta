@@ -72,7 +72,7 @@ func (cp ConfigPage) CombinedMedium(base string) ([]Page, error) {
 				Width:  "400",
 				Png:    cp.Png(StationChannel(s, c), "/volcano/drums/latest/m-%s-seismic-combined.png"),
 				Plots: []Plot{
-					Plot{
+					{
 						Id:      "rsam",
 						Clip:    "1",
 						Height:  "125",
@@ -82,7 +82,7 @@ func (cp ConfigPage) CombinedMedium(base string) ([]Page, error) {
 						X:       "4",
 						Y:       "14",
 						Streams: []Stream{
-							Stream{
+							{
 								Auto:   "yes",
 								Colour: "#000000a0",
 								Format: "amplitude",
@@ -121,7 +121,7 @@ func (cp ConfigPage) CombinedMedium(base string) ([]Page, error) {
 							Pen:    "2",
 						},
 					},
-					Plot{
+					{
 						Id:      "ssam",
 						Clip:    "1",
 						Height:  "125",
@@ -131,7 +131,7 @@ func (cp ConfigPage) CombinedMedium(base string) ([]Page, error) {
 						X:       "4",
 						Y:       "151",
 						Streams: []Stream{
-							Stream{
+							{
 								Auto:     "yes",
 								Colour:   "#000000a0",
 								Equalise: "no",
@@ -160,7 +160,7 @@ func (cp ConfigPage) CombinedMedium(base string) ([]Page, error) {
 			Width:  "400",
 			Png:    cp.Png(s, "/volcano/drums/latest/m-%s-seismic-combined.png"),
 			Plots: []Plot{
-				Plot{
+				{
 					Id:      "rsam",
 					Clip:    "1",
 					Height:  "125",
@@ -170,7 +170,7 @@ func (cp ConfigPage) CombinedMedium(base string) ([]Page, error) {
 					X:       "4",
 					Y:       "14",
 					Streams: []Stream{
-						Stream{
+						{
 							Auto:   "yes",
 							Colour: "#000000a0",
 							Format: "amplitude",
@@ -209,7 +209,7 @@ func (cp ConfigPage) CombinedMedium(base string) ([]Page, error) {
 						Pen:    "2",
 					},
 				},
-				Plot{
+				{
 					Id:      "ssam",
 					Clip:    "1",
 					Height:  "125",
@@ -219,7 +219,7 @@ func (cp ConfigPage) CombinedMedium(base string) ([]Page, error) {
 					X:       "4",
 					Y:       "151",
 					Streams: []Stream{
-						Stream{
+						{
 							Auto:     "yes",
 							Colour:   "#000000a0",
 							Equalise: "no",

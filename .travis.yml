@@ -12,6 +12,8 @@ install: true
 
 
 script:
+  - test -z "$(gofmt -s -l `find . -name "*.go" | egrep -v vendor` | tee /dev/stderr)"
+  - go vet ./...
   - ./test.sh
   - ./build.sh
 

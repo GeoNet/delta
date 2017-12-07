@@ -60,7 +60,7 @@ func (m *MetaDB) Channels(sta string) ([]Channel, error) {
 			}
 
 			lookup := response.Channels(stream.Axial)
-			for pin, _ := range response.Components {
+			for pin := range response.Components {
 				if !(pin < len(lookup)) {
 					continue
 				}
