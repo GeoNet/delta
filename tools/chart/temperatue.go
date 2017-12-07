@@ -15,7 +15,7 @@ func (cp ConfigPage) Temperature(base string) ([]Page, error) {
 			Width:  "770",
 			Png:    cp.Png(s, "/volcano/%n/%s/%l/drum.png"),
 			Plots: []Plot{
-				Plot{
+				{
 					Id:      "rsam",
 					Clip:    "1",
 					Height:  "440",
@@ -24,7 +24,7 @@ func (cp ConfigPage) Temperature(base string) ([]Page, error) {
 					Width:   "700",
 					X:       "40",
 					Streams: []Stream{
-						Stream{
+						{
 							Auto:   "false",
 							Gain:   "50.0",
 							Colour: "#000000a0",

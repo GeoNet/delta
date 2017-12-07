@@ -95,7 +95,7 @@ func (cp ConfigPage) Drum(base string) ([]Page, error) {
 						Width:  "760",
 						Png:    cp.Png(StationChannel(s, c), "/earthquake/drums/latest/%s-seismic-drum.png"),
 						Plots: []Plot{
-							Plot{
+							{
 								Id:      cp.Id(StationChannel(s, c), "%t-%n-%s-%l-drum"),
 								Clip:    "5",
 								Height:  "440",
@@ -104,7 +104,7 @@ func (cp ConfigPage) Drum(base string) ([]Page, error) {
 								Width:   "700",
 								X:       "40",
 								Streams: []Stream{
-									Stream{
+									{
 										Alt:    "137 104 205",
 										Auto:   cp.Auto(StationChannel(s, c)),
 										Gain:   cp.Gain(StationChannel(s, c)),
@@ -141,13 +141,13 @@ func (cp ConfigPage) Drum(base string) ([]Page, error) {
 											String: s.Name,
 										},
 										XGrids: []XGrid{
-											XGrid{
+											{
 												Colour: "143 188 143",
 												IsDate: "yes",
 												Pen:    "0.5",
 												Step:   "60",
 											},
-											XGrid{
+											{
 												Colour: "32 178 170",
 												IsDate: "yes",
 												Pen:    "0.5",
@@ -195,7 +195,7 @@ func (cp ConfigPage) Drum(base string) ([]Page, error) {
 			Width:  "760",
 			Png:    cp.Png(s, "/earthquake/drums/latest/%s-seismic-drum.png"),
 			Plots: []Plot{
-				Plot{
+				{
 					Id:      cp.Id(s, "%t-%n-%s-%l-drum"),
 					Clip:    "5",
 					Height:  "440",
@@ -204,7 +204,7 @@ func (cp ConfigPage) Drum(base string) ([]Page, error) {
 					Width:   "700",
 					X:       "40",
 					Streams: []Stream{
-						Stream{
+						{
 							Alt:    "137 104 205",
 							Auto:   cp.Auto(s),
 							Gain:   cp.Gain(s),
@@ -241,13 +241,13 @@ func (cp ConfigPage) Drum(base string) ([]Page, error) {
 								String: s.Title,
 							},
 							XGrids: []XGrid{
-								XGrid{
+								{
 									Colour: "143 188 143",
 									IsDate: "yes",
 									Pen:    "0.5",
 									Step:   "60",
 								},
-								XGrid{
+								{
 									Colour: "32 178 170",
 									IsDate: "yes",
 									Pen:    "0.5",

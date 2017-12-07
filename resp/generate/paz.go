@@ -29,7 +29,7 @@ type pazMap map[string]PAZ
 
 func (p pazMap) Keys() []string {
 	var keys []string
-	for k, _ := range p {
+	for k := range p {
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
