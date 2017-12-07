@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/GeoNet/kit/gloria_pb"
 	"github.com/GeoNet/delta/meta"
+	"github.com/GeoNet/kit/gloria_pb"
 	"github.com/golang/protobuf/proto"
 	"io/ioutil"
 	"os"
