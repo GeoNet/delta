@@ -116,8 +116,8 @@ func main() {
 		firmwareHistory[i.Model][i.Serial] = append(firmwareHistory[i.Model][i.Serial], i)
 	}
 
-	for j, _ := range firmwareHistory {
-		for k, _ := range firmwareHistory[j] {
+	for j := range firmwareHistory {
+		for k := range firmwareHistory[j] {
 			sort.Sort(meta.FirmwareHistoryList(firmwareHistory[j][k]))
 		}
 	}
@@ -131,7 +131,7 @@ func main() {
 	for _, i := range installedAntennaList {
 		installedAntenna[i.Mark] = append(installedAntenna[i.Mark], i)
 	}
-	for i, _ := range installedAntenna {
+	for i := range installedAntenna {
 		sort.Sort(meta.InstalledAntennaList(installedAntenna[i]))
 	}
 
@@ -144,7 +144,7 @@ func main() {
 	for _, i := range deployedReceiverList {
 		deployedReceivers[i.Mark] = append(deployedReceivers[i.Mark], i)
 	}
-	for i, _ := range deployedReceivers {
+	for i := range deployedReceivers {
 		sort.Sort(meta.DeployedReceiverList(deployedReceivers[i]))
 	}
 
@@ -157,7 +157,7 @@ func main() {
 	for _, i := range installedRadomeList {
 		installedRadomes[i.Mark] = append(installedRadomes[i.Mark], i)
 	}
-	for i, _ := range installedRadomes {
+	for i := range installedRadomes {
 		sort.Sort(meta.InstalledRadomeList(installedRadomes[i]))
 	}
 
@@ -170,7 +170,7 @@ func main() {
 	for _, i := range installedMetSensorList {
 		installedMetSensors[i.Mark] = append(installedMetSensors[i.Mark], i)
 	}
-	for i, _ := range installedMetSensors {
+	for i := range installedMetSensors {
 		sort.Sort(meta.InstalledMetSensorList(installedMetSensors[i]))
 	}
 
@@ -292,7 +292,7 @@ func main() {
 		for _, r := range deployedReceivers[m.Code] {
 			if _, ok := firmwareHistory[r.Model]; ok {
 				if _, ok := firmwareHistory[r.Model][r.Serial]; ok {
-					for i, _ := range firmwareHistory[r.Model][r.Serial] {
+					for i := range firmwareHistory[r.Model][r.Serial] {
 
 						v := firmwareHistory[r.Model][r.Serial][len(firmwareHistory[r.Model][r.Serial])-i-1]
 						if v.End.Before(r.Start) || v.Start.After(r.End) {

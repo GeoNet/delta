@@ -32,7 +32,7 @@ type responseMap map[string]Response
 
 func (r responseMap) Keys() []string {
 	var keys []string
-	for k, _ := range r {
+	for k := range r {
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)

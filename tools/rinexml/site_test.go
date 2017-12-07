@@ -97,7 +97,7 @@ func TestSiteXML_Marshal(t *testing.T) {
 					Datum:     "WGS84",
 				},
 				Sessions: []CGPSSessionXML{
-					CGPSSessionXML{
+					{
 						StartTime: "2015-08-31T20:40:01",
 						StopTime:  "open",
 						ObservationInterval: Number{
@@ -126,17 +126,17 @@ func TestSiteXML_Marshal(t *testing.T) {
 							SerialNumber:   "5307K50971",
 							IGSDesignation: "TRIMBLE NETR9",
 							FirmwareHistories: []FirmwareHistoryXML{
-								FirmwareHistoryXML{
+								{
 									StartTime: "2015-08-31T20:40:01",
 									StopTime:  "open",
 									Version:   "4.85",
 								},
-								FirmwareHistoryXML{
+								{
 									StartTime: "2014-12-16T00:00:01",
 									StopTime:  "2015-08-31T20:40:00",
 									Version:   "4.82",
 								},
-								FirmwareHistoryXML{
+								{
 									StartTime: "2014-05-07T00:00:00",
 									StopTime:  "2014-12-16T00:00:00",
 									Version:   "4.81",

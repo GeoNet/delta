@@ -112,7 +112,7 @@ func buildStreams(base, channels string) (map[string]Stream, error) {
 					}
 					return stream.Axial
 				}())
-				for pin, _ := range response.Components {
+				for pin := range response.Components {
 					if !(pin < len(lookup)) {
 						continue
 					}

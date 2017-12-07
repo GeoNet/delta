@@ -89,7 +89,7 @@ func (cp ConfigPage) DrumSmall(base string) ([]Page, error) {
 						Width:  "400",
 						Png:    cp.Png(StationChannel(s, c), "/earthquake/drums/latest/%s-seismic-drum.png"),
 						Plots: []Plot{
-							Plot{
+							{
 								Id:      cp.Id(StationChannel(s, c), "%t-%n-%s-%l-s-drum"),
 								Clip:    "5",
 								Height:  "242",
@@ -100,7 +100,7 @@ func (cp ConfigPage) DrumSmall(base string) ([]Page, error) {
 								Y:       "21",
 								Missing: "Not operational",
 								Streams: []Stream{
-									Stream{
+									{
 										Alt:    "137 104 205",
 										Colour: "25 25 112",
 										Format: "amplitude",
@@ -125,13 +125,13 @@ func (cp ConfigPage) DrumSmall(base string) ([]Page, error) {
 											String: s.Name,
 										},
 										XGrids: []XGrid{
-											XGrid{
+											{
 												Colour: "143 188 143",
 												IsDate: "yes",
 												Pen:    "0.5",
 												Step:   "180",
 											},
-											XGrid{
+											{
 												Colour: "32 178 170",
 												IsDate: "yes",
 												Pen:    "0.5",
@@ -161,7 +161,7 @@ func (cp ConfigPage) DrumSmall(base string) ([]Page, error) {
 			Width:  "400",
 			Png:    cp.Png(s, "/earthquake/drums/latest/%s-seismic-drum.png"),
 			Plots: []Plot{
-				Plot{
+				{
 					Id:      cp.Id(s, "%t-%n-%s-%l-s-drum"),
 					Clip:    "5",
 					Height:  "242",
@@ -172,7 +172,7 @@ func (cp ConfigPage) DrumSmall(base string) ([]Page, error) {
 					Y:       "21",
 					Missing: "Not operational",
 					Streams: []Stream{
-						Stream{
+						{
 							Alt:    "137 104 205",
 							Colour: "25 25 112",
 							Font:   "LiberationSans Bold 10",
@@ -197,13 +197,13 @@ func (cp ConfigPage) DrumSmall(base string) ([]Page, error) {
 								String: s.Title,
 							},
 							XGrids: []XGrid{
-								XGrid{
+								{
 									Colour: "143 188 143",
 									IsDate: "yes",
 									Pen:    "0.5",
 									Step:   "180",
 								},
-								XGrid{
+								{
 									Colour: "32 178 170",
 									IsDate: "yes",
 									Pen:    "0.5",

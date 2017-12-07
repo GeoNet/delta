@@ -30,7 +30,7 @@ type polynomialMap map[string]Polynomial
 
 func (p polynomialMap) Keys() []string {
 	var keys []string
-	for k, _ := range p {
+	for k := range p {
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
