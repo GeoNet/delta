@@ -20,7 +20,6 @@ response:
       filters:
       - Q330_FLbelow100-1
       reversed: false
-    dataloggers:
     - dataloggers:
       - Q330S/6
       type: CW
