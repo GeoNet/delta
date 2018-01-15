@@ -72,7 +72,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 				Width:  "750",
 				Png:    cp.Png(StationChannel(s, c), "/volcano/drums/latest/%s-seismic-combined.png"),
 				Plots: []Plot{
-					Plot{
+					{
 						Id:     "dummy",
 						Height: "220",
 						Length: "35 days",
@@ -80,7 +80,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 						X:      "40",
 						Y:      "260",
 						Streams: []Stream{
-							Stream{
+							{
 								Rrd: cp.Rrd(StationChannel(s, c), ""),
 							},
 						},
@@ -92,7 +92,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 							Time:    "end",
 						},
 					},
-					Plot{
+					{
 						Id:      "rsam",
 						Clip:    "1",
 						Height:  "220",
@@ -102,7 +102,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 						X:       "40",
 						Y:       "20",
 						Streams: []Stream{
-							Stream{
+							{
 								Auto:   "yes",
 								Colour: "#000000a0",
 								Format: "amplitude",
@@ -158,7 +158,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 							Pen:    "2",
 						},
 					},
-					Plot{
+					{
 						Id:      "ssam",
 						Clip:    "1",
 						Height:  "220",
@@ -168,7 +168,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 						X:       "40",
 						Y:       "260",
 						Streams: []Stream{
-							Stream{
+							{
 								Auto:     "yes",
 								Colour:   "#000000a0",
 								Equalise: "no",
@@ -261,7 +261,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 			Width:  "750",
 			Png:    cp.Png(s, "/volcano/drums/latest/%s-seismic-combined.png"),
 			Plots: []Plot{
-				Plot{
+				{
 					Id:     "dummy",
 					Height: "220",
 					Length: "35 days",
@@ -269,7 +269,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 					X:      "40",
 					Y:      "260",
 					Streams: []Stream{
-						Stream{
+						{
 							Rrd: cp.Rrd(s, ""),
 						},
 					},
@@ -281,7 +281,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 						Time:    "end",
 					},
 				},
-				Plot{
+				{
 					Id:      "rsam",
 					Clip:    "1",
 					Height:  "220",
@@ -291,7 +291,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 					X:       "40",
 					Y:       "20",
 					Streams: []Stream{
-						Stream{
+						{
 							Auto:   "yes",
 							Colour: "#000000a0",
 							Format: "amplitude",
@@ -347,7 +347,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 						Pen:    "2",
 					},
 				},
-				Plot{
+				{
 					Id:      "ssam",
 					Clip:    "1",
 					Height:  "220",
@@ -357,7 +357,7 @@ func (cp ConfigPage) Combined(base string) ([]Page, error) {
 					X:       "40",
 					Y:       "260",
 					Streams: []Stream{
-						Stream{
+						{
 							Auto:     "yes",
 							Colour:   "#000000a0",
 							Equalise: "no",

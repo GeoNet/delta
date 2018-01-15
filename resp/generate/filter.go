@@ -22,7 +22,7 @@ type filterMap map[string][]ResponseStage
 
 func (f filterMap) Keys() []string {
 	var keys []string
-	for k, _ := range f {
+	for k := range f {
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
