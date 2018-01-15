@@ -64,7 +64,7 @@ func (cp ConfigPage) Trace(base string) ([]Page, error) {
 				Rrd:    cp.Rrd(StationChannel(s, c), "amplitude/drum/%s.%n/%s.%l-%c.%n.rrd"),
 				Style:  "trace",
 				Tags: []Tag{
-					Tag{
+					{
 						Aligned: "right",
 						Box:     "#ffffffe0",
 						Colour:  "#000000",
@@ -72,7 +72,7 @@ func (cp ConfigPage) Trace(base string) ([]Page, error) {
 						String:  s.Name,
 						XOffset: "-720",
 					},
-					Tag{
+					{
 						Aligned: "left",
 						Colour:  "#000000",
 						Font:    "LiberationSans Bold 7",
@@ -89,7 +89,7 @@ func (cp ConfigPage) Trace(base string) ([]Page, error) {
 		Width:  "800",
 		Png:    cp.Png(OptionStream{}, "/earthquake/drums/latest/national-%a-trace.png"),
 		Plots: []Plot{
-			Plot{
+			{
 				Id:      "drum",
 				Clip:    "2",
 				Height:  "670",

@@ -70,7 +70,7 @@ func (cp ConfigPage) Traces(base string) ([]Page, error) {
 					Rrd:    cp.Rrd(StationChannel(s, c), "amplitude/drum/%s.%n/%s.%l-%c.%n.rrd"),
 					Style:  "trace",
 					Tags: []Tag{
-						Tag{
+						{
 							Aligned: "right",
 							Box:     "#ffffffe0",
 							Colour:  "#006400",
@@ -78,7 +78,7 @@ func (cp ConfigPage) Traces(base string) ([]Page, error) {
 							String:  s.Name,
 							XOffset: "-720",
 						},
-						Tag{
+						{
 							Aligned: "left",
 							Colour:  "#006400",
 							Font:    "LiberationSans Bold 10",
@@ -95,7 +95,7 @@ func (cp ConfigPage) Traces(base string) ([]Page, error) {
 			Height: strconv.Itoa(len(streams)*20 + 80),
 			Png:    cp.Png(OptionStream{Network: net}, "/volcano/%n/%x.png"),
 			Plots: []Plot{
-				Plot{
+				{
 					Id:      "trace",
 					Clip:    "1",
 					Height:  strconv.Itoa(len(streams) * 20),

@@ -86,7 +86,7 @@ func (cp ConfigPage) Gauge(base string) ([]Page, error) {
 			Id:  cp.Id(OptionStream{Network: net}, "pressure-gauge-gauge-%n"),
 			Png: cp.Png(OptionStream{Network: net}, "/volcano/%n/gauge.png"),
 			Plots: []Plot{
-				Plot{
+				{
 					Id:      "gauge",
 					Clip:    "100",
 					Length:  "48 hours",

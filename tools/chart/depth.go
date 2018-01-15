@@ -65,7 +65,7 @@ func (cp ConfigPage) Depth(base string) ([]Page, error) {
 				Width:  "760",
 				Png:    cp.Png(StationChannel(s, c), "/volcano/%n/%s/%l/drum.png"),
 				Plots: []Plot{
-					Plot{
+					{
 						Id:      "rsam",
 						Clip:    "1",
 						Height:  "440",
@@ -74,7 +74,7 @@ func (cp ConfigPage) Depth(base string) ([]Page, error) {
 						Width:   "700",
 						X:       "40",
 						Streams: []Stream{
-							Stream{
+							{
 								Auto:   "no",
 								Colour: "#000000a0",
 								Format: "amplitude",

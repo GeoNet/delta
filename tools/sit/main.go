@@ -99,11 +99,10 @@ func main() {
 			Location: m.Location,
 			Span: &sit_delta_pb.Span{
 				Start: m.Start.Unix(),
-				End: m.End.Unix(),
+				End:   m.End.Unix(),
 			},
 		})
 	}
-
 
 	//asset files -- All have the same format so just pull them all into a single big map
 	assetFiles := []string{
@@ -167,7 +166,7 @@ func main() {
 				AssetNumber:  assets[i.Make+i.Model+i.Serial].Number,
 				SerialNumber: i.Serial,
 				Manufacturer: i.Make,
-				Height: -i.Vertical,
+				Height:       -i.Vertical,
 			},
 			Installed: &sit_delta_pb.Span{
 				Start: i.Start.Unix(),
@@ -184,9 +183,9 @@ func main() {
 	}
 	connections := make(map[string][]string)
 	for _, c := range connectionList {
-		 //TODO - Do we need to display 'connection' info?
+		//TODO - Do we need to display 'connection' info?
 
-		arr := connections[strings.TrimSpace(c.Place + c.Role)]
+		arr := connections[strings.TrimSpace(c.Place+c.Role)]
 		found := false
 		for _, s := range arr {
 			if s == c.Station {
@@ -206,7 +205,7 @@ func main() {
 		os.Exit(-1)
 	}
 	for _, i := range deployedDataloggerList {
-		stations := connections[strings.TrimSpace(i.Place + i.Role)]
+		stations := connections[strings.TrimSpace(i.Place+i.Role)]
 		for _, s := range stations {
 			equipment[s] = append(equipment[s], &sit_delta_pb.Equipment_Install{
 				Equipment: &sit_delta_pb.Equipment{
@@ -260,7 +259,7 @@ func main() {
 				AssetNumber:  assets[i.Make+i.Model+i.Serial].Number,
 				SerialNumber: i.Serial,
 				Manufacturer: i.Make,
-				Height: -i.Vertical,
+				Height:       -i.Vertical,
 			},
 			Installed: &sit_delta_pb.Span{
 				Start: i.Start.Unix(),
@@ -332,7 +331,7 @@ func main() {
 				AssetNumber:  assets[i.Make+i.Model+i.Serial].Number,
 				SerialNumber: i.Serial,
 				Manufacturer: i.Make,
-				Height: -i.Vertical,
+				Height:       -i.Vertical,
 			},
 			Installed: &sit_delta_pb.Span{
 				Start: i.Start.Unix(),
@@ -345,7 +344,6 @@ func main() {
 			}
 		}
 	}
-
 
 	for _, m := range markList {
 
@@ -361,7 +359,7 @@ func main() {
 				},
 				Monument: &sit_delta_pb.Monument{
 					DomesNumber: l.DomesNumber,
-					Height: l.GroundRelationship,
+					Height:      l.GroundRelationship,
 				},
 			}
 			im = append(im, &newMonument)
@@ -374,9 +372,9 @@ func main() {
 			InstalledMonument: im,
 			Point: &sit_delta_pb.Point{
 				Longitude: m.Longitude,
-				Latitude: m.Latitude,
+				Latitude:  m.Latitude,
 				Elevation: m.Elevation,
-				Datum: m.Datum,
+				Datum:     m.Datum,
 			},
 		}
 
