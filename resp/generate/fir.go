@@ -43,7 +43,7 @@ type firMap map[string]FIR
 
 func (f firMap) Keys() []string {
 	var keys []string
-	for k, _ := range f {
+	for k := range f {
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
