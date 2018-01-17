@@ -395,7 +395,7 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 								}
 							}(),
 							Comments: []stationxml.Comment{
-								stationxml.Comment{
+								{
 									Id: 1,
 									Value: func() string {
 										switch location.Survey {
@@ -414,11 +414,11 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 										}
 									}(),
 								},
-								stationxml.Comment{
+								{
 									Id:    2,
 									Value: "Location is given in " + location.Datum,
 								},
-								stationxml.Comment{
+								{
 									Id:    3,
 									Value: "Sensor orientation not known",
 								},
@@ -633,7 +633,7 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 				StartDate: start,
 				EndDate:   end,
 				Comments: []stationxml.Comment{
-					stationxml.Comment{
+					{
 						Id:    1,
 						Value: "Location is given in " + station.Datum,
 					},

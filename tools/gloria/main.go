@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/GeoNet/kit/gloria_pb"
 	"github.com/GeoNet/delta/meta"
+	"github.com/GeoNet/kit/gloria_pb"
 	"github.com/golang/protobuf/proto"
 	"io/ioutil"
 	"os"
@@ -58,8 +58,8 @@ func main() {
 		firmwareHistory[i.Model][i.Serial] = append(firmwareHistory[i.Model][i.Serial], i)
 	}
 
-	for j, _ := range firmwareHistory {
-		for k, _ := range firmwareHistory[j] {
+	for j := range firmwareHistory {
+		for k := range firmwareHistory[j] {
 			sort.Sort(meta.FirmwareHistoryList(firmwareHistory[j][k]))
 		}
 	}
@@ -74,7 +74,7 @@ func main() {
 	for _, i := range installedAntennaList {
 		installedAntenna[i.Mark] = append(installedAntenna[i.Mark], i)
 	}
-	for i, _ := range installedAntenna {
+	for i := range installedAntenna {
 		sort.Sort(sort.Reverse(meta.InstalledAntennaList(installedAntenna[i])))
 	}
 
@@ -88,7 +88,7 @@ func main() {
 	for _, i := range deployedReceiverList {
 		deployedReceivers[i.Mark] = append(deployedReceivers[i.Mark], i)
 	}
-	for i, _ := range deployedReceivers {
+	for i := range deployedReceivers {
 		sort.Sort(sort.Reverse(meta.DeployedReceiverList(deployedReceivers[i])))
 	}
 
@@ -102,7 +102,7 @@ func main() {
 	for _, i := range installedRadomeList {
 		installedRadomes[i.Mark] = append(installedRadomes[i.Mark], i)
 	}
-	for i, _ := range installedRadomes {
+	for i := range installedRadomes {
 		sort.Sort(meta.InstalledRadomeList(installedRadomes[i]))
 	}
 
