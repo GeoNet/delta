@@ -43,6 +43,7 @@ func matcher(path, def string) (*regexp.Regexp, error) {
 type Builder struct {
 	operational *time.Time
 	networks    *regexp.Regexp
+	external    *regexp.Regexp
 	stations    *regexp.Regexp
 	channels    *regexp.Regexp
 	sensors     *regexp.Regexp
@@ -82,6 +83,16 @@ func SetNetworks(list, match string) func(*Builder) error {
 			return err
 		}
 		b.networks = re
+		return nil
+	}
+}
+func SetExternal(list, match string) func(*Builder) error {
+	return func(b *Builder) error {
+		re, err := matcher(list, match)
+		if err != nil {
+			return err
+		}
+		b.external = re
 		return nil
 	}
 }
@@ -150,6 +161,12 @@ func (b *Builder) MatchNetwork(net string) bool {
 	}
 	return b.networks.MatchString(net)
 }
+func (b *Builder) MatchExternal(net string) bool {
+	if b.external == nil {
+		return true
+	}
+	return b.external.MatchString(net)
+}
 func (b *Builder) MatchStation(sta string) bool {
 	if b.stations == nil {
 		return true
@@ -205,7 +222,11 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 			continue
 		}
 
-		if !b.MatchNetwork(network.External) {
+		if !b.MatchNetwork(network.Code) {
+			continue
+		}
+
+		if !b.MatchExternal(network.External) {
 			continue
 		}
 

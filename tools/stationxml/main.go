@@ -48,10 +48,16 @@ func main() {
 	flag.StringVar(&channelList, "channel-list", "", "regex selection of channels from file")
 
 	var networkRegexp string
-	flag.StringVar(&networkRegexp, "networks", "[A-Z0-9]+", "regex selection of networks")
+	flag.StringVar(&networkRegexp, "networks", "[A-Z0-9]+", "regex selection of internal networks")
 
 	var networkList string
-	flag.StringVar(&networkList, "network-list", "", "regex selection of networks from file")
+	flag.StringVar(&networkList, "network-list", "", "regex selection of internal networks from file")
+
+	var externalRegexp string
+	flag.StringVar(&externalRegexp, "external", "[A-Z0-9]+", "regex selection of external networks")
+
+	var externalList string
+	flag.StringVar(&externalList, "external-list", "", "regex selection of external networks from file")
 
 	var sensorRegexp string
 	flag.StringVar(&sensorRegexp, "sensors", ".*", "regex selection of sensors")
@@ -98,6 +104,7 @@ func main() {
 		SetActive(active),
 		SetOperational(operational, offset),
 		SetNetworks(networkList, networkRegexp),
+		SetExternal(externalList, externalRegexp),
 		SetStations(stationList, stationRegexp),
 		SetChannels(channelList, channelRegexp),
 		SetSensors(sensorList, sensorRegexp),
