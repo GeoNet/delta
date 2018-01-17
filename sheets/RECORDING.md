@@ -1,5 +1,6 @@
 # COMMON SIGNAL RECORDING TASKS
 
+* :hammer: [Combined editing steps](#steps)
 * :scroll: :one: [Creating or updating a recording  __station__](#station)
 * :scroll: :two: [Creating or updating a recording __site__](#site)
 * :scroll: :three: [Installing or updating a __sensor__](#sensor)
@@ -7,7 +8,6 @@
 * :scroll: :five: [Installing or updating a __datalogger__](#datalogger)
 * :scroll: :six: [Installing or updating a __datalogger__ to __sensor__ connection](#connection) :dragon:
 * :scroll: :seven: [Installing or updating a __datalogger__ to __recorder__ stream](#stream) :dragon:
-* :hammer: [Combined editing steps](#steps)
 
 The dataloggers and recorders produce waveform data that is tagged by recording __station__ code,
 recording __site__ code, a "stream" code indicating orientation, and a sampling rate.
@@ -29,6 +29,22 @@ for mapping recorded data to a datalogger or recorder configuration. This is an 
 template which isn't dependent on the actual equipment being installed, only the broad settings.
 This is also the mechanism that can inject external information, such as when a stream has
 been flagged as being of the reverse polarity, and is mainly used to build _StationXML_ meta-data files.
+
+## <a name="steps">_Overall steps_
+
+> * :file_folder: Using a suitable mechanism create a new _git_ branch for the changes.
+> * :one: :pencil2: Update the __network/stations.csv__ file to add or update any recording __station__ information, the entries will need to be in order of __station__ code.
+> * :two: :pencil2: Update the __network/sites.csv__ file to add or update any recording __site__ information, the entries will need to be in order of __station__ code then __site__ code.
+> * :three: :pencil2: Update the __install/sensors.csv__ file to add any new __sensor__ installations, the entries will need to be in order of make, model, serial number, and installation time.
+> * :four: :pencil2: Update the __install/recorders.csv__ file to add any new __recorder__ installations, the entries will need to be in order of make, model, serial number, and installation time.
+> * :five: :pencil2: Update the __install/dataloggers.csv__ file to add any new __datalogger__ deployments, the entries will need to be in order of make, model, serial number, and deployment time.
+> * :six: :pencil2: Update the __install/connections.csv__ file to add any new __datalogger__ to __sensor__ connection details, the entries will need to be in order of __station__ code, __site__ code, and connection time.
+> * :seven: :pencil2: Update the __install/streams.csv__ file to add any new __datalogger__ or __recorder__ stream configuration details, the entries will need to be in order of __station__ code, __site__ code, sampling rate, and stream operational times.
+> * :open_file_folder: Build the pull request with a meaningful title.
+> * :link: Assign suitable tags and set reviewers.
+> * :repeat: If the tests fail, the above changes may need some iteration until they pass.
+> * :sos: If the tests are still failing, escalate as this may indicate some inconsistency within the network configuration.
+> * :ok: Once the tests have passed and the pull request reviewed, depending on policy, the pull request can be merged
 
 ## :one: <a name="station">_Creating or updating a recording station_
 
@@ -115,7 +131,7 @@ It is intended that recording __sites__ be fixed, any adjustments will be applie
 > * The operational start time must be before the end time.
 > * Recording __site__ operational times must be within the associated __station's__ operational times.
 
-## :three: <a name="sensor"></a>_Installing or replacing a sensor__
+## :three: <a name="sensor"></a>_Installing or replacing a sensor_
 
 > ### :page_with_curl: Files to update
 >
@@ -304,19 +320,3 @@ Use an end date of `9999-01-01T00:00:00Z` to indicate that a streams is currentl
 > * The sampling rate needs to be within the expected list: 0.1, 1, 10, 50, 100, or 200 Hz.
 > * Only one stream with a given sampling rate can be defined for a recording __site__ at any given time.
 >
-
-## _Overall steps_
-
-> * :file_folder: Using a suitable mechanism create a new _git_ branch for the changes.
-> * :one: :pencil2: Update the __network/stations.csv__ file to add or update any recording __station__ information, the entries will need to be in order of __station__ code.
-> * :two: :pencil2: Update the __network/sites.csv__ file to add or update any recording __site__ information, the entries will need to be in order of __station__ code then __site__ code.
-> * :three: :pencil2: Update the __install/sensors.csv__ file to add any new __sensor__ installations, the entries will need to be in order of make, model, serial number, and installation time.
-> * :four: :pencil2: Update the __install/recorders.csv__ file to add any new __recorder__ installations, the entries will need to be in order of make, model, serial number, and installation time.
-> * :five: :pencil2: Update the __install/dataloggers.csv__ file to add any new __datalogger__ deployments, the entries will need to be in order of make, model, serial number, and deployment time.
-> * :six: :pencil2: Update the __install/connections.csv__ file to add any new __datalogger__ to __sensor__ connection details, the entries will need to be in order of __station__code, __site__ code, and connection time.
-> * :seven: :pencil2: Update the __install/streams.csv__ file to add any new __datalogger__ or __recorder__ stream configuration details, the entries will need to be in order of __station__code, __site__ code, sampling rate, and stream operational times.
-> * :open_file_folder: Build the pull request with a meaningful title.
-> * :link: Assign suitable tags and set reviewers.
-> * :repeat: If the tests fail, the above changes may need some iteration until they pass.
-> * :sos: If the tests are still failing, escalate as this may indicate some inconsistency within the network configuration.
-> * :ok: Once the tests have passed and the pull request reviewed, depending on policy, the pull request can be merged
