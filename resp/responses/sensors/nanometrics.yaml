@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   Trillium 120QA:
     type: Broadband Seismometer
     description: Trillium 120 QA

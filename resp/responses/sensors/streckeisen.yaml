@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   STS-2:
     type: Broadband Seismometer
     description: STS-2

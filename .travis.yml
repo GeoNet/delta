@@ -6,11 +6,14 @@ services:
 language: go
 
 go:
-  - 1.7
+  - 1.9
 
 install: true
 
+
 script:
+  - test -z "$(gofmt -s -l `find . -name "*.go" | egrep -v vendor` | tee /dev/stderr)"
+  - go vet ./...
   - ./test.sh
   - ./build.sh
 
@@ -48,5 +51,8 @@ deploy:
     upload-dir: config
     on:
       branch: master
+
+after_script:
+  - ./tools/sit/sit_build.sh
 
 # vim: set ts=2 sw=2 tw=0 et:

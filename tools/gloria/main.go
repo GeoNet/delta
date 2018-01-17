@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/GeoNet/kit/gloria_pb"
 	"github.com/GeoNet/delta/meta"
+	"github.com/GeoNet/kit/gloria_pb"
 	"github.com/golang/protobuf/proto"
 	"io/ioutil"
 	"os"
@@ -58,8 +58,8 @@ func main() {
 		firmwareHistory[i.Model][i.Serial] = append(firmwareHistory[i.Model][i.Serial], i)
 	}
 
-	for j, _ := range firmwareHistory {
-		for k, _ := range firmwareHistory[j] {
+	for j := range firmwareHistory {
+		for k := range firmwareHistory[j] {
 			sort.Sort(meta.FirmwareHistoryList(firmwareHistory[j][k]))
 		}
 	}
@@ -74,7 +74,7 @@ func main() {
 	for _, i := range installedAntennaList {
 		installedAntenna[i.Mark] = append(installedAntenna[i.Mark], i)
 	}
-	for i, _ := range installedAntenna {
+	for i := range installedAntenna {
 		sort.Sort(sort.Reverse(meta.InstalledAntennaList(installedAntenna[i])))
 	}
 
@@ -88,7 +88,7 @@ func main() {
 	for _, i := range deployedReceiverList {
 		deployedReceivers[i.Mark] = append(deployedReceivers[i.Mark], i)
 	}
-	for i, _ := range deployedReceivers {
+	for i := range deployedReceivers {
 		sort.Sort(sort.Reverse(meta.DeployedReceiverList(deployedReceivers[i])))
 	}
 
@@ -102,7 +102,7 @@ func main() {
 	for _, i := range installedRadomeList {
 		installedRadomes[i.Mark] = append(installedRadomes[i.Mark], i)
 	}
-	for i, _ := range installedRadomes {
+	for i := range installedRadomes {
 		sort.Sort(meta.InstalledRadomeList(installedRadomes[i]))
 	}
 
@@ -121,6 +121,8 @@ func main() {
 	for _, m := range monumentList {
 		monuments[m.Mark] = m
 	}
+
+	var marks = gloria_pb.Marks{Marks: make(map[string]*gloria_pb.Mark)}
 
 	for _, m := range markList {
 
@@ -145,6 +147,7 @@ func main() {
 			mark_pb.Distribution = &gloria_pb.Distribution{Igs: true}
 		case m.Network == "LI":
 			mark_pb.Download = &gloria_pb.Download{Priority: 100}
+			mark_pb.Distribution = &gloria_pb.Distribution{Linz: true}
 		default:
 			mark_pb.Download = &gloria_pb.Download{Priority: 0}
 		}
@@ -239,5 +242,16 @@ Contact: www.geonet.org.nz  email: info@geonet.org.nz`
 			os.Exit(-1)
 		}
 
+		marks.Marks[m.Code] = &mark_pb
+	}
+
+	b, err := proto.Marshal(&marks)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to marshal marks index protobuf: %v\n", err)
+		os.Exit(-1)
+	}
+	if err := ioutil.WriteFile(filepath.Join(output, "mark-index.pb"), b, 0644); err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
+		os.Exit(-1)
 	}
 }

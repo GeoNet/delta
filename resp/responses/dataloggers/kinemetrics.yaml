@@ -1,5 +1,5 @@
 ---
-dataloggermodel:
+datalogger-model:
   BASALT:
     type: Strong Motion Recorder
     description: Basalt

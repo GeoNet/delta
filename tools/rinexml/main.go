@@ -49,7 +49,7 @@ var HeaderComments map[string]string = map[string]string{
 }
 
 var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNameFormatXML{
-	"x4": DownloadNameFormatXML{
+	"x4": {
 		Type:   "long",
 		Year:   "x4 A4 x*",
 		Month:  "x8 A2 x*",
@@ -58,7 +58,7 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 		Minute: "x14 A2 x*",
 		Second: "x16 A2 x*",
 	},
-	"x5": DownloadNameFormatXML{
+	"x5": {
 		Type:   "long",
 		Year:   "x5 A4 x*",
 		Month:  "x9 A2 x*",
@@ -67,12 +67,12 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 		Minute: "x16 A2 x*",
 		Second: "x18 A2 x*",
 	},
-	"x6": DownloadNameFormatXML{
+	"x6": {
 		Type:    "short",
 		Year:    "x6 A2",
 		YearDay: "x9 A3",
 	},
-	"x15": DownloadNameFormatXML{
+	"x15": {
 		Type:   "long",
 		Year:   "x15 A4 x*",
 		Month:  "x20 A2 x*",
@@ -81,7 +81,7 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 		Minute: "x28 A2 x*",
 		Second: "x30 A2 x*",
 	},
-	"x17": DownloadNameFormatXML{
+	"x17": {
 		Type:   "long",
 		Year:   "x17 A4 x*",
 		Month:  "x22 A2 x*",
@@ -90,7 +90,7 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 		Minute: "x30 A2 x*",
 		Second: "x32 A2 x*",
 	},
-	"x18": DownloadNameFormatXML{
+	"x18": {
 		Type:   "long",
 		Year:   "x18 A4 x*",
 		Month:  "x23 A2 x*",
@@ -99,7 +99,7 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 		Minute: "x31 A2 x*",
 		Second: "x33 A2 x*",
 	},
-	"x19": DownloadNameFormatXML{
+	"x19": {
 		Type:   "long",
 		Year:   "x19 A4 x*",
 		Month:  "x24 A2 x*",
@@ -108,7 +108,7 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 		Minute: "x32 A2 x*",
 		Second: "x34 A2 x*",
 	},
-	"x21": DownloadNameFormatXML{
+	"x21": {
 		Type:   "long",
 		Year:   "x21 A4 x*",
 		Month:  "x26 A2 x*",
@@ -116,16 +116,6 @@ var DownloadNameFormats map[string]DownloadNameFormatXML = map[string]DownloadNa
 		Hour:   "x32 A2 x*",
 		Minute: "x34 A2 x*",
 		Second: "x36 A2 x*",
-	},
-}
-
-var MetSensors map[string]MetSensor = map[string]MetSensor{
-	"Paroscientific meterological sensor": MetSensor{
-		Model:      "PAROSCIENTIFIC",
-		Type:       "MET3",
-		HrAccuracy: "2.0",
-		PrAccuracy: "0.1",
-		TdAccuracy: "0.5",
 	},
 }
 
@@ -185,8 +175,8 @@ func main() {
 		firmwareHistory[i.Model][i.Serial] = append(firmwareHistory[i.Model][i.Serial], i)
 	}
 
-	for j, _ := range firmwareHistory {
-		for k, _ := range firmwareHistory[j] {
+	for j := range firmwareHistory {
+		for k := range firmwareHistory[j] {
 			sort.Sort(meta.FirmwareHistoryList(firmwareHistory[j][k]))
 		}
 	}
@@ -201,7 +191,7 @@ func main() {
 	for _, i := range installedAntennaList {
 		installedAntenna[i.Mark] = append(installedAntenna[i.Mark], i)
 	}
-	for i, _ := range installedAntenna {
+	for i := range installedAntenna {
 		sort.Sort(sort.Reverse(meta.InstalledAntennaList(installedAntenna[i])))
 	}
 
@@ -215,7 +205,7 @@ func main() {
 	for _, i := range deployedReceiverList {
 		deployedReceivers[i.Mark] = append(deployedReceivers[i.Mark], i)
 	}
-	for i, _ := range deployedReceivers {
+	for i := range deployedReceivers {
 		sort.Sort(sort.Reverse(meta.DeployedReceiverList(deployedReceivers[i])))
 	}
 
@@ -229,7 +219,7 @@ func main() {
 	for _, i := range installedRadomeList {
 		installedRadomes[i.Mark] = append(installedRadomes[i.Mark], i)
 	}
-	for i, _ := range installedRadomes {
+	for i := range installedRadomes {
 		sort.Sort(meta.InstalledRadomeList(installedRadomes[i]))
 	}
 
@@ -243,7 +233,7 @@ func main() {
 	for _, i := range installedMetSensorList {
 		installedMetSensors[i.Mark] = append(installedMetSensors[i.Mark], i)
 	}
-	for i, _ := range installedMetSensors {
+	for i := range installedMetSensors {
 		sort.Sort(meta.InstalledMetSensorList(installedMetSensors[i]))
 	}
 
@@ -323,14 +313,12 @@ func main() {
 							if (!v.Start.Before(s.End)) || (!v.End.After(s.Start)) {
 								continue
 							}
-							if k, ok := MetSensors[v.Model]; ok {
-								metsensor = &MetSensor{
-									Model:      k.Model,
-									Type:       k.Type + " S/N " + v.Serial,
-									HrAccuracy: k.HrAccuracy,
-									PrAccuracy: k.PrAccuracy,
-									TdAccuracy: k.TdAccuracy,
-								}
+							metsensor = &MetSensor{
+								Model:      v.Make,
+								Type:       v.Model + " S/N " + v.Serial,
+								HrAccuracy: strconv.FormatFloat(v.Accuracy.Humidity, 'g', -1, 64),
+								PrAccuracy: strconv.FormatFloat(v.Accuracy.Pressure, 'g', -1, 64),
+								TdAccuracy: strconv.FormatFloat(v.Accuracy.Temperature, 'g', -1, 64),
 							}
 						}
 					}
@@ -338,7 +326,7 @@ func main() {
 					var firmware []FirmwareHistoryXML
 					if _, ok := firmwareHistory[r.Model]; ok {
 						if _, ok := firmwareHistory[r.Model][r.Serial]; ok {
-							for i, _ := range firmwareHistory[r.Model][r.Serial] {
+							for i := range firmwareHistory[r.Model][r.Serial] {
 								v := firmwareHistory[r.Model][r.Serial][len(firmwareHistory[r.Model][r.Serial])-i-1]
 								/*
 									if v.End.Before(r.Start) || v.Start.After(r.End) {
@@ -362,43 +350,33 @@ func main() {
 
 					list = append(list, CGPSSessionXML{
 						StartTime: func() string {
-							/*
-								if r.Start.After(s.Start) && r.Start.After(a.Start) {
-									return r.Start.Format(DateTimeFormat)
-								} else if a.Start.After(s.Start) {
-									return a.Start.Format(DateTimeFormat)
-								} else {
-									return s.Start.Format(DateTimeFormat)
-								}
-							*/
-							return s.Start.Format(DateTimeFormat)
+							if r.Start.After(s.Start) && r.Start.After(a.Start) {
+								return r.Start.Format(DateTimeFormat)
+							} else if a.Start.After(s.Start) {
+								return a.Start.Format(DateTimeFormat)
+							} else {
+								return s.Start.Format(DateTimeFormat)
+							}
 						}(),
 						StopTime: func() string {
-							/*
-								if r.End.Before(s.End) && r.End.Before(a.End) {
-									if time.Now().After(r.End) {
-										return r.End.Format(DateTimeFormat)
-									} else {
-										return "open"
-									}
-								} else if a.End.Before(s.End) {
-									if time.Now().After(a.End) {
-										return a.End.Format(DateTimeFormat)
-									} else {
-										return "open"
-									}
+							if r.End.Before(s.End) && r.End.Before(a.End) {
+								if time.Now().After(r.End) {
+									return r.End.Format(DateTimeFormat)
 								} else {
-									if time.Now().After(s.End) {
-										return s.End.Format(DateTimeFormat)
-									} else {
-										return "open"
-									}
+									return "open"
 								}
-							*/
-							if time.Now().After(s.End) {
-								return s.End.Format(DateTimeFormat)
+							} else if a.End.Before(s.End) {
+								if time.Now().After(a.End) {
+									return a.End.Format(DateTimeFormat)
+								} else {
+									return "open"
+								}
 							} else {
-								return "open"
+								if time.Now().After(s.End) {
+									return s.End.Format(DateTimeFormat)
+								} else {
+									return "open"
+								}
 							}
 						}(),
 						Receiver: ReceiverXML{

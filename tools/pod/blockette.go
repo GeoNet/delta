@@ -514,7 +514,7 @@ func (r FIRResponse) String() string {
 		len(r.Coefficients),
 		func() string {
 			var c []string
-			for i, _ := range r.Coefficients {
+			for i := range r.Coefficients {
 				if r.SymmetryCode == "A" {
 					//c = append(c, fmt.Sprintf("%+14.7E", r.Coefficients[len(r.Coefficients)-i-1]))
 					c = append(c, fmt.Sprintf("%+14.7E", r.Coefficients[i]))

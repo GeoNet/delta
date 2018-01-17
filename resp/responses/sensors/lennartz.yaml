@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   LE-3Dlite:
     type: Short Period Seismometer
     description: LE-3Dlite

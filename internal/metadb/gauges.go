@@ -16,7 +16,7 @@ func (g *gauges) loadGauges(base string) error {
 	var err error
 
 	g.once.Do(func() {
-		err = meta.LoadList(filepath.Join(base, "network", "gauges.csv"), &g.list)
+		err = meta.LoadList(filepath.Join(base, "environment", "gauges.csv"), &g.list)
 	})
 
 	return err

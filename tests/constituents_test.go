@@ -10,7 +10,7 @@ import (
 func TestConstituents(t *testing.T) {
 
 	var constituents meta.ConstituentList
-	loadListFile(t, "../network/constituents.csv", &constituents)
+	loadListFile(t, "../environment/constituents.csv", &constituents)
 
 	t.Run("check for constituent duplications", func(t *testing.T) {
 		for i := 0; i < len(constituents); i++ {
@@ -24,7 +24,7 @@ func TestConstituents(t *testing.T) {
 
 	t.Run("check for missing constituent gauges", func(t *testing.T) {
 		var list meta.GaugeList
-		loadListFile(t, "../network/gauges.csv", &list)
+		loadListFile(t, "../environment/gauges.csv", &list)
 
 		gauges := make(map[string]meta.Gauge)
 		for _, g := range list {

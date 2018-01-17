@@ -37,7 +37,6 @@ DURV,below 10 degrees in all directions,2005-03-09T00:00:00Z,9999-01-01T00:00:00
 FALE,unknown; Antenna is fixed to a steel post ~ 2m high.,1999-01-01T00:00:00Z,9999-01-01T00:00:00Z
 FRTN,"Excellent, hills are 5 degree obstruction from ~230-274 true (approx southwest).",2011-01-18T00:00:00Z,9999-01-01T00:00:00Z
 GDS1,good,2016-11-16T00:00:00Z,9999-01-01T00:00:00Z
-GEON,Good.,2007-10-12T00:00:00Z,9999-01-01T00:00:00Z
 GISB,No obstruction,2002-05-14T00:00:00Z,9999-01-01T00:00:00Z
 GLDB,No obstruction above 07 degrees.,2004-01-14T00:00:00Z,9999-01-01T00:00:00Z
 GLOK,good. some minor obstructions to the SE related to the Inland Kaikoura Range,2017-03-28T00:00:00Z,9999-01-01T00:00:00Z
@@ -54,7 +53,8 @@ HIKB,No obstruction above 10 degrees elevation,2003-05-01T00:00:00Z,9999-01-01T0
 HOKI,No obstructions above 5 degrees elevation,1998-06-01T00:00:00Z,9999-01-01T00:00:00Z
 HOLD,"Good. Up to 16 degrees of obstruction from hill due south, but this does not block any satellites.",2007-02-12T00:00:00Z,9999-01-01T00:00:00Z
 HORN,unknown,2002-11-01T00:00:00Z,9999-01-01T00:00:00Z
-KAHU,Excellent,2006-04-19T00:00:00Z,9999-01-01T00:00:00Z
+KAHU,Excellent,2006-04-19T00:00:00Z,2016-07-25T23:59:00Z
+KAHU,9m tall data comms mast installed at 3m south of the antenna,2016-07-26T00:00:00Z,9999-01-01T00:00:00Z
 KAIK,No obstruction above 10 degrees,2004-01-30T00:00:00Z,9999-01-01T00:00:00Z
 KAPT,"15 degrees elevation obstruction between NNE and ENE, elswhere less than 5 degrees.",2004-06-10T00:00:00Z,9999-01-01T00:00:00Z
 KARA,unknown,2000-02-04T00:00:00Z,9999-01-01T00:00:00Z
@@ -69,7 +69,7 @@ LEVN,Clear to the north and east. Macrocarpas on hill behind site create sky vie
 LEXA,No obstruction above 10 degrees,2004-03-18T00:00:00Z,9999-01-01T00:00:00Z
 LEYL,Excellent. Radio path should go directly to Hastings District Council.,2007-02-19T00:00:00Z,9999-01-01T00:00:00Z
 LKTA,"No obstruction above 07 degrees in the northern quadrants, upto 16 degrees in the southern quadrants.",2004-02-01T00:00:00Z,9999-01-01T00:00:00Z
-LOK1,good,2016-11-15T00:00:00Z,9999-01-01T00:00:00Z
+LOK1,good,2016-11-15T00:00:00Z,2017-11-02T00:00:00Z
 LOOK,"good. though Lookout Mountain peak is to the NE, with a maximum elevation of 20 degrees.",2017-03-28T00:00:00Z,9999-01-01T00:00:00Z
 LRR1,good,2016-11-15T00:00:00Z,2017-05-22T00:00:00Z
 LYTT,Fair,1999-11-15T00:00:00Z,9999-01-01T00:00:00Z
@@ -80,18 +80,9 @@ MAKO,Excellent,2010-11-09T00:00:00Z,9999-01-01T00:00:00Z
 MANG,Above 10 degrees,2005-02-03T00:00:00Z,9999-01-01T00:00:00Z
 MAST,No obstruction above 5 degrees elevation,2002-12-19T00:00:00Z,2016-04-07T00:00:00Z
 MATW,No obstructions above 10 degrees elevation,2004-04-09T00:00:00Z,9999-01-01T00:00:00Z
-MAUI,Good,2006-05-24T00:00:00Z,9999-01-01T00:00:00Z
 MAVL,"No obstruction above 07 degrees in the northern quadrants, increasing to 20 degrees in the southern quadrants",2004-05-17T00:00:00Z,9999-01-01T00:00:00Z
 MCNL,"Excellent, no obstructions",2008-05-27T00:00:00Z,9999-01-01T00:00:00Z
 METH,"Cloud cover made it impossible to see mountains to the west, calculations show < 10 degrees.",2010-09-10T00:00:00Z,9999-01-01T00:00:00Z
-MG01,unknown,2013-07-01T00:00:00Z,9999-01-01T00:00:00Z
-MG03,unknown,2015-06-01T00:00:00Z,9999-01-01T00:00:00Z
-MG05,unknown,2015-06-01T00:00:00Z,9999-01-01T00:00:00Z
-MG09,unknown,2015-06-01T00:00:00Z,9999-01-01T00:00:00Z
-MG10,unknown,2015-06-01T00:00:00Z,9999-01-01T00:00:00Z
-MG11,unknown,2015-06-01T00:00:00Z,9999-01-01T00:00:00Z
-MG15,unknown,2015-06-01T00:00:00Z,9999-01-01T00:00:00Z
-MG18,Temp site for 5 years,2014-06-01T00:00:00Z,9999-01-01T00:00:00Z
 MING,Excellent,2010-04-28T00:00:00Z,9999-01-01T00:00:00Z
 MKNO,Obstructions to East up to 12 degrees formed by Mokai Patea Range.,2011-05-11T00:00:00Z,9999-01-01T00:00:00Z
 MNHR,excellent,2011-02-16T00:00:00Z,9999-01-01T00:00:00Z
@@ -144,7 +135,8 @@ RCHD,Excellent. The two biggest peaks are NE and SW and 2? above horizon,2014-06
 RDLV,Wind break trees about 6 degrees to the south (195-222) and trees/mountains at 4 degrees to the west (263-334). Otherwise unobstructed above 1-2 degrees,2009-01-13T00:00:00Z,9999-01-01T00:00:00Z
 RGAR,"Max obstruction 5deg to north, 3deg to east, 0deg to west, 7deg to south.",2007-11-07T00:00:00Z,9999-01-01T00:00:00Z
 RGAW,Good,2009-03-24T00:00:00Z,9999-01-01T00:00:00Z
-RGCR,"No restrictions in any direction, although site has been abandoned due to the planting of trees in the immediate and surrounding area. DBM and fence remain in place but access may become impossible.",2007-02-12T00:00:00Z,2011-08-30T00:00:00Z
+RGCR,"No restrictions in any direction",2007-02-12T00:00:00Z,2011-08-29T00:00:00Z
+RGCR,"Site has been abandoned due to the planting of trees in the immediate and surrounding area.DBM and fence remain in place but access may become impossible.",2011-08-30T00:00:00Z,9999-01-01T00:00:00Z
 RGHD,horizon to the East is 10 degrees.,2012-02-01T00:00:00Z,9999-01-01T00:00:00Z
 RGHL,<5 deg all round.,2008-12-03T00:00:00Z,9999-01-01T00:00:00Z
 RGHR,"clear to north, east and south. Horizon at 9deg to west.",2007-02-07T00:00:00Z,9999-01-01T00:00:00Z
@@ -173,7 +165,7 @@ TAUP,"Clear above 10 degrees elevation with the exception of a meteorological ma
 TAUW,good,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
 TEMA,Excellent,2007-02-12T00:00:00Z,9999-01-01T00:00:00Z
 TEN2,good,2016-11-16T00:00:00Z,9999-01-01T00:00:00Z
-TENN,unknown,2014-06-01T00:00:00Z,9999-01-01T00:00:00Z
+TENN,excellent,2017-03-10T00:00:00Z,9999-01-01T00:00:00Z
 TEST,Excellent,2006-12-21T00:00:00Z,9999-01-01T00:00:00Z
 TGHO,"2m pole ~ 1m to south of mark, otherwise no obstructions.",2008-12-22T00:00:00Z,9999-01-01T00:00:00Z
 TGHR,No obstructions.,2006-04-11T00:00:00Z,9999-01-01T00:00:00Z
@@ -191,7 +183,6 @@ TRAV,unknown,2005-06-23T00:00:00Z,9999-01-01T00:00:00Z
 TRNG,No obstruction above 5 degrees elevation,2002-12-17T00:00:00Z,9999-01-01T00:00:00Z
 TRWH,Good: single obstruction of 5 degrees inclination at 170 degrees (magnetic north).,2010-12-02T00:00:00Z,9999-01-01T00:00:00Z
 TURI,"Very good (max 5 degrees)except 3 power poles in western sky (John Beavan has approved site). Pole 1 (at 249T) is 7 degrees tall, pole 2 (at 278T) is 7 degrees tall and pole 3 (at 303T) is 2 degrees.",2011-08-31T00:00:00Z,9999-01-01T00:00:00Z
-UNDR,"Obstructions: 342-166 = <4 degrees, punctuated by trees at 342 (7 deg), 022 (8 deg), 057 (6 deg), and 067 (11 deg) 166-229 = ~ 10 degrees, building to 20 229-302=avg 12 deg 302-342=<6 deg",2014-06-01T00:00:00Z,9999-01-01T00:00:00Z
 UTK1,About 45 deg off horizon,2008-07-22T00:00:00Z,2016-08-19T00:00:00Z
 UTK2,"sky visible from about 45 deg above horizon, may clear more if needed",2008-07-22T00:00:00Z,2016-08-30T00:00:00Z
 UTK3,"Sky visible from about 45 deg above horizon, may clear more trees if needed",2008-07-18T00:00:00Z,2016-04-05T00:00:00Z

@@ -93,7 +93,7 @@ func buildSpectras(cfgs map[string]Config, base, dir string) ([]Spectra, error) 
 	var spectras []Spectra
 
 	var keys []string
-	for key, _ := range cfgs {
+	for key := range cfgs {
 		keys = append(keys, key)
 	}
 	sort.Strings(keys)
@@ -180,7 +180,7 @@ func buildSpectras(cfgs map[string]Config, base, dir string) ([]Spectra, error) 
 					}
 
 					lookup := response.Channels(stream.Axial)
-					for pin, _ := range response.Components {
+					for pin := range response.Components {
 						if !(pin < len(lookup)) {
 							continue
 						}
@@ -253,7 +253,7 @@ func buildSpectras(cfgs map[string]Config, base, dir string) ([]Spectra, error) 
 					Step:    cfg.Step,
 					Daemon:  cfg.Daemon,
 					Stations: []Station{
-						Station{
+						{
 							StationId: station.Code,
 							NetworkId: network.External,
 							Name:      station.Name,
@@ -276,7 +276,7 @@ func buildSpectras(cfgs map[string]Config, base, dir string) ([]Spectra, error) 
 				Step:    cfg.Step,
 				Daemon:  cfg.Daemon,
 				Stations: []Station{
-					Station{
+					{
 						StationId: extra.StationId,
 						NetworkId: extra.NetworkId,
 						Name:      extra.Name,

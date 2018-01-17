@@ -39,12 +39,12 @@ func TestConsistency(t *testing.T) {
 		"sites":        {f: "../network/sites.csv", l: &meta.SiteList{}},
 		"marks":        {f: "../network/marks.csv", l: &meta.MarkList{}},
 		"mounts":       {f: "../network/mounts.csv", l: &meta.MountList{}},
-		"gauges":       {f: "../network/gauges.csv", l: &meta.GaugeList{}},
-		"constituents": {f: "../network/constituents.csv", l: &meta.ConstituentList{}},
+		"gauges":       {f: "../environment/gauges.csv", l: &meta.GaugeList{}},
+		"constituents": {f: "../environment/constituents.csv", l: &meta.ConstituentList{}},
 	}
 
 	for k, v := range files {
-		t.Run("check asset file consistency: "+k, func(t *testing.T) {
+		t.Run("check file consistency: "+k, func(t *testing.T) {
 			loadListFile(t, v.f, v.l)
 
 			sort.Sort(v.l)
