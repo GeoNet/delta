@@ -520,6 +520,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
 	},
+	"LE-3DliteMkIII": SensorModel{
+		Name:         "LE-3DliteMkIII",
+		Type:         "Short Period Seismometer",
+		Description:  "LE-3DliteMkIII",
+		Manufacturer: "Lennartz",
+		Vendor:       "",
+		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+	},
 	"LM35": SensorModel{
 		Name:         "LM35",
 		Type:         "",
