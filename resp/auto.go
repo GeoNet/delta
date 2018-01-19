@@ -6873,7 +6873,7 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"LE-3DliteMkIII"},
 				FilterList: []string{"LE-3DliteMkIII"},
 				Stages: []ResponseStage{
