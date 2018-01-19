@@ -75,7 +75,7 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 					Rrd:    cp.Rrd(StationChannel(s, c), "amplitude/rsam/%s.%n/%s.%l-%c.%n.rrd"),
 					Style:  "rsam",
 					Tags: []Tag{
-						Tag{
+						{
 							Aligned: "right",
 							Box:     "#ffffffd0",
 							Colour:  "#006400",
@@ -83,7 +83,7 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 							String:  s.Name,
 							XOffset: "-720",
 						},
-						Tag{
+						{
 							Aligned: "left",
 							Colour:  "#006400",
 							Font:    "LiberationSans Bold 10",
@@ -100,7 +100,7 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 			Height: strconv.Itoa(len(streams)*40 + 70),
 			Png:    cp.Png(OptionStream{Network: net}, "/volcano/%n/rsam.png"),
 			Plots: []Plot{
-				Plot{
+				{
 					Id:      "rsam",
 					Clip:    "1",
 					Height:  strconv.Itoa(len(streams) * 40),
@@ -139,16 +139,16 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 						Font: "LiberationSans Narrow 9",
 					},
 					Dates: []Date{
-						Date{
+						{
 							Font: "LiberationSans Narrow Bold 14",
 						},
-						Date{
+						{
 							Aligned: "bottom",
 							Font:    "LiberationSans Narrow Bold 14",
 							String:  "%b %d, %Y",
 							Time:    "start",
 						},
-						Date{
+						{
 							Aligned: "bottom",
 							Font:    "LiberationSans Narrow Bold 14",
 							String:  "%b %d, %Y",
@@ -218,7 +218,7 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 					Rrd:    cp.Rrd(StationChannel(s, c), "spectra/ssam/%s.%n/%s.%l-%c.%n.rrd"),
 					Style:  "ssam",
 					Tags: []Tag{
-						Tag{
+						{
 							Aligned: "right",
 							Box:     "#ffffffd0",
 							Colour:  "#006400",
@@ -226,7 +226,7 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 							String:  s.Name,
 							XOffset: "-720",
 						},
-						Tag{
+						{
 							Aligned: "left",
 							Colour:  "#006400",
 							Font:    "LiberationSans Bold 10",
@@ -243,7 +243,7 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 			Height: strconv.Itoa(len(streams)*40 + 70),
 			Png:    cp.Png(OptionStream{Network: net}, "/volcano/%n/ssam.png"),
 			Plots: []Plot{
-				Plot{
+				{
 					Id:      "ssam",
 					Clip:    "1",
 					Height:  strconv.Itoa(len(streams) * 40),
@@ -277,16 +277,16 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 						Font: "LiberationSans Narrow 9",
 					},
 					Dates: []Date{
-						Date{
+						{
 							Font: "LiberationSans Narrow Bold 14",
 						},
-						Date{
+						{
 							Aligned: "bottom",
 							Font:    "LiberationSans Narrow Bold 14",
 							String:  "%b %d, %Y",
 							Time:    "start",
 						},
-						Date{
+						{
 							Aligned: "bottom",
 							Font:    "LiberationSans Narrow Bold 14",
 							String:  "%b %d, %Y",
@@ -353,7 +353,7 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 					Rrd:    cp.Rrd(StationChannel(s, c), "spectra/ssam/%s.%n/%s.%l-%c.%n.rrd"),
 					Style:  "tremor",
 					Tags: []Tag{
-						Tag{
+						{
 							Aligned: "right",
 							Box:     "#ffffffd0",
 							Colour:  "#006400",
@@ -361,7 +361,7 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 							String:  s.Name,
 							XOffset: "-720",
 						},
-						Tag{
+						{
 							Aligned: "left",
 							Colour:  "#006400",
 							Font:    "LiberationSans Bold 10",
@@ -378,7 +378,7 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 			Height: strconv.Itoa(len(streams)*40 + 70),
 			Png:    cp.Png(OptionStream{Network: net}, "/volcano/%n/tremor.png"),
 			Plots: []Plot{
-				Plot{
+				{
 					Id:      "tremor",
 					Clip:    "1",
 					Height:  strconv.Itoa(len(streams) * 40),
@@ -417,16 +417,16 @@ func (cp ConfigPage) Networks(base string) ([]Page, error) {
 						Font: "LiberationSans Narrow 9",
 					},
 					Dates: []Date{
-						Date{
+						{
 							Font: "LiberationSans Narrow Bold 14",
 						},
-						Date{
+						{
 							Aligned: "bottom",
 							Font:    "LiberationSans Narrow Bold 14",
 							String:  "%b %d, %Y",
 							Time:    "start",
 						},
-						Date{
+						{
 							Aligned: "bottom",
 							Font:    "LiberationSans Narrow Bold 14",
 							String:  "%b %d, %Y",

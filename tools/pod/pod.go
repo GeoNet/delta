@@ -80,7 +80,7 @@ func (p *Pod) Header() error {
 }
 
 func (p *Pod) Network(net *stationxml.Network) error {
-	for i, _ := range net.Stations {
+	for i := range net.Stations {
 		if err := p.Station(net, &net.Stations[i]); err != nil {
 			return err
 		}
@@ -152,7 +152,7 @@ func (p *Pod) Station(net *stationxml.Network, sta *stationxml.Station) error {
 	}
 
 	var channels []*stationxml.Channel
-	for i, _ := range sta.Channels {
+	for i := range sta.Channels {
 		channels = append(channels, &sta.Channels[i])
 	}
 
