@@ -17,7 +17,7 @@ go build ./tools/stationxml || exit 255
     -active \
     -installed \
     -operational \
-    -networks '(AK|CB|CH|EC|FI|HB|KI|NM|NZ|OT|RT|SC|SI|SM|SP|TP|TR|WL)' \
+    -networks '!(SB|.X)' \
     -channels '([EHB][HN][ZNE12])'
 
 ./stationxml -base . -output .tmp/geonet-meta/stationxml/iris.xml \
