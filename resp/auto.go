@@ -526,7 +526,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Description:  "LE-3DliteMkIII",
 		Manufacturer: "Lennartz",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
 	"LM35": {
 		Name:         "LM35",
@@ -6877,7 +6877,7 @@ var Responses []Response = []Response{
 				SensorList: []string{"LE-3DliteMkIII"},
 				FilterList: []string{"LE-3DliteMkIII"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "LE-3DliteMkIII",
 						Filter: "LE-3DliteMkIII",
