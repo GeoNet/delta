@@ -1,6 +1,6 @@
 package resp
 
-//go:generate bash -c "go run generate/*.go | gofmt -s > auto.go"
+//go:generate bash -c "go run generate/*.go | gofmt -s > auto.go; test -s auto.go || rm auto.go"
 
 import (
 	"math"
