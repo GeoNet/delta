@@ -60,6 +60,12 @@ response:
       - LE-3DliteMkII
       channels: ZNE
       reversed: false
+    - sensors:
+      - LE-3DliteMkIII
+      filters:
+      - LE-3DliteMkIII
+      channels: ZNE
+      reversed: false
     dataloggers:
     - dataloggers:
       - Q330/3
