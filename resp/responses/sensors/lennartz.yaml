@@ -24,6 +24,18 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
+  LE-3DliteMkIII:
+    type: Short Period Seismometer
+    description: LE-3DliteMkIII
+    manufacturer: "Lennartz"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
 
 paz:
   LE-3D:
@@ -74,6 +86,17 @@ paz:
     - (0+0i)
     - (0+0i)
     - (0+0i)
+  LE-3DliteMkIII:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from Lennartz documentation, i.e. 990-0073 page 14 via http://www.lennartz-electronic.de
+    poles:
+    - (-4.440+4.440i)
+    - (-4.440-4.440i)
+    - (-1.083+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
 
 filter:
   LE-3Dlite:
@@ -95,6 +118,18 @@ filter:
     samplerate: 0
     decimate: 0
     gain: 400
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  LE-3DliteMkIII:
+  - type: paz
+    lookup: LE-3DliteMkIII
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 800
     scale: 1
     correction: 0
     delay: 0
