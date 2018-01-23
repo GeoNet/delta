@@ -97,6 +97,18 @@ type CGPSSessionXML struct {
 	MetSensor            *MetSensor              `xml:"met-sensor,omitempty"`
 }
 
+type CGPSSessionXMLs []CGPSSessionXML
+
+func (s CGPSSessionXMLs) Len() int {
+	return len(s)
+}
+func (s CGPSSessionXMLs) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+func (s CGPSSessionXMLs) Less(i, j int) bool {
+	return s[j].StartTime < s[i].StartTime
+}
+
 func NewSiteXML(mark MarkXML, location LocationXML, sessions []CGPSSessionXML) SiteXML {
 	return SiteXML{
 		XMLName:  xml.Name{Local: "SITE"},
