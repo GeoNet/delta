@@ -88,4 +88,4 @@ END {
         printf("%s\n", edges)
         printf("\n")
         printf("}\n")
-}' SCHEMA.md
+}' README.md
