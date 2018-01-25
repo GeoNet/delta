@@ -27,21 +27,6 @@ Restricted  | bool
 
 <div style="page-break-after: always;"></div>
 
-## Station
-Entry|Format|Unique|Join
----|---|---|---
-Network   | | &#10003;| **Network** **[** Code **]**
-Code      | string|&#10003;
-Name      | string
-Latitude  | float64
-Longitude | float64
-Elevation | float64
-Datum     | string
-Start     | time
-End       | time
-
-<div style="page-break-after: always;"></div>
-
 # GNSS
 
 ## Mark
@@ -213,34 +198,22 @@ End      | time|+
 
 <div style="page-break-after: always;"></div>
 
-# Tidal Modelling
+# Signal Recording
 
-## Gauge
+## Station
 Entry|Format|Unique|Join
 ---|---|---|---
-Station   | | &#10003; | **Station** **[** Code **]**
+Network   | | &#10003;| **Network** **[** Code **]**
+Code      | string|&#10003;
+Name      | string
 Latitude  | float64
 Longitude | float64
 Elevation | float64
 Datum     | string
-Number    | string
-TimeZone  | float64
-Crex      | string
+Start     | time
+End       | time
 
 <div style="page-break-after: always;"></div>
-
-## Constituent
-Entry|Format|Unique|Join
----|---|---|---
-Gauge     | | &#10003; | **Gauge** **[** Station **]**
-Number    | int     |&#10003;
-Name      | string  |&#10003;
-Amplitude | float64
-Lag       | float64
-
-<div style="page-break-after: always;"></div>
-
-# Signal Recording
 
 ## Site
 Entry|Format|Unique|Join
@@ -343,3 +316,30 @@ Axial        | bool
 Reversed     | bool
 Start        | time |+
 End          | time |+
+
+<div style="page-break-after: always;"></div>
+
+# Tidal Modelling
+
+## Gauge
+Entry|Format|Unique|Join
+---|---|---|---
+Station   | | &#10003; | **Station** **[** Code **]**
+Latitude  | float64
+Longitude | float64
+Elevation | float64
+Datum     | string
+Number    | string
+TimeZone  | float64
+Crex      | string
+
+<div style="page-break-after: always;"></div>
+
+## Constituent
+Entry|Format|Unique|Join
+---|---|---|---
+Gauge     | | &#10003; | **Gauge** **[** Station **]**
+Number    | int     |&#10003;
+Name      | string  |&#10003;
+Amplitude | float64
+Lag       | float64
