@@ -2,10 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"regexp"
 	"sort"
-	"strings"
 	"time"
 
 	"github.com/GeoNet/delta/internal/metadb"
@@ -20,33 +17,14 @@ func (c Channels) Len() int           { return len(c) }
 func (c Channels) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
 func (c Channels) Less(i, j int) bool { return c[i].StartDate.Time.Before(c[j].StartDate.Time) }
 
-func matcher(path, def string) (*regexp.Regexp, error) {
-
-	// no list given
-	if path == "" {
-		return regexp.Compile(func() string {
-			if def == "" {
-				return "[A-Z0-9]+"
-			}
-			return def
-		}())
-	}
-
-	buf, err := ioutil.ReadFile(path)
-	if err != nil {
-		return nil, err
-	}
-
-	return regexp.Compile("^(" + strings.Join(strings.Fields(string(buf)), "|") + ")$")
-}
-
 type Builder struct {
 	operational *time.Time
-	networks    *regexp.Regexp
-	stations    *regexp.Regexp
-	channels    *regexp.Regexp
-	sensors     *regexp.Regexp
-	dataloggers *regexp.Regexp
+	networks    Matcher
+	external    Matcher
+	stations    Matcher
+	channels    Matcher
+	sensors     Matcher
+	dataloggers Matcher
 	installed   bool
 	active      bool
 }
@@ -75,9 +53,9 @@ func SetOperational(operational bool, offset time.Duration) func(*Builder) error
 	}
 }
 
-func SetNetworks(list, match string) func(*Builder) error {
+func SetNetworks(match string) func(*Builder) error {
 	return func(b *Builder) error {
-		re, err := matcher(list, match)
+		re, err := Match(match)
 		if err != nil {
 			return err
 		}
@@ -85,9 +63,19 @@ func SetNetworks(list, match string) func(*Builder) error {
 		return nil
 	}
 }
-func SetStations(list, match string) func(*Builder) error {
+func SetExternal(match string) func(*Builder) error {
 	return func(b *Builder) error {
-		re, err := matcher(list, match)
+		re, err := Match(match)
+		if err != nil {
+			return err
+		}
+		b.external = re
+		return nil
+	}
+}
+func SetStations(match string) func(*Builder) error {
+	return func(b *Builder) error {
+		re, err := Match(match)
 		if err != nil {
 			return err
 		}
@@ -95,9 +83,9 @@ func SetStations(list, match string) func(*Builder) error {
 		return nil
 	}
 }
-func SetChannels(list, match string) func(*Builder) error {
+func SetChannels(match string) func(*Builder) error {
 	return func(b *Builder) error {
-		re, err := matcher(list, match)
+		re, err := Match(match)
 		if err != nil {
 			return err
 		}
@@ -105,9 +93,9 @@ func SetChannels(list, match string) func(*Builder) error {
 		return nil
 	}
 }
-func SetSensors(list, match string) func(*Builder) error {
+func SetSensors(match string) func(*Builder) error {
 	return func(b *Builder) error {
-		re, err := matcher(list, match)
+		re, err := Match(match)
 		if err != nil {
 			return err
 		}
@@ -115,9 +103,9 @@ func SetSensors(list, match string) func(*Builder) error {
 		return nil
 	}
 }
-func SetDataloggers(list, match string) func(*Builder) error {
+func SetDataloggers(match string) func(*Builder) error {
 	return func(b *Builder) error {
-		re, err := matcher(list, match)
+		re, err := Match(match)
 		if err != nil {
 			return err
 		}
@@ -149,6 +137,12 @@ func (b *Builder) MatchNetwork(net string) bool {
 		return true
 	}
 	return b.networks.MatchString(net)
+}
+func (b *Builder) MatchExternal(net string) bool {
+	if b.external == nil {
+		return true
+	}
+	return b.external.MatchString(net)
 }
 func (b *Builder) MatchStation(sta string) bool {
 	if b.stations == nil {
@@ -205,7 +199,11 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 			continue
 		}
 
-		if !b.MatchNetwork(network.External) {
+		if !b.MatchNetwork(network.Code) {
+			continue
+		}
+
+		if !b.MatchExternal(network.External) {
 			continue
 		}
 

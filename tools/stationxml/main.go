@@ -36,34 +36,22 @@ func main() {
 	flag.StringVar(&install, "install", "../../install", "base installs directory")
 
 	var stationRegexp string
-	flag.StringVar(&stationRegexp, "stations", "[A-Z0-9]+", "regex selection of stations")
-
-	var stationList string
-	flag.StringVar(&stationList, "station-list", "", "regex selection of stations from file")
+	flag.StringVar(&stationRegexp, "stations", "[A-Z0-9]+", "regexp selection of stations")
 
 	var channelRegexp string
-	flag.StringVar(&channelRegexp, "channels", "[A-Z0-9]+", "regex selection of channels")
-
-	var channelList string
-	flag.StringVar(&channelList, "channel-list", "", "regex selection of channels from file")
+	flag.StringVar(&channelRegexp, "channels", "[A-Z0-9]+", "regexp selection of channels")
 
 	var networkRegexp string
-	flag.StringVar(&networkRegexp, "networks", "[A-Z0-9]+", "regex selection of networks")
+	flag.StringVar(&networkRegexp, "networks", "[A-Z0-9]+", "regexp selection of internal networks")
 
-	var networkList string
-	flag.StringVar(&networkList, "network-list", "", "regex selection of networks from file")
+	var externalRegexp string
+	flag.StringVar(&externalRegexp, "external", "[A-Z0-9]+", "regexp selection of external networks")
 
 	var sensorRegexp string
-	flag.StringVar(&sensorRegexp, "sensors", ".*", "regex selection of sensors")
-
-	var sensorList string
-	flag.StringVar(&sensorList, "sensor-list", "", "regex selection of sensors from file")
+	flag.StringVar(&sensorRegexp, "sensors", ".*", "regexp selection of sensors")
 
 	var dataloggerRegexp string
-	flag.StringVar(&dataloggerRegexp, "dataloggers", ".*", "regex selection of dataloggers")
-
-	var dataloggerList string
-	flag.StringVar(&dataloggerList, "datalogger-list", "", "regex selection of dataloggers from file")
+	flag.StringVar(&dataloggerRegexp, "dataloggers", ".*", "regexp selection of dataloggers")
 
 	var installed bool
 	flag.BoolVar(&installed, "installed", false, "set station times based on installation dates")
@@ -89,6 +77,8 @@ func main() {
 		fmt.Fprintf(os.Stderr, "\n")
 		flag.PrintDefaults()
 		fmt.Fprintf(os.Stderr, "\n")
+		fmt.Fprintf(os.Stderr, "  Use a \"!\" prefix to indicate that the regexp should not match the expression\n")
+		fmt.Fprintf(os.Stderr, "\n")
 	}
 
 	flag.Parse()
@@ -97,11 +87,12 @@ func main() {
 		SetInstalled(installed),
 		SetActive(active),
 		SetOperational(operational, offset),
-		SetNetworks(networkList, networkRegexp),
-		SetStations(stationList, stationRegexp),
-		SetChannels(channelList, channelRegexp),
-		SetSensors(sensorList, sensorRegexp),
-		SetDataloggers(dataloggerList, dataloggerRegexp),
+		SetNetworks(networkRegexp),
+		SetExternal(externalRegexp),
+		SetStations(stationRegexp),
+		SetChannels(channelRegexp),
+		SetSensors(sensorRegexp),
+		SetDataloggers(dataloggerRegexp),
 	)
 	if err != nil {
 		log.Fatalf("unable to make builder: %v", err)
