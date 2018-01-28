@@ -4,6 +4,8 @@ There is an implied join over the _Start_ and _End_ times where suitable,
 the overlapping time span should be used. For _Station_, _Mark_, _Mount_, _Site_ the
 start and end times are attributes and should encompass all installed equipment.
 
+[notional schema overview](schema.pdf)
+
 # General
 
 ## Asset
