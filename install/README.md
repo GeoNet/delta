@@ -153,7 +153,8 @@ installed as a set.
 | Field | Description | Units |
 | --- | --- | --- |
 | _Make_ | Installed recorder make
-| _Model_ | Installed recorder model name
+| _Sensor_ | Installed recorder sensor model name
+| _Datalogger_ | Installed recorder datalogger model name
 | _Serial_ | Installed recorder serial number
 | _Station_ | Installed recording _station_
 | _Location_ | Installed recording _site_ location
