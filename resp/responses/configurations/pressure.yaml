@@ -20,7 +20,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Q330_FLbelow100-10
+      - Q330_FLbelow100-1
       reversed: false
     - dataloggers:
       - Q330S/3
