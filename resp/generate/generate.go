@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"strings"
 	"text/template"
@@ -181,7 +182,40 @@ func (g Generate) Polynomial(poly string) *Polynomial {
 	return nil
 }
 
+func (g Generate) Validate() error {
+
+	// check responses
+	for k, r := range g.ResponseMap {
+		// check dataloger responses
+		for _, d := range r.Dataloggers {
+			label := fmt.Sprintf("\"%s\" [%s]", k, d.Label)
+
+			// check sampling rates
+			var r float64
+			for _, f := range d.Filters {
+				// look for a configured map
+				m, ok := g.FilterMap[f]
+				if !ok {
+					return fmt.Errorf("invalid filter %s: %s", label, f)
+				}
+				// choose the last sample rate
+				for _, s := range m {
+					r = s.SampleRate
+				}
+			}
+			if r != d.SampleRate {
+				return fmt.Errorf("invalid sample rate %s: found %v, expected %v", label, r, d.SampleRate)
+			}
+		}
+	}
+	return nil
+}
+
 func (g Generate) generate(w io.Writer) error {
+
+	if err := g.Validate(); err != nil {
+		return err
+	}
 
 	t, err := template.New("generate").Funcs(
 		template.FuncMap{
