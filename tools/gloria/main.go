@@ -137,6 +137,10 @@ func main() {
 			DeployedReceiver: make([]*gloria_pb.DeployedReceiver, 0),
 			InstalledAntenna: make([]*gloria_pb.InstalledAntenna, 0),
 			InstalledRadome:  make([]*gloria_pb.InstalledRadome, 0),
+			Span: &gloria_pb.Span{
+				Start: m.Start.Unix(),
+				End:   m.End.Unix(),
+			},
 		}
 
 		// Higher download priority marks are scheduled for download first.

@@ -24,6 +24,11 @@
       <pin pin_no="1" azimuth="0.0" dip="0.0" inst_code="n" reversed="no" seis_code="EPI" stream_id="DSZ/20-HNN/NZ" />
       <pin pin_no="2" azimuth="90.0" dip="0.0" inst_code="e" reversed="no" seis_code="EPI" stream_id="DSZ/20-HNE/NZ" />
     </altus>
+    <altus installed="2016/11/09,08:00:05" dev_code="OBS" inst_id="119" removed="9999/01/01,00:00:00">
+      <pin pin_no="0" azimuth="0.0" dip="-90.0" inst_code="z" reversed="no" seis_code="OBS" stream_id="DSZ/20-HNZ/NZ" />
+      <pin pin_no="1" azimuth="0.0" dip="0.0" inst_code="n" reversed="no" seis_code="OBS" stream_id="DSZ/20-HNN/NZ" />
+      <pin pin_no="2" azimuth="90.0" dip="0.0" inst_code="e" reversed="no" seis_code="OBS" stream_id="DSZ/20-HNE/NZ" />
+    </altus>
   </site>
   <site site_id="MISS" height="8" latitude="-41.314888406" longitude="174.818434531" name="Wellington Miramar School" network_id="NZ">
     <altus installed="1999/07/22,02:00:00" dev_code="ETN" inst_id="1391" override="no" removed="2002/09/18,02:59:00">
