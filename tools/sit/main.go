@@ -11,7 +11,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"time"
 )
 
 func main() {
@@ -144,6 +143,7 @@ func main() {
 				SerialNumber: i.Serial,
 				Manufacturer: i.Make,
 				Height:       -i.Vertical,
+				Orientation:  i.Azimuth,
 			},
 			Installed: &sit_delta_pb.Span{
 				Start: i.Start.Unix(),
@@ -261,6 +261,7 @@ func main() {
 				Manufacturer: i.Make,
 				Height:       -i.Vertical,
 				Location:     i.Location,
+				Orientation:  i.Azimuth,
 			},
 			Installed: &sit_delta_pb.Span{
 				Start: i.Start.Unix(),
@@ -334,6 +335,7 @@ func main() {
 				Manufacturer: i.Make,
 				Height:       -i.Vertical,
 				Location:     i.Location,
+				Orientation:  i.Azimuth,
 			},
 			Installed: &sit_delta_pb.Span{
 				Start: i.Start.Unix(),
@@ -347,12 +349,15 @@ func main() {
 		}
 	}
 
+	siteCodeList := make([]string, 0)
+
+	sitMarkList := make(map[string]*sit_delta_pb.Mark)
+	markMap := make(map[string]*meta.Mark)
 	for _, m := range markList {
 
 		im := make([]*sit_delta_pb.InstalledMonument, 0)
 
 		list := monuments[m.Code]
-		var currentMon *meta.Monument
 		for _, l := range list {
 			newMonument := sit_delta_pb.InstalledMonument{
 				Span: &sit_delta_pb.Span{
@@ -365,9 +370,6 @@ func main() {
 				},
 			}
 			im = append(im, &newMonument)
-			if l.End.Unix() > time.Now().Unix() {
-				currentMon = &l
-			}
 		}
 
 		mark := sit_delta_pb.Mark{
@@ -380,78 +382,47 @@ func main() {
 			},
 		}
 
-		site_pb := sit_delta_pb.Site{
-			Code:               m.Code,
-			Span:               &sit_delta_pb.Span{Start: m.Start.Unix(), End: m.End.Unix()},
-			Network:            m.Network,
-			Mark:               &mark,
-			Point:              &sit_delta_pb.Point{Longitude: m.Longitude, Latitude: m.Latitude, Elevation: m.Elevation, Datum: m.Datum},
-			GroundRelationship: 0,
-			EquipmentInstalls:  equipment[m.Code],
-		}
-		if currentMon != nil {
-			site_pb.GroundRelationship = currentMon.GroundRelationship
-		}
-
-		b, err := proto.Marshal(&site_pb)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to marsh protobuf: %v\n", err)
-			os.Exit(-1)
-		}
-
-		pbfile := filepath.Join(output, strings.ToUpper(m.Code)+".pb")
-		if err := os.MkdirAll(filepath.Dir(pbfile), 0755); err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
-			os.Exit(-1)
-		}
-		if err := ioutil.WriteFile(pbfile, b, 0644); err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
-			os.Exit(-1)
-		}
-		if verbose {
-			out_json, _ := json.MarshalIndent(site_pb, "", "  ")
-			ioutil.WriteFile(filepath.Join(output, strings.ToUpper(m.Code)+".json"), []byte(out_json), 0644)
-		}
+		markMap[m.Code] = &m
+		siteCodeList = append(siteCodeList, m.Code)
+		sitMarkList[m.Code] = &mark
 	}
 
+	stationMap := make(map[string]*meta.Station)
 	for _, m := range stationList {
-		site_pb := sit_delta_pb.Site{
-			Code:               m.Code,
-			Span:               &sit_delta_pb.Span{Start: m.Start.Unix(), End: m.End.Unix()},
-			Network:            m.Network,
-			Point:              &sit_delta_pb.Point{Longitude: m.Longitude, Latitude: m.Latitude, Elevation: m.Elevation, Datum: m.Datum},
-			GroundRelationship: 0,
-			EquipmentInstalls:  equipment[m.Code],
-			Locations:          locations[m.Code],
-		}
-		b, err := proto.Marshal(&site_pb)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to marsh protobuf: %v\n", err)
-			os.Exit(-1)
-		}
-
-		pbfile := filepath.Join(output, strings.ToUpper(m.Code)+".pb")
-		if err := os.MkdirAll(filepath.Dir(pbfile), 0755); err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
-			os.Exit(-1)
-		}
-		if err := ioutil.WriteFile(pbfile, b, 0644); err != nil {
-			fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
-			os.Exit(-1)
-		}
-		if verbose {
-			out_json, _ := json.MarshalIndent(site_pb, "", "  ")
-			ioutil.WriteFile(filepath.Join(output, strings.ToUpper(m.Code)+".json"), []byte(out_json), 0644)
-		}
+		stationMap[m.Code] = &m
+		siteCodeList = append(siteCodeList, m.Code)
 	}
 
+	mountMap := make(map[string]*meta.Mount)
 	for _, m := range mountList {
+		mountMap[m.Code] = &m
+		siteCodeList = append(siteCodeList, m.Code)
+	}
+
+	for _, s := range siteCodeList {
+
 		site_pb := sit_delta_pb.Site{
-			Code:              m.Code,
-			Span:              &sit_delta_pb.Span{Start: m.Start.Unix(), End: m.End.Unix()},
-			Network:           m.Network,
-			Point:             &sit_delta_pb.Point{Longitude: m.Longitude, Latitude: m.Latitude, Elevation: m.Elevation, Datum: m.Datum},
-			EquipmentInstalls: equipment[m.Code],
+			Code:              s,
+			EquipmentInstalls: equipment[s],
+			Locations:         locations[s],
+			Mark:              sitMarkList[s],
+		}
+
+		if stationMap[s] != nil {
+			m := stationMap[s]
+			site_pb.Span = &sit_delta_pb.Span{Start: m.Start.Unix(), End: m.End.Unix()}
+			site_pb.Network = m.Network
+			site_pb.Point = &sit_delta_pb.Point{Longitude: m.Longitude, Latitude: m.Latitude, Elevation: m.Elevation, Datum: m.Datum}
+		} else if markMap[s] != nil {
+			m := markMap[s]
+			site_pb.Span = &sit_delta_pb.Span{Start: m.Start.Unix(), End: m.End.Unix()}
+			site_pb.Network = m.Network
+			site_pb.Point = &sit_delta_pb.Point{Longitude: m.Longitude, Latitude: m.Latitude, Elevation: m.Elevation, Datum: m.Datum}
+		} else if mountMap[s] != nil {
+			m := mountMap[s]
+			site_pb.Span = &sit_delta_pb.Span{Start: m.Start.Unix(), End: m.End.Unix()}
+			site_pb.Network = m.Network
+			site_pb.Point = &sit_delta_pb.Point{Longitude: m.Longitude, Latitude: m.Latitude, Elevation: m.Elevation, Datum: m.Datum}
 		}
 
 		b, err := proto.Marshal(&site_pb)
@@ -460,19 +431,19 @@ func main() {
 			os.Exit(-1)
 		}
 
-		pbfile := filepath.Join(output, strings.ToUpper(m.Code)+".pb")
+		pbfile := filepath.Join(output, strings.ToUpper(s)+".pb")
 		if err := os.MkdirAll(filepath.Dir(pbfile), 0755); err != nil {
 			fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
 			os.Exit(-1)
 		}
-
 		if err := ioutil.WriteFile(pbfile, b, 0644); err != nil {
 			fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 			os.Exit(-1)
 		}
 		if verbose {
 			out_json, _ := json.MarshalIndent(site_pb, "", "  ")
-			ioutil.WriteFile(filepath.Join(output, strings.ToUpper(m.Code)+".json"), []byte(out_json), 0644)
+			ioutil.WriteFile(filepath.Join(output, strings.ToUpper(s)+".json"), []byte(out_json), 0644)
 		}
+
 	}
 }
