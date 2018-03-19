@@ -143,6 +143,7 @@ func main() {
 				SerialNumber: i.Serial,
 				Manufacturer: i.Make,
 				Height:       -i.Vertical,
+				Orientation:  i.Azimuth,
 			},
 			Installed: &sit_delta_pb.Span{
 				Start: i.Start.Unix(),
@@ -260,6 +261,7 @@ func main() {
 				Manufacturer: i.Make,
 				Height:       -i.Vertical,
 				Location:     i.Location,
+				Orientation:  i.Azimuth,
 			},
 			Installed: &sit_delta_pb.Span{
 				Start: i.Start.Unix(),
@@ -333,6 +335,7 @@ func main() {
 				Manufacturer: i.Make,
 				Height:       -i.Vertical,
 				Location:     i.Location,
+				Orientation:  i.Azimuth,
 			},
 			Installed: &sit_delta_pb.Span{
 				Start: i.Start.Unix(),
