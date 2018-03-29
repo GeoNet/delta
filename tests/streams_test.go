@@ -102,6 +102,31 @@ func TestStreams(t *testing.T) {
 		}
 	})
 
+	t.Run("check for invalid stream station dates", func(t *testing.T) {
+		for _, c := range streams {
+			if s, ok := stas[c.Station]; ok {
+				switch {
+				case c.Start.Before(s.Start):
+					t.Log("warning: stream span mismatch: " + strings.Join([]string{
+						c.Station,
+						c.Location,
+						c.Start.String(),
+						"before",
+						s.Start.String(),
+					}, " "))
+				case s.End.Before(time.Now()) && c.End.After(s.End):
+					t.Log("warning: stream span mismatch: " + strings.Join([]string{
+						c.Station,
+						c.Location,
+						c.End.String(),
+						"after",
+						s.End.String(),
+					}, " "))
+				}
+			}
+		}
+	})
+
 	t.Run("check for invalid stream sites", func(t *testing.T) {
 		for _, c := range streams {
 			if _, ok := sites[c.Station]; !ok {
@@ -115,6 +140,33 @@ func TestStreams(t *testing.T) {
 			if s, ok := sites[c.Station]; ok {
 				if _, ok := s[c.Location]; !ok {
 					t.Error("unknown stream station/location: " + c.Station + "/" + c.Location)
+				}
+			}
+		}
+	})
+
+	t.Run("check for invalid stream site dates", func(t *testing.T) {
+		for _, c := range streams {
+			if s, ok := sites[c.Station]; ok {
+				if l, ok := s[c.Location]; ok {
+					switch {
+					case c.Start.Before(l.Start):
+						t.Log("warning: stream span start mismatch: " + strings.Join([]string{
+							c.Station,
+							c.Location,
+							c.Start.String(),
+							"before",
+							l.Start.String(),
+						}, " "))
+					case l.End.Before(time.Now()) && c.End.After(l.End):
+						t.Log("warning: stream span end mismatch: " + strings.Join([]string{
+							c.Station,
+							c.Location,
+							c.End.String(),
+							"after",
+							l.End.String(),
+						}, " "))
+					}
 				}
 			}
 		}
