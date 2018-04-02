@@ -102,7 +102,7 @@ func TestStreams(t *testing.T) {
 		}
 	})
 
-	t.Run("check for invalid stream station dates", func(t *testing.T) {
+	t.Run("check for invalid dates: stream within station", func(t *testing.T) {
 		for _, c := range streams {
 			if s, ok := stas[c.Station]; ok {
 				switch {
@@ -145,7 +145,7 @@ func TestStreams(t *testing.T) {
 		}
 	})
 
-	t.Run("check for invalid stream site dates", func(t *testing.T) {
+	t.Run("check for invalid dates: stream within site", func(t *testing.T) {
 		for _, c := range streams {
 			if s, ok := sites[c.Station]; ok {
 				if l, ok := s[c.Location]; ok {

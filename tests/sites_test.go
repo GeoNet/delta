@@ -32,7 +32,7 @@ func TestSites(t *testing.T) {
 		}
 	})
 
-	t.Run("check for invalid site dates", func(t *testing.T) {
+	t.Run("check for invalid dates: site within station", func(t *testing.T) {
 		for _, c := range sites {
 			if s, ok := stas[c.Station]; ok {
 				switch {
