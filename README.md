@@ -49,3 +49,4 @@ Golang external modules used by the tests and tools.
 ## tests
 
 Consistency checking of the network meta data.
+- see [further details about the test files](tests/README.md)
