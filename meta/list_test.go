@@ -866,6 +866,7 @@ func TestList(t *testing.T) {
 					SamplingRate: 50.0,
 					Axial:        true,
 					Reversed:     false,
+					Triggered:    true,
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2011-08-25T00:25:00Z")
@@ -883,6 +884,7 @@ func TestList(t *testing.T) {
 					SamplingRate: 200.0,
 					Axial:        false,
 					Reversed:     false,
+					Triggered:    false,
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2007-05-02T22:00:01Z")
