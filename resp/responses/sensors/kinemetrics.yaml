@@ -72,6 +72,18 @@ sensor-model:
        dip: 0
      - azimuth: 90
        dip: 0
+   FBA-ES-T-ETNA-2:
+     type: Accelerometer
+     description: FBA-ETNA-2
+     manufacturer: "Kinemetrics"
+     vendor: ""
+     components:
+     - azimuth: 90
+       dip: 0
+     - azimuth: 0
+       dip: 0
+     - azimuth: 0
+       dip: -90
    Kinemetrics SBEPI:
      type: Accelerometer
      description: SBEPI
@@ -178,6 +190,19 @@ filter:
     delay: 0
     inputunits: m/s**2
     outputunits: V
+  FBA-ES-T-ETNA-2:
+  - type: paz
+    lookup: FBA-ES-T
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0.1275
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s**2
+    outputunits: V
+    notes: "http://ds.iris.edu/NRL/sensors/kinemetrics/RESP.XX.NS203..BNZ.Episensor.DC_200.2_5VSE.2G"
   FBA-ES-T-DECK:
   - type: paz
     lookup: FBA-ES-T
