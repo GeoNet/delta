@@ -135,6 +135,12 @@ response:
       channels: Z12
       reversed: false
     - sensors:
+      - FBA-ES-T-ETNA-2
+      filters:
+      - FBA-ES-T-ETNA-2
+      channels: ENZ
+      reversed: false
+    - sensors:
       - Kinemetrics SBEPI
       filters:
       - Kinemetrics SBEPI
@@ -206,6 +212,17 @@ response:
       clockdrift: 0.0001
       filters:
       - ALTUS-200
+      reversed: false
+    - dataloggers:
+      - ETNA 2
+      type: CG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - ETNA-2-200
       reversed: false
 
   CSI Strong Motion Recorders:
