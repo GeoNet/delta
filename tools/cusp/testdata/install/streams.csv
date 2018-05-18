@@ -1,3 +1,3 @@
-Station,Location,Sampling Rate,Axial,Reversed,Start Date,End Date
-ADCS,20,200,true,false,2002-06-26T21:00:00Z,9999-01-01T00:00:00Z
-WTMC,20,200,true,false,2005-11-15T01:00:00Z,9999-01-01T00:00:00Z
+Station,Location,Sampling Rate,Axial,Reversed,Triggered,Start Date,End Date
+ADCS,20,200,true,false,true,2002-06-26T21:00:00Z,9999-01-01T00:00:00Z
+WTMC,20,200,true,false,true,2005-11-15T01:00:00Z,9999-01-01T00:00:00Z
