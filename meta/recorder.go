@@ -14,6 +14,7 @@ const (
 	recorderDataloggerModel
 	recorderSerial
 	recorderStation
+	recorderRole
 	recorderLocation
 	recorderAzimuth
 	recorderDip
@@ -27,6 +28,7 @@ type InstalledRecorder struct {
 	InstalledSensor
 
 	DataloggerModel string
+	Role            string
 }
 
 type InstalledRecorderList []InstalledRecorder
@@ -42,6 +44,7 @@ func (r InstalledRecorderList) encode() [][]string {
 		"Datalogger",
 		"Serial",
 		"Station",
+		"Role",
 		"Location",
 		"Azimuth",
 		"Dip",
@@ -57,6 +60,7 @@ func (r InstalledRecorderList) encode() [][]string {
 			strings.TrimSpace(v.DataloggerModel),
 			strings.TrimSpace(v.Serial),
 			strings.TrimSpace(v.Station),
+			strings.TrimSpace(v.Role),
 			strings.TrimSpace(v.Location),
 			strconv.FormatFloat(v.Azimuth, 'g', -1, 64),
 			strconv.FormatFloat(v.Dip, 'g', -1, 64),
@@ -125,6 +129,7 @@ func (r *InstalledRecorderList) decode(data [][]string) error {
 					Location: strings.TrimSpace(d[recorderLocation]),
 				},
 				DataloggerModel: strings.TrimSpace(d[recorderDataloggerModel]),
+				Role:            strings.TrimSpace(d[recorderRole]),
 			})
 		}
 

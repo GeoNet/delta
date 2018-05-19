@@ -8,6 +8,7 @@ import (
 
 type Installation struct {
 	Station    string
+	Role       string
 	Location   string
 	Sensor     meta.InstalledSensor
 	Datalogger meta.DeployedDatalogger
@@ -25,6 +26,7 @@ func (m *MetaDB) Installations(station string) ([]Installation, error) {
 	for _, recorder := range recorders {
 		installations = append(installations, Installation{
 			Station:  station,
+			Role:     recorder.Role,
 			Location: recorder.Location,
 			Sensor:   recorder.InstalledSensor,
 			Datalogger: meta.DeployedDatalogger{
@@ -55,6 +57,18 @@ func (m *MetaDB) Installations(station string) ([]Installation, error) {
 		}
 		if location == nil {
 			return nil, nil
+		}
+
+		deploys, err := m.PlaceRoleDeployedDataloggers(connection.Place, connection.Role)
+		for _, dataloggerDeploy := range deploys {
+			installations = append(installations, Installation{
+				Station:    station,
+				Role:       connection.Role,
+				Location:   connection.Location,
+				Datalogger: dataloggerDeploy,
+				Start:      dataloggerDeploy.Start,
+				End:        dataloggerDeploy.End,
+			})
 		}
 
 		installs, err := m.StationLocationInstalledSensors(station, connection.Location)
@@ -92,6 +106,7 @@ func (m *MetaDB) Installations(station string) ([]Installation, error) {
 
 				installations = append(installations, Installation{
 					Station:    station,
+					Role:       connection.Role,
 					Location:   connection.Location,
 					Sensor:     sensorInstall,
 					Datalogger: dataloggerDeploy,

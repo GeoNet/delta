@@ -15,6 +15,7 @@ type Datalogger struct {
 	Dataloggers   []string `yaml:"dataloggers"`
 	Type          string   `yaml:"type"`
 	Label         string   `yaml:"label"`
+	Channels      string   `yaml:"channels"`
 	SampleRate    float64  `yaml:"samplerate"`
 	Frequency     float64  `yaml:"frequency"`
 	StorageFormat string   `yaml:"storageformat"`

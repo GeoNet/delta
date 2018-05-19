@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/GeoNet/delta/internal/metadb"
+	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/delta/resp"
 
 	"github.com/ozym/fdsn/stationxml"
@@ -232,11 +233,26 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 			}
 
 			for _, response := range resp.Streams(installation.Datalogger.Model, installation.Sensor.Model) {
-				stream, err := mdb.StationLocationSamplingRateStartStream(
-					station.Code,
-					installation.Location,
-					response.Datalogger.SampleRate,
-					installation.Start)
+				stream, err := func() (*meta.Stream, error) {
+					// state of health channels ...
+					if response.Datalogger.Channels != "" && len(installation.Role) == 2 {
+						return &meta.Stream{
+							Station:      station.Code,
+							Location:     installation.Role,
+							SamplingRate: response.Datalogger.SampleRate,
+							Span: meta.Span{
+								Start: installation.Start,
+								End:   installation.End,
+							},
+						}, nil
+					}
+					return mdb.StationLocationSamplingRateStartStream(
+						station.Code,
+						installation.Location,
+						response.Datalogger.SampleRate,
+						installation.Start,
+					)
+				}()
 				if err != nil {
 					return nil, err
 				}
@@ -253,6 +269,8 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 				}())
 				for _, t := range response.Type {
 					switch t {
+					case 'h', 'H':
+						types = append(types, stationxml.TypeHealth)
 					case 'g', 'G':
 						types = append(types, stationxml.TypeGeophysical)
 					case 'w', 'W':
@@ -311,7 +329,7 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 					tag := fmt.Sprintf(
 						"%s.%s.%s",
 						station.Code,
-						location.Location,
+						stream.Location,
 						channel,
 					)
 
@@ -383,7 +401,7 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 
 					channels = append(channels, stationxml.Channel{
 						BaseNode: stationxml.BaseNode{
-							Code:      channel, //response.Label + string(cha),
+							Code:      channel,
 							StartDate: &stationxml.DateTime{installation.Start},
 							EndDate:   &stationxml.DateTime{installation.End},
 							RestrictedStatus: func() stationxml.RestrictedStatus {
@@ -424,7 +442,7 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 								},
 							},
 						},
-						LocationCode: location.Location,
+						LocationCode: stream.Location,
 						Latitude: stationxml.Latitude{
 							LatitudeBase: stationxml.LatitudeBase{
 								Float: stationxml.Float{
@@ -464,44 +482,82 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 						},
 						StorageFormat: response.StorageFormat,
 						ClockDrift:    &stationxml.ClockDrift{Float: stationxml.Float{Value: response.ClockDrift}},
-						Sensor: &stationxml.Equipment{
-							ResourceId: "Sensor#" + installation.Sensor.Model + ":" + installation.Sensor.Serial,
-							Type: func() string {
-								if t, ok := resp.SensorModels[installation.Sensor.Model]; ok {
-									return t.Type
+						Sensor: func() *stationxml.Equipment {
+							// skip if state of health channel
+							if response.Datalogger.Channels != "" {
+								if !(len(response.Sensor.SensorList) > 0) {
+									return nil
 								}
-								return ""
-							}(),
-							Description: func() string {
-								if t, ok := resp.SensorModels[installation.Sensor.Model]; ok {
-									return t.Description
+								sensor := response.Sensor.SensorList[0]
+								return &stationxml.Equipment{
+									ResourceId: "Sensor#" + installation.Datalogger.Model + ":" + sensor + ":" + installation.Datalogger.Serial,
+									Type: func() string {
+										if t, ok := resp.SensorModels[sensor]; ok {
+											return t.Type
+										}
+										return ""
+									}(),
+									Description: func() string {
+										if t, ok := resp.SensorModels[sensor]; ok {
+											return t.Description
+										}
+										return ""
+									}(),
+									Manufacturer: func() string {
+										if t, ok := resp.DataloggerModels[installation.Datalogger.Model]; ok {
+											return t.Manufacturer
+										}
+										return ""
+									}(),
+									Vendor: func() string {
+										if t, ok := resp.DataloggerModels[installation.Datalogger.Model]; ok {
+											return t.Vendor
+										}
+										return ""
+									}(),
+									Model:        installation.Datalogger.Model,
+									SerialNumber: installation.Datalogger.Serial,
 								}
-								return ""
-							}(),
-							Manufacturer: func() string {
-								if t, ok := resp.SensorModels[installation.Sensor.Model]; ok {
-									return t.Manufacturer
-								}
-								return ""
-							}(),
-							Vendor: func() string {
-								if t, ok := resp.SensorModels[installation.Sensor.Model]; ok {
-									return t.Vendor
-								}
-								return ""
-							}(),
-							Model:        installation.Sensor.Model,
-							SerialNumber: installation.Sensor.Serial,
-							InstallationDate: func() *stationxml.DateTime {
-								return &stationxml.DateTime{installation.Sensor.Start}
-							}(),
-							RemovalDate: func() *stationxml.DateTime {
-								if time.Now().After(installation.Sensor.End) {
-									return &stationxml.DateTime{installation.Sensor.End}
-								}
-								return nil
-							}(),
-						},
+							}
+							return &stationxml.Equipment{
+								ResourceId: "Sensor#" + installation.Sensor.Model + ":" + installation.Sensor.Serial,
+								Type: func() string {
+									if t, ok := resp.SensorModels[installation.Sensor.Model]; ok {
+										return t.Type
+									}
+									return ""
+								}(),
+								Description: func() string {
+									if t, ok := resp.SensorModels[installation.Sensor.Model]; ok {
+										return t.Description
+									}
+									return ""
+								}(),
+								Manufacturer: func() string {
+									if t, ok := resp.SensorModels[installation.Sensor.Model]; ok {
+										return t.Manufacturer
+									}
+									return ""
+								}(),
+								Vendor: func() string {
+									if t, ok := resp.SensorModels[installation.Sensor.Model]; ok {
+										return t.Vendor
+									}
+									return ""
+								}(),
+								Model:        installation.Sensor.Model,
+								SerialNumber: installation.Sensor.Serial,
+								InstallationDate: func() *stationxml.DateTime {
+									return &stationxml.DateTime{installation.Sensor.Start}
+								}(),
+								RemovalDate: func() *stationxml.DateTime {
+									if time.Now().After(installation.Sensor.End) {
+										return &stationxml.DateTime{installation.Sensor.End}
+									}
+									return nil
+								}(),
+							}
+						}(),
 
 						DataLogger: &stationxml.Equipment{
 							ResourceId: "Datalogger#" + installation.Datalogger.Model + ":" + installation.Datalogger.Serial,

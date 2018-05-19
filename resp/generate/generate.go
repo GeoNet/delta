@@ -139,6 +139,84 @@ var generateTemplate = `
         },
   },{{end}}
 {{"}"}}
+
+{{ $b := . }}var StateOfHealth []Response = []Response{
+{{ range $l, $r := $b.StateOfHealthMap }}    Response{
+	Name: "{{$l}}",
+        Sensors: []Sensor{
+  {{ range $v := $r.Sensors }}    Sensor{
+                SensorList: []string{{"{"}}{{range $s := $v.Sensors}}"{{$s}}",{{end}}{{"}"}},
+        },{{end}}
+        },
+        Dataloggers: []Datalogger{
+  {{ range $v := $r.Dataloggers }}    Datalogger{
+                DataloggerList: []string{{"{"}}{{range $s := $v.Dataloggers}}"{{$s}}",{{end}}{{"}"}},
+                Type: "{{$v.Type}}",
+                Label: "{{$v.Label}}",
+                Channels: "{{$v.Channels}}",
+                SampleRate: {{$v.SampleRate}},
+                Frequency: {{$v.Frequency}},
+                StorageFormat: "{{$v.StorageFormat}}",
+                ClockDrift: {{$v.ClockDrift}},
+                FilterList: []string{{"{"}}{{range $s := $v.Filters}}"{{$s}}",{{end}}{{"}"}},
+		Stages: []ResponseStage{{"{"}}{{range $s := $v.Filters}}{{with $f := $b.Filter $s}}
+		{{ range $v := $f }}ResponseStage{
+		Type: "{{$v.Type}}",
+		Lookup: "{{$v.Lookup}}",
+		Filter: "{{$s}}",{{if eq $v.Type "paz" }}{{with $b.PAZ $v.Lookup}}
+		StageSet: PAZ{
+			Name: "{{$v.Lookup}}",
+			Code: {{.PzTransferFunction}},
+			Type: "{{.Type}}",{{if .Notes }}
+			Notes: "{{.Notes|escape}}",{{end}}{{if .Poles }}
+			Poles: []complex128{{"{"}}{{ range $p := .Poles}}{{ $p }},{{end}}{{"}"}},{{ end }}{{if .Zeros }}
+			Zeros: []complex128{{"{"}}{{ range $z := .Zeros}}{{ $z }},{{end}}{{"}"}},{{ end }}
+		},{{end}}{{end}}{{if eq $v.Type "a2d" }}{{with $b.PAZ $v.Lookup}}
+		StageSet: A2D{
+			Name: "{{$v.Lookup}}",
+			Code: {{.PzTransferFunction}},
+			Type: "{{.Type}}",{{if .Notes }}
+			Notes: "{{.Notes|escape}}",{{end}}
+		},{{end}}{{end}}{{if eq $v.Type "fir" }}{{with $b.FIR $v.Lookup}}
+		StageSet: FIR{
+			Name: "{{$v.Lookup}}",
+			Causal: {{.Causal}},
+			Symmetry: {{.SymmetryLookup}},
+			Decimation: {{.Decimation}},
+			Gain: {{.Gain}},{{if .Notes }}
+			Notes: &[]string{"{{.Notes|escape}}"}[0],{{end}}
+			Factors: []float64{{"{"}}{{ range $z := .Factors}}{{ $z }},{{end}}{{"}"}},
+		},{{end}}{{end}}{{if eq $v.Type "poly" }}{{with $b.Polynomial $v.Lookup}}
+		StageSet: Polynomial{
+			Name: "{{$v.Lookup}}",
+			Gain: {{.Gain}},
+			ApproximationType: {{.ApproximationTypeLookup}},
+			FrequencyLowerBound: {{.FrequencyLowerBound}},
+			FrequencyUpperBound: {{.FrequencyUpperBound}},
+			ApproximationLowerBound: {{.ApproximationLowerBound}},
+			ApproximationUpperBound: {{.ApproximationUpperBound}},
+			MaximumError: {{.MaximumError}},{{if .Notes }}
+			Notes: &[]string{"{{.Notes|escape}}"}[0],{{end}}
+			Coefficients: []Coefficient{{"{"}}{{ range $z := .Coefficients}}Coefficient{Value: {{ $z }}{{"}"}},{{end}}{{"}"}},
+		},{{end}}{{end}}
+		Frequency: {{$v.Frequency}},
+		SampleRate: {{$v.SampleRate}},
+		Decimate: {{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{.Decimation}}{{end}}{{else}}{{$v.Decimate}}{{end}},
+		Gain: {{$v.Gain}},
+		//Scale: {{$v.Scale}},{{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{if and (eq $v.Correction 0.0) (gt .Decimation 1.0)}}
+		Correction: {{.Correction $v.SampleRate}},
+		Delay: {{.Correction $v.SampleRate}},{{else}}
+		Correction: {{$v.Correction}},
+		Delay: {{$v.Correction}},{{end}}{{end}}{{end}}
+		InputUnits: "{{$v.InputUnits}}",
+		OutputUnits: "{{$v.OutputUnits}}",
+		},{{end}}{{end}}{{end}}
+    		{{"}"}},
+                Reversed: {{$v.Reversed}},
+        },{{end}}
+        },
+  },{{end}}
+{{"}"}}
 `
 
 //{{with $b.FIR $v.Lookup}}{{if and (gt .Decimation 1) (eq $v.Correction 0.0)}}{{.Correction $v.SampleRate}}{{else}}{{$v.Correction}}{{end}}{{end}}{{else}}{{$v.Correction}}{{end}},
@@ -147,11 +225,12 @@ var generateTemplate = `
 //Delay: {{$v.Delay}},{{end}}
 
 type Generate struct {
-	ResponseMap responseMap
-	FilterMap   filterMap
-	PazMap      pazMap
-	FirMap      firMap
-	PolyMap     polynomialMap
+	ResponseMap      responseMap
+	StateOfHealthMap responseMap
+	FilterMap        filterMap
+	PazMap           pazMap
+	FirMap           firMap
+	PolyMap          polynomialMap
 }
 
 func (g Generate) Filter(filter string) *[]ResponseStage {
@@ -208,6 +287,31 @@ func (g Generate) Validate() error {
 			}
 		}
 	}
+
+	for k, r := range g.StateOfHealthMap {
+		// check dataloger responses
+		for _, d := range r.Dataloggers {
+			label := fmt.Sprintf("\"%s\" [%s]", k, d.Label)
+
+			// check sampling rates
+			var r float64
+			for _, f := range d.Filters {
+				// look for a configured map
+				m, ok := g.FilterMap[f]
+				if !ok {
+					return fmt.Errorf("invalid filter %s: %s", label, f)
+				}
+				// choose the last sample rate
+				for _, s := range m {
+					r = s.SampleRate
+				}
+			}
+			if r != d.SampleRate {
+				return fmt.Errorf("invalid sample rate %s: found %v, expected %v", label, r, d.SampleRate)
+			}
+		}
+	}
+
 	return nil
 }
 

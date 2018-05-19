@@ -1,0 +1,312 @@
+---
+soh:
+  "voltage":
+    sensors:
+    - sensors:
+      - SOH-VOLTMETER
+    dataloggers:
+    - dataloggers:
+      - ETNA 2
+      type: HC
+      label: LE
+      channels: P
+      samplerate: 1
+      frequency: 0
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+        - SOH-V-1000 
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      - Q330S/3
+      - Q330S/6
+      - Q330HR/6
+      - Q330HRS/6
+      type: HC
+      label: VE
+      channels: P
+      samplerate: 0.1
+      frequency: 0
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+        - SOH-V-Q330 
+      reversed: false
+
+  "current":
+    sensors:
+    - sensors:
+      - SOH-AMPMETER
+    dataloggers:
+    - dataloggers:
+      - ETNA 2
+      type: HC
+      label: LE
+      channels: C
+      samplerate: 1
+      frequency: 0
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+        - SOH-A-1000 
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      - Q330S/3
+      - Q330S/6
+      - Q330HR/6
+      - Q330HRS/6
+      type: HC
+      label: VE
+      channels: C
+      samplerate: 0.1
+      frequency: 0
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+        - SOH-A-Q330 
+      reversed: false
+
+  "temperature":
+    sensors:
+    - sensors:
+      - SOH-THERMOMETER
+    dataloggers:
+    - dataloggers:
+      - ETNA 2
+      type: HC
+      label: LK
+      channels: I
+      samplerate: 1
+      frequency: 0
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+        - SOH-K-10
+      reversed: false
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      - Q330S/3
+      - Q330S/6
+      - Q330HR/6
+      - Q330HRS/6
+      type: HC
+      label: VK
+      channels: I
+      samplerate: 0.1
+      frequency: 0
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+        - SOH-K-Q330 
+      reversed: false
+
+  "clock quality":
+    dataloggers:
+    - dataloggers:
+      - ETNA 2
+      - Q330/3
+      - Q330/6
+      - Q330S/3
+      - Q330S/6
+      - Q330HR/6
+      - Q330HRS/6
+      type: HC
+      label: LC
+      channels: Q
+      samplerate: 1
+      frequency: 0
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+        - SOH-P-1
+      reversed: false
+
+  "clock drift":
+    dataloggers:
+    - dataloggers:
+      - ETNA 2
+      type: HC
+      label: LC
+      channels: E
+      samplerate: 1
+      frequency: 0
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+        - SOH-T-NS
+      reversed: false
+
+  "system load":
+    dataloggers:
+    - dataloggers:
+      - ETNA 2
+      type: HC
+      label: LE
+      channels: U
+      samplerate: 1
+      frequency: 0
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+        - SOH-P-100
+      reversed: false
+
+  "system disk":
+    dataloggers:
+    - dataloggers:
+      - ETNA 2
+      type: HC
+      label: LE
+      channels: M
+      samplerate: 1
+      frequency: 0
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+        - SOH-P-100
+      reversed: false
+
+  "system memory":
+    dataloggers:
+    - dataloggers:
+      - Q330/3
+      - Q330/6
+      - Q330S/3
+      - Q330S/6
+      - Q330HR/6
+      - Q330HRS/6
+      type: HC
+      label: VE
+      channels: M
+      samplerate: 0.1
+      frequency: 0
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+        - SOH-P-Q330 
+      reversed: false
+
+sensor-model:
+   SOH-THERMOMETER:
+     type: Thermometer
+   SOH-VOLTMETER:
+     type: Voltmeter
+   SOH-AMPMETER:
+     type: Ampmeter
+
+filter:
+  SOH-T-NS:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 1
+    inputunits: nanosecond
+    outputunits: count
+  SOH-P-1:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 1
+    inputunits: percent
+    outputunits: count
+  SOH-P-Q330:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 0.1
+    decimate: 1
+    gain: 10
+    inputunits: percent
+    outputunits: count
+  SOH-P-100:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 100
+    inputunits: percent
+    outputunits: count
+  SOH-V-Q330:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 0.1
+    decimate: 1
+    gain: 6.6666
+    inputunits: volt
+    outputunits: count
+  SOH-V-10:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 10
+    inputunits: volt
+    outputunits: count
+  SOH-V-100:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 100
+    inputunits: volt
+    outputunits: count
+  SOH-V-1000:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 1000
+    inputunits: volt
+    outputunits: count
+  SOH-K-Q330:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 0.1
+    decimate: 1
+    gain: 1
+    inputunits: celsius
+    outputunits: count
+  SOH-K-10:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 10
+    inputunits: celsius
+    outputunits: count
+  SOH-A-Q330:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 0.1
+    decimate: 1
+    gain: 1
+    inputunits: ampere
+    outputunits: count
+  SOH-A-1000:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 1000
+    inputunits: ampere
+    outputunits: count
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

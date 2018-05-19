@@ -37,6 +37,7 @@ type Datalogger struct {
 	DataloggerList []string
 	Type           string
 	Label          string
+	Channels       string
 	SampleRate     float64
 	Frequency      float64
 	StorageFormat  string
@@ -105,7 +106,13 @@ type Stream struct {
 func (s Stream) Channels(axial bool) []string {
 	var channels []string
 
-	labels := s.Sensor.Labels(axial)
+	labels := func() string {
+		if s.Datalogger.Channels != "" {
+			return s.Datalogger.Channels
+		}
+		return s.Sensor.Labels(axial)
+	}()
+
 	if len(s.Components) < len(labels) && len(labels) > 0 {
 		labels = labels[0:len(s.Components)]
 	}

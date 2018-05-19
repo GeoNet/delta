@@ -42,6 +42,7 @@ type ResponseInfo struct {
 	SensorModel     map[string]SensorModel     `yaml:"sensor-model"`
 	Filter          map[string][]ResponseStage `yaml:"filter"`
 	Response        map[string]Response        `yaml:"response"`
+	StateOfHealth   map[string]Response        `yaml:"soh"`
 }
 
 func NewResponseInfo() *ResponseInfo {
@@ -53,6 +54,7 @@ func NewResponseInfo() *ResponseInfo {
 		SensorModel:     make(map[string]SensorModel),
 		Filter:          make(map[string][]ResponseStage),
 		Response:        make(map[string]Response),
+		StateOfHealth:   make(map[string]Response),
 	}
 }
 
@@ -78,15 +80,19 @@ func (r *ResponseInfo) Merge(resp ResponseInfo) {
 	for k, v := range resp.Response {
 		r.Response[k] = v
 	}
+	for k, v := range resp.StateOfHealth {
+		r.StateOfHealth[k] = v
+	}
 }
 
 func (r ResponseInfo) Generate(w io.Writer) error {
 	g := Generate{
-		ResponseMap: responseMap(r.Response),
-		FilterMap:   filterMap(r.Filter),
-		PazMap:      pazMap(r.PAZ),
-		FirMap:      firMap(r.FIR),
-		PolyMap:     polynomialMap(r.Polynomial),
+		ResponseMap:      responseMap(r.Response),
+		StateOfHealthMap: responseMap(r.StateOfHealth),
+		FilterMap:        filterMap(r.Filter),
+		PazMap:           pazMap(r.PAZ),
+		FirMap:           firMap(r.FIR),
+		PolyMap:          polynomialMap(r.Polynomial),
 	}
 	if _, err := w.Write([]byte(header)); err != nil {
 		return err

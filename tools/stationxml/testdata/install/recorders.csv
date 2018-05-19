@@ -1,2 +1,2 @@
-Make,Sensor,Datalogger,Serial,Station,Location,Azimuth,Dip,Depth,Start Date,End Date
-Kinemetrics,FBA-ES-T-BASALT,BASALT,1677,CMWZ,20,0,0,0,2016-11-15T04:30:00Z,2016-12-05T00:30:00Z
+Make,Sensor,Datalogger,Serial,Station,Role,Location,Azimuth,Dip,Depth,Start Date,End Date
+Kinemetrics,FBA-ES-T-BASALT,BASALT,1677,CMWZ,,20,0,0,0,2016-11-15T04:30:00Z,2016-12-05T00:30:00Z

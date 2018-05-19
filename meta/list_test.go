@@ -789,6 +789,7 @@ func TestList(t *testing.T) {
 						Location: "20",
 					},
 					DataloggerModel: "BASALT",
+					Role:            "02",
 				},
 			},
 		},

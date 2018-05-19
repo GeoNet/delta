@@ -32,5 +32,28 @@ func Streams(datalogger, sensor string) []Stream {
 		}
 	}
 
+	for _, response := range StateOfHealth {
+		for _, lo := range response.Dataloggers {
+			for _, dataloggerModel := range lo.DataloggerList {
+				if datalogger != dataloggerModel {
+					continue
+				}
+				var sensor Sensor
+				for _, se := range response.Sensors {
+					if len(se.SensorList) > 0 {
+						sensor = se
+					}
+				}
+				streams = append(streams, Stream{
+					Datalogger: lo,
+					Sensor:     sensor,
+					Components: []SensorComponent{
+						{},
+					},
+				})
+			}
+		}
+	}
+
 	return streams
 }
