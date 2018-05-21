@@ -100,7 +100,7 @@ NLS2,,Not Specified,Unknown,-1,Unknown,0,2011-12-20T00:00:00Z,2013-11-14T00:00:0
 NLSN,50232M001,Forced Centering,Pillar,-1.31,Reinforced Concrete,2,2004-02-06T00:00:00Z,9999-01-01T00:00:00Z,Basalt,
 NMAI,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.43,Stainless Steel Rods,10,2008-02-13T00:00:00Z,9999-01-01T00:00:00Z,Limestone,
 NPLY,50227M001,Forced Centering,Pillar,-1.53,Reinforced Concrete,2,2003-03-20T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
-NRRD,,Forced Centering,Wyatt/Agnew Drilled-Braced,0,Stainless Steel Rods,10,2008-03-27T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,Greywacke
+NRRD,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.516,Stainless Steel Rods,10,2008-03-27T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,Greywacke
 NRSW,,Forced Centering,Wyatt/Agnew Drilled-Braced,0,Stainless Steel Rods,10,2011-01-18T00:00:00Z,9999-01-01T00:00:00Z,,
 OHIN,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.6,Stainless Steel Rods,10,2008-09-03T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,"Sandstone, Siltstone, Mudstone Sequence."
 OKOH,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.56,Stainless Steel Rods,10,2009-11-16T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
