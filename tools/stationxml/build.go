@@ -245,12 +245,14 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 				}
 
 				var types []stationxml.Type
+				types = append(types, func() stationxml.Type {
+					if stream.Triggered {
+						return stationxml.TypeTriggered
+					}
+					return stationxml.TypeContinuous
+				}())
 				for _, t := range response.Type {
 					switch t {
-					case 'c', 'C':
-						types = append(types, stationxml.TypeContinuous)
-					case 't', 'T':
-						types = append(types, stationxml.TypeTriggered)
 					case 'g', 'G':
 						types = append(types, stationxml.TypeGeophysical)
 					case 'w', 'W':
