@@ -34,6 +34,10 @@ Golang module to load the meta data csv files.
 
 Golang module to configure and describe instrument responses.
 
+## tides
+
+Golang module to configure and describe tsunami gauge tidal parameters.
+
 ## tools
 
 Golang tools to manage and process the meta data.
@@ -49,3 +53,4 @@ Golang external modules used by the tests and tools.
 ## tests
 
 Consistency checking of the network meta data.
+- see [further details about the test files](tests/README.md)

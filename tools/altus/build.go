@@ -109,7 +109,7 @@ func buildSites(base string) ([]Site, error) {
 			}
 
 			switch installation.Sensor.Model {
-			case "FBA-ES-T-BASALT", "FBA-ES-T-DECK", "FBA-23-DECK", "FBA-ES-T", "FBA-ES-T-ISO", "Kinemetrics SBEPI", "SDP":
+			case "FBA-ES-T-OBSIDIAN", "FBA-ES-T-BASALT", "FBA-ES-T-DECK", "FBA-23-DECK", "FBA-ES-T", "FBA-ES-T-ISO", "Kinemetrics SBEPI", "SDP":
 				switch installation.Datalogger.Model {
 				case "OBSIDIAN", "K2", "ETNA", "BASALT", "BASALT 8X DATALOGGER":
 					for _, response := range resp.Streams(installation.Datalogger.Model, installation.Sensor.Model) {
