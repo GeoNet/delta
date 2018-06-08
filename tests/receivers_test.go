@@ -52,7 +52,7 @@ func TestReceivers(t *testing.T) {
 			if _, ok := installs[s.Mark]; !ok {
 				installs[s.Mark] = meta.DeployedReceiverList{}
 			}
-			installs[s.Mark] = append(installs[s.Model], s)
+			installs[s.Mark] = append(installs[s.Mark], s)
 		}
 
 		for _, v := range installs {
