@@ -157,15 +157,20 @@ func main() {
 		}
 
 		if m.Network == "LI" {
-			mark_pb.Comment = `Data supplied by the GeoNet project.  GeoNet is core
-funded by EQC, with support from LINZ, and is
-operated by GNS on behalf of EQC and all New Zealanders.
-Contact: www.geonet.org.nz  email: info@geonet.org.nz`
+			mark_pb.Comment = `This station is part of the LINZ PositioNZ and GeoNet 
+cGNSS networks and is jointly funded by Land Information 
+New Zealand and GNS Science. This data is licenced for 
+re-use under the Creative Commons Attribution 4.0 
+International licence. For more detail please refer 
+to https://www.linz.govt.nz/linz-copyright`
+
 		} else {
-			mark_pb.Comment = `Data supplied by the GeoNet project.  GeoNet is core
-funded by EQC and is operated by GNS on behalf of
-EQC and all New Zealanders.
-Contact: www.geonet.org.nz  email: info@geonet.org.nz`
+			mark_pb.Comment = `These data are supplied by GeoNet. GeoNet is core 
+funded by EQC, LINZ and MBIE and is operated by 
+GNS Science on behalf of stakeholders and all New 
+Zealanders. The data policy, disclaimer, licence and 
+contact information can be found at www.geonet.org.nz`
+
 		}
 
 		recList := deployedReceivers[m.Code]
