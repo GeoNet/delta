@@ -17,7 +17,8 @@ BTHL,"Excellent, no obstructions to the North. 4m quad beacon on same hilltop.",
 CAST,Excellent,2006-02-08T00:00:00Z,9999-01-01T00:00:00Z
 CHAT,"MetService buildings and several masts at distances of 25 metres to >50 metres, with elevations up to 15 degrees above horizon.",1995-10-04T00:00:00Z,2012-05-23T00:00:00Z
 CHTI,good. minor obstrustion at: -bearing 190 degrees of 5-10 degrees (quarry with seismic vault).,2007-12-10T00:00:00Z,9999-01-01T00:00:00Z
-CKID,Excellent,2006-05-23T00:00:00Z,9999-01-01T00:00:00Z
+CKID,Excellent,2006-05-23T00:00:00Z,2017-04-04T23:59:59Z
+CKID,3m tall data comms mast installed 2m south of the antenna,2017-04-05T00:00:01Z,9999-01-01T00:00:00Z
 CLIM,Excellent,2005-10-18T00:00:00Z,9999-01-01T00:00:00Z
 CLRR,Good,2017-02-12T00:00:00Z,9999-01-01T00:00:00Z
 CLS3,-,2011-06-21T00:00:00Z,2015-09-22T00:00:00Z
@@ -30,7 +31,8 @@ CMBL,No obstruction above 5 degrees elevation.,2003-12-03T00:00:00Z,9999-01-01T0
 CNCL,unknown,2000-02-05T00:00:00Z,9999-01-01T00:00:00Z
 CNST,"Good, trees create a 3-5 degree obstruction between 210 and 220 degrees from magnetic north.",2007-02-22T00:00:00Z,9999-01-01T00:00:00Z
 CORM,No obstruction above 10 degrees elevation,2003-05-09T00:00:00Z,9999-01-01T00:00:00Z
-DNVK,No obstruction above 05 degrees elevation.,2002-06-05T00:00:00Z,9999-01-01T00:00:00Z
+DNVK,No obstruction above 05 degrees elevation.,2002-06-05T00:00:00Z,2017-03-08T23:59:59Z
+DNVK,3m tall data comms mast installed 10m south of the antenna,2017-03-09T00:00:00Z,9999-01-01T00:00:00Z
 DUND,No obstructions above 2 degrees.,2005-08-10T00:00:00Z,9999-01-01T00:00:00Z
 DUNT,Fair,1999-09-23T00:00:00Z,9999-01-01T00:00:00Z
 DURV,below 10 degrees in all directions,2005-03-09T00:00:00Z,9999-01-01T00:00:00Z
@@ -56,7 +58,8 @@ HORN,unknown,2002-11-01T00:00:00Z,9999-01-01T00:00:00Z
 KAHU,Excellent,2006-04-19T00:00:00Z,2016-07-25T23:59:00Z
 KAHU,9m tall data comms mast installed at 3m south of the antenna,2016-07-26T00:00:00Z,9999-01-01T00:00:00Z
 KAIK,No obstruction above 10 degrees,2004-01-30T00:00:00Z,9999-01-01T00:00:00Z
-KAPT,"15 degrees elevation obstruction between NNE and ENE, elswhere less than 5 degrees.",2004-06-10T00:00:00Z,9999-01-01T00:00:00Z
+KAPT,"15 degrees elevation obstruction between NNE and ENE, elswhere less than 5 degrees.",2004-06-10T00:00:00Z,2013-12-11T00:00:00Z
+KAPT,low elevation obstructions around the antenna due to vegetation,2013-12-11T00:00:00Z,9999-01-01T00:00:00Z
 KARA,unknown,2000-02-04T00:00:00Z,9999-01-01T00:00:00Z
 KAWK,"good, pine trees to the north west, less than 12 deg.",2010-06-02T00:00:00Z,9999-01-01T00:00:00Z
 KERE,Good,2006-05-17T00:00:00Z,9999-01-01T00:00:00Z
