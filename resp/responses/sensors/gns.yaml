@@ -1,5 +1,5 @@
 ---
-sensormodel:
+sensor-model:
   LM35:
     type: ""
     description: LM35

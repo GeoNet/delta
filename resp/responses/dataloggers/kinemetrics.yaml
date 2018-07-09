@@ -1,5 +1,5 @@
 ---
-dataloggermodel:
+datalogger-model:
   BASALT:
     type: Strong Motion Recorder
     description: Basalt
@@ -13,6 +13,11 @@ dataloggermodel:
   OBSIDIAN:
     type: Strong Motion Recorder
     description: Obsidian
+    manufacturer: Kinemetrics
+    vendor: ""
+  ETNA 2:
+    type: Strong Motion Recorder
+    description: Etna 2
     manufacturer: Kinemetrics
     vendor: ""
   Obsidian 4X Datalogger:
@@ -199,6 +204,40 @@ filter:
     scale: 0
     correction: 0
     delay: 0
+    inputunits: count
+    outputunits: count
+  ETNA-2-200:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 8000
+    decimate: 1
+    gain: 3.355443e+06
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: ETNA2_COEFA8_80
+    frequency: 0
+    samplerate: 1000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 1.225000e-02
+    delay: 1.225000e-02
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: ETNA2_COEFB5_350
+    frequency: 0
+    samplerate: 200
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 1.745000e-01
+    delay: 1.745000e-01
     inputunits: count
     outputunits: count
 

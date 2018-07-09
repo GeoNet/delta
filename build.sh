@@ -14,8 +14,10 @@ go build ./tools/stationxml || exit 255
 
 ./stationxml -base . -output .tmp/geonet-meta/stationxml/complete.xml
 ./stationxml -base . -output .tmp/geonet-meta/stationxml/scp.xml \
+    -active \
     -installed \
     -operational \
+    -networks '!(SB|.X)' \
     -channels '([EHB][HN][ZNE12])'
 
 ./stationxml -base . -output .tmp/geonet-meta/stationxml/iris.xml \
@@ -47,6 +49,11 @@ mkdir -p .tmp/geonet-meta/config/gloria || exit 255
 go build ./tools/gloria || exit 255
 
 ./gloria --install install --network network -output .tmp/geonet-meta/config/gloria
+
+mkdir -p .tmp/geonet-meta/config/sit || exit 255
+go build ./tools/sit || exit 255
+
+./sit -install install -network network -asset assets -output .tmp/geonet-meta/config/sit
 
 exit $errcount
 

@@ -3,7 +3,6 @@ package delta_test
 import (
 	"bytes"
 	"encoding/csv"
-	//	"io"
 	"io/ioutil"
 	"os"
 	"os/exec"
@@ -12,6 +11,12 @@ import (
 
 	"github.com/GeoNet/delta/meta"
 )
+
+func loadListFile(t *testing.T, path string, list meta.List) {
+	if err := meta.LoadList(path, list); err != nil {
+		t.Fatalf("unable to load list file %s: %v", path, err)
+	}
+}
 
 func TestConsistency(t *testing.T) {
 
@@ -34,52 +39,53 @@ func TestConsistency(t *testing.T) {
 		"sites":        {f: "../network/sites.csv", l: &meta.SiteList{}},
 		"marks":        {f: "../network/marks.csv", l: &meta.MarkList{}},
 		"mounts":       {f: "../network/mounts.csv", l: &meta.MountList{}},
-		"gauges":       {f: "../network/gauges.csv", l: &meta.GaugeList{}},
-		"constituents": {f: "../network/constituents.csv", l: &meta.ConstituentList{}},
+		"gauges":       {f: "../environment/gauges.csv", l: &meta.GaugeList{}},
+		"constituents": {f: "../environment/constituents.csv", l: &meta.ConstituentList{}},
 	}
 
 	for k, v := range files {
-		if err := meta.LoadList(v.f, v.l); err != nil {
-			t.Fatal(err)
-		}
+		t.Run("check file consistency: "+k, func(t *testing.T) {
+			loadListFile(t, v.f, v.l)
 
-		sort.Sort(v.l)
+			sort.Sort(v.l)
 
-		raw, err := ioutil.ReadFile(v.f)
-		if err != nil {
-			t.Fatal(err)
-		}
-
-		var buf bytes.Buffer
-		if err := csv.NewWriter(&buf).WriteAll(meta.EncodeList(v.l)); err != nil {
-			t.Fatal(err)
-		}
-
-		if string(raw) != buf.String() {
-			t.Error(k + ": **** csv file mismatch **** : " + v.f)
-
-			file, err := ioutil.TempFile(os.TempDir(), "tst")
+			raw, err := ioutil.ReadFile(v.f)
 			if err != nil {
-				t.Fatal(err)
+				t.Fatalf("unable to read %s asset file: %v", k, err)
 			}
-			defer os.Remove(file.Name())
-			file.Write(buf.Bytes())
 
-			cmd := exec.Command("diff", "-c", v.f, file.Name())
-			stdout, err := cmd.StdoutPipe()
-			if err != nil {
-				t.Fatal(err)
+			var buf bytes.Buffer
+			if err := csv.NewWriter(&buf).WriteAll(meta.EncodeList(v.l)); err != nil {
+				t.Fatalf("unable to decode %s asset file: %v", k, err)
 			}
-			err = cmd.Start()
-			if err != nil {
-				t.Fatal(err)
+
+			if string(raw) != buf.String() {
+				t.Errorf("%s: **** csv file mismatch **** : ", v.f)
+
+				file, err := ioutil.TempFile(os.TempDir(), "tst")
+				if err != nil {
+					t.Fatalf("unable to create temporary file: %v", err)
+				}
+				defer os.Remove(file.Name())
+				file.Write(buf.Bytes())
+
+				cmd := exec.Command("diff", "-c", v.f, file.Name())
+				stdout, err := cmd.StdoutPipe()
+				if err != nil {
+					t.Fatalf("unable to create diff: %v", err)
+				}
+				err = cmd.Start()
+				if err != nil {
+					t.Fatalf("unable to start diff: %v", err)
+				}
+				defer cmd.Wait()
+				diff, err := ioutil.ReadAll(stdout)
+				if err != nil {
+					t.Fatalf("unable to read diff: %v", err)
+				}
+
+				t.Error(string(diff))
 			}
-			defer cmd.Wait()
-			diff, err := ioutil.ReadAll(stdout)
-			if err != nil {
-				t.Fatal(err)
-			}
-			t.Error(string(diff))
-		}
+		})
 	}
 }

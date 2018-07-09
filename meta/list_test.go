@@ -282,6 +282,39 @@ func TestList(t *testing.T) {
 			},
 		},
 		{
+			"testdata/visibility.csv",
+			&meta.VisibilityList{
+				meta.Visibility{
+					Code:          "AHTI",
+					SkyVisibility: "good",
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2009-01-01T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+				},
+				meta.Visibility{
+					Code:          "DUND",
+					SkyVisibility: "clear to NW",
+					Span: meta.Span{
+						Start: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "2005-08-10T00:00:00Z")
+							return v
+						}(),
+						End: func() time.Time {
+							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
+							return v
+						}(),
+					},
+				},
+			},
+		},
+		{
 			"testdata/assets.csv",
 			&meta.AssetList{
 				{
@@ -433,6 +466,11 @@ func TestList(t *testing.T) {
 						Datum:     "NZGD2000",
 					},
 					Mark: "GRAC",
+					Accuracy: meta.MetSensorAccuracy{
+						Humidity:    2.0,
+						Pressure:    0.5,
+						Temperature: 1,
+					},
 				},
 				meta.InstalledMetSensor{
 					Install: meta.Install{
@@ -459,6 +497,11 @@ func TestList(t *testing.T) {
 						Datum:     "NZGD2000",
 					},
 					Mark: "MTJO",
+					Accuracy: meta.MetSensorAccuracy{
+						Humidity:    2.0,
+						Pressure:    0.5,
+						Temperature: 1,
+					},
 				},
 			},
 		},
@@ -823,6 +866,7 @@ func TestList(t *testing.T) {
 					SamplingRate: 50.0,
 					Axial:        true,
 					Reversed:     false,
+					Triggered:    true,
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2011-08-25T00:25:00Z")
@@ -840,6 +884,7 @@ func TestList(t *testing.T) {
 					SamplingRate: 200.0,
 					Axial:        false,
 					Reversed:     false,
+					Triggered:    false,
 					Span: meta.Span{
 						Start: func() time.Time {
 							v, _ := time.Parse(meta.DateTimeFormat, "2007-05-02T22:00:01Z")

@@ -1,5 +1,5 @@
 ---
-dataloggermodel:
+datalogger-model:
   EARSS/3:
     type: Datalogger
     description: EARSS

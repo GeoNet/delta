@@ -15,146 +15,216 @@ var sensorSamplingRates = []float64{0.1, 1, 10, 50, 100, 200}
 func TestStreams(t *testing.T) {
 
 	var streams meta.StreamList
+	loadListFile(t, "../install/streams.csv", &streams)
 
-	t.Log("Load streams file")
-	if err := meta.LoadList("../install/streams.csv", &streams); err != nil {
-		t.Fatal(err)
-	}
+	t.Run("check for overlapping streams", func(t *testing.T) {
+		for i := 0; i < len(streams); i++ {
+			for j := i + 1; j < len(streams); j++ {
+				if streams[i].Station != streams[j].Station {
+					continue
+				}
+				if streams[i].Location != streams[j].Location {
+					continue
+				}
+				if streams[i].Start.After(streams[j].End) {
+					continue
+				}
+				if streams[i].End.Before(streams[j].Start) {
+					continue
+				}
+				if streams[i].SamplingRate != streams[j].SamplingRate {
+					continue
+				}
 
-	for i := 0; i < len(streams); i++ {
-		for j := i + 1; j < len(streams); j++ {
-			if streams[i].Station != streams[j].Station {
-				continue
+				t.Errorf("stream overlap: " + strings.Join([]string{
+					streams[i].Station,
+					streams[i].Location,
+					streams[i].Start.String(),
+					streams[i].End.String(),
+				}, " "))
 			}
-			if streams[i].Location != streams[j].Location {
-				continue
-			}
-			if streams[i].Start.After(streams[j].End) {
-				continue
-			}
-			if streams[i].End.Before(streams[j].Start) {
-				continue
-			}
-			if streams[i].SamplingRate != streams[j].SamplingRate {
-				continue
-			}
-			t.Errorf("stream overlap: " + strings.Join([]string{
-				streams[i].Station,
-				streams[i].Location,
-				streams[i].Start.String(),
-				streams[i].End.String(),
-			}, " "))
 		}
-	}
+	})
 
 	stas := make(map[string]meta.Station)
-	{
+	t.Run("load stations file", func(t *testing.T) {
 		var list meta.StationList
-		t.Log("Load stations file")
-		if err := meta.LoadList("../network/stations.csv", &list); err != nil {
-			t.Fatal(err)
-		}
+		loadListFile(t, "../network/stations.csv", &list)
 		for _, s := range list {
 			stas[s.Code] = s
 		}
-	}
+	})
 
 	sites := make(map[string]map[string]meta.Site)
-	{
+	t.Run("load sites file", func(t *testing.T) {
 		var list meta.SiteList
-		t.Log("Load sites file")
-		if err := meta.LoadList("../network/sites.csv", &list); err != nil {
-			t.Fatal(err)
-		}
+		loadListFile(t, "../network/sites.csv", &list)
 		for _, s := range list {
 			if _, ok := sites[s.Station]; !ok {
 				sites[s.Station] = make(map[string]meta.Site)
 			}
 			sites[s.Station][s.Location] = s
 		}
-	}
+	})
 
-	for _, s := range streams {
-		if s.SamplingRate == 0 {
-			t.Errorf("invalid stream sample rate: " + strings.Join([]string{
-				s.Station,
-				s.Location,
-				s.Start.String(),
-				s.End.String(),
-			}, " "))
+	t.Run("check for invalid stream sample rates", func(t *testing.T) {
+		for _, s := range streams {
+			if s.SamplingRate == 0 {
+				t.Errorf("invalid stream sample rate: " + strings.Join([]string{
+					s.Station,
+					s.Location,
+					s.Start.String(),
+					s.End.String(),
+				}, " "))
+			}
 		}
-	}
+	})
 
-	for _, c := range streams {
-		if _, ok := stas[c.Station]; !ok {
-			t.Log("unknown stream station: " + c.Station)
-		} else if s, ok := sites[c.Station]; !ok {
-			t.Log("unknown stream station: " + c.Station)
-		} else if _, ok := s[c.Location]; !ok {
-			t.Log("unknown stream station/location: " + c.Station + "/" + c.Location)
+	t.Run("check for invalid stream spans", func(t *testing.T) {
+		for _, c := range streams {
+			if c.Start.After(c.End) {
+				t.Error("stream span mismatch: " + strings.Join([]string{
+					c.Station,
+					c.Location,
+					c.Start.String(),
+					"after",
+					c.End.String(),
+				}, " "))
+			}
 		}
-		if c.Start.After(c.End) {
-			t.Log("stream span mismatch: " + strings.Join([]string{
-				c.Station,
-				c.Location,
-				c.Start.String(),
-				"after",
-				c.End.String(),
-			}, " "))
-		}
-	}
+	})
 
-	var assets = make(map[string]meta.Asset)
-	{
-		var list meta.AssetList
-		t.Log("Load recorders assets file")
-		if err := meta.LoadList("../assets/recorders.csv", &list); err != nil {
-			t.Fatal(err)
+	t.Run("check for invalid stream stations", func(t *testing.T) {
+		for _, c := range streams {
+			if _, ok := stas[c.Station]; !ok {
+				t.Error("unknown stream station: " + c.Station)
+			}
 		}
-		for _, l := range list {
-			assets[l.Model+":::"+l.Serial] = l
-		}
-		t.Log("Load sensors assets file")
-		if err := meta.LoadList("../assets/sensors.csv", &list); err != nil {
-			t.Fatal(err)
-		}
-		for _, s := range list {
-			assets[s.Model+":::"+s.Serial] = s
-		}
-	}
+	})
 
-	var recorders []meta.InstalledRecorder
-	{
-		var list meta.InstalledRecorderList
-		t.Log("Load recorders file")
-		if err := meta.LoadList("../install/recorders.csv", &list); err != nil {
-			t.Fatal(err)
+	t.Run("check for invalid dates: stream within station", func(t *testing.T) {
+		for _, c := range streams {
+			if s, ok := stas[c.Station]; ok {
+				switch {
+				case c.Start.Before(s.Start):
+					t.Log("warning: stream span mismatch: " + strings.Join([]string{
+						c.Station,
+						c.Location,
+						c.Start.String(),
+						"before",
+						s.Start.String(),
+					}, " "))
+				case s.End.Before(time.Now()) && c.End.After(s.End):
+					t.Log("warning: stream span mismatch: " + strings.Join([]string{
+						c.Station,
+						c.Location,
+						c.End.String(),
+						"after",
+						s.End.String(),
+					}, " "))
+				}
+			}
 		}
-		for _, r := range list {
-			recorders = append(recorders, r)
+	})
+
+	t.Run("check for invalid stream sites", func(t *testing.T) {
+		for _, c := range streams {
+			if _, ok := sites[c.Station]; !ok {
+				t.Error("unknown stream station: " + c.Station)
+			}
 		}
-	}
+	})
+
+	t.Run("check for invalid stream locations", func(t *testing.T) {
+		for _, c := range streams {
+			if s, ok := sites[c.Station]; ok {
+				if _, ok := s[c.Location]; !ok {
+					t.Error("unknown stream station/location: " + c.Station + "/" + c.Location)
+				}
+			}
+		}
+	})
+
+	t.Run("check for invalid dates: stream within site", func(t *testing.T) {
+		for _, c := range streams {
+			if s, ok := sites[c.Station]; ok {
+				if l, ok := s[c.Location]; ok {
+					switch {
+					case c.Start.Before(l.Start):
+						t.Log("warning: stream span start mismatch: " + strings.Join([]string{
+							c.Station,
+							c.Location,
+							c.Start.String(),
+							"before",
+							l.Start.String(),
+						}, " "))
+					case l.End.Before(time.Now()) && c.End.After(l.End):
+						t.Log("warning: stream span end mismatch: " + strings.Join([]string{
+							c.Station,
+							c.Location,
+							c.End.String(),
+							"after",
+							l.End.String(),
+						}, " "))
+					}
+				}
+			}
+		}
+	})
+
+	t.Run("check for invalid stream spans", func(t *testing.T) {
+		for _, c := range streams {
+			if c.Start.After(c.End) {
+				t.Error("stream span mismatch: " + strings.Join([]string{
+					c.Station,
+					c.Location,
+					c.Start.String(),
+					"after",
+					c.End.String(),
+				}, " "))
+			}
+		}
+	})
 
 	var missing []meta.Stream
 
-	for _, r := range recorders {
-		if a, ok := assets[r.DataloggerModel+":::"+r.Serial]; !ok || a.Number == "" {
-			continue
+	t.Run("check for missing recorder streams", func(t *testing.T) {
+
+		var list meta.AssetList
+		loadListFile(t, "../assets/recorders.csv", &list)
+
+		var assets = make(map[string]meta.Asset)
+		for _, l := range list {
+			assets[l.Model+":::"+l.Serial] = l
 		}
-		if r.End.Before(time.Now()) {
-			continue
-		}
-		var handled bool
-		for _, s := range streams {
-			if s.Station != r.Station || r.Location != s.Location {
+
+		var recorders meta.InstalledRecorderList
+		loadListFile(t, "../install/recorders.csv", &recorders)
+
+		for _, r := range recorders {
+			a, ok := assets[r.DataloggerModel+":::"+r.Serial]
+			if !ok {
 				continue
 			}
-			if r.Start.After(s.End) || r.End.Before(s.Start) {
+			if a.Number == "" {
 				continue
 			}
-			handled = true
-		}
-		if !handled {
+			if r.End.Before(time.Now()) {
+				continue
+			}
+			var handled bool
+			for _, s := range streams {
+				if s.Station != r.Station || r.Location != s.Location {
+					continue
+				}
+				if r.Start.After(s.End) || r.End.Before(s.Start) {
+					continue
+				}
+				handled = true
+			}
+			if handled {
+				continue
+			}
 			for _, sps := range recorderSamplingRates {
 				missing = append(missing, meta.Stream{
 					Station:      r.Station,
@@ -166,40 +236,47 @@ func TestStreams(t *testing.T) {
 					},
 				})
 			}
-			t.Errorf("no current stream defined for recorder: %s [%s/%s] %s %s", r.String(), r.Station, r.Location, r.Start, r.End)
+			t.Errorf("no current stream defined for recorder: %s [%s/%s] %s %s",
+				r.String(), r.Station, r.Location, r.Start, r.End)
 		}
-	}
+	})
 
-	var sensors []meta.InstalledSensor
-	{
-		var list meta.InstalledSensorList
-		t.Log("Load sensors file")
-		if err := meta.LoadList("../install/sensors.csv", &list); err != nil {
-			t.Fatal(err)
-		}
-		for _, s := range list {
-			sensors = append(sensors, s)
-		}
-	}
+	t.Run("check for missing sensor streams", func(t *testing.T) {
+		var sensors meta.InstalledSensorList
+		loadListFile(t, "../install/sensors.csv", &sensors)
 
-	for _, v := range sensors {
-		if a, ok := assets[v.Model+":::"+v.Serial]; !ok || a.Number == "" {
-			continue
+		var list meta.AssetList
+		loadListFile(t, "../assets/sensors.csv", &list)
+
+		var assets = make(map[string]meta.Asset)
+		for _, l := range list {
+			assets[l.Model+":::"+l.Serial] = l
 		}
-		if v.End.Before(time.Now()) {
-			continue
-		}
-		var handled bool
-		for _, s := range streams {
-			if s.Station != v.Station || v.Location != s.Location {
+
+		for _, v := range sensors {
+			a, ok := assets[v.Model+":::"+v.Serial]
+			if !ok {
 				continue
 			}
-			if v.Start.After(s.End) || v.End.Before(s.Start) {
+			if a.Number == "" {
 				continue
 			}
-			handled = true
-		}
-		if !handled {
+			if v.End.Before(time.Now()) {
+				continue
+			}
+			var handled bool
+			for _, s := range streams {
+				if s.Station != v.Station || v.Location != s.Location {
+					continue
+				}
+				if v.Start.After(s.End) || v.End.Before(s.Start) {
+					continue
+				}
+				handled = true
+			}
+			if handled {
+				continue
+			}
 			for _, sps := range sensorSamplingRates {
 				missing = append(missing, meta.Stream{
 					Station:      v.Station,
@@ -211,13 +288,15 @@ func TestStreams(t *testing.T) {
 					},
 				})
 			}
-			t.Errorf("no current stream defined for sensor: %s [%s/%s] %s %s", v.String(), v.Station, v.Location, v.Start, v.End)
+			t.Errorf("no current stream defined for sensor: %s [%s/%s] %s %s",
+				v.String(), v.Station, v.Location, v.Start, v.End)
 		}
-	}
+	})
+
+	sort.Sort(meta.StreamList(missing))
 
 	if len(missing) > 0 {
-		sort.Sort(meta.StreamList(missing))
-		t.Log("\n" + string(meta.MarshalList(meta.StreamList(missing))))
+		t.Error("\n" + string(meta.MarshalList(meta.StreamList(missing))))
 	}
 
 }

@@ -17,7 +17,7 @@ func (c *constituents) loadConstituents(base string) error {
 	var err error
 
 	c.once.Do(func() {
-		if err = meta.LoadList(filepath.Join(base, "network", "constituents.csv"), &c.list); err == nil {
+		if err = meta.LoadList(filepath.Join(base, "environment", "constituents.csv"), &c.list); err == nil {
 			gauges := make(map[string][]meta.Constituent)
 			for _, v := range c.list {
 				if _, ok := gauges[v.Gauge]; !ok {

@@ -9,19 +9,15 @@ import (
 func TestNetworks(t *testing.T) {
 
 	var networks meta.NetworkList
-	t.Log("Load installed sensors file")
-	{
-		if err := meta.LoadList("../network/networks.csv", &networks); err != nil {
-			t.Fatal(err)
-		}
-	}
+	loadListFile(t, "../network/networks.csv", &networks)
 
-	for i := 0; i < len(networks); i++ {
-		for j := i + 1; j < len(networks); j++ {
-			if networks[i].Code == networks[j].Code {
-				t.Errorf("network duplication: " + networks[i].Code)
+	t.Run("check for network duplication", func(t *testing.T) {
+		for i := 0; i < len(networks); i++ {
+			for j := i + 1; j < len(networks); j++ {
+				if networks[i].Code == networks[j].Code {
+					t.Errorf("network duplication: " + networks[i].Code)
+				}
 			}
 		}
-	}
-
+	})
 }

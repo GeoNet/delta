@@ -12,161 +12,168 @@ package resp
  */
 
 var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
-	"BASALT": DataloggerModel{
+	"BASALT": {
 		Name:         "BASALT",
 		Type:         "Strong Motion Recorder",
 		Description:  "Basalt",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
-	"BASALT 8X DATALOGGER": DataloggerModel{
+	"BASALT 8X DATALOGGER": {
 		Name:         "BASALT 8X DATALOGGER",
 		Type:         "Strong Motion Recorder",
 		Description:  "Basalt",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
-	"CUSP3A": DataloggerModel{
+	"CUSP3A": {
 		Name:         "CUSP3A",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3A",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 	},
-	"CUSP3B": DataloggerModel{
+	"CUSP3B": {
 		Name:         "CUSP3B",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3B",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 	},
-	"CUSP3C": DataloggerModel{
+	"CUSP3C": {
 		Name:         "CUSP3C",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3C",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 	},
-	"CUSP3C3": DataloggerModel{
+	"CUSP3C3": {
 		Name:         "CUSP3C3",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3C3",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 	},
-	"CUSP3D": DataloggerModel{
+	"CUSP3D": {
 		Name:         "CUSP3D",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3D",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 	},
-	"EARSS/16": DataloggerModel{
+	"EARSS/16": {
 		Name:         "EARSS/16",
 		Type:         "Datalogger",
 		Description:  "EARSS",
 		Manufacturer: "GNS Science",
 		Vendor:       "",
 	},
-	"EARSS/3": DataloggerModel{
+	"EARSS/3": {
 		Name:         "EARSS/3",
 		Type:         "Datalogger",
 		Description:  "EARSS",
 		Manufacturer: "GNS Science",
 		Vendor:       "",
 	},
-	"ETNA": DataloggerModel{
+	"ETNA": {
 		Name:         "ETNA",
 		Type:         "Strong Motion Recorder",
 		Description:  "Etna",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
-	"K2": DataloggerModel{
+	"ETNA 2": {
+		Name:         "ETNA 2",
+		Type:         "Strong Motion Recorder",
+		Description:  "Etna 2",
+		Manufacturer: "Kinemetrics",
+		Vendor:       "",
+	},
+	"K2": {
 		Name:         "K2",
 		Type:         "Strong Motion Recorder",
 		Description:  "K2",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
-	"OBSIDIAN": DataloggerModel{
+	"OBSIDIAN": {
 		Name:         "OBSIDIAN",
 		Type:         "Strong Motion Recorder",
 		Description:  "Obsidian",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
-	"ORION": DataloggerModel{
+	"ORION": {
 		Name:         "ORION",
 		Type:         "Datalogger",
 		Description:  "Orion",
 		Manufacturer: "Nanometrics",
 		Vendor:       "",
 	},
-	"Obsidian 4X Datalogger": DataloggerModel{
+	"Obsidian 4X Datalogger": {
 		Name:         "Obsidian 4X Datalogger",
 		Type:         "Strong Motion Recorder",
 		Description:  "Obsidian",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
-	"Q330/3": DataloggerModel{
+	"Q330/3": {
 		Name:         "Q330/3",
 		Type:         "Datalogger",
 		Description:  "Q330",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
-	"Q330/6": DataloggerModel{
+	"Q330/6": {
 		Name:         "Q330/6",
 		Type:         "Datalogger",
 		Description:  "Q330",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
-	"Q330HR/6": DataloggerModel{
+	"Q330HR/6": {
 		Name:         "Q330HR/6",
 		Type:         "Datalogger",
 		Description:  "Q330HR",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
-	"Q330HRS/6": DataloggerModel{
+	"Q330HRS/6": {
 		Name:         "Q330HRS/6",
 		Type:         "Datalogger",
 		Description:  "Q330HR",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
-	"Q330S/3": DataloggerModel{
+	"Q330S/3": {
 		Name:         "Q330S/3",
 		Type:         "Datalogger",
 		Description:  "Q330",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
-	"Q330S/6": DataloggerModel{
+	"Q330S/6": {
 		Name:         "Q330S/6",
 		Type:         "Datalogger",
 		Description:  "Q330",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
-	"Q4120/6": DataloggerModel{
+	"Q4120/6": {
 		Name:         "Q4120/6",
 		Type:         "Datalogger",
 		Description:  "Q4120",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
-	"Q730/4": DataloggerModel{
+	"Q730/4": {
 		Name:         "Q730/4",
 		Type:         "Datalogger",
 		Description:  "Q730",
 		Manufacturer: "Quanterra",
 		Vendor:       "",
 	},
-	"Taurus": DataloggerModel{
+	"Taurus": {
 		Name:         "Taurus",
 		Type:         "Datalogger",
 		Description:  "Taurus",
@@ -176,433 +183,449 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 }
 
 var SensorModels map[string]SensorModel = map[string]SensorModel{
-	"2 Hz Duke Malin Seismometer": SensorModel{
+	"2 Hz Duke Malin Seismometer": {
 		Name:         "2 Hz Duke Malin Seismometer",
 		Type:         "Short Period Borehole Seismometer",
 		Description:  "Duke Malin",
 		Manufacturer: "Duke University",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"270-600/12V": SensorModel{
+	"270-600/12V": {
 		Name:         "270-600/12V",
 		Type:         "Barometer",
 		Description:  "Setra 270",
 		Manufacturer: "Setra",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}},
 	},
-	"270-600/24V": SensorModel{
+	"270-600/24V": {
 		Name:         "270-600/24V",
 		Type:         "Barometer",
 		Description:  "Setra 270",
 		Manufacturer: "Setra",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}},
 	},
-	"270-800/12V": SensorModel{
+	"270-800/12V": {
 		Name:         "270-800/12V",
 		Type:         "Barometer",
 		Description:  "Setra 270",
 		Manufacturer: "Setra",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}},
 	},
-	"4.5 Hz Duke Malin Seismometer": SensorModel{
+	"4.5 Hz Duke Malin Seismometer": {
 		Name:         "4.5 Hz Duke Malin Seismometer",
 		Type:         "Short Period Borehole Seismometer",
 		Description:  "Duke Malin",
 		Manufacturer: "Duke University",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-3ESP": SensorModel{
+	"CMG-3ESP": {
 		Name:         "CMG-3ESP",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3ESP",
 		Manufacturer: "Guralp",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-3ESP-Z": SensorModel{
+	"CMG-3ESP-Z": {
 		Name:         "CMG-3ESP-Z",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3ESP",
 		Manufacturer: "Guralp",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-3ESPC": SensorModel{
+	"CMG-3ESPC": {
 		Name:         "CMG-3ESPC",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3ESP",
 		Manufacturer: "Guralp",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-3T": SensorModel{
+	"CMG-3T": {
 		Name:         "CMG-3T",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3T",
 		Manufacturer: "Guralp",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-3TB": SensorModel{
+	"CMG-3TB": {
 		Name:         "CMG-3TB",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3T",
 		Manufacturer: "Guralp",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-3TB-GN": SensorModel{
+	"CMG-3TB-GN": {
 		Name:         "CMG-3TB-GN",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-3T",
 		Manufacturer: "Guralp",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-40T-30S": SensorModel{
+	"CMG-40T-30S": {
 		Name:         "CMG-40T-30S",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-40T",
 		Manufacturer: "Guralp",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-40T-60S": SensorModel{
+	"CMG-40T-60S": {
 		Name:         "CMG-40T-60S",
 		Type:         "Broadband Seismometer",
 		Description:  "CMG-40T",
 		Manufacturer: "Guralp",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-6T": SensorModel{
+	"CMG-6T": {
 		Name:         "CMG-6T",
 		Type:         "Accelerometer",
 		Description:  "CMG-6T",
 		Manufacturer: "Guralp",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CUSP-Me SENSOR": SensorModel{
+	"CUSP-Me SENSOR": {
 		Name:         "CUSP-Me SENSOR",
 		Type:         "Building Array Sensor",
 		Description:  "CUSP Me",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"CUSP3A": SensorModel{
+	"CUSP3A": {
 		Name:         "CUSP3A",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3A",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"CUSP3B": SensorModel{
+	"CUSP3B": {
 		Name:         "CUSP3B",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3B",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"CUSP3B SENSOR": SensorModel{
+	"CUSP3B SENSOR": {
 		Name:         "CUSP3B SENSOR",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3B",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"CUSP3C": SensorModel{
+	"CUSP3C": {
 		Name:         "CUSP3C",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3C",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"CUSP3C SENSOR": SensorModel{
+	"CUSP3C SENSOR": {
 		Name:         "CUSP3C SENSOR",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3C",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"CUSP3C3": SensorModel{
+	"CUSP3C3": {
 		Name:         "CUSP3C3",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3C",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"CUSP3C3 SENSOR": SensorModel{
+	"CUSP3C3 SENSOR": {
 		Name:         "CUSP3C3 SENSOR",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3C",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"CUSP3D": SensorModel{
+	"CUSP3D": {
 		Name:         "CUSP3D",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3D",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"CUSPM SENSOR": SensorModel{
+	"CUSPM SENSOR": {
 		Name:         "CUSPM SENSOR",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP M",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"Druck PTX-1830": SensorModel{
+	"Druck PTX-1830": {
 		Name:         "Druck PTX-1830",
 		Type:         "Pressure Sensor",
 		Description:  "Druck PTX",
 		Manufacturer: "GE Druck",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}},
 	},
-	"Druck PTX-1830-LAND": SensorModel{
+	"Druck PTX-1830-LAND": {
 		Name:         "Druck PTX-1830-LAND",
 		Type:         "Pressure Sensor",
 		Description:  "Druck PTX",
 		Manufacturer: "GE Druck",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}},
 	},
-	"FBA-23-DECK": SensorModel{
+	"FBA-23-DECK": {
 		Name:         "FBA-23-DECK",
 		Type:         "Accelerometer",
 		Description:  "FBA-23",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 180, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 90}, SensorComponent{Azimuth: 270, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 180, Dip: 0}, {Azimuth: 0, Dip: 90}, {Azimuth: 270, Dip: 0}},
 	},
-	"FBA-ES-T": SensorModel{
+	"FBA-ES-T": {
 		Name:         "FBA-ES-T",
 		Type:         "Accelerometer",
 		Description:  "FBA-ES-T",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"FBA-ES-T-BASALT": SensorModel{
+	"FBA-ES-T-BASALT": {
 		Name:         "FBA-ES-T-BASALT",
 		Type:         "Accelerometer",
 		Description:  "FBA-ES-T",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"FBA-ES-T-DECK": SensorModel{
+	"FBA-ES-T-DECK": {
 		Name:         "FBA-ES-T-DECK",
 		Type:         "Accelerometer",
 		Description:  "FBA-ES-T",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"FBA-ES-T-ISO": SensorModel{
+	"FBA-ES-T-ETNA-2": {
+		Name:         "FBA-ES-T-ETNA-2",
+		Type:         "Accelerometer",
+		Description:  "FBA-ETNA-2",
+		Manufacturer: "Kinemetrics",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
+	},
+	"FBA-ES-T-ISO": {
 		Name:         "FBA-ES-T-ISO",
 		Type:         "Accelerometer",
 		Description:  "FBA-ES-T",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"FBA-ES-T-OBSIDIAN": SensorModel{
+	"FBA-ES-T-OBSIDIAN": {
 		Name:         "FBA-ES-T-OBSIDIAN",
 		Type:         "Accelerometer",
 		Description:  "FBA-ES-T",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"GS-11D seismometer": SensorModel{
+	"GS-11D seismometer": {
 		Name:         "GS-11D seismometer",
 		Type:         "Short Period Seismometer",
 		Description:  "GS-11D",
 		Manufacturer: "",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"IESE HS-1-LT Mini 4.5Hz": SensorModel{
+	"IESE HS-1-LT Mini 4.5Hz": {
 		Name:         "IESE HS-1-LT Mini 4.5Hz",
 		Type:         "Short Period Seismometer",
 		Description:  "HS1-1-LT",
 		Manufacturer: "",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"IESE S10g-4.5 (with preamp)": SensorModel{
+	"IESE S10g-4.5 (with preamp)": {
 		Name:         "IESE S10g-4.5 (with preamp)",
 		Type:         "Short Period Seismometer",
 		Description:  "S10g-4.5",
 		Manufacturer: "",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"IESE S10g-4.5 (without preamp)": SensorModel{
+	"IESE S10g-4.5 (without preamp)": {
 		Name:         "IESE S10g-4.5 (without preamp)",
 		Type:         "Short Period Seismometer",
 		Description:  "S10g-4.5",
 		Manufacturer: "",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"IESE S31f-15 (with preamp)": SensorModel{
+	"IESE S31f-15 (with preamp)": {
 		Name:         "IESE S31f-15 (with preamp)",
 		Type:         "Short Period Seismometer",
 		Description:  "S31f-15",
 		Manufacturer: "",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"InfraBSU microphone": SensorModel{
+	"InfraBSU microphone": {
 		Name:         "InfraBSU microphone",
 		Type:         "Microphone",
 		Description:  "InfraBSU",
 		Manufacturer: "Boise State Univeristy",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}},
 	},
-	"Kinemetrics SBEPI": SensorModel{
+	"Kinemetrics SBEPI": {
 		Name:         "Kinemetrics SBEPI",
 		Type:         "Accelerometer",
 		Description:  "SBEPI",
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"L4C": SensorModel{
+	"L4C": {
 		Name:         "L4C",
 		Type:         "Short Period Seismometer",
 		Description:  "L4C",
 		Manufacturer: "Sercel",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}},
 	},
-	"L4C-3D": SensorModel{
+	"L4C-3D": {
 		Name:         "L4C-3D",
 		Type:         "Short Period Seismometer",
 		Description:  "L4C-3D",
 		Manufacturer: "Sercel",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"LE-3Dlite": SensorModel{
+	"LE-3Dlite": {
 		Name:         "LE-3Dlite",
 		Type:         "Short Period Seismometer",
 		Description:  "LE-3Dlite",
 		Manufacturer: "Lennartz",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"LE-3DliteMkII": SensorModel{
+	"LE-3DliteMkII": {
 		Name:         "LE-3DliteMkII",
 		Type:         "Short Period Seismometer",
 		Description:  "LE-3DliteMkII",
 		Manufacturer: "Lennartz",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"LM35": SensorModel{
+	"LE-3DliteMkIII": {
+		Name:         "LE-3DliteMkIII",
+		Type:         "Short Period Seismometer",
+		Description:  "LE-3DliteMkIII",
+		Manufacturer: "Lennartz",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
+	},
+	"LM35": {
 		Name:         "LM35",
 		Type:         "",
 		Description:  "LM35",
 		Manufacturer: "GNS Science",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}},
 	},
-	"SDP": SensorModel{
+	"SDP": {
 		Name:         "SDP",
 		Type:         "",
 		Description:  "SDP",
 		Manufacturer: "GNS Science",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"SSA-320": SensorModel{
+	"SSA-320": {
 		Name:         "SSA-320",
 		Type:         "Strong Motion Sensor",
 		Description:  "SSA-320",
 		Manufacturer: "Terratech",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}, SensorComponent{Azimuth: 0, Dip: -90}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: -90}},
 	},
-	"STS-2": SensorModel{
+	"STS-2": {
 		Name:         "STS-2",
 		Type:         "Broadband Seismometer",
 		Description:  "STS-2",
 		Manufacturer: "Streckeisen",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"Scout Hydrophone": SensorModel{
+	"Scout Hydrophone": {
 		Name:         "Scout Hydrophone",
 		Type:         "Hydrophone",
 		Description:  "Scout",
 		Manufacturer: "",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}},
 	},
-	"Trillium 120QA": SensorModel{
+	"Trillium 120QA": {
 		Name:         "Trillium 120QA",
 		Type:         "Broadband Seismometer",
 		Description:  "Trillium 120 QA",
 		Manufacturer: "Nanometrics Inc.",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"Trillium Compact 120": SensorModel{
+	"Trillium Compact 120": {
 		Name:         "Trillium Compact 120",
 		Type:         "Broadband Seismometer",
 		Description:  "Trillium Compact 120",
 		Manufacturer: "Nanometrics Inc.",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"Trillium Compact 120PH-2": SensorModel{
+	"Trillium Compact 120PH-2": {
 		Name:         "Trillium Compact 120PH-2",
 		Type:         "Broadband Seismometer",
 		Description:  "Trillium Compact 120 Posthole Generation 2",
 		Manufacturer: "Nanometrics Inc.",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"Trillium Vault 360": SensorModel{
+	"Trillium Vault 360": {
 		Name:         "Trillium Vault 360",
 		Type:         "Broadband Seismometer",
 		Description:  "Trillium Vault 360",
 		Manufacturer: "Nanometrics Inc.",
 		Vendor:       "",
-		Components:   []SensorComponent{SensorComponent{Azimuth: 0, Dip: -90}, SensorComponent{Azimuth: 0, Dip: 0}, SensorComponent{Azimuth: 90, Dip: 0}},
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
 }
 
 var Responses []Response = []Response{
-	Response{
+	{
 		Name: "CSI Strong Motion Recorders",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"CUSP3D"},
 				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CUSP",
 						Filter: "CUSP SENSOR",
@@ -625,11 +648,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "21Z",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"CUSP3C"},
 				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CUSP",
 						Filter: "CUSP SENSOR",
@@ -652,11 +675,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "21Z",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"CUSP3C3"},
 				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CUSP",
 						Filter: "CUSP SENSOR",
@@ -679,11 +702,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "XYZ",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"CUSP3B"},
 				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CUSP",
 						Filter: "CUSP SENSOR",
@@ -706,11 +729,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "21Z",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"CUSP3A"},
 				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CUSP",
 						Filter: "CUSP SENSOR",
@@ -736,7 +759,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3"},
 				Type:           "TG",
 				Label:          "HN",
@@ -746,7 +769,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"CUSP-200"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "CUSP-200",
@@ -766,7 +789,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3"},
 				Type:           "CG",
 				Label:          "BN",
@@ -776,7 +799,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"CUSP-50"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "CUSP-50",
@@ -793,7 +816,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "CUSP-50",
@@ -814,7 +837,7 @@ var Responses []Response = []Response{
 						Delay:       0.475,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "CUSP-50",
@@ -838,7 +861,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"CUSP3A", "CUSP3B"},
 				Type:           "TG",
 				Label:          "HN",
@@ -848,7 +871,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"CUSP-200"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "CUSP-200",
@@ -870,14 +893,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "GNS Dataloggers Connected to Short Period Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"L4C"},
 				FilterList: []string{"L4C"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "L4C",
 						Filter: "L4C",
@@ -902,11 +925,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "Z",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"L4C-3D"},
 				FilterList: []string{"L4C"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "L4C",
 						Filter: "L4C",
@@ -934,7 +957,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"EARSS/3"},
 				Type:           "TG",
 				Label:          "EH",
@@ -944,7 +967,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"EARSS-50"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "EARSS-GAIN",
 						Filter: "EARSS-50",
@@ -961,7 +984,7 @@ var Responses []Response = []Response{
 						//Scale: 1,
 						InputUnits:  "V",
 						OutputUnits: "V",
-					}, ResponseStage{
+					}, {
 						Type:   "paz",
 						Lookup: "EARSS-50Hz",
 						Filter: "EARSS-50",
@@ -979,7 +1002,7 @@ var Responses []Response = []Response{
 						//Scale: 1,
 						InputUnits:  "V",
 						OutputUnits: "V",
-					}, ResponseStage{
+					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "EARSS-50",
@@ -1001,14 +1024,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Kinemetics Strong Motion Recorders and Dataloggers Connected to Strong Motion Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"FBA-ES-T"},
 				FilterList: []string{"FBA-ES-T"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "FBA-ES-T",
 						Filter: "FBA-ES-T",
@@ -1032,11 +1055,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "Z12",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"FBA-23-DECK"},
 				FilterList: []string{"FBA-23-DECK"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "FBA-ES-T",
 						Filter: "FBA-23-DECK",
@@ -1060,11 +1083,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "1Z2",
 				Reversed: true,
-			}, Sensor{
+			}, {
 				SensorList: []string{"FBA-ES-T-DECK"},
 				FilterList: []string{"FBA-ES-T-DECK"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "FBA-ES-T",
 						Filter: "FBA-ES-T-DECK",
@@ -1088,11 +1111,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "ENZ",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"FBA-ES-T-BASALT"},
 				FilterList: []string{"FBA-ES-T-BASALT"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "FBA-ES-T",
 						Filter: "FBA-ES-T-BASALT",
@@ -1116,11 +1139,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"FBA-ES-T-OBSIDIAN"},
 				FilterList: []string{"FBA-ES-T-BASALT"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "FBA-ES-T",
 						Filter: "FBA-ES-T-BASALT",
@@ -1144,11 +1167,39 @@ var Responses []Response = []Response{
 				},
 				Channels: "Z12",
 				Reversed: false,
-			}, Sensor{
+			}, {
+				SensorList: []string{"FBA-ES-T-ETNA-2"},
+				FilterList: []string{"FBA-ES-T-ETNA-2"},
+				Stages: []ResponseStage{
+					{
+						Type:   "paz",
+						Lookup: "FBA-ES-T",
+						Filter: "FBA-ES-T-ETNA-2",
+						StageSet: PAZ{
+							Name:  "FBA-ES-T",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "Standard response of an Kinemetric's EpiSensor FBA-ES sensor, they are built with a wide range of gains. We use +/- 20V @ +/-2 g for the National Network, and +/- 2.5V @ +/- 2g for the ETNA strong motion recorders.",
+							Poles: []complex128{(-981 + 1009i), (-981 - 1009i), (-3290 + 1263i), (-3290 - 1263i)},
+						},
+						Frequency:  1,
+						SampleRate: 0,
+						Decimate:   0,
+						Gain:       0.1275,
+						//Scale: 1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "m/s**2",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "ENZ",
+				Reversed: false,
+			}, {
 				SensorList: []string{"Kinemetrics SBEPI"},
 				FilterList: []string{"Kinemetrics SBEPI"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:       "paz",
 						Lookup:     "Kinemetrics SBEPI",
 						Filter:     "Kinemetrics SBEPI",
@@ -1165,11 +1216,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "Z12",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"SDP"},
 				FilterList: []string{"SDP"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "SDP",
 						Filter: "SDP",
@@ -1195,7 +1246,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"OBSIDIAN", "Obsidian 4X Datalogger"},
 				Type:           "TG",
 				Label:          "HN",
@@ -1205,7 +1256,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"BASALT-200"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "BASALT-200",
@@ -1222,7 +1273,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50-S5C",
 						Filter: "BASALT-200",
@@ -1243,7 +1294,7 @@ var Responses []Response = []Response{
 						Delay:       0.004833333333333334,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A3-50",
 						Filter: "BASALT-200",
@@ -1264,7 +1315,7 @@ var Responses []Response = []Response{
 						Delay:       0.0085,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50",
 						Filter: "BASALT-200",
@@ -1285,7 +1336,7 @@ var Responses []Response = []Response{
 						Delay:       0.105,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_B2-80",
 						Filter: "BASALT-200",
@@ -1309,7 +1360,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"OBSIDIAN", "Obsidian 4X Datalogger"},
 				Type:           "CG",
 				Label:          "BN",
@@ -1319,7 +1370,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"BASALT-50"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "BASALT-50",
@@ -1336,7 +1387,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50-S5C",
 						Filter: "BASALT-50",
@@ -1357,7 +1408,7 @@ var Responses []Response = []Response{
 						Delay:       0.004833333333333334,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A3-50",
 						Filter: "BASALT-50",
@@ -1378,7 +1429,7 @@ var Responses []Response = []Response{
 						Delay:       0.0085,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A4-50",
 						Filter: "BASALT-50",
@@ -1399,7 +1450,7 @@ var Responses []Response = []Response{
 						Delay:       0.068,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50",
 						Filter: "BASALT-50",
@@ -1420,7 +1471,7 @@ var Responses []Response = []Response{
 						Delay:       0.42,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_B2-80",
 						Filter: "BASALT-50",
@@ -1444,7 +1495,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"BASALT", "BASALT 8X DATALOGGER"},
 				Type:           "TG",
 				Label:          "HN",
@@ -1454,7 +1505,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"BASALT-200"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "BASALT-200",
@@ -1471,7 +1522,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50-S5C",
 						Filter: "BASALT-200",
@@ -1492,7 +1543,7 @@ var Responses []Response = []Response{
 						Delay:       0.004833333333333334,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A3-50",
 						Filter: "BASALT-200",
@@ -1513,7 +1564,7 @@ var Responses []Response = []Response{
 						Delay:       0.0085,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50",
 						Filter: "BASALT-200",
@@ -1534,7 +1585,7 @@ var Responses []Response = []Response{
 						Delay:       0.105,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_B2-80",
 						Filter: "BASALT-200",
@@ -1558,7 +1609,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"BASALT", "BASALT 8X DATALOGGER"},
 				Type:           "CG",
 				Label:          "BN",
@@ -1568,7 +1619,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"BASALT-50"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "BASALT-50",
@@ -1585,7 +1636,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50-S5C",
 						Filter: "BASALT-50",
@@ -1606,7 +1657,7 @@ var Responses []Response = []Response{
 						Delay:       0.004833333333333334,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A3-50",
 						Filter: "BASALT-50",
@@ -1627,7 +1678,7 @@ var Responses []Response = []Response{
 						Delay:       0.0085,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A4-50",
 						Filter: "BASALT-50",
@@ -1648,7 +1699,7 @@ var Responses []Response = []Response{
 						Delay:       0.068,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50",
 						Filter: "BASALT-50",
@@ -1669,7 +1720,7 @@ var Responses []Response = []Response{
 						Delay:       0.42,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "BASALT_B2-80",
 						Filter: "BASALT-50",
@@ -1693,7 +1744,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"ETNA", "K2"},
 				Type:           "TG",
 				Label:          "HN",
@@ -1703,7 +1754,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"ALTUS-200"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "ALTUS-200",
@@ -1720,7 +1771,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "ALTUS_A200",
 						Filter: "ALTUS-200",
@@ -1742,7 +1793,7 @@ var Responses []Response = []Response{
 						Delay:       0.07,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "ALTUS_BNC",
 						Filter: "ALTUS-200",
@@ -1767,16 +1818,90 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
+			}, {
+				DataloggerList: []string{"ETNA 2"},
+				Type:           "CG",
+				Label:          "HN",
+				SampleRate:     200,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"ETNA-2-200"},
+				Stages: []ResponseStage{
+					{
+						Type:   "a2d",
+						Lookup: "A2D",
+						Filter: "ETNA-2-200",
+						StageSet: A2D{
+							Name:  "A2D",
+							Code:  PZFunctionLaplaceZTransform,
+							Type:  "Digital (Z-transform).",
+							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
+						},
+						Frequency:  0,
+						SampleRate: 8000,
+						Decimate:   1,
+						Gain:       3.355443e+06,
+						//Scale: 0,
+						InputUnits:  "V",
+						OutputUnits: "count",
+					}, {
+						Type:   "fir",
+						Lookup: "ETNA2_COEFA8_80",
+						Filter: "ETNA-2-200",
+						StageSet: FIR{
+							Name:       "ETNA2_COEFA8_80",
+							Causal:     false,
+							Symmetry:   SymmetryNone,
+							Decimation: 8,
+							Gain:       1,
+							Notes:      &[]string{"http://ds.iris.edu/NRL/dataloggers/kinemetrics/etna2/RESP.XX.NK471..HHZ.ETNA2.1.200.C"}[0],
+							Factors:    []float64{0, 0, 0, -4.65661e-10, -9.31323e-10, 0, 1.86265e-09, 7.45058e-09, 1.72295e-08, 3.1665e-08, 4.88944e-08, 6.37956e-08, 6.70552e-08, 4.56348e-08, -1.72295e-08, -1.35973e-07, -3.17581e-07, -5.51809e-07, -8.028e-07, -1.0021e-06, -1.0496e-06, -8.21427e-07, -1.92318e-07, 9.24803e-07, 2.53692e-06, 4.51552e-06, 6.56024e-06, 8.18074e-06, 8.72929e-06, 7.48178e-06, 3.78629e-06, -2.73995e-06, -1.19898e-05, -2.31606e-05, -3.46312e-05, -4.39803e-05, -4.81992e-05, -4.41303e-05, -2.91136e-05, -1.77743e-06, 3.71616e-05, 8.42558e-05, 0.000133048, 0.000174341, 0.000197151, 0.000190358, 0.000144938, 5.64856e-05, -7.2395e-05, -0.000230394, -0.000397019, -0.000543814, -0.000637514, -0.000645032, -0.000539827, -0.000308746, 4.18462e-05, 0.000482036, 0.000957711, 0.00139428, 0.00170509, 0.00180418, 0.00162183, 0.0011209, 0.000311035, -0.000742335, -0.00191688, -0.00304204, -0.00391794, -0.00434341, -0.00414995, -0.00323695, -0.0016025, 0.000636431, 0.00323968, 0.005859, 0.00807372, 0.00944451, 0.00957985, 0.0082069, 0.00523616, 0.000809553, -0.00467805, -0.0105906, -0.0160985, -0.02026, -0.0221285, -0.0208736, -0.0159011, -0.00695463, 0.00581534, 0.0218282, 0.0401007, 0.0593261, 0.0779972, 0.0945594, 0.107577, 0.115892, 0.11875, 0.115892, 0.107577, 0.0945594, 0.0779972, 0.0593261, 0.0401007, 0.0218282, 0.00581534, -0.00695463, -0.0159011, -0.0208736, -0.0221285, -0.02026, -0.0160985, -0.0105906, -0.00467805, 0.000809553, 0.00523616, 0.0082069, 0.00957985, 0.00944451, 0.00807372, 0.005859, 0.00323968, 0.000636431, -0.0016025, -0.00323695, -0.00414995, -0.00434341, -0.00391794, -0.00304204, -0.00191688, -0.000742335, 0.000311035, 0.0011209, 0.00162183, 0.00180418, 0.00170509, 0.00139428, 0.000957711, 0.000482036, 4.18462e-05, -0.000308746, -0.000539827, -0.000645032, -0.000637514, -0.000543814, -0.000397019, -0.000230394, -7.2395e-05, 5.64856e-05, 0.000144938, 0.000190358, 0.000197151, 0.000174341, 0.000133048, 8.42558e-05, 3.71616e-05, -1.77743e-06, -2.91136e-05, -4.41303e-05, -4.81992e-05, -4.39803e-05, -3.46312e-05, -2.31606e-05, -1.19898e-05, -2.73995e-06, 3.78629e-06, 7.48178e-06, 8.72929e-06, 8.18074e-06, 6.56024e-06, 4.51552e-06, 2.53692e-06, 9.24803e-07, -1.92318e-07, -8.21427e-07, -1.0496e-06, -1.0021e-06, -8.028e-07, -5.51809e-07, -3.17581e-07, -1.35973e-07, -1.72295e-08, 4.56348e-08, 6.70552e-08, 6.37956e-08, 4.88944e-08, 3.1665e-08, 1.72295e-08, 7.45058e-09, 1.86265e-09, 0, -9.31323e-10, -4.65661e-10, 0, 0, 0},
+						},
+						Frequency:  0,
+						SampleRate: 1000,
+						Decimate:   8,
+						Gain:       0,
+						//Scale: 0,
+						Correction:  0.01225,
+						Delay:       0.01225,
+						InputUnits:  "count",
+						OutputUnits: "count",
+					}, {
+						Type:   "fir",
+						Lookup: "ETNA2_COEFB5_350",
+						Filter: "ETNA-2-200",
+						StageSet: FIR{
+							Name:       "ETNA2_COEFB5_350",
+							Causal:     true,
+							Symmetry:   SymmetryNone,
+							Decimation: 5,
+							Gain:       1,
+							Notes:      &[]string{"http://ds.iris.edu/NRL/dataloggers/kinemetrics/etna2/RESP.XX.NK471..HHZ.ETNA2.1.200.C and http://wiki.kmi.com/wiki/images/3/31/300905NC.pdf"}[0],
+							Factors:    []float64{1.22748e-06, 7.81147e-06, 3.11499e-05, 9.69567e-05, 0.000255993, 0.000598191, 0.00126871, 0.00248265, 0.00453327, 0.0077871, 0.0126589, 0.0195611, 0.0288259, 0.0406051, 0.0547592, 0.070756, 0.0876056, 0.103859, 0.117691, 0.127086, 0.130105, 0.125224, 0.111675, 0.0897325, 0.0608718, 0.0277415, -0.00608384, -0.036562, -0.0597967, -0.0727094, -0.0736422, -0.0627629, -0.0421635, -0.0156001, 0.0121101, 0.0359417, 0.0516066, 0.0564012, 0.0497673, 0.0334321, 0.0110722, -0.0124458, -0.0320976, -0.0437868, -0.0452397, -0.0365, -0.0199015, 0.000486108, 0.0198167, 0.0336089, 0.0387998, 0.0344546, 0.0219579, 0.00463871, -0.0130809, -0.0267994, -0.033233, -0.031018, -0.021017, -0.00605151, 0.00986395, 0.0225848, 0.0289157, 0.0274231, 0.0187699, 0.00549019, -0.00872968, -0.0200629, -0.0255714, -0.0239737, -0.0159485, -0.00389801, 0.00875274, 0.0185212, 0.0228253, 0.0206703, 0.0128791, 0.00181181, -0.00933558, -0.0174485, -0.0203636, -0.0174485, -0.00973325, 0.000431135, 0.0100796, 0.016494, 0.0179689, 0.0142661, 0.00663498, -0.00259366, -0.0107129, -0.0154312, -0.015519, -0.0111281, -0.00370007, 0.00449671, 0.0110549, 0.0141337, 0.0129752, 0.00808619, 0.00104378, -0.00600619, -0.0109998, -0.012558, -0.0103662, -0.00522565, 0.00122629, 0.00703278, 0.0105087, 0.0107284, 0.0077694, 0.00264767, -0.00302284, -0.00753541, -0.00960252, -0.0087215, -0.00529042, -0.000449777, 0.00429129, 0.00752294, 0.00835229, 0.00664742, 0.00304177, -0.00129169, -0.0050184, -0.00705119, -0.00686563, -0.00463065, -0.00112354, 0.00253467, 0.00523493, 0.00621459, 0.00527032, 0.00279072, -0.000392157, -0.00327831, -0.00501188, -0.0051331, -0.00369638, -0.0012256, 0.00147106, 0.0035629, 0.00445076, 0.00393631, 0.00225951, -5.96046e-08, -0.00211988, -0.00346354, -0.00367, -0.00274736, -0.00104791, 0.000860759, 0.00238288, 0.00307877, 0.00278977, 0.00166901, 0.000114382, -0.00136945, -0.00233306, -0.00251676, -0.00191782, -0.000774076, 0.000525584, 0.0015713, 0.00205999, 0.00188142, 0.00113864, 0.000101171, -0.000890115, -0.00153345, -0.00165661, -0.00126075, -0.000507266, 0.000344059, 0.00102291, 0.00133302, 0.00120739, 0.000719196, 4.82481e-05, -0.000583183, -0.000982763, -0.00104553, -0.000779593, -0.000294538, 0.000240917, 0.000656313, 0.000832733, 0.000735639, 0.00041862, -7.44127e-07, -0.000383024, -0.000612395, -0.000630833, -0.000451285, -0.000147434, 0.000174705, 0.000412875, 0.000500304, 0.00042349, 0.000221632, -3.04603e-05, -0.000249145, -0.000369053, -0.000361971, -0.000242251, -5.82999e-05, 0.000125906, 0.000252472, 0.000287269, 0.000228415, 0.000103739, -4.09214e-05, -0.000157985, -0.000213353, -0.000195859, -0.000118504, -1.18953e-05, 8.72519e-05, 0.000148387, 0.000156183, 0.000113832, 4.00911e-05, -3.83123e-05, -9.60315e-05, -0.000117016, -9.8635e-05, -5.10607e-05, 7.35838e-06, 5.68493e-05, 8.26824e-05, 7.93166e-05, 5.11492e-05, 9.99263e-06, -2.95402e-05, -5.50351e-05, -6.00005e-05, -4.52674e-05, -1.78744e-05, 1.19144e-05, 3.4288e-05, 4.29843e-05, 3.68827e-05, 1.97501e-05, -1.56136e-06, -1.96993e-05, -2.92384e-05, -2.81981e-05, -1.82516e-05, -3.73321e-06, 1.00979e-05, 1.88774e-05, 2.04346e-05, 1.52132e-05, 5.79236e-06, -4.22681e-06, -1.15279e-05, -1.41151e-05, -1.1791e-05, -5.97956e-06, 9.55071e-07, 6.60866e-06, 9.32394e-06, 8.63103e-06, 5.23822e-06, 6.35162e-07, -3.50457e-06, -5.89853e-06, -6.01914e-06, -4.16022e-06, -1.22329e-06, 1.6694e-06, 3.57721e-06, 4.02238e-06, 3.08221e-06, 1.27731e-06, -6.63102e-07, -2.07918e-06, -2.58582e-06, -2.15927e-06, -1.08965e-06, 1.6531e-07, 1.1595e-06, 1.6056e-06, 1.44448e-06, 8.31205e-07, 4.51691e-08, -6.20726e-07, -9.6485e-07, -9.26666e-07, -5.84871e-07, -1.07568e-07, 3.20841e-07, 5.64381e-07, 5.73695e-07, 3.86965e-07, 1.04308e-07, -1.61119e-07, -3.21772e-07, -3.42261e-07, -2.41678e-07, -7.77654e-08, 8.10251e-08, 1.80677e-07, 1.98372e-07, 1.43889e-07, 5.02914e-08, -4.14439e-08, -9.96515e-08, -1.10827e-07, -8.05594e-08, -2.79397e-08, 2.32831e-08, 5.4948e-08, 6.0536e-08, 4.28408e-08, 1.35042e-08, -1.35042e-08, -2.98023e-08, -3.11993e-08, -2.04891e-08, -4.65661e-09, 8.84756e-09, 1.62981e-08, 1.58325e-08, 9.31323e-09, 9.31323e-10, -5.58794e-09, -7.91624e-09, -6.51926e-09, -2.79397e-09, 9.31323e-10, 3.72529e-09, 4.19095e-09, 2.79397e-09, 4.65661e-10, -9.31323e-10, -1.86265e-09, -1.39698e-09, 0, 9.31323e-10, 1.39698e-09, 9.31323e-10, 0, 0, -4.65661e-10, 0, 4.65661e-10, 4.65661e-10, 0, 0},
+						},
+						Frequency:  0,
+						SampleRate: 200,
+						Decimate:   5,
+						Gain:       0,
+						//Scale: 0,
+						Correction:  0.1745,
+						Delay:       0.1745,
+						InputUnits:  "count",
+						OutputUnits: "count",
+					},
+				},
+				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Nanometrics Dataloggers Connected to Broadband Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"Trillium 120QA"},
 				FilterList: []string{"TRILLIUM-120QA"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "TRILLIUM-120QA",
 						Filter: "TRILLIUM-120QA",
@@ -1801,11 +1926,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"Trillium Compact 120"},
 				FilterList: []string{"TRILLIUM-COMPACT-120"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "TRILLIUM-COMPACT-120",
 						Filter: "TRILLIUM-COMPACT-120",
@@ -1830,11 +1955,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"Trillium Compact 120PH-2"},
 				FilterList: []string{"TRILLIUM-COMPACT-120PH-2"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "TRILLIUM-COMPACT-120PH-2",
 						Filter: "TRILLIUM-COMPACT-120PH-2",
@@ -1859,11 +1984,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "Z12",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"CMG-3ESPC", "CMG-3ESP"},
 				FilterList: []string{"CMG-3ESP-GN"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CMG-3ESP-GN",
 						Filter: "CMG-3ESP-GN",
@@ -1888,11 +2013,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"CMG-40T-30S"},
 				FilterList: []string{"CMG-40T-30S-GNS"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CMG-40T-30S-GNS",
 						Filter: "CMG-40T-30S-GNS",
@@ -1917,11 +2042,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"CMG-40T-60S"},
 				FilterList: []string{"CMG-40T-60S-GN"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CMG-40T-60S-GN",
 						Filter: "CMG-40T-60S-GN",
@@ -1949,7 +2074,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"ORION"},
 				Type:           "CG",
 				Label:          "HH",
@@ -1959,7 +2084,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"ORION-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "ORION-100",
@@ -1976,7 +2101,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "ORION_FIR_1_FILTER",
 						Filter: "ORION-100",
@@ -1997,7 +2122,7 @@ var Responses []Response = []Response{
 						Delay:       0.00275,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "ORION_FIR_2_FILTER",
 						Filter: "ORION-100",
@@ -2018,7 +2143,7 @@ var Responses []Response = []Response{
 						Delay:       0.00725,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "ORION_FIR_3_FILTER",
 						Filter: "ORION-100",
@@ -2039,7 +2164,7 @@ var Responses []Response = []Response{
 						Delay:       0.0585,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "ORION_FIR_5_FILTER",
 						Filter: "ORION-100",
@@ -2060,7 +2185,7 @@ var Responses []Response = []Response{
 						Delay:       0.1375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "ORION_FIR_3_FILTER",
 						Filter: "ORION-100",
@@ -2084,7 +2209,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Taurus"},
 				Type:           "CG",
 				Label:          "HH",
@@ -2094,7 +2219,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Taurus-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Taurus-100",
@@ -2111,7 +2236,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "TAURUS_100HZ_STAGE_1",
 						Filter: "Taurus-100",
@@ -2132,7 +2257,7 @@ var Responses []Response = []Response{
 						Delay:       0.041,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "TAURUS_100HZ_STAGE_2",
 						Filter: "Taurus-100",
@@ -2153,7 +2278,7 @@ var Responses []Response = []Response{
 						Delay:       0.465,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "TAURUS_100HZ_STAGE_3",
 						Filter: "Taurus-100",
@@ -2179,14 +2304,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Nanometrics Dataloggers Connected to Short Period Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"LE-3Dlite"},
 				FilterList: []string{"LE-3Dlite"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "LE-3Dlite",
 						Filter: "LE-3Dlite",
@@ -2194,9 +2319,9 @@ var Responses []Response = []Response{
 							Name:  "LE-3Dlite",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
 							Type:  "Laplace transform analog stage response, in rad/sec.",
-							Notes: "derived from Lennartz documentation, i.e. 990-0003 page 15 via http://www.lennartz-electronic.de",
-							Poles: []complex128{(-4.444 + 4.444i), (-4.444 - 4.444i), (-1.083 + 0i)},
-							Zeros: []complex128{(0 + 0i), (0 + 0i), (0 + 0i)},
+							Notes: "derived from Lennartz documentation, i.e. 990-0073 page 14 via http://www.lennartz-electronic.de",
+							Poles: []complex128{(-4.44 + 4.44i), (-4.44 - 4.44i), (-1.083 + 0i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i)},
 						},
 						Frequency:  15,
 						SampleRate: 0,
@@ -2211,21 +2336,21 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"LE-3DliteMkII"},
 				FilterList: []string{"LE-3DliteMkII"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
-						Lookup: "LE-3DliteMkII",
+						Lookup: "LE-3Dlite",
 						Filter: "LE-3DliteMkII",
 						StageSet: PAZ{
-							Name:  "LE-3DliteMkII",
+							Name:  "LE-3Dlite",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
 							Type:  "Laplace transform analog stage response, in rad/sec.",
-							Notes: "derived from Lennartz documentation, i.e. 990-0003 page 15 via http://www.lennartz-electronic.de",
-							Poles: []complex128{(-4.444 + 4.444i), (-4.444 - 4.444i), (-1.083 + 0i)},
-							Zeros: []complex128{(0 + 0i), (0 + 0i), (0 + 0i)},
+							Notes: "derived from Lennartz documentation, i.e. 990-0073 page 14 via http://www.lennartz-electronic.de",
+							Poles: []complex128{(-4.44 + 4.44i), (-4.44 - 4.44i), (-1.083 + 0i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i)},
 						},
 						Frequency:  15,
 						SampleRate: 0,
@@ -2243,7 +2368,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Taurus"},
 				Type:           "CG",
 				Label:          "EH",
@@ -2253,7 +2378,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Taurus-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Taurus-100",
@@ -2270,7 +2395,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "TAURUS_100HZ_STAGE_1",
 						Filter: "Taurus-100",
@@ -2291,7 +2416,7 @@ var Responses []Response = []Response{
 						Delay:       0.041,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "TAURUS_100HZ_STAGE_2",
 						Filter: "Taurus-100",
@@ -2312,7 +2437,7 @@ var Responses []Response = []Response{
 						Delay:       0.465,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "TAURUS_100HZ_STAGE_3",
 						Filter: "Taurus-100",
@@ -2338,14 +2463,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Broadband Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"Trillium 120QA"},
 				FilterList: []string{"TRILLIUM-120QA"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "TRILLIUM-120QA",
 						Filter: "TRILLIUM-120QA",
@@ -2370,11 +2495,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"Trillium Compact 120"},
 				FilterList: []string{"TRILLIUM-COMPACT-120"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "TRILLIUM-COMPACT-120",
 						Filter: "TRILLIUM-COMPACT-120",
@@ -2399,11 +2524,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"Trillium Compact 120PH-2"},
 				FilterList: []string{"TRILLIUM-COMPACT-120PH-2"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "TRILLIUM-COMPACT-120PH-2",
 						Filter: "TRILLIUM-COMPACT-120PH-2",
@@ -2428,11 +2553,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "Z12",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"CMG-3TB-GN"},
 				FilterList: []string{"CMG-3TB-GN"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CMG-3TB-GN",
 						Filter: "CMG-3TB-GN",
@@ -2457,11 +2582,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "Z12",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"CMG-3ESPC", "CMG-3ESP"},
 				FilterList: []string{"CMG-3ESP-GN"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CMG-3ESP-GN",
 						Filter: "CMG-3ESP-GN",
@@ -2486,11 +2611,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"CMG-40T-30S"},
 				FilterList: []string{"CMG-40T-30S-GNS"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CMG-40T-30S-GNS",
 						Filter: "CMG-40T-30S-GNS",
@@ -2515,11 +2640,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"CMG-40T-60S"},
 				FilterList: []string{"CMG-40T-60S-GN"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CMG-40T-60S-GN",
 						Filter: "CMG-40T-60S-GN",
@@ -2547,7 +2672,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CG",
 				Label:          "HH",
@@ -2557,7 +2682,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-100",
@@ -2574,7 +2699,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-100",
 						Filter: "Q330_FLbelow100-100",
@@ -2598,7 +2723,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CG",
 				Label:          "LH",
@@ -2608,7 +2733,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-1",
@@ -2625,7 +2750,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
 						Filter: "Q330_FLbelow100-1",
@@ -2649,7 +2774,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CG",
 				Label:          "VH",
@@ -2659,7 +2784,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-0.1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-0.1",
@@ -2676,7 +2801,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
 						Filter: "Q330_FLbelow100-0.1",
@@ -2697,7 +2822,7 @@ var Responses []Response = []Response{
 						Delay:       0,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_VLP",
 						Filter: "Q330_FLbelow100-0.1",
@@ -2721,7 +2846,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330HRS/6", "Q330HR/6"},
 				Type:           "CG",
 				Label:          "HH",
@@ -2731,7 +2856,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330HR_FLbelow100-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330HR_FLbelow100-100",
@@ -2748,7 +2873,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-100",
 						Filter: "Q330HR_FLbelow100-100",
@@ -2772,7 +2897,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330HRS/6", "Q330HR/6"},
 				Type:           "CG",
 				Label:          "LH",
@@ -2782,7 +2907,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330HR_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330HR_FLbelow100-1",
@@ -2799,7 +2924,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
 						Filter: "Q330HR_FLbelow100-1",
@@ -2823,7 +2948,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330HRS/6", "Q330HR/6"},
 				Type:           "CG",
 				Label:          "VH",
@@ -2833,7 +2958,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330HR_FLbelow100-0.1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330HR_FLbelow100-0.1",
@@ -2850,7 +2975,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
 						Filter: "Q330HR_FLbelow100-0.1",
@@ -2871,7 +2996,7 @@ var Responses []Response = []Response{
 						Delay:       0,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_VLP",
 						Filter: "Q330HR_FLbelow100-0.1",
@@ -2895,7 +3020,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "HH",
@@ -2905,7 +3030,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-100",
@@ -2922,7 +3047,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-100",
 						Filter: "Q330S+_FLbelow100-100",
@@ -2946,7 +3071,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "LH",
@@ -2956,7 +3081,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-1",
@@ -2973,7 +3098,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-1",
 						Filter: "Q330S+_FLbelow100-1",
@@ -2997,7 +3122,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "VH",
@@ -3007,7 +3132,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-0.1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-0.1",
@@ -3024,7 +3149,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-1",
 						Filter: "Q330S+_FLbelow100-0.1",
@@ -3045,7 +3170,7 @@ var Responses []Response = []Response{
 						Delay:       0,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_VLP",
 						Filter: "Q330S+_FLbelow100-0.1",
@@ -3069,7 +3194,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6", "Q730/4"},
 				Type:           "CG",
 				Label:          "VH",
@@ -3079,7 +3204,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-0.1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-0.1",
@@ -3096,7 +3221,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-0.1",
@@ -3117,7 +3242,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-0.1",
@@ -3138,7 +3263,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-0.1",
@@ -3159,7 +3284,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-0.1",
@@ -3180,7 +3305,7 @@ var Responses []Response = []Response{
 						Delay:       0.475,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5",
 						Filter: "Q4120-0.1",
@@ -3201,7 +3326,7 @@ var Responses []Response = []Response{
 						Delay:       3.975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96C",
 						Filter: "Q4120-0.1",
@@ -3222,7 +3347,7 @@ var Responses []Response = []Response{
 						Delay:       4.75,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F260",
 						Filter: "Q4120-0.1",
@@ -3243,7 +3368,7 @@ var Responses []Response = []Response{
 						Delay:       129.5,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_VLP",
 						Filter: "Q4120-0.1",
@@ -3267,7 +3392,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6", "Q730/4"},
 				Type:           "CG",
 				Label:          "HH",
@@ -3277,7 +3402,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-100",
@@ -3294,7 +3419,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-100",
@@ -3315,7 +3440,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-100",
@@ -3336,7 +3461,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-100",
@@ -3357,7 +3482,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-100",
@@ -3381,7 +3506,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q730/4"},
 				Type:           "CG",
 				Label:          "BH",
@@ -3391,7 +3516,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-40"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-40",
@@ -3408,7 +3533,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-40",
@@ -3429,7 +3554,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-40",
@@ -3450,7 +3575,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-40",
@@ -3471,7 +3596,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5",
 						Filter: "Q4120-40",
@@ -3495,7 +3620,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6", "Q730/4"},
 				Type:           "CG",
 				Label:          "LH",
@@ -3505,7 +3630,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-1",
@@ -3522,7 +3647,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-1",
@@ -3543,7 +3668,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-1",
@@ -3564,7 +3689,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-1",
@@ -3585,7 +3710,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-1",
@@ -3606,7 +3731,7 @@ var Responses []Response = []Response{
 						Delay:       0.475,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5",
 						Filter: "Q4120-1",
@@ -3627,7 +3752,7 @@ var Responses []Response = []Response{
 						Delay:       3.975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96C",
 						Filter: "Q4120-1",
@@ -3648,7 +3773,7 @@ var Responses []Response = []Response{
 						Delay:       4.75,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F260",
 						Filter: "Q4120-1",
@@ -3674,14 +3799,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to CMG-3TB Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"CMG-3TB"},
 				FilterList: []string{"CMG-3TB-CTBTO"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "CMG-3TB-CTBTO",
 						Filter: "CMG-3TB-CTBTO",
@@ -3709,7 +3834,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330HR/6", "Q330HRS/6"},
 				Type:           "CG",
 				Label:          "HH",
@@ -3719,7 +3844,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330HR_FLbelow100-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330HR_FLbelow100-100",
@@ -3736,7 +3861,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-100",
 						Filter: "Q330HR_FLbelow100-100",
@@ -3760,7 +3885,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330HR/6", "Q330HRS/6"},
 				Type:           "CG",
 				Label:          "LH",
@@ -3770,7 +3895,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330HR_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330HR_FLbelow100-1",
@@ -3787,7 +3912,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
 						Filter: "Q330HR_FLbelow100-1",
@@ -3811,7 +3936,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330HR/6", "Q330HRS/6"},
 				Type:           "CG",
 				Label:          "VH",
@@ -3821,7 +3946,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330HR_FLbelow100-0.1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330HR_FLbelow100-0.1",
@@ -3838,7 +3963,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
 						Filter: "Q330HR_FLbelow100-0.1",
@@ -3859,7 +3984,7 @@ var Responses []Response = []Response{
 						Delay:       0,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_VLP",
 						Filter: "Q330HR_FLbelow100-0.1",
@@ -3883,7 +4008,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6"},
 				Type:           "CG",
 				Label:          "HH",
@@ -3893,7 +4018,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-100",
@@ -3910,7 +4035,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-100",
@@ -3931,7 +4056,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-100",
@@ -3952,7 +4077,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-100",
@@ -3973,7 +4098,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-100",
@@ -3997,7 +4122,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6"},
 				Type:           "CG",
 				Label:          "LH",
@@ -4007,7 +4132,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-1",
@@ -4024,7 +4149,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-1",
@@ -4045,7 +4170,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-1",
@@ -4066,7 +4191,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-1",
@@ -4087,7 +4212,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-1",
@@ -4108,7 +4233,7 @@ var Responses []Response = []Response{
 						Delay:       0.475,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5",
 						Filter: "Q4120-1",
@@ -4129,7 +4254,7 @@ var Responses []Response = []Response{
 						Delay:       3.975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96C",
 						Filter: "Q4120-1",
@@ -4150,7 +4275,7 @@ var Responses []Response = []Response{
 						Delay:       4.75,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F260",
 						Filter: "Q4120-1",
@@ -4174,7 +4299,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6"},
 				Type:           "CG",
 				Label:          "VH",
@@ -4184,7 +4309,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-0.1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-0.1",
@@ -4201,7 +4326,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-0.1",
@@ -4222,7 +4347,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-0.1",
@@ -4243,7 +4368,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-0.1",
@@ -4264,7 +4389,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-0.1",
@@ -4285,7 +4410,7 @@ var Responses []Response = []Response{
 						Delay:       0.475,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5",
 						Filter: "Q4120-0.1",
@@ -4306,7 +4431,7 @@ var Responses []Response = []Response{
 						Delay:       3.975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96C",
 						Filter: "Q4120-0.1",
@@ -4327,7 +4452,7 @@ var Responses []Response = []Response{
 						Delay:       4.75,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F260",
 						Filter: "Q4120-0.1",
@@ -4348,7 +4473,7 @@ var Responses []Response = []Response{
 						Delay:       129.5,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_VLP",
 						Filter: "Q4120-0.1",
@@ -4374,14 +4499,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Fresh Water Depth Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"Druck PTX-1830-LAND"},
 				FilterList: []string{"Druck PTX-1830"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "poly",
 						Lookup: "Druck PTX-1830-A",
 						Filter: "Druck PTX-1830",
@@ -4394,7 +4519,7 @@ var Responses []Response = []Response{
 							ApproximationLowerBound: 0,
 							ApproximationUpperBound: 20,
 							MaximumError:            0,
-							Coefficients:            []Coefficient{Coefficient{Value: 0.004}, Coefficient{Value: 0.0008}},
+							Coefficients:            []Coefficient{{Value: 0.004}, {Value: 0.0008}},
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -4405,7 +4530,7 @@ var Responses []Response = []Response{
 						Delay:       0,
 						InputUnits:  "m",
 						OutputUnits: "A",
-					}, ResponseStage{
+					}, {
 						Type:   "poly",
 						Lookup: "Druck PTX-1830-B",
 						Filter: "Druck PTX-1830",
@@ -4418,7 +4543,7 @@ var Responses []Response = []Response{
 							ApproximationLowerBound: 0.004,
 							ApproximationUpperBound: 0.02,
 							MaximumError:            0,
-							Coefficients:            []Coefficient{Coefficient{Value: 0}, Coefficient{Value: 250}},
+							Coefficients:            []Coefficient{{Value: 0}, {Value: 250}},
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -4436,7 +4561,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CG",
 				Label:          "LT",
@@ -4444,12 +4569,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Q330_FLbelow100-10"},
+				FilterList:     []string{"Q330_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Q330_FLbelow100-10",
+						Filter: "Q330_FLbelow100-1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -4457,26 +4582,26 @@ var Responses []Response = []Response{
 							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
 						},
 						Frequency:  0,
-						SampleRate: 10,
+						SampleRate: 1,
 						Decimate:   1,
 						Gain:       419430.4,
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
-						Lookup: "Q330_FLbelow100-10",
-						Filter: "Q330_FLbelow100-10",
+						Lookup: "Q330_FLbelow100-1",
+						Filter: "Q330_FLbelow100-1",
 						StageSet: FIR{
-							Name:       "Q330_FLbelow100-10",
+							Name:       "Q330_FLbelow100-1",
 							Causal:     true,
 							Symmetry:   SymmetryNone,
 							Decimation: 1,
 							Gain:       1,
-							Factors:    []float64{-2.0597958e-16, -1.5519102e-11, 7.9304069e-11, -3.0150714e-10, -1.7669693e-10, -1.8888486e-08, 1.2449361e-07, 1.304901e-07, -2.0533539e-07, 4.0815846e-07, -6.5899128e-07, 4.7585326e-07, -6.3008218e-07, -1.0460443e-07, 1.7084503e-06, 7.4276212e-07, 1.2474317e-05, -6.7966979e-05, -0.00056443545, 0.00054472715, -0.00053468937, 0.00020937638, 0.00054720584, -0.0017552962, 0.0032863827, -0.0048276843, 0.0058888913, -0.0058591378, 0.004131781, -0.0006405194, -0.0059056637, 0.014084742, -0.023359531, 0.032244694, -0.038683035, 0.040077368, -0.032945682, 0.011106618, 0.029495967, -0.13325238, 0.75599275, 0.4785976, -0.19098091, 0.10096915, -0.053503998, 0.019247033, 0.0029326196, -0.016045791, 0.022019494, -0.022595773, 0.019543809, -0.014588216, 0.0085995538, -0.0038916458, 0.00016215338, 0.0021506961, -0.0031280388, 0.0030863537, -0.002432076, 0.0015515951, -0.00073607391, 0.00015202511, 0.00013782453, -0.00050057166, 2.4348109e-05, -1.0669975e-06, -1.0471313e-06, 2.2158855e-06, -7.2825663e-07, 5.7027465e-07, 5.261794e-08, -3.0913692e-07, 2.5057057e-07, -2.7505838e-07, 2.0845148e-07, 4.7394077e-08, -5.0660254e-09, -1.7854858e-10, -2.4002857e-10, 8.3244798e-11, 5.487989e-12},
+							Factors:    []float64{1.2199295e-16, 3.1619205e-10, -4.3146524e-08, -5.6355576e-07, -0.00012670077, 0.0036581444, 0.0001675314, -0.0054045052, 0.012786087, -0.01803566, 0.014731158, 0.0032269409, -0.038596944, 0.088835267, -0.14824265, 0.2177661, 0.80991439, 0.12459593, -0.1230407, 0.088997526, -0.048501567, 0.014259116, 0.0068963909, -0.014443419, 0.012428614, -0.0065687263, 0.0015220402, 0.0031420928, 3.6562742e-05, -2.1529949e-06, -2.5978267e-07},
 						},
 						Frequency:  0,
-						SampleRate: 10,
+						SampleRate: 1,
 						Decimate:   1,
 						Gain:       0,
 						//Scale: 0,
@@ -4487,7 +4612,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/6"},
 				Type:           "CG",
 				Label:          "LT",
@@ -4497,7 +4622,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-1",
@@ -4514,7 +4639,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-1",
 						Filter: "Q330S+_FLbelow100-1",
@@ -4538,7 +4663,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CG",
 				Label:          "BT",
@@ -4548,7 +4673,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-10"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-10",
@@ -4565,7 +4690,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-10",
 						Filter: "Q330_FLbelow100-10",
@@ -4589,7 +4714,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/6"},
 				Type:           "CG",
 				Label:          "BT",
@@ -4599,7 +4724,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-10"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-10",
@@ -4616,7 +4741,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-10",
 						Filter: "Q330S+_FLbelow100-10",
@@ -4642,14 +4767,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Hydrophones",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"Scout Hydrophone"},
 				FilterList: []string{"Scout Hydrophone"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "HYDROPHONE",
 						Filter: "Scout Hydrophone",
@@ -4675,7 +4800,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330/3"},
 				Type:           "CG",
 				Label:          "HD",
@@ -4685,7 +4810,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-200"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-200",
@@ -4702,7 +4827,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-200",
 						Filter: "Q330_FLbelow100-200",
@@ -4728,14 +4853,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Microphones",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"InfraBSU microphone"},
 				FilterList: []string{"InfraBSU microphone"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "poly",
 						Lookup: "InfraBSU microphone",
 						Filter: "InfraBSU microphone",
@@ -4749,7 +4874,7 @@ var Responses []Response = []Response{
 							ApproximationUpperBound: 0,
 							MaximumError:            0,
 							Notes:                   &[]string{"this is incorrect, enough to get a plot in theory this is linear with +/- 10mV for +/- 125Pa (1.25 mbar) which translates to +/- 1V for +/- 125mbar"}[0],
-							Coefficients:            []Coefficient{Coefficient{Value: 0}, Coefficient{Value: 125}},
+							Coefficients:            []Coefficient{{Value: 0}, {Value: 125}},
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -4767,7 +4892,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330S/3", "Q330S/6"},
 				Type:           "CW",
 				Label:          "HD",
@@ -4777,7 +4902,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-100-PREAMP32"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
 						Filter: "Q330S+_FLbelow100-100-PREAMP32",
@@ -4794,7 +4919,7 @@ var Responses []Response = []Response{
 						//Scale: 1,
 						InputUnits:  "V",
 						OutputUnits: "V",
-					}, ResponseStage{
+					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-100-PREAMP32",
@@ -4811,7 +4936,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-100",
 						Filter: "Q330S+_FLbelow100-100-PREAMP32",
@@ -4835,7 +4960,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/3", "Q330S/6"},
 				Type:           "CW",
 				Label:          "LD",
@@ -4845,7 +4970,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-1-PREAMP32"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
 						Filter: "Q330S+_FLbelow100-1-PREAMP32",
@@ -4862,7 +4987,7 @@ var Responses []Response = []Response{
 						//Scale: 1,
 						InputUnits:  "V",
 						OutputUnits: "V",
-					}, ResponseStage{
+					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-1-PREAMP32",
@@ -4879,7 +5004,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-1",
 						Filter: "Q330S+_FLbelow100-1-PREAMP32",
@@ -4903,7 +5028,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CW",
 				Label:          "HD",
@@ -4913,7 +5038,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-100-PREAMP"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
 						Filter: "Q330_FLbelow100-100-PREAMP",
@@ -4930,7 +5055,7 @@ var Responses []Response = []Response{
 						//Scale: 1,
 						InputUnits:  "V",
 						OutputUnits: "V",
-					}, ResponseStage{
+					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-100-PREAMP",
@@ -4947,7 +5072,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-100",
 						Filter: "Q330_FLbelow100-100-PREAMP",
@@ -4971,7 +5096,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CW",
 				Label:          "LD",
@@ -4981,7 +5106,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-1-PREAMP"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
 						Filter: "Q330_FLbelow100-1-PREAMP",
@@ -4998,7 +5123,7 @@ var Responses []Response = []Response{
 						//Scale: 1,
 						InputUnits:  "V",
 						OutputUnits: "V",
-					}, ResponseStage{
+					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-1-PREAMP",
@@ -5015,7 +5140,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
 						Filter: "Q330_FLbelow100-1-PREAMP",
@@ -5041,14 +5166,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to STS-2 Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"STS-2"},
 				FilterList: []string{"STS-2"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "STS-2",
 						Filter: "STS-2",
@@ -5075,7 +5200,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330HR/6"},
 				Type:           "CG",
 				Label:          "HH",
@@ -5085,7 +5210,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330HR_FLbelow100-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330HR_FLbelow100-100",
@@ -5102,7 +5227,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-100",
 						Filter: "Q330HR_FLbelow100-100",
@@ -5126,7 +5251,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330HR/6"},
 				Type:           "CG",
 				Label:          "LH",
@@ -5136,7 +5261,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330HR_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330HR_FLbelow100-1",
@@ -5153,7 +5278,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
 						Filter: "Q330HR_FLbelow100-1",
@@ -5177,7 +5302,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330HR/6"},
 				Type:           "CG",
 				Label:          "VH",
@@ -5187,7 +5312,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330HR_FLbelow100-0.1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330HR_FLbelow100-0.1",
@@ -5204,7 +5329,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
 						Filter: "Q330HR_FLbelow100-0.1",
@@ -5225,7 +5350,7 @@ var Responses []Response = []Response{
 						Delay:       0,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_VLP",
 						Filter: "Q330HR_FLbelow100-0.1",
@@ -5249,7 +5374,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6"},
 				Type:           "CG",
 				Label:          "HH",
@@ -5259,7 +5384,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-100",
@@ -5276,7 +5401,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-100",
@@ -5297,7 +5422,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-100",
@@ -5318,7 +5443,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-100",
@@ -5339,7 +5464,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-100",
@@ -5363,7 +5488,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: true,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6"},
 				Type:           "CG",
 				Label:          "LH",
@@ -5373,7 +5498,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-1",
@@ -5390,7 +5515,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-1",
@@ -5411,7 +5536,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-1",
@@ -5432,7 +5557,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-1",
@@ -5453,7 +5578,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-1",
@@ -5474,7 +5599,7 @@ var Responses []Response = []Response{
 						Delay:       0.475,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5",
 						Filter: "Q4120-1",
@@ -5495,7 +5620,7 @@ var Responses []Response = []Response{
 						Delay:       3.975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96C",
 						Filter: "Q4120-1",
@@ -5516,7 +5641,7 @@ var Responses []Response = []Response{
 						Delay:       4.75,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F260",
 						Filter: "Q4120-1",
@@ -5540,7 +5665,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: true,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6"},
 				Type:           "CG",
 				Label:          "VH",
@@ -5550,7 +5675,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-0.1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-0.1",
@@ -5567,7 +5692,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-0.1",
@@ -5588,7 +5713,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-0.1",
@@ -5609,7 +5734,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-0.1",
@@ -5630,7 +5755,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-0.1",
@@ -5651,7 +5776,7 @@ var Responses []Response = []Response{
 						Delay:       0.475,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5",
 						Filter: "Q4120-0.1",
@@ -5672,7 +5797,7 @@ var Responses []Response = []Response{
 						Delay:       3.975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96C",
 						Filter: "Q4120-0.1",
@@ -5693,7 +5818,7 @@ var Responses []Response = []Response{
 						Delay:       4.75,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F260",
 						Filter: "Q4120-0.1",
@@ -5714,7 +5839,7 @@ var Responses []Response = []Response{
 						Delay:       129.5,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_VLP",
 						Filter: "Q4120-0.1",
@@ -5740,14 +5865,14 @@ var Responses []Response = []Response{
 				Reversed: true,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Sea Water Depth Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"Druck PTX-1830"},
 				FilterList: []string{"Druck PTX-1830", "Sea Water"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "poly",
 						Lookup: "Druck PTX-1830-A",
 						Filter: "Druck PTX-1830",
@@ -5760,7 +5885,7 @@ var Responses []Response = []Response{
 							ApproximationLowerBound: 0,
 							ApproximationUpperBound: 20,
 							MaximumError:            0,
-							Coefficients:            []Coefficient{Coefficient{Value: 0.004}, Coefficient{Value: 0.0008}},
+							Coefficients:            []Coefficient{{Value: 0.004}, {Value: 0.0008}},
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -5771,7 +5896,7 @@ var Responses []Response = []Response{
 						Delay:       0,
 						InputUnits:  "m",
 						OutputUnits: "A",
-					}, ResponseStage{
+					}, {
 						Type:   "poly",
 						Lookup: "Druck PTX-1830-B",
 						Filter: "Druck PTX-1830",
@@ -5784,7 +5909,7 @@ var Responses []Response = []Response{
 							ApproximationLowerBound: 0.004,
 							ApproximationUpperBound: 0.02,
 							MaximumError:            0,
-							Coefficients:            []Coefficient{Coefficient{Value: 0}, Coefficient{Value: 250}},
+							Coefficients:            []Coefficient{{Value: 0}, {Value: 250}},
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -5796,7 +5921,7 @@ var Responses []Response = []Response{
 						InputUnits:  "A",
 						OutputUnits: "V",
 					},
-					ResponseStage{
+					{
 						Type:   "poly",
 						Lookup: "SEAWATER",
 						Filter: "Sea Water",
@@ -5809,7 +5934,7 @@ var Responses []Response = []Response{
 							ApproximationLowerBound: 0,
 							ApproximationUpperBound: 20,
 							MaximumError:            0,
-							Coefficients:            []Coefficient{Coefficient{Value: 0}, Coefficient{Value: 1.03}},
+							Coefficients:            []Coefficient{{Value: 0}, {Value: 1.03}},
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -5827,7 +5952,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CG",
 				Label:          "LT",
@@ -5835,12 +5960,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Q330_FLbelow100-10"},
+				FilterList:     []string{"Q330_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Q330_FLbelow100-10",
+						Filter: "Q330_FLbelow100-1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -5848,26 +5973,26 @@ var Responses []Response = []Response{
 							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
 						},
 						Frequency:  0,
-						SampleRate: 10,
+						SampleRate: 1,
 						Decimate:   1,
 						Gain:       419430.4,
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
-						Lookup: "Q330_FLbelow100-10",
-						Filter: "Q330_FLbelow100-10",
+						Lookup: "Q330_FLbelow100-1",
+						Filter: "Q330_FLbelow100-1",
 						StageSet: FIR{
-							Name:       "Q330_FLbelow100-10",
+							Name:       "Q330_FLbelow100-1",
 							Causal:     true,
 							Symmetry:   SymmetryNone,
 							Decimation: 1,
 							Gain:       1,
-							Factors:    []float64{-2.0597958e-16, -1.5519102e-11, 7.9304069e-11, -3.0150714e-10, -1.7669693e-10, -1.8888486e-08, 1.2449361e-07, 1.304901e-07, -2.0533539e-07, 4.0815846e-07, -6.5899128e-07, 4.7585326e-07, -6.3008218e-07, -1.0460443e-07, 1.7084503e-06, 7.4276212e-07, 1.2474317e-05, -6.7966979e-05, -0.00056443545, 0.00054472715, -0.00053468937, 0.00020937638, 0.00054720584, -0.0017552962, 0.0032863827, -0.0048276843, 0.0058888913, -0.0058591378, 0.004131781, -0.0006405194, -0.0059056637, 0.014084742, -0.023359531, 0.032244694, -0.038683035, 0.040077368, -0.032945682, 0.011106618, 0.029495967, -0.13325238, 0.75599275, 0.4785976, -0.19098091, 0.10096915, -0.053503998, 0.019247033, 0.0029326196, -0.016045791, 0.022019494, -0.022595773, 0.019543809, -0.014588216, 0.0085995538, -0.0038916458, 0.00016215338, 0.0021506961, -0.0031280388, 0.0030863537, -0.002432076, 0.0015515951, -0.00073607391, 0.00015202511, 0.00013782453, -0.00050057166, 2.4348109e-05, -1.0669975e-06, -1.0471313e-06, 2.2158855e-06, -7.2825663e-07, 5.7027465e-07, 5.261794e-08, -3.0913692e-07, 2.5057057e-07, -2.7505838e-07, 2.0845148e-07, 4.7394077e-08, -5.0660254e-09, -1.7854858e-10, -2.4002857e-10, 8.3244798e-11, 5.487989e-12},
+							Factors:    []float64{1.2199295e-16, 3.1619205e-10, -4.3146524e-08, -5.6355576e-07, -0.00012670077, 0.0036581444, 0.0001675314, -0.0054045052, 0.012786087, -0.01803566, 0.014731158, 0.0032269409, -0.038596944, 0.088835267, -0.14824265, 0.2177661, 0.80991439, 0.12459593, -0.1230407, 0.088997526, -0.048501567, 0.014259116, 0.0068963909, -0.014443419, 0.012428614, -0.0065687263, 0.0015220402, 0.0031420928, 3.6562742e-05, -2.1529949e-06, -2.5978267e-07},
 						},
 						Frequency:  0,
-						SampleRate: 10,
+						SampleRate: 1,
 						Decimate:   1,
 						Gain:       0,
 						//Scale: 0,
@@ -5878,7 +6003,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "LT",
@@ -5888,7 +6013,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-1",
@@ -5905,7 +6030,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-1",
 						Filter: "Q330S+_FLbelow100-1",
@@ -5929,7 +6054,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CG",
 				Label:          "BT",
@@ -5939,7 +6064,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-10"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-10",
@@ -5956,7 +6081,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-10",
 						Filter: "Q330_FLbelow100-10",
@@ -5980,7 +6105,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "BT",
@@ -5990,7 +6115,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-10"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-10",
@@ -6007,7 +6132,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-10",
 						Filter: "Q330S+_FLbelow100-10",
@@ -6033,14 +6158,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Setra Barometers",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"270-600/12V"},
 				FilterList: []string{"270-600/12V"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "poly",
 						Lookup: "270-600/12V",
 						Filter: "270-600/12V",
@@ -6053,7 +6178,7 @@ var Responses []Response = []Response{
 							ApproximationLowerBound: 600,
 							ApproximationUpperBound: 1100,
 							MaximumError:            0,
-							Coefficients:            []Coefficient{Coefficient{Value: 600}, Coefficient{Value: 100}},
+							Coefficients:            []Coefficient{{Value: 600}, {Value: 100}},
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -6068,11 +6193,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "F",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"270-600/24V"},
 				FilterList: []string{"270-600/24V"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "poly",
 						Lookup: "270-600/24V",
 						Filter: "270-600/24V",
@@ -6085,7 +6210,7 @@ var Responses []Response = []Response{
 							ApproximationLowerBound: 600,
 							ApproximationUpperBound: 1100,
 							MaximumError:            0,
-							Coefficients:            []Coefficient{Coefficient{Value: 600}, Coefficient{Value: 100}},
+							Coefficients:            []Coefficient{{Value: 600}, {Value: 100}},
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -6100,11 +6225,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "F",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"270-800/12V"},
 				FilterList: []string{"270-800/12V"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "poly",
 						Lookup: "270-800/12V",
 						Filter: "270-800/12V",
@@ -6117,7 +6242,7 @@ var Responses []Response = []Response{
 							ApproximationLowerBound: 800,
 							ApproximationUpperBound: 1100,
 							MaximumError:            0,
-							Coefficients:            []Coefficient{Coefficient{Value: 800}, Coefficient{Value: 100}},
+							Coefficients:            []Coefficient{{Value: 800}, {Value: 100}},
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -6135,7 +6260,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CW",
 				Label:          "LD",
@@ -6145,7 +6270,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-1",
@@ -6162,7 +6287,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
 						Filter: "Q330_FLbelow100-1",
@@ -6186,7 +6311,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CW",
 				Label:          "HD",
@@ -6196,7 +6321,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-100",
@@ -6213,7 +6338,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-100",
 						Filter: "Q330_FLbelow100-100",
@@ -6237,7 +6362,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/3", "Q330S/6"},
 				Type:           "CW",
 				Label:          "LD",
@@ -6247,7 +6372,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-1",
@@ -6264,7 +6389,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-1",
 						Filter: "Q330S+_FLbelow100-1",
@@ -6288,7 +6413,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/3", "Q330S/6"},
 				Type:           "CW",
 				Label:          "HD",
@@ -6298,7 +6423,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-100",
@@ -6315,7 +6440,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-100",
 						Filter: "Q330S+_FLbelow100-100",
@@ -6339,7 +6464,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q730/4"},
 				Type:           "CW",
 				Label:          "LD",
@@ -6349,7 +6474,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-1",
@@ -6366,7 +6491,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-1",
@@ -6387,7 +6512,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-1",
@@ -6408,7 +6533,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-1",
@@ -6429,7 +6554,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-1",
@@ -6450,7 +6575,7 @@ var Responses []Response = []Response{
 						Delay:       0.475,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5",
 						Filter: "Q4120-1",
@@ -6471,7 +6596,7 @@ var Responses []Response = []Response{
 						Delay:       3.975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96C",
 						Filter: "Q4120-1",
@@ -6492,7 +6617,7 @@ var Responses []Response = []Response{
 						Delay:       4.75,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F260",
 						Filter: "Q4120-1",
@@ -6516,7 +6641,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q730/4"},
 				Type:           "CW",
 				Label:          "BD",
@@ -6526,7 +6651,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-40"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-40",
@@ -6543,7 +6668,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-40",
@@ -6564,7 +6689,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-40",
@@ -6585,7 +6710,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-40",
@@ -6606,7 +6731,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5",
 						Filter: "Q4120-40",
@@ -6630,7 +6755,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q730/4"},
 				Type:           "CW",
 				Label:          "HD",
@@ -6640,7 +6765,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-100",
@@ -6657,7 +6782,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-100",
@@ -6678,7 +6803,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-100",
@@ -6699,7 +6824,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-100",
@@ -6720,7 +6845,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-100",
@@ -6746,14 +6871,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Short Period Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"L4C"},
 				FilterList: []string{"L4C"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "L4C",
 						Filter: "L4C",
@@ -6778,11 +6903,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "Z",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"L4C-3D"},
 				FilterList: []string{"L4C"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "L4C",
 						Filter: "L4C",
@@ -6807,11 +6932,11 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"LE-3Dlite"},
 				FilterList: []string{"LE-3Dlite"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "LE-3Dlite",
 						Filter: "LE-3Dlite",
@@ -6819,9 +6944,9 @@ var Responses []Response = []Response{
 							Name:  "LE-3Dlite",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
 							Type:  "Laplace transform analog stage response, in rad/sec.",
-							Notes: "derived from Lennartz documentation, i.e. 990-0003 page 15 via http://www.lennartz-electronic.de",
-							Poles: []complex128{(-4.444 + 4.444i), (-4.444 - 4.444i), (-1.083 + 0i)},
-							Zeros: []complex128{(0 + 0i), (0 + 0i), (0 + 0i)},
+							Notes: "derived from Lennartz documentation, i.e. 990-0073 page 14 via http://www.lennartz-electronic.de",
+							Poles: []complex128{(-4.44 + 4.44i), (-4.44 - 4.44i), (-1.083 + 0i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i)},
 						},
 						Frequency:  15,
 						SampleRate: 0,
@@ -6836,26 +6961,55 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
-			}, Sensor{
+			}, {
 				SensorList: []string{"LE-3DliteMkII"},
 				FilterList: []string{"LE-3DliteMkII"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
-						Lookup: "LE-3DliteMkII",
+						Lookup: "LE-3Dlite",
 						Filter: "LE-3DliteMkII",
 						StageSet: PAZ{
-							Name:  "LE-3DliteMkII",
+							Name:  "LE-3Dlite",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
 							Type:  "Laplace transform analog stage response, in rad/sec.",
-							Notes: "derived from Lennartz documentation, i.e. 990-0003 page 15 via http://www.lennartz-electronic.de",
-							Poles: []complex128{(-4.444 + 4.444i), (-4.444 - 4.444i), (-1.083 + 0i)},
-							Zeros: []complex128{(0 + 0i), (0 + 0i), (0 + 0i)},
+							Notes: "derived from Lennartz documentation, i.e. 990-0073 page 14 via http://www.lennartz-electronic.de",
+							Poles: []complex128{(-4.44 + 4.44i), (-4.44 - 4.44i), (-1.083 + 0i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i)},
 						},
 						Frequency:  15,
 						SampleRate: 0,
 						Decimate:   0,
 						Gain:       400,
+						//Scale: 1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "m/s",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "ZNE",
+				Reversed: false,
+			}, {
+				SensorList: []string{"LE-3DliteMkIII"},
+				FilterList: []string{"LE-3DliteMkIII"},
+				Stages: []ResponseStage{
+					{
+						Type:   "paz",
+						Lookup: "LE-3Dlite",
+						Filter: "LE-3DliteMkIII",
+						StageSet: PAZ{
+							Name:  "LE-3Dlite",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "derived from Lennartz documentation, i.e. 990-0073 page 14 via http://www.lennartz-electronic.de",
+							Poles: []complex128{(-4.44 + 4.44i), (-4.44 - 4.44i), (-1.083 + 0i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i)},
+						},
+						Frequency:  15,
+						SampleRate: 0,
+						Decimate:   0,
+						Gain:       800,
 						//Scale: 1,
 						Correction:  0,
 						Delay:       0,
@@ -6868,7 +7022,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CG",
 				Label:          "EH",
@@ -6878,7 +7032,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-100",
@@ -6895,7 +7049,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-100",
 						Filter: "Q330_FLbelow100-100",
@@ -6919,7 +7073,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CG",
 				Label:          "EH",
@@ -6929,7 +7083,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-200"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-200",
@@ -6946,7 +7100,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-200",
 						Filter: "Q330_FLbelow100-200",
@@ -6970,7 +7124,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "EH",
@@ -6980,7 +7134,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-100",
@@ -6997,7 +7151,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-100",
 						Filter: "Q330S+_FLbelow100-100",
@@ -7021,7 +7175,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6"},
 				Type:           "CG",
 				Label:          "EH",
@@ -7031,7 +7185,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-100"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-100",
@@ -7048,7 +7202,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-100",
@@ -7069,7 +7223,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-100",
@@ -7090,7 +7244,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-100",
@@ -7111,7 +7265,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-100",
@@ -7137,14 +7291,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Short Period Sensors with Pre Amp",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"2 Hz Duke Malin Seismometer"},
 				FilterList: []string{"2_Hz_Duke_Malin_Seismometer"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "MALIN",
 						Filter: "2_Hz_Duke_Malin_Seismometer",
@@ -7172,7 +7326,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "EH",
@@ -7182,7 +7336,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-100-PREAMP32"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
 						Filter: "Q330S+_FLbelow100-100-PREAMP32",
@@ -7199,7 +7353,7 @@ var Responses []Response = []Response{
 						//Scale: 1,
 						InputUnits:  "V",
 						OutputUnits: "V",
-					}, ResponseStage{
+					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-100-PREAMP32",
@@ -7216,7 +7370,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-100",
 						Filter: "Q330S+_FLbelow100-100-PREAMP32",
@@ -7240,7 +7394,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6"},
 				Type:           "CG",
 				Label:          "EH",
@@ -7250,7 +7404,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-100-PREAMP"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
 						Filter: "Q330_FLbelow100-100-PREAMP",
@@ -7267,7 +7421,7 @@ var Responses []Response = []Response{
 						//Scale: 1,
 						InputUnits:  "V",
 						OutputUnits: "V",
-					}, ResponseStage{
+					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-100-PREAMP",
@@ -7284,7 +7438,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-100",
 						Filter: "Q330_FLbelow100-100-PREAMP",
@@ -7310,14 +7464,14 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Strong Motion Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"FBA-ES-T", "FBA-ES-T-ISO"},
 				FilterList: []string{"FBA-ES-T"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "paz",
 						Lookup: "FBA-ES-T",
 						Filter: "FBA-ES-T",
@@ -7344,7 +7498,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330S/6"},
 				Type:           "TG",
 				Label:          "HN",
@@ -7354,7 +7508,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-200"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-200",
@@ -7371,7 +7525,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-200",
 						Filter: "Q330S+_FLbelow100-200",
@@ -7395,7 +7549,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/6"},
 				Type:           "CG",
 				Label:          "BN",
@@ -7405,7 +7559,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-50"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-50",
@@ -7422,7 +7576,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-50",
 						Filter: "Q330S+_FLbelow100-50",
@@ -7446,7 +7600,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330S/6"},
 				Type:           "CG",
 				Label:          "LN",
@@ -7456,7 +7610,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-1",
@@ -7473,7 +7627,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-1",
 						Filter: "Q330S+_FLbelow100-1",
@@ -7497,7 +7651,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/6", "Q330HR/6"},
 				Type:           "TG",
 				Label:          "HN",
@@ -7507,7 +7661,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-200"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-200",
@@ -7524,7 +7678,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-200",
 						Filter: "Q330_FLbelow100-200",
@@ -7548,7 +7702,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/6", "Q330HR/6"},
 				Type:           "CG",
 				Label:          "BN",
@@ -7558,7 +7712,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-50"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-50",
@@ -7575,7 +7729,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-50",
 						Filter: "Q330_FLbelow100-50",
@@ -7599,7 +7753,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/6", "Q330HR/6"},
 				Type:           "CG",
 				Label:          "LN",
@@ -7609,7 +7763,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330_FLbelow100-1",
@@ -7626,7 +7780,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
 						Filter: "Q330_FLbelow100-1",
@@ -7650,7 +7804,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6"},
 				Type:           "TG",
 				Label:          "HN",
@@ -7660,7 +7814,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-200"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-200",
@@ -7677,7 +7831,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-200",
@@ -7698,7 +7852,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-200",
@@ -7719,7 +7873,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-200",
@@ -7743,7 +7897,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: true,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q4120/6"},
 				Type:           "CG",
 				Label:          "LN",
@@ -7753,7 +7907,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q4120-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q4120-1",
@@ -7770,7 +7924,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_A2D",
 						Filter: "Q4120-1",
@@ -7791,7 +7945,7 @@ var Responses []Response = []Response{
 						Delay:       0.09975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5M",
 						Filter: "Q4120-1",
@@ -7812,7 +7966,7 @@ var Responses []Response = []Response{
 						Delay:       0.19875,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-1",
@@ -7833,7 +7987,7 @@ var Responses []Response = []Response{
 						Delay:       0.2375,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96CM",
 						Filter: "Q4120-1",
@@ -7854,7 +8008,7 @@ var Responses []Response = []Response{
 						Delay:       0.475,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_FS2D5",
 						Filter: "Q4120-1",
@@ -7875,7 +8029,7 @@ var Responses []Response = []Response{
 						Delay:       3.975,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F96C",
 						Filter: "Q4120-1",
@@ -7896,7 +8050,7 @@ var Responses []Response = []Response{
 						Delay:       4.75,
 						InputUnits:  "count",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "QUANTERRA_F260",
 						Filter: "Q4120-1",
@@ -7922,14 +8076,14 @@ var Responses []Response = []Response{
 				Reversed: true,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Temperature Sensors",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"LM35"},
 				FilterList: []string{"LM35"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "poly",
 						Lookup: "LM35",
 						Filter: "LM35",
@@ -7942,7 +8096,7 @@ var Responses []Response = []Response{
 							ApproximationLowerBound: -55,
 							ApproximationUpperBound: 150,
 							MaximumError:            0,
-							Coefficients:            []Coefficient{Coefficient{Value: 0}, Coefficient{Value: 100}},
+							Coefficients:            []Coefficient{{Value: 0}, {Value: 100}},
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -7960,7 +8114,58 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
+				DataloggerList: []string{"Q330/6"},
+				Type:           "CW",
+				Label:          "LK",
+				SampleRate:     1,
+				Frequency:      0.1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"Q330_FLbelow100-1"},
+				Stages: []ResponseStage{
+					{
+						Type:   "a2d",
+						Lookup: "A2D",
+						Filter: "Q330_FLbelow100-1",
+						StageSet: A2D{
+							Name:  "A2D",
+							Code:  PZFunctionLaplaceZTransform,
+							Type:  "Digital (Z-transform).",
+							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
+						},
+						Frequency:  0,
+						SampleRate: 1,
+						Decimate:   1,
+						Gain:       419430.4,
+						//Scale: 0,
+						InputUnits:  "V",
+						OutputUnits: "count",
+					}, {
+						Type:   "fir",
+						Lookup: "Q330_FLbelow100-1",
+						Filter: "Q330_FLbelow100-1",
+						StageSet: FIR{
+							Name:       "Q330_FLbelow100-1",
+							Causal:     true,
+							Symmetry:   SymmetryNone,
+							Decimation: 1,
+							Gain:       1,
+							Factors:    []float64{1.2199295e-16, 3.1619205e-10, -4.3146524e-08, -5.6355576e-07, -0.00012670077, 0.0036581444, 0.0001675314, -0.0054045052, 0.012786087, -0.01803566, 0.014731158, 0.0032269409, -0.038596944, 0.088835267, -0.14824265, 0.2177661, 0.80991439, 0.12459593, -0.1230407, 0.088997526, -0.048501567, 0.014259116, 0.0068963909, -0.014443419, 0.012428614, -0.0065687263, 0.0015220402, 0.0031420928, 3.6562742e-05, -2.1529949e-06, -2.5978267e-07},
+						},
+						Frequency:  0,
+						SampleRate: 1,
+						Decimate:   1,
+						Gain:       0,
+						//Scale: 0,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "count",
+						OutputUnits: "count",
+					},
+				},
+				Reversed: false,
+			}, {
 				DataloggerList: []string{"Q330S/6"},
 				Type:           "CW",
 				Label:          "LK",
@@ -7970,7 +8175,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Q330S+_FLbelow100-1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Q330S+_FLbelow100-1",
@@ -7987,7 +8192,7 @@ var Responses []Response = []Response{
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
-					}, ResponseStage{
+					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-1",
 						Filter: "Q330S+_FLbelow100-1",
@@ -8013,10 +8218,10 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Tidal Sensors (Derived)",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"Druck PTX-1830"},
 				FilterList: []string{},
 				Stages:     []ResponseStage{},
@@ -8025,7 +8230,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330/3", "Q330/6", "Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "VT",
@@ -8035,7 +8240,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Water Depth 0.1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Water Depth 0.1",
@@ -8055,7 +8260,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6", "Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "LT",
@@ -8065,7 +8270,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Water Depth 1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Water Depth 1",
@@ -8085,7 +8290,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6", "Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "BT",
@@ -8095,7 +8300,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Water Depth 10"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Water Depth 10",
@@ -8117,10 +8322,10 @@ var Responses []Response = []Response{
 				Reversed: false,
 			},
 		},
-	}, Response{
+	}, {
 		Name: "Quanterra Dataloggers Connected to Water Depth Sensors (Derived)",
 		Sensors: []Sensor{
-			Sensor{
+			{
 				SensorList: []string{"Druck PTX-1830-LAND", "Druck PTX-1830"},
 				FilterList: []string{},
 				Stages:     []ResponseStage{},
@@ -8129,7 +8334,7 @@ var Responses []Response = []Response{
 			},
 		},
 		Dataloggers: []Datalogger{
-			Datalogger{
+			{
 				DataloggerList: []string{"Q330/3", "Q330/6", "Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "VT",
@@ -8139,7 +8344,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Water Depth 0.1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Water Depth 0.1",
@@ -8159,7 +8364,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6", "Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "LT",
@@ -8169,7 +8374,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Water Depth 1"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Water Depth 1",
@@ -8189,7 +8394,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Reversed: false,
-			}, Datalogger{
+			}, {
 				DataloggerList: []string{"Q330/3", "Q330/6", "Q330S/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "BT",
@@ -8199,7 +8404,7 @@ var Responses []Response = []Response{
 				ClockDrift:     0.0001,
 				FilterList:     []string{"Water Depth 10"},
 				Stages: []ResponseStage{
-					ResponseStage{
+					{
 						Type:   "a2d",
 						Lookup: "A2D",
 						Filter: "Water Depth 10",

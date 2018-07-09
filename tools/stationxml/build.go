@@ -2,10 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"regexp"
 	"sort"
-	"strings"
 	"time"
 
 	"github.com/GeoNet/delta/internal/metadb"
@@ -20,39 +17,28 @@ func (c Channels) Len() int           { return len(c) }
 func (c Channels) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
 func (c Channels) Less(i, j int) bool { return c[i].StartDate.Time.Before(c[j].StartDate.Time) }
 
-func matcher(path, def string) (*regexp.Regexp, error) {
-
-	// no list given
-	if path == "" {
-		return regexp.Compile(func() string {
-			if def == "" {
-				return "[A-Z0-9]+"
-			}
-			return def
-		}())
-	}
-
-	buf, err := ioutil.ReadFile(path)
-	if err != nil {
-		return nil, err
-	}
-
-	return regexp.Compile("^(" + strings.Join(strings.Fields(string(buf)), "|") + ")$")
-}
-
 type Builder struct {
 	operational *time.Time
-	networks    *regexp.Regexp
-	stations    *regexp.Regexp
-	channels    *regexp.Regexp
-	sensors     *regexp.Regexp
-	dataloggers *regexp.Regexp
+	networks    Matcher
+	external    Matcher
+	stations    Matcher
+	channels    Matcher
+	sensors     Matcher
+	dataloggers Matcher
 	installed   bool
+	active      bool
 }
 
 func SetInstalled(installed bool) func(*Builder) error {
 	return func(b *Builder) error {
 		b.installed = installed
+		return nil
+	}
+}
+
+func SetActive(active bool) func(*Builder) error {
+	return func(b *Builder) error {
+		b.active = active
 		return nil
 	}
 }
@@ -67,9 +53,9 @@ func SetOperational(operational bool, offset time.Duration) func(*Builder) error
 	}
 }
 
-func SetNetworks(list, match string) func(*Builder) error {
+func SetNetworks(match string) func(*Builder) error {
 	return func(b *Builder) error {
-		re, err := matcher(list, match)
+		re, err := Match(match)
 		if err != nil {
 			return err
 		}
@@ -77,9 +63,19 @@ func SetNetworks(list, match string) func(*Builder) error {
 		return nil
 	}
 }
-func SetStations(list, match string) func(*Builder) error {
+func SetExternal(match string) func(*Builder) error {
 	return func(b *Builder) error {
-		re, err := matcher(list, match)
+		re, err := Match(match)
+		if err != nil {
+			return err
+		}
+		b.external = re
+		return nil
+	}
+}
+func SetStations(match string) func(*Builder) error {
+	return func(b *Builder) error {
+		re, err := Match(match)
 		if err != nil {
 			return err
 		}
@@ -87,9 +83,9 @@ func SetStations(list, match string) func(*Builder) error {
 		return nil
 	}
 }
-func SetChannels(list, match string) func(*Builder) error {
+func SetChannels(match string) func(*Builder) error {
 	return func(b *Builder) error {
-		re, err := matcher(list, match)
+		re, err := Match(match)
 		if err != nil {
 			return err
 		}
@@ -97,9 +93,9 @@ func SetChannels(list, match string) func(*Builder) error {
 		return nil
 	}
 }
-func SetSensors(list, match string) func(*Builder) error {
+func SetSensors(match string) func(*Builder) error {
 	return func(b *Builder) error {
-		re, err := matcher(list, match)
+		re, err := Match(match)
 		if err != nil {
 			return err
 		}
@@ -107,9 +103,9 @@ func SetSensors(list, match string) func(*Builder) error {
 		return nil
 	}
 }
-func SetDataloggers(list, match string) func(*Builder) error {
+func SetDataloggers(match string) func(*Builder) error {
 	return func(b *Builder) error {
-		re, err := matcher(list, match)
+		re, err := Match(match)
 		if err != nil {
 			return err
 		}
@@ -142,6 +138,12 @@ func (b *Builder) MatchNetwork(net string) bool {
 	}
 	return b.networks.MatchString(net)
 }
+func (b *Builder) MatchExternal(net string) bool {
+	if b.external == nil {
+		return true
+	}
+	return b.external.MatchString(net)
+}
 func (b *Builder) MatchStation(sta string) bool {
 	if b.stations == nil {
 		return true
@@ -169,6 +171,9 @@ func (b *Builder) MatchDatalogger(logger string) bool {
 func (b *Builder) Installed() bool {
 	return b.installed
 }
+func (b *Builder) Active() bool {
+	return b.active
+}
 
 func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 
@@ -194,7 +199,11 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 			continue
 		}
 
-		if !b.MatchNetwork(network.External) {
+		if !b.MatchNetwork(network.Code) {
+			continue
+		}
+
+		if !b.MatchExternal(network.External) {
 			continue
 		}
 
@@ -236,12 +245,14 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 				}
 
 				var types []stationxml.Type
+				types = append(types, func() stationxml.Type {
+					if stream.Triggered {
+						return stationxml.TypeTriggered
+					}
+					return stationxml.TypeContinuous
+				}())
 				for _, t := range response.Type {
 					switch t {
-					case 'c', 'C':
-						types = append(types, stationxml.TypeContinuous)
-					case 't', 'T':
-						types = append(types, stationxml.TypeTriggered)
 					case 'g', 'G':
 						types = append(types, stationxml.TypeGeophysical)
 					case 'w', 'W':
@@ -384,7 +395,7 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 								}
 							}(),
 							Comments: []stationxml.Comment{
-								stationxml.Comment{
+								{
 									Id: 1,
 									Value: func() string {
 										switch location.Survey {
@@ -403,11 +414,11 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 										}
 									}(),
 								},
-								stationxml.Comment{
+								{
 									Id:    2,
 									Value: "Location is given in " + location.Datum,
 								},
-								stationxml.Comment{
+								{
 									Id:    3,
 									Value: "Sensor orientation not known",
 								},
@@ -590,6 +601,12 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 			}
 		}
 
+		if b.Active() {
+			if !(len(channels) > 0) {
+				continue
+			}
+		}
+
 		sort.Sort(Channels(channels))
 
 		start, end := &(stationxml.DateTime{station.Start}), &(stationxml.DateTime{station.End})
@@ -616,7 +633,7 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 				StartDate: start,
 				EndDate:   end,
 				Comments: []stationxml.Comment{
-					stationxml.Comment{
+					{
 						Id:    1,
 						Value: "Location is given in " + station.Datum,
 					},

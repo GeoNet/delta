@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/GeoNet/delta/internal/gloria_pb"
 	"github.com/GeoNet/delta/meta"
+	"github.com/GeoNet/kit/gloria_pb"
 	"github.com/golang/protobuf/proto"
 	"io/ioutil"
 	"os"
@@ -58,8 +58,8 @@ func main() {
 		firmwareHistory[i.Model][i.Serial] = append(firmwareHistory[i.Model][i.Serial], i)
 	}
 
-	for j, _ := range firmwareHistory {
-		for k, _ := range firmwareHistory[j] {
+	for j := range firmwareHistory {
+		for k := range firmwareHistory[j] {
 			sort.Sort(meta.FirmwareHistoryList(firmwareHistory[j][k]))
 		}
 	}
@@ -74,7 +74,7 @@ func main() {
 	for _, i := range installedAntennaList {
 		installedAntenna[i.Mark] = append(installedAntenna[i.Mark], i)
 	}
-	for i, _ := range installedAntenna {
+	for i := range installedAntenna {
 		sort.Sort(sort.Reverse(meta.InstalledAntennaList(installedAntenna[i])))
 	}
 
@@ -88,7 +88,7 @@ func main() {
 	for _, i := range deployedReceiverList {
 		deployedReceivers[i.Mark] = append(deployedReceivers[i.Mark], i)
 	}
-	for i, _ := range deployedReceivers {
+	for i := range deployedReceivers {
 		sort.Sort(sort.Reverse(meta.DeployedReceiverList(deployedReceivers[i])))
 	}
 
@@ -102,7 +102,7 @@ func main() {
 	for _, i := range installedRadomeList {
 		installedRadomes[i.Mark] = append(installedRadomes[i.Mark], i)
 	}
-	for i, _ := range installedRadomes {
+	for i := range installedRadomes {
 		sort.Sort(meta.InstalledRadomeList(installedRadomes[i]))
 	}
 
@@ -122,6 +122,8 @@ func main() {
 		monuments[m.Mark] = m
 	}
 
+	var marks = gloria_pb.Marks{Marks: make(map[string]*gloria_pb.Mark)}
+
 	for _, m := range markList {
 
 		mark_pb := gloria_pb.Mark{
@@ -135,6 +137,10 @@ func main() {
 			DeployedReceiver: make([]*gloria_pb.DeployedReceiver, 0),
 			InstalledAntenna: make([]*gloria_pb.InstalledAntenna, 0),
 			InstalledRadome:  make([]*gloria_pb.InstalledRadome, 0),
+			Span: &gloria_pb.Span{
+				Start: m.Start.Unix(),
+				End:   m.End.Unix(),
+			},
 		}
 
 		// Higher download priority marks are scheduled for download first.
@@ -145,20 +151,26 @@ func main() {
 			mark_pb.Distribution = &gloria_pb.Distribution{Igs: true}
 		case m.Network == "LI":
 			mark_pb.Download = &gloria_pb.Download{Priority: 100}
+			mark_pb.Distribution = &gloria_pb.Distribution{Linz: true}
 		default:
 			mark_pb.Download = &gloria_pb.Download{Priority: 0}
 		}
 
 		if m.Network == "LI" {
-			mark_pb.Comment = `Data supplied by the GeoNet project.  GeoNet is core
-funded by EQC, with support from LINZ, and is
-operated by GNS on behalf of EQC and all New Zealanders.
-Contact: www.geonet.org.nz  email: info@geonet.org.nz`
+			mark_pb.Comment = `This station is part of the LINZ PositioNZ and GeoNet 
+cGNSS networks and is jointly funded by Land Information 
+New Zealand and GNS Science. This data is licenced for 
+re-use under the Creative Commons Attribution 4.0 
+International licence. For more detail please refer 
+to https://www.linz.govt.nz/linz-copyright`
+
 		} else {
-			mark_pb.Comment = `Data supplied by the GeoNet project.  GeoNet is core
-funded by EQC and is operated by GNS on behalf of
-EQC and all New Zealanders.
-Contact: www.geonet.org.nz  email: info@geonet.org.nz`
+			mark_pb.Comment = `These data are supplied by GeoNet. GeoNet is core 
+funded by EQC, LINZ and MBIE and is operated by 
+GNS Science on behalf of stakeholders and all New 
+Zealanders. The data policy, disclaimer, licence and 
+contact information can be found at www.geonet.org.nz`
+
 		}
 
 		recList := deployedReceivers[m.Code]
@@ -239,5 +251,16 @@ Contact: www.geonet.org.nz  email: info@geonet.org.nz`
 			os.Exit(-1)
 		}
 
+		marks.Marks[m.Code] = &mark_pb
+	}
+
+	b, err := proto.Marshal(&marks)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to marshal marks index protobuf: %v\n", err)
+		os.Exit(-1)
+	}
+	if err := ioutil.WriteFile(filepath.Join(output, "mark-index.pb"), b, 0644); err != nil {
+		fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
+		os.Exit(-1)
 	}
 }
