@@ -386,7 +386,6 @@ QRZ,1000,-1,0,Q3,Q1,Mn,Q3,"Perrin, N.D. et al. (2015); Unpublished HVSR (C. Van 
 QTPS,350,0.95,90,Q3,Q1,Mw,Q3,Unpublished HVSR (C. Van Houtte); McVerry G.H. (2011),at 940A
 RCBS,800,0.5,8,Q3,Q3,Mw,Q2,"Massey, C.I. et al. (2016); Kaiser, A.E. et al. (2014)",
 RCS1,270,1.1,100,Q3,Q3,I,Q3,"Perrin, N.D. et al. (2015)",
-RCS2,270,1,50,Q3,Q3,I,Q3,"Perrin, N.D. et al. (2015)",
 RDCS,270,0.22,20,Q3,Q2,Mw,Q3,"Perrin, N.D. et al. (2015); Unpublished HVSR (C. Van Houtte)",
 REHS,155,>2,640,Q1,Q3,Ms,Q3,"Wotherspoon, L. et al. (2014); Wotherspoon, L. et al. (2015); Kaiser, A.E. et al. (2013); Lee, R.L. et al. (2015)",
 RHBS,900,0.45,9,Q3,Q3,Mw,Q2,"Massey, C.I. et al. (2016); Kaiser, A.E. et al. (2014)",
@@ -405,7 +404,7 @@ SBRC,210,>2,420,Q3,Q3,I,Q3,"Perrin, N.D. et al. (2015); Lee, R.L. et al. (2015)"
 SCAC,270,0.9,70,Q3,Q2,Mw,Q3,"Perrin, N.D. et al. (2015); Kaiser, A.E. et al. (2013)",
 SEAS,210,0.3,30,Q3,Q3,I,Q3,"Perrin, N.D. et al. (2015)",
 SECF,1000,<0.1,0,Q3,Q3,I,Q3,"Perrin, N.D. et al. (2015)",
-SEDS,270,1,50,Q3,Q3,I,Q3,,see RCS2
+SEDS,270,1,50,Q3,Q3,I,Q3,"Perrin, N.D. et al. (2015)",was RCS2
 SEVS,210,1.1,100,Q3,Q2,Ms,Q3,"Unpublished HVSR (A. Kaiser); Boon, D.P. et al. (2010)",
 SHFC,270,0.9,80,Q3,Q2,Mw,Q3,"Kaiser, A.E. et al. (2013); Dorn, C. et al. (2010)",
 SHLC,201,>2,680,Q1,Q3,I,Q3,"Wotherspoon, L. et al. (2014); Wotherspoon, L. et al. (2015); Lee, R.L. et al. (2015)",
