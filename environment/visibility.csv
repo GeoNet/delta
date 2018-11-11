@@ -77,7 +77,8 @@ LOOK,"good. though Lookout Mountain peak is to the NE, with a maximum elevation 
 LRR1,good,2016-11-15T00:00:00Z,2017-05-22T00:00:00Z
 LYTT,Fair,1999-11-15T00:00:00Z,9999-01-01T00:00:00Z
 MAHA,fair,2009-11-16T00:00:00Z,9999-01-01T00:00:00Z
-MAHI,Excellent,2007-02-20T00:00:00Z,9999-01-01T00:00:00Z
+MAHI,Excellent,2007-02-20T00:00:00Z,2018-03-15T00:00:00Z
+MAHI,45 degree obstruction over 30 degrees of skyview caused by a cellular repeater,2018-03-15T00:00:00Z,9999-01-01T00:00:00Z
 MAHO,"A hill to the east obscures skyview to 14 degrees, elsewhere there are no obstructions above 10 degrees elevation.",2004-02-29T00:00:00Z,9999-01-01T00:00:00Z
 MAKO,Excellent,2010-11-09T00:00:00Z,9999-01-01T00:00:00Z
 MANG,Above 10 degrees,2005-02-03T00:00:00Z,9999-01-01T00:00:00Z
@@ -222,6 +223,9 @@ WGTN,No obstruction above 10 degrees,1996-05-17T00:00:00Z,9999-01-01T00:00:00Z
 WGTT,unknown,1999-12-14T00:00:00Z,9999-01-01T00:00:00Z
 WHKT,"5, 35; 4, 20; 2, 170; 1, 210; 1, 320;",2009-03-23T00:00:00Z,9999-01-01T00:00:00Z
 WHNG,No obstruction above 05 degrees elevation,2003-04-09T00:00:00Z,9999-01-01T00:00:00Z
+WHNG,Skyview obscured below 10 degrees due to earthern wall along eastern site margin and young pines over bearing 180-010,2010-03-15T00:00:00Z,2018-03-15T00:00:00Z
+WHNG,Skyview obscured from 045-170 below 10 degrees, and from 170-045 below 20-30 degrees due to pines,2018-03-15T00:00:00Z,2018-10-10T00:00:00Z
+WHNG,trees have been cleared up to 40m from the monument,2018-10-10T00:00:01Z,9999-01-01T00:00:00Z
 WHVR,Excellent,2011-09-30T00:00:00Z,9999-01-01T00:00:00Z
 WITH,very good,2009-11-09T00:00:00Z,9999-01-01T00:00:00Z
 WMAT,sweet as,2010-03-15T00:00:00Z,9999-01-01T00:00:00Z
