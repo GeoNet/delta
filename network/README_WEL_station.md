@@ -1,6 +1,5 @@
 ## Wellington historical station(s) Information ##
-_"Wellington station" is a historical seismic station reported existing way before the digital times,
-and way before well documented/digital earthquakes station picks. Wellington has 3 historical instrumented sites_
+_"Wellington station" is a historical nomenclature which has been used to refer to three different locations which have recorded seismic activity in Wellington (sometimes all under the site code WEL, which will now only refer to the currently used site at the Dominion Observatory), which have been assigned the following station names, codes and descriptions:_
 
 `WN,NZ,Wellington Colonial Museum,-41.2995438,174.776843,9999,Wiki,1884-02-01T00:00:00Z,1902-01-01T00:00:00Z
 WL,NZ,Wellington Hogben's Kandhallah House,-41.233,174.783,9999,Wiki,1899-01-01T00:00:00Z,1916-01-01T00:00:00Z
@@ -34,7 +33,7 @@ WEL,NZ,Wellington,-41.284047578,174.768184021,138,WGS84,1916-01-01T00:00:00Z,999
 
 #### WEL station as digitally referenced @Geonet ####
    First "digitally preserved " pick is from May 1931(https://service.geonet.org.nz/fdsnws/event/1/query?eventid=2178236)
-   NB: This Pick seems therefore to relate to a "newly" installed wood Anderson seismometer
+   NB: This Pick seems therefore to relate to a "newly" installed Wood-Anderson seismometer
 
 #### References in litterature and newspapers: ####
 
@@ -42,7 +41,7 @@ https://www.sciencedirect.com/science/article/pii/0031920179901390
 _The New Zealand seismograph network, R.D.Adams_
 
 http://rsnz.natlib.govt.nz/volume/rsnz_32/rsnz_32_00_004350.html
-_Wellington fisrt instrument_
+_Wellington first instrument_
 
 http://rsnz.natlib.govt.nz/image/rsnz_34/rsnz_34_00_07231_0000f_ac_01.html
 _1901 (wiggly lines) from Wellington_ 
