@@ -1300,7 +1300,7 @@ var slates = map[string][]Altus{
 			Installed: "2017-06-26T12:00:00",
 			DevCode:   "Q33",
 			InstId:    "367",
-			Removed:   "2018-11-27T00:00:00Z,
+			Removed:   "2018-11-27T00:00:00",
 			Pins: []Pin{
 				{
 					PinNo:    0,
