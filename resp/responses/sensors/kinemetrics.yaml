@@ -168,7 +168,7 @@ filter:
     outputunits: V
   Kinemetrics SBEPI:
   - type: paz
-    lookup: Kinemetrics SBEPI
+    lookup: FBA-ES-T
     frequency: 1
     samplerate: 0
     decimate: 0

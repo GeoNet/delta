@@ -1200,9 +1200,16 @@ var Responses []Response = []Response{
 				FilterList: []string{"Kinemetrics SBEPI"},
 				Stages: []ResponseStage{
 					{
-						Type:       "paz",
-						Lookup:     "Kinemetrics SBEPI",
-						Filter:     "Kinemetrics SBEPI",
+						Type:   "paz",
+						Lookup: "FBA-ES-T",
+						Filter: "Kinemetrics SBEPI",
+						StageSet: PAZ{
+							Name:  "FBA-ES-T",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "Standard response of an Kinemetric's EpiSensor FBA-ES sensor, they are built with a wide range of gains. We use +/- 20V @ +/-2 g for the National Network, and +/- 2.5V @ +/- 2g for the ETNA strong motion recorders.",
+							Poles: []complex128{(-981 + 1009i), (-981 - 1009i), (-3290 + 1263i), (-3290 - 1263i)},
+						},
 						Frequency:  1,
 						SampleRate: 0,
 						Decimate:   0,
