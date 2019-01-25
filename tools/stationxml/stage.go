@@ -46,7 +46,7 @@ func (s Stage) a2d() stationxml.ResponseStage {
 			Frequency: s.frequency,
 		},
 		Decimation: &stationxml.Decimation{
-			InputSampleRate: stationxml.Frequency{stationxml.Float{Value: s.responseStage.SampleRate}},
+			InputSampleRate: stationxml.Frequency{Float: stationxml.Float{Value: s.responseStage.SampleRate}},
 			Factor: func() int32 {
 				if s.responseStage.Decimate != 0 {
 					return s.responseStage.Decimate
@@ -90,7 +90,7 @@ func (s Stage) paz(pz resp.PAZ) stationxml.ResponseStage {
 			return 1.0 / pz.Gain(s.frequency)
 		}(),
 		NormalizationFrequency: stationxml.Frequency{
-			stationxml.Float{Value: s.frequency},
+			Float: stationxml.Float{Value: s.frequency},
 		},
 		Zeros: zeros,
 		Poles: poles,
@@ -130,8 +130,8 @@ func (s Stage) polynomial(p resp.Polynomial) stationxml.ResponseStage {
 			OutputUnits: stationxml.Units{Name: s.responseStage.OutputUnits},
 		},
 		ApproximationType:       stationxml.ApproximationType(p.ApproximationType),
-		FrequencyLowerBound:     stationxml.Frequency{stationxml.Float{Value: p.FrequencyLowerBound}},
-		FrequencyUpperBound:     stationxml.Frequency{stationxml.Float{Value: p.FrequencyUpperBound}},
+		FrequencyLowerBound:     stationxml.Frequency{Float: stationxml.Float{Value: p.FrequencyLowerBound}},
+		FrequencyUpperBound:     stationxml.Frequency{Float: stationxml.Float{Value: p.FrequencyUpperBound}},
 		ApproximationLowerBound: strconv.FormatFloat(p.ApproximationLowerBound, 'g', -1, 64),
 		ApproximationUpperBound: strconv.FormatFloat(p.ApproximationUpperBound, 'g', -1, 64),
 		MaximumError:            p.MaximumError,
@@ -203,7 +203,7 @@ func (s Stage) fir(f resp.FIR) stationxml.ResponseStage {
 			Frequency: s.frequency,
 		},
 		Decimation: &stationxml.Decimation{
-			InputSampleRate: stationxml.Frequency{stationxml.Float{Value: f.Decimation * s.responseStage.SampleRate}},
+			InputSampleRate: stationxml.Frequency{Float: stationxml.Float{Value: f.Decimation * s.responseStage.SampleRate}},
 			Factor: func() int32 {
 				if s.responseStage.Decimate != 0 {
 					return s.responseStage.Decimate
