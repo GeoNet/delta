@@ -373,7 +373,7 @@ func main() {
 								}
 							}(),
 							TemperatureStabilization: "",
-							Notes: "",
+							Notes:                    "",
 						})
 					}
 				}
