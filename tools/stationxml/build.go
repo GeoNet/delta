@@ -384,8 +384,8 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 					channels = append(channels, stationxml.Channel{
 						BaseNode: stationxml.BaseNode{
 							Code:      channel, //response.Label + string(cha),
-							StartDate: &stationxml.DateTime{installation.Start},
-							EndDate:   &stationxml.DateTime{installation.End},
+							StartDate: &stationxml.DateTime{Time: installation.Start},
+							EndDate:   &stationxml.DateTime{Time: installation.End},
 							RestrictedStatus: func() stationxml.RestrictedStatus {
 								switch network.Restricted {
 								case true:
@@ -493,11 +493,11 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 							Model:        installation.Sensor.Model,
 							SerialNumber: installation.Sensor.Serial,
 							InstallationDate: func() *stationxml.DateTime {
-								return &stationxml.DateTime{installation.Sensor.Start}
+								return &stationxml.DateTime{Time: installation.Sensor.Start}
 							}(),
 							RemovalDate: func() *stationxml.DateTime {
 								if time.Now().After(installation.Sensor.End) {
-									return &stationxml.DateTime{installation.Sensor.End}
+									return &stationxml.DateTime{Time: installation.Sensor.End}
 								}
 								return nil
 							}(),
@@ -532,11 +532,11 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 							Model:        installation.Datalogger.Model,
 							SerialNumber: installation.Datalogger.Serial,
 							InstallationDate: func() *stationxml.DateTime {
-								return &stationxml.DateTime{installation.Datalogger.Start}
+								return &stationxml.DateTime{Time: installation.Datalogger.Start}
 							}(),
 							RemovalDate: func() *stationxml.DateTime {
 								if time.Now().After(installation.Datalogger.End) {
-									return &stationxml.DateTime{installation.Datalogger.End}
+									return &stationxml.DateTime{Time: installation.Datalogger.End}
 								}
 								return nil
 							}(),
@@ -609,7 +609,7 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 
 		sort.Sort(Channels(channels))
 
-		start, end := &(stationxml.DateTime{station.Start}), &(stationxml.DateTime{station.End})
+		start, end := &(stationxml.DateTime{Time: station.Start}), &(stationxml.DateTime{Time: station.End})
 		if b.Installed() && len(channels) > 0 {
 			start, end = channels[0].StartDate, channels[len(channels)-1].EndDate
 		}
@@ -673,12 +673,12 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 					return ""
 				}(),
 			},
-			CreationDate: stationxml.DateTime{station.Start},
+			CreationDate: stationxml.DateTime{Time: station.Start},
 			TerminationDate: func() *stationxml.DateTime {
 				if time.Now().Before(station.End) {
 					return nil
 				}
-				return &stationxml.DateTime{station.End}
+				return &stationxml.DateTime{Time: station.End}
 			}(),
 			Channels: channels,
 		})
