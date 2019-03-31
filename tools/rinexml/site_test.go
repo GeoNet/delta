@@ -174,14 +174,18 @@ func TestSiteXML_Marshal(t *testing.T) {
 				t.Fatal(err)
 			}
 			defer os.Remove(f1.Name())
-			f1.Write(s)
+			if _, err := f1.Write(s); err != nil {
+				t.Fatal(err)
+			}
 
 			f2, err := ioutil.TempFile(os.TempDir(), "tmp")
 			if err != nil {
 				t.Fatal(err)
 			}
 			defer os.Remove(f2.Name())
-			f2.Write([]byte(test.s))
+			if _, err := f2.Write([]byte(test.s)); err != nil {
+				t.Fatal(err)
+			}
 
 			cmd := exec.Command("diff", "-c", f1.Name(), f2.Name())
 			stdout, err := cmd.StdoutPipe()
@@ -192,12 +196,15 @@ func TestSiteXML_Marshal(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			defer cmd.Wait()
 			diff, err := ioutil.ReadAll(stdout)
 			if err != nil {
 				t.Fatal(err)
 			}
 			t.Error(string(diff))
+
+			if err := cmd.Wait(); err != nil {
+				t.Fatal(err)
+			}
 		}
 
 	}
