@@ -253,6 +253,7 @@ func lookupCommentDescription(desc string) int {
 	return 0
 }
 
+//nolint:deadcode // for completeness
 func findSurveyComment(survey string) int {
 	switch survey {
 	case "Unknown":
