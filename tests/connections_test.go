@@ -240,7 +240,11 @@ func TestConnections(t *testing.T) {
 	sort.Sort(meta.ConnectionList(missing))
 
 	if len(missing) > 0 {
-		t.Error("\n" + string(meta.MarshalList(meta.ConnectionList(missing))))
+		res, err := meta.MarshalList(meta.ConnectionList(missing))
+		if err != nil {
+			t.Fatal(err)
+		}
+		t.Error("\n" + string(res))
 	}
 
 }

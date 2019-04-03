@@ -30,9 +30,7 @@ func (cp ConfigPage) Trace(base string) ([]Page, error) {
 		if err != nil {
 			return nil, err
 		}
-		for _, s := range list {
-			stns = append(stns, s)
-		}
+		stns = append(stns, list...)
 	}
 
 	sort.Sort(Stations(stns))

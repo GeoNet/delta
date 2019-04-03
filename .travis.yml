@@ -10,10 +10,12 @@ go:
 
 install: true
 
+before_script:
+  - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b $(go env GOPATH)/bin v1.16.0
 
 script:
   - test -z "$(gofmt -s -l `find . -name "*.go" | egrep -v vendor` | tee /dev/stderr)"
-  - go vet ./...
+  - golangci-lint run -E gosec
   - ./test.sh
   - ./build.sh
 

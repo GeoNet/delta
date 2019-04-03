@@ -3,8 +3,6 @@ package main
 import (
 	"encoding/xml"
 	"strings"
-
-	"github.com/GeoNet/delta/internal/metadb"
 )
 
 const header = "<?xml version=\"1.0\" standalone=\"yes\"?>\n"
@@ -273,12 +271,6 @@ type Scale struct {
 	Font    string `xml:"font,attr,omitempty"`
 	String  string `xml:"string,attr,omitempty"`
 }
-
-type Installations []metadb.Installation
-
-func (t Installations) Len() int           { return len(t) }
-func (t Installations) Swap(a, b int)      { t[a], t[b] = t[b], t[a] }
-func (t Installations) Less(a, b int) bool { return t[a].Start.Before(t[b].Start) }
 
 type Streams []Stream
 
