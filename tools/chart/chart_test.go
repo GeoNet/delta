@@ -48,14 +48,18 @@ func TestBuild_Tsunami(t *testing.T) {
 			t.Fatal(err)
 		}
 		defer os.Remove(f1.Name())
-		f1.Write(b1)
+		if _, err := f1.Write(b1); err != nil {
+			t.Fatal(err)
+		}
 
 		f2, err := ioutil.TempFile(os.TempDir(), "tmp")
 		if err != nil {
 			t.Fatal(err)
 		}
 		defer os.Remove(f2.Name())
-		f2.Write(b2)
+		if _, err := f2.Write(b2); err != nil {
+			t.Fatal(err)
+		}
 
 		cmd := exec.Command("diff", "-c", f1.Name(), f2.Name())
 		stdout, err := cmd.StdoutPipe()
@@ -66,11 +70,13 @@ func TestBuild_Tsunami(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
-		defer cmd.Wait()
 		diff, err := ioutil.ReadAll(stdout)
 		if err != nil {
 			t.Fatal(err)
 		}
 		t.Error(string(diff))
+		if err := cmd.Wait(); err != nil {
+			t.Fatal(err)
+		}
 	}
 }

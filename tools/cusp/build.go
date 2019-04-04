@@ -211,11 +211,6 @@ func buildSites(base string) ([]Site, error) {
 										azimuth -= 360.0
 									}
 
-									chan_no := pin
-									if loc, err := strconv.Atoi(installation.Location); err == nil {
-										chan_no += (loc - 20) * 3
-									}
-
 									pins = append(pins, Pin{
 										PinNo:     pin,
 										ChannelId: channel,

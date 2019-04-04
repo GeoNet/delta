@@ -30,9 +30,7 @@ func (cp ConfigPage) DrumSmall(base string) ([]Page, error) {
 		if err != nil {
 			return nil, err
 		}
-		for _, s := range list {
-			stns = append(stns, s)
-		}
+		stns = append(stns, list...)
 	}
 	for _, s := range cp.Options.Stations {
 		list, err := db.Station(s)
@@ -47,9 +45,7 @@ func (cp ConfigPage) DrumSmall(base string) ([]Page, error) {
 	sort.Sort(Stations(stns))
 
 	var locations []string
-	for _, l := range cp.Options.Locations {
-		locations = append(locations, l)
-	}
+	locations = append(locations, cp.Options.Locations...)
 	if cp.Options.Reversed != "" {
 		sort.Sort(sort.Reverse(sort.StringSlice(locations)))
 	} else {
