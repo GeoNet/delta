@@ -67,7 +67,9 @@ func TestConsistency(t *testing.T) {
 					t.Fatalf("unable to create temporary file: %v", err)
 				}
 				defer os.Remove(file.Name())
-				file.Write(buf.Bytes())
+				if _, err := file.Write(buf.Bytes()); err != nil {
+					t.Fatalf("unable to write to temporary file: %v", err)
+				}
 
 				cmd := exec.Command("diff", "-c", v.f, file.Name())
 				stdout, err := cmd.StdoutPipe()
@@ -78,10 +80,12 @@ func TestConsistency(t *testing.T) {
 				if err != nil {
 					t.Fatalf("unable to start diff: %v", err)
 				}
-				defer cmd.Wait()
 				diff, err := ioutil.ReadAll(stdout)
 				if err != nil {
 					t.Fatalf("unable to read diff: %v", err)
+				}
+				if err := cmd.Wait(); err != nil {
+					t.Fatalf("unable to run diff: %v", err)
 				}
 
 				t.Error(string(diff))

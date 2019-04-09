@@ -951,7 +951,10 @@ func TestList(t *testing.T) {
 	}
 
 	for _, tt := range listtests {
-		res := meta.MarshalList(tt.l)
+		res, err := meta.MarshalList(tt.l)
+		if err != nil {
+			t.Fatal(err)
+		}
 
 		t.Log("Compare raw list file: " + tt.f)
 		{
@@ -969,7 +972,10 @@ func TestList(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			s := meta.MarshalList(tt.l)
+			s, err := meta.MarshalList(tt.l)
+			if err != nil {
+				t.Fatal(err)
+			}
 			if string(res) != string(s) {
 				t.Errorf("list encode/reencode mismatch: %s [\n%s\n]", tt.f, diff(res, s))
 			}
@@ -981,7 +987,10 @@ func TestList(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			s := meta.MarshalList(tt.l)
+			s, err := meta.MarshalList(tt.l)
+			if err != nil {
+				t.Fatal(err)
+			}
 			if string(res) != string(s) {
 				t.Errorf("list file list mismatch: %s [\n%s\n]", tt.f, diff(res, s))
 			}

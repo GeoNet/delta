@@ -296,7 +296,11 @@ func TestStreams(t *testing.T) {
 	sort.Sort(meta.StreamList(missing))
 
 	if len(missing) > 0 {
-		t.Error("\n" + string(meta.MarshalList(meta.StreamList(missing))))
+		res, err := meta.MarshalList(meta.StreamList(missing))
+		if err != nil {
+			t.Fatal(err)
+		}
+		t.Error("\n" + string(res))
 	}
 
 }
