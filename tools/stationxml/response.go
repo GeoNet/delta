@@ -7,6 +7,14 @@ import (
 	"github.com/ozym/fdsn/stationxml"
 )
 
+type Stage struct {
+	responseStage resp.ResponseStage
+	count         int
+	id            string
+	name          string
+	frequency     float64
+}
+
 func a2dResponseStage(stage Stage) stationxml.ResponseStage {
 
 	coefs := stationxml.Coefficients{
