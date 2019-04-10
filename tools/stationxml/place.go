@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 	"sort"
 )
@@ -141,27 +140,6 @@ func (p Place) Compass(point Place) string {
 		return "west"
 	default:
 		return "north-west"
-	}
-}
-
-func Bearing(azimuth float64) string {
-
-	for azimuth < 0.0 {
-		azimuth += 360.0
-	}
-	for azimuth >= 360.0 {
-		azimuth -= 360.0
-	}
-
-	switch int(math.Floor(azimuth / 90.0)) {
-	case 0:
-		return fmt.Sprintf("N%02.0fE", azimuth)
-	case 1:
-		return fmt.Sprintf("S%02.0fE", 180.0-azimuth)
-	case 2:
-		return fmt.Sprintf("S%02.0fW", azimuth-180.0)
-	default:
-		return fmt.Sprintf("N%02.0fW", 360.0-azimuth)
 	}
 }
 
