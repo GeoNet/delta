@@ -22,12 +22,14 @@ type List interface {
 	sort.Interface
 }
 
-func MarshalList(l ListEncoder) []byte {
+func MarshalList(l ListEncoder) ([]byte, error) {
 	var b bytes.Buffer
 
-	csv.NewWriter(&b).WriteAll(EncodeList(l))
+	if err := csv.NewWriter(&b).WriteAll(EncodeList(l)); err != nil {
+		return nil, err
+	}
 
-	return b.Bytes()
+	return b.Bytes(), nil
 }
 
 func UnmarshalList(b []byte, l ListDecoder) error {

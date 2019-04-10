@@ -442,7 +442,10 @@ func main() {
 		}
 		if verbose {
 			out_json, _ := json.MarshalIndent(site_pb, "", "  ")
-			ioutil.WriteFile(filepath.Join(output, strings.ToUpper(s)+".json"), []byte(out_json), 0644)
+			err = ioutil.WriteFile(filepath.Join(output, strings.ToUpper(s)+".json"), []byte(out_json), 0644)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "error: unable to write debug json: %v\n", err)
+			}
 		}
 
 	}
