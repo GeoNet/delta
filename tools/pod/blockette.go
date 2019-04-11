@@ -140,6 +140,7 @@ func lookupGenericAbbreviation(desc string) int {
 	return abbr
 }
 
+//nolint:unused // for completeness
 type CitedSourceDictionary struct {
 	Code      int
 	Name      string
@@ -253,6 +254,7 @@ func lookupCommentDescription(desc string) int {
 	return 0
 }
 
+//nolint:unused,deadcode // for completeness
 func findSurveyComment(survey string) int {
 	switch survey {
 	case "Unknown":

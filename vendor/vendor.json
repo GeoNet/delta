@@ -5,32 +5,32 @@
 		{
 			"checksumSHA1": "ATjP+u0hBxh8L2ybSJ2Ro6QiUSA=",
 			"path": "github.com/GeoNet/kit/gloria_pb",
-			"revision": "caf0ec1bebf091ccd65080d415edddbf7e08b67b",
-			"revisionTime": "2019-01-30T21:33:23Z"
+			"revision": "1f0ace397bc979bbebab7c09950982dccbebeff0",
+			"revisionTime": "2019-04-02T22:52:23Z"
 		},
 		{
 			"checksumSHA1": "CErOLjMr1B0MXil3GU3LalhrbXw=",
 			"path": "github.com/GeoNet/kit/sit_delta_pb",
-			"revision": "d34aeb0d28363df8729cccd5c96a3d865b1bd96c",
-			"revisionTime": "2018-01-23T01:41:39Z"
+			"revision": "1f0ace397bc979bbebab7c09950982dccbebeff0",
+			"revisionTime": "2019-04-02T22:52:23Z"
 		},
 		{
-			"checksumSHA1": "kBeNcaKk56FguvPSUCEaH6AxpRc=",
+			"checksumSHA1": "Y2MOwzNZfl4NRNDbLCZa6sgx7O0=",
 			"path": "github.com/golang/protobuf/proto",
-			"revision": "ab9f9a6dab164b7d1246e0e688b0ab7b94d8553e",
-			"revisionTime": "2017-08-16T00:15:14Z"
+			"revision": "d3c38a4eb4970272b87a425ae00ccc4548e2f9bb",
+			"revisionTime": "2019-03-18T19:48:12Z"
 		},
 		{
-			"checksumSHA1": "GoEtguzRyXdK8vyOEKFLynWOIcM=",
+			"checksumSHA1": "RfmPu6hns5G1FNuZU5KtLNxaKjo=",
 			"path": "github.com/ozym/fdsn/stationxml",
-			"revision": "fb491902e5f3d19c617a215b80cfe895e8db35e3",
-			"revisionTime": "2017-03-31T10:01:14Z"
+			"revision": "450013a4209ee4b454f0eb2d11e4537e181769d9",
+			"revisionTime": "2017-12-07T08:44:08Z"
 		},
 		{
-			"checksumSHA1": "0KwOlQV1dNUh9X8t+5s7nX5bqfk=",
+			"checksumSHA1": "QqDq2x8XOU7IoOR98Cx1eiV5QY8=",
 			"path": "gopkg.in/yaml.v2",
-			"revision": "a3f3340b5840cee44f372bddb5880fcbc419b46a",
-			"revisionTime": "2017-02-08T14:18:51Z"
+			"revision": "51d6538a90f86fe93ac480b35f37b2be17fef232",
+			"revisionTime": "2018-11-15T11:05:04Z"
 		}
 	],
 	"rootPath": "github.com/GeoNet/delta"

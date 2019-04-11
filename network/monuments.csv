@@ -35,6 +35,7 @@ DUND,50212M003,Forced Centering,Shallow Rod / Braced Antenna Mount,-1.25,Stainle
 DUNT,50212S001,Forced Centering,Steel Mast,-4.5,Stainless Steel Rod,0,1999-09-23T00:00:00Z,9999-01-01T00:00:00Z,Basalt,
 DURV,,Forced Centering,Pillar,-999,Reinforced Concrete,2,2005-03-09T00:00:00Z,9999-01-01T00:00:00Z,,"Mapped As Ymm, Permian Serpentinite, Dunite, Peridotite."
 FALE,50601S001,Forced Centering,Pillar,-2,Reinforced Concrete,2,1999-01-01T00:00:00Z,9999-01-01T00:00:00Z,,
+FOX1,,Unmarked Mark,Unknown,0,Reinforced Concrete,0,2019-02-05T00:00:00Z,9999-01-01T00:00:00Z,,concrete block on fast moving 10cm/day landslide
 FRTN,,Forced Centering,Wyatt/Agnew Drilled-Braced,0,Stainless Steel Rods,10,2011-01-01T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 GDS1,,Unmarked Mark,Unknown,-0.872,Unknown,0,2016-11-16T00:00:00Z,2018-01-16T00:00:00Z,,
 GISB,50223M001,Forced Centering,Pillar,-1.225,Reinforced Concrete,2,2002-05-14T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,

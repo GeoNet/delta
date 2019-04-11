@@ -46,15 +46,6 @@ func (p *Pod) Header() error {
 			Content: b.String(),
 		}.String())
 	}
-	lines = append(lines, Blockette{
-		Type: 32,
-		Content: CitedSourceDictionary{
-			Code:      1,
-			Name:      "Unknown",
-			Publisher: "Unknown Publisher",
-			Date:      time.Now(),
-		}.String(),
-	}.String())
 	for _, b := range genericAbbreviations {
 		lines = append(lines, Blockette{
 			Type:    33,
