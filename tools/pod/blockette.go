@@ -140,6 +140,7 @@ func lookupGenericAbbreviation(desc string) int {
 	return abbr
 }
 
+//nolint:unused // for completeness
 type CitedSourceDictionary struct {
 	Code      int
 	Name      string
