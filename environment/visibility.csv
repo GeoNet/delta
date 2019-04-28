@@ -103,7 +103,9 @@ NIUC,unknown,1996-11-13T00:00:00Z,2003-12-31T00:00:00Z
 NIUM,"Good. Meterological service building is about 50m away to the North. There are also large radio masts to the North-east and West of the monument, but these are quite distant.",2005-09-14T00:00:00Z,9999-01-01T00:00:00Z
 NLS1,-,2011-12-19T00:00:00Z,2013-11-14T00:00:00Z
 NLS2,ok,2011-12-20T00:00:00Z,2013-11-14T00:00:00Z
-NLSN,No obstruction above 10 degrees,2004-02-06T00:00:00Z,9999-01-01T00:00:00Z
+NLSN,No obstruction above 10 degrees,2004-02-06T00:00:00Z,2019-01-18T23:59:59Z
+NLSN,vegetation (gorse) around the GNSS antenna impacting time series,2019-01-19T00:00:00Z,2019-04-26T23:59:59Z
+NLSN,No obstruction above 10 degrees,2019-04-27T00:00:00Z,9999-01-01T00:00:00Z
 NMAI,"Excellent, no obstructions",2008-04-07T00:00:00Z,9999-01-01T00:00:00Z
 NPLY,No obstruction above 5 degrees elevation.,2003-03-20T00:00:00Z,9999-01-01T00:00:00Z
 NRRD,Skyview is obstructed by windturbines between bearings of 260 and 340 (true) at angles of between 6 and 10 degrees. The wind turbines are about 2 kilometers from the proposed site.,2008-03-27T00:00:00Z,9999-01-01T00:00:00Z
