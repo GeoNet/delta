@@ -960,7 +960,7 @@ var Responses []Response = []Response{
 			{
 				DataloggerList: []string{"EARSS/3"},
 				Type:           "TG",
-				Label:          "EH",
+				Label:          "SH",
 				SampleRate:     50,
 				Frequency:      15,
 				StorageFormat:  "Steim2",
