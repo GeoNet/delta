@@ -133,7 +133,7 @@ response:
     - dataloggers:
       - EARSS/3
       type: TG
-      label: EH
+      label: SH
       samplerate: 50
       frequency: 15
       storageformat: Steim2
