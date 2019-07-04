@@ -485,42 +485,6 @@ var slates = map[string][]Altus{
 			Installed: "2011/02/23,04:00:01",
 			DevCode:   "Q33",
 			InstId:    "285",
-			Removed:   "2013/01/16,22:00:00",
-
-			Pins: []Pin{
-				{
-					PinNo:    0,
-					Azimuth:  "0.0",
-					Dip:      "-90.0",
-					InstCode: "z",
-					Reversed: "no",
-					SeisCode: "EPI",
-					StreamId: "KHZ/20-HNZ/NZ",
-				},
-				{
-					PinNo:    1,
-					Azimuth:  "0.0",
-					Dip:      "0.0",
-					InstCode: "n",
-					Reversed: "no",
-					SeisCode: "EPI",
-					StreamId: "KHZ/20-HNN/NZ",
-				},
-				{
-					PinNo:    2,
-					Azimuth:  "90.0",
-					Dip:      "0.0",
-					InstCode: "e",
-					Reversed: "no",
-					SeisCode: "EPI",
-					StreamId: "KHZ/20-HNE/NZ",
-				},
-			},
-		},
-		{
-			Installed: "2014/01/17,01:00:01",
-			DevCode:   "Q33",
-			InstId:    "285",
 			Removed:   "2016/01/29,13:25:00",
 
 			Pins: []Pin{
