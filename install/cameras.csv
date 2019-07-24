@@ -22,7 +22,9 @@ Mobotix AG,M15,10.14.178.98,RIMM,0,270,-1.5,0,0,2017-09-24T00:00:00Z,9999-01-01T
 Mobotix AG,M15,10.16.105.12,TOPI,0,0,2,0,0,2015-05-28T00:01:00Z,2019-03-04T20:30:00Z,
 Mobotix AG,M15,10.16.105.12,N,0,87,4,0,0,2019-05-23T00:00:00Z,9999-01-01T00:00:00Z,Mountain Air (Whakapapa) looking at Ngauruhoe
 Mobotix AG,M15,10.17.107.14,MTSR,0,0,2,0,0,2016-02-02T02:00:00Z,9999-01-01T00:00:00Z,Mangateitei looking at South Ruapehu
-Mobotix AG,M15,10.18.101.137,CVTP,0,238,-10,0,0,2016-07-11T00:03:00Z,9999-01-01T00:00:00Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
+Mobotix AG,M15,10.18.101.137,CVTP,10,290,-2.5,0,0,2016-07-11T00:03:00Z,2019-06-02T23:40:00Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
+Mobotix AG,M15,10.18.101.137,CVTP,-8,290,-2.5,0,0,2019-06-02T23:50:00Z,2019-06-19T22:00:00Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe: knocked off-alignment by ice
+Mobotix AG,M15,10.18.101.137,CVTP,10,290,-2.5,0,0,2019-06-19T22:00:00Z,9999-01-01T00:00:00Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
 Mobotix AG,M15,10.18.101.33,WIWR,0,0,1.5,0,0,2016-10-03T06:14:00Z,9999-01-01T00:00:00Z,White Island West Rim looking into the crater
 Mobotix AG,M15,10.18.168.61,CVWF,0,0,0,0,0,2016-06-01T23:40:00Z,9999-01-01T00:00:00Z,White Island Factory looking across the crater floor
 Mobotix AG,M15,10.20.245.115,TOTM,0,0,0,0,0,2018-05-03T00:00:00Z,9999-01-01T00:00:00Z,Karewerewa looking at TeMaari
