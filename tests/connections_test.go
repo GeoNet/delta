@@ -117,11 +117,11 @@ func TestConnections(t *testing.T) {
 			switch c.Role {
 			case "":
 				if _, ok := places[c.Place]; !ok {
-					t.Log("warning: unknown datalogger place: " + c.Place)
+					t.Error("error: unknown datalogger place: " + c.Place)
 				}
 			default:
 				if _, ok := places[c.Place+"/"+c.Role]; !ok {
-					t.Log("warning: unknown datalogger place/role: " + c.Place + "/" + c.Role)
+					t.Error("error: unknown datalogger place/role: " + c.Place + "/" + c.Role)
 				}
 			}
 		}
