@@ -103,7 +103,9 @@ NIUC,unknown,1996-11-13T00:00:00Z,2003-12-31T00:00:00Z
 NIUM,"Good. Meterological service building is about 50m away to the North. There are also large radio masts to the North-east and West of the monument, but these are quite distant.",2005-09-14T00:00:00Z,9999-01-01T00:00:00Z
 NLS1,-,2011-12-19T00:00:00Z,2013-11-14T00:00:00Z
 NLS2,ok,2011-12-20T00:00:00Z,2013-11-14T00:00:00Z
-NLSN,No obstruction above 10 degrees,2004-02-06T00:00:00Z,9999-01-01T00:00:00Z
+NLSN,No obstruction above 10 degrees,2004-02-06T00:00:00Z,2019-01-18T23:59:59Z
+NLSN,vegetation (gorse) around the GNSS antenna impacting time series,2019-01-19T00:00:00Z,2019-04-26T23:59:59Z
+NLSN,No obstruction above 10 degrees,2019-04-27T00:00:00Z,9999-01-01T00:00:00Z
 NMAI,"Excellent, no obstructions",2008-04-07T00:00:00Z,9999-01-01T00:00:00Z
 NPLY,No obstruction above 5 degrees elevation.,2003-03-20T00:00:00Z,9999-01-01T00:00:00Z
 NRRD,Skyview is obstructed by windturbines between bearings of 260 and 340 (true) at angles of between 6 and 10 degrees. The wind turbines are about 2 kilometers from the proposed site.,2008-03-27T00:00:00Z,9999-01-01T00:00:00Z
@@ -135,7 +137,9 @@ RAHI,5-8 degrees sky view obstructions from pine trees on skyline at 280-295 deg
 RAKW,excellent. nothing over 4?,2011-02-16T00:00:00Z,9999-01-01T00:00:00Z
 RAUL,?,2009-05-16T00:00:00Z,9999-01-01T00:00:00Z
 RAUM,Will require some bush trimming/felling,2011-05-19T00:00:00Z,9999-01-01T00:00:00Z
-RAWI,great,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
+RAWI,great,2009-01-01T00:00:00Z,2015-12-06T23:59:00Z
+RAWI,satellite dish and antenna pole possibly obstructing to the south,2015-12-07T00:00:00Z,2019-05-21T23:59:00Z
+RAWI,good,2019-05-22T00:00:00Z,9999-01-01T00:00:00Z
 RDLV,Wind break trees about 6 degrees to the south (195-222) and trees/mountains at 4 degrees to the west (263-334). Otherwise unobstructed above 1-2 degrees,2009-01-13T00:00:00Z,9999-01-01T00:00:00Z
 RGAR,"Max obstruction 5deg to north, 3deg to east, 0deg to west, 7deg to south.",2007-11-07T00:00:00Z,9999-01-01T00:00:00Z
 RGAW,Good,2009-03-24T00:00:00Z,9999-01-01T00:00:00Z
