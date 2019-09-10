@@ -239,7 +239,7 @@ contact information can be found at www.geonet.org.nz`
 				},
 				Span: &gloria_pb.Span{
 					Start: rad.Start.Unix(),
-					End:   rad.Start.Unix(),
+					End:   rad.End.Unix(),
 				},
 			}
 			mark_pb.InstalledRadome = append(mark_pb.InstalledRadome, &rad_pb)
