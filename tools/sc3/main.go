@@ -95,10 +95,10 @@ func main() {
 		}
 
 		network, err := db.Network(station.Network)
-		if network == nil || err != nil {
-			if err != nil {
-				log.Fatalf("unable to load metadata network %s: %v", station.Network, err)
-			}
+		if err != nil {
+			log.Fatalf("unable to load metadata network %s: %v", station.Network, err)
+		}
+		if network == nil {
 			continue
 		}
 
@@ -183,12 +183,14 @@ func main() {
 
 	for k, s := range stations {
 		for _, m := range unmatch {
-			if ok, err := filepath.Match(m, k); ok || err != nil {
-				if err != nil {
-					log.Fatalf("unable to match station %s (%s): %v", s.Key(), m, err)
-				}
+			ok, err := filepath.Match(m, k)
+			if err != nil {
+				log.Fatalf("unable to match station %s (%s): %v", s.Key(), m, err)
+			}
+			if ok {
 				continue
 			}
+
 			if err := Store(s, output); err != nil {
 				log.Fatalf("unable to store key output %s: %v", s.Key(), err)
 			}
