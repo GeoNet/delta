@@ -1,5 +1,9 @@
 package main
 
+/**
+build template files for configuring a caps system based on site details
+*/
+
 import (
 	"flag"
 	"fmt"
@@ -19,6 +23,20 @@ const contents = `###
 ###
 capslink:sl4caps
 `
+
+func match(s string) string {
+	switch r := strings.Split(strings.ToUpper(s), "_"); len(r) {
+	case 2:
+		return strings.TrimSpace(r[0]) + "_" + strings.TrimSpace(r[1])
+	case 1:
+		if strings.ContainsAny(r[0], "*?\\[") {
+			return strings.TrimSpace(r[0])
+		}
+		return "*_" + strings.TrimSpace(r[0])
+	default:
+		return ""
+	}
+}
 
 type Station struct {
 	Network string
@@ -91,19 +109,7 @@ func main() {
 
 	var unmatch []string
 	for _, p := range strings.Split(exclude, ",") {
-		if s := func() string {
-			switch r := strings.Split(strings.ToUpper(p), "_"); len(r) {
-			case 2:
-				return strings.TrimSpace(r[0]) + "_" + strings.TrimSpace(r[1])
-			case 1:
-				if strings.ContainsAny(r[0], "*?\\[") {
-					return strings.TrimSpace(r[0])
-				}
-				return "*_" + strings.TrimSpace(r[0])
-			default:
-				return ""
-			}
-		}(); s != "" {
+		if s := match(p); s != "" {
 			unmatch = append(unmatch, s)
 		}
 	}
@@ -130,10 +136,10 @@ func main() {
 		}
 
 		network, err := db.Network(station.Network)
-		if network == nil || err != nil {
-			if err != nil {
-				log.Fatalf("unable to load metadata network %s: %v", station.Network, err)
-			}
+		if err != nil {
+			log.Fatalf("unable to load metadata network %s: %v", station.Network, err)
+		}
+		if network == nil {
 			continue
 		}
 
@@ -148,10 +154,10 @@ func main() {
 					installation.Location,
 					response.Datalogger.SampleRate,
 					installation.Start)
-				if stream == nil || err != nil {
-					if err != nil {
-						log.Fatalf("unable to load metadata streams %s: %v", station.Code, err)
-					}
+				if err != nil {
+					log.Fatalf("unable to load metadata streams %s: %v", station.Code, err)
+				}
+				if stream == nil {
 					continue
 				}
 
