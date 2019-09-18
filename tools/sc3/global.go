@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"path/filepath"
 	"strings"
 )
 
@@ -68,5 +69,5 @@ func (p Global) Key() string {
 }
 
 func (p Global) Path() string {
-	return fmt.Sprintf("profile_%s", p.Key())
+	return filepath.Join(p.Id(), fmt.Sprintf("profile_%s", p.Key()))
 }
