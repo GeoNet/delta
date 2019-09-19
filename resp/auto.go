@@ -1028,7 +1028,7 @@ var Responses []Response = []Response{
 		Name: "Kinemetics Strong Motion Recorders and Dataloggers Connected to Strong Motion Sensors",
 		Sensors: []Sensor{
 			{
-				SensorList: []string{"FBA-ES-T"},
+				SensorList: []string{"FBA-ES-T", "FBA-ES-T-ISO"},
 				FilterList: []string{"FBA-ES-T"},
 				Stages: []ResponseStage{
 					{
