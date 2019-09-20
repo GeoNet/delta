@@ -106,6 +106,7 @@ response:
     sensors:
     - sensors:
       - FBA-ES-T
+      - FBA-ES-T-ISO
       filters:
         - FBA-ES-T
       channels: Z12
