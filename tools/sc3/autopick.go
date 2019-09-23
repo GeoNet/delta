@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"path/filepath"
 )
 
 const DefaultFilter = "RMHP(10)>>BW(4,2,15)>>STALTA(0.5,20)"
@@ -47,5 +48,5 @@ func (s AutoPick) Template() string {
 }
 
 func (s AutoPick) Path() string {
-	return fmt.Sprintf("profile_%s", s.Key())
+	return filepath.Join(s.Id(), fmt.Sprintf("profile_%s", s.Key()))
 }
