@@ -106,9 +106,9 @@ func buildStreams(base, channels string) (map[string]Stream, error) {
 					continue
 				}
 
-				lookup := response.Channels(func() bool {
+				lookup := response.Channels(func() string {
 					if installation.Sensor.Azimuth != 0.0 {
-						return true
+						return "true"
 					}
 					return stream.Axial
 				}())
