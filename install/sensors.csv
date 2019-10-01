@@ -115,7 +115,6 @@ General Electric Industrial Sensing,Druck PTX-1830,3133809,NCPT,41,0,0,0,0,0,1.0
 General Electric Industrial Sensing,Druck PTX-1830,3133814,RFRT,41,0,60,0,0,0,1.03,0,2010-10-30T00:00:00Z,2011-11-08T00:00:00Z
 General Electric Industrial Sensing,Druck PTX-1830,3133818,MNKT,40,0,0,0,0,0,1.03,0,2010-07-15T03:00:00Z,2018-10-01T19:10:00Z
 General Electric Industrial Sensing,Druck PTX-1830,3133822,MNKT,41,0,0,0,0,0,1.03,0,2010-07-15T03:00:00Z,2018-10-01T19:10:00Z
-General Electric Industrial Sensing,Druck PTX-1830,3133823,GLKZ,40,0,0,0,0,0,1,0,2019-09-21T01:00:00Z,9999-01-01T00:00:00Z
 General Electric Industrial Sensing,Druck PTX-1830,3133827,NCPT,40,0,0,0,0,0,1.03,0,2011-10-06T03:00:00Z,2018-07-17T21:10:00Z
 General Electric Industrial Sensing,Druck PTX-1830,3136137,NAPT,40,0,90,5.969,0,0,1.03,0,2010-12-15T05:00:00Z,2018-04-10T03:00:00Z
 General Electric Industrial Sensing,Druck PTX-1830,3136140,NAPT,41,0,90,5.969,0,0,1.03,0,2010-12-15T05:00:00Z,2018-04-10T03:00:00Z
@@ -138,6 +137,7 @@ General Electric Industrial Sensing,Druck PTX-1830,3964178,WLGT,40,0,90,0,0,0,1.
 General Electric Industrial Sensing,Druck PTX-1830,3964188,CHST,40,0,90,0,0,0,1.03,0,2015-06-24T00:00:00Z,9999-01-01T00:00:00Z
 General Electric Industrial Sensing,Druck PTX-1830-LAND,2722283,EDAS,49,0,0,9.2,0,0,1,0,2008-06-11T01:00:00Z,2015-06-22T23:00:00Z
 General Electric Industrial Sensing,Druck PTX-1830-LAND,2933712L,GLKZ,40,0,0,0,0,0,1,0,2009-05-19T00:00:00Z,2019-09-20T23:20:00Z
+General Electric Industrial Sensing,Druck PTX-1830-LAND,3133823,GLKZ,40,0,0,0,0,0,1,0,2019-09-21T01:00:00Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,001,KQ01,10,0,0,0,0,0,0,0,2008-06-04T00:00:01Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,002,KQ02,10,0,0,0,0,0,0,0,2008-06-12T00:00:02Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,003,KQ05,10,0,0,0,0,0,0,0,2008-09-04T20:00:03Z,9999-01-01T00:00:00Z
