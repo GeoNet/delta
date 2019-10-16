@@ -62,14 +62,24 @@ type Sensor struct {
 	Reversed   bool
 }
 
-func (s Sensor) Labels(axial bool) string {
+func (s Sensor) Labels(axial string) string {
 	labels := s.Channels
-	if axial {
+	switch strings.ToUpper(axial) {
+	case "TRUE", "Z12":
 		labels = strings.Replace(labels, "N", "1", -1)
 		labels = strings.Replace(labels, "E", "2", -1)
-	} else {
+		labels = strings.Replace(labels, "Y", "1", -1)
+		labels = strings.Replace(labels, "X", "2", -1)
+	case "FALSE", "ZNE":
 		labels = strings.Replace(labels, "1", "N", -1)
 		labels = strings.Replace(labels, "2", "E", -1)
+		labels = strings.Replace(labels, "Y", "N", -1)
+		labels = strings.Replace(labels, "X", "E", -1)
+	case "ZYX", "XYZ":
+		labels = strings.Replace(labels, "N", "Y", -1)
+		labels = strings.Replace(labels, "E", "X", -1)
+		labels = strings.Replace(labels, "1", "Y", -1)
+		labels = strings.Replace(labels, "2", "X", -1)
 	}
 	return labels
 }
@@ -102,7 +112,7 @@ type Stream struct {
 	Components []SensorComponent
 }
 
-func (s Stream) Channels(axial bool) []string {
+func (s Stream) Channels(axial string) []string {
 	var channels []string
 
 	labels := s.Sensor.Labels(axial)
