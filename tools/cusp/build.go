@@ -161,9 +161,9 @@ func buildSites(base string) ([]Site, error) {
 							Pins: func() []Pin {
 								var pins []Pin
 
-								lookup := response.Channels(func() bool {
+								lookup := response.Channels(func() string {
 									if installation.Sensor.Azimuth != 0.0 {
-										return true
+										return "true"
 									}
 									return stream.Axial
 								}())
@@ -209,11 +209,6 @@ func buildSites(base string) ([]Site, error) {
 									}
 									for azimuth > 360.0 {
 										azimuth -= 360.0
-									}
-
-									chan_no := pin
-									if loc, err := strconv.Atoi(installation.Location); err == nil {
-										chan_no += (loc - 20) * 3
 									}
 
 									pins = append(pins, Pin{

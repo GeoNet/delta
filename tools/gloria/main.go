@@ -13,6 +13,10 @@ import (
 	"strings"
 )
 
+var (
+	thirdPartySites = []string{"DUNT", "FALE", "LDRZ", "LYTT", "NIUM", "OUSD"}
+)
+
 func main() {
 
 	//Meta Loading Code grabbed from rinexml
@@ -156,6 +160,12 @@ func main() {
 			mark_pb.Download = &gloria_pb.Download{Priority: 0}
 		}
 
+		for _, tps := range thirdPartySites {
+			if tps == m.Code {
+				mark_pb.Download.ThirdParty = true
+			}
+		}
+
 		if m.Network == "LI" {
 			mark_pb.Comment = `This station is part of the LINZ PositioNZ and GeoNet 
 cGNSS networks and is jointly funded by Land Information 
@@ -229,7 +239,7 @@ contact information can be found at www.geonet.org.nz`
 				},
 				Span: &gloria_pb.Span{
 					Start: rad.Start.Unix(),
-					End:   rad.Start.Unix(),
+					End:   rad.End.Unix(),
 				},
 			}
 			mark_pb.InstalledRadome = append(mark_pb.InstalledRadome, &rad_pb)

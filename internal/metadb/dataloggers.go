@@ -93,11 +93,11 @@ func (m *MetaDB) DeployedDataloggerConnections(sensor meta.InstalledSensor, stat
 		case connection.Start.After(sensor.End):
 		case connection.End.Before(sensor.Start):
 		default:
-			dataloggers, err := m.PlaceRoleDeployedDataloggers(connection.Place, connection.Role)
+			loggers, err := m.PlaceRoleDeployedDataloggers(connection.Place, connection.Role)
 			if err != nil {
 				return nil, err
 			}
-			for _, datalogger := range dataloggers {
+			for _, datalogger := range loggers {
 				switch {
 				case connection.Start.After(datalogger.End):
 				case connection.End.Before(datalogger.Start):

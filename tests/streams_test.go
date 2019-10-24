@@ -296,7 +296,21 @@ func TestStreams(t *testing.T) {
 	sort.Sort(meta.StreamList(missing))
 
 	if len(missing) > 0 {
-		t.Error("\n" + string(meta.MarshalList(meta.StreamList(missing))))
+		res, err := meta.MarshalList(meta.StreamList(missing))
+		if err != nil {
+			t.Fatal(err)
+		}
+		t.Error("\n" + string(res))
 	}
 
+	t.Run("check for invalid axial labels", func(t *testing.T) {
+		for _, s := range streams {
+			switch s.Axial {
+			case "true", "false":
+			case "ZNE", "Z12", "XYZ":
+			default:
+				t.Errorf("invalid stream axial code: %s", s.Axial)
+			}
+		}
+	})
 }

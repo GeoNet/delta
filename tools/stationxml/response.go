@@ -7,6 +7,14 @@ import (
 	"github.com/ozym/fdsn/stationxml"
 )
 
+type Stage struct {
+	responseStage resp.ResponseStage
+	count         int
+	id            string
+	name          string
+	frequency     float64
+}
+
 func a2dResponseStage(stage Stage) stationxml.ResponseStage {
 
 	coefs := stationxml.Coefficients{
@@ -33,7 +41,7 @@ func a2dResponseStage(stage Stage) stationxml.ResponseStage {
 			Frequency: stage.frequency,
 		},
 		Decimation: &stationxml.Decimation{
-			InputSampleRate: stationxml.Frequency{stationxml.Float{Value: stage.responseStage.SampleRate}},
+			InputSampleRate: stationxml.Frequency{Float: stationxml.Float{Value: stage.responseStage.SampleRate}},
 			Factor: func() int32 {
 				if stage.responseStage.Decimate != 0 {
 					return stage.responseStage.Decimate
@@ -80,7 +88,7 @@ func firResponseStage(filter resp.FIR, stage Stage) stationxml.ResponseStage {
 			Frequency: stage.frequency,
 		},
 		Decimation: &stationxml.Decimation{
-			InputSampleRate: stationxml.Frequency{stationxml.Float{Value: filter.Decimation * stage.responseStage.SampleRate}},
+			InputSampleRate: stationxml.Frequency{Float: stationxml.Float{Value: filter.Decimation * stage.responseStage.SampleRate}},
 			Factor: func() int32 {
 				if stage.responseStage.Decimate != 0 {
 					return stage.responseStage.Decimate
@@ -110,8 +118,8 @@ func polyResponseStage(filter resp.Polynomial, stage Stage) stationxml.ResponseS
 			OutputUnits: stationxml.Units{Name: stage.responseStage.OutputUnits},
 		},
 		ApproximationType:       stationxml.ApproximationType(filter.ApproximationType),
-		FrequencyLowerBound:     stationxml.Frequency{stationxml.Float{Value: filter.FrequencyLowerBound}},
-		FrequencyUpperBound:     stationxml.Frequency{stationxml.Float{Value: filter.FrequencyUpperBound}},
+		FrequencyLowerBound:     stationxml.Frequency{Float: stationxml.Float{Value: filter.FrequencyLowerBound}},
+		FrequencyUpperBound:     stationxml.Frequency{Float: stationxml.Float{Value: filter.FrequencyUpperBound}},
 		ApproximationLowerBound: strconv.FormatFloat(filter.ApproximationLowerBound, 'g', -1, 64),
 		ApproximationUpperBound: strconv.FormatFloat(filter.ApproximationUpperBound, 'g', -1, 64),
 		MaximumError:            filter.MaximumError,
@@ -165,7 +173,7 @@ func pazResponseStage(filter resp.PAZ, stage Stage) stationxml.ResponseStage {
 			return 1.0 / filter.Gain(stage.frequency)
 		}(),
 		NormalizationFrequency: stationxml.Frequency{
-			stationxml.Float{Value: stage.frequency},
+			Float: stationxml.Float{Value: stage.frequency},
 		},
 		Zeros: zeros,
 		Poles: poles,

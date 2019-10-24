@@ -7,7 +7,7 @@ type ResponseStage struct {
 	// A choice of response types. There should be one response per stage.
 	PolesZeros   *PolesZeros   `xml:",omitempty" json:",omitempty"`
 	Coefficients *Coefficients `xml:",omitempty" json:",omitempty"`
-	ResponseList *ResponseList `xml:,omitempty" json:",omitempty"`
+	ResponseList *ResponseList `xml:",omitempty" json:",omitempty"`
 	FIR          *FIR          `xml:",omitempty" json:",omitempty"`
 	Polynomial   *Polynomial   `xml:",omitempty" json:",omitempty"`
 
