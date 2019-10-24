@@ -303,4 +303,14 @@ func TestStreams(t *testing.T) {
 		t.Error("\n" + string(res))
 	}
 
+	t.Run("check for invalid axial labels", func(t *testing.T) {
+		for _, s := range streams {
+			switch s.Axial {
+			case "true", "false":
+			case "ZNE", "Z12", "XYZ":
+			default:
+				t.Errorf("invalid stream axial code: %s", s.Axial)
+			}
+		}
+	})
 }
