@@ -2,6 +2,8 @@ github.com/GeoNet/kit v0.0.0-20190918224938-2cc27e012059 h1:Zm0fT89J5BUvOxDPrSUw
 github.com/GeoNet/kit v0.0.0-20190918224938-2cc27e012059/go.mod h1:p4G2LfF1yi0QiVEZjkWrTlEZ2W7E9QvCNMqG9AYpmNQ=
 github.com/golang/protobuf v1.3.2 h1:6nsPYzhq5kReh6QImI3k5qWzO4PEbvbIW2cwSfR/6xs=
 github.com/golang/protobuf v1.3.2/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
+github.com/google/go-cmp v0.3.1 h1:Xye71clBPdm5HgqGwUkwhbynsUJZhDbS20FvLhQ2izg=
+github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=
 github.com/ozym/fdsn v0.0.0-20171207084408-450013a4209e h1:WcBMYyLf9xSqTHCN/YnQkfx1+Old55dx8L+OVXHeHhU=
 github.com/ozym/fdsn v0.0.0-20171207084408-450013a4209e/go.mod h1:aoS7ymfo7FqJED5onCEzEvNTsF0JXMbw5gxpmB686QQ=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
