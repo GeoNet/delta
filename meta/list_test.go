@@ -864,7 +864,7 @@ func TestList(t *testing.T) {
 					Station:      "AKSS",
 					Location:     "20",
 					SamplingRate: 50.0,
-					Axial:        true,
+					Axial:        "true",
 					Reversed:     false,
 					Triggered:    true,
 					Span: meta.Span{
@@ -882,7 +882,7 @@ func TestList(t *testing.T) {
 					Station:      "APZ",
 					Location:     "20",
 					SamplingRate: 200.0,
-					Axial:        false,
+					Axial:        "false",
 					Reversed:     false,
 					Triggered:    false,
 					Span: meta.Span{

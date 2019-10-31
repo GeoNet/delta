@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"encoding/csv"
 	"io/ioutil"
-	"os"
-	"os/exec"
+	"path/filepath"
 	"sort"
 	"testing"
+
+	"github.com/google/go-cmp/cmp"
 
 	"github.com/GeoNet/delta/meta"
 )
@@ -60,35 +61,7 @@ func TestConsistency(t *testing.T) {
 			}
 
 			if string(raw) != buf.String() {
-				t.Errorf("%s: **** csv file mismatch **** : ", v.f)
-
-				file, err := ioutil.TempFile(os.TempDir(), "tst")
-				if err != nil {
-					t.Fatalf("unable to create temporary file: %v", err)
-				}
-				defer os.Remove(file.Name())
-				if _, err := file.Write(buf.Bytes()); err != nil {
-					t.Fatalf("unable to write to temporary file: %v", err)
-				}
-
-				cmd := exec.Command("diff", "-c", v.f, file.Name())
-				stdout, err := cmd.StdoutPipe()
-				if err != nil {
-					t.Fatalf("unable to create diff: %v", err)
-				}
-				err = cmd.Start()
-				if err != nil {
-					t.Fatalf("unable to start diff: %v", err)
-				}
-				diff, err := ioutil.ReadAll(stdout)
-				if err != nil {
-					t.Fatalf("unable to read diff: %v", err)
-				}
-				if err := cmd.Wait(); err != nil {
-					t.Fatalf("unable to run diff: %v", err)
-				}
-
-				t.Error(string(diff))
+				t.Errorf("unexpected %s content -got/+exp\n%s", filepath.Base(v.f), cmp.Diff(string(raw), buf.String()))
 			}
 		})
 	}
