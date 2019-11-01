@@ -13,7 +13,7 @@ then
        -H "Content-Type: application/json" \
        -H "Accept: application/json" \
        -H "Travis-API-Version: 3" \
-       -H "Authorization: token $TRAVIS_API_TOKEN" \
+       -H "Authorization: token $geonetci_api_token" \
        -d "$body" \
        https://api.travis-ci.com/repo/GeoNet%2Fsit/requests
 fi
