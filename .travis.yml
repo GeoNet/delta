@@ -57,6 +57,7 @@ deploy:
 
 after_script:
   - ./tools/sit/sit_build.sh
+  - run-parts --verbose --exit-on-error --regex '.*sh$' ./run/after
 
 env:
   global:
