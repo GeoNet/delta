@@ -2,7 +2,7 @@
 
 if [[ "$TRAVIS_BRANCH" == "master" ]] && [[ "$TRAVIS_PULL_REQUEST" == "false" ]]
 then
-    echo 'Triggering SIT Build'
+    echo 'Triggering AC-Tools Build'
 
     body='{
     "request": {
@@ -15,5 +15,5 @@ then
        -H "Travis-API-Version: 3" \
        -H "Authorization: token $geonetci_api_token" \
        -d "$body" \
-       https://api.travis-ci.com/repo/GeoNet%2Fsit/requests
+       https://api.travis-ci.com/repo/GeoNet%2Fac-tools/requests
 fi
