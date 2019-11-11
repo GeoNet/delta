@@ -47,9 +47,24 @@ func TestFirmware(t *testing.T) {
 		}
 	})
 
-	t.Run("Check for firmware receiver assets", func(t *testing.T) {
+	t.Run("Check for firmware assets", func(t *testing.T) {
+
 		var assets meta.AssetList
-		loadListFile(t, "../assets/receivers.csv", &assets)
+
+		files := map[string]string{
+			"cameras":     "../assets/cameras.csv",
+			"dataloggers": "../assets/dataloggers.csv",
+			"receivers":   "../assets/receivers.csv",
+			"recorders":   "../assets/recorders.csv",
+		}
+
+		for k, v := range files {
+			t.Run("load asset files: "+k, func(t *testing.T) {
+				var a meta.AssetList
+				loadListFile(t, v, &a)
+				assets = append(assets, a...)
+			})
+		}
 
 		for _, r := range firmwares {
 			var found bool
