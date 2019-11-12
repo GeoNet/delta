@@ -9,7 +9,6 @@ const DefaultFilter = "RMHP(10)>>BW(4,2,15)>>STALTA(0.5,20)"
 const DefaultCorrection = -0.05
 
 const autopickTemplate = `###
-###
 ### Delivered by puppet
 ###
 # Defines the filter to be used for picking.
