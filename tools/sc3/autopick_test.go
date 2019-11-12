@@ -8,7 +8,6 @@ import (
 )
 
 const broadband = `###
-###
 ### Delivered by puppet
 ###
 # Defines the filter to be used for picking.
