@@ -20,6 +20,8 @@ go test ./tools/spectra
 go test ./tools/chart
 go test ./tools/impact
 go test ./tools/rinexml
+go test ./tools/sc3
+go test ./tools/caps
 
 exit $errcount
 
