@@ -74,7 +74,7 @@ func main() {
 	flag.StringVar(&base, "base", "../..", "delta base files")
 
 	var output string
-	flag.StringVar(&output, "output", "keys", "output caps configuration directory")
+	flag.StringVar(&output, "output", "key", "output caps configuration directory")
 
 	var networks string
 	//TODO: this could be managed via configuration elsewhere.
