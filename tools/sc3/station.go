@@ -5,7 +5,6 @@ import (
 )
 
 const stationTemplate = `###
-###
 ### Delivered by puppet
 ###
 global:{{.Global.Key}}
