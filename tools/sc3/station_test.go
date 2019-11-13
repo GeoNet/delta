@@ -8,7 +8,6 @@ import (
 )
 
 const stationStrong = `###
-###
 ### Delivered by puppet
 ###
 global:strong_lowrate_20
@@ -16,7 +15,6 @@ scautopick:strong
 `
 
 const stationWeak = `###
-###
 ### Delivered by puppet
 ###
 global:weak_10
@@ -29,7 +27,7 @@ func TestStation(t *testing.T) {
 		station Station
 		content string
 	}{
-		"station/station_NZ_MAGS": {
+		"station_NZ_MAGS": {
 			station: Station{
 				Global: Global{
 					Location: "20",
@@ -45,7 +43,7 @@ func TestStation(t *testing.T) {
 			},
 			content: stationStrong,
 		},
-		"station/station_NZ_CAW": {
+		"station_NZ_CAW": {
 			station: Station{
 				Global: Global{
 					Location: "10",
