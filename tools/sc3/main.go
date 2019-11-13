@@ -130,6 +130,17 @@ func main() {
 						continue
 					}
 
+					key := Station{
+						Code:    station.Code,
+						Network: network.External,
+					}.Key()
+
+					if s, ok := stations[key]; ok {
+						if !(installation.Location < s.Global.Location) {
+							continue
+						}
+					}
+
 					global := Global{
 						Stream:   channel[0:2],
 						Location: installation.Location,
