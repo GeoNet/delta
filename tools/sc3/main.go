@@ -19,7 +19,7 @@ func main() {
 	flag.StringVar(&base, "base", "../..", "delta base files")
 
 	var output string
-	flag.StringVar(&output, "output", "keys", "output sc3 configuration directory")
+	flag.StringVar(&output, "output", "key", "output sc3 configuration directory")
 
 	var networks string
 	//TODO: this could be managed via configuration elsewhere.
@@ -128,6 +128,17 @@ func main() {
 					channel := lookup[pin]
 					if len(channel) != 3 {
 						continue
+					}
+
+					key := Station{
+						Code:    station.Code,
+						Network: network.External,
+					}.Key()
+
+					if s, ok := stations[key]; ok {
+						if !(installation.Location < s.Global.Location) {
+							continue
+						}
 					}
 
 					global := Global{
