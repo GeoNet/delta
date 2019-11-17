@@ -78,7 +78,7 @@ func main() {
 
 	var networks string
 	//TODO: this could be managed via configuration elsewhere.
-	flag.StringVar(&networks, "networks", "AK,CB,CH,EC,FI,HB,KI,MN,NX,NZ,OT,RT,SC,SI,SM,SP,SX,TP,TR,WL", "comma separated list of networks to use")
+	flag.StringVar(&networks, "networks", "AK,CB,CH,EC,FI,HB,KI,MN,NX,NZ,OT,RT,SC,SI,SM,SP,SX,TP,TR,WL,TG", "comma separated list of networks to use")
 
 	var exclude string
 	flag.StringVar(&exclude, "exclude", "", "comma separated list of stations to skip (either NN_SSSS, or simply SSSS)")
