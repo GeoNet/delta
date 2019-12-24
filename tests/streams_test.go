@@ -107,7 +107,7 @@ func TestStreams(t *testing.T) {
 			if s, ok := stas[c.Station]; ok {
 				switch {
 				case c.Start.Before(s.Start):
-					t.Log("warning: stream span mismatch: " + strings.Join([]string{
+					t.Error("error: stream span mismatch: " + strings.Join([]string{
 						c.Station,
 						c.Location,
 						c.Start.String(),
@@ -115,7 +115,7 @@ func TestStreams(t *testing.T) {
 						s.Start.String(),
 					}, " "))
 				case s.End.Before(time.Now()) && c.End.After(s.End):
-					t.Log("warning: stream span mismatch: " + strings.Join([]string{
+					t.Error("error: stream span mismatch: " + strings.Join([]string{
 						c.Station,
 						c.Location,
 						c.End.String(),
@@ -151,7 +151,7 @@ func TestStreams(t *testing.T) {
 				if l, ok := s[c.Location]; ok {
 					switch {
 					case c.Start.Before(l.Start):
-						t.Log("warning: stream span start mismatch: " + strings.Join([]string{
+						t.Error("error: stream span start mismatch: " + strings.Join([]string{
 							c.Station,
 							c.Location,
 							c.Start.String(),
@@ -159,7 +159,7 @@ func TestStreams(t *testing.T) {
 							l.Start.String(),
 						}, " "))
 					case l.End.Before(time.Now()) && c.End.After(l.End):
-						t.Log("warning: stream span end mismatch: " + strings.Join([]string{
+						t.Error("error: stream span end mismatch: " + strings.Join([]string{
 							c.Station,
 							c.Location,
 							c.End.String(),
