@@ -1,0 +1,2 @@
+Make,Model,BPR Serial,Paros Serial,Sampler rate,Tsunami Threshold,Spike Threshold,Event Mode,Station,Depth,Comment,Start Date,End Date
+Paroscientific,BPR,123456,0001,15,30,250,True,NZA,2667,,2019-12-25T00:00:00Z,9999-01-01T00:00:00Z
