@@ -23,7 +23,7 @@ go build ./tools/stationxml || exit 255
 ./stationxml -base . -output .tmp/geonet-meta/stationxml/iris.xml \
     -stations '(KHZ|QRZ|OUZ|HIZ|BKZ|ODZ|BFZ|CTZ|URZ|RPZ|WPVZ)' \
     -sensors '(STS-2|CMG-3TB|CMG-40T-60S|FBA-ES-T)' \
-    -dataloggers '(Q330HR/6|Q330HRS/6|Q4120/6|Q330/3|OBSIDIAN)' \
+    -dataloggers '(Q330HR/6|Q330HRS/6|Q4120/6|Q330/3|OBSIDIAN|BASALT)' \
     -channels '([HLV]H[ZNE12]|[HBL]N[ZNE])'
 
 mkdir -p .tmp/geonet-meta/seed/pod || exit 255
