@@ -1,5 +1,14 @@
 sudo: required
 
+notifications:
+  email: false
+  slack:
+    if: branch in (master, staging, production)
+    on_success: never
+    on_failure: always
+    on_pull_requests: false
+    secure: OX6UmHvOhTK5OgxU1/EP65iTvuggluD9O+mtfqF1PehoDNSP6tsek7BX0jVH/YiL2XbzVrK5XWV/vH2C1dlVtKBCE8OySwMZ76zJPqgj8VXUMHU0IL0pRDZpIizDRUrKBSMCB+sxjA6v6RQDDte9NLYfPJIgqmZsyE6ME4IoFCtKm7LW2T0QoVZZb8a8diPYc5cV20R5v/Q40cnE+aqPsN8C+pZhue1ZAkiKW2btzgJJyUrTxf6QtYN2usvrOfEqk4pfz41re92flhlbEXtwcsOzAfzy8BiWQIegKZHg3YWaP0hSS+ynjm4/P40hkfo7pLqBr17wUf5sN1rHabzYO5fVdzNa5yaYzCC8ILq8iCz/9ijVxEo1k2k8gUjyY6PymgUA6zWCPfpJemiivZ/OUMFufJb/Ab0Wh/zbg68xMt4HghRUuuThK0yaQATUtydjQ6G5Nwq+zWqa/e5jeub+LrnLuS+6hMqMDUuN1eBB1BorVIBQhouhT/NoTTYwLBzDpWTIrgi6Kx74wxqQvZgbrjws80epF23hVcFDqp0WWMIwvx1Kv7wdxdA5r6Q79EP0GdqBcmkGLoOvT/bSITU9MjnFaAFFtfthjY2DwALjFGknqopYcjJQ/xFAHNj/g4cXg5UgTMqaWooechQ+QfQdfG5kjj6mB5HNeteDCcc7C+o=
+
 services:
   - docker
 
