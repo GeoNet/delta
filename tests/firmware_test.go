@@ -47,17 +47,18 @@ func TestFirmware(t *testing.T) {
 		}
 	})
 
-	t.Run("check for firmware false changes", func(t *testing.T) {
+	t.Run("check for firmware non-changes", func(t *testing.T) {
 		for i := 0; i < len(firmwares)-1; i++ {
 			current, next := firmwares[i], firmwares[i+1]
+
 			switch {
 			case current.Model != next.Model:
 			case current.Make != next.Make:
 			case current.Serial != next.Serial:
 			case current.Version != next.Version:
 			default:
-				t.Errorf("likely false firmware change: %s %s %s %s %s",
-					current.Make, current.Model, current.Start, current.Serial, current.Version)
+				t.Errorf("likely invalid firmware change (line %d): %s %s %s %s %s",
+					i+2, current.Make, current.Model, current.Start, current.Serial, current.Version)
 			}
 		}
 	})
