@@ -13,14 +13,13 @@ The designation practices of station, site, and location codes are described in 
 A station can have many sites, and a site can have many location codes. Ideally, each site will only have one location code associated with it, but this is often not the case. There may be multiple location codes at a site when:
 1. There are sensors of multiple types installed at a site, e.g. a weak motion sensor and a strong motion sensor.
 1. There are multiple sensors of the same type installed at a site, e.g. two weak motion sensors.
-1. The subtype of a sensor has changed, e.g. a short period sensor has been swapped for a broadband sensor, but both are weak motion sensors.
 
 It should be noted that the choice of having multiple location codes at a site is arbitrary: it is equally as possible to have one site per location code as it is to have one site for all location codes. The former case has the advantage of being able to provide the coordinates of each site as those of the given sensor rather than those of one of (or an average of) the sensors at the site and correspondingly is easier to produce high quality metadata for. As such this is the preferred of the two options. However, the legacy of decisions made prior to the creation of clear conventions muddies our metadata in this respect.
 
 ## Naming Conventions When Moving or Changing Sensors
 
 There are 3 cases of how site code and location code change at a station following the movement or changing of a sensor:
-1. If the sensor changes to one that is not of the same type or subtype, a new location code will be made for the sensor installation, e.g. if a short period seismometer with location code 10 was swapped for a broadband seismometer the new location code would be 11.
+1. If the sensor changes to one that is not of the same type, a new location code will be made for the sensor installation, e.g. if a short period seismometer was swapped for a strong motion sensor.
 1. If the sensor location moves between than 1-200 m, a new location code will be made for the sensor installation.
 1. If the sensor location moves more than 200 m, a new station will be established containing the sensor installation in a site and location code at that station.
 
