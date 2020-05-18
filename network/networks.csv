@@ -25,6 +25,7 @@ SI,NZ,South Island regional seismic network,false
 SM,NZ,National strong motion network,false
 SP,NZ,Southern Alps regional seismic network,false
 SX,NZ,Strong motion (private sites),true
+TD,NZ,National tsunami deep ocean network,false
 TG,NZ,National tsunami gauge network,false
 TP,NZ,Taupo volcano seismic network,false
 TR,NZ,Taranaki volcano seismic network,false

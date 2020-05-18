@@ -95,8 +95,9 @@ func firResponseStage(filter resp.FIR, stage Stage) stationxml.ResponseStage {
 				}
 				return int32(filter.Decimation)
 			}(),
-			Delay:      stationxml.Float{Value: stage.responseStage.Delay},
-			Correction: stationxml.Float{Value: stage.responseStage.Correction},
+			//Best leave this to the application as there are multiple interpretations.
+			Delay:      stationxml.Float{Value: 0.0},
+			Correction: stationxml.Float{Value: 0.0},
 		},
 	}
 }
