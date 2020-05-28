@@ -190,7 +190,7 @@ filter:
   - type: fir
     lookup: CENTAUR_PRIM200STAGE1_LP
     frequency: 0
-    inputsamplerate: 30000
+    inputrate: 30000
     samplerate: 2000
     decimate: 15
     gain: 0
@@ -202,7 +202,7 @@ filter:
   - type: fir
     lookup: CENTAUR_PRIM200STAGE2_LP
     frequency: 0
-    inputsamplerate: 2000
+    inputsrate: 2000
     samplerate: 400
     decimate: 5
     gain: 0
@@ -214,7 +214,7 @@ filter:
   - type: fir
     lookup: CENTAUR_PRIM200STAGE3_LP
     frequency: 0
-    inputsamplerate: 400
+    inputrate: 400
     samplerate: 200
     decimate: 2
     gain: 0
