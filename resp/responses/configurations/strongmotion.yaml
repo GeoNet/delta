@@ -298,3 +298,24 @@ response:
       filters:
       - CUSP-200
       reversed: false
+
+  Nanometrics Strong Motion Recorders:
+    sensors:
+    - sensors:
+      - Titan
+      filters:
+      - TITAN-4G
+      channels: Z12
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - TitanSMA
+      type: CG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+        - CENTAUR-200-LP
+      reversed: false
