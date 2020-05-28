@@ -48,6 +48,18 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
+  Titan:
+    type: Accelerometer
+    description: Titan
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
 
 paz:
   TRILLIUM-120QA:
@@ -140,6 +152,19 @@ paz:
     - (-160+0i)
     - (-350+0i)
     - (-3079+0i)
+  TITAN:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from Nanometrics instrument response query
+    poles:
+    - (-977+328i)
+    - (-977-328i)
+    - (-1486+2512i)
+    - (-1486-2512i)
+    - (-5736+4946i)
+    - (-5736-4946i)
+    zeros:
+    - (-515+0i)
   
 filter:
   TRILLIUM-COMPACT-120:
@@ -189,6 +214,30 @@ filter:
     correction: 0
     delay: 0
     inputunits: m/s
+    outputunits: V
+  TITAN-2G:
+  - type: paz
+    lookup: TITAN
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1.02
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s**2
+    outputunits: V
+  TITAN-4G:
+  - type: paz
+    lookup: TITAN
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0.51
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s**2
     outputunits: V
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
