@@ -18,7 +18,7 @@ then
        https://api.travis-ci.com/repo/GeoNet%2Fsit/requests
     )
 
-    if [[ $STATUSCODE -ne 200 ]]
+    if [[ $STATUSCODE -ne 200 ]] && [[ $STATUSCODE -ne 202 ]]
     then
             exit 1
     fi
