@@ -20,6 +20,8 @@ then
 
     if [[ $STATUSCODE -ne 200 ]]
     then
+            echo "Status: $STATUSCODE" 1>&2
+
             exit 1
     fi
 
