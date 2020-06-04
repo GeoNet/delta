@@ -18,8 +18,10 @@ then
        https://api.travis-ci.com/repo/GeoNet%2Fac-tools/requests
     )
 
-    if [[ $STATUSCODE -ne 200 ]]
+    if [[ $STATUSCODE -ne 200 ]] && [[ $STATUSCODE -ne 202 ]]
     then
+            echo "Status: $STATUSCODE"
+
             exit 1
     fi
 
