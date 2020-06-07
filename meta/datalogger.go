@@ -29,7 +29,7 @@ type DeployedDataloggerList []DeployedDatalogger
 
 func (d DeployedDataloggerList) Len() int           { return len(d) }
 func (d DeployedDataloggerList) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
-func (d DeployedDataloggerList) Less(i, j int) bool { return d[i].Install.less(d[j].Install) }
+func (d DeployedDataloggerList) Less(i, j int) bool { return d[i].Install.Less(d[j].Install) }
 
 func (d DeployedDataloggerList) encode() [][]string {
 	data := [][]string{{

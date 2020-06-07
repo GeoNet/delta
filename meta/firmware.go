@@ -29,7 +29,7 @@ type FirmwareHistoryList []FirmwareHistory
 
 func (f FirmwareHistoryList) Len() int           { return len(f) }
 func (f FirmwareHistoryList) Swap(i, j int)      { f[i], f[j] = f[j], f[i] }
-func (f FirmwareHistoryList) Less(i, j int) bool { return f[i].Install.less(f[j].Install) }
+func (f FirmwareHistoryList) Less(i, j int) bool { return f[i].Install.Less(f[j].Install) }
 
 func (f FirmwareHistoryList) encode() [][]string {
 	data := [][]string{{
