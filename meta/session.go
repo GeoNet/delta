@@ -35,6 +35,8 @@ type Session struct {
 	ElevationMask   float64
 	HeaderComment   string
 	Format          string
+
+	elevationMask string // shadow variable to maintain formatting
 }
 
 func (s Session) Less(session Session) bool {
@@ -88,7 +90,7 @@ func (s SessionList) encode() [][]string {
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.SatelliteSystem),
 			strings.TrimSpace(v.Interval.String()),
-			strings.TrimSpace(strconv.FormatFloat(v.ElevationMask, 'g', -1, 64)),
+			strings.TrimSpace(v.elevationMask),
 			strings.TrimSpace(v.HeaderComment),
 			strings.TrimSpace(v.Format),
 			v.Start.Format(DateTimeFormat),
@@ -139,6 +141,8 @@ func (c *SessionList) decode(data [][]string) error {
 					Start: start,
 					End:   end,
 				},
+
+				elevationMask: strings.TrimSpace(v[sessionElevationMask]),
 			})
 		}
 

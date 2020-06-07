@@ -30,6 +30,10 @@ type MetSensorAccuracy struct {
 	Humidity    float64
 	Pressure    float64
 	Temperature float64
+
+	humidity    string // shadow variable to maintain formatting
+	pressure    string // shadow variable to maintain formatting
+	temperature string // shadow variable to maintain formatting
 }
 
 type InstalledMetSensor struct {
@@ -45,7 +49,7 @@ type InstalledMetSensorList []InstalledMetSensor
 
 func (m InstalledMetSensorList) Len() int           { return len(m) }
 func (m InstalledMetSensorList) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
-func (m InstalledMetSensorList) Less(i, j int) bool { return m[i].Install.less(m[j].Install) }
+func (m InstalledMetSensorList) Less(i, j int) bool { return m[i].Install.Less(m[j].Install) }
 
 func (m InstalledMetSensorList) encode() [][]string {
 	data := [][]string{{
@@ -71,12 +75,12 @@ func (m InstalledMetSensorList) encode() [][]string {
 			strings.TrimSpace(v.Serial),
 			strings.TrimSpace(v.Mark),
 			strings.TrimSpace(v.IMSComment),
-			strconv.FormatFloat(v.Accuracy.Humidity, 'g', -1, 64),
-			strconv.FormatFloat(v.Accuracy.Pressure, 'g', -1, 64),
-			strconv.FormatFloat(v.Accuracy.Temperature, 'g', -1, 64),
-			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
+			strings.TrimSpace(v.Accuracy.humidity),
+			strings.TrimSpace(v.Accuracy.pressure),
+			strings.TrimSpace(v.Accuracy.temperature),
+			strings.TrimSpace(v.latitude),
+			strings.TrimSpace(v.longitude),
+			strings.TrimSpace(v.elevation),
 			strings.TrimSpace(v.Datum),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
@@ -141,6 +145,10 @@ func (m *InstalledMetSensorList) decode(data [][]string) error {
 					Longitude: lon,
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[installedMetsensorDatum]),
+
+					latitude:  strings.TrimSpace(d[installedMetsensorLatitude]),
+					longitude: strings.TrimSpace(d[installedMetsensorLongitude]),
+					elevation: strings.TrimSpace(d[installedMetsensorElevation]),
 				},
 				Mark:       strings.TrimSpace(d[installedMetsensorMark]),
 				IMSComment: strings.TrimSpace(d[installedMetsensorIMSComment]),
@@ -148,6 +156,10 @@ func (m *InstalledMetSensorList) decode(data [][]string) error {
 					Humidity:    h,
 					Pressure:    p,
 					Temperature: t,
+
+					humidity:    strings.TrimSpace(d[installedMetsensorHumidityAccuracy]),
+					pressure:    strings.TrimSpace(d[installedMetsensorPressureAccuracy]),
+					temperature: strings.TrimSpace(d[installedMetsensorTemperatureAccuracy]),
 				},
 			})
 		}

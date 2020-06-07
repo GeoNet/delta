@@ -25,6 +25,8 @@ type Gauge struct {
 	Number   string
 	TimeZone float64
 	Crex     string
+
+	timeZone string // shadow variable to maintain formatting
 }
 
 type GaugeList []Gauge
@@ -48,9 +50,9 @@ func (g GaugeList) encode() [][]string {
 			strings.TrimSpace(v.Code),
 			strings.TrimSpace(v.Network),
 			strings.TrimSpace(v.Number),
-			strconv.FormatFloat(v.TimeZone, 'g', -1, 64),
-			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
+			strings.TrimSpace(v.timeZone),
+			strings.TrimSpace(v.latitude),
+			strings.TrimSpace(v.longitude),
 			strings.TrimSpace(v.Crex),
 		})
 	}
@@ -86,9 +88,12 @@ func (g *GaugeList) decode(data [][]string) error {
 				Point: Point{
 					Latitude:  lat,
 					Longitude: lon,
+					latitude:  strings.TrimSpace(d[gaugeAnalysisLatitude]),
+					longitude: strings.TrimSpace(d[gaugeAnalysisLongitude]),
 				},
 				Crex:     strings.TrimSpace(d[gaugeCrex]),
 				TimeZone: zone,
+				timeZone: strings.TrimSpace(d[gaugeAnalysisTimeZone]),
 			})
 		}
 

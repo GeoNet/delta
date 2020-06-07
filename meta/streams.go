@@ -29,6 +29,8 @@ type Stream struct {
 	Axial        string
 	Reversed     bool
 	Triggered    bool
+
+	samplingRate string
 }
 
 func (s Stream) Less(stream Stream) bool {
@@ -75,7 +77,7 @@ func (s StreamList) encode() [][]string {
 		data = append(data, []string{
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
-			strings.TrimSpace(strconv.FormatFloat(v.SamplingRate, 'g', -1, 64)),
+			strings.TrimSpace(v.samplingRate),
 			strings.TrimSpace(v.Axial),
 			strings.TrimSpace(strconv.FormatBool(v.Reversed)),
 			strings.TrimSpace(strconv.FormatBool(v.Triggered)),
@@ -107,6 +109,9 @@ func (c *StreamList) decode(data [][]string) error {
 			if rate, err = strconv.ParseFloat(v[streamSamplingRate], 64); err != nil {
 				return err
 			}
+			if rate < 0 {
+				rate = -1.0 / rate
+			}
 
 			var reversed, triggered bool
 			if reversed, err = strconv.ParseBool(v[streamReversed]); err != nil {
@@ -120,6 +125,7 @@ func (c *StreamList) decode(data [][]string) error {
 				Station:      strings.TrimSpace(v[streamStation]),
 				Location:     strings.TrimSpace(v[streamLocation]),
 				SamplingRate: rate,
+				samplingRate: strings.TrimSpace(v[streamSamplingRate]),
 				Axial:        strings.TrimSpace(v[streamAxial]),
 				Reversed:     reversed,
 				Triggered:    triggered,
