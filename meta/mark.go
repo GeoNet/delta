@@ -60,9 +60,9 @@ func (m MarkList) encode() [][]string {
 				return "no"
 			}(),
 			strings.TrimSpace(v.Name),
-			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
+			strings.TrimSpace(v.latitude),
+			strings.TrimSpace(v.longitude),
+			strings.TrimSpace(v.elevation),
 			strings.TrimSpace(v.Datum),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
@@ -125,6 +125,10 @@ func (m *MarkList) decode(data [][]string) error {
 					Longitude: lon,
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[markDatum]),
+
+					latitude:  strings.TrimSpace(d[markLatitude]),
+					longitude: strings.TrimSpace(d[markLongitude]),
+					elevation: strings.TrimSpace(d[markElevation]),
 				},
 				Igs: igs,
 			})
