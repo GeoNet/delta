@@ -28,13 +28,15 @@ type InstalledAntenna struct {
 
 	Mark    string
 	Azimuth float64
+
+	azimuth string // shadow variable to maintain formatting
 }
 
 type InstalledAntennaList []InstalledAntenna
 
 func (a InstalledAntennaList) Len() int           { return len(a) }
 func (a InstalledAntennaList) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a InstalledAntennaList) Less(i, j int) bool { return a[i].Install.less(a[j].Install) }
+func (a InstalledAntennaList) Less(i, j int) bool { return a[i].Install.Less(a[j].Install) }
 
 func (a InstalledAntennaList) encode() [][]string {
 	data := [][]string{{
@@ -55,10 +57,10 @@ func (a InstalledAntennaList) encode() [][]string {
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Serial),
 			strings.TrimSpace(v.Mark),
-			strconv.FormatFloat(v.Vertical, 'g', -1, 64),
-			strconv.FormatFloat(v.North, 'g', -1, 64),
-			strconv.FormatFloat(v.East, 'g', -1, 64),
-			strconv.FormatFloat(v.Azimuth, 'g', -1, 64),
+			strings.TrimSpace(v.vertical),
+			strings.TrimSpace(v.north),
+			strings.TrimSpace(v.east),
+			strings.TrimSpace(v.azimuth),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -115,9 +117,14 @@ func (a *InstalledAntennaList) decode(data [][]string) error {
 					Vertical: height,
 					North:    north,
 					East:     east,
+
+					vertical: strings.TrimSpace(d[antennaHeight]),
+					north:    strings.TrimSpace(d[antennaNorth]),
+					east:     strings.TrimSpace(d[antennaEast]),
 				},
 				Mark:    strings.TrimSpace(d[antennaMark]),
 				Azimuth: azimuth,
+				azimuth: strings.TrimSpace(d[antennaAzimuth]),
 			})
 		}
 

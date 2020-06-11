@@ -54,9 +54,9 @@ func (m MountList) encode() [][]string {
 			strings.TrimSpace(v.Code),
 			strings.TrimSpace(v.Network),
 			strings.TrimSpace(v.Name),
-			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
+			strings.TrimSpace(v.latitude),
+			strings.TrimSpace(v.longitude),
+			strings.TrimSpace(v.elevation),
 			strings.TrimSpace(v.Datum),
 			strings.TrimSpace(v.Description),
 			v.Start.Format(DateTimeFormat),
@@ -105,6 +105,10 @@ func (m *MountList) decode(data [][]string) error {
 					Longitude: lon,
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[mountDatum]),
+
+					latitude:  strings.TrimSpace(d[mountLatitude]),
+					longitude: strings.TrimSpace(d[mountLongitude]),
+					elevation: strings.TrimSpace(d[mountElevation]),
 				},
 				Span: Span{
 					Start: start,
