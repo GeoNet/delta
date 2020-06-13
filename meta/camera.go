@@ -13,6 +13,7 @@ const (
 	installedCameraModel
 	installedCameraSerial
 	installedCameraMount
+	installedCameraView
 	installedCameraDip
 	installedCameraAzimuth
 	installedCameraHeight
@@ -30,6 +31,7 @@ type InstalledCamera struct {
 	Offset
 
 	Mount string
+	View  string
 	Notes string
 }
 
@@ -45,6 +47,7 @@ func (a InstalledCameraList) encode() [][]string {
 		"Model",
 		"Serial",
 		"Mount",
+		"View",
 		"Dip",
 		"Azimuth",
 		"Height",
@@ -60,6 +63,7 @@ func (a InstalledCameraList) encode() [][]string {
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Serial),
 			strings.TrimSpace(v.Mount),
+			strings.TrimSpace(v.View),
 			strings.TrimSpace(v.dip),
 			strings.TrimSpace(v.azimuth),
 			strings.TrimSpace(v.vertical),
@@ -138,6 +142,7 @@ func (a *InstalledCameraList) decode(data [][]string) error {
 					east:     strings.TrimSpace(d[installedCameraEast]),
 				},
 				Mount: strings.TrimSpace(d[installedCameraMount]),
+				View:  strings.TrimSpace(d[installedCameraView]),
 				Notes: strings.TrimSpace(d[installedCameraNotes]),
 			})
 		}
