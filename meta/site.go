@@ -63,19 +63,21 @@ func (s SiteList) encode() [][]string {
 		"Start Date",
 		"End Date",
 	}}
+
 	for _, v := range s {
 		data = append(data, []string{
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
-			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
+			strings.TrimSpace(v.latitude),
+			strings.TrimSpace(v.longitude),
+			strings.TrimSpace(v.elevation),
 			strings.TrimSpace(v.Datum),
 			strings.TrimSpace(v.Survey),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
@@ -109,10 +111,16 @@ func (s *SiteList) decode(data [][]string) error {
 
 			sites = append(sites, Site{
 				Point: Point{
+					// geographic details
 					Latitude:  lat,
 					Longitude: lon,
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[siteDatum]),
+
+					// shadow variables
+					latitude:  d[siteLatitude],
+					longitude: d[siteLongitude],
+					elevation: d[siteElevation],
 				},
 				Span: Span{
 					Start: start,
@@ -126,6 +134,7 @@ func (s *SiteList) decode(data [][]string) error {
 
 		*s = SiteList(sites)
 	}
+
 	return nil
 }
 

@@ -1,29 +1,29 @@
-package meta_test
+package meta
 
 import (
 	"io/ioutil"
 	"testing"
 	"time"
 
-	"github.com/GeoNet/delta/meta"
+	"github.com/google/go-cmp/cmp"
 )
 
 func TestList(t *testing.T) {
 
 	var listtests = []struct {
 		f string
-		l meta.List
+		l List
 	}{
 		{
 			"testdata/networks.csv",
-			&meta.NetworkList{
-				meta.Network{
+			&NetworkList{
+				Network{
 					Code:        "AK",
 					External:    "NZ",
 					Description: "Auckland volcano seismic network",
 					Restricted:  false,
 				},
-				meta.Network{
+				Network{
 					Code:        "CB",
 					External:    "NZ",
 					Description: "Canterbury regional seismic network",
@@ -33,51 +33,47 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/stations.csv",
-			&meta.StationList{
-				meta.Station{
-					Reference: meta.Reference{
+			&StationList{
+				Station{
+					Reference: Reference{
 						Code:    "DFE",
 						Network: "TR",
 						Name:    "Dawson Falls",
 					},
-					Point: meta.Point{
+					Point: Point{
 						Latitude:  -39.325743417,
 						Longitude: 174.103863732,
 						Elevation: 880.0,
 						Datum:     "WGS84",
+
+						latitude:  "-39.325743417",
+						longitude: "174.103863732",
+						elevation: "880",
 					},
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "1993-12-14T00:00:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2010-02-23T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(1993, time.December, 14, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(2010, time.February, 23, 0, 0, 0, 0, time.UTC),
 					},
 				},
-				meta.Station{
-					Reference: meta.Reference{
+				Station{
+					Reference: Reference{
 						Code:    "TBAS",
 						Network: "SM",
 						Name:    "Tolaga Bay Area School",
 					},
-					Point: meta.Point{
+					Point: Point{
 						Latitude:  -38.372803703,
 						Longitude: 178.300778623,
 						Elevation: 8.0,
 						Datum:     "WGS84",
+
+						latitude:  "-38.372803703",
+						longitude: "178.300778623",
+						elevation: "8",
 					},
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2002-03-05T00:00:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2002, time.March, 5, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 					//Notes: "Is located in the Kiln Shed next to the hall",
 				},
@@ -85,50 +81,46 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/mounts.csv",
-			&meta.MountList{
-				meta.Mount{
-					Reference: meta.Reference{
+			&MountList{
+				Mount{
+					Reference: Reference{
 						Code: "MTSR",
 						Name: "Ruapehu South",
 					},
-					Point: meta.Point{
+					Point: Point{
 						Latitude:  -39.384607843,
 						Longitude: 175.470410324,
 						Elevation: 840,
 						Datum:     "WGS84",
+
+						latitude:  "-39.384607843",
+						longitude: "175.470410324",
+						elevation: "840",
 					},
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2011-09-08T00:10:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2011, time.September, 8, 0, 10, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 					Description: "Images of Mount Ruapehu from the volcano camera situated at Mangateitei.",
 				},
-				meta.Mount{
-					Reference: meta.Reference{
+				Mount{
+					Reference: Reference{
 						Code: "RIMM",
 						Name: "Raoul Island",
 					},
-					Point: meta.Point{
+					Point: Point{
 						Latitude:  -29.267332,
 						Longitude: -177.907235,
 						Elevation: 490,
 						Datum:     "WGS84",
+
+						latitude:  "-29.267332",
+						longitude: "-177.907235",
+						elevation: "490",
 					},
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2009-05-18T00:00:02Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2009, time.May, 18, 0, 0, 2, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 					Description: "Images looking into Green Lake on Raoul Island from the volcano camera situated on Mount Moumoukai.",
 				},
@@ -136,45 +128,39 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/sites.csv",
-			&meta.SiteList{
-				meta.Site{
-					Point: meta.Point{
+			&SiteList{
+				Site{
+					Point: Point{
 						Latitude:  -39.198244208,
 						Longitude: 175.547981982,
 						Elevation: 1116.0,
 						Datum:     "WGS84",
+						latitude:  "-39.198244208",
+						longitude: "175.547981982",
+						elevation: "1116",
 					},
 					Survey: "GPS",
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2014-05-16T00:00:15Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2014, time.May, 16, 0, 0, 15, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 					Station:  "CNZ",
 					Location: "12",
 				},
-				meta.Site{
-					Point: meta.Point{
+				Site{
+					Point: Point{
 						Latitude:  -45.091369824,
 						Longitude: 169.411775594,
 						Elevation: 701.0,
 						Datum:     "WGS84",
+						latitude:  "-45.091369824",
+						longitude: "169.411775594",
+						elevation: "701",
 					},
 					Survey: "Map",
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "1986-12-09T20:10:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "1996-05-01T21:38:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(1986, time.December, 9, 20, 10, 0, 0, time.UTC),
+						End:   time.Date(1996, time.May, 1, 21, 38, 0, 0, time.UTC),
 					},
 					Station:  "MSCZ",
 					Location: "10",
@@ -183,142 +169,118 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/marks.csv",
-			&meta.MarkList{
-				meta.Mark{
-					Reference: meta.Reference{
+			&MarkList{
+				Mark{
+					Reference: Reference{
 						Code:    "AHTI",
 						Network: "CG",
 						Name:    "Ahititi",
 					},
 					Igs: false,
-					Point: meta.Point{
+					Point: Point{
 						Latitude:  -38.411447554,
 						Longitude: 178.046002897,
 						Elevation: 563.221,
 						Datum:     "NZGD2000",
+
+						latitude:  "-38.411447554",
+						longitude: "178.046002897",
+						elevation: "563.221",
 					},
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2009-01-01T00:00:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2009, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 				},
-				meta.Mark{
-					Reference: meta.Reference{
+				Mark{
+					Reference: Reference{
 						Code:    "DUND",
 						Network: "LI",
 						Name:    "Dunedin",
 					},
 					Igs: true,
-					Point: meta.Point{
+					Point: Point{
 						Latitude:  -45.88366604,
 						Longitude: 170.5971706,
 						Elevation: 386.964,
 						Datum:     "NZGD2000",
+
+						latitude:  "-45.88366604",
+						longitude: "170.5971706",
+						elevation: "386.964",
 					},
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2005-08-10T00:00:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2005, time.August, 10, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 				},
 			},
 		},
 		{
 			"testdata/monuments.csv",
-			&meta.MonumentList{
-				meta.Monument{
+			&MonumentList{
+				Monument{
 					Mark:               "CLIM",
 					DomesNumber:        "",
 					MarkType:           "Forced Centering",
 					Type:               "Deep Braced",
 					GroundRelationship: -1.00,
+					groundRelationship: "-1",
 					FoundationType:     "Steel Rods",
 					FoundationDepth:    10.0,
+					foundationDepth:    "10",
 					Bedrock:            "Greywacke",
 					Geology:            "",
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2009-01-01T00:00:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2009, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 				},
-				meta.Monument{
+				Monument{
 					Mark:               "TAUP",
 					DomesNumber:        "50217M001",
 					MarkType:           "Forced Centering",
 					Type:               "Pillar",
 					GroundRelationship: -1.25,
+					groundRelationship: "-1.25",
 					FoundationType:     "Concrete",
 					FoundationDepth:    2.0,
+					foundationDepth:    "2",
 					Bedrock:            "Rhyolite",
 					Geology:            "",
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2005-08-10T00:00:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2005, time.August, 10, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 				},
 			},
 		},
 		{
 			"testdata/visibility.csv",
-			&meta.VisibilityList{
-				meta.Visibility{
+			&VisibilityList{
+				Visibility{
 					Code:          "AHTI",
 					SkyVisibility: "good",
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2009-01-01T00:00:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2009, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 				},
-				meta.Visibility{
+				Visibility{
 					Code:          "DUND",
 					SkyVisibility: "clear to NW",
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2005-08-10T00:00:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2005, time.August, 10, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 				},
 			},
 		},
 		{
 			"testdata/assets.csv",
-			&meta.AssetList{
+			&AssetList{
 				{
-					Equipment: meta.Equipment{
+					Equipment: Equipment{
 						Make:   "Trimble",
 						Model:  "Chokering Model 29659.00",
 						Serial: "0220063995",
@@ -326,7 +288,7 @@ func TestList(t *testing.T) {
 					Number: "100",
 				},
 				{
-					Equipment: meta.Equipment{
+					Equipment: Equipment{
 						Make:   "Trimble",
 						Model:  "Chokering Model 29659.00",
 						Serial: "0220066912",
@@ -337,101 +299,87 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/antennas.csv",
-			&meta.InstalledAntennaList{
+			&InstalledAntennaList{
 				{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "Trimble",
 							Model:  "Chokering Model 29659.00",
 							Serial: "0220063995",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2000-08-02T23:59:01Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2000, time.August, 2, 23, 59, 1, 0, time.UTC),
+							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 						},
 					},
-					Offset: meta.Offset{
+					Offset: Offset{
 						Vertical: 0.0015,
 						North:    0.0,
 						East:     0.0,
+
+						vertical: "0.0015",
+						north:    "0",
+						east:     "0",
 					},
 					Mark:    "CNCL",
 					Azimuth: 0.0,
+					azimuth: "0",
 				},
 				{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "Trimble",
 							Model:  "Chokering Model 29659.00",
 							Serial: "0220066912",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2000-08-14T23:59:52Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2011-02-07T22:35:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2000, time.August, 14, 23, 59, 52, 0, time.UTC),
+							End:   time.Date(2011, time.February, 7, 22, 35, 0, 0, time.UTC),
 						},
 					},
-					Offset: meta.Offset{
+					Offset: Offset{
 						Vertical: 0.0013,
 						North:    0.0,
 						East:     0.0,
+
+						vertical: "0.0013",
+						north:    "0",
+						east:     "0",
 					},
 					Mark:    "MTJO",
 					Azimuth: 10.0,
+					azimuth: "10",
 				},
 			},
 		},
 		{
 			"testdata/dataloggers.csv",
-			&meta.DeployedDataloggerList{
-				meta.DeployedDatalogger{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+			&DeployedDataloggerList{
+				DeployedDatalogger{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "GNSScience",
 							Model:  "EARSS/3",
 							Serial: "152",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2001-01-18T13:22:00Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2001-02-10T10:50:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2001, time.January, 18, 13, 22, 0, 0, time.UTC),
+							End:   time.Date(2001, time.February, 10, 10, 50, 0, 0, time.UTC),
 						},
 					},
 					Place: "Pukeroa",
 					Role:  "Short Period",
 				},
-				meta.DeployedDatalogger{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+				DeployedDatalogger{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "Kinemetrics",
 							Model:  "Q330/3",
 							Serial: "2216",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2009-02-10T23:00:01Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2009, time.February, 10, 23, 0, 1, 0, time.UTC),
+							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 						},
 					},
 					Place: "Turoa Road End",
@@ -440,126 +388,132 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/metsensors.csv",
-			&meta.InstalledMetSensorList{
-				meta.InstalledMetSensor{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+			&InstalledMetSensorList{
+				InstalledMetSensor{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "Paroscientific",
 							Model:  "Paroscientific meterological sensor",
 							Serial: "65123",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "1998-07-09T23:59:59Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(1998, time.July, 9, 23, 59, 59, 0, time.UTC),
+							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 						},
 					},
-					Point: meta.Point{
+					Point: Point{
 						Latitude:  -41.2351,
 						Longitude: 174.917,
 						Elevation: 26,
 						Datum:     "NZGD2000",
+
+						latitude:  "-41.2351",
+						longitude: "174.917",
+						elevation: "26",
 					},
 					Mark: "GRAC",
-					Accuracy: meta.MetSensorAccuracy{
+					Accuracy: MetSensorAccuracy{
 						Humidity:    2.0,
 						Pressure:    0.5,
 						Temperature: 1,
+
+						humidity:    "2",
+						pressure:    "0.5",
+						temperature: "1",
 					},
 				},
-				meta.InstalledMetSensor{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+				InstalledMetSensor{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "Paroscientific",
 							Model:  "Paroscientific meterological sensor",
 							Serial: "65125",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2000-08-15T00:00:00Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2000, time.August, 15, 0, 0, 0, 0, time.UTC),
+							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 						},
 					},
-					Point: meta.Point{
+					Point: Point{
 						Latitude:  -43.9857,
 						Longitude: 170.4649,
 						Elevation: 1044,
 						Datum:     "NZGD2000",
+
+						latitude:  "-43.9857",
+						longitude: "170.4649",
+						elevation: "1044",
 					},
 					Mark: "MTJO",
-					Accuracy: meta.MetSensorAccuracy{
+					Accuracy: MetSensorAccuracy{
 						Humidity:    2.0,
 						Pressure:    0.5,
 						Temperature: 1,
+
+						humidity:    "2",
+						pressure:    "0.5",
+						temperature: "1",
 					},
 				},
 			},
 		},
 		{
 			"testdata/cameras.csv",
-			&meta.InstalledCameraList{
-				meta.InstalledCamera{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+			&InstalledCameraList{
+				InstalledCamera{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "Axis Communications AB",
 							Model:  "AXIS-221",
 							Serial: "00408C6DC9E1",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2006-02-24T14:00:00Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2006, time.February, 24, 14, 0, 0, 0, time.UTC),
+							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 						},
 					},
-					Orientation: meta.Orientation{
+					Orientation: Orientation{
 						Dip:     0.0,
 						Azimuth: 20.0,
+
+						dip:     "0",
+						azimuth: "20",
 					},
-					Offset: meta.Offset{
+					Offset: Offset{
 						Vertical: -3.0,
+
+						vertical: "-3",
+						north:    "0",
+						east:     "0",
 					},
 					Mount: "WHWI",
 					Notes: "Looking at White Island",
 				},
-				meta.InstalledCamera{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+				InstalledCamera{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "Mobotix AG",
 							Model:  "M12 3MP",
 							Serial: "0003c5041fc7",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2009-03-03T02:00:00Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2009-09-18T01:00:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2009, time.March, 3, 2, 0, 0, 0, time.UTC),
+							End:   time.Date(2009, time.September, 18, 1, 0, 0, 0, time.UTC),
 						},
 					},
-					Orientation: meta.Orientation{
+					Orientation: Orientation{
 						Dip:     0.0,
 						Azimuth: 280.0,
+
+						dip:     "0",
+						azimuth: "280",
 					},
-					Offset: meta.Offset{
+					Offset: Offset{
 						Vertical: -10.0,
+
+						vertical: "-10",
+						north:    "0",
+						east:     "0",
 					},
 					Mount: "K",
 					Notes: "Bearing is magnetic.",
@@ -568,43 +522,31 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/radomes.csv",
-			&meta.InstalledRadomeList{
-				meta.InstalledRadome{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+			&InstalledRadomeList{
+				InstalledRadome{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "LeicaGeosystems",
 							Model:  "LEIS Radome",
 							Serial: "0220148020",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "1999-09-27T00:00:00Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2000-01-21T00:00:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(1999, time.September, 27, 0, 0, 0, 0, time.UTC),
+							End:   time.Date(2000, time.January, 21, 0, 0, 0, 0, time.UTC),
 						},
 					},
 					Mark: "MQZG",
 				},
-				meta.InstalledRadome{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+				InstalledRadome{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "Thales",
 							Model:  "SCIS Radome",
 							Serial: "0220063995",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2000-08-03T00:00:00Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2000, time.August, 3, 0, 0, 0, 0, time.UTC),
+							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 						},
 					},
 					Mark: "CNCL",
@@ -613,43 +555,31 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/receivers.csv",
-			&meta.DeployedReceiverList{
-				meta.DeployedReceiver{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+			&DeployedReceiverList{
+				DeployedReceiver{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "Trimble",
 							Model:  "5700",
 							Serial: "220280300",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2002-12-31T01:00:01Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2012-08-31T15:00:01Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2002, time.December, 31, 1, 0, 1, 0, time.UTC),
+							End:   time.Date(2012, time.August, 31, 15, 0, 1, 0, time.UTC),
 						},
 					},
 					Mark: "HORN",
 				},
-				meta.DeployedReceiver{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+				DeployedReceiver{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "Trimble",
 							Model:  "NetR9",
 							Serial: "5014K66721",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2010-10-12T00:00:01Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2014-07-27T22:00:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2010, time.October, 12, 0, 0, 1, 0, time.UTC),
+							End:   time.Date(2014, time.July, 27, 22, 0, 0, 0, time.UTC),
 						},
 					},
 					Mark: "METH",
@@ -658,67 +588,75 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/sensors.csv",
-			&meta.InstalledSensorList{
-				meta.InstalledSensor{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+			&InstalledSensorList{
+				InstalledSensor{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "AppliedGeomechanics",
 							Model:  "Lily tiltmeter",
 							Serial: "N7935",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2009-11-15T01:00:00Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2013-05-24T00:00:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2009, time.November, 15, 1, 0, 0, 0, time.UTC),
+							End:   time.Date(2013, time.May, 24, 0, 0, 0, 0, time.UTC),
 						},
 					},
-					Orientation: meta.Orientation{
+					Orientation: Orientation{
 						Azimuth: 233.0,
 						Dip:     0.0,
+
+						azimuth: "233",
+						dip:     "0",
 					},
-					Offset: meta.Offset{
+					Offset: Offset{
 						Vertical: -64.0,
+
+						vertical: "64",
+						north:    "0",
+						east:     "0",
 					},
-					Scale: meta.Scale{
+					Scale: Scale{
 						Factor: 1.0,
 						Bias:   0.0,
+
+						factor: "1",
+						bias:   "0",
 					},
 					Station:  "COVZ",
 					Location: "90",
 				},
-				meta.InstalledSensor{
-					Install: meta.Install{
-						Equipment: meta.Equipment{
+				InstalledSensor{
+					Install: Install{
+						Equipment: Equipment{
 							Make:   "Guralp",
 							Model:  "CMG-3ESPC",
 							Serial: "T36194",
 						},
-						Span: meta.Span{
-							Start: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2012-05-21T11:00:04Z")
-								return v
-							}(),
-							End: func() time.Time {
-								v, _ := time.Parse(meta.DateTimeFormat, "2013-07-10T23:00:00Z")
-								return v
-							}(),
+						Span: Span{
+							Start: time.Date(2012, time.May, 21, 11, 0, 4, 0, time.UTC),
+							End:   time.Date(2013, time.July, 10, 23, 0, 0, 0, time.UTC),
 						},
 					},
-					Orientation: meta.Orientation{
+					Orientation: Orientation{
 						Azimuth: 0.0,
 						Dip:     0.0,
+
+						azimuth: "0",
+						dip:     "0",
 					},
-					Offset: meta.Offset{
+					Offset: Offset{
 						Vertical: 0.0,
+
+						vertical: "0",
+						north:    "0",
+						east:     "0",
 					},
-					Scale: meta.Scale{
+					Scale: Scale{
 						Factor: 1.0,
 						Bias:   0.0,
+
+						factor: "1",
+						bias:   "0",
 					},
 					Station:  "INZ",
 					Location: "10",
@@ -727,63 +665,61 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/recorders.csv",
-			&meta.InstalledRecorderList{
-				meta.InstalledRecorder{
-					InstalledSensor: meta.InstalledSensor{
-						Install: meta.Install{
-							Equipment: meta.Equipment{
+			&InstalledRecorderList{
+				InstalledRecorder{
+					InstalledSensor: InstalledSensor{
+						Install: Install{
+							Equipment: Equipment{
 								Make:   "CSI",
 								Model:  "CUSP3A",
 								Serial: "3A-040001",
 							},
-							Span: meta.Span{
-								Start: func() time.Time {
-									v, _ := time.Parse(meta.DateTimeFormat, "2004-11-27T00:00:00Z")
-									return v
-								}(),
-								End: func() time.Time {
-									v, _ := time.Parse(meta.DateTimeFormat, "2010-03-25T00:30:00Z")
-									return v
-								}(),
+							Span: Span{
+								Start: time.Date(2004, time.November, 27, 0, 0, 0, 0, time.UTC),
+								End:   time.Date(2010, time.March, 25, 0, 30, 0, 0, time.UTC),
 							},
 						},
-						Orientation: meta.Orientation{
+						Orientation: Orientation{
 							Azimuth: 266.0,
 							Dip:     0.0,
+
+							azimuth: "266",
+							dip:     "0",
 						},
-						Offset: meta.Offset{
+						Offset: Offset{
 							Vertical: 0.0,
+
+							vertical: "0",
 						},
 						Station:  "AMBC",
 						Location: "20",
 					},
 					DataloggerModel: "CUSP3A",
 				},
-				meta.InstalledRecorder{
-					InstalledSensor: meta.InstalledSensor{
-						Install: meta.Install{
-							Equipment: meta.Equipment{
+				InstalledRecorder{
+					InstalledSensor: InstalledSensor{
+						Install: Install{
+							Equipment: Equipment{
 								Make:   "Kinemetrics",
 								Model:  "FBA-ES-T-DECK",
 								Serial: "1275",
 							},
-							Span: meta.Span{
-								Start: func() time.Time {
-									v, _ := time.Parse(meta.DateTimeFormat, "2014-04-17T00:10:00Z")
-									return v
-								}(),
-								End: func() time.Time {
-									v, _ := time.Parse(meta.DateTimeFormat, "2014-07-29T00:00:00Z")
-									return v
-								}(),
+							Span: Span{
+								Start: time.Date(2014, time.April, 17, 0, 10, 0, 0, time.UTC),
+								End:   time.Date(2014, time.July, 29, 0, 0, 0, 0, time.UTC),
 							},
 						},
-						Orientation: meta.Orientation{
+						Orientation: Orientation{
 							Azimuth: 210.0,
 							Dip:     0.0,
+
+							azimuth: "210",
+							dip:     "0",
 						},
-						Offset: meta.Offset{
+						Offset: Offset{
 							Vertical: 0.0,
+
+							vertical: "0",
 						},
 						Station:  "EKS3",
 						Location: "20",
@@ -794,47 +730,35 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/connections.csv",
-			&meta.ConnectionList{
-				meta.Connection{
+			&ConnectionList{
+				Connection{
 					Station:  "APZ",
 					Location: "10",
 					Place:    "The Paps",
 					//PreAmp:       false,
 					//Gain:         0,
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2006-05-07T03:23:54Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2006, time.May, 7, 3, 23, 54, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 				},
-				meta.Connection{
+				Connection{
 					Station:  "BSWZ",
 					Location: "10",
 					Place:    "Blackbirch Station",
 					//PreAmp:       true,
 					//Gain:         1,
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2003-12-09T00:00:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2003, time.December, 9, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 				},
 			},
 		},
 		{
 			"testdata/sessions.csv",
-			&meta.SessionList{
-				meta.Session{
+			&SessionList{
+				Session{
 					Mark:            "TAUP",
 					Operator:        "GeoNet",
 					Agency:          "GNS",
@@ -842,88 +766,81 @@ func TestList(t *testing.T) {
 					SatelliteSystem: "GPS",
 					Interval:        time.Second * 30,
 					ElevationMask:   0,
+					elevationMask:   "0",
 					HeaderComment:   "linz",
 					Format:          "trimble_5700 x5",
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2002-03-01T00:00:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2002, time.March, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 				},
 			},
 		},
 		{
 			"testdata/streams.csv",
-			&meta.StreamList{
-				meta.Stream{
+			&StreamList{
+				Stream{
 					Station:      "AKSS",
 					Location:     "20",
 					SamplingRate: 50.0,
+					samplingRate: "50",
 					Axial:        "true",
 					Reversed:     false,
 					Triggered:    true,
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2011-08-25T00:25:00Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2011, time.August, 25, 0, 25, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 				},
-				meta.Stream{
+				Stream{
 					Station:      "APZ",
 					Location:     "20",
 					SamplingRate: 200.0,
+					samplingRate: "200",
 					Axial:        "false",
 					Reversed:     false,
 					Triggered:    false,
-					Span: meta.Span{
-						Start: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "2007-05-02T22:00:01Z")
-							return v
-						}(),
-						End: func() time.Time {
-							v, _ := time.Parse(meta.DateTimeFormat, "9999-01-01T00:00:00Z")
-							return v
-						}(),
+					Span: Span{
+						Start: time.Date(2007, time.May, 2, 22, 0, 1, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 				},
 			},
 		},
 		{
 			"testdata/gauges.csv",
-			&meta.GaugeList{
-				meta.Gauge{
-					Reference: meta.Reference{
+			&GaugeList{
+				Gauge{
+					Reference: Reference{
 						Code:    "AUCT",
 						Network: "TG",
 					},
 					Number:   "363",
 					TimeZone: 180.0,
-					Point: meta.Point{
+					timeZone: "180",
+					Point: Point{
 						Latitude:  36.5,
 						Longitude: 174.47,
+
+						latitude:  "36.5",
+						longitude: "174.47",
 					},
 					Crex: "-3683144 17478654 AUCT",
 				},
-				meta.Gauge{
-					Reference: meta.Reference{
+				Gauge{
+					Reference: Reference{
 						Code:    "CPIT",
 						Network: "TG",
 					},
 					Number:   "313",
 					TimeZone: 180.0,
-					Point: meta.Point{
+					timeZone: "180",
+					Point: Point{
 						Latitude:  40.55,
 						Longitude: 176.13,
+
+						latitude:  "40.55",
+						longitude: "176.13",
 					},
 					Crex: "-4089929 17623168 CPIT",
 				},
@@ -931,27 +848,33 @@ func TestList(t *testing.T) {
 		},
 		{
 			"testdata/constituents.csv",
-			&meta.ConstituentList{
-				meta.Constituent{
+			&ConstituentList{
+				Constituent{
 					Gauge:     "AUCT",
 					Number:    1,
 					Name:      "Z0",
 					Amplitude: 186.2448,
 					Lag:       0,
+
+					amplitude: "186.2448",
+					lag:       "0",
 				},
-				meta.Constituent{
+				Constituent{
 					Gauge:     "AUCT",
 					Number:    2,
 					Name:      "SA",
 					Amplitude: 3.8781,
 					Lag:       112.03,
+
+					amplitude: "3.8781",
+					lag:       "112.03",
 				},
 			},
 		},
 	}
 
 	for _, tt := range listtests {
-		res, err := meta.MarshalList(tt.l)
+		res, err := MarshalList(tt.l)
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -963,36 +886,36 @@ func TestList(t *testing.T) {
 				t.Fatal(err)
 			}
 			if string(res) != string(b) {
-				t.Errorf("list file text mismatch: %s [\n%s\n]", tt.f, diff(res, b))
+				t.Errorf("unexpected %s content -got/+exp\n%s", tt.f, cmp.Diff(string(res), string(b)))
 			}
 		}
 		t.Log("Check encode/decode list: " + tt.f)
 		{
-			if err := meta.UnmarshalList(res, tt.l); err != nil {
+			if err := UnmarshalList(res, tt.l); err != nil {
 				t.Fatal(err)
 			}
 
-			s, err := meta.MarshalList(tt.l)
+			s, err := MarshalList(tt.l)
 			if err != nil {
 				t.Fatal(err)
 			}
 			if string(res) != string(s) {
-				t.Errorf("list encode/reencode mismatch: %s [\n%s\n]", tt.f, diff(res, s))
+				t.Errorf("unexpected %s content -got/+exp\n%s", tt.f, cmp.Diff(string(res), string(s)))
 			}
 		}
 
 		t.Log("Check list file: " + tt.f)
 		{
-			if err := meta.LoadList(tt.f, tt.l); err != nil {
+			if err := LoadList(tt.f, tt.l); err != nil {
 				t.Fatal(err)
 			}
 
-			s, err := meta.MarshalList(tt.l)
+			s, err := MarshalList(tt.l)
 			if err != nil {
 				t.Fatal(err)
 			}
 			if string(res) != string(s) {
-				t.Errorf("list file list mismatch: %s [\n%s\n]", tt.f, diff(res, s))
+				t.Errorf("unexpected %s content -got/+exp\n%s", tt.f, cmp.Diff(string(res), string(s)))
 			}
 		}
 	}

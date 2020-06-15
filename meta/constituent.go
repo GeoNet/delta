@@ -22,6 +22,9 @@ type Constituent struct {
 	Name      string
 	Amplitude float64
 	Lag       float64
+
+	amplitude string // shadow variable to maintain formatting
+	lag       string // shadow variable to maintain formatting
 }
 
 type ConstituentList []Constituent
@@ -52,8 +55,8 @@ func (c ConstituentList) encode() [][]string {
 			strings.TrimSpace(v.Gauge),
 			strconv.Itoa(v.Number),
 			strings.TrimSpace(v.Name),
-			strconv.FormatFloat(v.Amplitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Lag, 'g', -1, 64),
+			strings.TrimSpace(v.amplitude),
+			strings.TrimSpace(v.lag),
 		})
 	}
 	return data
@@ -87,6 +90,9 @@ func (c *ConstituentList) decode(data [][]string) error {
 				Name:      d[constituentName],
 				Amplitude: amp,
 				Lag:       lag,
+
+				amplitude: d[constituentAmplitude],
+				lag:       d[constituentLag],
 			})
 		}
 

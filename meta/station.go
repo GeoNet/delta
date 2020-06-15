@@ -25,8 +25,6 @@ type Station struct {
 	Reference
 	Point
 	Span
-
-	//	Notes string
 }
 
 type StationList []Station
@@ -46,20 +44,18 @@ func (s StationList) encode() [][]string {
 		"Datum",
 		"Start Date",
 		"End Date",
-		//"Notes",
 	}}
 	for _, v := range s {
 		data = append(data, []string{
 			strings.TrimSpace(v.Code),
 			strings.TrimSpace(v.Network),
 			strings.TrimSpace(v.Name),
-			strconv.FormatFloat(v.Latitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Longitude, 'g', -1, 64),
-			strconv.FormatFloat(v.Elevation, 'g', -1, 64),
+			strings.TrimSpace(v.latitude),
+			strings.TrimSpace(v.longitude),
+			strings.TrimSpace(v.elevation),
 			strings.TrimSpace(v.Datum),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
-			//strings.TrimSpace(v.Notes),
 		})
 	}
 	return data
@@ -75,13 +71,13 @@ func (s *StationList) decode(data [][]string) error {
 			var err error
 
 			var lat, lon, elev float64
-			if lat, err = strconv.ParseFloat(d[3], stationLatitude); err != nil {
+			if lat, err = strconv.ParseFloat(d[stationLatitude], 64); err != nil {
 				return err
 			}
-			if lon, err = strconv.ParseFloat(d[4], stationLongitude); err != nil {
+			if lon, err = strconv.ParseFloat(d[stationLongitude], 64); err != nil {
 				return err
 			}
-			if elev, err = strconv.ParseFloat(d[5], stationHeight); err != nil {
+			if elev, err = strconv.ParseFloat(d[stationHeight], 64); err != nil {
 				return err
 			}
 
@@ -108,8 +104,11 @@ func (s *StationList) decode(data [][]string) error {
 					Longitude: lon,
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[stationDatum]),
+
+					latitude:  strings.TrimSpace(d[stationLatitude]),
+					longitude: strings.TrimSpace(d[stationLongitude]),
+					elevation: strings.TrimSpace(d[stationHeight]),
 				},
-				//Notes: strings.TrimSpace(d[9]),
 			})
 		}
 

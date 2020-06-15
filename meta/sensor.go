@@ -40,7 +40,7 @@ type InstalledSensorList []InstalledSensor
 
 func (s InstalledSensorList) Len() int           { return len(s) }
 func (s InstalledSensorList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s InstalledSensorList) Less(i, j int) bool { return s[i].Install.less(s[j].Install) }
+func (s InstalledSensorList) Less(i, j int) bool { return s[i].Install.Less(s[j].Install) }
 
 func (s InstalledSensorList) encode() [][]string {
 	data := [][]string{{
@@ -67,19 +67,13 @@ func (s InstalledSensorList) encode() [][]string {
 			strings.TrimSpace(v.Serial),
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
-			strconv.FormatFloat(v.Azimuth, 'g', -1, 64),
-			strconv.FormatFloat(v.Dip, 'g', -1, 64),
-			func() string {
-				if v.Vertical == 0.0 {
-					return strconv.FormatFloat(0.0, 'g', -1, 64)
-				} else {
-					return strconv.FormatFloat(-v.Vertical, 'g', -1, 64)
-				}
-			}(),
-			strconv.FormatFloat(v.North, 'g', -1, 64),
-			strconv.FormatFloat(v.East, 'g', -1, 64),
-			strconv.FormatFloat(v.Factor, 'g', -1, 64),
-			strconv.FormatFloat(v.Bias, 'g', -1, 64),
+			strings.TrimSpace(v.azimuth),
+			strings.TrimSpace(v.dip),
+			strings.TrimSpace(v.vertical),
+			strings.TrimSpace(v.north),
+			strings.TrimSpace(v.east),
+			strings.TrimSpace(v.factor),
+			strings.TrimSpace(v.bias),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -145,15 +139,25 @@ func (s *InstalledSensorList) decode(data [][]string) error {
 				Orientation: Orientation{
 					Azimuth: azimuth,
 					Dip:     dip,
+
+					azimuth: strings.TrimSpace(d[sensorAzimuth]),
+					dip:     strings.TrimSpace(d[sensorDip]),
 				},
 				Offset: Offset{
 					Vertical: -depth,
 					North:    north,
 					East:     east,
+
+					vertical: strings.TrimSpace(d[sensorDepth]),
+					north:    strings.TrimSpace(d[sensorNorth]),
+					east:     strings.TrimSpace(d[sensorEast]),
 				},
 				Scale: Scale{
 					Factor: factor,
 					Bias:   bias,
+
+					factor: strings.TrimSpace(d[sensorScaleFactor]),
+					bias:   strings.TrimSpace(d[sensorScaleBias]),
 				},
 				Station:  strings.TrimSpace(d[sensorStation]),
 				Location: strings.TrimSpace(d[sensorLocation]),
