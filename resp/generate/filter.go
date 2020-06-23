@@ -8,6 +8,7 @@ type ResponseStage struct {
 	Type        string  `yaml:"type"`
 	Lookup      string  `yaml:"lookup"`
 	Frequency   float64 `yaml:"frequency"`
+	InputRate   float64 `yaml:"inputrate"`
 	SampleRate  float64 `yaml:"samplerate"`
 	Decimate    int32   `yaml:"decimate"`
 	Gain        float64 `yaml:"gain"`

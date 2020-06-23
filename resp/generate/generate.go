@@ -122,7 +122,8 @@ var generateTemplate = `
 			Coefficients: []Coefficient{{"{"}}{{ range $z := .Coefficients}}Coefficient{Value: {{ $z }}{{"}"}},{{end}}{{"}"}},
 		},{{end}}{{end}}
 		Frequency: {{$v.Frequency}},
-		SampleRate: {{$v.SampleRate}},
+		{{if $v.InputRate}}InputRate: {{$v.InputRate}},
+{{end }}                SampleRate: {{$v.SampleRate}},
 		Decimate: {{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{.Decimation}}{{end}}{{else}}{{$v.Decimate}}{{end}},
 		Gain: {{$v.Gain}},
 		//Scale: {{$v.Scale}},{{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{if and (eq $v.Correction 0.0) (gt .Decimation 1.0)}}
