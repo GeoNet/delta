@@ -381,11 +381,20 @@ func (b *Builder) Construct(base string) ([]stationxml.Network, error) {
 
 					}
 
+					start := installation.Start
+					if stream.Start.After(start) {
+						start = stream.Start
+					}
+					end := installation.End
+					if stream.End.Before(end) {
+						end = stream.End
+					}
+
 					channels = append(channels, stationxml.Channel{
 						BaseNode: stationxml.BaseNode{
 							Code:      channel, //response.Label + string(cha),
-							StartDate: &stationxml.DateTime{Time: installation.Start},
-							EndDate:   &stationxml.DateTime{Time: installation.End},
+							StartDate: &stationxml.DateTime{Time: start},
+							EndDate:   &stationxml.DateTime{Time: end},
 							RestrictedStatus: func() stationxml.RestrictedStatus {
 								switch network.Restricted {
 								case true:
