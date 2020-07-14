@@ -40,6 +40,7 @@ func TestConsistency(t *testing.T) {
 		"sites":        {f: "../network/sites.csv", l: &meta.SiteList{}},
 		"marks":        {f: "../network/marks.csv", l: &meta.MarkList{}},
 		"mounts":       {f: "../network/mounts.csv", l: &meta.MountList{}},
+		"views":        {f: "../network/views.csv", l: &meta.ViewList{}},
 		"gauges":       {f: "../environment/gauges.csv", l: &meta.GaugeList{}},
 		"constituents": {f: "../environment/constituents.csv", l: &meta.ConstituentList{}},
 	}

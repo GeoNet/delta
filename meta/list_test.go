@@ -127,6 +127,47 @@ func TestList(t *testing.T) {
 			},
 		},
 		{
+			"testdata/views.csv",
+			&ViewList{
+				View{
+					Mount: "MTSR",
+					Code:  "01",
+					Label: "Ruapehu South",
+					Orientation: Orientation{
+						Dip:     10.0,
+						Azimuth: 180.0,
+
+						dip:     "10",
+						azimuth: "180",
+					},
+					Description: "Images of Mount Ruapehu from the volcano camera situated at Mangateitei.",
+					Span: Span{
+						Start: time.Date(2011, time.September, 8, 0, 10, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+				},
+
+				View{
+					Mount: "RIMM",
+					Code:  "02",
+					Label: "Raoul Island",
+					Orientation: Orientation{
+						Dip:     -10.0,
+						Azimuth: 280.0,
+
+						dip:     "-10",
+						azimuth: "280",
+					},
+					Description: "Images looking into Green Lake on Raoul Island from the volcano camera situated on Mount Moumoukai.",
+					Span: Span{
+						Start: time.Date(2009, time.May, 18, 0, 0, 2, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+				},
+			},
+		},
+
+		{
 			"testdata/sites.csv",
 			&SiteList{
 				Site{
@@ -487,6 +528,7 @@ func TestList(t *testing.T) {
 						east:     "0",
 					},
 					Mount: "WHWI",
+					View:  "01",
 					Notes: "Looking at White Island",
 				},
 				InstalledCamera{
@@ -516,6 +558,7 @@ func TestList(t *testing.T) {
 						east:     "0",
 					},
 					Mount: "K",
+					View:  "01",
 					Notes: "Bearing is magnetic.",
 				},
 			},
