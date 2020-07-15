@@ -224,6 +224,7 @@ A list of _camera_ installations, these include values for:
 |  _Model_ | Installed camera model name |
 |  _Serial_ | Installed camera serial number |
 |  _Mount_ | Camera _mount_ code |
+|  _View_ | Camera _view_ code |
 |  _Dip_ | Installed camera dip | _degrees_ down from horizontal
 |  _Azimuth_ | Installed camera azimuth | _degrees_ clockwise from north
 |  _Height_ | Installed camera vertical offset | _metres_  positive upwards
