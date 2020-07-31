@@ -3991,15 +3991,15 @@ var Responses []Response = []Response{
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
-						Lookup: "CMG-3TB-CTBTO",
+						Lookup: "CMG-3TB-GN",
 						Filter: "CMG-3TB-CTBTO",
 						StageSet: PAZ{
-							Name:  "CMG-3TB-CTBTO",
+							Name:  "CMG-3TB-GN",
 							Code:  PZFunctionLaplaceHertz,
 							Type:  "Analogue response, in Hz.",
-							Notes: "Standard CTBTO specification downhole broadband sensor.",
-							Poles: []complex128{(-0.00589 + 0.00589i), (-0.00589 - 0.00589i), (-73.2 - 37.6i), (-73.2 + 37.6i)},
-							Zeros: []complex128{(0 + 0i), (0 + 0i), (146.5 + 0i)},
+							Notes: "derived from Guralp documentation for T35920, i.e. caldoc@guralp.com",
+							Poles: []complex128{(-0.00589 - 0.00589i), (-0.00589 + 0.00589i), (-180 + 0i), (-160 + 0i), (-80 + 0i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i)},
 						},
 						Frequency:  1,
 						SampleRate: 0,
