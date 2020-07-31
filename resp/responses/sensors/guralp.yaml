@@ -296,7 +296,7 @@ filter:
     outputunits: V
   CMG-3TB-CTBTO:
   - type: paz
-    lookup: CMG-3TB-CTBTO
+    lookup: CMG-3TB-GN
     frequency: 1
     samplerate: 0
     decimate: 0
