@@ -229,7 +229,7 @@ paz:
     - (0+0i)
     - (0+0i)
     - (174.208+0i)
-  CMG-40T-30S-GNS:
+  CMG-40T-30S-GNS-ORIG:
     code: B
     type: Analogue response, in Hz.
     notes: Standard GNS specification CMG-40T as initially deployed
@@ -241,6 +241,19 @@ paz:
     - (0+0i)
     - (0+0i)
     - (159+0i)
+  CMG-40T-30S-GNS:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard GNS specification CMG-40T as initially deployed
+    poles:
+    - (-0.02356+0.02356i)
+    - (-0.02356-0.02356i)
+    - (-80+0i)
+    - (-160+0i)
+    - (-180+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
   CMG-40T-30S-GNS-H:
     code: B
     type: Analogue response, in Hz.
@@ -268,7 +281,7 @@ paz:
     zeros:
     - (0+0i)
     - (0+0i)
-  CMG-40T-60S-GN:
+  CMG-40T-60S-GN-ORIG:
     code: B
     type: Analogue response, in Hz.
     notes: Standard GeoNet specification CMG-40T as initially deployed
@@ -280,6 +293,19 @@ paz:
     - (0+0i)
     - (0+0i)
     - (140+0i)
+  CMG-40T-60S-GN:
+    code: B
+    type: Analogue response, in Hz.
+    notes: Standard GeoNet specification CMG-40T as initially deployed
+    poles:
+    - (-0.01178+0.01178i)
+    - (-0.01178-0.01178i)
+    - (-80+0i)
+    - (-160+0i)
+    - (-180+0i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
 
 filter:
   CMG-3ESP-GN:
