@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/xml"
+	"strings"
 	//	"fmt"
 )
 
@@ -193,6 +194,15 @@ func NewSiteLog() SiteLog {
 
 //	return nil
 //}
+
+func (x SiteLog) Strip() SiteLog {
+	x.ContactAgency.MailingAddress = strings.ReplaceAll(x.ContactAgency.MailingAddress, "\n", " ")
+	if x.ResponsibleAgency != nil {
+		x.ResponsibleAgency.MailingAddress = strings.ReplaceAll(x.ResponsibleAgency.MailingAddress, "\n", " ")
+	}
+	x.MoreInformation.Notes = strings.ReplaceAll(x.MoreInformation.Notes, "\n", " ")
+	return x
+}
 
 func (x SiteLog) Marshal() ([]byte, error) {
 	h := xml.Header

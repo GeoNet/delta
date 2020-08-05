@@ -476,11 +476,6 @@ func main() {
 					return &responsibleAgency
 				default:
 					return nil
-					/*
-						return Agency{
-							MailingAddress: "\n",
-						}
-					*/
 				}
 			}(),
 			MoreInformation: MoreInformation{
@@ -519,13 +514,14 @@ func main() {
 			},
 		}
 
-		s, err := x.Marshal()
+		s, err := x.Strip().Marshal()
 		if err != nil {
 			log.Fatalf("error: unable to marshal xml: %v", err)
 		}
 
 		// fix handling of new-lines (for comparison reasons).
 		s = bytes.ReplaceAll(s, []byte("&#xA;"), []byte("\n"))
+		s = bytes.ReplaceAll(s, []byte("&#39;"), []byte("'"))
 
 		xmlfile := filepath.Join(output, strings.ToLower(m.Code)+".xml")
 		if err := os.MkdirAll(filepath.Dir(xmlfile), 0755); err != nil {
