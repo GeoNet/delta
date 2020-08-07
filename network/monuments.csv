@@ -42,7 +42,7 @@ GISB,50223M001,Forced Centering,Pillar,-1.225,Reinforced Concrete,2,2002-05-14T0
 GLDB,50230M001,Forced Centering,Pillar,-1.325,Reinforced Concrete,2,2004-01-14T00:00:00Z,9999-01-01T00:00:00Z,Schist,
 GLOK,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.56,Stainless Steel Rods,10,2017-03-28T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,Sandstone And Mudstone
 GNBK,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.43,Stainless Steel Rods,10,2008-03-27T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,"Mapped As Qt, Quaternary Marine Deposits On Coastal Benches.  Forms Flat Terrace Tops Which Are Incised By Waterways."
-GRAC,,Forced Centering,Unknown,-9.99,Unknown,0,2002-03-22T00:00:00Z,2006-08-28T00:00:00Z,,
+GRAC,,Forced Centering,Steel Mast,-9.99,Stainless Steel Rod,0,2002-03-22T00:00:00Z,2006-08-28T00:00:00Z,,
 GRNG,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.613,Stainless Steel Rods,10,2007-06-14T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 GUNR,,Forced Centering,Shallow Rod / Braced Antenna Mount,-1.195,Stainless Steel Rods,2.5,2010-01-27T00:00:00Z,9999-01-01T00:00:00Z,,site closed in 2018 because on a landslide 
 HAAS,50237M001,Forced Centering,Pillar,-1.2,Reinforced Concrete,2,2004-06-22T00:00:00Z,9999-01-01T00:00:00Z,Schist,
@@ -71,7 +71,7 @@ LEYL,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.15,Stainless Steel Rods,10,
 LKTA,50233M001,Forced Centering,Pillar,-1.289,Reinforced Concrete,2,2004-02-01T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 LOK1,,Unmarked Mark,Unknown,-0.899,Unknown,0,2016-11-15T00:00:00Z,2017-11-02T00:00:00Z,,
 LOOK,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.592,Stainless Steel Rods,10,2017-03-28T00:00:00Z,9999-01-01T00:00:00Z,Basalt,Lookout Formation - Trachy-Basalt And Andesite Lava Flows With Soil Cover
-LRR1,,Forced Centering,Unknown,0,Unknown,0,2016-11-15T00:00:00Z,9999-01-01T00:00:00Z,,
+LRR1,,Forced Centering,Steel Mast,0,Stainless Steel Rod,0,2016-11-15T00:00:00Z,9999-01-01T00:00:00Z,,
 LYTT,50214S001,Forced Centering,Steel Mast,-3.5,Stainless Steel Rod,0,1999-11-01T00:00:00Z,9999-01-01T00:00:00Z,Siltstone,
 MAHA,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.44,Stainless Steel Rods,10,2009-11-16T00:00:00Z,9999-01-01T00:00:00Z,Schist,
 MAHI,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2007-02-20T00:00:00Z,9999-01-01T00:00:00Z,Limestone,
