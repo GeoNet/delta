@@ -606,6 +606,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
+	"Trillium 360": {
+		Name:         "Trillium 360",
+		Type:         "Broadband Seismometer",
+		Description:  "Trillium Vault 360",
+		Manufacturer: "Nanometrics Inc.",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
+	},
 	"Trillium Compact 120": {
 		Name:         "Trillium Compact 120",
 		Type:         "Broadband Seismometer",
@@ -618,14 +626,6 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Name:         "Trillium Compact 120PH-2",
 		Type:         "Broadband Seismometer",
 		Description:  "Trillium Compact 120 Posthole Generation 2",
-		Manufacturer: "Nanometrics Inc.",
-		Vendor:       "",
-		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
-	},
-	"Trillium Vault 360": {
-		Name:         "Trillium Vault 360",
-		Type:         "Broadband Seismometer",
-		Description:  "Trillium Vault 360",
 		Manufacturer: "Nanometrics Inc.",
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
@@ -2621,6 +2621,35 @@ var Responses []Response = []Response{
 		Name: "Quanterra Dataloggers Connected to Broadband Sensors",
 		Sensors: []Sensor{
 			{
+				SensorList: []string{"Trillium 360"},
+				FilterList: []string{"TRILLIUM-360"},
+				Stages: []ResponseStage{
+					{
+						Type:   "paz",
+						Lookup: "TRILLIUM-360",
+						Filter: "TRILLIUM-360",
+						StageSet: PAZ{
+							Name:  "TRILLIUM-360",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "derived from Nanometrics documentation for Trillium 360",
+							Poles: []complex128{(-0.01189 + 0.01189i), (-0.01189 - 0.01189i), (-146 + 0i), (-360 + 405i), (-360 - 405i), (-1234 + 0i), (-4900 + 5200i), (-4900 - 5200i), (-7200 + 1700i), (-7200 - 1700i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i), (-160 + 0i), (-350 + 0i), (-3079 + 0i)},
+						},
+						Frequency:  1,
+						SampleRate: 0,
+						Decimate:   0,
+						Gain:       1100,
+						//Scale: 1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "m/s",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "ZNE",
+				Reversed: false,
+			}, {
 				SensorList: []string{"Trillium 120QA"},
 				FilterList: []string{"TRILLIUM-120QA"},
 				Stages: []ResponseStage{
