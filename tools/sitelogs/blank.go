@@ -22,7 +22,7 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
      Monument Inscription     : {{.SiteIdentification.MonumentInscription|empty "none"}}
      IERS DOMES Number        : {{.SiteIdentification.IersDOMESNumber|empty "none"}}
      CDP Number               : {{.SiteIdentification.CdpNumber|empty "none"}}
-     Monument Description     : {{.SiteIdentification.MonumentDescription|tolower}}
+     Monument Description     : {{.SiteIdentification.MonumentDescription}}
        Height of the Monument : {{.SiteIdentification.HeightOfTheMonument}}
        Monument Foundation    : {{.SiteIdentification.MonumentFoundation|tolower}}
        Foundation Depth       : {{.SiteIdentification.FoundationDepth}}
@@ -44,12 +44,12 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
      Country                  : {{.SiteLocation.Country}}
      Tectonic Plate           : {{.SiteLocation.TectonicPlate}}
      Approximate Position (ITRF)
-       X coordinate (m)       : {{.SiteLocation.ApproximatePositionITRF.XCoordinateInMeters}}
-       Y coordinate (m)       : {{.SiteLocation.ApproximatePositionITRF.YCoordinateInMeters}}
-       Z coordinate (m)       : {{.SiteLocation.ApproximatePositionITRF.ZCoordinateInMeters}}
+       X coordinate (m)       : {{(float .SiteLocation.ApproximatePositionITRF.XCoordinateInMeters)|printf "%.1f"}}
+       Y coordinate (m)       : {{(float .SiteLocation.ApproximatePositionITRF.YCoordinateInMeters)|printf "%.1f"}}
+       Z coordinate (m)       : {{(float .SiteLocation.ApproximatePositionITRF.ZCoordinateInMeters)|printf "%.1f"}}
        Latitude (N is +)      : {{.SiteLocation.ApproximatePositionITRF.LatitudeNorth|lat}}
        Longitude (E is +)     : {{.SiteLocation.ApproximatePositionITRF.LongitudeEast|lon}}
-       Elevation (m,ellips.)  : {{.SiteLocation.ApproximatePositionITRF.ElevationMEllips}}
+       Elevation (m,ellips.)  : {{(float .SiteLocation.ApproximatePositionITRF.ElevationMEllips)|printf "%.1f"}}
      Additional Information   : {{.SiteLocation.Notes}}
 
 

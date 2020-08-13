@@ -30,7 +30,7 @@ func main() {
 	flag.BoolVar(&verbose, "verbose", false, "make noise")
 
 	var output string
-	flag.StringVar(&output, "output", "output", "output directory")
+	flag.StringVar(&output, "xml", "xml", "output directory")
 
 	var logs string
 	flag.StringVar(&logs, "logs", "logs", "logs output directory")
@@ -65,12 +65,14 @@ func main() {
 			return d
 		},
 		"tolower": func(s string) string {
-			switch t := strings.ToLower(s); t {
-			case "wyatt/agnew drilled-braced":
-				return "Deep Wyatt/Agnew drilled-braced"
-			default:
-				return t
-			}
+			/*
+				switch t := strings.ToLower(s); t {
+				//case "wyatt/agnew drilled-braced":
+				//	return "Deep Wyatt/Agnew drilled-braced"
+				default:
+			*/
+			return s
+			//}
 		},
 		"lines": func(p, s string) string {
 			switch s {
@@ -82,6 +84,9 @@ func main() {
 		},
 		"plus": func(n int) string {
 			return fmt.Sprintf("%-2s", strconv.Itoa(n+1))
+		},
+		"float": func(s string) (float64, error) {
+			return strconv.ParseFloat(s, 64)
 		},
 		"lat": func(s string) string {
 			if f, err := strconv.ParseFloat(s, 64); err == nil {
@@ -290,94 +295,80 @@ func main() {
 			})
 		}
 
-		for _, r := range deployedReceivers[m.Code] {
-			if _, ok := firmwareHistory[r.Model]; ok {
-				if _, ok := firmwareHistory[r.Model][r.Serial]; ok {
-					for i := range firmwareHistory[r.Model][r.Serial] {
+		var list []meta.Session
+		for _, s := range sessions[m.Code] {
+			list = append(list, s)
+		}
+		sort.Slice(list, func(i, j int) bool {
+			return list[i].Start.After(list[j].Start)
+		})
 
-						v := firmwareHistory[r.Model][r.Serial][len(firmwareHistory[r.Model][r.Serial])-i-1]
-						if v.End.Before(r.Start) || v.Start.After(r.End) {
-							continue
-						}
+		var boxes []meta.DeployedReceiver
+		for _, b := range deployedReceivers[m.Code] {
+			boxes = append(boxes, b)
+		}
+		sort.Slice(boxes, func(i, j int) bool {
+			return boxes[i].Start.Before(boxes[j].Start)
+		})
 
-						var session *meta.Session
-						for i, s := range sessions[m.Code] {
-							if r.Start.After(s.End) || r.End.Before(s.Start) {
-								continue
-							}
-							if v.Start.After(s.End) || v.End.Before(s.Start) {
-								continue
-							}
-							session = &sessions[m.Code][i]
-							break
-						}
-						if session == nil {
-							continue
-						}
+		for _, r := range boxes {
+			if _, ok := firmwareHistory[r.Model]; !ok {
+				continue
+			}
+			var history []meta.FirmwareHistory
+			for _, h := range firmwareHistory[r.Model][r.Serial] {
+				history = append(history, h)
+			}
+			sort.Slice(history, func(i, j int) bool {
+				return history[i].Start.Before(history[j].Start)
+			})
 
-						start := r.Start
-						/*
-							if start.Before(s.Start) {
-								start = s.Start
-							}
-						*/
-						if start.Before(v.Start) {
-							start = v.Start
-						}
-
-						end := r.End
-						/*
-							if end.After(s.End) {
-								end = s.End
-							}
-						*/
-						if end.After(v.End) {
-							end = v.End
-						}
-
-						receivers = append(receivers, GnssReceiver{
-							ReceiverType:           r.Model,
-							SatelliteSystem:        session.SatelliteSystem,
-							SerialNumber:           r.Serial,
-							FirmwareVersion:        v.Version,
-							ElevationCutoffSetting: strconv.FormatFloat(session.ElevationMask, 'g', -1, 64),
-							DateInstalled:          start.Format(DateTimeFormat),
-							/*
-								DateInstalled: func() string {
-									if v.Start.Before(r.Start) {
-										return r.Start.Format(DateTimeFormat)
-									} else {
-										return v.Start.Format(DateTimeFormat)
-									}
-								}(),
-							*/
-							DateRemoved: func() string {
-								/*
-									if v.End.After(r.End) {
-										if time.Now().After(r.End) {
-											return r.End.Format(DateTimeFormat)
-										} else {
-											return ""
-										}
-									} else {
-										if time.Now().After(v.End) {
-											return v.End.Format(DateTimeFormat)
-										} else {
-											return ""
-										}
-									}
-								*/
-								if time.Now().After(end) {
-									return end.Format(DateTimeFormat)
-								} else {
-									return ""
-								}
-							}(),
-							TemperatureStabilization: "",
-							Notes:                    "",
-						})
-					}
+			for _, h := range history {
+				if h.End.Before(r.Start) {
+					continue
 				}
+				if h.Start.After(r.End) {
+					continue
+				}
+				var session *meta.Session
+				for i, s := range list {
+					if h.Start.After(s.End) {
+						continue
+					}
+					if h.End.Before(s.Start) {
+						continue
+					}
+					session = &list[i]
+					break
+				}
+
+				start := r.Start
+				if h.Start.After(start) {
+					start = h.Start
+				}
+
+				end := r.End
+				if h.End.Before(end) {
+					end = h.End
+				}
+
+				receivers = append(receivers, GnssReceiver{
+					ReceiverType:           r.Model,
+					SatelliteSystem:        session.SatelliteSystem,
+					SerialNumber:           r.Serial,
+					FirmwareVersion:        h.Version,
+					ElevationCutoffSetting: strconv.FormatFloat(session.ElevationMask, 'g', -1, 64),
+					DateInstalled:          start.Format(DateTimeFormat),
+					DateRemoved: func() string {
+						if time.Now().After(end) {
+							return end.Format(DateTimeFormat)
+						} else {
+							return ""
+						}
+					}(),
+					TemperatureStabilization: "",
+					Notes:                    "",
+				})
 			}
 		}
 
@@ -415,10 +406,28 @@ func main() {
 				MonumentInscription: "",
 				IersDOMESNumber:     monument.DomesNumber,
 				CdpNumber:           "",
-				MonumentDescription: monument.Type,
+				MonumentDescription: func() string {
+					switch monument.Type {
+					case "Wyatt/Agnew Drilled-Braced":
+						return "Deep Wyatt/Agnew drilled-braced"
+					case "Pillar":
+						return "pillar"
+					case "Reinforced Concrete":
+						return "reinforced concrete"
+					default:
+						return monument.Type
+					}
+				}(),
 				HeightOfTheMonument: strconv.FormatFloat(-monument.GroundRelationship, 'g', -1, 64),
-				MonumentFoundation:  monument.FoundationType,
-				FoundationDepth:     strconv.FormatFloat(monument.FoundationDepth, 'f', 1, 64),
+				MonumentFoundation: func() string {
+					switch monument.FoundationType {
+					case "Stainless Steel Rods":
+						return "stainless steel rods"
+					default:
+						return monument.FoundationType
+					}
+				}(),
+				FoundationDepth: strconv.FormatFloat(monument.FoundationDepth, 'f', 0, 64),
 				MarkerDescription: func() string {
 					switch monument.MarkType {
 					case "Forced Centering":
@@ -457,12 +466,12 @@ func main() {
 
 				TectonicPlate: TectonicPlate(m.Latitude, m.Longitude),
 				ApproximatePositionITRF: ApproximatePositionITRF{
-					XCoordinateInMeters: strconv.FormatFloat(X, 'f', 1, 64),
-					YCoordinateInMeters: strconv.FormatFloat(Y, 'f', 1, 64),
-					ZCoordinateInMeters: strconv.FormatFloat(Z, 'f', 1, 64),
+					XCoordinateInMeters: strconv.FormatFloat(X, 'f', 5, 64),
+					YCoordinateInMeters: strconv.FormatFloat(Y, 'f', 5, 64),
+					ZCoordinateInMeters: strconv.FormatFloat(Z, 'f', 5, 64),
 					LatitudeNorth:       strconv.FormatFloat(m.Latitude, 'g', -1, 64),
 					LongitudeEast:       strconv.FormatFloat(m.Longitude, 'g', -1, 64),
-					ElevationMEllips:    strconv.FormatFloat(m.Elevation, 'f', 1, 64),
+					ElevationMEllips:    strconv.FormatFloat(m.Elevation, 'f', 3, 64),
 				},
 				Notes: "",
 			},

@@ -22,7 +22,7 @@ var contactAgency = Agency{
 	Agency:                `GNS Science`,
 	PreferredAbbreviation: `GNS`,
 	MailingAddress: `1 Fairway Drive, Avalon 5010,
-PO Box 30-368, Lower Hutt
+PO Box 30-368, Lower Hutt,
 New Zealand`,
 	PrimaryContact: Contact{
 		Name:               `GeoNet reception`,
