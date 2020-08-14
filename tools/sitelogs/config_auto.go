@@ -53,11 +53,11 @@ var responsibleAgency = Agency{
 		Email:              `positionz@linz.govt.nz`,
 	},
 	SecondaryContact: Contact{
-		Name:               `Paula Gentle`,
+		Name:               `Rachelle Winefield`,
 		TelephonePrimary:   `+64 4 460 2757`,
 		TelephoneSecondary: ``,
 		Fax:                ``,
-		Email:              `pgentle@linz.govt.nz`,
+		Email:              `rwinefield@linz.govt.nz`,
 	},
 	Notes: `CGPS site is part of the LINZ PositioNZ Network http://www.linz.govt.nz/positionz`,
 }
@@ -66,6 +66,7 @@ var countryList = []struct {
 	name     string
 	lat, lon float64
 }{
+	{"Antarctica", -77.8, -166.7},
 	{"New Zealand", -40, 174},
 	{"Niue", -19, -169.9},
 	{"Samoa", -13.8, -172.1},

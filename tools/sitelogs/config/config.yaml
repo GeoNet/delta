@@ -34,11 +34,11 @@ ResponsibleAgency:
     Fax:    "+64 4 472 2244"
     Email:        "positionz@linz.govt.nz"
   SecondaryContact:
-    Name:         "Paula Gentle"
+    Name:         "Rachelle Winefield"
     TelephonePrimary:   "+64 4 460 2757"
     TelephoneSecondary: ""
     Fax:    ""
-    Email:        "pgentle@linz.govt.nz"
+    Email:        "rwinefield@linz.govt.nz"
   Notes: "CGPS site is part of the LINZ PositioNZ Network http://www.linz.govt.nz/positionz"
 
 # used to determine country name
@@ -55,6 +55,9 @@ Countries:
   Niue:
     Latitude: -19.0
     Longitude: -169.9
+  Antarctica:
+    Latitude: -77.8
+    Longitude: -166.7
 
 # https://igscb.jpl.nasa.gov/igscb/station/general/antenna.gra
 Diagrams:
