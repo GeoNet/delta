@@ -36,7 +36,7 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
-  Trillium Vault 360:
+  Trillium 360:
     type: Broadband Seismometer
     description: Trillium Vault 360
     manufacturer: "Nanometrics Inc."
