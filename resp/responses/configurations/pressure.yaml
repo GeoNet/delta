@@ -6,7 +6,6 @@ response:
       - Druck PTX-1830
       filters:
       - Druck PTX-1830
-      - Sea Water
       channels: Z
       reversed: false
     dataloggers:
@@ -87,7 +86,7 @@ response:
     - sensors:
       - Druck PTX-1830-LAND
       filters:
-      - Druck PTX-1830
+      - Druck PTX-1830-LAND
       channels: Z
       reversed: false
     dataloggers:
