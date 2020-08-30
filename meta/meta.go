@@ -21,7 +21,7 @@ type Reference struct {
 
 // Point describes a measurement location geographically.
 type Point struct {
-	// Latitued represents the location latitude, with negative values representing southern latitudes.
+	// Latitude represents the location latitude, with negative values representing southern latitudes.
 	Latitude float64
 	// Longitude represents the location longitude, with negative values representing western longitudes.
 	Longitude float64
@@ -29,10 +29,29 @@ type Point struct {
 	Elevation float64
 	// Datum can be used to indicate the location measurement reference.
 	Datum string
+	// Depth measures the depth of water at the measurement point, if appropriate.
+	Depth float64
 
 	latitude  string // shadow value used to retain formatting
 	longitude string // shadow value used to retain formatting
 	elevation string // shadow value used to retain formatting
+	depth     string // shadow value used to retain formatting
+}
+
+// ElevationOk returns the Elevation and whether it has been set.
+func (p Point) ElevationOk() (float64, bool) {
+	if p.elevation != "" {
+		return p.Elevation, true
+	}
+	return 0.0, false
+}
+
+// DepthOk returns the Depth and whether it has been set.
+func (p Point) DepthOk() (float64, bool) {
+	if p.depth != "" {
+		return p.Depth, true
+	}
+	return 0.0, false
 }
 
 // Orientation is used to describe how a piece of installed equipment is aligned.
@@ -46,6 +65,22 @@ type Orientation struct {
 
 	dip     string // shadow value used to retain formatting
 	azimuth string // shadow value used to retain formatting
+}
+
+// DipOk returns the Dip and whether it has been set.
+func (o Orientation) DipOk() (float64, bool) {
+	if o.dip != "" {
+		return o.Dip, true
+	}
+	return 0.0, false
+}
+
+// AzimuthOk returns the Azimuth and whether it has been set.
+func (o Orientation) AzimuthOk() (float64, bool) {
+	if o.azimuth != "" {
+		return o.Azimuth, true
+	}
+	return 0.0, false
 }
 
 // Offset can be used to adjust an equipment installation relative to a given Point.
@@ -63,6 +98,30 @@ type Offset struct {
 	east     string // shadow value used to retain formatting
 }
 
+// VerticalOk returns the Vertical offset and whether it has been set.
+func (o Offset) VerticalOk() (float64, bool) {
+	if o.vertical != "" {
+		return o.Vertical, true
+	}
+	return 0.0, false
+}
+
+// NorthOk returns the North offset and whether it has been set.
+func (o Offset) NorthOk() (float64, bool) {
+	if o.north != "" {
+		return o.North, true
+	}
+	return 0.0, false
+}
+
+// EastOk returns the East offset and whether it has been set.
+func (o Offset) EastOk() (float64, bool) {
+	if o.east != "" {
+		return o.East, true
+	}
+	return 0.0, false
+}
+
 // Scale can be used to represent a non-linear installation, such as a pressure sensor installed in sea water
 // rather than fresh water.
 type Scale struct {
@@ -73,6 +132,22 @@ type Scale struct {
 
 	factor string // shadow value used to retain formatting
 	bias   string // shadow value used to retain formatting
+}
+
+// FactorOk returns the Factor and whether it has been set.
+func (s Scale) FactortOk() (float64, bool) {
+	if s.factor != "" {
+		return s.Factor, true
+	}
+	return 0.0, false
+}
+
+// BiasOk returns the Bias and whether it has been set.
+func (s Scale) BiasOk() (float64, bool) {
+	if s.bias != "" {
+		return s.Bias, true
+	}
+	return 0.0, false
 }
 
 // Span represents a time window.
