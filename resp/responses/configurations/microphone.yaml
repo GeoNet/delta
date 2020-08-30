@@ -11,7 +11,6 @@ response:
     dataloggers:
     - dataloggers:
       - Q330S/3
-      - Q330S/6
       type: CW
       label: HD
       samplerate: 100
@@ -22,8 +21,18 @@ response:
       - Q330S+_FLbelow100-100-PREAMP32
       reversed: false
     - dataloggers:
-      - Q330S/3
       - Q330S/6
+      type: CW
+      label: HD
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-100
+      reversed: false
+    - dataloggers:
+      - Q330S/3
       type: CW
       label: LD
       samplerate: 1
@@ -32,6 +41,17 @@ response:
       clockdrift: 0.0001
       filters:
       - Q330S+_FLbelow100-1-PREAMP32
+      reversed: false
+    - dataloggers:
+      - Q330S/6
+      type: CW
+      label: LD
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Q330S+_FLbelow100-1
       reversed: false
     - dataloggers:
       - Q330/3

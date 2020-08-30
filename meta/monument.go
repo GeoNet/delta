@@ -35,6 +35,9 @@ type Monument struct {
 	FoundationDepth    float64
 	Bedrock            string
 	Geology            string
+
+	groundRelationship string // shadow value to maintain formatting
+	foundationDepth    string // shadow value to maintain formatting
 }
 
 type MonumentList []Monument
@@ -63,9 +66,9 @@ func (m MonumentList) encode() [][]string {
 			strings.TrimSpace(v.DomesNumber),
 			strings.TrimSpace(v.MarkType),
 			strings.TrimSpace(v.Type),
-			strconv.FormatFloat(v.GroundRelationship, 'g', -1, 64),
+			strings.TrimSpace(v.groundRelationship),
 			strings.TrimSpace(v.FoundationType),
-			strconv.FormatFloat(v.FoundationDepth, 'g', -1, 64),
+			strings.TrimSpace(v.foundationDepth),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 			strings.TrimSpace(v.Bedrock),
@@ -116,6 +119,9 @@ func (m *MonumentList) decode(data [][]string) error {
 				FoundationDepth:    depth,
 				Bedrock:            strings.TrimSpace(d[monumentBedrock]),
 				Geology:            strings.TrimSpace(d[monumentGeology]),
+
+				groundRelationship: strings.TrimSpace(d[monumentGroundRelationship]),
+				foundationDepth:    strings.TrimSpace(d[monumentFoundationDepth]),
 			})
 		}
 

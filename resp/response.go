@@ -155,6 +155,7 @@ type ResponseStage struct {
 	Filter     string
 	StageSet   StageSet
 	Frequency  float64
+	InputRate  float64
 	SampleRate float64
 	Decimate   int32
 	Gain       float64

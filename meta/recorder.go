@@ -33,7 +33,7 @@ type InstalledRecorderList []InstalledRecorder
 
 func (r InstalledRecorderList) Len() int           { return len(r) }
 func (r InstalledRecorderList) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
-func (r InstalledRecorderList) Less(i, j int) bool { return r[i].Install.less(r[j].Install) }
+func (r InstalledRecorderList) Less(i, j int) bool { return r[i].Install.Less(r[j].Install) }
 
 func (r InstalledRecorderList) encode() [][]string {
 	data := [][]string{{
@@ -58,15 +58,9 @@ func (r InstalledRecorderList) encode() [][]string {
 			strings.TrimSpace(v.Serial),
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
-			strconv.FormatFloat(v.Azimuth, 'g', -1, 64),
-			strconv.FormatFloat(v.Dip, 'g', -1, 64),
-			func() string {
-				if v.Vertical == 0.0 {
-					return strconv.FormatFloat(0.0, 'g', -1, 64)
-				} else {
-					return strconv.FormatFloat(-v.Vertical, 'g', -1, 64)
-				}
-			}(),
+			strings.TrimSpace(v.azimuth),
+			strings.TrimSpace(v.dip),
+			strings.TrimSpace(v.vertical),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -117,9 +111,14 @@ func (r *InstalledRecorderList) decode(data [][]string) error {
 					Orientation: Orientation{
 						Azimuth: azimuth,
 						Dip:     dip,
+
+						azimuth: strings.TrimSpace(d[recorderAzimuth]),
+						dip:     strings.TrimSpace(d[recorderDip]),
 					},
 					Offset: Offset{
 						Vertical: -depth,
+
+						vertical: strings.TrimSpace(d[recorderDepth]),
 					},
 					Station:  strings.TrimSpace(d[recorderStation]),
 					Location: strings.TrimSpace(d[recorderLocation]),

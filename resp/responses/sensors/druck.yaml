@@ -18,8 +18,8 @@ sensor-model:
       dip: 0
 
 polynomial:
-  Druck PTX-1830-A:
-    gain: 0.0008
+  Druck PTX-1830:
+    gain: 0.20600000000000004768
     approximationtype: MACLAURIN
     frequencylowerbound: 0
     frequencyupperbound: 0
@@ -27,24 +27,24 @@ polynomial:
     approximationupperbound: 20
     maximumerror: 0
     coefficients:
-    - 0.004
-    - 0.0008
-  Druck PTX-1830-B:
-    gain: 250
+    - -4.8543689320388352
+    -  4.8543689320388352
+  Druck PTX-1830-LAND:
+    gain: 0.2
     approximationtype: MACLAURIN
     frequencylowerbound: 0
     frequencyupperbound: 0
-    approximationlowerbound: 0.004
-    approximationupperbound: 0.02
+    approximationlowerbound: 0
+    approximationupperbound: 20
     maximumerror: 0
     coefficients:
-    - 0
-    - 250
+    - -5.00000
+    - 5.00000
 
 filter:
   Druck PTX-1830:
   - type: poly
-    lookup: Druck PTX-1830-A
+    lookup: Druck PTX-1830
     frequency: 1
     samplerate: 0
     decimate: 0
@@ -53,9 +53,10 @@ filter:
     correction: 0
     delay: 0
     inputunits: m
-    outputunits: A
+    outputunits: V
+  Druck PTX-1830-LAND:
   - type: poly
-    lookup: Druck PTX-1830-B
+    lookup: Druck PTX-1830-LAND
     frequency: 1
     samplerate: 0
     decimate: 0
@@ -63,7 +64,7 @@ filter:
     scale: 1
     correction: 0
     delay: 0
-    inputunits: A
+    inputunits: m
     outputunits: V
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

@@ -13,6 +13,7 @@ const (
 	installedCameraModel
 	installedCameraSerial
 	installedCameraMount
+	installedCameraView
 	installedCameraDip
 	installedCameraAzimuth
 	installedCameraHeight
@@ -30,6 +31,7 @@ type InstalledCamera struct {
 	Offset
 
 	Mount string
+	View  string
 	Notes string
 }
 
@@ -37,7 +39,7 @@ type InstalledCameraList []InstalledCamera
 
 func (a InstalledCameraList) Len() int           { return len(a) }
 func (a InstalledCameraList) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a InstalledCameraList) Less(i, j int) bool { return a[i].Install.less(a[j].Install) }
+func (a InstalledCameraList) Less(i, j int) bool { return a[i].Install.Less(a[j].Install) }
 
 func (a InstalledCameraList) encode() [][]string {
 	data := [][]string{{
@@ -45,6 +47,7 @@ func (a InstalledCameraList) encode() [][]string {
 		"Model",
 		"Serial",
 		"Mount",
+		"View",
 		"Dip",
 		"Azimuth",
 		"Height",
@@ -60,11 +63,12 @@ func (a InstalledCameraList) encode() [][]string {
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Serial),
 			strings.TrimSpace(v.Mount),
-			strconv.FormatFloat(v.Dip, 'g', -1, 64),
-			strconv.FormatFloat(v.Azimuth, 'g', -1, 64),
-			strconv.FormatFloat(v.Vertical, 'g', -1, 64),
-			strconv.FormatFloat(v.North, 'g', -1, 64),
-			strconv.FormatFloat(v.East, 'g', -1, 64),
+			strings.TrimSpace(v.View),
+			strings.TrimSpace(v.dip),
+			strings.TrimSpace(v.azimuth),
+			strings.TrimSpace(v.vertical),
+			strings.TrimSpace(v.north),
+			strings.TrimSpace(v.east),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 			strings.TrimSpace(v.Notes),
@@ -124,13 +128,21 @@ func (a *InstalledCameraList) decode(data [][]string) error {
 				Orientation: Orientation{
 					Dip:     dip,
 					Azimuth: azimuth,
+
+					dip:     strings.TrimSpace(d[installedCameraDip]),
+					azimuth: strings.TrimSpace(d[installedCameraAzimuth]),
 				},
 				Offset: Offset{
 					Vertical: height,
 					North:    north,
 					East:     east,
+
+					vertical: strings.TrimSpace(d[installedCameraHeight]),
+					north:    strings.TrimSpace(d[installedCameraNorth]),
+					east:     strings.TrimSpace(d[installedCameraEast]),
 				},
 				Mount: strings.TrimSpace(d[installedCameraMount]),
+				View:  strings.TrimSpace(d[installedCameraView]),
 				Notes: strings.TrimSpace(d[installedCameraNotes]),
 			})
 		}
