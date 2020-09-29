@@ -7,13 +7,13 @@ Site codes are unique within a given reference set. Weak motion site codes are u
 
 ## Weak Motion
 
-Weak motion site codes are assigned according to the network it comes under. There are two types of network: the national network and the regional networks, with the national network comprising broadband seismometers and the regional networks being mostly composed of short period seismometers. National network site codes are 3 letters and end in 'Z'. Regional network sites codes are 4 letters with the last two letters coming from that regional network's code, e.g. RIGZ is at Rimuhau Hill in the Gisborne Network (GZ), and RAHZ is at Arahi in the Hawke's Bay Network (HZ). For both national and regional network site codes, the first two letters try to give an indication of where the site is (i.e. they will be an abbreviation of a close town or farm station name).
+Weak motion site codes are assigned according to the network it comes under. There are two types of network: the national network and the regional networks, with the national network comprising broadband seismometers and the regional networks being mostly composed of short period seismometers (except the volcano networks, which have a mixture). National network site codes are 3 letters and end in 'Z'. Regional network sites codes are 4 letters with the last two letters coming from that regional network's code, e.g. RIGZ is at Rimuhau Hill in the Gisborne Network (GZ), and RAHZ is at Arahi in the Hawke's Bay Network (HZ). For both national and regional network site codes, the first two letters try to give an indication of where the site is (i.e. they will be an abbreviation of a close town or farm station name).
 
 ## Strong Motion
 
 Strong motion site codes are not restricted by network codes and instead are composed of 4 letters describing where the site is, e.g. LPLS is Lake Paringa, PNGA is Paringa.
 
-There is a legacy of loose site code conventions in strong motion site codes, such as in the Canterbury strong motion network and more broadly in all strong motion site codes with the last letter being 'S'. As of 2020, such loose conventions are no longer in use. 
+As with weak motion, strong motion sites end in a particular character: 'S'.
 
 # Station and Location Code Changes
 
