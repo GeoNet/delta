@@ -24,7 +24,7 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
      CDP Number               : {{.SiteIdentification.CdpNumber|empty "none"}}
      Monument Description     : {{.SiteIdentification.MonumentDescription}}
        Height of the Monument : {{.SiteIdentification.HeightOfTheMonument}}
-       Monument Foundation    : {{.SiteIdentification.MonumentFoundation|tolower}}
+       Monument Foundation    : {{.SiteIdentification.MonumentFoundation}}
        Foundation Depth       : {{.SiteIdentification.FoundationDepth}}
      Marker Description       : {{.SiteIdentification.MarkerDescription}}
      Date Installed           : {{.SiteIdentification.DateInstalled}}
