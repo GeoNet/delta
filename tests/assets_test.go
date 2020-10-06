@@ -7,6 +7,39 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
+var testAssets = map[string]func([]meta.Asset) func(t *testing.T){
+
+	"check for duplicate asset numbers": func(assets []meta.Asset) func(t *testing.T) {
+		return func(t *testing.T) {
+			reference := make(map[string]string)
+			for _, a := range assets {
+				if a.Number == "" {
+					continue
+				}
+				if x, ok := reference[a.Number]; ok {
+					t.Errorf("duplicate asset number %s: %s [%s]", a.String(), a.Number, x)
+				}
+				reference[a.Number] = a.String()
+			}
+		}
+	},
+
+	"check for duplicate equipment": func(assets []meta.Asset) func(t *testing.T) {
+		return func(t *testing.T) {
+			for i := 0; i < len(assets); i++ {
+				for j := i + 1; j < len(assets); j++ {
+					switch {
+					case assets[i].Model != assets[j].Model:
+					case assets[i].Serial != assets[j].Serial:
+					default:
+						t.Errorf("duplicate equipment %s: %s", assets[i].String(), assets[j].String())
+					}
+				}
+			}
+		}
+	},
+}
+
 func TestAssets(t *testing.T) {
 
 	var assets meta.AssetList
@@ -32,30 +65,7 @@ func TestAssets(t *testing.T) {
 
 	sort.Sort(assets)
 
-	t.Run("check for duplicate asset numbers", func(t *testing.T) {
-		reference := make(map[string]string)
-		for _, a := range assets {
-			if a.Number == "" {
-				continue
-			}
-			if x, ok := reference[a.Number]; ok {
-				t.Errorf("duplicate asset number %s: %s [%s]", a.String(), a.Number, x)
-			}
-			reference[a.Number] = a.String()
-		}
-	})
-
-	t.Run("check for duplicate equipment", func(t *testing.T) {
-		for i := 0; i < len(assets); i++ {
-			for j := i + 1; j < len(assets); j++ {
-				switch {
-				case assets[i].Model != assets[j].Model:
-				case assets[i].Serial != assets[j].Serial:
-				default:
-					t.Errorf("duplicate equipment %s: %s", assets[i].String(), assets[j].String())
-				}
-			}
-		}
-	})
-
+	for k, fn := range testAssets {
+		t.Run(k, fn(assets))
+	}
 }
