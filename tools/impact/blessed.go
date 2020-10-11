@@ -20,6 +20,7 @@ var blessedSensorList = []string{
 	"L4C",
 	"LE-3Dlite",
 	"LE-3DliteMkII",
+	"Titan",
 }
 
 // list dataloggers that can be used
@@ -36,6 +37,7 @@ var blessedDataloggerList = []string{
 	"CUSP3D",
 	"CUSP3C",
 	"Obsidian 4X Datalogger",
+	"TitanSMA",
 }
 
 var blessedSensors = make(map[string]bool)
