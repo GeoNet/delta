@@ -18,6 +18,20 @@ type GnssReceiver struct {
 	Notes                    string `xml:"equip:notes"`
 }
 
+type GnssReceiverInput struct {
+	XMLName xml.Name `xml:"gnssReceiver"`
+
+	ReceiverType             string `xml:"receiverType"`
+	SatelliteSystem          string `xml:"satelliteSystem"`
+	SerialNumber             string `xml:"serialNumber"`
+	FirmwareVersion          string `xml:"firmwareVersion"`
+	ElevationCutoffSetting   string `xml:"elevationCutoffSetting"`
+	DateInstalled            string `xml:"dateInstalled"`
+	DateRemoved              string `xml:"dateRemoved"`
+	TemperatureStabilization string `xml:"temperatureStabilization"`
+	Notes                    string `xml:"notes"`
+}
+
 type GnssReceivers []GnssReceiver
 
 func (g GnssReceivers) Len() int { return len(g) }

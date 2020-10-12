@@ -23,6 +23,25 @@ type GnssAntenna struct {
 	Notes                  string `xml:"equip:notes"`
 }
 
+type GnssAntennaInput struct {
+	XMLName xml.Name `xml:"gnssAntenna"`
+
+	AntennaType            string `xml:"antennaType"`
+	SerialNumber           string `xml:"serialNumber"`
+	AntennaReferencePoint  string `xml:"antennaReferencePoint"`
+	MarkerArpUpEcc         string `xml:"marker-arpUpEcc."`
+	MarkerArpNorthEcc      string `xml:"marker-arpNorthEcc."`
+	MarkerArpEastEcc       string `xml:"marker-arpEastEcc."`
+	AlignmentFromTrueNorth string `xml:"alignmentFromTrueNorth"`
+	AntennaRadomeType      string `xml:"antennaRadomeType"`
+	RadomeSerialNumber     string `xml:"radomeSerialNumber"`
+	AntennaCableType       string `xml:"antennaCableType"`
+	AntennaCableLength     string `xml:"antennaCableLength"`
+	DateInstalled          string `xml:"dateInstalled"`
+	DateRemoved            string `xml:"dateRemoved"`
+	Notes                  string `xml:"notes"`
+}
+
 type GnssAntennas []GnssAntenna
 
 func (g GnssAntennas) Len() int      { return len(g) }

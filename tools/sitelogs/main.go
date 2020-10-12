@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/hex"
+	"encoding/xml"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -10,6 +11,7 @@ import (
 	"math"
 	"os"
 	"path/filepath"
+	//	"regexp"
 	"sort"
 	"strconv"
 	"strings"
@@ -103,6 +105,8 @@ func main() {
 			return ""
 		},
 	}
+
+	//var re = regexp.MustCompile(`<mi:datePrepared>[0-9\-]*</mi:datePrepared>`)
 
 	tmpl, err := template.New("").Funcs(tplFuncMap).Parse(sitelogTemplate)
 	if err != nil {
@@ -205,6 +209,10 @@ func main() {
 	}
 
 	for _, m := range markList {
+		//TODO: testing
+		if m.Code != "YALD" {
+			continue
+		}
 
 		if _, ok := monuments[m.Code]; !ok {
 			continue
@@ -330,45 +338,53 @@ func main() {
 				if h.Start.After(r.End) {
 					continue
 				}
-				var session *meta.Session
-				for i, s := range list {
-					if h.Start.After(s.End) {
+				for _, s := range list {
+					if s.End.Before(h.Start) {
 						continue
 					}
-					if h.End.Before(s.Start) {
+					if s.Start.After(h.End) {
 						continue
 					}
-					session = &list[i]
-					break
-				}
 
-				start := r.Start
-				if h.Start.After(start) {
-					start = h.Start
-				}
+					start := r.Start
+					if h.Start.After(start) {
+						start = h.Start
+					}
+					if s.Start.After(start) {
+						start = s.Start
+					}
 
-				end := r.End
-				if h.End.Before(end) {
-					end = h.End
-				}
+					end := r.End
+					if h.End.Before(end) {
+						end = h.End
+					}
+					if s.End.Before(end) {
+						end = s.End
+					}
 
-				receivers = append(receivers, GnssReceiver{
-					ReceiverType:           r.Model,
-					SatelliteSystem:        session.SatelliteSystem,
-					SerialNumber:           r.Serial,
-					FirmwareVersion:        h.Version,
-					ElevationCutoffSetting: strconv.FormatFloat(session.ElevationMask, 'g', -1, 64),
-					DateInstalled:          start.Format(DateTimeFormat),
-					DateRemoved: func() string {
-						if time.Now().After(end) {
-							return end.Format(DateTimeFormat)
-						} else {
-							return ""
-						}
-					}(),
-					TemperatureStabilization: "",
-					Notes:                    "",
-				})
+					// sanity check
+					if end.Before(start) {
+						continue
+					}
+
+					receivers = append(receivers, GnssReceiver{
+						ReceiverType:           r.Model,
+						SatelliteSystem:        s.SatelliteSystem,
+						SerialNumber:           r.Serial,
+						FirmwareVersion:        h.Version,
+						ElevationCutoffSetting: strconv.FormatFloat(s.ElevationMask, 'g', -1, 64),
+						DateInstalled:          start.Format(DateTimeFormat),
+						DateRemoved: func() string {
+							if time.Now().After(end) {
+								return end.Format(DateTimeFormat)
+							} else {
+								return ""
+							}
+						}(),
+						TemperatureStabilization: "",
+						Notes:                    "",
+					})
+				}
 			}
 		}
 
@@ -523,14 +539,83 @@ func main() {
 			},
 		}
 
-		s, err := x.Strip().Marshal()
+		var files []string
+
+		// check existing files
+		filepath.Walk(output, func(path string, info os.FileInfo, err error) error {
+			if err != nil {
+				return err
+			}
+			if info.IsDir() {
+				return nil
+			}
+			if filepath.Ext(path) != ".xml" {
+				return nil
+			}
+
+			if !strings.Contains(filepath.Base(path), "_") {
+				return nil
+			}
+
+			if !strings.HasPrefix(filepath.Base(path), strings.ToLower(m.Code)) {
+				return nil
+			}
+
+			files = append(files, path)
+
+			return nil
+		})
+
+		s, err := x.MarshalLegacy()
 		if err != nil {
 			log.Fatalf("error: unable to marshal xml: %v", err)
 		}
 
+		if n := len(files); n > 0 {
+			log.Println(files[n-1])
+
+			raw, err := ioutil.ReadFile(files[n-1])
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			var last SiteLogInput
+			if err := xml.Unmarshal(raw, &last); err != nil {
+				log.Fatal(err)
+			}
+
+			// reset the dates to allow for checking
+			last.FormInformation.DatePrepared = x.FormInformation.DatePrepared
+
+			out, err := last.SiteLog().MarshalLegacy()
+			if err != nil {
+				log.Fatal(err)
+			}
+			//log.Println(files[n-1], string(out))
+
+			if !bytes.Equal(s, out) {
+				ioutil.WriteFile("new", s, 0644)
+				ioutil.WriteFile("old", out, 0644)
+				log.Println("->> not equal")
+			}
+
+			/*
+				check := last.SiteLog()
+
+				s, err := last.Strip().Marshal()
+				if err != nil {
+					log.Fatalf("error: unable to marshal xml: %v", err)
+				}
+				log.Println(string(s))
+
+				//xxx := re.ReplaceAll(raw, []byte{})
+				//log.Println(string(xxx))
+			*/
+		}
+
 		// fix handling of new-lines (for comparison reasons).
-		s = bytes.ReplaceAll(s, []byte("&#xA;"), []byte("\n"))
-		s = bytes.ReplaceAll(s, []byte("&#39;"), []byte("'"))
+		//	s = bytes.ReplaceAll(s, []byte("&#xA;"), []byte("\n"))
+		//	s = bytes.ReplaceAll(s, []byte("&#39;"), []byte("'"))
 
 		xmlfile := filepath.Join(output, strings.ToLower(m.Code)+".xml")
 		if err := os.MkdirAll(filepath.Dir(xmlfile), 0755); err != nil {
