@@ -15,6 +15,17 @@ type ApproximatePositionITRF struct {
 	ElevationMEllips    string `xml:"mi:elevation-m_ellips."`
 }
 
+type ApproximatePositionITRFInput struct {
+	XMLName xml.Name `xml:"approximatePositionITRF"`
+
+	XCoordinateInMeters string `xml:"xCoordinateInMeters"`
+	YCoordinateInMeters string `xml:"yCoordinateInMeters"`
+	ZCoordinateInMeters string `xml:"zCoordinateInMeters"`
+	LatitudeNorth       string `xml:"latitude-North"`
+	LongitudeEast       string `xml:"longitude-East"`
+	ElevationMEllips    string `xml:"elevation-m_ellips."`
+}
+
 type SiteLocation struct {
 	XMLName xml.Name `xml:"siteLocation"`
 
@@ -24,4 +35,15 @@ type SiteLocation struct {
 	TectonicPlate           string `xml:"mi:tectonicPlate"`
 	ApproximatePositionITRF ApproximatePositionITRF
 	Notes                   string `xml:"mi:notes"`
+}
+
+type SiteLocationInput struct {
+	XMLName xml.Name `xml:"siteLocation"`
+
+	City                    string `xml:"city"`
+	State                   string `xml:"state"`
+	Country                 string `xml:"country"`
+	TectonicPlate           string `xml:"tectonicPlate"`
+	ApproximatePositionITRF ApproximatePositionITRFInput
+	Notes                   string `xml:"notes"`
 }

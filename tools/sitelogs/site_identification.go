@@ -26,3 +26,26 @@ type SiteIdentification struct {
 	DistanceActivity       string `xml:"mi:distance-Activity"`
 	Notes                  string `xml:"mi:notes"`
 }
+
+type SiteIdentificationInput struct {
+	XMLName xml.Name `xml:"siteIdentification"`
+
+	SiteName               string `xml:"siteName"`
+	FourCharacterID        string `xml:"fourCharacterID"`
+	MonumentInscription    string `xml:"monumentInscription"`
+	IersDOMESNumber        string `xml:"iersDOMESNumber"`
+	CdpNumber              string `xml:"cdpNumber"`
+	MonumentDescription    string `xml:"monumentDescription"`
+	HeightOfTheMonument    string `xml:"heightOfTheMonument"`
+	MonumentFoundation     string `xml:"monumentFoundation"`
+	FoundationDepth        string `xml:"foundationDepth"`
+	MarkerDescription      string `xml:"markerDescription"`
+	DateInstalled          string `xml:"dateInstalled"`
+	GeologicCharacteristic string `xml:"geologicCharacteristic"`
+	BedrockType            string `xml:"bedrockType"`
+	BedrockCondition       string `xml:"bedrockCondition"`
+	FractureSpacing        string `xml:"fractureSpacing"`
+	FaultZonesNearby       string `xml:"faultZonesNearby"`
+	DistanceActivity       string `xml:"distance-Activity"`
+	Notes                  string `xml:"notes"`
+}
