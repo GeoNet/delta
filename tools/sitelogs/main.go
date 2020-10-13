@@ -17,6 +17,8 @@ import (
 	"text/template"
 	"time"
 
+	"github.com/google/go-cmp/cmp"
+
 	"github.com/GeoNet/delta/meta"
 )
 
@@ -582,10 +584,7 @@ func main() {
 			}
 
 			if !bytes.Equal(s, out) {
-				//TODO: write a new file!
-				//ioutil.WriteFile("new", s, 0644)
-				//ioutil.WriteFile("old", out, 0644)
-				log.Printf("%s ->> not equal, needs new file", m.Code)
+				log.Printf("%s: file difference -got/+exp\n%s", m.Code, cmp.Diff(string(s), string(out)))
 			}
 		}
 
