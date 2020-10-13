@@ -11,7 +11,6 @@ import (
 	"math"
 	"os"
 	"path/filepath"
-	//	"regexp"
 	"sort"
 	"strconv"
 	"strings"
@@ -105,8 +104,6 @@ func main() {
 			return ""
 		},
 	}
-
-	//var re = regexp.MustCompile(`<mi:datePrepared>[0-9\-]*</mi:datePrepared>`)
 
 	tmpl, err := template.New("").Funcs(tplFuncMap).Parse(sitelogTemplate)
 	if err != nil {
@@ -209,11 +206,6 @@ func main() {
 	}
 
 	for _, m := range markList {
-		//TODO: testing
-		if m.Code != "YALD" {
-			continue
-		}
-
 		if _, ok := monuments[m.Code]; !ok {
 			continue
 		}
@@ -482,9 +474,9 @@ func main() {
 
 				TectonicPlate: TectonicPlate(m.Latitude, m.Longitude),
 				ApproximatePositionITRF: ApproximatePositionITRF{
-					XCoordinateInMeters: strconv.FormatFloat(X, 'f', 5, 64),
-					YCoordinateInMeters: strconv.FormatFloat(Y, 'f', 5, 64),
-					ZCoordinateInMeters: strconv.FormatFloat(Z, 'f', 5, 64),
+					XCoordinateInMeters: strconv.FormatFloat(X, 'f', 4, 64),
+					YCoordinateInMeters: strconv.FormatFloat(Y, 'f', 4, 64),
+					ZCoordinateInMeters: strconv.FormatFloat(Z, 'f', 4, 64),
 					LatitudeNorth:       strconv.FormatFloat(m.Latitude, 'g', -1, 64),
 					LongitudeEast:       strconv.FormatFloat(m.Longitude, 'g', -1, 64),
 					ElevationMEllips:    strconv.FormatFloat(m.Elevation, 'f', 3, 64),
@@ -572,8 +564,6 @@ func main() {
 		}
 
 		if n := len(files); n > 0 {
-			log.Println(files[n-1])
-
 			raw, err := ioutil.ReadFile(files[n-1])
 			if err != nil {
 				log.Fatal(err)
@@ -584,38 +574,20 @@ func main() {
 				log.Fatal(err)
 			}
 
-			// reset the dates to allow for checking
 			last.FormInformation.DatePrepared = x.FormInformation.DatePrepared
 
 			out, err := last.SiteLog().MarshalLegacy()
 			if err != nil {
 				log.Fatal(err)
 			}
-			//log.Println(files[n-1], string(out))
 
 			if !bytes.Equal(s, out) {
-				ioutil.WriteFile("new", s, 0644)
-				ioutil.WriteFile("old", out, 0644)
-				log.Println("->> not equal")
+				//TODO: write a new file!
+				//ioutil.WriteFile("new", s, 0644)
+				//ioutil.WriteFile("old", out, 0644)
+				log.Printf("%s ->> not equal, needs new file", m.Code)
 			}
-
-			/*
-				check := last.SiteLog()
-
-				s, err := last.Strip().Marshal()
-				if err != nil {
-					log.Fatalf("error: unable to marshal xml: %v", err)
-				}
-				log.Println(string(s))
-
-				//xxx := re.ReplaceAll(raw, []byte{})
-				//log.Println(string(xxx))
-			*/
 		}
-
-		// fix handling of new-lines (for comparison reasons).
-		//	s = bytes.ReplaceAll(s, []byte("&#xA;"), []byte("\n"))
-		//	s = bytes.ReplaceAll(s, []byte("&#39;"), []byte("'"))
 
 		xmlfile := filepath.Join(output, strings.ToLower(m.Code)+".xml")
 		if err := os.MkdirAll(filepath.Dir(xmlfile), 0755); err != nil {
