@@ -2,7 +2,7 @@
 <igsSiteLog xmlns:equip="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" xmlns:contact="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/contact/2004" xmlns:mi="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004" xmlns:li="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/localInterferences/2004" xmlns="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011 http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011/igsSiteLog.xsd">
   <formInformation>
     <mi:preparedBy>Elisabetta D'Anastasio</mi:preparedBy>
-    <mi:datePrepared>2020-10-01</mi:datePrepared>
+    <mi:datePrepared>2020-09-29</mi:datePrepared>
     <mi:reportType>DYNAMIC</mi:reportType>
   </formInformation>
   <siteIdentification>
@@ -45,7 +45,7 @@
     <equip:satelliteSystem>GPS+GLO</equip:satelliteSystem>
     <equip:serialNumber>5049K72152</equip:serialNumber>
     <equip:firmwareVersion>4.81</equip:firmwareVersion>
-    <equip:elevationCutoffSetting>0</equip:elevationCutoffSetting>
+    <equip:elevationCutoffSetting>3</equip:elevationCutoffSetting>
     <equip:dateInstalled>2014-09-16T21:00Z</equip:dateInstalled>
     <equip:dateRemoved>2014-12-16T00:00Z</equip:dateRemoved>
     <equip:temperatureStabilization></equip:temperatureStabilization>
@@ -113,6 +113,17 @@
     <equip:firmwareVersion>5.22</equip:firmwareVersion>
     <equip:elevationCutoffSetting>0</equip:elevationCutoffSetting>
     <equip:dateInstalled>2017-06-20T17:48Z</equip:dateInstalled>
+    <equip:dateRemoved>2018-05-09T00:17Z</equip:dateRemoved>
+    <equip:temperatureStabilization></equip:temperatureStabilization>
+    <equip:notes></equip:notes>
+  </gnssReceiver>
+  <gnssReceiver>
+    <equip:receiverType>TRIMBLE NETR9</equip:receiverType>
+    <equip:satelliteSystem>GPS+GLO+GAL+BDS+QZSS</equip:satelliteSystem>
+    <equip:serialNumber>5307K50971</equip:serialNumber>
+    <equip:firmwareVersion>5.22</equip:firmwareVersion>
+    <equip:elevationCutoffSetting>0</equip:elevationCutoffSetting>
+    <equip:dateInstalled>2018-05-09T00:17Z</equip:dateInstalled>
     <equip:dateRemoved>2020-09-29T06:22Z</equip:dateRemoved>
     <equip:temperatureStabilization></equip:temperatureStabilization>
     <equip:notes></equip:notes>

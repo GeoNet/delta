@@ -46,6 +46,9 @@ Countries:
   New Zealand:
     Latitude: -40.0
     Longitude: 174.0
+  New Zealand:
+    Latitude: -29.0
+    Longitude: -178.0
   Tonga:
     Latitude: -21.2
     Longitude: -175.2
@@ -255,6 +258,7 @@ Diagrams:
                                                                            RXC=NRP
       <--                    0.3396                   -->                  Notches
   TRM57971.00: |2+
+  
        / --------------------------------------------- \
       +                                                 +
        \ --------------------------------------------- /
