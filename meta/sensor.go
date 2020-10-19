@@ -15,6 +15,7 @@ const (
 	sensorStation
 	sensorLocation
 	sensorAzimuth
+	sensorMethod
 	sensorDip
 	sensorDepth
 	sensorNorth
@@ -50,6 +51,7 @@ func (s InstalledSensorList) encode() [][]string {
 		"Station",
 		"Location",
 		"Azimuth",
+		"Method",
 		"Dip",
 		"Depth",
 		"North",
@@ -68,6 +70,7 @@ func (s InstalledSensorList) encode() [][]string {
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
 			strings.TrimSpace(v.azimuth),
+			strings.TrimSpace(v.Method),
 			strings.TrimSpace(v.dip),
 			strings.TrimSpace(v.vertical),
 			strings.TrimSpace(v.north),
@@ -139,6 +142,7 @@ func (s *InstalledSensorList) decode(data [][]string) error {
 				Orientation: Orientation{
 					Azimuth: azimuth,
 					Dip:     dip,
+					Method:  strings.TrimSpace(d[sensorMethod]),
 
 					azimuth: strings.TrimSpace(d[sensorAzimuth]),
 					dip:     strings.TrimSpace(d[sensorDip]),

@@ -1,5 +1,5 @@
-Make,Model,Serial,Station,Location,Azimuth,Dip,Depth,North,East,Scale Factor,Scale Bias,Start Date,End Date
-General Electric Industrial Sensing,Druck PTX-1830,3022170,OTAT,40,0,90,7.96,0,0,1.03,0,2010-02-25T01:00:00Z,9999-01-01T00:00:00Z
-General Electric Industrial Sensing,Druck PTX-1830,3022171,OTAT,41,0,90,7.96,0,0,1.03,0,2010-02-25T01:00:00Z,9999-01-01T00:00:00Z
-General Electric Industrial Sensing,Druck PTX-1830,3126134,SUMT,40,0,90,0,0,0,1.03,0,2010-08-10T23:30:00Z,9999-01-01T00:00:00Z
-General Electric Industrial Sensing,Druck PTX-1830,3126137,SUMT,41,0,90,0,0,0,1.03,0,2010-08-10T23:30:00Z,9999-01-01T00:00:00Z
+Make,Model,Serial,Station,Location,Azimuth,Method,Dip,Depth,North,East,Scale Factor,Scale Bias,Start Date,End Date
+General Electric Industrial Sensing,Druck PTX-1830,3022170,OTAT,40,0,,90,7.96,0,0,1.03,0,2010-02-25T01:00:00Z,9999-01-01T00:00:00Z
+General Electric Industrial Sensing,Druck PTX-1830,3022171,OTAT,41,0,,90,7.96,0,0,1.03,0,2010-02-25T01:00:00Z,9999-01-01T00:00:00Z
+General Electric Industrial Sensing,Druck PTX-1830,3126134,SUMT,40,0,,90,0,0,0,1.03,0,2010-08-10T23:30:00Z,9999-01-01T00:00:00Z
+General Electric Industrial Sensing,Druck PTX-1830,3126137,SUMT,41,0,,90,0,0,0,1.03,0,2010-08-10T23:30:00Z,9999-01-01T00:00:00Z

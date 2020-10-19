@@ -1,4 +1,4 @@
-Make,Model,Serial,Station,Location,Azimuth,Dip,Depth,North,East,Scale Factor,Scale Bias,Start Date,End Date
-Kinemetrics Inc.,FBA-ES-T,2264,CMWZ,20,0,0,0,0,0,0,0,2016-12-05T06:30:00Z,9999-01-01T00:00:00Z
-Kinemetrics Inc.,FBA-ES-T,2267,CMWZ,20,0,0,0,0,0,0,0,2013-07-24T03:00:10Z,2013-07-24T03:00:15Z
-Sercel Inc.,L4C-3D,2820,CMWZ,10,0,0,0,0,0,0,0,2003-12-10T19:00:02Z,9999-01-01T00:00:00Z
+Make,Model,Serial,Station,Location,Azimuth,Method,Dip,Depth,North,East,Scale Factor,Scale Bias,Start Date,End Date
+Kinemetrics Inc.,FBA-ES-T,2264,CMWZ,20,0,,0,0,0,0,0,0,2016-12-05T06:30:00Z,9999-01-01T00:00:00Z
+Kinemetrics Inc.,FBA-ES-T,2267,CMWZ,20,0,,0,0,0,0,0,0,2013-07-24T03:00:10Z,2013-07-24T03:00:15Z
+Sercel Inc.,L4C-3D,2820,CMWZ,10,0,,0,0,0,0,0,0,2003-12-10T19:00:02Z,9999-01-01T00:00:00Z
