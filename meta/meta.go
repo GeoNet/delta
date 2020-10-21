@@ -62,6 +62,8 @@ type Orientation struct {
 	Dip float64
 	// Azimuth represents an equipment installation bearing, ideally with reference to true north.
 	Azimuth float64
+	// Method can be used to indicate the method or measuring the azimuth.
+	Method string
 
 	dip     string // shadow value used to retain formatting
 	azimuth string // shadow value used to retain formatting
