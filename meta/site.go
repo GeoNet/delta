@@ -14,6 +14,7 @@ const (
 	siteLatitude
 	siteLongitude
 	siteElevation
+	siteDepth
 	siteDatum
 	siteSurvey
 	siteStart
@@ -29,6 +30,16 @@ type Site struct {
 	Location string
 	Survey   string
 }
+
+/*
+func (s Site) Elevation() (float64, bool) {
+	return 0, false
+}
+
+func (s Site) Depth() (float64, bool) {
+	return 0, false
+}
+*/
 
 func (s Site) Less(site Site) bool {
 	switch {
@@ -58,6 +69,7 @@ func (s SiteList) encode() [][]string {
 		"Latitude",
 		"Longitude",
 		"Elevation",
+		"Depth",
 		"Datum",
 		"Survey",
 		"Start Date",
@@ -71,6 +83,7 @@ func (s SiteList) encode() [][]string {
 			strings.TrimSpace(v.latitude),
 			strings.TrimSpace(v.longitude),
 			strings.TrimSpace(v.elevation),
+			strings.TrimSpace(v.depth),
 			strings.TrimSpace(v.Datum),
 			strings.TrimSpace(v.Survey),
 			v.Start.Format(DateTimeFormat),
@@ -90,15 +103,22 @@ func (s *SiteList) decode(data [][]string) error {
 			}
 			var err error
 
-			var lat, lon, elev float64
+			var lat, lon, elev, depth float64
 			if lat, err = strconv.ParseFloat(d[siteLatitude], 64); err != nil {
 				return err
 			}
 			if lon, err = strconv.ParseFloat(d[siteLongitude], 64); err != nil {
 				return err
 			}
-			if elev, err = strconv.ParseFloat(d[siteElevation], 64); err != nil {
-				return err
+			if d[siteElevation] != "" {
+				if elev, err = strconv.ParseFloat(d[siteElevation], 64); err != nil {
+					return err
+				}
+			}
+			if d[siteDepth] != "" {
+				if depth, err = strconv.ParseFloat(d[siteDepth], 64); err != nil {
+					return err
+				}
 			}
 
 			var start, end time.Time
@@ -115,12 +135,14 @@ func (s *SiteList) decode(data [][]string) error {
 					Latitude:  lat,
 					Longitude: lon,
 					Elevation: elev,
+					Depth:     depth,
 					Datum:     strings.TrimSpace(d[siteDatum]),
 
 					// shadow variables
 					latitude:  d[siteLatitude],
 					longitude: d[siteLongitude],
 					elevation: d[siteElevation],
+					depth:     d[siteDepth],
 				},
 				Span: Span{
 					Start: start,

@@ -14,7 +14,8 @@ const (
 	stationName
 	stationLatitude
 	stationLongitude
-	stationHeight
+	stationElevation
+	stationDepth
 	stationDatum
 	stationStart
 	stationEnd
@@ -41,6 +42,7 @@ func (s StationList) encode() [][]string {
 		"Latitude",
 		"Longitude",
 		"Elevation",
+		"Depth",
 		"Datum",
 		"Start Date",
 		"End Date",
@@ -53,6 +55,7 @@ func (s StationList) encode() [][]string {
 			strings.TrimSpace(v.latitude),
 			strings.TrimSpace(v.longitude),
 			strings.TrimSpace(v.elevation),
+			strings.TrimSpace(v.depth),
 			strings.TrimSpace(v.Datum),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
@@ -70,15 +73,22 @@ func (s *StationList) decode(data [][]string) error {
 			}
 			var err error
 
-			var lat, lon, elev float64
+			var lat, lon, elev, depth float64
 			if lat, err = strconv.ParseFloat(d[stationLatitude], 64); err != nil {
 				return err
 			}
 			if lon, err = strconv.ParseFloat(d[stationLongitude], 64); err != nil {
 				return err
 			}
-			if elev, err = strconv.ParseFloat(d[stationHeight], 64); err != nil {
-				return err
+			if d[stationElevation] != "" {
+				if elev, err = strconv.ParseFloat(d[stationElevation], 64); err != nil {
+					return err
+				}
+			}
+			if d[stationDepth] != "" {
+				if depth, err = strconv.ParseFloat(d[stationDepth], 64); err != nil {
+					return err
+				}
 			}
 
 			var start, end time.Time
@@ -104,10 +114,12 @@ func (s *StationList) decode(data [][]string) error {
 					Longitude: lon,
 					Elevation: elev,
 					Datum:     strings.TrimSpace(d[stationDatum]),
+					Depth:     depth,
 
 					latitude:  strings.TrimSpace(d[stationLatitude]),
 					longitude: strings.TrimSpace(d[stationLongitude]),
-					elevation: strings.TrimSpace(d[stationHeight]),
+					elevation: strings.TrimSpace(d[stationElevation]),
+					depth:     strings.TrimSpace(d[stationDepth]),
 				},
 			})
 		}

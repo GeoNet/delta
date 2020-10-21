@@ -44,11 +44,13 @@ func TestList(t *testing.T) {
 						Latitude:  -39.325743417,
 						Longitude: 174.103863732,
 						Elevation: 880.0,
+						Depth:     0,
 						Datum:     "WGS84",
 
 						latitude:  "-39.325743417",
 						longitude: "174.103863732",
 						elevation: "880",
+						depth:     "0",
 					},
 					Span: Span{
 						Start: time.Date(1993, time.December, 14, 0, 0, 0, 0, time.UTC),
@@ -65,11 +67,13 @@ func TestList(t *testing.T) {
 						Latitude:  -38.372803703,
 						Longitude: 178.300778623,
 						Elevation: 8.0,
+						Depth:     0,
 						Datum:     "WGS84",
 
 						latitude:  "-38.372803703",
 						longitude: "178.300778623",
 						elevation: "8",
+						depth:     "0",
 					},
 					Span: Span{
 						Start: time.Date(2002, time.March, 5, 0, 0, 0, 0, time.UTC),
@@ -175,10 +179,12 @@ func TestList(t *testing.T) {
 						Latitude:  -39.198244208,
 						Longitude: 175.547981982,
 						Elevation: 1116.0,
+						Depth:     0,
 						Datum:     "WGS84",
 						latitude:  "-39.198244208",
 						longitude: "175.547981982",
 						elevation: "1116",
+						depth:     "0",
 					},
 					Survey: "GPS",
 					Span: Span{
@@ -193,10 +199,12 @@ func TestList(t *testing.T) {
 						Latitude:  -45.091369824,
 						Longitude: 169.411775594,
 						Elevation: 701.0,
+						Depth:     0,
 						Datum:     "WGS84",
 						latitude:  "-45.091369824",
 						longitude: "169.411775594",
 						elevation: "701",
+						depth:     "0",
 					},
 					Survey: "Map",
 					Span: Span{
