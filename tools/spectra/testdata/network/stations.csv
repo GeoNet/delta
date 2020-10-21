@@ -1,2 +1,2 @@
-Station,Network,Name,Latitude,Longitude,Elevation,Datum,Start Date,End Date
-FWVZ,CH,Far West,-39.254945374,175.55295183,2043,WGS84,1999-05-11T00:00:00Z,9999-01-01T00:00:00Z
+Station,Network,Name,Latitude,Longitude,Elevation,Depth,Datum,Start Date,End Date
+FWVZ,CH,Far West,-39.254945374,175.55295183,2043,0,WGS84,1999-05-11T00:00:00Z,9999-01-01T00:00:00Z
