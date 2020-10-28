@@ -75,6 +75,13 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Manufacturer: "GNS Science",
 		Vendor:       "",
 	},
+	"EQR120": {
+		Name:         "EQR120",
+		Type:         "Strong Motion Recorder",
+		Description:  "Eqr120",
+		Manufacturer: "Canterbury Seismic Instruments",
+		Vendor:       "",
+	},
 	"ETNA": {
 		Name:         "ETNA",
 		Type:         "Strong Motion Recorder",
@@ -398,6 +405,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}},
 	},
+	"EQR120": {
+		Name:         "EQR120",
+		Type:         "Strong Motion Sensor",
+		Description:  "Eqr120",
+		Manufacturer: "Canterbury Seismic Instruments",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
+	},
 	"FBA-23-DECK": {
 		Name:         "FBA-23-DECK",
 		Type:         "Accelerometer",
@@ -637,6 +652,33 @@ var Responses []Response = []Response{
 		Name: "CSI Strong Motion Recorders",
 		Sensors: []Sensor{
 			{
+				SensorList: []string{"EQR120"},
+				FilterList: []string{"CUSP SENSOR"},
+				Stages: []ResponseStage{
+					{
+						Type:   "paz",
+						Lookup: "CUSP",
+						Filter: "CUSP SENSOR",
+						StageSet: PAZ{
+							Name:  "CUSP",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "A simple place holder for the CSI CUSP strong motion sensors",
+						},
+						Frequency:  1,
+						SampleRate: 0,
+						Decimate:   0,
+						Gain:       0.10197162129779283,
+						//Scale: 1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "m/s**2",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "21Z",
+				Reversed: false,
+			}, {
 				SensorList: []string{"CUSP3D"},
 				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
@@ -775,6 +817,36 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			{
+				DataloggerList: []string{"EQR120"},
+				Type:           "CG",
+				Label:          "HN",
+				SampleRate:     200,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"CUSP-200"},
+				Stages: []ResponseStage{
+					{
+						Type:   "a2d",
+						Lookup: "A2D",
+						Filter: "CUSP-200",
+						StageSet: A2D{
+							Name:  "A2D",
+							Code:  PZFunctionLaplaceZTransform,
+							Type:  "Digital (Z-transform).",
+							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
+						},
+						Frequency:  0,
+						SampleRate: 200,
+						Decimate:   1,
+						Gain:       1e+06,
+						//Scale: 0,
+						InputUnits:  "V",
+						OutputUnits: "count",
+					},
+				},
+				Reversed: false,
+			}, {
 				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3"},
 				Type:           "TG",
 				Label:          "HN",

@@ -96,6 +96,18 @@ sensor-model:
       dip: 0
     - azimuth: 0
       dip: -90
+  EQR120:
+    type: Strong Motion Sensor
+    description: Eqr120 
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
   CUSP3D:
     type: Strong Motion Sensor
     description: CUSP 3D
