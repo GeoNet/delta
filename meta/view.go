@@ -12,8 +12,9 @@ const (
 	viewMount = iota
 	viewCode
 	viewLabel
-	viewDip
 	viewAzimuth
+	viewMethod
+	viewDip
 	viewDescription
 	viewStart
 	viewEnd
@@ -52,8 +53,9 @@ func (m ViewList) encode() [][]string {
 		"Mount",
 		"View",
 		"Label",
-		"Dip",
 		"Azimuth",
+		"Method",
+		"Dip",
 		"Description",
 		"Start Date",
 		"End Date",
@@ -63,8 +65,9 @@ func (m ViewList) encode() [][]string {
 			strings.TrimSpace(l.Mount),
 			strings.TrimSpace(l.Code),
 			strings.TrimSpace(l.Label),
-			strings.TrimSpace(l.dip),
 			strings.TrimSpace(l.azimuth),
+			strings.TrimSpace(l.Method),
+			strings.TrimSpace(l.dip),
 			strings.TrimSpace(l.Description),
 			l.Start.Format(DateTimeFormat),
 			l.End.Format(DateTimeFormat),
@@ -106,9 +109,10 @@ func (l *ViewList) decode(data [][]string) error {
 				Orientation: Orientation{
 					Dip:     dip,
 					Azimuth: azimuth,
+					Method:  strings.TrimSpace(d[viewMethod]),
 
-					dip:     strings.TrimSpace(d[viewDip]),
 					azimuth: strings.TrimSpace(d[viewAzimuth]),
+					dip:     strings.TrimSpace(d[viewDip]),
 				},
 				Span: Span{
 					Start: start,
