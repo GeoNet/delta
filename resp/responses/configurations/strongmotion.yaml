@@ -229,6 +229,12 @@ response:
   CSI Strong Motion Recorders:
     sensors:
     - sensors:
+      - EQR120
+      filters:
+      - CUSP SENSOR
+      channels: 21Z
+      reversed: false
+    - sensors:
       - CUSP3D
       filters:
       - CUSP SENSOR
@@ -260,6 +266,17 @@ response:
       reversed: false
 
     dataloggers:
+    - dataloggers:
+      - EQR120
+      type: CG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - CUSP-200
+      reversed: false
     - dataloggers:
       - CUSP3D
       - CUSP3C
