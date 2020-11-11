@@ -44,6 +44,12 @@ func main() {
 	var install string
 	flag.StringVar(&install, "install", "../../install", "base install directory")
 
+	var marks string
+	flag.StringVar(&marks, "marks", "", "only process given list of comma separated marks")
+
+	var skip string
+	flag.StringVar(&skip, "skip", "", "don't process given list of comma separated marks")
+
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "\n")
 		fmt.Fprintf(os.Stderr, "Build GNSS SiteLog XML files from delta meta information\n")
@@ -59,6 +65,22 @@ func main() {
 	}
 
 	flag.Parse()
+
+	// what to process
+	valid := make(map[string]interface{})
+	for _, m := range strings.Split(marks, ",") {
+		if s := strings.TrimSpace(m); s != "" {
+			valid[strings.ToUpper(s)] = true
+		}
+	}
+
+	// what not to process
+	invalid := make(map[string]interface{})
+	for _, m := range strings.Split(skip, ",") {
+		if s := strings.TrimSpace(m); s != "" {
+			invalid[strings.ToUpper(s)] = true
+		}
+	}
 
 	var tplFuncMap template.FuncMap = template.FuncMap{
 		"empty": func(d, s string) string {
@@ -208,6 +230,13 @@ func main() {
 	}
 
 	for _, m := range markList {
+		if _, ok := valid[m.Code]; len(valid) > 0 && !ok {
+			continue
+		}
+		if _, ok := invalid[m.Code]; ok {
+			continue
+		}
+
 		if _, ok := monuments[m.Code]; !ok {
 			continue
 		}
@@ -243,8 +272,13 @@ func main() {
 				MetSensorModel:       m.Model,
 				SerialNumber:         m.Serial,
 				DataSamplingInterval: "360 sec",
-				EffectiveDates:       "2000-02-05/CCYY-MM-DD",
-				Notes:                "",
+				EffectiveDates: func() string {
+					if time.Now().Before(m.End) {
+						return m.Start.Format(DateFormat)
+					}
+					return m.Start.Format(DateFormat) + "/" + m.End.Format(DateFormat)
+				}(),
+				Notes: "",
 			})
 		}
 
@@ -332,6 +366,9 @@ func main() {
 				if h.Start.After(r.End) {
 					continue
 				}
+				if !h.End.After(h.Start) {
+					continue
+				}
 				for _, s := range list {
 					if s.End.Before(h.Start) {
 						continue
@@ -358,6 +395,9 @@ func main() {
 
 					// sanity check
 					if end.Before(start) {
+						continue
+					}
+					if !end.After(start) {
 						continue
 					}
 
