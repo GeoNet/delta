@@ -86,8 +86,8 @@ type SiteLogInput struct {
 	MoreInformation    MoreInformationInput    `xml:"moreInformation"`
 }
 
-func (s SiteLogInput) SiteLog() SiteLog {
-	return SiteLog{
+func (s SiteLogInput) SiteLog() *SiteLog {
+	return &SiteLog{
 		EquipNameSpace:   equipNameSpace,
 		ContactNameSpace: contactNameSpace,
 		MiNameSpace:      miNameSpace,

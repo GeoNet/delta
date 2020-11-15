@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"encoding/hex"
-	"encoding/xml"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -49,6 +48,9 @@ func main() {
 
 	var skip string
 	flag.StringVar(&skip, "skip", "", "don't process given list of comma separated marks")
+
+	var dryrun bool
+	flag.BoolVar(&dryrun, "dryrun", false, "don't copy any files, simply check differences")
 
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "\n")
@@ -323,9 +325,8 @@ func main() {
 				DateRemoved: func() string {
 					if time.Now().After(a.End) {
 						return a.End.Format(DateTimeFormat)
-					} else {
-						return ""
 					}
+					return ""
 				}(),
 				Notes: "",
 			})
@@ -411,9 +412,8 @@ func main() {
 						DateRemoved: func() string {
 							if time.Now().After(end) {
 								return end.Format(DateTimeFormat)
-							} else {
-								return ""
 							}
+							return ""
 						}(),
 						TemperatureStabilization: "",
 						Notes:                    "",
@@ -434,7 +434,7 @@ func main() {
 			district = "Unknown"
 		}
 
-		x := SiteLog{
+		sitelog := SiteLog{
 
 			EquipNameSpace:   equipNameSpace,
 			ContactNameSpace: contactNameSpace,
@@ -473,6 +473,8 @@ func main() {
 					switch monument.FoundationType {
 					case "Stainless Steel Rods":
 						return "stainless steel rods"
+					case "Reinforced Concrete":
+						return "reinforced concrete"
 					default:
 						return monument.FoundationType
 					}
@@ -500,14 +502,13 @@ func main() {
 				State: district,
 				Country: func(lat, lon float64) string {
 					X, Y, _ := WGS842ITRF(lat, lon, 0.0)
-					dist := float64(-1.0)
+					var dist *float64
 					country := "Unknown"
 					for _, v := range countryList {
 						x, y, _ := WGS842ITRF(v.lat, v.lon, 0.0)
-						r := math.Sqrt((x-X)*(x-X) + (y-Y)*(y-Y))
-						if dist < 0.0 || r < dist {
+						if r := math.Sqrt((x-X)*(x-X) + (y-Y)*(y-Y)); dist == nil || r < (*dist) {
 							country = v.name
-							dist = r
+							dist = &r
 						}
 					}
 
@@ -555,14 +556,15 @@ func main() {
 						if _, ok := models[a.AntennaType]; ok {
 							continue
 						}
-						if g, ok := antennaGraphs[a.AntennaType]; ok {
+						switch g, ok := antennaGraphs[a.AntennaType]; {
+						case ok:
 							b, err := hex.DecodeString(g)
 							if err != nil {
 								log.Printf("error: unable to decode antenna graph for: \"%s\"", a.AntennaType)
 								continue
 							}
 							graphs = append(graphs, strings.Join([]string{a.AntennaType, string(b)}, "\n"))
-						} else {
+						default:
 							log.Printf("warning: missing antenna graph for: \"%s\"", a.AntennaType)
 						}
 						models[a.AntennaType] = true
@@ -573,70 +575,48 @@ func main() {
 			},
 		}
 
-		var files []string
-
-		// check existing files
-		filepath.Walk(output, func(path string, info os.FileInfo, err error) error {
-			if err != nil {
-				return err
-			}
-			if info.IsDir() {
-				return nil
-			}
-			if filepath.Ext(path) != ".xml" {
-				return nil
-			}
-
-			if !strings.Contains(filepath.Base(path), "_") {
-				return nil
-			}
-
-			if !strings.HasPrefix(filepath.Base(path), strings.ToLower(m.Code)) {
-				return nil
-			}
-
-			files = append(files, path)
-
-			return nil
-		})
-
-		s, err := x.MarshalLegacy()
+		current, err := sitelog.MarshalLegacy()
 		if err != nil {
 			log.Fatalf("error: unable to marshal xml: %v", err)
 		}
 
-		if n := len(files); n > 0 {
-			raw, err := ioutil.ReadFile(files[n-1])
+		lastLog, err := readLastSiteLog(output, m.Code)
+		if err != nil {
+			log.Fatal(err)
+
+		}
+		if lastLog != nil {
+			label := strings.ReplaceAll(lastLog.FormInformation.DatePrepared, "-", "")
+			lastLog.FormInformation.DatePrepared = sitelog.FormInformation.DatePrepared
+
+			last, err := lastLog.MarshalLegacy()
 			if err != nil {
-				log.Fatal(err)
+				log.Fatalf("error: unable to marshal xml: %v", err)
 			}
 
-			var last SiteLogInput
-			if err := xml.Unmarshal(raw, &last); err != nil {
-				log.Fatal(err)
+			// nothing to see here
+			if bytes.Equal(current, last) {
+				continue
 			}
 
-			last.FormInformation.DatePrepared = x.FormInformation.DatePrepared
-
-			out, err := last.SiteLog().MarshalLegacy()
-			if err != nil {
-				log.Fatal(err)
-			}
-
-			if !bytes.Equal(s, out) {
-				log.Printf("%s: file difference -got/+exp\n%s", m.Code, cmp.Diff(string(s), string(out)))
-			}
+			log.Printf("%s_%s.xml: file difference -got/+exp\n%s", m.Code, label, cmp.Diff(string(current), string(last)))
 		}
 
-		xmlfile := filepath.Join(output, strings.ToLower(m.Code)+".xml")
+		if dryrun {
+			continue
+		}
+
+		label := strings.ReplaceAll(sitelog.FormInformation.DatePrepared, "-", "")
+
+		xmlfile := filepath.Join(output, fmt.Sprintf("%s_%s.xml", strings.ToLower(m.Code), label))
 		if err := os.MkdirAll(filepath.Dir(xmlfile), 0755); err != nil {
 			log.Fatalf("error: unable to create dir: %v", err)
 		}
-		if err := ioutil.WriteFile(xmlfile, s, 0644); err != nil {
+		if err := ioutil.WriteFile(xmlfile, current, 0644); err != nil {
 			log.Fatalf("error: unable to write file: %v", err)
 		}
 
-		logfile := filepath.Join(logs, strings.ToLower(m.Code)+".log")
+		logfile := filepath.Join(logs, fmt.Sprintf("%s_%s.log", strings.ToLower(m.Code), label))
 		if err := os.MkdirAll(filepath.Dir(logfile), 0755); err != nil {
 			log.Fatalf("error: unable to create logs dir: %v", err)
 		}
@@ -646,7 +626,7 @@ func main() {
 		}
 		defer f.Close()
 
-		if err := tmpl.Execute(f, x); err != nil {
+		if err := tmpl.Execute(f, sitelog); err != nil {
 			log.Fatalf("error: unable to write log file: %v", err)
 		}
 	}
