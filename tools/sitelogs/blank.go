@@ -258,7 +258,7 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Telephone (secondary)  : {{.ContactAgency.SecondaryContact.TelephoneSecondary}}
        Fax                    : {{.ContactAgency.SecondaryContact.Fax}}
        E-mail                 : {{.ContactAgency.SecondaryContact.Email}}
-     Additional Information   : {{.ContactAgency.Notes}}
+     Additional Information   : {{.ContactAgency.Notes|lines "                              : "}}
 
 
 12.  Responsible Agency (if different from 11.)
@@ -278,7 +278,7 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Telephone (secondary)  : {{.ResponsibleAgency.SecondaryContact.TelephoneSecondary}}
        Fax                    : {{.ResponsibleAgency.SecondaryContact.Fax}}
        E-mail                 : {{.ResponsibleAgency.SecondaryContact.Email}}
-     Additional Information   : {{.ResponsibleAgency.Notes}}
+     Additional Information   : {{.ResponsibleAgency.Notes|lines "                              : "}}
 {{else }}     Agency                   : 
      Preferred Abbreviation   : 
      Mailing Address          : 

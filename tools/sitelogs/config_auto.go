@@ -44,7 +44,8 @@ New Zealand`,
 var responsibleAgency = Agency{
 	Agency:                `Land Information New Zealand`,
 	PreferredAbbreviation: `LINZ`,
-	MailingAddress:        `155 The Terrace, PO Box 5501, Wellington 6145 New Zealand`,
+	MailingAddress: `155 The Terrace, PO Box 5501, Wellington 6145
+New Zealand`,
 	PrimaryContact: Contact{
 		Name:               `LINZ Reception`,
 		TelephonePrimary:   `+64 4 460 0110`,
@@ -59,7 +60,8 @@ var responsibleAgency = Agency{
 		Fax:                ``,
 		Email:              `rwinefield@linz.govt.nz`,
 	},
-	Notes: `CGPS site is part of the LINZ PositioNZ Network http://www.linz.govt.nz/positionz`,
+	Notes: `CGPS site is part of the LINZ PositioNZ Network
+http://www.linz.govt.nz/positionz`,
 }
 
 var countryList = []struct {

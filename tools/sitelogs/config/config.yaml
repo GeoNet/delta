@@ -26,7 +26,7 @@ ContactAgency:
 ResponsibleAgency:
   Agency:    "Land Information New Zealand"
   PreferredAbbreviation: "LINZ"
-  MailingAddress:  "155 The Terrace, PO Box 5501, Wellington 6145 New Zealand"
+  MailingAddress:  "155 The Terrace, PO Box 5501, Wellington 6145\nNew Zealand"
   PrimaryContact:
     Name:         "LINZ Reception"
     TelephonePrimary:   "+64 4 460 0110"
@@ -39,7 +39,7 @@ ResponsibleAgency:
     TelephoneSecondary: ""
     Fax:    ""
     Email:        "rwinefield@linz.govt.nz"
-  Notes: "CGPS site is part of the LINZ PositioNZ Network http://www.linz.govt.nz/positionz"
+  Notes: "CGPS site is part of the LINZ PositioNZ Network\nhttp://www.linz.govt.nz/positionz"
 
 # used to determine country name
 Countries:
