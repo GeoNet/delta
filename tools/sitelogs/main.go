@@ -232,6 +232,9 @@ func main() {
 	}
 
 	for _, m := range markList {
+		// the last change time
+		var updated time.Time
+
 		if _, ok := valid[m.Code]; len(valid) > 0 && !ok {
 			continue
 		}
@@ -282,6 +285,9 @@ func main() {
 				}(),
 				Notes: "",
 			})
+			if m.Start.After(updated) {
+				updated = m.Start
+			}
 		}
 
 		for _, a := range installedAntenna[m.Code] {
@@ -330,6 +336,9 @@ func main() {
 				}(),
 				Notes: "",
 			})
+			if m.Start.After(updated) {
+				updated = m.Start
+			}
 		}
 
 		var list []meta.Session
@@ -418,6 +427,9 @@ func main() {
 						TemperatureStabilization: "",
 						Notes:                    "",
 					})
+					if start.After(updated) {
+						updated = start
+					}
 				}
 			}
 		}
@@ -585,8 +597,8 @@ func main() {
 			log.Fatal(err)
 
 		}
+
 		if lastLog != nil {
-			label := strings.ReplaceAll(lastLog.FormInformation.DatePrepared, "-", "")
 			lastLog.FormInformation.DatePrepared = sitelog.FormInformation.DatePrepared
 
 			last, err := lastLog.MarshalLegacy()
@@ -599,16 +611,14 @@ func main() {
 				continue
 			}
 
-			log.Printf("%s_%s.xml: file difference -got/+exp\n%s", m.Code, label, cmp.Diff(string(current), string(last)))
+			log.Printf("%s_%s.xml: file difference -got/+exp\n%s", m.Code, updated.Format("20060102"), cmp.Diff(string(current), string(last)))
 		}
 
 		if dryrun {
 			continue
 		}
 
-		label := strings.ReplaceAll(sitelog.FormInformation.DatePrepared, "-", "")
-
-		xmlfile := filepath.Join(output, fmt.Sprintf("%s_%s.xml", strings.ToLower(m.Code), label))
+		xmlfile := filepath.Join(output, fmt.Sprintf("%s_%s.xml", strings.ToLower(m.Code), updated.Format("20060102")))
 		if err := os.MkdirAll(filepath.Dir(xmlfile), 0755); err != nil {
 			log.Fatalf("error: unable to create dir: %v", err)
 		}
@@ -616,7 +626,7 @@ func main() {
 			log.Fatalf("error: unable to write file: %v", err)
 		}
 
-		logfile := filepath.Join(logs, fmt.Sprintf("%s_%s.log", strings.ToLower(m.Code), label))
+		logfile := filepath.Join(logs, fmt.Sprintf("%s_%s.log", strings.ToLower(m.Code), updated.Format("20060102")))
 		if err := os.MkdirAll(filepath.Dir(logfile), 0755); err != nil {
 			log.Fatalf("error: unable to create logs dir: %v", err)
 		}
