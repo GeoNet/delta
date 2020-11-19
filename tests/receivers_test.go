@@ -30,12 +30,6 @@ var testDeployedReceivers = map[string]func([]meta.DeployedReceiver) func(t *tes
 						if v[i].Start.After(v[j].End) {
 							continue
 						}
-						if v[i].End.Equal(v[j].Start) {
-							continue
-						}
-						if v[i].Start.Equal(v[j].End) {
-							continue
-						}
 
 						t.Errorf("receiver %s [%s] at %s has overlap with %s between times %s and %s",
 							v[i].Model, v[i].Serial, v[i].Mark, v[j].Mark, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
@@ -63,12 +57,6 @@ var testDeployedReceivers = map[string]func([]meta.DeployedReceiver) func(t *tes
 							continue
 						}
 						if v[i].Start.After(v[j].End) {
-							continue
-						}
-						if v[i].End.Equal(v[j].Start) {
-							continue
-						}
-						if v[i].Start.Equal(v[j].End) {
 							continue
 						}
 
