@@ -121,7 +121,7 @@ PILK,,Forced Centering,Pillar,-0.4,Reinforced Concrete,2,2000-11-03T00:00:00Z,99
 PKNO,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.575,Stainless Steel Rods,10,2010-01-01T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 PNUI,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2006-06-29T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 PORA,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.56,Stainless Steel Rods,10,2006-01-31T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
-PRTU,,Forced Centering,Wyatt/Agnew Drilled-Braced,0,Stainless Steel Rods,10,2009-08-17T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
+PRTU,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.433,Stainless Steel Rods,10,2009-08-17T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 PTOI,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2006-03-21T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 PUKE,,Forced Centering,Pillar,-1.55,Reinforced Concrete,2,2004-02-16T00:00:00Z,9999-01-01T00:00:00Z,Limestone,
 PYGR,50240M001,Forced Centering,Shallow Rod / Braced Antenna Mount,-1.15,Stainless Steel Rods,2.5,2006-12-04T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
