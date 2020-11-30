@@ -258,7 +258,9 @@ func main() {
 
 		var receivers []GnssReceiver
 		var antennas []GnssAntenna
-		var metsensors []GnssMetSensor
+		var humidity []GnssMetSensor
+		var pressure []GnssMetSensor
+		var temperature []GnssMetSensor
 
 		for _, m := range installedMetSensors[m.Reference.Code] {
 			var session *meta.Session
@@ -272,11 +274,40 @@ func main() {
 			if session == nil {
 				continue
 			}
-			metsensors = append(metsensors, GnssMetSensor{
+			humidity = append(humidity, GnssMetSensor{
+				Manufacturer:                    m.Make,
+				MetSensorModel:                  m.Model,
+				SerialNumber:                    m.Serial,
+				AccuracyPercentRelativeHumidity: m.Accuracy.Humidity,
+				DataSamplingInterval:            360,
+				EffectiveDates: func() string {
+					if time.Now().Before(m.End) {
+						return m.Start.Format(DateFormat)
+					}
+					return m.Start.Format(DateFormat) + "/" + m.End.Format(DateFormat)
+				}(),
+				Notes: "",
+			})
+			pressure = append(pressure, GnssMetSensor{
 				Manufacturer:         m.Make,
 				MetSensorModel:       m.Model,
 				SerialNumber:         m.Serial,
-				DataSamplingInterval: "360 sec",
+				AccuracyHPa:          m.Accuracy.Pressure,
+				DataSamplingInterval: 360,
+				EffectiveDates: func() string {
+					if time.Now().Before(m.End) {
+						return m.Start.Format(DateFormat)
+					}
+					return m.Start.Format(DateFormat) + "/" + m.End.Format(DateFormat)
+				}(),
+				Notes: "",
+			})
+			temperature = append(temperature, GnssMetSensor{
+				Manufacturer:           m.Make,
+				MetSensorModel:         m.Model,
+				SerialNumber:           m.Serial,
+				AccuracyDegreesCelcius: m.Accuracy.Temperature,
+				DataSamplingInterval:   360,
 				EffectiveDates: func() string {
 					if time.Now().Before(m.End) {
 						return m.Start.Format(DateFormat)
@@ -538,10 +569,12 @@ func main() {
 				},
 				Notes: "",
 			},
-			GnssReceivers:  receivers,
-			GnssAntennas:   antennas,
-			GnssMetSensors: metsensors,
-			ContactAgency:  contactAgency,
+			GnssReceivers:          receivers,
+			GnssAntennas:           antennas,
+			GnssHumiditySensors:    humidity,
+			GnssPressureSensors:    pressure,
+			GnssTemperatureSensors: temperature,
+			ContactAgency:          contactAgency,
 			ResponsibleAgency: func() *Agency {
 				switch m.Network {
 				case "LI":

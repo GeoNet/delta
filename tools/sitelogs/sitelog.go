@@ -61,29 +61,33 @@ type SiteLog struct {
 	XsiNameSpace     string `xml:"xmlns:xsi,attr"`
 	SchemaLocation   string `xml:"xsi:schemaLocation,attr"`
 
-	FormInformation    FormInformation
-	SiteIdentification SiteIdentification
-	SiteLocation       SiteLocation
-	GnssReceivers      []GnssReceiver
-	GnssAntennas       []GnssAntenna
-	GnssMetSensors     []GnssMetSensor
-	ContactAgency      Agency  `xml:"contactAgency"`
-	ResponsibleAgency  *Agency `xml:"responsibleAgency,omitempty"`
-	MoreInformation    MoreInformation
+	FormInformation        FormInformation
+	SiteIdentification     SiteIdentification
+	SiteLocation           SiteLocation
+	GnssReceivers          []GnssReceiver
+	GnssAntennas           []GnssAntenna
+	GnssHumiditySensors    []GnssMetSensor `xml:"humiditySensor,omitempty"`
+	GnssPressureSensors    []GnssMetSensor `xml:"pressureSensor",omitempty`
+	GnssTemperatureSensors []GnssMetSensor `xml:"temperatureSensor",omitempty`
+	ContactAgency          Agency          `xml:"contactAgency"`
+	ResponsibleAgency      *Agency         `xml:"responsibleAgency,omitempty"`
+	MoreInformation        MoreInformation
 }
 
 type SiteLogInput struct {
 	XMLName xml.Name `xml:"igsSiteLog"`
 
-	FormInformation    FormInformationInput    `xml:"formInformation"`
-	SiteIdentification SiteIdentificationInput `xml:"siteIdentification"`
-	SiteLocation       SiteLocationInput       `xml:"siteLocation"`
-	GnssReceivers      []GnssReceiverInput     `xml:"gnssReceiver"`
-	GnssAntennas       []GnssAntennaInput      `xml:"gnssAntenna"`
-	GnssMetSensors     []GnssMetSensor         `xml:"gnssMetSensor"`
-	ContactAgency      AgencyInput             `xml:"contactAgency"`
-	ResponsibleAgency  *AgencyInput            `xml:"responsibleAgency,omitempty"`
-	MoreInformation    MoreInformationInput    `xml:"moreInformation"`
+	FormInformation        FormInformationInput    `xml:"formInformation"`
+	SiteIdentification     SiteIdentificationInput `xml:"siteIdentification"`
+	SiteLocation           SiteLocationInput       `xml:"siteLocation"`
+	GnssReceivers          []GnssReceiverInput     `xml:"gnssReceiver"`
+	GnssAntennas           []GnssAntennaInput      `xml:"gnssAntenna"`
+	GnssHumiditySensors    []GnssMetSensor         `xml:"gnssHumiditySensor"`
+	GnssTemperatureSensors []GnssMetSensor         `xml:"gnssTemperatureSensor"`
+	GnssPressureSensors    []GnssMetSensor         `xml:"gnssPressureSensor"`
+	ContactAgency          AgencyInput             `xml:"contactAgency"`
+	ResponsibleAgency      *AgencyInput            `xml:"responsibleAgency,omitempty"`
+	MoreInformation        MoreInformationInput    `xml:"moreInformation"`
 }
 
 func (s SiteLogInput) SiteLog() *SiteLog {
@@ -120,7 +124,9 @@ func (s SiteLogInput) SiteLog() *SiteLog {
 			}
 			return antennas
 		}(),
-		GnssMetSensors: s.GnssMetSensors,
+		GnssHumiditySensors:    s.GnssHumiditySensors,
+		GnssTemperatureSensors: s.GnssTemperatureSensors,
+		GnssPressureSensors:    s.GnssPressureSensors,
 		ContactAgency: Agency{
 			Agency:                s.ContactAgency.Agency,
 			PreferredAbbreviation: s.ContactAgency.PreferredAbbreviation,
