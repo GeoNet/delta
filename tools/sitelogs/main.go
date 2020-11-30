@@ -458,7 +458,7 @@ func main() {
 
 			FormInformation: FormInformation{
 				PreparedBy:   preparedBy,
-				DatePrepared: time.Now().Format(DateFormat),
+				DatePrepared: updated.Format(DateFormat),
 				ReportType:   "DYNAMIC",
 			},
 
@@ -599,8 +599,6 @@ func main() {
 		}
 
 		if lastLog != nil {
-			lastLog.FormInformation.DatePrepared = sitelog.FormInformation.DatePrepared
-
 			last, err := lastLog.MarshalLegacy()
 			if err != nil {
 				log.Fatalf("error: unable to marshal xml: %v", err)
