@@ -60,8 +60,7 @@ New Zealand`,
 		Fax:                ``,
 		Email:              `rwinefield@linz.govt.nz`,
 	},
-	Notes: `CGPS site is part of the LINZ PositioNZ Network
-http://www.linz.govt.nz/positionz`,
+	Notes: `CGPS site is part of the LINZ PositioNZ Network http://www.linz.govt.nz/positionz`,
 }
 
 var countryList = []struct {
