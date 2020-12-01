@@ -142,10 +142,10 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
 
 8.   Meteorological Instrumentation
 
-{{ range $n, $m := .GnssHumiditySensors -}}8.1.{{plus $n}} Humidity Sensor Model  : {{$m.MetSensorModel}}
+{{ range $n, $m := .GnssHumiditySensors -}}8.1.{{plus $n}}Humidity Sensor Model   : {{$m.MetSensorModel}}
        Manufacturer           : {{$m.Manufacturer}}
        Serial Number          : {{$m.SerialNumber}}
-       Data Sampling Interval : {{$m.DataSamplingInterval}}
+       Data Sampling Interval : {{$m.DataSamplingInterval}} sec
        Accuracy (% rel h)     : {{$m.AccuracyPercentRelativeHumidity}}
        Aspiration             : 
        Height Diff to Ant     : (m)
@@ -165,10 +165,10 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Effective Dates        : (CCYY-MM-DD/CCYY-MM-DD)
        Notes                  : (multiple lines)
 
-{{ range $n, $m := .GnssPressureSensors -}}8.2.{{plus $n}} Pressure Sensor Model  : {{$m.MetSensorModel}}
+{{ range $n, $m := .GnssPressureSensors -}}8.2.{{plus $n}}Pressure Sensor Model   : {{$m.MetSensorModel}}
        Manufacturer           : {{$m.Manufacturer}}
        Serial Number          : {{$m.SerialNumber}}
-       Data Sampling Interval : {{$m.DataSamplingInterval}}
+       Data Sampling Interval : {{$m.DataSamplingInterval}} sec
        Accuracy               : {{$m.AccuracyHPa}} hPa
        Height Diff to Ant     : (m)
        Calibration date       : (CCYY-MM-DD)
@@ -186,10 +186,10 @@ var sitelogTemplate string = `     {{.SiteIdentification.FourCharacterID}} Site 
        Effective Dates        : (CCYY-MM-DD/CCYY-MM-DD)
        Notes                  : (multiple lines)
 
-{{ range $n, $m := .GnssTemperatureSensors -}}8.3.{{plus $n}} Temp. Sensor Model     : {{$m.MetSensorModel}}
+{{ range $n, $m := .GnssTemperatureSensors -}}8.3.{{plus $n}}Temp. Sensor Model      : {{$m.MetSensorModel}}
        Manufacturer           : {{$m.Manufacturer}}
        Serial Number          : {{$m.SerialNumber}}
-       Data Sampling Interval : {{$m.DataSamplingInterval}}
+       Data Sampling Interval : {{$m.DataSamplingInterval}} sec
        Accuracy               : {{$m.AccuracyDegreesCelcius}} deg C
        Aspiration             : 
        Height Diff to Ant     : (m)
