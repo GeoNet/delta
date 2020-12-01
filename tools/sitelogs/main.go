@@ -516,7 +516,7 @@ func main() {
 						return monument.FoundationType
 					}
 				}(),
-				FoundationDepth: strconv.FormatFloat(monument.FoundationDepth, 'f', 0, 64),
+				FoundationDepth: strconv.FormatFloat(monument.FoundationDepth, 'f', -1, 64),
 				MarkerDescription: func() string {
 					switch monument.MarkType {
 					case "Forced Centering":
