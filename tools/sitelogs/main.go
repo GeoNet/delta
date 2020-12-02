@@ -373,17 +373,13 @@ func main() {
 		}
 
 		var list []meta.Session
-		for _, s := range sessions[m.Code] {
-			list = append(list, s)
-		}
+		list = append(list, sessions[m.Code]...)
 		sort.Slice(list, func(i, j int) bool {
 			return list[i].Start.After(list[j].Start)
 		})
 
 		var boxes []meta.DeployedReceiver
-		for _, b := range deployedReceivers[m.Code] {
-			boxes = append(boxes, b)
-		}
+		boxes = append(boxes, deployedReceivers[m.Code]...)
 		sort.Slice(boxes, func(i, j int) bool {
 			return boxes[i].Start.Before(boxes[j].Start)
 		})
@@ -393,9 +389,7 @@ func main() {
 				continue
 			}
 			var history []meta.FirmwareHistory
-			for _, h := range firmwareHistory[r.Model][r.Serial] {
-				history = append(history, h)
-			}
+			history = append(history, firmwareHistory[r.Model][r.Serial]...)
 			sort.Slice(history, func(i, j int) bool {
 				return history[i].Start.Before(history[j].Start)
 			})
