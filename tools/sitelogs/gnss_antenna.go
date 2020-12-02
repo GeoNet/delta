@@ -47,8 +47,5 @@ type GnssAntennas []GnssAntenna
 func (g GnssAntennas) Len() int      { return len(g) }
 func (g GnssAntennas) Swap(i, j int) { g[i], g[j] = g[j], g[i] }
 func (g GnssAntennas) Less(i, j int) bool {
-	if g[i].DateInstalled < g[j].DateInstalled {
-		return true
-	}
-	return false
+	return g[i].DateInstalled < g[j].DateInstalled
 }

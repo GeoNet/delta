@@ -38,8 +38,5 @@ func (g GnssReceivers) Len() int { return len(g) }
 
 func (g GnssReceivers) Swap(i, j int) { g[i], g[j] = g[j], g[i] }
 func (g GnssReceivers) Less(i, j int) bool {
-	if g[i].DateInstalled < g[j].DateInstalled {
-		return true
-	}
-	return false
+	return g[i].DateInstalled < g[j].DateInstalled
 }

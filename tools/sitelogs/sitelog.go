@@ -67,8 +67,8 @@ type SiteLog struct {
 	GnssReceivers          []GnssReceiver
 	GnssAntennas           []GnssAntenna
 	GnssHumiditySensors    []GnssMetSensor `xml:"humiditySensor,omitempty"`
-	GnssPressureSensors    []GnssMetSensor `xml:"pressureSensor",omitempty`
-	GnssTemperatureSensors []GnssMetSensor `xml:"temperatureSensor",omitempty`
+	GnssPressureSensors    []GnssMetSensor `xml:"pressureSensor,omitempty"`
+	GnssTemperatureSensors []GnssMetSensor `xml:"temperatureSensor,omitempty"`
 	ContactAgency          Agency          `xml:"contactAgency"`
 	ResponsibleAgency      *Agency         `xml:"responsibleAgency,omitempty"`
 	MoreInformation        MoreInformation
@@ -151,130 +151,6 @@ func (s SiteLogInput) SiteLog() *SiteLog {
 		MoreInformation: MoreInformation(s.MoreInformation),
 	}
 }
-
-/*
-type Site struct {
-	XMLName xml.Name `xml:"geo:Site"`
-	Id      string   `xml:"gml:id,attr"`
-	Type    Type
-}
-
-type Type struct {
-	XMLName xml.Name `xml:"geo:type"`
-	Type    string   `xml:",chardata"`
-}
-
-type Monument struct {
-	XMLName xml.Name `xml:"geo:Monument"`
-	Link    string   `xml:"xlink:href,attr"`
-	Names   []Name   `xml:",omitempty"`
-}
-
-type Name struct {
-	XMLName   xml.Name `xml:"gml:name"`
-	CodeSpace string   `xml:"codeSpace,attr"`
-	Name      string   `xml:",chardata"`
-}
-
-type Receiver struct {
-	XMLName xml.Name `xml:"geo:gnssReceiver"`
-	Id      string   `xml:"gml:id,attr"`
-
-	ManufacturerSerialNumber string  `xml:"geo:manufacturerSerialNumber"`
-	ReceiverType             string  `xml:"geo:receiverType"`
-	SatelliteSystem          string  `xml:"geo:satelliteSystem"`
-	SerialNumber             string  `xml:"geo:serialNumber"`
-	FirmwareVersion          string  `xml:"geo:firmwareVersion"`
-	ElevationCutoffSetting   float32 `xml:"geo:elevationCutoffSetting"`
-	DateInstalled            string  `xml:"geo:dateInstalled"`
-	DateRemoved              string  `xml:"geo:dateRemoved"`
-	TemperatureStabilization string  `xml:"geo:temperatureStabilization"`
-	Notes                    string  `xml:"geo:notes"`
-}
-*/
-
-func NewSiteLog() SiteLog {
-	return SiteLog{
-		EquipNameSpace:   equipNameSpace,
-		ContactNameSpace: contactNameSpace,
-		MiNameSpace:      miNameSpace,
-		LiNameSpace:      liNameSpace,
-		XmlNameSpace:     xmlNameSpace,
-		XsiNameSpace:     xsiNameSpace,
-		SchemaLocation:   schemaLocation,
-	}
-}
-
-//func NewGeodesyML(site Site, monument Monument, receivers []Receiver /*source, sender, module string, uri AnyURI, networks []Network*/) GeodesyML {
-//	return GeodesyML{
-//		GMLNameSpace: GMLNameSpace,
-//		//GEONameSpace:   GEONameSpace,
-//		XSINameSpace:   XSINameSpace,
-//		GMDNameSpace:   GMDNameSpace,
-//		GCONameSpace:   GCONameSpace,
-//		XLINKNameSpace: XLINKNameSpace,
-//		SchemaLocation: SchemaLocation,
-//
-//		Site:      site,
-//		Monument:  monument,
-//		Receivers: receivers,
-
-/*
-	Site: Site{
-		Id: "Site_1",
-		Type: Type{
-			Type: "CORRS",
-		},
-		Monument: Monument{
-			Link: "#MONUMENT_1",
-		},
-	},
-*/
-
-/*
-	NameSpace:     FDSNNameSpace,
-	SchemaVersion: FDSNSchemaVersion,
-	Source:        source,
-	Sender:        sender,
-	Module:        module,
-	ModuleURI:     uri,
-	Networks:      networks,
-	Created:       Now(),
-*/
-//	}
-//}
-
-//func (x GeodesyML) IsValid() error {
-
-/*
-	if x.NameSpace != FDSNNameSpace {
-		return fmt.Errorf("wrong name space: %s", x.NameSpace)
-	}
-	if x.SchemaVersion != FDSNSchemaVersion {
-		return fmt.Errorf("wrong schema version: %s", x.SchemaVersion)
-	}
-
-	if !(len(x.Source) > 0) {
-		return fmt.Errorf("empty source element")
-	}
-
-	if x.Created.IsZero() {
-		return fmt.Errorf("created date should not be zero")
-	}
-
-	if err := Validate(x.Created); err != nil {
-		return err
-	}
-
-	for _, n := range x.Networks {
-		if err := Validate(n); err != nil {
-			return err
-		}
-	}
-*/
-
-//	return nil
-//}
 
 func (x SiteLog) Strip() SiteLog {
 	x.ContactAgency.MailingAddress = strings.ReplaceAll(x.ContactAgency.MailingAddress, "\n", " ")
