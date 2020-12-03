@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/xml"
 	"strings"
-	//	"fmt"
 )
 
 var equipNameSpace = "http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004"
@@ -15,43 +14,9 @@ var xmlNameSpace = "http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011"
 var xsiNameSpace = "http://www.w3.org/2001/XMLSchema-instance"
 var schemaLocation = "http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011 http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011/igsSiteLog.xsd"
 
-/*
-xmlns:equip="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004"
-xmlns:contact="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/contact/2004"
-xmlns:mi="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004"
-xmlns:li="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/localInterferences/2004"
-xmlns="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011 http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011/igsSiteLog.xsd"
-*/
-
-/*
-<geo:GeodesyML
-gml:id="GEO_1"
-xmlns:gml="http://www.opengis.net/gml/3.2"
-xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.2"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:gmd="http://www.isotc211.org/2005/gmd"
-xmlns:gco="http://www.isotc211.org/2005/gco"
-xmlns:xlink="http://www.w3.org/1999/xlink"
-*/
-
-type SrsName struct {
-	SrsName string `xml:"urn:xml-gov-au:icsm:egeodesy:0.3 srsName,attr"`
-}
-
-// FDSNStationXML represents the FDSN StationXML schema's root type.
-//
-// Designed as an XML representation of SEED metadata, the schema maps to
-// the most important and commonly used structures of SEED 2.4. When definitions and usage are
-// underdefined the SEED manual should be referred to for clarification.
-//
-// Top-level type for Station XML. Required field are Source (network ID of the institution sending
-// the message) and one or more Network containers or one or more Station containers.
+// Top-level type for SiteLlog XML.
 type SiteLog struct {
 	XMLName xml.Name `xml:"igsSiteLog"`
-
-	//<igsSiteLog xmlns:equip="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" xmlns:contact="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/contact/2004" xmlns:mi="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004" xmlns:li="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/localInterferences/2004" xmlns="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011 http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2011/igsSiteLog.xsd">
 
 	EquipNameSpace   string `xml:"xmlns:equip,attr"`
 	ContactNameSpace string `xml:"xmlns:contact,attr"`

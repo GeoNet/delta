@@ -1,9 +1,5 @@
 package main
 
-import (
-//"encoding/xml"
-)
-
 type GnssMetSensor struct {
 	MetSensorModel                  string  `xml:"equip:type"`
 	Manufacturer                    string  `xml:"equip:manufacturer"`
@@ -17,12 +13,4 @@ type GnssMetSensor struct {
 	AccuracyDegreesCelcius          float64 `xml:"equip:accuracy-degreesCelcius,omitempty"`
 	Aspiration                      string  `xml:"equip:aspiration"`
 	Notes                           string  `xml:"equip:notes"`
-}
-
-type GnssMetSensors []GnssMetSensor
-
-func (g GnssMetSensors) Len() int      { return len(g) }
-func (g GnssMetSensors) Swap(i, j int) { g[i], g[j] = g[j], g[i] }
-func (g GnssMetSensors) Less(i, j int) bool {
-	return g[i].EffectiveDates < g[j].EffectiveDates
 }
