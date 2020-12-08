@@ -1,12 +1,12 @@
 #!/bin/bash
 
-if [[ "$TRAVIS_BRANCH" == "master" ]] && [[ "$TRAVIS_PULL_REQUEST" == "false" ]]
+if [[ "$TRAVIS_BRANCH" == "main" ]] && [[ "$TRAVIS_PULL_REQUEST" == "false" ]]
 then
     echo 'Triggering SIT Build'
 
     body='{
     "request": {
-    "branch":"master"
+    "branch":"main"
     }}'
 
     STATUSCODE=$(curl --silent --output /dev/stderr --write-out "%{http_code}" -X POST \
