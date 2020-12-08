@@ -4,12 +4,15 @@ import (
 	"time"
 )
 
+// firmware conversion numbers for Gamit are listed as comments in Gamit code ~/gg/gamit/makex/settim.f
 var firmwareMap = map[string]string{
 	"unknown":           "0.00",
 	"NP 7.19 / SP 3.04": "7.19",
 	"5.10/3.013":        "5.10",
 	"3.2.32.8":          "3.20",
 	"1.2.5":             "1.20",
+	"1E95":              "8.25",
+	"1E86":              "8.28",
 	"1F39":              "8.32",
 	"1F50":              "8.35",
 	"1F60":              "8.36",
