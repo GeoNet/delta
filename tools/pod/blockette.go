@@ -112,7 +112,7 @@ var genericAbbreviations = []GenericAbbreviation{
 	{Code: 28, Description: "Kinemetrics Kinemetrics SBEPI"},
 	{Code: 29, Description: "IESE IESE S10g-4.5 (with preamp)"},
 	{Code: 30, Description: "Guralp CMG-3ESP-Z"},
-	{Code: 31, Description: "Nanometrics Nanometrics Trillium 120QA"},
+	{Code: 31, Description: "Nanometrics Trillium 120QA"},
 	{Code: 32, Description: "TSP Scout Hydrophone"},
 	{Code: 33, Description: "IESE IESE S31f-15 (with preamp)"},
 	{Code: 34, Description: "Kinemetrics FBA-ES-T-OBSIDIAN"},
@@ -124,6 +124,7 @@ var genericAbbreviations = []GenericAbbreviation{
 	{Code: 40, Description: "Duke 4.5 Hz Duke Malin Seismometer"},
 	{Code: 41, Description: "National tsunami gauge network"},
 	{Code: 42, Description: "GE Sensing Druck PTX-1830"},
+	{Code: 43, Description: "Nanometrics Trillium 360"},
 }
 
 func lookupGenericAbbreviation(desc string) int {

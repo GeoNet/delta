@@ -249,8 +249,10 @@ func (p *Pod) Channel(cha *stationxml.Channel) []Blockette {
 						model = "Lennartz LE-3DliteMkII"
 					case "STS-2":
 						model = "Streckeisen STS-2"
-					case "Nanometrics Trillium 120QA":
-						model = "Nanometrics Nanometrics Trillium 120QA"
+					case "Nanometrics Trillium 120QA", "Trillium 120QA":
+						model = "Nanometrics Trillium 120QA"
+					case "Trillium 360":
+						model = "Nanometrics Trillium 360"
 					default:
 						model = cha.Sensor.Model
 					}
