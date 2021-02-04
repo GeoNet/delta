@@ -64,6 +64,25 @@ var testInstalledCamerasMounts = map[string]func([]meta.InstalledCamera, []meta.
 	},
 }
 
+var testInstalledCamerasViews = map[string]func([]meta.InstalledCamera, []meta.View) func(t *testing.T){
+
+	"check for cameras installation views": func(cameras []meta.InstalledCamera, views []meta.View) func(t *testing.T) {
+		return func(t *testing.T) {
+			type view struct{ m, c string }
+			keys := make(map[view]interface{})
+			for _, m := range views {
+				keys[view{m.Mount, m.Code}] = true
+			}
+
+			for _, c := range cameras {
+				if _, ok := keys[view{c.Mount, c.View}]; !ok {
+					t.Errorf("unable to find camera mount %-5s (%-2s)", c.Mount, c.View)
+				}
+			}
+		}
+	},
+}
+
 var testInstalledCamerasAssets = map[string]func([]meta.InstalledCamera, []meta.Asset) func(t *testing.T){
 	"check cameras assets": func(cameras []meta.InstalledCamera, assets []meta.Asset) func(t *testing.T) {
 		return func(t *testing.T) {
@@ -108,6 +127,19 @@ func TestCameras_Mounts(t *testing.T) {
 
 	for k, fn := range testInstalledCamerasMounts {
 		t.Run(k, fn(cameras, mounts))
+	}
+}
+
+func TestCameras_Views(t *testing.T) {
+
+	var cameras meta.InstalledCameraList
+	loadListFile(t, "../install/cameras.csv", &cameras)
+
+	var views meta.ViewList
+	loadListFile(t, "../network/views.csv", &views)
+
+	for k, fn := range testInstalledCamerasViews {
+		t.Run(k, fn(cameras, views))
 	}
 }
 
