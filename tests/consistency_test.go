@@ -5,6 +5,7 @@ import (
 	"encoding/csv"
 	"io/ioutil"
 	"path/filepath"
+	"sort"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -16,6 +17,7 @@ func loadListFile(t *testing.T, path string, list meta.List) {
 	if err := meta.LoadList(path, list); err != nil {
 		t.Fatalf("unable to load list file %s: %v", path, err)
 	}
+	sort.Sort(list)
 }
 
 var testConsistency = map[string]func(path string, list meta.List) func(t *testing.T){
