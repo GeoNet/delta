@@ -1,11 +1,11 @@
 Make,Model,Serial,Place,Role,Start Date,End Date
-Campbell Scientific,CR6,4117,Upper Tama Lake,LRDCP Network,2019-03-12T03:30:00Z,9999-01-01T00:00:00Z
-Campbell Scientific,CR6,4115,Ruapehu Crater Lake,LRDCP Network,2018-05-03T00:00:00Z,9999-01-01T00:00:00Z
-Campbell Scientific,CR6,4111,Fox Glacier Alpine Gardens,LRDCP Network,2019-02-06T00:00:00Z,9999-01-01T00:00:00Z
-Campbell Scientific,CR6,4110,Upper Te Maari Fumarole 6,LRDCP Network,2018-08-28T00:00:00Z,9999-01-01T00:00:00Z
-Campbell Scientific,CR6,4109,White Island Fumarole 13,LRDCP Network,2018-09-13T01:30:00Z,9999-01-01T00:00:00Z
-Campbell Scientific,CR6,3066,Lower Te Maari Fumarole 15,LRDCP Network,2018-08-10T00:00:00Z,9999-01-01T00:00:00Z
-Campbell Scientific,CR6,4116,Waimangu Inferno Crater,LRDCP Network,2017-11-07T00:00:00Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,4117,Upper Tama Lake,,2019-03-12T03:30:00Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,4115,Ruapehu Crater Lake,,2018-05-03T00:00:00Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,4111,Fox Glacier Alpine Gardens,,2019-02-06T00:00:00Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,4110,Upper Te Maari Fumarole 6,,2018-08-28T00:00:00Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,4109,White Island Fumarole 13,,2018-09-13T01:30:00Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,3066,Lower Te Maari Fumarole 15,,2018-08-10T00:00:00Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,4116,Waimangu Inferno Crater,,2017-11-07T00:00:00Z,9999-01-01T00:00:00Z
 GNS Science,EARSS/16,204,Taranaki Emergency Management Office,EARSS Network,1993-12-14T23:51:00Z,2002-09-18T21:00:00Z
 GNS Science,EARSS/16,207,Chateau Observatory,EARSS Network,1993-11-12T03:00:00Z,1998-06-11T09:00:00Z
 GNS Science,EARSS/16,209,Wellington Dominion Observatory,EARSS Network,1995-03-10T23:59:00Z,1998-01-27T01:00:00Z
