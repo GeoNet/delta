@@ -224,5 +224,53 @@ filter:
     inputunits: count
     outputunits: count
 
+  Nanometrics_Centaur-100-Linear:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 400000
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: Nanometrics_165_15_Linear
+    frequency: 0
+    inputsrate: 30000
+    samplerate: 2000
+    decimate: 15
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: Nanometrics_187_10_Linear
+    frequency: 0
+    inputrate: 2000
+    samplerate: 200
+    decimate: 10
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: Nanometrics_223_2_Linear
+    frequency: 0
+    inputrate: 200
+    samplerate: 100
+    decimate: 2
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
