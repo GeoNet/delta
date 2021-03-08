@@ -30,7 +30,7 @@ func main() {
 	}
 
 	var output string
-	flag.StringVar(&output, "output", "station.info", "output info file")
+	flag.StringVar(&output, "output", "station.info.geonet", "output info file")
 
 	var base string
 	flag.StringVar(&base, "base", "../..", "base delta directory")
