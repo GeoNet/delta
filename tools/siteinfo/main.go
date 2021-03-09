@@ -287,7 +287,7 @@ func main() {
 	}
 	defer file.Close()
 
-	if err := encodeInfo(file, update, list...); err != nil {
+	if err := encodeInfo(file, update, filepath.Base(output), list...); err != nil {
 		log.Fatal(err)
 	}
 }
