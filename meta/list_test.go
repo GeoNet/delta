@@ -217,6 +217,29 @@ func TestList(t *testing.T) {
 			},
 		},
 		{
+			"testdata/features.csv",
+			&FeatureList{
+				Feature{
+					Span: Span{
+						Start: time.Date(2014, time.May, 16, 0, 0, 15, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+					Station:     "CNZ",
+					Location:    "12",
+					Description: "Over the rainbow",
+				},
+				Feature{
+					Span: Span{
+						Start: time.Date(1986, time.December, 9, 20, 10, 0, 0, time.UTC),
+						End:   time.Date(1996, time.May, 1, 21, 38, 0, 0, time.UTC),
+					},
+					Station:     "MSCZ",
+					Location:    "10",
+					Description: "Somewhere up on high",
+				},
+			},
+		},
+		{
 			"testdata/marks.csv",
 			&MarkList{
 				Mark{
