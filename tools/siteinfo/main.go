@@ -30,7 +30,7 @@ func main() {
 	}
 
 	var output string
-	flag.StringVar(&output, "output", "station.info", "output info file")
+	flag.StringVar(&output, "output", "station.info.geonet", "output info file")
 
 	var base string
 	flag.StringVar(&base, "base", "../..", "base delta directory")
@@ -287,7 +287,7 @@ func main() {
 	}
 	defer file.Close()
 
-	if err := encodeInfo(file, update, list...); err != nil {
+	if err := encodeInfo(file, update, filepath.Base(output), list...); err != nil {
 		log.Fatal(err)
 	}
 }
