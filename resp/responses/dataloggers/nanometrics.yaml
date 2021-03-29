@@ -13,6 +13,10 @@ datalogger-model:
   TitanSMA:
     type: Strong Motion Recorder
     description: TitanSMA
+    vendor: ""
+  Centaur CTR4-6S:
+    type: Datalogger
+    description: Centaur
     manufacturer: Nanometrics
     vendor: ""
 
