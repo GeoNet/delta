@@ -425,5 +425,37 @@ response:
       filters:
       - Taurus-100
       reversed: false
- 
+
+  Nanometrics Dataloggers Connected to Nanometrics Broadband Sensors:
+    sensors:
+    - sensors:
+      - Trillium 120QA
+      filters:
+      - TRILLIUM-120QA
+      channels: ZNE
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Centaur
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+        - Nanometrics_Centaur-100-Linear
+      reversed: false
+    - dataloggers:
+      - Centaur
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+        - Nanometrics_Centaur-1-Linear
+      reversed: false
+
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
