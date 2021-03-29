@@ -434,6 +434,12 @@ response:
       - TRILLIUM-120QA
       channels: ZNE
       reversed: false
+    - sensors:
+      - Trillium Compact 120PH-2
+      filters:
+      - TRILLIUM-COMPACT-120PH-2
+      channels: ZNE
+      reversed: false
     dataloggers:
     - dataloggers:
       - Centaur
