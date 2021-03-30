@@ -61,6 +61,13 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 	},
+	"Centaur CTR4-6S": {
+		Name:         "Centaur CTR4-6S",
+		Type:         "Datalogger",
+		Description:  "Centaur",
+		Manufacturer: "Nanometrics",
+		Vendor:       "",
+	},
 	"EARSS/16": {
 		Name:         "EARSS/16",
 		Type:         "Datalogger",
@@ -2463,7 +2470,7 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			{
-				DataloggerList: []string{"Centaur"},
+				DataloggerList: []string{"Centaur CTR4-6S"},
 				Type:           "CG",
 				Label:          "HH",
 				SampleRate:     100,
@@ -2558,7 +2565,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, {
-				DataloggerList: []string{"Centaur"},
+				DataloggerList: []string{"Centaur CTR4-6S"},
 				Type:           "CG",
 				Label:          "LH",
 				SampleRate:     1,
