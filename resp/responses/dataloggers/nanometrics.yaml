@@ -15,6 +15,11 @@ datalogger-model:
     description: TitanSMA
     manufacturer: Nanometrics
     vendor: ""
+  Centaur CTR4-6S:
+    type: Datalogger
+    description: Centaur
+    manufacturer: Nanometrics
+    vendor: ""
 
 filter:
   ORION-100:

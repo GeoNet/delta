@@ -442,7 +442,7 @@ response:
       reversed: false
     dataloggers:
     - dataloggers:
-      - Centaur
+      - Centaur CTR4-6S
       type: CG
       label: HH
       samplerate: 100
@@ -453,7 +453,7 @@ response:
         - Nanometrics_Centaur-100-Linear
       reversed: false
     - dataloggers:
-      - Centaur
+      - Centaur CTR4-6S
       type: CG
       label: LH
       samplerate: 1
