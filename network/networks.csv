@@ -5,6 +5,7 @@ CG,CG,The GeoNet CGPS network,false
 CH,NZ,Tongariro National Park volcano seismic network,false
 CY,NZ,Clyde local seismic network,false
 EC,NZ,East Cape regional seismic network,false
+EN,NZ,GeoNet environmental data using low rate data collection platform network,false
 FI,NZ,Fiordland regional seismic network,false
 GN,GN,The GNS CGPS network,false
 HA,NZ,Hydrophone Array,false
