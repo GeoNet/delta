@@ -238,4 +238,130 @@ response:
       - Water Depth 10
       reversed: false
 
+  Nanometrics Dataloggers Connected to Sea Water Depth Sensors:
+    sensors:
+    - sensors:
+      - Druck PTX-1830
+      filters:
+      - Druck PTX-1830
+      channels: Z
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: LT
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+      - Nanometrics_Centaur-1-Linear
+      reversed: false
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: BT
+      samplerate: 10
+      frequency: 1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+      - Nanometrics_Centaur-10-Linear
+      reversed: false
+
+  Nanometrics Dataloggers Connected to Fresh Water Depth Sensors:
+    sensors:
+    - sensors:
+      - Druck PTX-1830-LAND
+      filters:
+      - Druck PTX-1830-LAND
+      channels: Z
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: LT
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+      - Nanometrics_Centaur-1-Linear
+      reversed: false
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: BT
+      samplerate: 10
+      frequency: 1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+      - Nanometrics_Centaur-10-Linear
+      reversed: false
+
+  Nanometrics Dataloggers Connected to Water Depth Sensors (Derived):
+    sensors:
+    - sensors:
+      - Druck PTX-1830
+      filters: []
+      channels: H
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: LT
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Water Depth 1
+      reversed: false
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: BT
+      samplerate: 10
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Water Depth 10
+      reversed: false
+
+  Nanometrics Dataloggers Connected to Tidal Sensors (Derived):
+    sensors:
+    - sensors:
+      - Druck PTX-1830
+      filters: []
+      channels: T
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: LT
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Water Depth 1
+      reversed: false
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: BT
+      samplerate: 10
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - Water Depth 10
+      reversed: false
+
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
