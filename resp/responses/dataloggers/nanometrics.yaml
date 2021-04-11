@@ -278,6 +278,67 @@ filter:
     inputunits: count
     outputunits: count
 
+  Nanometrics_Centaur-10-Linear:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 400000
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: Nanometrics_213_20_Linear
+    frequency: 0
+    inputrate: 30000
+    samplerate: 1500
+    decimate: 20
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: Nanometrics_177_15_Linear
+    frequency: 0
+    inputrate: 1500
+    samplerate: 100
+    decimate: 15
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: Nanometrics_113_5_Linear
+    frequency: 0
+    inputrate: 100
+    samplerate: 20
+    decimate: 5
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: Nanometrics_223_2_Linear
+    frequency: 0
+    inputrate: 20
+    samplerate: 10
+    decimate: 2
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+
   Nanometrics_Centaur-1-Linear:
   - type: a2d
     lookup: A2D
