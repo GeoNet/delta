@@ -12,14 +12,6 @@ _Lists the geographical and physical characteristics of collection points._
 * `sites.csv` - Specific Observation Points at a Specific Recording Station.
 * `stations.csv` - Location for a Group of Recording Sites.
 
-#### _FEATURES_ ####
-
-* _Station_ - Code used to uniquely identify Recording _Station_.
-* _Location_ - Code used to uniquely identify the _Site_ at the  Recording _Stations_.
-* _Description_ - A helpful description of the physical site location.
-* _Start Date_ - General date and time at which the _Site_ description was valid.
-* _End Date_ - General date and time at which the _Site_ description was no longer valid.
-
 #### _MARK_ ####
 
 * _Mark_ - Code used to uniquely identify GNSS _Mark_.
