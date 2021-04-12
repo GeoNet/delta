@@ -182,6 +182,12 @@ response:
       channels: Z12
       reversed: false
     - sensors:
+      - Trillium Horizon TH120-1
+      filters:
+      - TRILLIUM-HORIZON-TH120-1
+      channels: ZNE
+      reversed: false
+    - sensors:
       - CMG-3TB-GN
       filters:
       - CMG-3TB-GN
@@ -363,7 +369,7 @@ response:
       - Q4120-1
       reversed: false
 
-  Nanometrics Dataloggers Connected to Broadband Sensors:
+  Nanometrics Portable Dataloggers Connected to Broadband Sensors:
     sensors:
     - sensors:
       - Trillium 120QA
@@ -438,6 +444,12 @@ response:
       - Trillium Compact 120PH-2
       filters:
       - TRILLIUM-COMPACT-120PH-2
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - Trillium Horizon TH120-1
+      filters:
+      - TRILLIUM-HORIZON-TH120-1
       channels: ZNE
       reversed: false
     dataloggers:
