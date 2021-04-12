@@ -108,6 +108,29 @@ paz:
     - (-196+0i)
     - (-1490+1740i)
     - (-1490-1740i)
+  TRILLIUM-HORIZON-120:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from IRIS NRL Trillium Horizon 120
+    poles:
+    - (-0.036614+0.037059i)
+    - (-0.036614-0.037059i)
+    - (-32.55+0i)
+    - (-142+0i)
+    - (-364+404i)
+    - (-364-404i)
+    - (-1260+0i)
+    - (-4900+5200i)
+    - (-4900-5200i)
+    - (-7100+1700i)
+    - (-7100-1700i)
+    zeros:
+    - (0+0i)
+    - (0+0i)
+    - (-31.63+0i)
+    - (-160+0i)
+    - (-340+0i)
+    - (-3177+0i)
   TRILLIUM-360:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
@@ -171,6 +194,18 @@ filter:
   TRILLIUM-120QA:
   - type: paz
     lookup: TRILLIUM-120QA
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1202.5
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  TRILLIUM-HORIZON-TH120-1:
+  - type: paz
+    lookup: TRILLIUM-HORIZON-120
     frequency: 1
     samplerate: 0
     decimate: 0
