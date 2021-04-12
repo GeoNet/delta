@@ -26,7 +26,7 @@ sensor-model:
       dip: 0
   Trillium Compact 120PH-2:
     type: Broadband Seismometer
-    description: Trillium Compact 120 Posthole Generation 2
+    description: Trillium Compact 120 Posthole
     manufacturer: "Nanometrics Inc."
     vendor: ""
     components:
