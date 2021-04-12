@@ -109,7 +109,7 @@ var testFeatures_Sites = map[string]func([]meta.Feature, []meta.Site) func(t *te
 func TestFeatures(t *testing.T) {
 
 	var features meta.FeatureList
-	loadListFile(t, "../network/features.csv", &features)
+	loadListFile(t, "../environment/features.csv", &features)
 
 	for k, fn := range testFeatures {
 		t.Run(k, fn(features))
@@ -119,7 +119,7 @@ func TestFeatures(t *testing.T) {
 func TestFeatures_Stations(t *testing.T) {
 
 	var features meta.FeatureList
-	loadListFile(t, "../network/features.csv", &features)
+	loadListFile(t, "../environment/features.csv", &features)
 
 	var stations meta.StationList
 	loadListFile(t, "../network/stations.csv", &stations)
@@ -132,7 +132,7 @@ func TestFeatures_Stations(t *testing.T) {
 func TestFeatures_Sites(t *testing.T) {
 
 	var features meta.FeatureList
-	loadListFile(t, "../network/features.csv", &features)
+	loadListFile(t, "../environment/features.csv", &features)
 
 	var sites meta.SiteList
 	loadListFile(t, "../network/sites.csv", &sites)
