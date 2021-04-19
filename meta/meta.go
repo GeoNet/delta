@@ -1,6 +1,7 @@
 package meta
 
 import (
+	"strconv"
 	"strings"
 	"time"
 )
@@ -14,6 +15,14 @@ const DateTimeFormat = "2006-01-02T15:04:05Z"
 func Format(t time.Time) string {
 	return t.Format(DateTimeFormat)
 }
+
+type Compare int
+
+const (
+	EqualTo Compare = iota
+	LessThan
+	GreaterThan
+)
 
 // Reference describes a location where measurements can be taken.
 type Reference struct {
@@ -220,6 +229,53 @@ func (s Span) Extent(spans ...Span) (Span, bool) {
 	}
 
 	return clip, true
+}
+
+type Range struct {
+	Value   float64
+	Compare Compare
+}
+
+func NewRange(s string) (Range, error) {
+	switch {
+	case strings.HasPrefix(s, "<"):
+		v, err := strconv.ParseFloat(s[1:], 64)
+		if err != nil {
+			return Range{}, err
+		}
+		return Range{
+			Value:   v,
+			Compare: LessThan,
+		}, nil
+	case strings.HasPrefix(s, ">"):
+		v, err := strconv.ParseFloat(s[1:], 64)
+		if err != nil {
+			return Range{}, err
+		}
+		return Range{
+			Value:   v,
+			Compare: GreaterThan,
+		}, nil
+	default:
+		v, err := strconv.ParseFloat(s, 64)
+		if err != nil {
+			return Range{}, err
+		}
+		return Range{
+			Value: v,
+		}, nil
+	}
+}
+
+func (r Range) String() string {
+	switch r.Compare {
+	case LessThan:
+		return "<" + strconv.FormatFloat(r.Value, 'g', -1, 64)
+	case GreaterThan:
+		return ">" + strconv.FormatFloat(r.Value, 'g', -1, 64)
+	default:
+		return strconv.FormatFloat(r.Value, 'g', -1, 64)
+	}
 }
 
 // Equipment represents an indiviual piece of hardware.

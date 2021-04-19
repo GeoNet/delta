@@ -1070,6 +1070,38 @@ func TestList(t *testing.T) {
 					View:  "01",
 				},
 			},
+			"testdata/classes.csv",
+			&ClassList{
+				Class{
+					Station: "WHAS",
+					Class:   "C",
+					Vs30:    270,
+					Tsite: Range{
+						Value: 0.4,
+					},
+					Zb:         40,
+					QVs30:      "Q3",
+					QTsite:     "Q3",
+					DTsite:     "I",
+					QZb:        "Q3",
+					References: "Perrin et al. 2015",
+				},
+				Class{
+					Station: "WKZ",
+					Class:   "B",
+					Vs30:    1000,
+					Tsite: Range{
+						Compare: LessThan,
+						Value:   0.1,
+					},
+					Zb:         0,
+					QVs30:      "Q3",
+					QTsite:     "Q3",
+					DTsite:     "I",
+					QZb:        "Q3",
+					References: "Perrin et al. 2015",
+				},
+			},
 		},
 	}
 
