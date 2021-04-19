@@ -462,7 +462,7 @@ response:
       storageformat: Steim1
       clockdrift: 0.0001
       filters:
-        - Nanometrics_Centaur-100-Linear
+        - CENTAUR-100-LP
       reversed: false
     - dataloggers:
       - Centaur CTR4-6S
@@ -473,7 +473,7 @@ response:
       storageformat: Steim1
       clockdrift: 0.0001
       filters:
-        - Nanometrics_Centaur-1-Linear
+        - CENTAUR-1-LP
       reversed: false
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

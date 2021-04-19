@@ -256,7 +256,7 @@ response:
       storageformat: Steim1
       clockdrift: 0.0001
       filters:
-      - Nanometrics_Centaur-1-Linear
+      - CENTAUR-1-LP
       reversed: false
     - dataloggers:
       - Centaur CTR4-6S
@@ -267,7 +267,7 @@ response:
       storageformat: Steim1
       clockdrift: 0.0001
       filters:
-      - Nanometrics_Centaur-10-Linear
+      - CENTAUR-10-LP
       reversed: false
 
   Nanometrics Dataloggers Connected to Fresh Water Depth Sensors:
@@ -288,7 +288,7 @@ response:
       storageformat: Steim1
       clockdrift: 0.0001
       filters:
-      - Nanometrics_Centaur-1-Linear
+      - CENTAUR-1-LP
       reversed: false
     - dataloggers:
       - Centaur CTR4-6S
@@ -299,7 +299,7 @@ response:
       storageformat: Steim1
       clockdrift: 0.0001
       filters:
-      - Nanometrics_Centaur-10-Linear
+      - CENTAUR-10-LP
       reversed: false
 
   Nanometrics Dataloggers Connected to Water Depth Sensors (Derived):
