@@ -11,7 +11,7 @@ func TestClasses(t *testing.T) {
 	var classes meta.ClassList
 	t.Log("Load site classes file")
 	{
-		if err := meta.LoadList("../network/classes.csv", &classes); err != nil {
+		if err := meta.LoadList("../environment/classes.csv", &classes); err != nil {
 			t.Fatal(err)
 		}
 	}

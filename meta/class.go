@@ -86,6 +86,9 @@ func (c *ClassList) decode(data [][]string) error {
 			if len(d) != classLast {
 				return fmt.Errorf("incorrect number of installed class fields")
 			}
+			if strings.HasPrefix(strings.TrimSpace(d[0]), "#") {
+				continue
+			}
 			var err error
 
 			var vs30, zb float64
