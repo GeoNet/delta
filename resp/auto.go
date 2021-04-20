@@ -652,6 +652,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
+	"Trillium Horizon TH120-1": {
+		Name:         "Trillium Horizon TH120-1",
+		Type:         "Broadband Seismometer",
+		Description:  "Trillium Horizon 120",
+		Manufacturer: "Nanometrics Inc.",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
+	},
 }
 
 var Responses []Response = []Response{
