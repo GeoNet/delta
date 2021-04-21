@@ -229,7 +229,7 @@ filter:
     inputunits: count
     outputunits: count
 
-  Nanometrics_Centaur-100-Linear:
+  CENTAUR-100-LP:
   - type: a2d
     lookup: A2D
     frequency: 0
@@ -242,7 +242,7 @@ filter:
     inputunits: V
     outputunits: count
   - type: fir
-    lookup: Nanometrics_165_15_Linear
+    lookup: CENTAUR_PRIM100STAGE1_LP
     frequency: 0
     inputsrate: 30000
     samplerate: 2000
@@ -254,7 +254,7 @@ filter:
     inputunits: count
     outputunits: count
   - type: fir
-    lookup: Nanometrics_187_10_Linear
+    lookup: CENTAUR_PRIM100STAGE2_LP
     frequency: 0
     inputrate: 2000
     samplerate: 200
@@ -266,7 +266,7 @@ filter:
     inputunits: count
     outputunits: count
   - type: fir
-    lookup: Nanometrics_223_2_Linear
+    lookup: CENTAUR_PRIM100STAGE3_LP
     frequency: 0
     inputrate: 200
     samplerate: 100
@@ -278,7 +278,7 @@ filter:
     inputunits: count
     outputunits: count
 
-  Nanometrics_Centaur-10-Linear:
+  CENTAUR-10-LP:
   - type: a2d
     lookup: A2D
     frequency: 0
@@ -291,7 +291,7 @@ filter:
     inputunits: V
     outputunits: count
   - type: fir
-    lookup: Nanometrics_213_20_Linear
+    lookup: CENTAUR_PRIM10STAGE1_LP
     frequency: 0
     inputrate: 30000
     samplerate: 1500
@@ -303,7 +303,7 @@ filter:
     inputunits: count
     outputunits: count
   - type: fir
-    lookup: Nanometrics_177_15_Linear
+    lookup: CENTAUR_PRIM10STAGE2_LP
     frequency: 0
     inputrate: 1500
     samplerate: 100
@@ -315,7 +315,7 @@ filter:
     inputunits: count
     outputunits: count
   - type: fir
-    lookup: Nanometrics_113_5_Linear
+    lookup: CENTAUR_PRIM10STAGE3_LP
     frequency: 0
     inputrate: 100
     samplerate: 20
@@ -327,7 +327,7 @@ filter:
     inputunits: count
     outputunits: count
   - type: fir
-    lookup: Nanometrics_223_2_Linear
+    lookup: CENTAUR_PRIM10STAGE4_LP
     frequency: 0
     inputrate: 20
     samplerate: 10
@@ -339,7 +339,7 @@ filter:
     inputunits: count
     outputunits: count
 
-  Nanometrics_Centaur-1-Linear:
+  CENTAUR-1-LP:
   - type: a2d
     lookup: A2D
     frequency: 0
@@ -352,7 +352,7 @@ filter:
     inputunits: V
     outputunits: count
   - type: fir
-    lookup: Nanometrics_203_20_Linear
+    lookup: CENTAUR_PRIM50STAGE1_LP
     frequency: 0
     inputrate: 30000
     samplerate: 1500
@@ -364,7 +364,7 @@ filter:
     inputunits: count
     outputunits: count
   - type: fir
-    lookup: Nanometrics_165_15_Linear
+    lookup: CENTAUR_PRIM20STAGE1_LP
     frequency: 0
     inputrate: 1500
     samplerate: 100
@@ -376,7 +376,7 @@ filter:
     inputunits: count
     outputunits: count
   - type: fir
-    lookup: Nanometrics_187_10_Linear
+    lookup: CENTAUR_PRIM20STAGE2_LP
     frequency: 0
     inputrate: 100
     samplerate: 10
@@ -388,7 +388,7 @@ filter:
     inputunits: count
     outputunits: count
   - type: fir
-    lookup: Nanometrics_113_5_Linear
+    lookup: CENTAUR_PRIM20STAGE3_LP
     frequency: 0
     inputrate: 10
     samplerate: 2
@@ -400,7 +400,7 @@ filter:
     inputunits: count
     outputunits: count
   - type: fir
-    lookup: Nanometrics_223_2_Linear
+    lookup: CENTAUR_PRIM20STAGE4_LP
     frequency: 0
     inputrate: 2
     samplerate: 1
