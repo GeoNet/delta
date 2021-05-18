@@ -447,6 +447,12 @@ response:
       channels: ZNE
       reversed: false
     - sensors:
+      - Trillium Borehole T120-BH1
+      filters:
+      - TRILLIUM-BOREHOLE-T120-BH1
+      channels: Z12
+      reversed: false
+    - sensors:
       - Trillium Horizon TH120-1
       filters:
       - TRILLIUM-HORIZON-TH120-1
