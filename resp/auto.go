@@ -2363,6 +2363,35 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, {
+				SensorList: []string{"Trillium Borehole T120-BH1"},
+				FilterList: []string{"TRILLIUM-BOREHOLE-T120-BH1"},
+				Stages: []ResponseStage{
+					{
+						Type:   "paz",
+						Lookup: "TRILLIUM-120QA",
+						Filter: "TRILLIUM-BOREHOLE-T120-BH1",
+						StageSet: PAZ{
+							Name:  "TRILLIUM-120QA",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "derived from Nanometrics documentation for Trillium 120QA",
+							Poles: []complex128{(-0.036614 + 0.037059i), (-0.036614 - 0.037059i), (-32.55 + 0i), (-142 + 0i), (-364 + 404i), (-364 - 404i), (-1260 + 0i), (-4900 + 5200i), (-4900 - 5200i), (-7100 + 1700i), (-7100 - 1700i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i), (-31.63 + 0i), (-160 + 0i), (-350 + 0i), (-3177 + 0i)},
+						},
+						Frequency:  1,
+						SampleRate: 0,
+						Decimate:   0,
+						Gain:       1202.5,
+						//Scale: 1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "m/s",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "Z12",
+				Reversed: false,
+			}, {
 				SensorList: []string{"Trillium Horizon TH120-1"},
 				FilterList: []string{"TRILLIUM-HORIZON-TH120-1"},
 				Stages: []ResponseStage{
