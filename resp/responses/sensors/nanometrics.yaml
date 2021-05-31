@@ -227,6 +227,19 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
+  TRILLIUM-BOREHOLE-T120-BH1:
+  - type: paz
+    lookup: TRILLIUM-120QA
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1202.5
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+
   TRILLIUM-360:
   - type: paz
     lookup: TRILLIUM-360
