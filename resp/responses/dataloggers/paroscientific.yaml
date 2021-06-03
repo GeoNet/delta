@@ -1,0 +1,35 @@
+---
+datalogger-model:
+  BPR Subsystem:
+    type: Bottom Pressure Recorder
+    description: DART 4G BPR
+    manufacturer: SAIC
+    vendor: ""
+
+filter:
+  DART-15s:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: -15
+    decimate: 1
+    gain: 1000
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: m
+    outputunits: count
+  DART-15m:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: -900
+    decimate: 1
+    gain: 1000
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: m
+    outputunits: count
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
