@@ -12,6 +12,18 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
+  Trillium Borehole T120-BH1:
+    type: Broadband Seismometer
+    description: Trillium Borehole T120-BH1
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
   Trillium Compact 120:
     type: Broadband Seismometer
     description: Trillium Compact 120
