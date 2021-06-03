@@ -57,7 +57,7 @@ var generateTemplate = `
 			Coefficients: []Coefficient{{"{"}}{{ range $z := .Coefficients}}Coefficient{Value: {{ $z }}{{"}"}},{{end}}{{"}"}},
 		},{{end}}{{end}}
 		Frequency: {{$v.Frequency}},
-		SampleRate: {{$v.SampleRate}},
+		SampleRate: {{rate $v.SampleRate}},
 		Decimate: {{$v.Decimate}},
 		Gain: {{$v.Gain}},
 		//Scale: {{$v.Scale}},
@@ -76,7 +76,7 @@ var generateTemplate = `
                 DataloggerList: []string{{"{"}}{{range $s := $v.Dataloggers}}"{{$s}}",{{end}}{{"}"}},
                 Type: "{{$v.Type}}",
                 Label: "{{$v.Label}}",
-                SampleRate: {{$v.SampleRate}},
+                SampleRate: {{rate $v.SampleRate}},
                 Frequency: {{$v.Frequency}},
                 StorageFormat: "{{$v.StorageFormat}}",
                 ClockDrift: {{$v.ClockDrift}},
@@ -123,12 +123,12 @@ var generateTemplate = `
 		},{{end}}{{end}}
 		Frequency: {{$v.Frequency}},
 		{{if $v.InputRate}}InputRate: {{$v.InputRate}},
-{{end }}                SampleRate: {{$v.SampleRate}},
+{{end }}                SampleRate: {{rate $v.SampleRate}},
 		Decimate: {{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{.Decimation}}{{end}}{{else}}{{$v.Decimate}}{{end}},
 		Gain: {{$v.Gain}},
 		//Scale: {{$v.Scale}},{{if eq $v.Type "fir"}}{{with $b.FIR $v.Lookup}}{{if and (eq $v.Correction 0.0) (gt .Decimation 1.0)}}
-		Correction: {{.Correction $v.SampleRate}},
-		Delay: {{.Correction $v.SampleRate}},{{else}}
+		Correction: {{.Correction (rate $v.SampleRate)}},
+		Delay: {{.Correction (rate $v.SampleRate)}},{{else}}
 		Correction: {{$v.Correction}},
 		Delay: {{$v.Correction}},{{end}}{{end}}{{end}}
 		InputUnits: "{{$v.InputUnits}}",
@@ -221,6 +221,12 @@ func (g Generate) generate(w io.Writer) error {
 	t, err := template.New("generate").Funcs(
 		template.FuncMap{
 			"escape": func(s string) string { return strings.Join(strings.Fields(s), " ") },
+			"rate": func(f float64) float64 {
+				if f < 0.0 {
+					return -1.0 / f
+				}
+				return f
+			},
 		},
 	).Parse(generateTemplate)
 	if err != nil {
