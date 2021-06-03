@@ -636,6 +636,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
+	"Trillium Borehole T120-BH1": {
+		Name:         "Trillium Borehole T120-BH1",
+		Type:         "Broadband Seismometer",
+		Description:  "Trillium Borehole T120-BH1",
+		Manufacturer: "Nanometrics Inc.",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
+	},
 	"Trillium Compact 120": {
 		Name:         "Trillium Compact 120",
 		Type:         "Broadband Seismometer",
