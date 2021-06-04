@@ -1,0 +1,10 @@
+---
+sensor-model:
+  BPR Subsystem:
+    type: Bottom Pressure Recorder
+    description: DART 4G BPR
+    manufacturer: SAIC
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: 0
