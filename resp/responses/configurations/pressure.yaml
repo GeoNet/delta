@@ -375,7 +375,7 @@ response:
     - dataloggers:
       - BPR Subsystem
       type: CG
-      label: VT
+      label: UT
       samplerate: -15
       frequency: 1
       storageformat: Steim2
@@ -386,7 +386,7 @@ response:
     - dataloggers:
       - BPR Subsystem
       type: CG
-      label: UT
+      label: WT
       samplerate: -900
       frequency: 1
       storageformat: Steim2

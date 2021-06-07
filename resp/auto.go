@@ -1033,7 +1033,7 @@ var Responses []Response = []Response{
 			{
 				DataloggerList: []string{"BPR Subsystem"},
 				Type:           "CG",
-				Label:          "VT",
+				Label:          "UT",
 				SampleRate:     0.06666666666666667,
 				Frequency:      1,
 				StorageFormat:  "Steim2",
@@ -1063,7 +1063,7 @@ var Responses []Response = []Response{
 			}, {
 				DataloggerList: []string{"BPR Subsystem"},
 				Type:           "CG",
-				Label:          "UT",
+				Label:          "WT",
 				SampleRate:     0.0011111111111111111,
 				Frequency:      1,
 				StorageFormat:  "Steim2",
