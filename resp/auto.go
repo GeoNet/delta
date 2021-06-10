@@ -1038,12 +1038,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Height 15s"},
+				FilterList:     []string{"WaterHeight15s"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Height 15s",
+						Filter: "WaterHeight15s",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -1068,12 +1068,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Height 15m"},
+				FilterList:     []string{"WaterHeight15m"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Height 15m",
+						Filter: "WaterHeight15m",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,

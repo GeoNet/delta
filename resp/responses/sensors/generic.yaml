@@ -98,7 +98,7 @@ filter:
     delay: 0
     inputunits: m
     outputunits: count
-  Water Height 15s:
+  "WaterHeight15s":
   - type: a2d
     lookup: A2D
     frequency: 0
@@ -110,7 +110,7 @@ filter:
     delay: 0
     inputunits: m
     outputunits: count
-  Water Height 15m:
+  "WaterHeight15m":
   - type: a2d
     lookup: A2D
     frequency: 0

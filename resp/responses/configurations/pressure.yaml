@@ -364,16 +364,16 @@ response:
       - Water Depth 10
       reversed: false
 
-  DART Systems (Derived):
+  "DART Systems (Derived)":
     sensors:
     - sensors:
-      - BPR Subsystem
+      - "BPR Subsystem"
       filters: []
       channels: Z
       reversed: false
     dataloggers:
     - dataloggers:
-      - BPR Subsystem
+      - "BPR Subsystem"
       type: CG
       label: UT
       samplerate: -15
@@ -381,7 +381,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Water Height 15s
+      - "WaterHeight15s"
       reversed: false
     - dataloggers:
       - BPR Subsystem
@@ -392,7 +392,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Water Height 15m
+      - "WaterHeight15m"
       reversed: false
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
