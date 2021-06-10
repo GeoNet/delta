@@ -4,7 +4,6 @@ _Lists the geographical and physical characteristics of collection points._
 
 ### FILES ###
 
-* `features.csv` - Physical site location descriptions.
 * `marks.csv` - GNSS Observation Points.
 * `monuments.csv` - GNSS Observation Monuments.
 * `mounts.csv` - Network Camera Mount Points.
