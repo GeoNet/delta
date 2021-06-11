@@ -3234,12 +3234,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 1"},
+				FilterList:     []string{"WaterDepth1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 1",
+						Filter: "WaterDepth1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -3264,12 +3264,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 10"},
+				FilterList:     []string{"WaterDepth10"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 10",
+						Filter: "WaterDepth10",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -3308,12 +3308,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 1"},
+				FilterList:     []string{"WaterDepth1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 1",
+						Filter: "WaterDepth1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -3338,12 +3338,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 10"},
+				FilterList:     []string{"WaterDepth10"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 10",
+						Filter: "WaterDepth10",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -9910,12 +9910,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 0.1"},
+				FilterList:     []string{"WaterDepth0.1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 0.1",
+						Filter: "WaterDepth0.1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -9940,12 +9940,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 1"},
+				FilterList:     []string{"WaterDepth1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 1",
+						Filter: "WaterDepth1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -9970,12 +9970,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 10"},
+				FilterList:     []string{"WaterDepth10"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 10",
+						Filter: "WaterDepth10",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -10014,12 +10014,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 0.1"},
+				FilterList:     []string{"WaterDepth0.1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 0.1",
+						Filter: "WaterDepth0.1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -10044,12 +10044,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 1"},
+				FilterList:     []string{"WaterDepth1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 1",
+						Filter: "WaterDepth1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -10074,12 +10074,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 10"},
+				FilterList:     []string{"WaterDepth10"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 10",
+						Filter: "WaterDepth10",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
