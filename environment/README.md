@@ -6,6 +6,8 @@ _Lists the geological and physical environment details of collection points._
 
 * `constituents.csv` - Constituents Descriptions.
 
+* `features.csv` - Sensor Installation Descriptions.
+
 * `gauges.csv` - Gauges Descriptions.
 
 * `visibility.csv` - Sky View Descriptions.
@@ -19,6 +21,16 @@ _Lists the geological and physical environment details of collection points._
 | _Constituent_ | Standard Constituent Name
 | _Amplitude_ | Analysis Amplitude, in cm
 | _Lag_ | Analysis Phase Lag, in degrees
+
+#### _FEATURES_ ####
+
+| Field | Description |
+| --- | --- |
+| _Station_ | Code used to uniquely identify Recording _Station_.
+| _Location_ | Code used to uniquely identify the _Site_ at the  Recording _Station_.
+| _Description_ | A helpful description of the physical site location.
+| _Start Date_ | General date and time at which the _Site_ description was valid.
+| _End Date_ | General date and time at which the _Site_ description was no longer valid.
 
 #### _GAUGES_ ####
 
