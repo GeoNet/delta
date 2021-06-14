@@ -27,16 +27,16 @@ _Lists the geographical and physical characteristics of collection points._
 #### _MONUMENTS_ ####
 
 * _Mark_ - Code used to uniquely identify GNSS _Mark_.
-* _Domes Number_ -
-* _Type_ - Monument construction, see below for valid types.
-* _Mark Type_ -
-* _Ground Relationship_ -
-* _Foundation Type_ -
-* _Foundation Depth_ -
+* _Domes Number_ - Globally unique identifier used for a continuous GNSS _Mark_ assigned by IERS.
+* _Type_ - Type of Antenna mount construction, at the top of a geodetic monument.
+* _Mark Type_ - Type of Monument construction, see below for valid monument types.
+* _Ground Relationship_ - Height of the geodetic monument from the ground surface.
+* _Foundation Type_ - Type of monument foundation.
+* _Foundation Depth_ - Depth of monument foundation.
 * _Start Date_ - General date and time at which the _Monument_ was operational.
 * _End Date_ - General date and time at which the _Monument_ was operational.
-* _Bedrock_ -
-* _Geology_ -
+* _Bedrock_ - Type of bedrock.
+* _Geology_ - Description of geologic conditions of the ground surface.
 
 Valid Monument Types are:
 
