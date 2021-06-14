@@ -4,7 +4,7 @@ In this document we describe the metadata conventions present in the GeoNet tsun
 
 ## Overview
 
-GeoNet has two types of tsunami data stations: tsunami gauges and DART buoys. The distinction is made by the primary purpose of the station; whether it exits principally to record tsunami arrivals on-shore (via a tsunami gauge) or in the deep ocean (via a DART buoy).
+GeoNet has two types of tsunami data stations: tsunami gauges and DART buoys. The distinction is made by the primary purpose of the station; whether it exists principally to record tsunami arrivals on-shore (via a tsunami gauge) or in the deep ocean (via a DART buoy).
 
 The management of DART data and metadata is an evolving space, and until this is more established we refrain from documenting it here.
 
