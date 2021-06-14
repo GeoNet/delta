@@ -4,7 +4,7 @@ In this document we describe the metadata conventions present in the GeoNet seis
 
 ## Overview
 
-GeoNet has two types of seismic stations: weak and strong motion. The distinction is made by the primary purpose of the station; whether it exits principally to record weak ground motion (via a seismometer) or strong ground motion (via an accelerometer).
+GeoNet has two types of seismic stations: weak and strong motion. The distinction is made by the primary purpose of the station; whether it exists principally to record weak ground motion (via a seismometer) or strong ground motion (via an accelerometer).
 
 Within each type, stations are grouped by network codes.
 
