@@ -26,6 +26,13 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
+	"BPR Subsystem": {
+		Name:         "BPR Subsystem",
+		Type:         "Bottom Pressure Recorder",
+		Description:  "DART 4G BPR",
+		Manufacturer: "SAIC",
+		Vendor:       "",
+	},
 	"CUSP3A": {
 		Name:         "CUSP3A",
 		Type:         "Strong Motion Recorder",
@@ -243,6 +250,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Manufacturer: "Duke University",
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
+	},
+	"BPR Subsystem": {
+		Name:         "BPR Subsystem",
+		Type:         "Bottom Pressure Recorder",
+		Description:  "DART 4G BPR",
+		Manufacturer: "SAIC",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}},
 	},
 	"CMG-3ESP": {
 		Name:         "CMG-3ESP",
@@ -636,6 +651,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
+	"Trillium Borehole T120-BH1": {
+		Name:         "Trillium Borehole T120-BH1",
+		Type:         "Broadband Seismometer",
+		Description:  "Trillium Borehole T120-BH1",
+		Manufacturer: "Nanometrics Inc.",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
+	},
 	"Trillium Compact 120": {
 		Name:         "Trillium Compact 120",
 		Type:         "Broadband Seismometer",
@@ -989,6 +1012,80 @@ var Responses []Response = []Response{
 						Gain:       1e+06,
 						//Scale: 0,
 						InputUnits:  "V",
+						OutputUnits: "count",
+					},
+				},
+				Reversed: false,
+			},
+		},
+	}, {
+		Name: "DART Systems (Derived)",
+		Sensors: []Sensor{
+			{
+				SensorList: []string{"BPR Subsystem"},
+				FilterList: []string{},
+				Stages:     []ResponseStage{},
+				Channels:   "Z",
+				Reversed:   false,
+			},
+		},
+		Dataloggers: []Datalogger{
+			{
+				DataloggerList: []string{"BPR Subsystem"},
+				Type:           "CG",
+				Label:          "UT",
+				SampleRate:     0.06666666666666667,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"WaterHeight15s"},
+				Stages: []ResponseStage{
+					{
+						Type:   "a2d",
+						Lookup: "A2D",
+						Filter: "WaterHeight15s",
+						StageSet: A2D{
+							Name:  "A2D",
+							Code:  PZFunctionLaplaceZTransform,
+							Type:  "Digital (Z-transform).",
+							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
+						},
+						Frequency:  0,
+						SampleRate: 0.06666666666666667,
+						Decimate:   1,
+						Gain:       1000,
+						//Scale: 0,
+						InputUnits:  "m",
+						OutputUnits: "count",
+					},
+				},
+				Reversed: false,
+			}, {
+				DataloggerList: []string{"BPR Subsystem"},
+				Type:           "CG",
+				Label:          "WT",
+				SampleRate:     0.0011111111111111111,
+				Frequency:      1,
+				StorageFormat:  "Steim2",
+				ClockDrift:     0.0001,
+				FilterList:     []string{"WaterHeight15m"},
+				Stages: []ResponseStage{
+					{
+						Type:   "a2d",
+						Lookup: "A2D",
+						Filter: "WaterHeight15m",
+						StageSet: A2D{
+							Name:  "A2D",
+							Code:  PZFunctionLaplaceZTransform,
+							Type:  "Digital (Z-transform).",
+							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
+						},
+						Frequency:  0,
+						SampleRate: 0.0011111111111111111,
+						Decimate:   1,
+						Gain:       1000,
+						//Scale: 0,
+						InputUnits:  "m",
 						OutputUnits: "count",
 					},
 				},
@@ -3137,12 +3234,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 1"},
+				FilterList:     []string{"WaterDepth1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 1",
+						Filter: "WaterDepth1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -3167,12 +3264,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 10"},
+				FilterList:     []string{"WaterDepth10"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 10",
+						Filter: "WaterDepth10",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -3211,12 +3308,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 1"},
+				FilterList:     []string{"WaterDepth1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 1",
+						Filter: "WaterDepth1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -3241,12 +3338,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 10"},
+				FilterList:     []string{"WaterDepth10"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 10",
+						Filter: "WaterDepth10",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -9813,12 +9910,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 0.1"},
+				FilterList:     []string{"WaterDepth0.1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 0.1",
+						Filter: "WaterDepth0.1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -9843,12 +9940,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 1"},
+				FilterList:     []string{"WaterDepth1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 1",
+						Filter: "WaterDepth1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -9873,12 +9970,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 10"},
+				FilterList:     []string{"WaterDepth10"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 10",
+						Filter: "WaterDepth10",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -9917,12 +10014,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 0.1"},
+				FilterList:     []string{"WaterDepth0.1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 0.1",
+						Filter: "WaterDepth0.1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -9947,12 +10044,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 1"},
+				FilterList:     []string{"WaterDepth1"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 1",
+						Filter: "WaterDepth1",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -9977,12 +10074,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Water Depth 10"},
+				FilterList:     []string{"WaterDepth10"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Water Depth 10",
+						Filter: "WaterDepth10",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
