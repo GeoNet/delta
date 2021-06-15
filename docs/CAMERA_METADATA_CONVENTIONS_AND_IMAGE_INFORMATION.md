@@ -1,4 +1,4 @@
-# Site Naming
+# Camera Metadata Conventions
 
 A camera site name consists of two components, a mount code, and a view code.
 

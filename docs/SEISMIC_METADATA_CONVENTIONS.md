@@ -4,11 +4,13 @@ In this document we describe the metadata conventions present in the GeoNet seis
 
 ## Overview
 
-GeoNet has two types of seismic stations: weak and strong motion. The distinction is made by the primary purpose of the station; whether it exists principally to record weak ground motion (via a seismometer) or strong ground motion (via an accelerometer).
+GeoNet has two types of seismic stations: weak motion and broadband stations and strong motion stations. The distinction is made by the primary purpose of the station; whether it exists principally to record weak ground motion (via a seismometer) or strong ground motion (via an accelerometer).
 
 Within each type, stations are grouped by network codes.
 
 At each station there can be many sites, and sites are often referred to by their station code.
+
+## Stream Naming Convention
 
 A site can produce many data streams, and each data stream contains a unique set of metadata describing itself and where it was collected as the combination of:
 
@@ -16,19 +18,19 @@ __&lt;NETWORK&gt; &lt;STATION&gt; &lt;LOCATION&gt; &lt;CHANNEL&gt;__
 
 The seismic, and related, data stream naming conventions are based on historical usage together with recommendations from the [SEED manual](https://www.fdsn.org/seed_manual/SEEDManual_V2.4.pdf). Sometimes codes were created and used where no appropriate conventions applied at the time, and these have generally been left as is even after later conventions were developed.
 
-## Network Code
+### Network Code
 
 As weak motion seismic data is expected to be globally distributed, its network and station codes need to be internationally registered.  The current approach is to use the registered `NZ` network code for all recorded public weak motion data. Otherwise the internal `XX` code is used for temporary or private data that will not, or cannot, be exported internationally. Data of both network codes are available via GeoNet data services.
 
 The full set of network codes can be found in the `networks/network.csv` file. While these are not relevant for modern data access, much of GeoNet's history is contained in these codes and they are still in use for metadata management in _delta_ and for data operations within GeoNet. In this way a station can belong to a regional seismic network like the Taranaki volcano seismic network `TR` and be distributed with the network code `NZ`. 
 
-## Station Codes
+### Station Codes
 
 Station codes are assigned at the first installation of a seismic sensor at a location and do not change.
 
 Station codes are unique within a given reference set. Weak motion station codes are unique for the global set of station codes managed by the ISC and are registered with the ISC to safeguard this uniqueness. By comparison, strong motion station codes are unique only within the set of such codes used by GeoNet.     
 
-### Weak Motion Station Code Conventions
+#### Weak Motion Station Code Conventions
 
 Station codes are found in the `networks/stations.csv` file.
 
@@ -40,7 +42,7 @@ For both national and regional network station codes, the first two letters try 
 
 While the legacy of network and station codes introduces complexity to the seismic metadata, changes to either code for a station are not anticipated unless changes at the station or its sites require it.
 
-### Strong Motion
+#### Strong Motion Station Code Conventions
 
 Strong motion station codes are composed of 4 letters describing where the station is, e.g. LPLS is near Lake Paringa, PRNS is near Paringa.
 
@@ -48,7 +50,7 @@ As with weak motion, strong motion stations end in a particular character: 'S'.
 
 Due to the utility of co-locating strong motion sensors with sensors of other types, many strong motion sites exist at weak motion stations. Such sites will have the weak motion station code but a different location code.
 
-## Location Codes
+### Location Codes
 
 The location code is primarily used to distinguish between multiple sensors installed at a single recording station where the same station code is used.
 
