@@ -22,8 +22,8 @@ Tide gauges are sensitive to the overlying water column, which is principally in
 
 Where in seismic data small changes to sensor position can have substantial impacts on the data, the same is not true for tide gauges. 
 
-If a station position changes such that tidal constituents are still the same, the station code will not change.
-If a station position changes significantly and new tidal constituents need to be derived, then a new station code will be created and the old station will be decommissioned. 
+If a sensor position changes such that tidal constituents are still the same, the sensor's station code will not change.
+If a sensor position changes significantly and new tidal constituents need to be derived, then a new station code will be created. The old station will be decommissioned if no sensors remain there. 
 
 If a sensor position changes such its depth changes significantly, this will influence the data. Such change is not presently captured in the metadata and is represented in the data with an offset in the measured water level (the sensors measure water height). Sensor position changes that change the depth will only cause changes in the station code if the tidal constituents change as described above.
 
