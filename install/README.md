@@ -105,7 +105,7 @@ A list of GNSS receiver _firmware_ versions.
 
 #### _SESSIONS_ ####
  
-A list of _GNSS_ _Receiver_ &amp; _Antenna_ recording sessions
+A list of _GNSS_ _Receiver_ and _Antenna_ recording sessions
 
 | Field | Description | Units |
 | --- | --- | --- |
