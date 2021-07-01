@@ -15,6 +15,11 @@ datalogger-model:
     description: TitanSMA
     manufacturer: Nanometrics
     vendor: ""
+  Centaur CTR4-6S:
+    type: Datalogger
+    description: Centaur
+    manufacturer: Nanometrics
+    vendor: ""
 
 filter:
   ORION-100:
@@ -224,5 +229,187 @@ filter:
     inputunits: count
     outputunits: count
 
+  CENTAUR-100-LP:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 400000
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM100STAGE1_LP
+    frequency: 0
+    inputsrate: 30000
+    samplerate: 2000
+    decimate: 15
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM100STAGE2_LP
+    frequency: 0
+    inputrate: 2000
+    samplerate: 200
+    decimate: 10
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM100STAGE3_LP
+    frequency: 0
+    inputrate: 200
+    samplerate: 100
+    decimate: 2
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+
+  CENTAUR-10-LP:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 400000
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM10STAGE1_LP
+    frequency: 0
+    inputrate: 30000
+    samplerate: 1500
+    decimate: 20
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM10STAGE2_LP
+    frequency: 0
+    inputrate: 1500
+    samplerate: 100
+    decimate: 15
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM10STAGE3_LP
+    frequency: 0
+    inputrate: 100
+    samplerate: 20
+    decimate: 5
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM10STAGE4_LP
+    frequency: 0
+    inputrate: 20
+    samplerate: 10
+    decimate: 2
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+
+  CENTAUR-1-LP:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 400000
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM50STAGE1_LP
+    frequency: 0
+    inputrate: 30000
+    samplerate: 1500
+    decimate: 20
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM20STAGE1_LP
+    frequency: 0
+    inputrate: 1500
+    samplerate: 100
+    decimate: 15
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM20STAGE2_LP
+    frequency: 0
+    inputrate: 100
+    samplerate: 10
+    decimate: 10
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM20STAGE3_LP
+    frequency: 0
+    inputrate: 10
+    samplerate: 2
+    decimate: 5
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: CENTAUR_PRIM20STAGE4_LP
+    frequency: 0
+    inputrate: 2
+    samplerate: 1
+    decimate: 2
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

@@ -6,84 +6,152 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
+var testInstalledCameras = map[string]func([]meta.InstalledCamera) func(t *testing.T){
+
+	"check for cameras installation equipment overlaps": func(cameras []meta.InstalledCamera) func(t *testing.T) {
+		return func(t *testing.T) {
+
+			installs := make(map[string]meta.InstalledCameraList)
+			for _, c := range cameras {
+				installs[c.Model] = append(installs[c.Model], c)
+			}
+
+			for _, v := range installs {
+				for i := 0; i < len(v); i++ {
+					for j := i + 1; j < len(v); j++ {
+						if v[i].Serial != v[j].Serial {
+							continue
+						}
+						if v[i].End.Before(v[j].Start) {
+							continue
+						}
+						if v[i].Start.After(v[j].End) {
+							continue
+						}
+						if v[i].End.Equal(v[j].Start) {
+							continue
+						}
+						if v[i].Start.Equal(v[j].End) {
+							continue
+						}
+
+						t.Errorf("cameras %s at %-5s has mount %s overlap between %s and %s",
+							v[i].Model, v[i].Serial, v[i].Mount,
+							v[i].Start.Format(meta.DateTimeFormat),
+							v[i].End.Format(meta.DateTimeFormat))
+					}
+				}
+			}
+		}
+	},
+}
+
+var testInstalledCamerasMounts = map[string]func([]meta.InstalledCamera, []meta.Mount) func(t *testing.T){
+
+	"check for cameras installation equipment overlaps": func(cameras []meta.InstalledCamera, mounts []meta.Mount) func(t *testing.T) {
+		return func(t *testing.T) {
+			keys := make(map[string]interface{})
+			for _, m := range mounts {
+				keys[m.Code] = true
+			}
+
+			for _, c := range cameras {
+				if _, ok := keys[c.Mount]; !ok {
+					t.Errorf("unable to find camera mount %-5s", c.Mount)
+				}
+			}
+		}
+	},
+}
+
+var testInstalledCamerasViews = map[string]func([]meta.InstalledCamera, []meta.View) func(t *testing.T){
+
+	"check for cameras installation views": func(cameras []meta.InstalledCamera, views []meta.View) func(t *testing.T) {
+		return func(t *testing.T) {
+			type view struct{ m, c string }
+			keys := make(map[view]interface{})
+			for _, m := range views {
+				keys[view{m.Mount, m.Code}] = true
+			}
+
+			for _, c := range cameras {
+				if _, ok := keys[view{c.Mount, c.View}]; !ok {
+					t.Errorf("unable to find camera mount %-5s (%-2s)", c.Mount, c.View)
+				}
+			}
+		}
+	},
+}
+
+var testInstalledCamerasAssets = map[string]func([]meta.InstalledCamera, []meta.Asset) func(t *testing.T){
+	"check cameras assets": func(cameras []meta.InstalledCamera, assets []meta.Asset) func(t *testing.T) {
+		return func(t *testing.T) {
+
+			for _, r := range cameras {
+				var found bool
+				for _, a := range assets {
+					if a.Model != r.Model {
+						continue
+					}
+					if a.Serial != r.Serial {
+						continue
+					}
+					found = true
+				}
+				if found {
+					continue
+				}
+				t.Errorf("unable to find camera asset: %s [%s]", r.Model, r.Serial)
+			}
+		}
+	},
+}
+
 func TestCameras(t *testing.T) {
 
-	var installedCameras meta.InstalledCameraList
-	loadListFile(t, "../install/cameras.csv", &installedCameras)
+	var cameras meta.InstalledCameraList
+	loadListFile(t, "../install/cameras.csv", &cameras)
 
-	t.Run("Check for cameras installation equipment overlaps", func(t *testing.T) {
-		installs := make(map[string]meta.InstalledCameraList)
-		for _, s := range installedCameras {
-			if _, ok := installs[s.Model]; !ok {
-				installs[s.Model] = meta.InstalledCameraList{}
-			}
-			installs[s.Model] = append(installs[s.Model], s)
-		}
+	for k, fn := range testInstalledCameras {
+		t.Run(k, fn(cameras))
+	}
+}
 
-		for _, v := range installs {
-			for i := 0; i < len(v); i++ {
-				for j := i + 1; j < len(v); j++ {
-					if v[i].Serial != v[j].Serial {
-						continue
-					}
-					if v[i].End.Before(v[j].Start) {
-						continue
-					}
-					if v[i].Start.After(v[j].End) {
-						continue
-					}
-					if v[i].End.Equal(v[j].Start) {
-						continue
-					}
-					if v[i].Start.Equal(v[j].End) {
-						continue
-					}
+func TestCameras_Mounts(t *testing.T) {
 
-					t.Errorf("cameras %s at %-5s has mount %s overlap between %s and %s",
-						v[i].Model, v[i].Serial, v[i].Mount,
-						v[i].Start.Format(meta.DateTimeFormat),
-						v[i].End.Format(meta.DateTimeFormat))
-				}
-			}
-		}
-	})
+	var cameras meta.InstalledCameraList
+	loadListFile(t, "../install/cameras.csv", &cameras)
 
-	t.Run("Check for missing camera mounts", func(t *testing.T) {
-		var mounts meta.MountList
-		loadListFile(t, "../network/mounts.csv", &mounts)
+	var mounts meta.MountList
+	loadListFile(t, "../network/mounts.csv", &mounts)
 
-		keys := make(map[string]interface{})
-		for _, m := range mounts {
-			keys[m.Code] = true
-		}
+	for k, fn := range testInstalledCamerasMounts {
+		t.Run(k, fn(cameras, mounts))
+	}
+}
 
-		for _, c := range installedCameras {
-			if _, ok := keys[c.Mount]; !ok {
-				t.Errorf("unable to find camera mount %-5s", c.Mount)
-			}
-		}
-	})
+func TestCameras_Views(t *testing.T) {
 
-	t.Run("Load camera assets file", func(t *testing.T) {
-		var assets meta.AssetList
-		loadListFile(t, "../assets/cameras.csv", &assets)
+	var cameras meta.InstalledCameraList
+	loadListFile(t, "../install/cameras.csv", &cameras)
 
-		for _, r := range installedCameras {
-			var found bool
-			for _, a := range assets {
-				if a.Model != r.Model {
-					continue
-				}
-				if a.Serial != r.Serial {
-					continue
-				}
-				found = true
-			}
-			if found {
-				continue
-			}
-			t.Errorf("unable to find camera asset: %s [%s]", r.Model, r.Serial)
-		}
-	})
+	var views meta.ViewList
+	loadListFile(t, "../network/views.csv", &views)
 
+	for k, fn := range testInstalledCamerasViews {
+		t.Run(k, fn(cameras, views))
+	}
+}
+
+func TestCameras_Assets(t *testing.T) {
+
+	var cameras meta.InstalledCameraList
+	loadListFile(t, "../install/cameras.csv", &cameras)
+
+	var assets meta.AssetList
+	loadListFile(t, "../assets/cameras.csv", &assets)
+
+	for k, fn := range testInstalledCamerasAssets {
+		t.Run(k, fn(cameras, assets))
+	}
 }

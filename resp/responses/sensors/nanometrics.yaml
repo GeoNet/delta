@@ -12,6 +12,18 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
+  Trillium Borehole T120-BH1:
+    type: Broadband Seismometer
+    description: Trillium Borehole T120-BH1
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
   Trillium Compact 120:
     type: Broadband Seismometer
     description: Trillium Compact 120
@@ -26,7 +38,19 @@ sensor-model:
       dip: 0
   Trillium Compact 120PH-2:
     type: Broadband Seismometer
-    description: Trillium Compact 120 Posthole Generation 2
+    description: Trillium Compact 120 Posthole
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  Trillium Horizon TH120-1:
+    type: Broadband Seismometer
+    description: Trillium Horizon 120
     manufacturer: "Nanometrics Inc."
     vendor: ""
     components:
@@ -104,14 +128,14 @@ paz:
     zeros:
     - (0+0i)
     - (0+0i)
-    - (-39.2+0i)
-    - (-196+0i)
+    - (-392+0i)
+    - (-1960+0i)
     - (-1490+1740i)
     - (-1490-1740i)
-  TRILLIUM-COMPACT-120PH-2:
+  TRILLIUM-HORIZON-120:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
-    notes: derived from IRIS NRL Trillium 120PH Generation 2
+    notes: derived from IRIS NRL Trillium Horizon 120
     poles:
     - (-0.036614+0.037059i)
     - (-0.036614-0.037059i)
@@ -181,11 +205,11 @@ filter:
     outputunits: V
   TRILLIUM-COMPACT-120PH-2:
   - type: paz
-    lookup: TRILLIUM-COMPACT-120PH-2
+    lookup: TRILLIUM-COMPACT-120
     frequency: 1
     samplerate: 0
     decimate: 0
-    gain: 1200.7
+    gain: 754.3
     scale: 1
     correction: 0
     delay: 0
@@ -203,6 +227,31 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
+  TRILLIUM-HORIZON-TH120-1:
+  - type: paz
+    lookup: TRILLIUM-HORIZON-120
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1202.5
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  TRILLIUM-BOREHOLE-T120-BH1:
+  - type: paz
+    lookup: TRILLIUM-120QA
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1202.5
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+
   TRILLIUM-360:
   - type: paz
     lookup: TRILLIUM-360

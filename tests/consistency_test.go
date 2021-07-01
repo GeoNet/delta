@@ -17,6 +17,29 @@ func loadListFile(t *testing.T, path string, list meta.List) {
 	if err := meta.LoadList(path, list); err != nil {
 		t.Fatalf("unable to load list file %s: %v", path, err)
 	}
+	sort.Sort(list)
+}
+
+var testConsistency = map[string]func(path string, list meta.List) func(t *testing.T){
+
+	"check file consistency": func(path string, list meta.List) func(t *testing.T) {
+		return func(t *testing.T) {
+
+			raw, err := ioutil.ReadFile(path)
+			if err != nil {
+				t.Fatalf("unable to read %s file: %v", path, err)
+			}
+
+			var buf bytes.Buffer
+			if err := csv.NewWriter(&buf).WriteAll(meta.EncodeList(list)); err != nil {
+				t.Fatalf("unable to decode %s file: %v", path, err)
+			}
+
+			if string(raw) != buf.String() {
+				t.Errorf("unexpected %s content -got/+exp\n%s", filepath.Base(path), cmp.Diff(string(raw), buf.String()))
+			}
+		}
+	},
 }
 
 func TestConsistency(t *testing.T) {
@@ -45,25 +68,12 @@ func TestConsistency(t *testing.T) {
 		"constituents": {f: "../environment/constituents.csv", l: &meta.ConstituentList{}},
 	}
 
-	for k, v := range files {
-		t.Run("check file consistency: "+k, func(t *testing.T) {
-			loadListFile(t, v.f, v.l)
+	for f, v := range files {
 
-			sort.Sort(v.l)
+		loadListFile(t, v.f, v.l)
 
-			raw, err := ioutil.ReadFile(v.f)
-			if err != nil {
-				t.Fatalf("unable to read %s asset file: %v", k, err)
-			}
-
-			var buf bytes.Buffer
-			if err := csv.NewWriter(&buf).WriteAll(meta.EncodeList(v.l)); err != nil {
-				t.Fatalf("unable to decode %s asset file: %v", k, err)
-			}
-
-			if string(raw) != buf.String() {
-				t.Errorf("unexpected %s content -got/+exp\n%s", filepath.Base(v.f), cmp.Diff(string(raw), buf.String()))
-			}
-		})
+		for k, fn := range testConsistency {
+			t.Run(k+": "+f, fn(v.f, v.l))
+		}
 	}
 }

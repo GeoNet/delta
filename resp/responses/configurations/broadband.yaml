@@ -182,6 +182,12 @@ response:
       channels: Z12
       reversed: false
     - sensors:
+      - Trillium Horizon TH120-1
+      filters:
+      - TRILLIUM-HORIZON-TH120-1
+      channels: ZNE
+      reversed: false
+    - sensors:
       - CMG-3TB-GN
       filters:
       - CMG-3TB-GN
@@ -363,7 +369,7 @@ response:
       - Q4120-1
       reversed: false
 
-  Nanometrics Dataloggers Connected to Broadband Sensors:
+  Nanometrics Portable Dataloggers Connected to Broadband Sensors:
     sensors:
     - sensors:
       - Trillium 120QA
@@ -425,5 +431,55 @@ response:
       filters:
       - Taurus-100
       reversed: false
- 
+
+  Nanometrics Dataloggers Connected to Nanometrics Broadband Sensors:
+    sensors:
+    - sensors:
+      - Trillium 120QA
+      filters:
+      - TRILLIUM-120QA
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - Trillium Compact 120PH-2
+      filters:
+      - TRILLIUM-COMPACT-120PH-2
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - Trillium Borehole T120-BH1
+      filters:
+      - TRILLIUM-BOREHOLE-T120-BH1
+      channels: Z12
+      reversed: false
+    - sensors:
+      - Trillium Horizon TH120-1
+      filters:
+      - TRILLIUM-HORIZON-TH120-1
+      channels: ZNE
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: HH
+      samplerate: 100
+      frequency: 1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+        - CENTAUR-100-LP
+      reversed: false
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: LH
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+        - CENTAUR-1-LP
+      reversed: false
+
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

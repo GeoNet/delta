@@ -16,6 +16,7 @@ const (
 	recorderStation
 	recorderLocation
 	recorderAzimuth
+	recorderMethod
 	recorderDip
 	recorderDepth
 	recorderStart
@@ -44,6 +45,7 @@ func (r InstalledRecorderList) encode() [][]string {
 		"Station",
 		"Location",
 		"Azimuth",
+		"Method",
 		"Dip",
 		"Depth",
 		"Start Date",
@@ -59,6 +61,7 @@ func (r InstalledRecorderList) encode() [][]string {
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
 			strings.TrimSpace(v.azimuth),
+			strings.TrimSpace(v.Method),
 			strings.TrimSpace(v.dip),
 			strings.TrimSpace(v.vertical),
 			v.Start.Format(DateTimeFormat),
@@ -111,6 +114,7 @@ func (r *InstalledRecorderList) decode(data [][]string) error {
 					Orientation: Orientation{
 						Azimuth: azimuth,
 						Dip:     dip,
+						Method:  strings.TrimSpace(d[recorderMethod]),
 
 						azimuth: strings.TrimSpace(d[recorderAzimuth]),
 						dip:     strings.TrimSpace(d[recorderDip]),

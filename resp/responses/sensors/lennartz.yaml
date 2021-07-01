@@ -49,6 +49,7 @@ paz:
     zeros:
     - (0+0i)
     - (0+0i)
+    - (0+0i)
 
 filter:
   LE-3Dlite:
