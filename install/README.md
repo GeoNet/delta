@@ -20,6 +20,7 @@ Meta information for the GeoNet equipment network.
 * `streams.csv` - Datalogger and recorder sampling configurations
 
 * `cameras.csv` - Installed field cameras.
+* `doases.csv` - Installed field DOAS (Differential Optical Absorption Spectrometer) equipment.
 
 ### GNSS ###
 
@@ -104,7 +105,7 @@ A list of GNSS receiver _firmware_ versions.
 
 #### _SESSIONS_ ####
  
-A list of _GNSS_ _Receiver_ &amp; _Antenna_ recording sessions
+A list of _GNSS_ _Receiver_ and _Antenna_ recording sessions
 
 | Field | Description | Units |
 | --- | --- | --- |
@@ -233,6 +234,27 @@ A list of _camera_ installations, these include values for:
 |  _Start_ | Installed camera start time | 
 |  _Stop_ | Installed camera stop time | 
 |  _Notes_ | Extra installation information,</br>currently the photo caption.
+
+### DOAS ###
+
+#### _DOASES_ ####
+
+A list of _doas_ installations, these include values for:
+
+| Field | Description | Units |
+| --- | --- | --- |
+|  _Make_ | Installed DOAS make |
+|  _Model_ | Installed DOAS model name |
+|  _Serial_ | Installed DOAS serial number |
+|  _Mount_ | DOAS _mount_ code |
+|  _View_ | DOAS _view_ code |
+|  _Dip_ | Installed DOAS dip | _degrees_ down from horizontal
+|  _Azimuth_ | Installed DOAS azimuth | _degrees_ clockwise from north
+|  _Height_ | Installed DOAS vertical offset | _metres_  positive upwards
+|  _North_ | Installed DOAS offset north | _metres_
+|  _East_ | Installed DOAS offset east | _metres_
+|  _Start_ | Installed DOAS start time | 
+|  _Stop_ | Installed DOAS stop time | 
 
 ### NOTES ###
 
