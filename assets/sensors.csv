@@ -1,5 +1,4 @@
 Make,Model,Serial,Number,Notes
-Acme,ACME01,257,,
 Applied Geomechanics Inc,D711-A Platform Tiltmeter,9192,14107,
 Applied Geomechanics Inc,Lily tiltmeter,9259,14125,
 Applied Geomechanics Inc,Lily tiltmeter,9654,14913,
@@ -29,6 +28,7 @@ Boise State University,InfraBSU microphone,0160,14973,
 Campbell Scientific,Pulse radar water-level sensor CS475A,001,,
 Campbell Scientific,Titanium pressure transducer CS456,70010135,,
 Campbell Scientific,Titanium pressure transducer CS456,70010240,,
+Danish Meteorological Institute,FGE,257,,
 Duke University,2 Hz Duke Malin Seismometer,001,,
 Duke University,2 Hz Duke Malin Seismometer,110,13272,
 Duke University,2 Hz Duke Malin Seismometer,301,13820,
