@@ -1,0 +1,33 @@
+---
+datalogger-model:
+  GSM-19:
+    type:  Magnetometer
+    description: High Precision Overhauser Magnetometer
+    manufacturer: GEM Systems
+    vendor: ""
+
+sensor-model:
+  GSM-19:
+    type: High Precision Overhauser Magnetometer
+    description: GSM-19
+    manufacturer: "GEM Systems"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: 0
+
+filter:
+  GSM-19:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 1
+    decimate: 1
+    gain: 100.0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: nT
+    outputunits: count
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

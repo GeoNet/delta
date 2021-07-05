@@ -7,6 +7,7 @@ CY,NZ,Clyde local seismic network,false
 EC,NZ,East Cape regional seismic network,false
 EN,NZ,GeoNet environmental data using low rate data collection platform network,false
 FI,NZ,Fiordland regional seismic network,false
+GM,NZ,New Zealand geomagnetic network,false
 GN,GN,The GNS CGPS network,false
 HA,NZ,Hydrophone Array,false
 HB,NZ,Hawke's Bay regional seismic network,false

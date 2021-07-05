@@ -1,0 +1,22 @@
+---
+response:
+  "GEM Systems Overhauser Magnetometers":
+    sensors:
+    - sensors:
+      - GSM-19
+      channels: F
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - GSM-19
+      type: CG
+      label: LF
+      samplerate: 1
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - GSM-19
+      reversed: false
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
