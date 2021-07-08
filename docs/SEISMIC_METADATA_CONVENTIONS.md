@@ -44,7 +44,7 @@ While the legacy of network and station codes introduces complexity to the seism
 
 #### Strong Motion Station Code Conventions
 
-Strong motion station codes are composed of 4 letters describing where the station is, e.g. LPLS is near Lake Paringa, PRNS is near Paringa.
+In the past, the National Strong Motion Network recording sites tended to have a numbering system with a three digit prefix and a trailing letter. The current National Strong Motion Network site code naming convention is to use four letter codes describing where the station is, e.g. LPLS is near Lake Paringa, PRNS is near Paringa.
 
 As with weak motion, strong motion stations end in a particular character: 'S'.
 
