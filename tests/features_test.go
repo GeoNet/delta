@@ -17,7 +17,7 @@ var testFeatures = map[string]func([]meta.Feature) func(t *testing.T){
 					if features[i].Station != features[j].Station {
 						continue
 					}
-					if features[i].Location == features[j].Location {
+					if features[i].Location != features[j].Location {
 						continue
 					}
 					if features[i].End.Before(features[j].Start) {
@@ -71,17 +71,17 @@ var testFeatures_Stations = map[string]func([]meta.Feature, []meta.Station) func
 var testFeatures_Sites = map[string]func([]meta.Feature, []meta.Site) func(t *testing.T){
 	"check for duplicated feature sites": func(features []meta.Feature, sites []meta.Site) func(t *testing.T) {
 		return func(t *testing.T) {
-			sites := make(map[string]meta.Site)
+			list := make(map[string]meta.Site)
 			for _, s := range sites {
-				sites[s.Station+"/"+s.Location] = s
+				list[s.Station+"/"+s.Location] = s
 			}
 			for _, c := range features {
-				if _, ok := sites[c.Station+"/"+c.Location]; !ok {
+				if _, ok := list[c.Station+"/"+c.Location]; !ok {
 					t.Error("error: unable to find feature site: " + c.Station + "/" + c.Location)
 				}
 			}
 			for _, c := range features {
-				if s, ok := sites[c.Station+"/"+c.Location]; ok {
+				if s, ok := list[c.Station+"/"+c.Location]; ok {
 					switch {
 					case c.Start.Before(s.Start):
 						t.Log("warning: feature start mismatch: " + strings.Join([]string{
