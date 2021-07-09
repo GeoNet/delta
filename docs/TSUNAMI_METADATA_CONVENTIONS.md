@@ -14,7 +14,7 @@ Tide gauge data and metadata mostly follow the conventions of seismic data and m
 
 ## Location Code
 
-For tide gauges, the location code indicates primary and backup sensors at the station. For example, a station may have sites at location codes `41` and `42`, and these location code are used to distinguish the respective data streams from the sensors at each site. In this way, we can think of the location code for tide gauges as a "sensor code". 
+For tide gauges, the location code indicates primary and backup sensors at the station. For example, a station may have sites at location codes `40` and `41`, and these location code are used to distinguish the respective data streams from the sensors at each site. In this way, we can think of the location code for tide gauges as a "sensor code". 
 
 ## Naming Conventions When Moving or Installating Different Sensors
 
