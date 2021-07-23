@@ -1,0 +1,3 @@
+Location,Name,Sensor,Type,Unit,Description
+WI001,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+RU001,height,ruler,flexible,m,height flexible ruler

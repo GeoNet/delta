@@ -1004,6 +1004,60 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
+		{
+			"testdata/measurements.csv",
+			&MeasurementList{
+				Measurement{
+					Location:    "WI001",
+					Name:        "carbon dioxide flux",
+					Sensor:      "CO2-flux-e",
+					Type:        "chamber",
+					Unit:        "g-m^2/d",
+					Description: "Carbon Dioxide surface accumulation chamber",
+				},
+				Measurement{
+					Location:    "RU001",
+					Name:        "height",
+					Sensor:      "ruler",
+					Type:        "flexible",
+					Unit:        "m",
+					Description: "height flexible ruler",
+				},
+			},
+		},
+		{
+			"testdata/locations.csv",
+			&LocationList{
+				Location{
+					Code:        "NA000",
+					Description: "Ngauruhoe Volcano",
+					Point: Point{
+						Latitude:  -39.15680,
+						Longitude: 175.63187,
+						Elevation: 2197.0,
+						Datum:     "WGS84",
+
+						latitude:  "-39.15680",
+						longitude: "175.63187",
+						elevation: "2197.0",
+					},
+				},
+				Location{
+					Code:        "RL001-1",
+					Description: "Raoul Island Green Lake",
+					Point: Point{
+						Latitude:  -29.26240,
+						Longitude: -177.91978,
+						Elevation: 10.0,
+						Datum:     "WGS84",
+
+						latitude:  "-29.26240",
+						longitude: "-177.91978",
+						elevation: "10.0",
+					},
+				},
+			},
+		},
 	}
 
 	for _, tt := range listtests {
@@ -1036,7 +1090,6 @@ func TestList(t *testing.T) {
 				t.Errorf("unexpected %s content -got/+exp\n%s", tt.f, cmp.Diff(string(res), string(s)))
 			}
 		}
-
 		t.Log("Check list file: " + tt.f)
 		{
 			if err := LoadList(tt.f, tt.l); err != nil {

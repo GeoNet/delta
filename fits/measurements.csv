@@ -1,0 +1,2057 @@
+Location,Name,Sensor,Type,Unit,Description
+NA000,carbon dioxide flux,CO2-flux-a,contour,kg/s,"flux of carbon dioxide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+NA000,hydrogen sulphide flux,H2S-flux-a,contour,kg/s,"flux of hydrogen sulphide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+NA000,sulphur dioxide flux,SO2-flux-a,contour,kg/s,"flux of sulphur dioxide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+NA000,sulphur dioxide flux,cospec,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air correlation spectrometer measures absorption of ultraviolet light by SO2, flying beneath a plume"
+NA000,sulphur dioxide flux,flyspec,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air miniaturized UV spectrometer system measures absorption of ultraviolet light by SO2, flying beneath a plume"
+NA001,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+NA002,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT001,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT001,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT001,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT001,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT001,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT001,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT001,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT001,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT001,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT001,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT001,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT001,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT001,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT001,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT001,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT001,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT001,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT001,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT001,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT001,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT001,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT001,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT001,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT002,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT002,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT002,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT002,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT002,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT002,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT002,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT002,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT002,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT002,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT002,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT002,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT002,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT002,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT002,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT002,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT002,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT002,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT002,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT002,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT002,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT002,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT002,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT010,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT010,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT010,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT010,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT010,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT010,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT010,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT010,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT010,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT010,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT010,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT010,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT010,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT010,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT010,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT010,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT010,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT010,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT010,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT010,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT010,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT010,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT010,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT011,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT011,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT011,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT011,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT011,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT011,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT011,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT011,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT011,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT011,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT011,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT011,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT011,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT011,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT011,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT011,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT011,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT011,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT011,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT011,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT011,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT011,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT011,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT012,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT012,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT012,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT012,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT012,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT012,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT012,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT012,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT012,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT012,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT012,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT012,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT012,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT012,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT012,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT013,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT013,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT013,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT013,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT013,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT013,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT013,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT013,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT013,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT013,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT013,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT013,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT013,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT013,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT013,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT013,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT013,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT013,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT013,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT013,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT013,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT013,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT013,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT014,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT014,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT014,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT014,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT014,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT014,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT014,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT014,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT014,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT014,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT014,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT014,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT014,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT014,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT014,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT014,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT014,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT014,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT014,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT014,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT014,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT014,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT014,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT015,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT015,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT015,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT015,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT015,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT015,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT015,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT015,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT015,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT015,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT015,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT015,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT015,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT015,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT015,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT015,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT015,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT015,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT015,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT015,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT015,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT015,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT015,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT016,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT016,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT016,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT016,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT016,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT016,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT016,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT016,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT016,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT016,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT016,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT016,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT016,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT016,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT016,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT016,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT016,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT016,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT016,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT016,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT016,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT016,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT016,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT017,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT017,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT017,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT017,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT017,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT017,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT017,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT017,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT017,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT017,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT017,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT017,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT017,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT017,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT017,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT017,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT017,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT017,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT017,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT017,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT017,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT017,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT017,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT018,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT018,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT018,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT018,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT018,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT018,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT018,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT018,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT018,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT018,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT018,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT018,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT018,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT018,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT018,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT018,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT018,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT018,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT018,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT018,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT018,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT018,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT018,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT019,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT019,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT019,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT019,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT019,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT019,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT019,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT019,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT019,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT019,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT019,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT019,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT019,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT019,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT019,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT019,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT019,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT020,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT020,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT021,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT021,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT021,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT021,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT021,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT021,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT021,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT021,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT021,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT021,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT021,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT021,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT021,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT021,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT021,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT021,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT021,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT021,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT021,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT021,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT021,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT021,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+OT021,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+OT022,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+OT022,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+OT022,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+OT022,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+OT022,boron,B-w,water sample,mg/L,B concentration in a water sample
+OT022,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+OT022,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+OT022,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+OT022,flourine,F-w,water sample,mg/L,F concentration in a water sample
+OT022,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+OT022,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+OT022,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+OT022,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+OT022,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+OT022,ph,ph,sample,,degree of acidity or alkalinity of a sample
+OT022,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+OT022,potassium,K-w,water sample,mg/L,K concentration in a water sample
+OT022,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+OT022,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+OT022,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+OT022,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+OT022,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RL001,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RL001,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RL001,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RL001,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RL001,boron,B-w,water sample,mg/L,B concentration in a water sample
+RL001,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RL001,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+RL001,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RL001,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RL001,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RL001,height,straight edge,ruler,m,height straightedge ruler
+RL001,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RL001,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RL001,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RL001,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RL001,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RL001,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RL001,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RL001,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RL001,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RL001,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+RL001,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RL001,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RL001,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RL001,temperature,mercury,thermometer,C,temperature mercury thermometer
+RL001,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RL001-1,height,straight edge,ruler,m,height straightedge ruler
+RL002,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RL002,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RL002,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RL002,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RL002,boron,B-w,water sample,mg/L,B concentration in a water sample
+RL002,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RL002,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+RL002,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RL002,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RL002,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RL002,height,straight edge,ruler,m,height straightedge ruler
+RL002,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RL002,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RL002,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RL002,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RL002,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RL002,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RL002,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RL002,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RL002,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RL002,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+RL002,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RL002,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RL002,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RL002,temperature,mercury,thermometer,C,temperature mercury thermometer
+RL002,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RL003,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RL003,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RL003,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RL003,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RL003,boron,B-w,water sample,mg/L,B concentration in a water sample
+RL003,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RL003,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+RL003,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RL003,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RL003,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RL003,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RL003,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RL003,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RL003,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RL003,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RL003,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RL003,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RL003,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RL003,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RL003,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+RL003,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RL003,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RL003,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RL003,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RL003-1,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RL004,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RL004,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RL004,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RL004,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RL004,boron,B-w,water sample,mg/L,B concentration in a water sample
+RL004,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RL004,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+RL004,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RL004,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RL004,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RL004,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RL004,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RL004,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RL004,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RL004,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RL004,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RL004,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RL004,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RL004,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RL004,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+RL004,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RL004,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RL004,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RL004,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RL005,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RL005,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RL005,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RL005,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RL005,boron,B-w,water sample,mg/L,B concentration in a water sample
+RL005,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RL005,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+RL005,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RL005,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RL005,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RL005,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RL005,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RL005,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RL005,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RL005,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RL005,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RL005,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RL005,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RL005,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RL005,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+RL005,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RL005,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RL005,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RL005,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RL006-1,temperature,mercury,thermometer,C,temperature mercury thermometer
+RL006-2,temperature,mercury,thermometer,C,temperature mercury thermometer
+RL006-3,temperature,mercury,thermometer,C,temperature mercury thermometer
+RL006-4,temperature,mercury,thermometer,C,temperature mercury thermometer
+RL006-5,temperature,mercury,thermometer,C,temperature mercury thermometer
+RL007,temperature,mercury,thermometer,C,temperature mercury thermometer
+RP001,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RP001,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RP001,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RP001,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RP001,boron,B-w,water sample,mg/L,B concentration in a water sample
+RP001,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RP001,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RP001,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RP001,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RP001,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RP001,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RP001,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RP001,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RP001,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RP001,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RP001,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RP001,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RP001,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RP001,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RP001,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RP001,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RP001,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RP001,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RP002,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RP002,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RP002,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RP002,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RP002,boron,B-w,water sample,mg/L,B concentration in a water sample
+RP002,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RP002,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RP002,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RP002,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RP002,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RP002,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RP002,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RP002,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RP002,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RP002,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RP002,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RP002,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RP002,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RP002,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RP002,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RP002,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RP002,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RP002,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RP003,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RP003,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RR001,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RR001,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RR001,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RR001,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RR001,boron,B-w,water sample,mg/L,B concentration in a water sample
+RR001,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RR001,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RR001,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RR001,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RR001,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RR001,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RR001,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RR001,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RR001,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RR001,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RR001,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RR001,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RR001,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RR001,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RR001,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RR001,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RR001,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RR001,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RR002,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RR002,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RR002,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RR002,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RR002,boron,B-w,water sample,mg/L,B concentration in a water sample
+RR002,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RR002,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RR002,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RR002,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RR002,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RR002,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RR002,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RR002,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RR002,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RR002,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RR002,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RR002,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RR002,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RR002,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RR002,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RR002,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RR002,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RR002,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RR003,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RR003,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RR003,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RR003,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RR003,boron,B-w,water sample,mg/L,B concentration in a water sample
+RR003,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RR003,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RR003,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RR003,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RR003,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RR003,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RR003,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RR003,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RR003,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RR003,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RR003,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RR003,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RR003,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RR003,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RR003,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RR003,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RR003,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RR003,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RR004,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RR004,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RR004,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RR004,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RR004,boron,B-w,water sample,mg/L,B concentration in a water sample
+RR004,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RR004,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RR004,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RR004,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RR004,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RR004,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RR004,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RR004,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RR004,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RR004,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RR004,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RR004,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RR004,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RR004,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RR004,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RR004,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RR004,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RR004,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RR005,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RR005,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RR005,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RR005,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RR005,boron,B-w,water sample,mg/L,B concentration in a water sample
+RR005,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RR005,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RR005,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RR005,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RR005,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RR005,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RR005,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RR005,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RR005,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RR005,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RR005,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RR005,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RR005,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RR005,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RR005,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RR005,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RR005,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RR005,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RR1021,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RR1021,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RR1021,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RR1021,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RR1021,boron,B-w,water sample,mg/L,B concentration in a water sample
+RR1021,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RR1021,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RR1021,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RR1021,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RR1021,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RR1021,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RR1021,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RR1021,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RR1021,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RR1021,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RR1021,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RR1021,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RR1021,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RR1021,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RR1021,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RR1021,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RR1021,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RR1076,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RR1076,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RR1076,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RR1076,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RR1076,boron,B-w,water sample,mg/L,B concentration in a water sample
+RR1076,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RR1076,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RR1076,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RR1076,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RR1076,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RR1076,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RR1076,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RR1076,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RR1076,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RR1076,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RR1076,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RR1076,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RR1076,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RR1076,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RR1076,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RR1076,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RR1076,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RR12183,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RR12183,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RR12183,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RR12183,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RR12183,boron,B-w,water sample,mg/L,B concentration in a water sample
+RR12183,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RR12183,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RR12183,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RR12183,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RR12183,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RR12183,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RR12183,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RR12183,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RR12183,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RR12183,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RR12183,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RR12183,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RR12183,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RR12183,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RR12183,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RR12183,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RR12183,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RR887,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RR887,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RR887,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RR887,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RR887,boron,B-w,water sample,mg/L,B concentration in a water sample
+RR887,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RR887,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RR887,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RR887,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RR887,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RR887,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RR887,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RR887,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RR887,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RR887,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RR887,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RR887,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RR887,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RR887,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RR887,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RR887,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RR887,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RR913,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RR913,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RR913,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RR913,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RR913,boron,B-w,water sample,mg/L,B concentration in a water sample
+RR913,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RR913,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RR913,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RR913,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RR913,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RR913,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RR913,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RR913,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RR913,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RR913,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RR913,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RR913,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RR913,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RR913,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RR913,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RR913,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RR913,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RU000,carbon dioxide flux,CO2-flux-a,contour,kg/s,"flux of carbon dioxide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+RU000,hydrogen sulphide flux,H2S-flux-a,contour,kg/s,"flux of hydrogen sulphide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+RU000,sulphur dioxide flux,SO2-flux-a,contour,kg/s,"flux of sulphur dioxide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+RU000,sulphur dioxide flux,cospec,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air correlation spectrometer measures absorption of ultraviolet light by SO2, flying beneath a plume"
+RU000,sulphur dioxide flux,flyspec,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air miniaturized UV spectrometer system measures absorption of ultraviolet light by SO2, flying beneath a plume"
+RU001,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RU001,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RU001,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RU001,boron,B-w,water sample,mg/L,B concentration in a water sample
+RU001,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RU001,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+RU001,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RU001,chloride,Cl,sample,mg/L,concentration in a sample
+RU001,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RU001,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RU001,flow rate,velocity,channel,l/s,"flow rate of fluid in a channel low rate is determined by the product of velocity and channel cross-sectional area, with a roughness factor (of 0.7)"
+RU001,height,flexible,ruler,m,height flexible ruler
+RU001,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RU001,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RU001,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RU001,magnesium,Mg,sample,mg/L,concentration in a sample
+RU001,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RU001,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RU001,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RU001,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RU001,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RU001,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RU001,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RU001,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+RU001,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RU001,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RU001,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RU001,temperature,mercury,thermometer,C,temperature mercury thermometer
+RU001,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RU002,temperature,satellite image,remote,C,temperature processed thermal image from a satellite
+RU003,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RU003,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RU003,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RU003,boron,B-w,water sample,mg/L,B concentration in a water sample
+RU003,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RU003,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RU003,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RU003,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RU003,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RU003,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RU003,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RU003,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RU003,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RU003,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RU003,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RU003,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RU003,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RU003,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RU003,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RU003,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RU003,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RU003,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RU004,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RU004,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RU004,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RU004,boron,B-w,water sample,mg/L,B concentration in a water sample
+RU004,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RU004,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+RU004,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RU004,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RU004,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RU004,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RU004,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RU004,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RU004,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RU004,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RU004,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RU004,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RU004,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RU004,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RU004,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RU004,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+RU004,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RU004,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RU004,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RU004,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+RU020,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+RU020,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+RU020,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+RU020,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+RU020,boron,B-w,water sample,mg/L,B concentration in a water sample
+RU020,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+RU020,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+RU020,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+RU020,flourine,F-w,water sample,mg/L,F concentration in a water sample
+RU020,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+RU020,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+RU020,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+RU020,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+RU020,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+RU020,ph,ph,sample,,degree of acidity or alkalinity of a sample
+RU020,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+RU020,potassium,K-w,water sample,mg/L,K concentration in a water sample
+RU020,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+RU020,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+RU020,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+RU020,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+RU020,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+RU020,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+SSTEST,temperature,mercury,thermometer,C,temperature mercury thermometer
+SSTEST,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO000,carbon dioxide flux,CO2-flux-a,contour,kg/s,"flux of carbon dioxide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+TO000,hydrogen sulphide flux,H2S-flux-a,contour,kg/s,"flux of hydrogen sulphide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+TO000,sulphur dioxide flux,SO2-flux-a,contour,kg/s,"flux of sulphur dioxide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+TO000,sulphur dioxide flux,cospec,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air correlation spectrometer measures absorption of ultraviolet light by SO2, flying beneath a plume"
+TO000,sulphur dioxide flux,flyspec,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air miniaturized UV spectrometer system measures absorption of ultraviolet light by SO2, flying beneath a plume"
+TO001,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO001A,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO001B,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO002,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO003,temperature,flir camera,remote,C,temperature FLIR camera
+TO003,temperature,infrared,thermometer,C,temperature infrared thermometer
+TO003,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO004,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO005,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO006,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO006A,temperature,infrared,thermometer,C,temperature infrared thermometer
+TO006A,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO006B,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO015,chloride,Cl,sample,mg/L,concentration in a sample
+TO015,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO030,chloride,Cl,sample,mg/L,concentration in a sample
+TO030,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO031,chloride,Cl,sample,mg/L,concentration in a sample
+TO031,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO032,chloride,Cl,sample,mg/L,concentration in a sample
+TO032,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO033,chloride,Cl,sample,mg/L,concentration in a sample
+TO033,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO034,chloride,Cl,sample,mg/L,concentration in a sample
+TO034,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO050,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO050,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO050,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO050,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO050,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO050,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO050,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+TO050,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO050,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO050,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO050,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO050,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO050,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO050,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO050,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO050,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO050,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO050,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO050,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO050,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO050,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+TO050,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO050,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO050,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO050,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO051,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO051,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO051,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO051,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO051,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO051,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO051,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+TO051,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO051,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO051,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO051,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO051,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO051,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO051,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO051,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO051,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO051,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO051,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO051,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO051,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO051,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+TO051,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO051,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO051,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO051,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO052,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO052,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO052,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO052,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO052,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO052,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO052,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+TO052,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO052,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO052,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO052,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO052,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO052,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO052,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO052,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO052,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO052,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO052,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO052,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO052,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO052,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+TO052,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO052,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO052,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO052,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO053,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO053,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO053,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO053,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO053,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO053,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO053,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+TO053,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO053,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO053,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO053,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO053,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO053,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO053,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO053,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO053,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO053,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO053,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO053,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO053,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO053,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+TO053,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO053,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO053,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO053,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO054,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO054,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO054,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO054,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO054,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO054,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO054,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+TO054,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO054,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO054,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO054,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO054,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO054,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO054,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO054,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO054,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO054,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO054,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO054,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO054,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO054,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+TO054,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO054,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO054,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO054,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO055,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO055,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO055,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO055,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO055,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO055,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO055,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+TO055,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO055,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO055,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO055,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO055,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO055,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO055,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO055,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO055,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO055,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO055,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO055,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO055,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO055,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+TO055,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO055,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO055,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO055,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO056,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO056,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO056,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO056,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO056,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO056,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO056,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO056,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO056,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO056,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO056,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO056,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO056,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO056,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO056,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO056,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO056,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO056,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO056,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO056,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO056,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO056,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO056,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO057,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO057,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO057,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO057,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO057,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO057,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO057,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO057,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO057,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO057,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO057,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO057,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO057,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO057,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO057,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO057,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO057,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO057,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO057,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO057,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO057,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO057,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO057,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO060,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO060,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO060,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO060,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO060,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO060,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO060,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+TO060,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO060,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO060,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO060,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO060,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO060,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO060,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO060,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO060,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO060,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO060,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO060,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO060,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO060,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+TO060,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO060,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO060,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO060,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO061,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO061,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO061,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO061,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO061,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO061,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO061,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+TO061,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO061,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO061,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO061,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO061,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO061,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO061,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO061,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO061,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO061,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO061,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO061,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO061,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO061,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+TO061,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO061,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO061,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO061,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO062,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO062,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO062,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO062,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO062,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO062,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO062,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+TO062,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO062,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO062,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO062,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO062,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO062,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO062,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO062,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO062,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO062,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO062,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO062,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO062,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO062,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+TO062,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO062,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO062,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO062,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO063,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TO063,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TO063,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TO063,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TO063,boron,B-w,water sample,mg/L,B concentration in a water sample
+TO063,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TO063,caesium,Cs-w,water sample,mg/L,Cs concentration in a water sample
+TO063,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TO063,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TO063,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TO063,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TO063,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TO063,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TO063,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TO063,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TO063,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TO063,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TO063,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TO063,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TO063,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TO063,rubidium,Rb-w,water sample,mg/L,Rb concentration in a water sample
+TO063,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TO063,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TO063,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TO063,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TO301,sulphur dioxide flux,scanning flyspec,SO2-flux-a,kg/s,flux of sulphur dioxide measured in the air miniaturized UV spectrometer system measures absorption of ultraviolet light by SO2. Stationary ground-based system scanning from horizon to horizon
+TO302,sulphur dioxide flux,scanning flyspec,SO2-flux-a,kg/s,flux of sulphur dioxide measured in the air miniaturized UV spectrometer system measures absorption of ultraviolet light by SO2. Stationary ground-based system scanning from horizon to horizon
+TO311,sulphur dioxide flux,mini-doas-ah,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air miniature differential optical absorption spectrometer, plume visible on only one scanner, plume height assumed"
+TO312,sulphur dioxide flux,mini-doas-ah,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air miniature differential optical absorption spectrometer, plume visible on only one scanner, plume height assumed"
+TP001,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP002,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP003,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP004,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP005,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP006,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP007,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP008,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP009,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP010,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP011,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP012,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP013,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP015,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP016,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP017,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP018,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP019,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP020,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP021,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP022,height,lake level,levelling,m,height using a lake as a large tiltmeter
+TP041,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TP041,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TP041,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TP041,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TP041,boron,B-w,water sample,mg/L,B concentration in a water sample
+TP041,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TP041,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TP041,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TP041,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TP041,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TP041,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TP041,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TP041,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TP041,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TP041,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TP041,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TP041,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TP041,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TP041,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TP041,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TP041,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TP041,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TP041,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TP042,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TP042,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TP042,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TP042,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TP042,boron,B-w,water sample,mg/L,B concentration in a water sample
+TP042,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TP042,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TP042,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TP042,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TP042,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TP042,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TP042,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TP042,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TP042,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TP042,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TP042,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TP042,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TP042,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TP042,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TP042,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TP042,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TP042,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TP042,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TP043,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TP043,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TP043,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TP043,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TP043,boron,B-w,water sample,mg/L,B concentration in a water sample
+TP043,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TP043,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TP043,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TP043,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TP043,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TP043,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TP043,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TP043,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TP043,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TP043,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TP043,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TP043,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TP043,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TP043,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TP043,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TP043,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TP043,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TP043,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TP044,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TP044,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TP044,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TP044,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TP044,boron,B-w,water sample,mg/L,B concentration in a water sample
+TP044,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TP044,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TP044,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TP044,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TP044,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TP044,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TP044,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TP044,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TP044,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TP044,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TP044,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TP044,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TP044,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TP044,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TP044,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TP044,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TP044,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+TP044,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+TP045,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+TP045,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+TP045,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+TP045,bicarbonate,HCO3-w,water sample,mg/L,HCO3 concentration in a water sample
+TP045,boron,B-w,water sample,mg/L,B concentration in a water sample
+TP045,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+TP045,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+TP045,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+TP045,flourine,F-w,water sample,mg/L,F concentration in a water sample
+TP045,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+TP045,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+TP045,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+TP045,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+TP045,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+TP045,ph,ph,sample,,degree of acidity or alkalinity of a sample
+TP045,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+TP045,potassium,K-w,water sample,mg/L,K concentration in a water sample
+TP045,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+TP045,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+TP045,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+TP045,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+TP045,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI000,carbon dioxide flux,CO2-flux-a,contour,kg/s,"flux of carbon dioxide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+WI000,hydrogen sulphide flux,H2S-flux-a,contour,kg/s,"flux of hydrogen sulphide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+WI000,sulphur dioxide flux,SO2-flux-a,contour,kg/s,"flux of sulphur dioxide measured in the air aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration"
+WI000,sulphur dioxide flux,cospec,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air correlation spectrometer measures absorption of ultraviolet light by SO2, flying beneath a plume"
+WI000,sulphur dioxide flux,flyspec,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air miniaturized UV spectrometer system measures absorption of ultraviolet light by SO2, flying beneath a plume"
+WI001,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI001,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI001,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI002,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI002,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI002,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI003,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI003,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI003,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI004,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI004,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI004,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI005,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI005,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI005,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI006,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI006,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI006,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI007,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI007,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI007,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI008,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI008,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI008,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI009,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI009,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI009,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI010,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI010,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI010,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI011,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI011,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI011,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI012,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI012,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI012,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI013,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI013,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI013,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI014,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI014,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI014,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI015,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI015,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI015,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI016,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI016,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI016,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI017,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI017,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI017,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI018,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI018,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI018,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI019,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI019,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI019,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI020,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI020,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI020,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI021,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI021,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI021,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI022,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI022,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI022,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI023,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI023,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI023,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI024,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI024,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI024,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI025,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI025,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI025,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI026,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI026,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI026,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI027,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI027,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI027,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI028,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI028,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI028,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI029,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI029,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI029,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI030,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI030,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI030,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI031,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI031,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI031,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI032,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI032,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI032,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI033,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI033,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI033,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI034,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI034,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI034,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI035,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI035,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI035,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI036,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI036,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI037,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI037,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI038,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI038,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI038,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI039,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI039,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI039,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI040,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI040,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI040,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI041,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI041,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI041,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI042,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI042,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI042,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI043,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI043,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI043,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI044,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI044,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI044,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI045,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI045,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI045,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI046,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI046,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI046,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI047,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI047,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI047,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI048,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI048,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI048,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI049,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI049,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI049,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI050,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI050,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI050,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI051,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI051,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI051,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI052,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI052,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI052,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI053,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI053,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI053,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI054,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI054,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI054,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI055,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI055,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI055,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI056,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI056,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI057,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI057,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI057,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI058,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI058,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI058,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI059,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI059,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI059,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI060,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI060,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI060,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI061,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI061,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI061,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI062,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI062,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI062,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI063,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI063,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI063,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI064,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI064,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI064,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI065,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI065,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI065,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI066,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI066,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI066,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI067,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI067,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI067,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI068,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI068,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI068,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI069,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI069,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI069,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI070,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI070,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI070,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI071,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI071,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI071,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI072,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI072,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI072,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI073,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI073,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI073,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI074,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI074,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI074,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI075,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI075,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI075,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI076,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI076,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI076,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI077,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI077,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI077,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI078,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI078,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI078,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI079,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI079,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI079,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI080,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI080,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI080,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI081,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI081,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI081,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI082,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI082,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI082,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI083,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI083,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI083,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI084,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI084,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI084,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI085,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI085,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI085,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI086,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI086,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI086,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI087,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI087,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI087,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI088,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI088,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI088,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI089,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI089,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI089,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI090,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI090,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI090,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI091,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI091,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI091,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI092,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI092,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI092,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI093,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI093,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI093,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI094,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI094,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI094,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI095,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI095,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI095,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI096,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI096,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI096,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI097,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI097,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI097,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI098,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI098,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI098,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI099,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI099,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI099,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI100,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI101,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI102,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI103-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI103-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI103-3,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI104-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI104-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI105,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI106,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI107-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI107-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI108-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI108-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI109-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI109-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI110,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI111,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI112-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI112-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI112-3,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI113,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI114-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI114-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI115-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI115-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI116-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI116-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI116-3,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI117-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI117-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI118,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI119-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI119-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI119-3,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI120-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI120-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI121-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI121-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI121-3,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI122-1,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI122-2,height,optical level,levelling,m,height optical levelling instrument and level staff
+WI150,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI150,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI150,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI151,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI151,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI151,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI152,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI152,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI152,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI153,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI153,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI153,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI154,carbon dioxide flux,CO2-flux-e,chamber,g-m^2/d,Carbon Dioxide surface accumulation chamber
+WI154,hydrogen sulphide flux,H2S-flux-e,chamber,g-m^2/d,Hydrogen Sulphide surface accumulation chamber
+WI154,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI200,height,image conversion,remote,m,height pixel conversion to distance
+WI200,height,photo comparison,remote,m,height comparison with known height in photograph
+WI200,height,rangefinder,levelling,m,height vertical angle and distance from rangefinder
+WI201,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI201,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI201,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI201,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI201,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI201,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI201,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI201,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI201,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI201,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI201,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI201,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI201,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI201,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI201,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI201,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI201,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI201,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI201,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI201,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI201,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI201,temperature,infrared,thermometer,C,temperature infrared thermometer
+WI201,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI210,temperature,infrared,thermometer,C,temperature infrared thermometer
+WI210,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI211,temperature,flir camera,remote,C,temperature FLIR camera
+WI211,temperature,infrared,thermometer,C,temperature infrared thermometer
+WI211,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI220,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI220,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI220,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI220,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI220,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI220,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI220,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI220,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI220,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI220,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI220,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI220,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI220,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI220,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI220,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI220,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI220,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI220,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI220,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI220,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI220,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI220-1,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI220-1,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI220-1,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI220-1,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI220-1,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI220-1,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI220-1,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI220-1,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI220-1,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI220-1,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI220-1,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI220-1,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI220-1,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI220-1,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI220-1,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI220-1,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI220-1,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI220-1,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI220-1,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI220-1,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI220-1,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI220-1,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI220-2,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI220-2,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI220-2,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI220-2,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI220-2,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI220-2,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI220-2,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI220-2,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI220-2,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI220-2,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI220-2,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI220-2,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI220-2,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI220-2,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI220-2,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI220-2,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI220-2,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI220-2,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI220-2,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI220-2,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI220-2,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI220-2,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI220-3,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI220-3,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI220-3,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI220-3,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI220-3,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI220-3,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI220-3,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI220-3,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI220-3,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI220-3,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI220-3,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI220-3,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI220-3,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI220-3,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI220-3,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI220-3,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI220-3,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI220-3,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI220-3,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI221,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI221,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI221,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI221,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI221,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI221,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI221,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI221,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI221,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI221,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI221,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI221,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI221,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI221,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI221,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI221,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI221,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI221,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI221,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI221,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI221,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI221,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI221-1,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI221-1,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI221-1,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI221-1,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI221-1,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI221-1,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI221-1,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI221-1,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI221-1,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI221-1,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI221-1,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI221-1,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI221-1,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI221-1,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI221-1,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI221-1,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI221-1,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI221-1,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI221-1,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI221-1,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI221-1,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI221-1,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI221-2,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI221-2,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI221-2,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI221-2,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI221-2,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI221-2,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI221-2,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI221-2,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI221-2,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI221-2,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI221-2,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI221-2,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI221-2,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI221-2,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI221-2,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI221-2,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI221-2,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI221-2,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI221-2,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI221-2,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI221-2,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI221-2,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI221-3,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI221-3,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI221-3,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI221-3,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI221-3,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI221-3,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI221-3,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI221-3,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI221-3,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI221-3,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI221-3,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI221-3,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI221-3,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI221-3,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI221-3,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI221-3,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI221-3,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI221-3,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI221-3,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI221-3,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI221-3,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI221-3,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI222,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI222,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI222,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI222,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI222,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI222,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI222,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI222,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI222,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI222,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI222,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI222,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI222,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI222,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI222,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI222,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI222,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI222,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI222,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI222,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI222,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI222,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI223,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI223,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI223,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI223,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI223,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI223,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI223,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI223,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI223,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI223,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI223,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI223,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI223,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI223,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI223,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI223,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI223,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI223,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI223,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI223,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI223,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI223,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI224,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI224,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI224,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI224,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI224,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI224,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI224,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI224,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI224,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI224,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI224,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI224,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI224,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI224,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI224,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI224,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI224,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI224,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI224,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI224,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI224,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI224,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI225-1,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI225-1,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI225-1,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI225-1,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI225-1,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI225-1,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI225-1,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI225-1,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI225-1,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI225-1,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI225-1,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI225-1,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI225-1,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI225-1,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI225-1,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI225-1,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI225-1,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI225-1,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI225-1,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI225-1,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI225-1,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI225-1,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI225-2,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI225-2,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI225-2,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI225-2,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI225-2,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI225-2,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI225-2,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI225-2,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI225-2,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI225-2,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI225-2,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI225-2,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI225-2,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI225-2,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI225-2,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI225-2,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI225-2,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI225-2,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI225-2,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI225-2,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI226,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI226,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI226,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI226,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI226,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI226,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI226,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI226,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI226,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI226,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI226,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI226,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI226,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI226,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI226,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI226,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI226,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI226,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI226,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI226,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI226,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI226,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI226-1,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI226-1,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI226-1,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI226-1,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI226-1,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI226-1,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI226-1,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI226-2,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI226-2,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI226-2,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI226-2,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI226-2,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI226-2,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI226-2,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI226-2,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI226-2,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI226-2,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI226-2,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI226-2,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI226-2,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI226-2,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI226-2,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI226-2,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI226-2,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI226-2,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI226-2,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI226-2,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI226-2,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI226-2,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI227,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI227,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI227,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI227,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI227,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI227,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI227,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI227,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI227,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI227,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI227,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI227,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI227,nitrate as nitrogen,NO3-N-w,water sample,mg/L,NO3-N concentration in a water sample
+WI227,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI227,phosphate as phosphorus,PO4-P-w,water sample,mg/L,PO4-P concentration in a water sample
+WI227,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI227,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI227,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI227,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI227,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI227,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI227,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI228,aluminium,Al-w,water sample,mg/L,Al concentration in a water sample
+WI228,ammonia,NH3-w,water sample,mg/L,NH3 concentration in a water sample
+WI228,arsenic,As-w,water sample,mg/L,As concentration in a water sample
+WI228,boron,B-w,water sample,mg/L,B concentration in a water sample
+WI228,bromide,Br-w,water sample,mg/L,Br concentration in a water sample
+WI228,calcium,Ca-w,water sample,mg/L,Ca concentration in a water sample
+WI228,chloride,Cl-w,water sample,mg/L,Cl concentration in a water sample
+WI228,flourine,F-w,water sample,mg/L,F concentration in a water sample
+WI228,hydrogen sulphide,H2S-w,water sample,mg/L,H2S concentration in a water sample
+WI228,iron,Fe-w,water sample,mg/L,Fe concentration in a water sample
+WI228,lithium,Li-w,water sample,mg/L,Li concentration in a water sample
+WI228,magnesium,Mg-w,water sample,mg/L,Mg concentration in a water sample
+WI228,ph,ph,sample,,degree of acidity or alkalinity of a sample
+WI228,potassium,K-w,water sample,mg/L,K concentration in a water sample
+WI228,ratio 18O:16O,d18O-w,water,per mil,"d18O concentration  in water, relative to standard"
+WI228,ratio 2H:1H,d2H-w,water,per mil,"d2H concentration in water, relative to standard"
+WI228,silicon dioxide,SiO2-w,water sample,mg/L,SiO2 concentration in a water sample
+WI228,sodium,Na-w,water sample,mg/L,Na concentration in a water sample
+WI228,sulphate,SO4-w,water sample,mg/L,SO4 concentration in a water sample
+WI228,temperature,thermocouple,thermometer,C,temperature thermocouple thermometer
+WI301,sulphur dioxide flux,mini-doas-ah,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air miniature differential optical absorption spectrometer, plume visible on only one scanner, plume height assumed"
+WI301,sulphur dioxide flux,mini-doas-ch,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air miniature differential optical absorption spectrometer, plume visible on more than one scanner, plume height calculated"
+WI302,sulphur dioxide flux,mini-doas-ah,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air miniature differential optical absorption spectrometer, plume visible on only one scanner, plume height assumed"
+WI302,sulphur dioxide flux,mini-doas-ch,SO2-flux-a,kg/s,"flux of sulphur dioxide measured in the air miniature differential optical absorption spectrometer, plume visible on more than one scanner, plume height calculated"
