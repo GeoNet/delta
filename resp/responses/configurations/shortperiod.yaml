@@ -185,16 +185,5 @@ response:
       filters:
         - CENTAUR-100-LP
       reversed: false
-    - dataloggers:
-      - Centaur CTR4-6S
-      type: CG
-      label: LH
-      samplerate: 1
-      frequency: 0.1
-      storageformat: Steim1
-      clockdrift: 0.0001
-      filters:
-        - CENTAUR-1-LP
-      reversed: false
  
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
