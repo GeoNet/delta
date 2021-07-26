@@ -177,7 +177,7 @@ response:
     - dataloggers:
       - Centaur CTR4-6S
       type: CG
-      label: HH
+      label: EH
       samplerate: 100
       frequency: 1
       storageformat: Steim1
