@@ -179,7 +179,7 @@ response:
       type: CG
       label: EH
       samplerate: 100
-      frequency: 1
+      frequency: 15
       storageformat: Steim1
       clockdrift: 0.0001
       filters:
