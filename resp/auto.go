@@ -3246,7 +3246,7 @@ var Responses []Response = []Response{
 				Type:           "CG",
 				Label:          "EH",
 				SampleRate:     100,
-				Frequency:      1,
+				Frequency:      15,
 				StorageFormat:  "Steim1",
 				ClockDrift:     0.0001,
 				FilterList:     []string{"CENTAUR-100-LP"},
