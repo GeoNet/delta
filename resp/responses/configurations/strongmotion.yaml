@@ -325,6 +325,7 @@ response:
       - FBA-ES-T
       channels: ZNE
       reversed: false
+    dataloggers:
     - dataloggers:
       - Centaur CTR4-6S
       type: CG
