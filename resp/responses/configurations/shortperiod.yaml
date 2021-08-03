@@ -145,6 +145,18 @@ response:
   Nanometrics Dataloggers Connected to Short Period Sensors:
     sensors:
     - sensors:
+      - L4C
+      filters:
+      - L4C
+      channels: Z
+      reversed: false
+    - sensors:
+      - L4C-3D
+      filters:
+      - L4C
+      channels: ZNE
+      reversed: false
+    - sensors:
       - LE-3Dlite
       filters:
       - LE-3Dlite
