@@ -37,6 +37,10 @@ func (s *streams) loadStreams(base string) error {
 }
 
 func (m *MetaDB) StationLocationSamplingRateStartStream(sta, loc string, rate float64, start time.Time) (*meta.Stream, error) {
+	if rate < 0 {
+		rate = -1.0 / rate
+	}
+
 	if err := m.loadStreams(m.base); err != nil {
 		return nil, err
 	}

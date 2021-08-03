@@ -50,7 +50,7 @@ polynomial:
     - 1.03
 
 filter:
-  Sea Water:
+  "SeaWater":
   - type: poly
     lookup: SEAWATER
     frequency: 1
@@ -62,7 +62,7 @@ filter:
     delay: 0
     inputunits: V
     outputunits: V
-  Water Depth 0.1:
+  "WaterDepth0.1":
   - type: a2d
     lookup: A2D
     frequency: 0
@@ -74,7 +74,7 @@ filter:
     delay: 0
     inputunits: m
     outputunits: count
-  Water Depth 1:
+  "WaterDepth1":
   - type: a2d
     lookup: A2D
     frequency: 0
@@ -86,13 +86,37 @@ filter:
     delay: 0
     inputunits: m
     outputunits: count
-  Water Depth 10:
+  "WaterDepth10":
   - type: a2d
     lookup: A2D
     frequency: 0
     samplerate: 10
     decimate: 1
     gain: 10000.0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: m
+    outputunits: count
+  "WaterHeight15s":
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: -15
+    decimate: 1
+    gain: 1000.0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: m
+    outputunits: count
+  "WaterHeight15m":
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: -900
+    decimate: 1
+    gain: 1000.0
     scale: 0
     correction: 0
     delay: 0
