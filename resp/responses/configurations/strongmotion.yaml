@@ -316,6 +316,28 @@ response:
       - CUSP-200
       reversed: false
 
+  Nanometrics Dataloggers Connected to Strong Motion Sensors:
+    sensors:
+    - sensors:
+      - FBA-ES-T
+      - FBA-ES-T-ISO
+      filters:
+      - FBA-ES-T
+      channels: ZNE
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+        - CENTAUR-200-LP
+      reversed: false
+
   Nanometrics Strong Motion Recorders:
     sensors:
     - sensors:
