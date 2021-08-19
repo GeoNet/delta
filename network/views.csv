@@ -5,7 +5,8 @@ CHTB,03,Christchurch North West,315,,0,Images of Christchurch towards the north-
 DISC,01,Ruapehu North,155,,0,Images of Mount Ruapehu from the volcano camera situated at Discovery Lodge.,2020-07-28T02:20:00Z,9999-01-01T00:00:00Z
 DISC,02,Ngauruhoe,90,,0,Images of Mount Ngauruhoe from the volcano camera situated at Discovery Lodge.,2020-07-28T23:40:00Z,9999-01-01T00:00:00Z
 KAKA,01,Tongariro,0,,0,Images of Mount Tongariro from the volcano camera situated at Kakaramea.,2011-09-05T00:01:00Z,2017-03-04T04:40:03Z
-KAKA,02,Tongariro,0,,0,Images of Mount Tongariro from the volcano camera situated at Kakaramea.,2017-03-04T04:50:03Z,9999-01-01T00:00:00Z
+KAKA,01,Tongariro,0,,0,Images of Mount Tongariro from the volcano camera situated at Kakaramea.,2021-08-01T23:35:11Z,9999-01-01T00:00:00Z
+KAKA,02,Tongariro,0,,0,Images of Mount Tongariro from the volcano camera situated at Kakaramea.,2017-03-04T04:50:03Z,2021-07-28T10:40:00Z
 KMTP,01,Ruapehu & Ngauruhoe,290,,10,Images of Mounts Ruapehu and Ngauruhoe from the volcano camera situated at Tai Ping.,2009-03-03T02:00:00Z,9999-01-01T00:00:00Z
 MNTA,01,Ruapehu North,155,,0,Images of Mount Ruapehu from the volcano camera situated at Chateau Airport.,2000-11-14T13:00:10Z,2020-07-27T21:20:00Z
 MNTA,02,Ngauruhoe,90,,0,Images of Mount Ngauruhoe from the volcano camera situated at Chateau Airport.,2002-04-09T13:00:10Z,2020-07-27T21:20:00Z
@@ -15,6 +16,8 @@ PIHA,01,Pihanga,0,,0,Images of Mount Tongariro from the volcano camera situated 
 RIMK,01,Raoul Island,0,,0,Images looking into Green Lake on Raoul Island from the volcano camera situated on Mount Moumoukai.,2009-05-18T00:00:02Z,9999-01-01T00:00:00Z
 TEMO,01,Taranaki,180,,0,Images of Mount Taranaki (Egmont volcano) from the volcano camera situated in New Plymouth.,2002-09-18T13:00:10Z,2012-04-02T22:45:00Z
 TEMO,02,Taranaki,180,,0,Images of Mount Taranaki (Egmont volcano) from the volcano camera situated in New Plymouth.,2012-04-03T00:15:00Z,9999-01-01T00:00:00Z
+TOD01,01,,250,,-60,SO2 from Tongariro from Lower Te Maari East,2021-07-29T02:30:00Z,9999-01-01T00:00:00Z
+TOD02,01,,169,,-60,SO2 from Tongariro from Lower Te Maari West,2021-07-29T01:00:00Z,9999-01-01T00:00:00Z
 TOKR,01,Tongariro Te Maari Crater,0,,0,Images of Te Maari Crater on Mount Tongariro from the volcano camera situated at Karewarewa,2012-08-29T02:00:00Z,9999-01-01T00:00:00Z
 WHHB,01,White Island,347,,0,Images of White Island from the volcano camera situated at Whakatane harbour.,2001-05-21T13:00:10Z,2007-04-13T00:00:00Z
 WHOH,01,Whakatane,190,,0,At Whakatane Comms Hub looking at White Island,2006-03-29T05:32:07Z,2013-08-15T22:15:44Z

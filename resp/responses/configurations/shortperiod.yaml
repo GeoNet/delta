@@ -145,6 +145,12 @@ response:
   Nanometrics Dataloggers Connected to Short Period Sensors:
     sensors:
     - sensors:
+      - L4C-3D
+      filters:
+      - L4C
+      channels: ZNE
+      reversed: false
+    - sensors:
       - LE-3Dlite
       filters:
       - LE-3Dlite
@@ -154,6 +160,12 @@ response:
       - LE-3DliteMkII
       filters:
       - LE-3DliteMkII
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - LE-3DliteMkIII
+      filters:
+      - LE-3DliteMkIII
       channels: ZNE
       reversed: false
     dataloggers:
@@ -167,6 +179,17 @@ response:
       clockdrift: 0.0001
       filters:
       - Taurus-100
+      reversed: false
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+        - CENTAUR-100-LP
       reversed: false
  
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
