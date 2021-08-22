@@ -17,7 +17,7 @@
       "properties": {
         "code": "NZA",
         "depth": "2690 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "a",
         "name": "Offshore Wellington Hikurangi",
@@ -37,7 +37,7 @@
       "properties": {
         "code": "NZB",
         "depth": "3184 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "b",
         "name": "Offshore Hawke's Bay Hikurangi",
@@ -57,7 +57,7 @@
       "properties": {
         "code": "NZC",
         "depth": "3545 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "c",
         "name": "Offshore Gisborne Hikurangi",
@@ -77,7 +77,7 @@
       "properties": {
         "code": "NZD",
         "depth": "2445 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "d",
         "name": "Offshore Bay of Plenty Kermadec",
@@ -97,7 +97,7 @@
       "properties": {
         "code": "NZE",
         "depth": "5779 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "e",
         "name": "Offshore East Cape Kermadec",
@@ -117,7 +117,7 @@
       "properties": {
         "code": "NZF",
         "depth": "5060 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "f",
         "name": "Offshore Raoul Island Kermadec",
@@ -137,7 +137,7 @@
       "properties": {
         "code": "NZG",
         "depth": "5742 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "g",
         "name": "Offshore Tongatapu Tonga",
@@ -157,7 +157,7 @@
       "properties": {
         "code": "NZH",
         "depth": "5530 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "h",
         "name": "Offshore Niue Tonga",
@@ -177,7 +177,7 @@
       "properties": {
         "code": "NZI",
         "depth": "5237 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "i",
         "name": "Offshore Samoa Tonga",
@@ -197,7 +197,7 @@
       "properties": {
         "code": "NZJ",
         "depth": "1912 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "j",
         "name": "Offshore Norfolk Island New Hebrides",
@@ -217,7 +217,7 @@
       "properties": {
         "code": "NZK",
         "depth": "2098 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "k",
         "name": "Offshore New Caledonia New Hebrides",
@@ -237,7 +237,7 @@
       "properties": {
         "code": "NZL",
         "depth": "3884 m",
-        "marker-color": "#00ff00",
+        "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "l",
         "name": "Offshore Vanuatu New Hebrides",
