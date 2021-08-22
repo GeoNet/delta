@@ -72,10 +72,6 @@ func main() {
 				continue
 			}
 
-			network, err := db.Network(s.Network)
-			if err != nil {
-				log.Fatal(err)
-			}
 			lon, lat := s.Longitude, s.Latitude
 			for lon < 0.0 {
 				lon += 360.0
@@ -83,12 +79,9 @@ func main() {
 			f := NewFeature()
 			f.SetId(s.Code)
 			f.AddPointGeometry(lon, lat)
-			if network != nil {
-				f.AddProperty("network", network.Description)
-			}
 			f.AddProperty("code", s.Code)
 			f.AddProperty("name", s.Name)
-			f.AddProperty("depth", s.Depth)
+			f.AddProperty("depth", fmt.Sprintf("%d m", s.Depth))
 			f.AddProperty("opened", s.Start.Format(time.RFC3339))
 			if s.End.Before(time.Now()) {
 				f.AddProperty("closed", s.End.Format(time.RFC3339))
