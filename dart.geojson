@@ -1,0 +1,224 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "name": "New Zealand DART Locations"
+  },
+  "features": [
+    {
+      "id": "NZA",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.914,
+          -42.371
+        ]
+      },
+      "properties": {
+        "code": "NZA",
+        "depth": 2690,
+        "name": "Offshore Wellington Hikurangi",
+        "network": "National tsunami deep ocean network",
+        "opened": "2019-12-22T00:00:00Z"
+      }
+    },
+    {
+      "id": "NZB",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          179.096,
+          -40.599
+        ]
+      },
+      "properties": {
+        "code": "NZB",
+        "depth": 3184,
+        "name": "Offshore Hawke's Bay Hikurangi",
+        "network": "National tsunami deep ocean network",
+        "opened": "2020-09-18T00:00:00Z"
+      }
+    },
+    {
+      "id": "NZC",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          180.203,
+          -38.2
+        ]
+      },
+      "properties": {
+        "code": "NZC",
+        "depth": 3545,
+        "name": "Offshore Gisborne Hikurangi",
+        "network": "National tsunami deep ocean network",
+        "opened": "2019-12-13T00:00:00Z"
+      }
+    },
+    {
+      "id": "NZD",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          178.6037,
+          -36.0998
+        ]
+      },
+      "properties": {
+        "code": "NZD",
+        "depth": 2445,
+        "name": "Offshore Bay of Plenty Kermadec",
+        "network": "National tsunami deep ocean network",
+        "opened": "2021-07-23T00:00:00Z"
+      }
+    },
+    {
+      "id": "NZE",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          182.297,
+          -36.049
+        ]
+      },
+      "properties": {
+        "code": "NZE",
+        "depth": 5779,
+        "name": "Offshore East Cape Kermadec",
+        "network": "National tsunami deep ocean network",
+        "opened": "2019-12-19T00:00:00Z"
+      }
+    },
+    {
+      "id": "NZF",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          184.991,
+          -29.682
+        ]
+      },
+      "properties": {
+        "code": "NZF",
+        "depth": 5060,
+        "name": "Offshore Raoul Island Kermadec",
+        "network": "National tsunami deep ocean network",
+        "opened": "2019-12-17T00:00:00Z"
+      }
+    },
+    {
+      "id": "NZG",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          186.591,
+          -23.344
+        ]
+      },
+      "properties": {
+        "code": "NZG",
+        "depth": 5742,
+        "name": "Offshore Tongatapu Tonga",
+        "network": "National tsunami deep ocean network",
+        "opened": "2020-09-10T00:00:00Z"
+      }
+    },
+    {
+      "id": "NZH",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          188.146,
+          -20.087
+        ]
+      },
+      "properties": {
+        "code": "NZH",
+        "depth": 5530,
+        "name": "Offshore Niue Tonga",
+        "network": "National tsunami deep ocean network",
+        "opened": "2020-09-04T00:00:00Z"
+      }
+    },
+    {
+      "id": "NZI",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          188.802,
+          -16.89
+        ]
+      },
+      "properties": {
+        "code": "NZI",
+        "depth": 5237,
+        "name": "Offshore Samoa Tonga",
+        "network": "National tsunami deep ocean network",
+        "opened": "2020-09-08T00:00:00Z"
+      }
+    },
+    {
+      "id": "NZJ",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          163.9549,
+          -26.6672
+        ]
+      },
+      "properties": {
+        "code": "NZJ",
+        "depth": 1912,
+        "name": "Offshore Norfolk Island New Hebrides",
+        "network": "National tsunami deep ocean network",
+        "opened": "2021-07-09T00:00:00Z"
+      }
+    },
+    {
+      "id": "NZK",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          169.4988,
+          -24.3093
+        ]
+      },
+      "properties": {
+        "code": "NZK",
+        "depth": 2098,
+        "name": "Offshore New Caledonia New Hebrides",
+        "network": "National tsunami deep ocean network",
+        "opened": "2021-07-15T00:00:00Z"
+      }
+    },
+    {
+      "id": "NZL",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          166.782,
+          -19.3096
+        ]
+      },
+      "properties": {
+        "code": "NZL",
+        "depth": 3884,
+        "name": "Offshore Vanuatu New Hebrides",
+        "network": "National tsunami deep ocean network",
+        "opened": "2021-07-12T00:00:00Z"
+      }
+    }
+  ]
+}
