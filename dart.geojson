@@ -16,7 +16,7 @@
       },
       "properties": {
         "code": "NZA",
-        "depth": "%!d(float64=2690) m",
+        "depth": "2690 m",
         "name": "Offshore Wellington Hikurangi",
         "opened": "2019-12-22T00:00:00Z"
       }
@@ -33,7 +33,7 @@
       },
       "properties": {
         "code": "NZB",
-        "depth": "%!d(float64=3184) m",
+        "depth": "3184 m",
         "name": "Offshore Hawke's Bay Hikurangi",
         "opened": "2020-09-18T00:00:00Z"
       }
@@ -50,7 +50,7 @@
       },
       "properties": {
         "code": "NZC",
-        "depth": "%!d(float64=3545) m",
+        "depth": "3545 m",
         "name": "Offshore Gisborne Hikurangi",
         "opened": "2019-12-13T00:00:00Z"
       }
@@ -67,7 +67,7 @@
       },
       "properties": {
         "code": "NZD",
-        "depth": "%!d(float64=2445) m",
+        "depth": "2445 m",
         "name": "Offshore Bay of Plenty Kermadec",
         "opened": "2021-07-23T00:00:00Z"
       }
@@ -84,7 +84,7 @@
       },
       "properties": {
         "code": "NZE",
-        "depth": "%!d(float64=5779) m",
+        "depth": "5779 m",
         "name": "Offshore East Cape Kermadec",
         "opened": "2019-12-19T00:00:00Z"
       }
@@ -101,7 +101,7 @@
       },
       "properties": {
         "code": "NZF",
-        "depth": "%!d(float64=5060) m",
+        "depth": "5060 m",
         "name": "Offshore Raoul Island Kermadec",
         "opened": "2019-12-17T00:00:00Z"
       }
@@ -118,7 +118,7 @@
       },
       "properties": {
         "code": "NZG",
-        "depth": "%!d(float64=5742) m",
+        "depth": "5742 m",
         "name": "Offshore Tongatapu Tonga",
         "opened": "2020-09-10T00:00:00Z"
       }
@@ -135,7 +135,7 @@
       },
       "properties": {
         "code": "NZH",
-        "depth": "%!d(float64=5530) m",
+        "depth": "5530 m",
         "name": "Offshore Niue Tonga",
         "opened": "2020-09-04T00:00:00Z"
       }
@@ -152,7 +152,7 @@
       },
       "properties": {
         "code": "NZI",
-        "depth": "%!d(float64=5237) m",
+        "depth": "5237 m",
         "name": "Offshore Samoa Tonga",
         "opened": "2020-09-08T00:00:00Z"
       }
@@ -169,7 +169,7 @@
       },
       "properties": {
         "code": "NZJ",
-        "depth": "%!d(float64=1912) m",
+        "depth": "1912 m",
         "name": "Offshore Norfolk Island New Hebrides",
         "opened": "2021-07-09T00:00:00Z"
       }
@@ -186,7 +186,7 @@
       },
       "properties": {
         "code": "NZK",
-        "depth": "%!d(float64=2098) m",
+        "depth": "2098 m",
         "name": "Offshore New Caledonia New Hebrides",
         "opened": "2021-07-15T00:00:00Z"
       }
@@ -203,7 +203,7 @@
       },
       "properties": {
         "code": "NZL",
-        "depth": "%!d(float64=3884) m",
+        "depth": "3884 m",
         "name": "Offshore Vanuatu New Hebrides",
         "opened": "2021-07-12T00:00:00Z"
       }
