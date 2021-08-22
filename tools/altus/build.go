@@ -108,10 +108,36 @@ func buildSites(base string) ([]Site, error) {
 				continue
 			}
 
-			switch installation.Sensor.Model {
-			case "FBA-ES-T-OBSIDIAN", "FBA-ES-T-BASALT", "FBA-ES-T-DECK", "FBA-23-DECK", "FBA-ES-T", "FBA-ES-T-ISO", "Kinemetrics SBEPI", "SDP":
+			/*
 				switch installation.Datalogger.Model {
-				case "OBSIDIAN", "K2", "ETNA", "BASALT", "BASALT 8X DATALOGGER":
+				case "Obsidian 4X Datalogger":
+					log.Println(station.Code, installation.Location)
+					for _, response := range resp.Streams(installation.Datalogger.Model, installation.Sensor.Model) {
+						stream, err := db.StationLocationSamplingRateStartStream(
+							station.Code,
+							installation.Location,
+							response.Datalogger.SampleRate,
+							installation.Start)
+						if err != nil {
+							return nil, err
+						}
+						if stream == nil {
+							continue
+						}
+
+						if response.Datalogger.SampleRate != 200 {
+							continue
+						}
+						log.Println(stream)
+					}
+				}
+				continue
+			*/
+
+			switch installation.Sensor.Model {
+			case "FBA-ES-T-OBSIDIAN", "FBA-ES-T-BASALT", "FBA-ES-T-DECK", "FBA-23-DECK", "FBA-ES-T", "FBA-ES-T-ISO", "FBA-ES-T-ETNA-2", "Kinemetrics SBEPI", "SDP":
+				switch installation.Datalogger.Model {
+				case "OBSIDIAN", "K2", "ETNA", "ETNA 2", "BASALT", "BASALT 8X DATALOGGER", "Obsidian 4X Datalogger":
 					for _, response := range resp.Streams(installation.Datalogger.Model, installation.Sensor.Model) {
 						stream, err := db.StationLocationSamplingRateStartStream(
 							station.Code,
@@ -161,6 +187,8 @@ func buildSites(base string) ([]Site, error) {
 									return "BAS"
 								case "OBSIDIAN":
 									return "OBS"
+								case "Obsidian 4X Datalogger":
+									return "OBS"
 								default:
 									return installation.Datalogger.Model
 								}
@@ -168,6 +196,8 @@ func buildSites(base string) ([]Site, error) {
 							InstId: func() string {
 								switch installation.Datalogger.Model {
 								case "BASALT 8X DATALOGGER":
+									return installation.Datalogger.Serial
+								case "Obsidian 4X Datalogger":
 									return installation.Datalogger.Serial
 								default:
 									return installation.Sensor.Serial
@@ -250,6 +280,11 @@ func buildSites(base string) ([]Site, error) {
 										ChanNo: func() string {
 											switch installation.Datalogger.Model {
 											case "BASALT 8X DATALOGGER":
+												if chan_no > 2 {
+													return strconv.Itoa(chan_no)
+												}
+												return ""
+											case "Obsidian 4X Datalogger":
 												if chan_no > 2 {
 													return strconv.Itoa(chan_no)
 												}
