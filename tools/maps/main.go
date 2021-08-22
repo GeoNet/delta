@@ -81,7 +81,7 @@ func main() {
 			f.AddPointGeometry(lon, lat)
 			f.AddProperty("code", s.Code)
 			f.AddProperty("name", s.Name)
-			f.AddProperty("depth", fmt.Sprintf("%d m", s.Depth))
+			f.AddProperty("depth", fmt.Sprintf("%.0f m", s.Depth))
 			f.AddProperty("opened", s.Start.Format(time.RFC3339))
 			if s.End.Before(time.Now()) {
 				f.AddProperty("closed", s.End.Format(time.RFC3339))
