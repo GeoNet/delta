@@ -73,6 +73,7 @@ func main() {
 		if network != nil {
 			f.AddProperty("network", network.Description)
 		}
+		f.AddProperty("code", s.Code)
 		f.AddProperty("name", s.Name)
 		f.AddProperty("type", "Station")
 		f.AddProperty("opened", s.Start.Format(time.RFC3339))
@@ -97,6 +98,7 @@ func main() {
 		if network != nil {
 			f.AddProperty("network", network.Description)
 		}
+		f.AddProperty("code", m.Code)
 		f.AddProperty("name", m.Name)
 		f.AddProperty("type", "Mark")
 		f.AddProperty("opened", m.Start.Format(time.RFC3339))
