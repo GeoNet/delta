@@ -3,6 +3,7 @@ package metadb
 type MetaDB struct {
 	// network details
 	networks
+	marks
 	stations
 	sites
 	gauges
