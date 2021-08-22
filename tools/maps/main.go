@@ -121,6 +121,12 @@ func main() {
 			case s.Network == "TD":
 				f.AddProperty("marker-color", "#f5bd1f")
 				f.AddProperty("marker-symbol", "ferry.svg")
+			case s.Network == "TG":
+				f.AddProperty("marker-color", "#fe00fe")
+				f.AddProperty("marker-symbol", "dam.svg")
+			default:
+				f.AddProperty("marker-color", "#fe0000")
+				f.AddProperty("marker-symbol", "defibrillator.svg")
 			}
 			fc.AddFeature(*f)
 		}
@@ -147,6 +153,8 @@ func main() {
 			if m.End.Before(time.Now()) {
 				f.AddProperty("closed", m.End.Format(time.RFC3339))
 			}
+			f.AddProperty("marker-color", "#fefe00")
+			f.AddProperty("marker-symbol", "construction.svg")
 			fc.AddFeature(*f)
 		}
 	}
