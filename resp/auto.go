@@ -3674,6 +3674,35 @@ var Responses []Response = []Response{
 		Name: "Nanometrics Dataloggers Connected to Short Period Sensors",
 		Sensors: []Sensor{
 			{
+				SensorList: []string{"L4C-3D"},
+				FilterList: []string{"L4C"},
+				Stages: []ResponseStage{
+					{
+						Type:   "paz",
+						Lookup: "L4C",
+						Filter: "L4C",
+						StageSet: PAZ{
+							Name:  "L4C",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "Standard response for a Mark Products L4C (Sercel)",
+							Poles: []complex128{(-4.2097 + 4.6644i), (-4.2097 - 4.6644i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i)},
+						},
+						Frequency:  15,
+						SampleRate: 0,
+						Decimate:   0,
+						Gain:       177.8,
+						//Scale: 1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "m/s",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "ZNE",
+				Reversed: false,
+			}, {
 				SensorList: []string{"LE-3Dlite"},
 				FilterList: []string{"LE-3Dlite"},
 				Stages: []ResponseStage{
