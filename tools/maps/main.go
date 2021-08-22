@@ -87,8 +87,7 @@ func main() {
 				f.AddProperty("closed", s.End.Format(time.RFC3339))
 			}
 			f.AddProperty("marker-size", "large")
-			f.AddProperty("marker-color", "#00ff00")
-			//f.AddProperty("marker-symbol", "ferry.svg")
+			f.AddProperty("marker-color", "#f5bd1f")
 			f.AddProperty("marker-symbol", strings.ToLower(s.Code[len(s.Code)-1:]))
 			fc.AddFeature(*f)
 		}
@@ -116,6 +115,12 @@ func main() {
 			f.AddProperty("opened", s.Start.Format(time.RFC3339))
 			if s.End.Before(time.Now()) {
 				f.AddProperty("closed", s.End.Format(time.RFC3339))
+			}
+			f.AddProperty("marker-size", "medium")
+			switch {
+			case s.Network == "TD":
+				f.AddProperty("marker-color", "#f5bd1f")
+				f.AddProperty("marker-symbol", "ferry.svg")
 			}
 			fc.AddFeature(*f)
 		}
