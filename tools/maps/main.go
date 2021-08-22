@@ -35,6 +35,9 @@ func main() {
 	var base string
 	flag.StringVar(&base, "base", "../..", "base of delta files on disk")
 
+	var dart bool
+	flag.BoolVar(&dart, "dart", false, "build a DART map")
+
 	var output string
 	flag.StringVar(&output, "output", "", "output file")
 
@@ -54,58 +57,96 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	fc := NewFeatureCollection()
-	fc.AddMetadata("name", "geonet delta locations")
-	for _, s := range stations {
-		network, err := db.Network(s.Network)
-		if err != nil {
-			log.Fatal(err)
-		}
-		lon, lat := s.Longitude, s.Latitude
-		for lon < 0.0 {
-			lon += 360.0
-		}
 
-		f := NewFeature()
-		f.SetId(s.Code)
-		f.AddPointGeometry(lon, lat)
-		if network != nil {
-			f.AddProperty("network", network.Description)
-		}
-		f.AddProperty("code", s.Code)
-		f.AddProperty("name", s.Name)
-		f.AddProperty("type", "Station")
-		f.AddProperty("opened", s.Start.Format(time.RFC3339))
-		if s.End.Before(time.Now()) {
-			f.AddProperty("closed", s.End.Format(time.RFC3339))
-		}
-		fc.AddFeature(*f)
-	}
-	for _, m := range marks {
-		network, err := db.Network(m.Network)
-		if err != nil {
-			log.Fatal(err)
-		}
-		lon, lat := m.Longitude, m.Latitude
-		for lon < 0.0 {
-			lon += 360.0
-		}
+	switch {
+	case dart:
+		fc.AddMetadata("name", "New Zealand DART Locations")
+		for _, s := range stations {
+			// needs to be a DART network station
+			if s.Network != "TD" {
+				continue
+			}
+			// needs to be operational
+			if s.Start.After(time.Now()) {
+				continue
+			}
 
-		f := NewFeature()
-		f.SetId(m.Code)
-		f.AddPointGeometry(lon, lat)
-		if network != nil {
-			f.AddProperty("network", network.Description)
+			network, err := db.Network(s.Network)
+			if err != nil {
+				log.Fatal(err)
+			}
+			lon, lat := s.Longitude, s.Latitude
+			for lon < 0.0 {
+				lon += 360.0
+			}
+			f := NewFeature()
+			f.SetId(s.Code)
+			f.AddPointGeometry(lon, lat)
+			if network != nil {
+				f.AddProperty("network", network.Description)
+			}
+			f.AddProperty("code", s.Code)
+			f.AddProperty("name", s.Name)
+			f.AddProperty("depth", s.Depth)
+			f.AddProperty("opened", s.Start.Format(time.RFC3339))
+			if s.End.Before(time.Now()) {
+				f.AddProperty("closed", s.End.Format(time.RFC3339))
+			}
+			fc.AddFeature(*f)
 		}
-		f.AddProperty("code", m.Code)
-		f.AddProperty("name", m.Name)
-		f.AddProperty("type", "Mark")
-		f.AddProperty("opened", m.Start.Format(time.RFC3339))
-		if m.End.Before(time.Now()) {
-			f.AddProperty("closed", m.End.Format(time.RFC3339))
+	default:
+		fc.AddMetadata("name", "geonet delta locations")
+		for _, s := range stations {
+			network, err := db.Network(s.Network)
+			if err != nil {
+				log.Fatal(err)
+			}
+			lon, lat := s.Longitude, s.Latitude
+			for lon < 0.0 {
+				lon += 360.0
+			}
+
+			f := NewFeature()
+			f.SetId(s.Code)
+			f.AddPointGeometry(lon, lat)
+			if network != nil {
+				f.AddProperty("network", network.Description)
+			}
+			f.AddProperty("code", s.Code)
+			f.AddProperty("name", s.Name)
+			f.AddProperty("type", "Station")
+			f.AddProperty("opened", s.Start.Format(time.RFC3339))
+			if s.End.Before(time.Now()) {
+				f.AddProperty("closed", s.End.Format(time.RFC3339))
+			}
+			fc.AddFeature(*f)
 		}
-		fc.AddFeature(*f)
+		for _, m := range marks {
+			network, err := db.Network(m.Network)
+			if err != nil {
+				log.Fatal(err)
+			}
+			lon, lat := m.Longitude, m.Latitude
+			for lon < 0.0 {
+				lon += 360.0
+			}
+
+			f := NewFeature()
+			f.SetId(m.Code)
+			f.AddPointGeometry(lon, lat)
+			if network != nil {
+				f.AddProperty("network", network.Description)
+			}
+			f.AddProperty("code", m.Code)
+			f.AddProperty("name", m.Name)
+			f.AddProperty("type", "Mark")
+			f.AddProperty("opened", m.Start.Format(time.RFC3339))
+			if m.End.Before(time.Now()) {
+				f.AddProperty("closed", m.End.Format(time.RFC3339))
+			}
+			fc.AddFeature(*f)
+		}
 	}
 
 	data, err := fc.MarshalIndent("", "  ")
