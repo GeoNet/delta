@@ -86,6 +86,9 @@ func main() {
 			if s.End.Before(time.Now()) {
 				f.AddProperty("closed", s.End.Format(time.RFC3339))
 			}
+			f.AddProperty("marker-size", "large")
+			f.AddProperty("marker-color", "00ff00")
+			f.AddProperty("marker-symbol", "ferry.svg")
 			fc.AddFeature(*f)
 		}
 	default:
