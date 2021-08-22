@@ -17,9 +17,9 @@
       "properties": {
         "code": "NZA",
         "depth": "2690 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "a",
         "name": "Offshore Wellington Hikurangi",
         "opened": "2019-12-22T00:00:00Z"
       }
@@ -37,9 +37,9 @@
       "properties": {
         "code": "NZB",
         "depth": "3184 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "b",
         "name": "Offshore Hawke's Bay Hikurangi",
         "opened": "2020-09-18T00:00:00Z"
       }
@@ -57,9 +57,9 @@
       "properties": {
         "code": "NZC",
         "depth": "3545 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "c",
         "name": "Offshore Gisborne Hikurangi",
         "opened": "2019-12-13T00:00:00Z"
       }
@@ -77,9 +77,9 @@
       "properties": {
         "code": "NZD",
         "depth": "2445 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "d",
         "name": "Offshore Bay of Plenty Kermadec",
         "opened": "2021-07-23T00:00:00Z"
       }
@@ -97,9 +97,9 @@
       "properties": {
         "code": "NZE",
         "depth": "5779 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "e",
         "name": "Offshore East Cape Kermadec",
         "opened": "2019-12-19T00:00:00Z"
       }
@@ -117,9 +117,9 @@
       "properties": {
         "code": "NZF",
         "depth": "5060 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "f",
         "name": "Offshore Raoul Island Kermadec",
         "opened": "2019-12-17T00:00:00Z"
       }
@@ -137,9 +137,9 @@
       "properties": {
         "code": "NZG",
         "depth": "5742 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "g",
         "name": "Offshore Tongatapu Tonga",
         "opened": "2020-09-10T00:00:00Z"
       }
@@ -157,9 +157,9 @@
       "properties": {
         "code": "NZH",
         "depth": "5530 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "h",
         "name": "Offshore Niue Tonga",
         "opened": "2020-09-04T00:00:00Z"
       }
@@ -177,9 +177,9 @@
       "properties": {
         "code": "NZI",
         "depth": "5237 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "i",
         "name": "Offshore Samoa Tonga",
         "opened": "2020-09-08T00:00:00Z"
       }
@@ -197,9 +197,9 @@
       "properties": {
         "code": "NZJ",
         "depth": "1912 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "j",
         "name": "Offshore Norfolk Island New Hebrides",
         "opened": "2021-07-09T00:00:00Z"
       }
@@ -217,9 +217,9 @@
       "properties": {
         "code": "NZK",
         "depth": "2098 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "k",
         "name": "Offshore New Caledonia New Hebrides",
         "opened": "2021-07-15T00:00:00Z"
       }
@@ -237,9 +237,9 @@
       "properties": {
         "code": "NZL",
         "depth": "3884 m",
-        "marker-color": "00ff00",
+        "marker-color": "#00ff00",
         "marker-size": "large",
-        "marker-symbol": "ferry.svg",
+        "marker-symbol": "l",
         "name": "Offshore Vanuatu New Hebrides",
         "opened": "2021-07-12T00:00:00Z"
       }

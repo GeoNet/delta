@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 	/*
 		"bytes"
 		"io/ioutil"
-		"strings"
 		"text/template"
 	*/
 	"time"
@@ -87,8 +87,9 @@ func main() {
 				f.AddProperty("closed", s.End.Format(time.RFC3339))
 			}
 			f.AddProperty("marker-size", "large")
-			f.AddProperty("marker-color", "00ff00")
-			f.AddProperty("marker-symbol", "ferry.svg")
+			f.AddProperty("marker-color", "#00ff00")
+			//f.AddProperty("marker-symbol", "ferry.svg")
+			f.AddProperty("marker-symbol", strings.ToLower(s.Code[len(s.Code)-1:]))
 			fc.AddFeature(*f)
 		}
 	default:
