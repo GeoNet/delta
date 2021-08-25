@@ -1,30 +1,30 @@
 Mount,View,Label,Azimuth,Method,Dip,Description,Start Date,End Date
-CHTB,01,Christchurch east from CBD,90,,0,Images of Christchurch towards the east,2011-11-28T00:00:03Z,2019-02-24T21:00:00Z
-CHTB,02,Christchurch north-east from CBD,45,,0,Images of Christchurch towards the north-east,2011-11-28T00:00:03Z,2019-02-24T21:00:00Z
-CHTB,03,Christchurch north-west from CBD,315,,0,Images of Christchurch towards the north-west,2011-11-28T00:00:00Z,2019-02-24T21:00:00Z
-DISC,01,Ruapehu from north-west,155,,0,Images of Mount Ruapehu from the volcano camera situated at Discovery Lodge.,2020-07-28T02:20:00Z,9999-01-01T00:00:00Z
-DISC,02,Ngauruhoe from west,90,,0,Images of Mount Ngauruhoe from the volcano camera situated at Discovery Lodge.,2020-07-28T23:40:00Z,9999-01-01T00:00:00Z
-KAKA,01,Tongariro from north,0,,0,Images of Mount Tongariro from the volcano camera situated at Kakaramea.,2011-09-05T00:01:00Z,2017-03-04T04:40:03Z
-KAKA,01,Tongariro from north,0,,0,Images of Mount Tongariro from the volcano camera situated at Kakaramea.,2021-08-01T23:35:11Z,9999-01-01T00:00:00Z
-KAKA,02,Tongariro from north,0,,0,Images of Mount Tongariro from the volcano camera situated at Kakaramea.,2017-03-04T04:50:03Z,2021-07-28T10:40:00Z
-KMTP,01,Ruapehu & Ngauruhoe from east,290,,10,Images of Mounts Ruapehu and Ngauruhoe from the volcano camera situated at Tai Ping.,2009-03-03T02:00:00Z,9999-01-01T00:00:00Z
-MNTA,01,Ruapehu from north-west,155,,0,Images of Mount Ruapehu from the volcano camera situated at Chateau Airport.,2000-11-14T13:00:10Z,2020-07-27T21:20:00Z
-MNTA,02,Ngauruhoe from east,90,,0,Images of Mount Ngauruhoe from the volcano camera situated at Chateau Airport.,2002-04-09T13:00:10Z,2020-07-27T21:20:00Z
-MNTA,03,Ngauruhoe from east,90,,0,Images of Mount Ngauruhoe from the volcano camera situated at Chateau Airport.,2008-04-14T06:54:45Z,2008-04-24T02:31:34Z
-MTSR,01,Ruapehu from south-west,0,,0,Images of Mount Ruapehu from the volcano camera situated at Mangateitei.,2011-09-08T00:10:00Z,9999-01-01T00:00:00Z
-PIHA,01,Tongariro from north-east,0,,0,Images of Mount Tongariro from the volcano camera situated at Pihanga,2015-05-28T00:01:00Z,2019-03-04T20:30:00Z
-RIMK,01,Raoul Island Green Lake,0,,0,Images looking into Green Lake on Raoul Island from the volcano camera situated on Mount Moumoukai.,2009-05-18T00:00:02Z,9999-01-01T00:00:00Z
-TEMO,01,Taranaki from New Plymouth,180,,0,Images of Mount Taranaki (Egmont volcano) from the volcano camera situated in New Plymouth.,2002-09-18T13:00:10Z,2012-04-02T22:45:00Z
-TEMO,02,Taranaki from New Plymouth,180,,0,Images of Mount Taranaki (Egmont volcano) from the volcano camera situated in New Plymouth.,2012-04-03T00:15:00Z,9999-01-01T00:00:00Z
+CHTB,01,Christchurch East,90,,0,Images of Christchurch towards the east,2011-11-28T00:00:03Z,2019-02-24T21:00:00Z
+CHTB,02,Christchurch North East,45,,0,Images of Christchurch towards the north-east,2011-11-28T00:00:03Z,2019-02-24T21:00:00Z
+CHTB,03,Christchurch North West,315,,0,Images of Christchurch towards the north-west,2011-11-28T00:00:00Z,2019-02-24T21:00:00Z
+DISC,01,Ruapehu North,155,,0,Images of Mount Ruapehu from the volcano camera situated at Discovery Lodge.,2020-07-28T02:20:00Z,9999-01-01T00:00:00Z
+DISC,02,Ngauruhoe,90,,0,Images of Mount Ngauruhoe from the volcano camera situated at Discovery Lodge.,2020-07-28T23:40:00Z,9999-01-01T00:00:00Z
+KAKA,01,Tongariro,0,,0,Images of Mount Tongariro from the volcano camera situated at Kakaramea.,2011-09-05T00:01:00Z,2017-03-04T04:40:03Z
+KAKA,01,Tongariro,0,,0,Images of Mount Tongariro from the volcano camera situated at Kakaramea.,2021-08-01T23:35:11Z,9999-01-01T00:00:00Z
+KAKA,02,Tongariro,0,,0,Images of Mount Tongariro from the volcano camera situated at Kakaramea.,2017-03-04T04:50:03Z,2021-07-28T10:40:00Z
+KMTP,01,Ruapehu & Ngauruhoe,290,,10,Images of Mounts Ruapehu and Ngauruhoe from the volcano camera situated at Tai Ping.,2009-03-03T02:00:00Z,9999-01-01T00:00:00Z
+MNTA,01,Ruapehu North,155,,0,Images of Mount Ruapehu from the volcano camera situated at Chateau Airport.,2000-11-14T13:00:10Z,2020-07-27T21:20:00Z
+MNTA,02,Ngauruhoe,90,,0,Images of Mount Ngauruhoe from the volcano camera situated at Chateau Airport.,2002-04-09T13:00:10Z,2020-07-27T21:20:00Z
+MNTA,03,Ngauruhoe,90,,0,Images of Mount Ngauruhoe from the volcano camera situated at Chateau Airport.,2008-04-14T06:54:45Z,2008-04-24T02:31:34Z
+MTSR,01,Ruapehu South,0,,0,Images of Mount Ruapehu from the volcano camera situated at Mangateitei.,2011-09-08T00:10:00Z,9999-01-01T00:00:00Z
+PIHA,01,Pihanga,0,,0,Images of Mount Tongariro from the volcano camera situated at Pihanga,2015-05-28T00:01:00Z,2019-03-04T20:30:00Z
+RIMK,01,Raoul Island,0,,0,Images looking into Green Lake on Raoul Island from the volcano camera situated on Mount Moumoukai.,2009-05-18T00:00:02Z,9999-01-01T00:00:00Z
+TEMO,01,Taranaki,180,,0,Images of Mount Taranaki (Egmont volcano) from the volcano camera situated in New Plymouth.,2002-09-18T13:00:10Z,2012-04-02T22:45:00Z
+TEMO,02,Taranaki,180,,0,Images of Mount Taranaki (Egmont volcano) from the volcano camera situated in New Plymouth.,2012-04-03T00:15:00Z,9999-01-01T00:00:00Z
 TOD01,01,,250,,-60,SO2 from Tongariro from Lower Te Maari East,2021-07-29T02:30:00Z,9999-01-01T00:00:00Z
 TOD02,01,,169,,-60,SO2 from Tongariro from Lower Te Maari West,2021-07-29T01:00:00Z,9999-01-01T00:00:00Z
-TOKR,01,Tongariro Te Maari from north-west,0,,0,Images of Te Maari Crater on Mount Tongariro from the volcano camera situated at Karewarewa,2012-08-29T02:00:00Z,9999-01-01T00:00:00Z
-WHHB,01,Whakaari/White Island from Whakatane,347,,0,Images of White Island from the volcano camera situated at Whakatane harbour.,2001-05-21T13:00:10Z,2007-04-13T00:00:00Z
-WHOH,01,Whakaari/White Island from Whakatane,190,,0,At Whakatane Comms Hub looking at White Island,2006-03-29T05:32:07Z,2013-08-15T22:15:44Z
-WHOH,02,Whakaari/White Island from Whakatane,190,,0,At Whakatane Comms Hub looking at White Island,2012-12-31T11:16:03Z,9999-01-01T00:00:00Z
-WICF,01,Whakaari/White Island from south-east,306,,0,Images of White Island crater from the volcano camera situated at the base of Troup Head.,2009-10-28T00:45:02Z,9999-01-01T00:00:00Z
-WIFC,01,Whakaari/White Island from south-east,306,,0,Images of White Island crater from the volcano camera situated on the crater floor roughly 100 m south-east of the abandoned sulphur works.,2009-07-20T01:00:05Z,2009-10-27T21:00:05Z
-WIFW,01,Whakaari/White Island from south-east,306,,0,Images of White Island crater from the volcano camera situated at the abandoned sulphur works.,2001-10-12T12:00:00Z,2009-07-20T00:00:05Z
-WINR,01,Whakaari/White Island from north crater rim,0,,0,Images of White Island crater from the volcano camera situated on the north rim of the crater.,2006-04-13T03:29:11Z,2013-04-23T18:00:07Z
-WINR,02,Whakaari/White Island from north crater rim,0,,0,Images of White Island crater from the volcano camera situated on the north rim of the crater.,2012-12-31T16:30:06Z,9999-01-01T00:00:00Z
-WIWR,01,Whakaari/White Island active craters,0,,0,Images of White Island crater from the volcano camera situated on the west rim of the crater.,2013-12-10T00:00:00Z,9999-01-01T00:00:00Z
+TOKR,01,Tongariro Te Maari Crater,0,,0,Images of Te Maari Crater on Mount Tongariro from the volcano camera situated at Karewarewa,2012-08-29T02:00:00Z,9999-01-01T00:00:00Z
+WHHB,01,White Island,347,,0,Images of White Island from the volcano camera situated at Whakatane harbour.,2001-05-21T13:00:10Z,2007-04-13T00:00:00Z
+WHOH,01,Whakatane,190,,0,At Whakatane Comms Hub looking at White Island,2006-03-29T05:32:07Z,2013-08-15T22:15:44Z
+WHOH,02,Whakatane,190,,0,At Whakatane Comms Hub looking at White Island,2012-12-31T11:16:03Z,9999-01-01T00:00:00Z
+WICF,01,White Island Crater Floor,306,,0,Images of White Island crater from the volcano camera situated at the base of Troup Head.,2009-10-28T00:45:02Z,9999-01-01T00:00:00Z
+WIFC,01,White Island Crater Floor,306,,0,Images of White Island crater from the volcano camera situated on the crater floor roughly 100 m south-east of the abandoned sulphur works.,2009-07-20T01:00:05Z,2009-10-27T21:00:05Z
+WIFW,01,White Island Crater Floor,306,,0,Images of White Island crater from the volcano camera situated at the abandoned sulphur works.,2001-10-12T12:00:00Z,2009-07-20T00:00:05Z
+WINR,01,White Island Crater Rim,0,,0,Images of White Island crater from the volcano camera situated on the north rim of the crater.,2006-04-13T03:29:11Z,2013-04-23T18:00:07Z
+WINR,02,White Island Crater Rim,0,,0,Images of White Island crater from the volcano camera situated on the north rim of the crater.,2012-12-31T16:30:06Z,9999-01-01T00:00:00Z
+WIWR,01,White Island West Rim,0,,0,Images of White Island crater from the volcano camera situated on the west rim of the crater.,2013-12-10T00:00:00Z,9999-01-01T00:00:00Z
