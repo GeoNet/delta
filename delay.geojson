@@ -18,7 +18,7 @@
         "code": "INZ",
         "delay": 0.3355610519367874,
         "marker-color": "#8e0e0f",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -35,7 +35,7 @@
         "code": "KHZ",
         "delay": -0.2478072960564759,
         "marker-color": "#0b158a",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -52,7 +52,7 @@
         "code": "DRZ",
         "delay": 2.8884741963721785,
         "marker-color": "#fb7bf1",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -69,7 +69,7 @@
         "code": "NGZ",
         "delay": 1.608091542150262,
         "marker-color": "#c44469",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -86,7 +86,7 @@
         "code": "HIZ",
         "delay": 1.1231958594480222,
         "marker-color": "#af2f41",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -103,7 +103,7 @@
         "code": "TOZ",
         "delay": -0.0868479129281392,
         "marker-color": "#030783",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -120,7 +120,7 @@
         "code": "GVZ",
         "delay": -0.11574846112663056,
         "marker-color": "#050984",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -137,7 +137,7 @@
         "code": "THZ",
         "delay": -0.18476722963948283,
         "marker-color": "#080f87",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -154,7 +154,7 @@
         "code": "EAZ",
         "delay": -0.10312195709687427,
         "marker-color": "#040884",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -171,7 +171,7 @@
         "code": "JCZ",
         "delay": -0.10230097151265771,
         "marker-color": "#040884",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -188,7 +188,7 @@
         "code": "KIW",
         "delay": 0.018237714840717678,
         "marker-color": "#800000",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -205,7 +205,7 @@
         "code": "MRZ",
         "delay": 0.18874521244905282,
         "marker-color": "#880808",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -222,7 +222,7 @@
         "code": "CAW",
         "delay": -0.24784423964547464,
         "marker-color": "#0b158a",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -239,7 +239,7 @@
         "code": "WAZ",
         "delay": 1.5835753620747695,
         "marker-color": "#c34366",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -256,7 +256,7 @@
         "code": "OXZ",
         "delay": -0.8085807030235,
         "marker-color": "#2b44a2",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -273,7 +273,7 @@
         "code": "QRZ",
         "delay": 1.2315464396528297,
         "marker-color": "#b43449",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -290,7 +290,7 @@
         "code": "MQZ",
         "delay": -1.7867041633333196,
         "marker-color": "#7997cc",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -307,7 +307,7 @@
         "code": "VRZ",
         "delay": 1.3231854206205416,
         "marker-color": "#b83851",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -324,7 +324,7 @@
         "code": "PWZ",
         "delay": -0.03580993409640726,
         "marker-color": "#010381",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -341,7 +341,7 @@
         "code": "PXZ",
         "delay": -0.029435731583026037,
         "marker-color": "#010281",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -358,7 +358,7 @@
         "code": "NEZ",
         "delay": 1.8948318594402962,
         "marker-color": "#d05083",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -375,7 +375,7 @@
         "code": "NNZ",
         "delay": -0.1240843123806109,
         "marker-color": "#050a85",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -392,7 +392,7 @@
         "code": "BHW",
         "delay": -0.16398965708701757,
         "marker-color": "#070d86",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -409,7 +409,7 @@
         "code": "WEL",
         "delay": 0,
         "marker-color": "#800000",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -426,7 +426,7 @@
         "code": "TCW",
         "delay": -0.2738232565573705,
         "marker-color": "#0c178b",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -443,7 +443,7 @@
         "code": "MTW",
         "delay": -0.0918181077389611,
         "marker-color": "#040783",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -460,7 +460,7 @@
         "code": "HAZ",
         "delay": 0.25478083119490436,
         "marker-color": "#8a0a0b",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -477,7 +477,7 @@
         "code": "MXZ",
         "delay": 0.7081584089473483,
         "marker-color": "#9e1e25",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -494,7 +494,7 @@
         "code": "MWZ",
         "delay": 0.01931058832575705,
         "marker-color": "#800000",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -511,7 +511,7 @@
         "code": "KNZ",
         "delay": -0.20842722926567486,
         "marker-color": "#091188",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -528,7 +528,7 @@
         "code": "URZ",
         "delay": 0.4339816749108816,
         "marker-color": "#921215",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -545,7 +545,7 @@
         "code": "TUZ",
         "delay": 0.01583891108599339,
         "marker-color": "#800000",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -562,7 +562,7 @@
         "code": "BFZ",
         "delay": 0.23258672341317088,
         "marker-color": "#89090a",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -579,7 +579,7 @@
         "code": "PKE",
         "delay": 2.2935035368361802,
         "marker-color": "#e161ac",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -596,7 +596,7 @@
         "code": "PYZ",
         "delay": -0.12284790529986356,
         "marker-color": "#050a85",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -613,7 +613,7 @@
         "code": "WKZ",
         "delay": -0.2731856608487404,
         "marker-color": "#0c178b",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -630,7 +630,7 @@
         "code": "APZ",
         "delay": -0.11208326146474101,
         "marker-color": "#040984",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -647,7 +647,7 @@
         "code": "DSZ",
         "delay": 0.9356537310115232,
         "marker-color": "#a72734",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -664,7 +664,7 @@
         "code": "BKZ",
         "delay": 0.6161677119074241,
         "marker-color": "#9a1a1f",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -681,7 +681,7 @@
         "code": "PUZ",
         "delay": 0.8080772651237113,
         "marker-color": "#a2222b",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -698,7 +698,7 @@
         "code": "GRZ",
         "delay": 0.3981882734574207,
         "marker-color": "#901013",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -715,7 +715,7 @@
         "code": "WCZ",
         "delay": -0.6144139448244808,
         "marker-color": "#1f349a",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -732,7 +732,7 @@
         "code": "RTZ",
         "delay": 0.5338418436297707,
         "marker-color": "#96161a",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -749,7 +749,7 @@
         "code": "KUZ",
         "delay": 0.21785187983868995,
         "marker-color": "#890909",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -766,7 +766,7 @@
         "code": "RPZ",
         "delay": -0.11643227804390754,
         "marker-color": "#050984",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -783,7 +783,7 @@
         "code": "LTZ",
         "delay": -0.5153667623142996,
         "marker-color": "#192b95",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -800,7 +800,7 @@
         "code": "WVZ",
         "delay": 0.15299877525125136,
         "marker-color": "#860606",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -817,7 +817,7 @@
         "code": "MLZ",
         "delay": -0.14347029082374807,
         "marker-color": "#060c86",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -834,7 +834,7 @@
         "code": "SYZ",
         "delay": -0.45346405266962353,
         "marker-color": "#162693",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -851,7 +851,7 @@
         "code": "TLZ",
         "delay": 0.5227120422625028,
         "marker-color": "#96161a",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -868,7 +868,7 @@
         "code": "MSZ",
         "delay": -0.6146095227577549,
         "marker-color": "#1f349a",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -885,7 +885,7 @@
         "code": "TSZ",
         "delay": 0.5144390828601105,
         "marker-color": "#951519",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -902,7 +902,7 @@
         "code": "WHZ",
         "delay": -0.3548731159662256,
         "marker-color": "#101e8f",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -919,7 +919,7 @@
         "code": "OPZ",
         "delay": 0.35679352304261686,
         "marker-color": "#8f0f11",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -936,7 +936,7 @@
         "code": "ODZ",
         "delay": -0.6292335118246506,
         "marker-color": "#20359a",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -953,7 +953,7 @@
         "code": "FOZ",
         "delay": 0.34347180852864345,
         "marker-color": "#8e0e10",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -970,7 +970,7 @@
         "code": "WIZ",
         "delay": 0.853915845020905,
         "marker-color": "#a4242e",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -987,7 +987,7 @@
         "code": "DCZ",
         "delay": -0.4623134093184158,
         "marker-color": "#162793",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -1004,7 +1004,7 @@
         "code": "LBZ",
         "delay": 0.629173757586524,
         "marker-color": "#9a1a20",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -1021,7 +1021,7 @@
         "code": "CVZ",
         "delay": -0.09692667931470972,
         "marker-color": "#040884",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     },
     {
@@ -1038,7 +1038,7 @@
         "code": "UTU",
         "delay": 2.848443706014261,
         "marker-color": "#f979ec",
-        "marker-size": "large"
+        "marker-size": "medium"
       }
     }
   ]
