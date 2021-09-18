@@ -5119,8 +5119,8 @@ Sensors previously installed, or currently active at this site location are:
 
 Channel streams active, or previously active, at this site location are:
 
-- __2007-12-16T00:00:00Z__ -- __LTZ,LTH,LTT__ continuous 1 Hz is still active.
-- __2007-12-16T00:00:00Z__ -- __BTZ,BTH,BTT__ continuous 10 Hz is still active.
+- __2007-12-16T00:00:00Z__ -- __LTZ,LTT,LTH__ continuous 1 Hz is still active.
+- __2007-12-16T00:00:00Z__ -- __BTZ,BTT,BTH__ continuous 10 Hz is still active.
 
 ### 41
 
@@ -5163,7 +5163,7 @@ Sensors previously installed, or currently active at this site location are:
 
 Channel streams active, or previously active, at this site location are:
 
-- __2015-06-25T00:00:01Z__ -- __LTZ,LTT,LTH__ continuous 1 Hz is still active.
+- __2015-06-25T00:00:01Z__ -- __LTZ,LTH,LTT__ continuous 1 Hz is still active.
 - __2015-06-25T00:00:01Z__ -- __BTZ,BTT,BTH__ continuous 10 Hz is still active.
 
 ### 41
@@ -5329,7 +5329,7 @@ Channel streams active, or previously active, at this site location are:
 
 ### 20
 
-Site location __20__ was opened on 2016-11-15T04:30:00Z and  was closed on __2020-06-16T00:00:00Z__.
+Site location __20__ was opened on 2016-11-15T04:30:00Z and is still operating.
 
 Dataloggers previously deployed, or currently active at this site location are:
 
@@ -5345,6 +5345,7 @@ Channel streams active, or previously active, at this site location are:
 
 - __2016-11-15T04:30:00Z__ -- __BNZ,BNN,BNE__ continuous 50 Hz stopped on __2020-06-16T00:00:00Z__.
 - __2016-11-15T04:30:00Z__ -- __HNZ,HNN,HNE__ triggered 200 Hz stopped on __2020-01-29T00:00:00Z__.
+- __2020-01-29T22:15:00Z__ -- __HNZ,HNN,HNE__ continuous 200 Hz is still active.
 
 ##  CMZ -- Cashmere
 
@@ -6798,7 +6799,7 @@ Channel streams active, or previously active, at this site location are:
 
 - __2012-06-27T03:45:00Z__ -- __BNZ,BN1,BN2__ continuous 50 Hz stopped on __2020-06-16T00:00:00Z__.
 - __2012-06-27T03:45:00Z__ -- __HNZ,HN1,HN2__ triggered 200 Hz stopped on __2020-02-09T21:48:00Z__.
-- __2020-06-24T22:11:00Z__ -- __HNZ,HN1,HN2__ continuous 200 Hz is still active.
+- __2020-02-09T21:49:00Z__ -- __HNZ,HN1,HN2__ continuous 200 Hz is still active.
 
 ##  DIW -- D'Urville Island
 
@@ -8540,8 +8541,8 @@ Sensors previously installed, or currently active at this site location are:
 
 Channel streams active, or previously active, at this site location are:
 
-- __2010-07-26T00:00:00Z__ -- __LTZ,LTT,LTH__ continuous 1 Hz is still active.
-- __2010-07-26T00:00:00Z__ -- __BTZ,BTT,BTH__ continuous 10 Hz is still active.
+- __2010-07-26T00:00:00Z__ -- __LTZ,LTH,LTT__ continuous 1 Hz is still active.
+- __2010-07-26T00:00:00Z__ -- __BTZ,BTH,BTT__ continuous 10 Hz is still active.
 
 ### 41
 
@@ -10933,6 +10934,7 @@ Sensors previously installed, or currently active at this site location are:
 
 Channel streams active, or previously active, at this site location are:
 
+- __2016-09-15T01:40:00Z__ -- __BNZ,BN1,BN2__ continuous 50 Hz stopped on __2020-06-16T00:00:00Z__.
 - __2002-11-21T22:00:00Z__ -- __HNZ,HN1,HN2__ triggered 200 Hz is still active.
 
 ## HUNS -- Huntsbury
@@ -15392,7 +15394,7 @@ Sensors previously installed, or currently active at this site location are:
 
 Channel streams active, or previously active, at this site location are:
 
-- __2010-07-15T03:00:00Z__ -- __LTZ,LTT,LTH__ continuous 1 Hz is still active.
+- __2010-07-15T03:00:00Z__ -- __LTZ,LTH,LTT__ continuous 1 Hz is still active.
 - __2010-07-15T03:00:00Z__ -- __BTZ,BTH,BTT__ continuous 10 Hz is still active.
 
 ### 41
@@ -16738,7 +16740,7 @@ Channel streams active, or previously active, at this site location are:
 
 ### 21
 
-Site location __21__ was opened on 2011-08-19T03:30:00Z and  was closed on __2020-06-16T00:00:00Z__.
+Site location __21__ was opened on 2011-08-19T03:30:00Z and is still operating.
 
 Dataloggers previously deployed, or currently active at this site location are:
 
@@ -16758,6 +16760,7 @@ Channel streams active, or previously active, at this site location are:
 
 - __2011-08-19T03:30:00Z__ -- __BNZ,BNN,BNE__ continuous 50 Hz stopped on __2020-06-16T00:00:00Z__.
 - __2011-08-19T03:30:00Z__ -- __HNZ,HNN,HNE__ triggered 200 Hz stopped on __2020-02-09T21:37:00Z__.
+- __2020-02-09T21:38:00Z__ -- __HNZ,HNN,HNE__ continuous 200 Hz is still active.
 
 ##  MXZ -- Matakaoa Point
 
@@ -17220,7 +17223,7 @@ Sensors previously installed, or currently active at this site location are:
 Channel streams active, or previously active, at this site location are:
 
 - __2008-12-23T00:00:00Z__ -- __LTZ,LTT,LTH__ continuous 1 Hz is still active.
-- __2008-12-23T00:00:00Z__ -- __BTZ,BTH,BTT__ continuous 10 Hz is still active.
+- __2008-12-23T00:00:00Z__ -- __BTZ,BTT,BTH__ continuous 10 Hz is still active.
 
 ##  NCR -- New Creek
 
@@ -19252,7 +19255,7 @@ Sensors previously installed, or currently active at this site location are:
 
 Channel streams active, or previously active, at this site location are:
 
-- __2010-02-25T01:00:01Z__ -- __LTZ,LTH,LTT__ continuous 1 Hz is still active.
+- __2010-02-25T01:00:01Z__ -- __LTZ,LTT,LTH__ continuous 1 Hz is still active.
 - __2010-02-25T01:00:01Z__ -- __BTZ,BTH,BTT__ continuous 10 Hz is still active.
 
 ### 41
@@ -19273,7 +19276,7 @@ Sensors previously installed, or currently active at this site location are:
 Channel streams active, or previously active, at this site location are:
 
 - __2010-02-25T01:00:01Z__ -- __LTZ,LTH,LTT__ continuous 1 Hz is still active.
-- __2010-02-25T01:00:01Z__ -- __BTZ,BTT,BTH__ continuous 10 Hz is still active.
+- __2010-02-25T01:00:01Z__ -- __BTZ,BTH,BTT__ continuous 10 Hz is still active.
 
 ## OTAZ -- Otara
 
@@ -20931,7 +20934,7 @@ Sensors previously installed, or currently active at this site location are:
 Channel streams active, or previously active, at this site location are:
 
 - __2009-11-28T00:00:00Z__ -- __LTZ,LTT,LTH__ continuous 1 Hz is still active.
-- __2009-11-28T00:00:00Z__ -- __BTZ,BTH,BTT__ continuous 10 Hz is still active.
+- __2009-11-28T00:00:00Z__ -- __BTZ,BTT,BTH__ continuous 10 Hz is still active.
 
 ### 41
 
@@ -20950,7 +20953,7 @@ Sensors previously installed, or currently active at this site location are:
 Channel streams active, or previously active, at this site location are:
 
 - __2009-11-28T00:00:00Z__ -- __LTZ,LTH,LTT__ continuous 1 Hz is still active.
-- __2009-11-28T00:00:00Z__ -- __BTZ,BTH,BTT__ continuous 10 Hz is still active.
+- __2009-11-28T00:00:00Z__ -- __BTZ,BTT,BTH__ continuous 10 Hz is still active.
 
 ##  PUZ -- Puketiti
 
@@ -21578,7 +21581,7 @@ Sensors previously installed, or currently active at this site location are:
 Channel streams active, or previously active, at this site location are:
 
 - __2010-10-27T03:00:00Z__ -- __VTZ,VTT,VTH__ continuous 0.1 Hz is still active.
-- __2010-10-27T03:00:00Z__ -- __LTZ,LTT,LTH__ continuous 1 Hz is still active.
+- __2010-10-27T03:00:00Z__ -- __LTZ,LTH,LTT__ continuous 1 Hz is still active.
 - __2010-10-27T03:00:00Z__ -- __BTZ,BTT,BTH__ continuous 10 Hz is still active.
 
 ##  RBY -- Rainbow Mountain
@@ -23889,7 +23892,7 @@ Channel streams active, or previously active, at this site location are:
 
 - __2012-10-31T00:05:00Z__ -- __BNZ,BN1,BN2__ continuous 50 Hz stopped on __2020-06-16T00:00:00Z__.
 - __2012-10-31T00:05:00Z__ -- __HNZ,HN1,HN2__ triggered 200 Hz stopped on __2018-03-28T00:00:00Z__.
-- __2020-07-24T01:00:00Z__ -- __HNZ,HN1,HN2__ continuous 200 Hz is still active.
+- __2018-03-29T00:00:00Z__ -- __HNZ,HN1,HN2__ continuous 200 Hz is still active.
 
 ## SPCM -- Serpentine Creek
 
@@ -24827,8 +24830,8 @@ Sensors previously installed, or currently active at this site location are:
 
 Channel streams active, or previously active, at this site location are:
 
-- __2008-05-21T02:00:02Z__ -- __LTZ,LTH,LTT__ continuous 1 Hz is still active.
-- __2008-05-21T02:00:02Z__ -- __BTZ,BTH,BTT__ continuous 10 Hz is still active.
+- __2008-05-21T02:00:02Z__ -- __LTZ,LTT,LTH__ continuous 1 Hz is still active.
+- __2008-05-21T02:00:02Z__ -- __BTZ,BTT,BTH__ continuous 10 Hz is still active.
 
 ### 41
 
@@ -24849,7 +24852,7 @@ Sensors previously installed, or currently active at this site location are:
 
 Channel streams active, or previously active, at this site location are:
 
-- __2008-05-21T02:00:02Z__ -- __LTZ,LTT,LTH__ continuous 1 Hz is still active.
+- __2008-05-21T02:00:02Z__ -- __LTZ,LTH,LTT__ continuous 1 Hz is still active.
 - __2008-05-21T02:00:02Z__ -- __BTZ,BTH,BTT__ continuous 10 Hz is still active.
 
 ##  TAX -- Tahuokaretu Road
@@ -27270,7 +27273,7 @@ Channel streams active, or previously active, at this site location are:
 
 - __2020-01-14T19:30:00Z__ -- __BNZ,BNN,BNE__ continuous 50 Hz stopped on __2020-06-16T00:00:00Z__.
 - __2020-01-14T19:30:00Z__ -- __HNZ,HNN,HNE__ triggered 200 Hz stopped on __2020-02-09T21:30:00Z__.
-- __2020-02-09T21:40:00Z__ -- __HNZ,HNN,HN1,HNE,HN2__ continuous 200 Hz is still active.
+- __2020-02-09T21:40:00Z__ -- __HNZ,HN1,HNN,HN2,HNE__ continuous 200 Hz is still active.
 
 ## VUWB -- Wellington Victoria University Te Puni Student Acc
 
@@ -29043,7 +29046,7 @@ Channel streams active, or previously active, at this site location are:
 
 ### 21
 
-Site location __21__ was opened on 2017-06-28T20:21:00Z and  was closed on __2020-06-16T00:00:00Z__.
+Site location __21__ was opened on 2017-06-28T20:21:00Z and is still operating.
 
 Dataloggers previously deployed, or currently active at this site location are:
 
@@ -29056,6 +29059,7 @@ Sensors previously installed, or currently active at this site location are:
 Channel streams active, or previously active, at this site location are:
 
 - __2017-06-28T20:21:00Z__ -- __BNZ,BNN,BNE__ continuous 50 Hz stopped on __2020-06-16T00:00:00Z__.
+- __2020-02-09T21:00:00Z__ -- __HNZ,HNN,HNE__ continuous 200 Hz is still active.
 
 ##   WL -- Wellington Hogben's Kandhallah House
 
@@ -29109,7 +29113,7 @@ Sensors previously installed, or currently active at this site location are:
 Channel streams active, or previously active, at this site location are:
 
 - __2008-06-06T04:00:00Z__ -- __LTZ,LTT,LTH__ continuous 1 Hz is still active.
-- __2008-06-06T04:00:00Z__ -- __BTZ,BTH,BTT__ continuous 10 Hz is still active.
+- __2008-06-06T04:00:00Z__ -- __BTZ,BTT,BTH__ continuous 10 Hz is still active.
 
 ##  WLZ -- Whitehall
 
