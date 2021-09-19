@@ -1,5 +1,7 @@
 ##  A11 -- Alfredton Array
 
+![NZ RIZ 20 BNE](nz_riz_20_bne.svg)
+
 The station __A11__, _(Alfredton Array}_ is part of the Temporary sites __(XX)__ and is located _"14 km east of Eketahuna"_ at 40.6846S 175.8597E at an elevation of 153 m.
 
 It was opened on __1993-02-01T01:23:00Z__ and  was closed on __1993-02-21T08:48:00Z__.
