@@ -1,6 +1,13 @@
 ##  A11 -- Alfredton Array
 
-![NZ RIZ 20 BNE](nz_riz_20_bne.svg)
+![2009](2009_nz_riz_20_bne.json.svg)
+![2015](2015_nz_riz_20_bne.json.svg)
+![2016](2016_nz_riz_20_bne.json.svg)
+![2017](2017_nz_riz_20_bne.json.svg)
+![2018](2018_nz_riz_20_bne.json.svg)
+![2019](2019_nz_riz_20_bne.json.svg)
+![2020](2020_nz_riz_20_bne.json.svg)
+
 
 The station __A11__, _(Alfredton Array}_ is part of the Temporary sites __(XX)__ and is located _"14 km east of Eketahuna"_ at 40.6846S 175.8597E at an elevation of 153 m.
 
