@@ -1,6 +1,8 @@
 ##  A11 -- Alfredton Array
 
 ![2009](2009_nz_riz_20_bne.json.svg)
+![2011](2011_nz_riz_20_bne.json.svg)
+![2012](2012_nz_riz_20_bne.json.svg)
 ![2013](2013_nz_riz_20_bne.json.svg)
 ![2014](2014_nz_riz_20_bne.json.svg)
 ![2015](2015_nz_riz_20_bne.json.svg)
