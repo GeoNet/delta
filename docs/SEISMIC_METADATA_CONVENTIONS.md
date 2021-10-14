@@ -4,15 +4,17 @@ In this document we describe the metadata conventions present in the GeoNet seis
 
 ## Overview
 
-GeoNet has two types of seismic stations: weak motion and broadband stations and strong motion stations. The distinction is made by the primary purpose of the station; whether it exists principally to record weak ground motion (via a seismometer) or strong ground motion (via an accelerometer).
+GeoNet has two types of seismic stations: weak motion and broadband stations, and strong motion stations. The distinction is made by the primary purpose of the station; whether it exists principally to record weak ground motion (via a seismometer) or strong ground motion (via an accelerometer).
 
 Within each type, stations are grouped by network codes.
 
 At each station there can be many sites, and sites are often referred to by their station code.
 
+Data are sampled at sites, which are located at stations. 
+
 ## Stream Naming Convention
 
-A site can produce many data streams, and each data stream contains a unique set of metadata describing itself and where it was collected as the combination of:
+A station can host many data streams, and each data stream contains a unique set of metadata describing itself and where it was collected as the combination of:
 
 __&lt;NETWORK&gt; &lt;STATION&gt; &lt;LOCATION&gt; &lt;CHANNEL&gt;__  
 
@@ -22,13 +24,13 @@ The seismic, and related, data stream naming conventions are based on historical
 
 As weak motion seismic data is expected to be globally distributed, its network and station codes need to be internationally registered.  The current approach is to use the registered `NZ` network code for all recorded public weak motion data. Otherwise the internal `XX` code is used for temporary or private data that will not, or cannot, be exported internationally. Data of both network codes are available via GeoNet data services.
 
-The full set of network codes can be found in the `networks/network.csv` file. While these are not relevant for modern data access, much of GeoNet's history is contained in these codes and they are still in use for metadata management in _delta_ and for data operations within GeoNet. In this way a station can belong to a regional seismic network like the Taranaki volcano seismic network `TR` and be distributed with the network code `NZ`. 
+The full set of network codes can be found in the `networks/network.csv` file. While these are not relevant for modern data access, much of GeoNet's history is contained in these codes and they are still in use for metadata management in _delta_ and for data operations within GeoNet. For example, a station can belong to a regional seismic network like the Taranaki volcano seismic network `TR` and be distributed with the network code `NZ`. 
 
 ### Station Codes
 
 Station codes are assigned at the first installation of a seismic sensor at a location and do not change.
 
-Station codes are unique within a given reference set. Weak motion station codes are unique for the global set of station codes managed by the ISC and are registered with the ISC to safeguard this uniqueness. By comparison, strong motion station codes are unique only within the set of such codes used by GeoNet.     
+Station codes are unique within a given reference set. Weak motion station codes are unique for the global set of station codes managed by the ISC and are registered with the ISC to safeguard this uniqueness. Strong motion station codes are unique only within the set of such codes used by GeoNet.     
 
 #### Weak Motion Station Code Conventions
 
@@ -36,11 +38,11 @@ Station codes are found in the `networks/stations.csv` file.
 
 _National Seismograph Network_ station codes use a three letter code with the last letter being a `Z`. The exceptions being the very oldest installations such as `WEL`.
 
-_Regional Seismograph Networks_ use a four letter code, again with the last letter being a `Z`.  Exceptions to this are generally the very oldest stations which pre-date the addition of the trailing `Z`. In these cases, the trailing letters can represent the regional network the station is in, such as in the Auckland Volcano Seismic Network where many stations have `AK` suffix, or otherwise indicate the network or geographical location of the station.  For many older stations the suffixes tend to be the initial letter of the original network code as outlined above.
+_Regional Seismograph Networks_ use a four letter code, again with the last letter being a `Z`.  Exceptions to this are generally the very oldest stations which pre-date the addition of the trailing `Z`. In these cases, the trailing letters can represent the regional network the station is in, such as in the Auckland Volcano Seismic Network where many stations have `AK` suffix, or otherwise indicate the network or geographical location of the station.  For many older stations the suffixes tend to be the initial letter of the original network code.
 
 For both national and regional network station codes, the first two letters try to give an indication of where the station is (i.e. they will be an abbreviation of a close town or farm station name).
 
-While the legacy of network and station codes introduces complexity to the seismic metadata, changes to either code for a station are not anticipated unless changes at the station or its sites require it.
+While the legacy of network and station codes introduces complexity to the seismic metadata, changes to either code for a site are not anticipated unless physical changes require it.
 
 #### Strong Motion Station Code Conventions
 
@@ -80,17 +82,27 @@ Testing, or non-production, dataloggers will have codes using the sequence: 0Z, 
 
 ## Naming Conventions When Moving or Installating Different Sensors
 
+Sites are associated with stations at the start of data collection from the site. Data collection is from a datalogger, which is connected to a sensor. 
+
 When a sensor is moved at a station or a new sensor is installed, the station and location code describing that installation follows these conventions:
 
 1. If the sensor is of the same type and in the same position as the previous sensor, neither station nor location code changes.
 1. If the sensor is of a different type but in the same position as the previous sensor, the station code remains the same but the location code changes .
 1. If the sensor is more than 1 m from the position of the previous sensor, the station code remains the same but the location code changes. 
-1. If the sensor is more than 200 m from the position of the previous sensor, the station code changes. Here a new station may need to be made with a new set of location codes. 
+1. If the sensor is more than 200 m from the position of the previous sensor, the station code changes. Here a new station may need to be made with a new set of location codes describing data collection at the station. 
 
 These conventions reflect GeoNet's understanding of the purpose of its seismic station and location codes. Where location codes are used to distinguish between different sensor types or positions at a station, station codes are used to distinguish between the different nodes of a sensor network. What makes a station distinct is the relationship of its data to that of other stations in the same network. What makes a station continuous is the relationship of its data to that recorded previously at the same station. 
  When a sensor position or type changes, we cannot assume its data is comparable to what was produced previously under the same location or station code. Our conventions try to capture those sensor changes that alter a station or site's data beyond the point of comparability or continuity.    
 
 These conventions are ultimately used at the discretion of the person(s) responsible for the metadata describing equipment changes. If, for example, a sensor moved less than 200 m but the geologic or local site conditions changed substantially, a new station may be established to reflect this change.
+
+### Borehole Naming Conventions
+
+Sensors in a borehole invoke a special set of naming conventions.
+
+For borehole sensors, the station code will always be the same regardless of sensor position in the borehole, so long as the sensor is in the borehole. However, the location code changes as normal; for sensor position changes of more than 1 metre, the location code changes; for sensor type changes, the location code changes.
+
+Sensors at the surface adjacent to boreholes are covered by these special conventions; borehole surface sensors are considered borehole sensors regarding naming conventions.
 
 ## Channel Codes
 
@@ -98,7 +110,8 @@ Channel codes generally follow the SEED conventions, although some channel codes
 
 Apart from a small number of SOH channels, the first letter of the code represents a combination of sampling rate and sensor bandwidth, e.g.
 
-- `U` (Ultra broadband sampled every 100s, or SOH sampled every 100s)
+- `W` (Ulta-ultra long period; used for DART data)
+- `U` (Ultra-long period broadband sampled every 100s, or SOH sampled every 100s)
 - `V` (Broadband sampled every 10s, or SOH sampled every 10s)
 - `L` (Broadband sampled at 1Hz, or SOH sampled at 1Hz)
 - `B` (Broadband sampled at between 10 and 80 Hz, usually 10 or 50 Hz)
