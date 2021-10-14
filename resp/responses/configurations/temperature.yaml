@@ -1,6 +1,6 @@
 ---
 response:
-  Quanterra Dataloggers Connected to Temperature Sensors:
+  "Quanterra Dataloggers Connected to Temperature Sensors":
     sensors:
     - sensors:
       - LM35
@@ -30,6 +30,27 @@ response:
       clockdrift: 0.0001
       filters:
       - Q330S+_FLbelow100-1
+      reversed: false
+
+  "Nanometrics Dataloggers Connected to Temperature Sensors":
+    sensors:
+    - sensors:
+      - LM35
+      filters:
+      - LM35
+      channels: O
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CW
+      label: LK
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+      - CENTAUR-1-LP
       reversed: false
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

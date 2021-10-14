@@ -15,9 +15,16 @@ var testViews = map[string]func([]meta.View) func(t *testing.T){
 					if views[i].Mount != views[j].Mount {
 						continue
 					}
-					if views[i].Code == views[j].Code {
-						t.Errorf("view duplication: %s/%s", views[i].Mount, views[i].Code)
+					if views[i].Code != views[j].Code {
+						continue
 					}
+					if views[i].Start.After(views[j].End) {
+						continue
+					}
+					if views[i].End.Before(views[j].Start) {
+						continue
+					}
+					t.Errorf("view duplication: %s/%s", views[i].Mount, views[i].Code)
 				}
 			}
 		}
