@@ -104,6 +104,8 @@ For borehole sensors, the station code will always be the same regardless of sen
 
 Sensors at the surface adjacent to boreholes are covered by these special conventions; borehole surface sensors are considered borehole sensors regarding naming conventions.
 
+Thus a borehole sensor installed >200 meters down a borehole and a surface sensor at the wellhead will share the same station code but will have differing location codes.
+
 ## Channel Codes
 
 Channel codes generally follow the SEED conventions, although some channel codes preceded the conventions and have not been updated.
