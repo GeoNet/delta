@@ -1,4 +1,4 @@
-# Tsunami Metadata Conventions
+# Tsunami Monitoring Sensors Metadata Conventions
 
 In this document we describe the metadata conventions used for GeoNet sensors that monitor tsunami.
 
