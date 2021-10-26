@@ -92,9 +92,23 @@ Valid Monument Types are:
 * _Start Date_ - General date and time at which the _Station_ was operational.
 * _End Date_ - General date and time at which the _Station_ was no longer operational.
 
-#### _VIEWS_ ####
+#### _GAUGES_ ####
+* _Gauge_ - Code used to uniquely identify Tide Gauge _Stations_.
+* _Network_ - Code used to group Tide Gauge _Stations_ together by project or operator.
+* _LINZ Number_ - Code used by _LINZ_ to identify the Tide Gauge _Station_.
+* _Analysis Time Zone_ - Time-zone offset used in the Tidal Constituent Analysis.
+* _Analysis Latitude_ - Latitude used in the Tidal Constituent Analysis, usually positive.
+* _Analysis Longitude_ - Longitude used in the Tidal Constituent Analysis.
 
-* _Mount_ - Code used to uniquely identify a Camera _Mount_.
+#### _CONSTITUENTS_ ####
+* _Gauge_ - Code used to uniquely identify Tide Gauge _Station_.
+* _Number_ - Consituent number, used mainly for display and sorting.
+* _Constituent_ - Standard Consituent Name.
+* _Amplitude_ - Analysis Amplitude, in cm.
+* _Lag_ - Analysis Phase Lag, in degrees.
+
+#### _VIEWS_ ####
+*  _Mount_ - Code used to uniquely identify a Camera _Mount_.
 * _View_ - Code used to uniquely identify a Camera _View_.
 * _Label_ - Feature the Camera is pointing to.
 * _Azimuth_ - Camera _View_ azimuth, measured in _degrees_ clockwise from north.
@@ -103,7 +117,6 @@ Valid Monument Types are:
 * _Description_ - Detailed description of the feature and Camera _View_.
 * _Start Date_ - General date and time at which the _Station_ was operational.
 * _End Date_ - General date and time at which the _Station_ was no longer operational.
-
 
 ### CHECKS ###
 
