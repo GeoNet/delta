@@ -10,8 +10,9 @@ _Lists the geographical and physical characteristics of collection points._
 * `networks.csv` - Grouping of GNSS Marks & Recording Stations.
 * `sites.csv` - Specific Observation Points at a Specific Recording Station.
 * `stations.csv` - Location for a Group of Recording Sites.
+* `views.csv` - Network Camera View codes.
 
-#### _MARK_ ####
+#### _MARKS_ ####
 
 * _Mark_ - Code used to uniquely identify GNSS _Mark_.
 * _Network_ - Code used to group marks together by project or operator.
@@ -105,6 +106,17 @@ Valid Monument Types are:
 * _Constituent_ - Standard Consituent Name.
 * _Amplitude_ - Analysis Amplitude, in cm.
 * _Lag_ - Analysis Phase Lag, in degrees.
+
+#### _VIEWS_ ####
+*  _Mount_ - Code used to uniquely identify a Camera _Mount_.
+* _View_ - Code used to uniquely identify a Camera _View_.
+* _Label_ - Feature the Camera is pointing to.
+* _Azimuth_ - Camera _View_ azimuth, measured in _degrees_ clockwise from north.
+* _Method_ - 
+* _Dip_ - Camera _dip_ angle, measured in _degrees_ down from the horizontal.
+* _Description_ - Detailed description of the feature and Camera _View_.
+* _Start Date_ - General date and time at which the _Station_ was operational.
+* _End Date_ - General date and time at which the _Station_ was no longer operational.
 
 ### CHECKS ###
 
