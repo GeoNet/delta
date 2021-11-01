@@ -435,6 +435,12 @@ response:
   Nanometrics Dataloggers Connected to Nanometrics Broadband Sensors:
     sensors:
     - sensors:
+      - Trillium 360
+      filters:
+      - TRILLIUM-360
+      channels: ZNE
+      reversed: false
+    - sensors:
       - Trillium 120QA
       filters:
       - TRILLIUM-120QA
