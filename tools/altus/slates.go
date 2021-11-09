@@ -41,7 +41,7 @@ var slates = map[string][]Altus{
 			Installed: "2016/01/29,13:25:01",
 			DevCode:   "Q33",
 			InstId:    "285",
-			Removed:   "9999/01/01,00:00:00",
+			Removed:   "2021/10/20,01:05:00",
 			Pins: []Pin{
 				{
 					PinNo:    0,

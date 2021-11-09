@@ -103,4 +103,48 @@ response:
       - Q4120-100
       reversed: false
 
+  Nanometrics Dataloggers Connected to Setra Barometers:
+    sensors:
+    - sensors:
+      - 270-600/12V
+      filters:
+      - 270-600/12V
+      channels: F
+      reversed: false
+    - sensors:
+      - 270-600/24V
+      filters:
+      - 270-600/24V
+      channels: F
+      reversed: false
+    - sensors:
+      - 270-800/12V
+      filters:
+      - 270-800/12V
+      channels: F
+      reversed: false
+    dataloggers:
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CW
+      label: HD
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+      - CENTAUR-100-LP
+      reversed: false
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CW
+      label: LD
+      samplerate: 1
+      frequency: 0.1
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+      - CENTAUR-1-LP
+      reversed: false
+
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
