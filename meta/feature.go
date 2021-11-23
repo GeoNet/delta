@@ -11,6 +11,7 @@ const (
 	featureStation = iota
 	featureLocation
 	featureDescription
+	featureAspect
 	featureStart
 	featureEnd
 	featureLast
@@ -22,6 +23,7 @@ type Feature struct {
 	Station     string
 	Location    string
 	Description string
+	Aspect      string
 }
 
 func (f Feature) Less(feature Feature) bool {
@@ -52,6 +54,7 @@ func (f FeatureList) encode() [][]string {
 		"Station",
 		"Location",
 		"Description",
+		"Aspect",
 		"Start Date",
 		"End Date",
 	}}
@@ -61,6 +64,7 @@ func (f FeatureList) encode() [][]string {
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
 			strings.TrimSpace(v.Description),
+			strings.TrimSpace(v.Aspect),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -98,6 +102,7 @@ func (f *FeatureList) decode(data [][]string) error {
 			Station:     strings.TrimSpace(d[featureStation]),
 			Location:    strings.TrimSpace(d[featureLocation]),
 			Description: strings.TrimSpace(d[featureDescription]),
+			Aspect:      strings.TrimSpace(d[featureAspect]),
 		})
 	}
 
