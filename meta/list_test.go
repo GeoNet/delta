@@ -227,6 +227,7 @@ func TestList(t *testing.T) {
 					Station:     "CNZ",
 					Location:    "12",
 					Description: "Over the rainbow",
+					Aspect:      "oklahoma",
 				},
 				Feature{
 					Span: Span{
@@ -236,6 +237,7 @@ func TestList(t *testing.T) {
 					Station:     "MSCZ",
 					Location:    "10",
 					Description: "Somewhere up on high",
+					Aspect:      "tulsa",
 				},
 			},
 		},
