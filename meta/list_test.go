@@ -226,7 +226,10 @@ func TestList(t *testing.T) {
 					},
 					Station:     "CNZ",
 					Location:    "12",
+					SubLocation: "01",
+					Property:    "Toto",
 					Description: "Over the rainbow",
+					Aspect:      "oklahoma",
 				},
 				Feature{
 					Span: Span{
@@ -235,7 +238,10 @@ func TestList(t *testing.T) {
 					},
 					Station:     "MSCZ",
 					Location:    "10",
+					SubLocation: "02",
+					Property:    "Tin",
 					Description: "Somewhere up on high",
+					Aspect:      "tulsa",
 				},
 			},
 		},
