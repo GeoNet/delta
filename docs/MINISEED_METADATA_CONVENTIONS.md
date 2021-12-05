@@ -1,16 +1,21 @@
 # Seismic Metadata Conventions
 
-In this document we describe the metadata conventions present in the GeoNet seismic data and metadata.
+In this document we describe the metadata conventions used for GeoNet sensors that collect waveform data. This include different data domains such as seismic sensors, water level pressure sensors and geomagnetic sensors. The documentation covered in this file is describing conventions used for seismic sensors, although these apply generally to other sensors that collect waveform data. When exceptions to this exist, a specific document describing these will be available in the same folder as this document.
 
 ## Overview
 
-GeoNet has two types of seismic stations: weak motion and broadband stations, and strong motion stations. The distinction is made by the primary purpose of the station; whether it exists principally to record weak ground motion (via a seismometer) or strong ground motion (via an accelerometer).
+GeoNet has two types of seismic stations: weak motion and broadband stations (velocimeters), and strong motion stations (accelerometers). The distinction is made by the primary purpose of the station; whether it exists principally to record weak ground motion (via a seismometer) or strong ground motion (via an accelerometer).
 
 Within each type, stations are grouped by network codes.
 
 At each station there can be many sites, and sites are often referred to by their station code.
 
 Data are sampled at sites, which are located at stations. 
+
+The hierarchy used for data stream naming is:
+- Network (group of stations)
+- Station (group of sites)
+- Site (data collection point)
 
 ## Stream Naming Convention
 
