@@ -14,18 +14,19 @@ Tide gauge data and metadata mostly follow the conventions of seismic data and m
 
 ## Location Code
 
-For tide gauges, the location code indicates primary and backup sensors at the station. For example, a station may have sites at location codes `40` and `41`, and these location code are used to distinguish the respective data streams from the sensors at each site. In this way, we can think of the location code for tide gauges as a "sensor code". 
+For tide gauges, the location code indicates primary and backup sensors at the station. A station may have sites at location codes:
+- `40`: primary sensor
+- `41`: secondary sensor
+For tsunami monitoring gauges, these location codes are used to distinguish the respective data streams from the two sensors installed at each site.
 
 ## Naming Conventions When Moving or Installating Different Sensors
 
 Tide gauges are sensitive to the overlying water column, which is principally influenced by sensor depth and local tides. To correctly represent data measured at tsunami monitoring sites, tidal constituents must be derived.
 
-Where in seismic data small changes to sensor position can have substantial impacts on the data, the same is not true for tide gauges. 
+Where in seismic data small changes to sensor position can have substantial impacts on the data, the same is not true for tide gauges.
 
 If a sensor position changes such that tidal constituents are still the same, the sensor's station code will not change.
-If a sensor position changes significantly and new tidal constituents need to be derived, then a new station code will be created. The old station will be decommissioned if no sensors remain there. 
 
-If a sensor position changes such its depth changes significantly, this will influence the data. Such change is not presently captured in the metadata and is represented in the data with an offset in the measured water level (the sensors measure water height). Sensor position changes that change the depth will only cause changes in the station code if the tidal constituents change as described above.
+If a sensor position changes and new tidal constituents need to be derived, then a new station code will be created. The old station will be decommissioned if no sensors remain there.
 
-In either case, the location code does not change, as the "sensor code" has not changed.
-
+If a sensor is moved and its depth changes, this will influence the data, and will present an offset in the measured water level (the sensors measure water height). However, because the tsunami monitoring changes measures relative water level, such a change is not captured in the metadata when tidal constituents remain unchanged as a result of the change; sensor depth changes will only cause changes in the station code if the tidal constituents change.
