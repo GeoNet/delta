@@ -1,6 +1,4 @@
 Station,Location,SubLocation,Property,Description,Aspect,Start Date,End Date
-FOXAG,01,,rainfall,,,2019-02-06T13:10:00Z,9999-01-01T00:00:00Z
-FOXAG,02,,rainfall,,,2019-02-06T13:10:00Z,9999-01-01T00:00:00Z
 NA002,01,01,temperature,air,,2021-05-06T04:00:00Z,9999-01-01T00:00:00Z
 NA002,02,01,temperature,fumarole,,2021-05-06T04:00:00Z,9999-01-01T00:00:00Z
 NA002,03,01,temperature,fumarole,,2021-05-06T04:00:00Z,9999-01-01T00:00:00Z
