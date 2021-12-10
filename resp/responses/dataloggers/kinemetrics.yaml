@@ -206,6 +206,62 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
+  OBSIDIAN8X-200:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 6.7108864e+06
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50-S5C
+    frequency: 0
+    samplerate: 6000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A3-50
+    frequency: 0
+    samplerate: 2000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50
+    frequency: 0
+    samplerate: 400
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_B2-80
+    frequency: 0
+    samplerate: 200
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
   ETNA-2-200:
   - type: a2d
     lookup: A2D
