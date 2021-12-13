@@ -199,6 +199,17 @@ response:
       - BASALT-50
       reversed: false
     - dataloggers:
+      - Obsidian 8X Datalogger
+      type: TG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - OBSIDIAN8X-200
+      reversed: false
+    - dataloggers:
       - BASALT
       - BASALT 8X DATALOGGER
       type: TG
