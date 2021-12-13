@@ -10,13 +10,14 @@ The management of DART data and metadata is an evolving space, and until this is
 
 Tide gauge stations operated by GeoNet are not measuring absolute sea level, as they are not fully calibrated to the mean sea level. Data obtained by GeoNet tide gauges are measuring water height above the sensor.
 
-Tide gauge data and metadata mostly follow the conventions of seismic data and metadata, and unless stated otherwise in this document these conventions are what apply to tide gauge data and metadata. The sibling document `SEISMIC_METADATA_CONVENTIONS.md` details these conventions. Here we make reference only to the differences between the tide gauge metadata conventions and those of seismic metadata.
+Tide gauge data and metadata mostly follow the conventions of seismic data and metadata, and unless stated otherwise in this document these conventions are what apply to tide gauge data and metadata. The sibling document `MINISEED_METADATA_CONVENTIONS.md` details these conventions. Here we make reference only to the differences between the tide gauge metadata conventions and those of seismic metadata.
 
 ## Location Code
 
 For tide gauges, the location code indicates primary and backup sensors at the station. A station may have sites at location codes:
 - `40`: primary sensor
 - `41`: secondary sensor
+
 For tsunami monitoring gauges, these location codes are used to distinguish the respective data streams from the two sensors installed at each site.
 
 ## Naming Conventions When Moving or Installating Different Sensors
