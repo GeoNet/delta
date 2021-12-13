@@ -17,7 +17,7 @@ The hierarchy used for data stream naming is:
 - Station (group of sites)
 - Site (data collection point)
 
-## Stream Naming Convention
+### Stream Naming Convention
 
 A station can host many data streams, and each data stream contains a unique set of metadata describing itself and where it was collected as the combination of:
 
@@ -25,19 +25,21 @@ __&lt;NETWORK&gt; &lt;STATION&gt; &lt;LOCATION&gt; &lt;CHANNEL&gt;__
 
 The seismic, and related, data stream naming conventions are based on historical usage together with recommendations from the [SEED manual](https://www.fdsn.org/seed_manual/SEEDManual_V2.4.pdf). Sometimes codes were created and used where no appropriate conventions applied at the time, and these have generally been left as is even after later conventions were developed.
 
-### Network Code
+
+## Network Code
 
 As weak motion seismic data is expected to be globally distributed, its network and station codes need to be internationally registered.  The current approach is to use the registered `NZ` network code for all recorded public weak motion data. Otherwise the internal `XX` code is used for temporary or private data that will not, or cannot, be exported internationally. Data of both network codes are available via GeoNet data services.
 
 The full set of network codes can be found in the `networks/network.csv` file. While these are not relevant for modern data access, much of GeoNet's history is contained in these codes and they are still in use for metadata management in _delta_ and for data operations within GeoNet. For example, a station can belong to a regional seismic network like the Taranaki volcano seismic network `TR` and be distributed with the network code `NZ`. 
 
-### Station Codes
+
+## Station Codes
 
 Station codes are assigned at the first installation of a seismic sensor at a location and do not change.
 
 Station codes are unique within a given reference set. Weak motion station codes are unique for the global set of station codes managed by the ISC and are registered with the ISC to safeguard this uniqueness. Strong motion station codes are unique only within the set of such codes used by GeoNet.     
 
-#### Weak Motion Station Code Conventions
+### Weak Motion Station Code Conventions
 
 Station codes are found in the `networks/stations.csv` file.
 
@@ -49,7 +51,7 @@ For both national and regional network station codes, the first two letters try 
 
 While the legacy of network and station codes introduces complexity to the seismic metadata, changes to either code for a site are not anticipated unless physical changes require it.
 
-#### Strong Motion Station Code Conventions
+### Strong Motion Station Code Conventions
 
 In the past, the National Strong Motion Network recording sites tended to have a numbering system with a three digit prefix and a trailing letter. The current National Strong Motion Network site code naming convention is to use four letter codes describing where the station is, e.g. LPLS is near Lake Paringa, PRNS is near Paringa.
 
@@ -57,7 +59,8 @@ As with weak motion, strong motion stations end in a particular character: 'S'.
 
 Due to the utility of co-locating strong motion sensors with sensors of other types, many strong motion sites exist at weak motion stations. Such sites will have the weak motion station code but a different location code.
 
-### Location Codes
+
+## Location Codes
 
 The location code is primarily used to distinguish between multiple sensors installed at a single recording station where the same station code is used.
 
@@ -71,21 +74,21 @@ In their role as metadata detailing sensor placement, location codes convey:
  
 Location codes are two characters, with the first character denoting the sensor (or sensor data) type, and the second character denoting the sensor position. The first character follows groupings as:
 
-- 0? - Reserved for datalogger SOH channels
-- 1? - Reserved for weak motion sensors
-- 2? - Reserved for strong motion sensors
-- 3? - Reserved for acoustic or pressure sensors
-- 4? - Reserved for water level pressure sensors
-- 5? - Reserved for geomagnetic sensors
-- 6? - Reserved for strain or displacement sensors
-- 7? - Reserved for wind measuring sensors
-- 8? - Reserved for temperature sensors
+- `0?` - Reserved for datalogger SOH channels
+- `1?` - Reserved for weak motion sensors
+- `2?` - Reserved for strong motion sensors
+- `3?` - Reserved for acoustic or pressure sensors
+- `4?` - Reserved for water level pressure sensors
+- `5?` - Reserved for geomagnetic sensors
+- `6?` - Reserved for strain or displacement sensors
+- `7?` - Reserved for wind measuring sensors
+- `8?` - Reserved for temperature sensors
 
 There is an informal convention of using `01` for the primary datalogger (generally weak motion) and `02` for the secondary datalogger (generally strong motion).  This setup has been maintained for sites with only strong-motion recorders as it makes maintaining instrument configurations easier.
 
 Testing, or non-production, dataloggers will have codes using the sequence: 0Z, 0Y, 0X, ... etc.  They should also use a similar sensor location sequence depending on sensor type, e.g. 1Z, 1Y, 1X ... etc.
 
-## Naming Conventions When Moving or Installating Different Sensors
+### Naming Conventions When Moving or Installating Different Sensors
 
 Sites are associated with stations at the start of data collection from the site. Data collection is from a datalogger, which is connected to a sensor. 
 
@@ -110,6 +113,7 @@ For borehole sensors, the station code will always be the same regardless of sen
 Sensors at the surface adjacent to boreholes are covered by these special conventions; borehole surface sensors are considered borehole sensors regarding naming conventions.
 
 Thus a borehole sensor installed >200 meters down a borehole and a surface sensor at the wellhead will share the same station code but will have differing location codes.
+
 
 ## Channel Codes
 
@@ -149,9 +153,9 @@ The third letter either represents the sensor orientation or a processing stage.
 - `H` (Sea level streams which have been corrected to height, generally used for processing)
 - `T` (Sea level streams which have been de-tided, generally used for processing)
 
-## Example Channels
+### Example Channels
 
-### Data Channels
+#### Data Channels
 
 | Channel               | Measurement
 |-----------------------|-------------
@@ -177,7 +181,7 @@ The third letter either represents the sensor orientation or a processing stage.
 | `LFF LFD` | geomagnetic -- full field values
 | `CRX` | tidal height CREX encoded messages
 
-### Data Quality Channels
+#### Data Quality Channels
 
 | Channel               | Measurement
 |-----------------------|-------------
@@ -189,7 +193,7 @@ The third letter either represents the sensor orientation or a processing stage.
 | `CAL`                 | sensor calibration details
 | `BTL`                 | packet latency times
 
-### State of Health Channels
+#### State of Health Channels
 
 | Channel       | Measurement
 |---------------|-------------
