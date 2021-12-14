@@ -1709,12 +1709,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"BASALT-200"},
+				FilterList:     []string{"OBSIDIAN4X-200"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "BASALT-200",
+						Filter: "OBSIDIAN4X-200",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -1724,14 +1724,14 @@ var Responses []Response = []Response{
 						Frequency:  0,
 						SampleRate: 30000,
 						Decimate:   1,
-						Gain:       1.6777216e+06,
+						Gain:       6.7108864e+06,
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
 					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50-S5C",
-						Filter: "BASALT-200",
+						Filter: "OBSIDIAN4X-200",
 						StageSet: FIR{
 							Name:       "BASALT_A5-50-S5C",
 							Causal:     false,
@@ -1752,7 +1752,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A3-50",
-						Filter: "BASALT-200",
+						Filter: "OBSIDIAN4X-200",
 						StageSet: FIR{
 							Name:       "BASALT_A3-50",
 							Causal:     false,
@@ -1773,7 +1773,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50",
-						Filter: "BASALT-200",
+						Filter: "OBSIDIAN4X-200",
 						StageSet: FIR{
 							Name:       "BASALT_A5-50",
 							Causal:     false,
@@ -1794,7 +1794,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "BASALT_B2-80",
-						Filter: "BASALT-200",
+						Filter: "OBSIDIAN4X-200",
 						StageSet: FIR{
 							Name:       "BASALT_B2-80",
 							Causal:     false,
@@ -1823,12 +1823,12 @@ var Responses []Response = []Response{
 				Frequency:      1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"BASALT-50"},
+				FilterList:     []string{"OBSIDIAN4X-50"},
 				Stages: []ResponseStage{
 					{
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "BASALT-50",
+						Filter: "OBSIDIAN4X-50",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -1838,14 +1838,14 @@ var Responses []Response = []Response{
 						Frequency:  0,
 						SampleRate: 30000,
 						Decimate:   1,
-						Gain:       1.6777216e+06,
+						Gain:       6.7108864e+06,
 						//Scale: 0,
 						InputUnits:  "V",
 						OutputUnits: "count",
 					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50-S5C",
-						Filter: "BASALT-50",
+						Filter: "OBSIDIAN4X-50",
 						StageSet: FIR{
 							Name:       "BASALT_A5-50-S5C",
 							Causal:     false,
@@ -1866,7 +1866,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A3-50",
-						Filter: "BASALT-50",
+						Filter: "OBSIDIAN4X-50",
 						StageSet: FIR{
 							Name:       "BASALT_A3-50",
 							Causal:     false,
@@ -1887,7 +1887,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A4-50",
-						Filter: "BASALT-50",
+						Filter: "OBSIDIAN4X-50",
 						StageSet: FIR{
 							Name:       "BASALT_A4-50",
 							Causal:     false,
@@ -1908,7 +1908,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "BASALT_A5-50",
-						Filter: "BASALT-50",
+						Filter: "OBSIDIAN4X-50",
 						StageSet: FIR{
 							Name:       "BASALT_A5-50",
 							Causal:     false,
@@ -1929,7 +1929,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "BASALT_B2-80",
-						Filter: "BASALT-50",
+						Filter: "OBSIDIAN4X-50",
 						StageSet: FIR{
 							Name:       "BASALT_B2-80",
 							Causal:     false,

@@ -185,7 +185,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - BASALT-200
+      - OBSIDIAN4X-200
       reversed: false
     - dataloggers:
       - Obsidian 4X Datalogger
@@ -196,7 +196,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - BASALT-50
+      - OBSIDIAN4X-50
       reversed: false
     - dataloggers:
       - BASALT
