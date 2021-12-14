@@ -206,7 +206,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  OBSIDIAN4X-50:
+  OBSIDIAN-4X-50:
   - type: a2d
     lookup: A2D
     frequency: 0
@@ -273,7 +273,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  OBSIDIAN4X-200:
+  OBSIDIAN-4X-200:
   - type: a2d
     lookup: A2D
     frequency: 0
