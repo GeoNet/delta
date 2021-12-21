@@ -11,9 +11,9 @@ package main
  *
  */
 
-var preparedBy = "Elisabetta D'Anastasio"
+var preparedBy = "Geodetic Processing Specialist"
 
-var primaryDatacentre = `ftp.geonet.org.nz`
+var primaryDatacentre = `data.geonet.org.nz`
 var urlForMoreInformation = `www.geonet.org.nz`
 var extraNotes = `additional information and pictures could be found
 at http://www.geonet.org.nz/data/types/geodetic`
@@ -32,11 +32,11 @@ New Zealand`,
 		Email:              `info@geonet.org.nz`,
 	},
 	SecondaryContact: Contact{
-		Name:               `Elisabetta D'Anastasio`,
-		TelephonePrimary:   `+64 4 570 4744`,
+		Name:               `Geodetic Processing Coordinator`,
+		TelephonePrimary:   `+64 4 570 1444`,
 		TelephoneSecondary: ``,
 		Fax:                ``,
-		Email:              `e.danastasio@gns.cri.nz`,
+		Email:              `info@geonet.org.nz`,
 	},
 	Notes: ``,
 }
@@ -54,11 +54,11 @@ New Zealand`,
 		Email:              `positionz@linz.govt.nz`,
 	},
 	SecondaryContact: Contact{
-		Name:               `Rachelle Winefield`,
-		TelephonePrimary:   `+64 4 460 2757`,
+		Name:               ``,
+		TelephonePrimary:   ``,
 		TelephoneSecondary: ``,
 		Fax:                ``,
-		Email:              `rwinefield@linz.govt.nz`,
+		Email:              ``,
 	},
 	Notes: `CGPS site is part of the LINZ PositioNZ Network http://www.linz.govt.nz/positionz`,
 }
