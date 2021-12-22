@@ -1,7 +1,7 @@
 ---
 
-PreparedBy: "Elisabetta D'Anastasio"
-PrimaryDatacentre: "ftp.geonet.org.nz"
+PreparedBy: "Geodetic Processing Specialist"
+PrimaryDatacentre: "data.geonet.org.nz"
 URLForMoreInformation: "www.geonet.org.nz"
 ExtraNotes: "additional information and pictures could be found\nat http://www.geonet.org.nz/data/types/geodetic"
 
@@ -16,11 +16,11 @@ ContactAgency:
     Fax:    "+64 4 570 4676"
     Email:        "info@geonet.org.nz"
   SecondaryContact:
-    Name:         "Elisabetta D'Anastasio"
-    TelephonePrimary:   "+64 4 570 4744"
+    Name:         "Geodetic Processing Specialist"
+    TelephonePrimary:   "+64 4 570 1444"
     TelephoneSecondary: ""
     Fax:    ""
-    Email:        "e.danastasio@gns.cri.nz"
+    Email:        "info@geonet.org.nz"
   Notes: ""
 
 ResponsibleAgency:
@@ -34,11 +34,11 @@ ResponsibleAgency:
     Fax:    "+64 4 472 2244"
     Email:        "positionz@linz.govt.nz"
   SecondaryContact:
-    Name:         "Rachelle Winefield"
-    TelephonePrimary:   "+64 4 460 2757"
+    Name:         ""
+    TelephonePrimary:   ""
     TelephoneSecondary: ""
     Fax:    ""
-    Email:        "rwinefield@linz.govt.nz"
+    Email:        ""
   Notes: "CGPS site is part of the LINZ PositioNZ Network http://www.linz.govt.nz/positionz"
 
 # used to determine country name
