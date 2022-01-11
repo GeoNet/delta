@@ -14,7 +14,7 @@ var testGauges = map[string]func([]meta.Gauge) func(t *testing.T){
 					if gauges[i].Code == gauges[j].Code {
 						t.Errorf("gauge code duplication: " + gauges[i].Code)
 					}
-					if gauges[i].Number == gauges[j].Number {
+					if gauges[i].Number == gauges[j].Number && gauges[i].Number != "" {
 						t.Errorf("gauge number duplication: " + gauges[i].Code)
 					}
 				}
