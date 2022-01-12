@@ -13,19 +13,7 @@ filter:
     frequency: 0
     samplerate: -15
     decimate: 1
-    gain: 1000
-    scale: 0
-    correction: 0
-    delay: 0
-    inputunits: m
-    outputunits: count
-  DART-15m:
-  - type: a2d
-    lookup: A2D
-    frequency: 0
-    samplerate: -900
-    decimate: 1
-    gain: 1000
+    gain: 149253.73134328358208955223
     scale: 0
     correction: 0
     delay: 0
