@@ -378,21 +378,10 @@ response:
       label: UT
       samplerate: -15
       frequency: 1
-      storageformat: Steim2
+      storageformat: Int32
       clockdrift: 0.0001
       filters:
-      - "WaterHeight15s"
-      reversed: false
-    - dataloggers:
-      - BPR Subsystem
-      type: CG
-      label: WT
-      samplerate: -900
-      frequency: 1
-      storageformat: Steim2
-      clockdrift: 0.0001
-      filters:
-      - "WaterHeight15m"
+      - "DART-15s"
       reversed: false
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
