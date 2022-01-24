@@ -1,5 +1,5 @@
 Station,Version,Start Date,End Date,Notes
-NA002,NA002-ngauruhoeouterrim-v002.CR6,2022-01-19T00:00:00Z,9999-01-01T00:00:00Z,added maintenance window to timed comms
+NA002,NA002-ngauruhoeouterrim-v002.CR6,2022-01-19T00:00:00Z,9999-01-01T00:00:00Z,updated format / added maintenance window to timed comms
 NA002,NA002-ngauruhoeouterrim-v001.CR6,2021-05-06T00:00:00Z,2022-01-18T23:59:00Z,original
 OT001,OT001-infernocrater-v004.CR6,2021-10-06T00:00:00Z,9999-01-01T00:00:00Z,updated format
 OT001,InfernoCrater_v03.CR6,2019-10-11T00:00:00Z,2021-10-05T23:59:00Z,added overflow sensors
