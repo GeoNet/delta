@@ -1,0 +1,30 @@
+Station,Version,Start Date,End Date,Notes
+NA002,NA002-ngauruhoeouterrim-v002.CR6,2022-01-19T00:00:00Z,9999-01-01T00:00:00Z,added maintenance window to timed comms
+NA002,NA002-ngauruhoeouterrim-v001.CR6,2021-05-06T00:00:00Z,2022-01-18T23:59:00Z,original
+OT001,OT001-infernocrater-v004.CR6,2021-10-06T00:00:00Z,9999-01-01T00:00:00Z,updated format
+OT001,InfernoCrater_v03.CR6,2019-10-11T00:00:00Z,2021-10-05T23:59:00Z,added overflow sensors
+OT013,OT013-rotomasodaspring-v002.CR6,2021-09-30T00:00:00Z,9999-01-01T00:00:00Z,updated format
+OT013,OT013-rotomasodaspring-v001.CR6,2021-03-18T00:00:00Z,2021-09-29T23:59:00Z,original
+RU001,RU001-ruapehucraterlake-v003.CR6,2022-01-17T22:30:00Z,9999-01-01T00:00:00Z,added EFOY / update format
+RU001,RCL_v02.CR6,2019-03-21T00:00:00Z,2022-01-17T22:29:00Z,Replace PRT with thermocouple
+RU001,RCL.CR6,2018-04-26T00:00:00Z,2019-03-21T23:59:00Z,original
+TO003,TO003-temaarifumarolethree-v002.CR6,2021-10-12T19:00:00Z,9999-01-01T00:00:00Z,updated format
+TO003,TO003-temaarifumarolethree-v001.CR6,2021-05-05T00:00:00Z,2021-10-12T18:59:00Z,original
+TO006,TO006-uppertemaari-v004.CR6,2021-11-19T00:00:00Z,9999-01-01T00:00:00Z,added air temp / update format
+TO006,UpperTeMaari_v03.CR6,2019-04-17T00:00:00Z,2021-11-19T00:00:00Z,removed PRT
+TO006,UpperTeMaari09102018.CR6,2018-10-09T00:00:00Z,2019-04-17T23:59:00Z,original
+TO015,TO015-lowertemaari-v004.CR6,2021-11-19T00:00:00Z,9999-01-01T00:00:00Z,added air temp / removed baseline ground temp / updated format
+TO015,LowerTeMaari_v03.CR6,2020-01-22T00:00:00Z,2021-11-19T23:59:00Z,add baseline ground temp transfered from spike test
+TO015,LowerTeMaari_v02.CR6,2019-04-17T00:00:00Z,2020-01-22T23:59:00Z,replaced PRT with thermocouple
+TO015,LowerTeMaari.CR6,2018-08-10T00:00:00Z,2019-04-17T23:59:00Z,original
+TO063,TO063-loweremeraldspring-v002.CR6,2021-10-15T00:00:00Z,9999-01-01T00:00:00Z,updated format
+TO063,LowerEmeraldSpring-v001.CR6,2021-05-07T00:00:00Z,2021-10-15T23:59:00Z,original
+TOUEM,TOUEM-upperemerald-v003.CR6,2022-01-18T23:10:00Z,9999-01-01T00:00:00Z,amend column headers
+TOUEM,TOUEM-upperemerald-v002.CR6,2021-10-15T00:00:00Z,2022-01-18T23:19:00Z,updated format
+TOUEM,TOUEM-upperemerald-v001.CR6,2021-05-21T00:00:00Z,2021-10-15T23:59:00Z,original
+TOUTL,TOUTL-uppertamalake-v005.CR6,2022-01-17T20:50:00Z,9999-01-01T00:00:00Z,amend column headers
+TOUTL,TOUTL-uppertamalake-v004.CR6,2021-10-15T00:00:00Z,2022-01-17T20:49:00Z,updated format
+TOUTL,UpperTamaLake03.CR6,2019-03-12T00:00:00Z,2021-10-15T23:59:00Z,original
+WI227,WI_fumarole_13_v03.CR6,2019-06-18T00:00:00Z,9999-01-01T00:00:00Z,replaced remaining PRT with thermocouple
+WI227,WI_fumarole_13_v02.CR6,2019-04-10T00:00:00Z,2019-06-18T00:00:00Z,replaced failed PRT with thermocouple 
+WI227,WI_fumarole_13.CR6,2018-09-13T00:00:00Z,2019-04-10T23:59:00Z,original
