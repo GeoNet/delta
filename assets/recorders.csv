@@ -642,6 +642,7 @@ CSI,EQR120,46532,,
 CSI,EQR120,46535,,
 CSI,EQR120,46536,,
 CSI,EQR120,46537,,
+GEM Systems,GSM-19,28480,,
 Kinemetrics,BASALT,1196,14805,
 Kinemetrics,BASALT,1245,14806,
 Kinemetrics,BASALT,1263,14807,
@@ -1033,6 +1034,9 @@ Paroscientific,BPR Subsystem,191002-9,,DART 4G
 Paroscientific,BPR Subsystem,200101,,DART 4G
 Paroscientific,BPR Subsystem,200117-16,,DART 4G
 Paroscientific,BPR Subsystem,201002,,DART 4G
+Paroscientific,BPR Subsystem,201003,,DART 4G
+Paroscientific,BPR Subsystem,201004,,DART 4G
+Paroscientific,BPR Subsystem,201005,,DART 4G
 PEL,MO1,0001,,
 PEL,MO1,0002,,
 PEL,MO1,0003,,
