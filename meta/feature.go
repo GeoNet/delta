@@ -10,7 +10,10 @@ import (
 const (
 	featureStation = iota
 	featureLocation
+	featureSubLocation
+	featureProperty
 	featureDescription
+	featureAspect
 	featureStart
 	featureEnd
 	featureLast
@@ -21,7 +24,10 @@ type Feature struct {
 
 	Station     string
 	Location    string
+	SubLocation string
+	Property    string
 	Description string
+	Aspect      string
 }
 
 func (f Feature) Less(feature Feature) bool {
@@ -33,6 +39,14 @@ func (f Feature) Less(feature Feature) bool {
 	case f.Location < feature.Location:
 		return true
 	case f.Location > feature.Location:
+		return false
+	case f.SubLocation < feature.SubLocation:
+		return true
+	case f.SubLocation > feature.SubLocation:
+		return false
+	case f.Property < feature.Property:
+		return true
+	case f.Property > feature.Property:
 		return false
 	case f.Start.Before(feature.Start):
 		return true
@@ -51,7 +65,10 @@ func (f FeatureList) encode() [][]string {
 	data := [][]string{{
 		"Station",
 		"Location",
+		"SubLocation",
+		"Property",
 		"Description",
+		"Aspect",
 		"Start Date",
 		"End Date",
 	}}
@@ -60,7 +77,10 @@ func (f FeatureList) encode() [][]string {
 		data = append(data, []string{
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
+			strings.TrimSpace(v.SubLocation),
+			strings.TrimSpace(v.Property),
 			strings.TrimSpace(v.Description),
+			strings.TrimSpace(v.Aspect),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -97,7 +117,10 @@ func (f *FeatureList) decode(data [][]string) error {
 			},
 			Station:     strings.TrimSpace(d[featureStation]),
 			Location:    strings.TrimSpace(d[featureLocation]),
+			SubLocation: strings.TrimSpace(d[featureSubLocation]),
+			Property:    strings.TrimSpace(d[featureProperty]),
 			Description: strings.TrimSpace(d[featureDescription]),
+			Aspect:      strings.TrimSpace(d[featureAspect]),
 		})
 	}
 
