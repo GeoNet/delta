@@ -1026,6 +1026,55 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
+		{
+			"testdata/calibrations.csv",
+			&CalibrationList{
+				Calibration{
+					Install: Install{
+						Equipment: Equipment{
+							Make:   "Acme",
+							Model:  "ACME01",
+							Serial: "257",
+						},
+						Span: Span{
+							Start: time.Date(2021, time.July, 1, 0, 0, 0, 0, time.UTC),
+							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+						},
+					},
+					ScaleFactor: 2000.169 / 2.0,
+					ScaleBias:   1.0,
+					Frequency:   10.0,
+					Component:   0,
+
+					component: "0",
+					factor:    "2000.169/2.0",
+					bias:      "1.0",
+					frequency: "10.0",
+				},
+			},
+		},
+		{
+			"testdata/gains.csv",
+			&GainList{
+				Gain{
+					Span: Span{
+						Start: time.Date(2021, time.July, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+					Scale: Scale{
+						Factor: 1298.169,
+						Bias:   11865.556,
+
+						factor: "1298.169",
+						bias:   "11865.556",
+					},
+					Station:     "SBAM",
+					Location:    "50",
+					SubLocation: "01",
+					Channel:     "XZ",
+				},
+			},
+		},
 	}
 
 	for _, tt := range listtests {

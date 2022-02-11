@@ -12,10 +12,12 @@ type MetaDB struct {
 	sensors
 	recorders
 	dataloggers
+	calibrations
 
-	// instrment configuration
+	// instrument configuration
 	connections
 	streams
+	gains
 
 	// base directory for raw meta files
 	base string
