@@ -24,6 +24,8 @@ It allows for code like this:
 ## <a name="pkg-index">Index</a>
 * [Variables](#pkg-variables)
 * [func ToBool(s string) (bool, error)](#ToBool)
+* [func ToComplex128(s string) (complex128, error)](#ToComplex128)
+* [func ToComplex64(s string) (complex64, error)](#ToComplex64)
 * [func ToFloat32(s string) (float32, error)](#ToFloat32)
 * [func ToFloat64(s string) (float64, error)](#ToFloat64)
 * [func ToInt(s string) (int, error)](#ToInt)
@@ -46,11 +48,20 @@ var ErrEvalIsUnknown = errors.New("expression is unknown")
 var ErrEvalNotBool = errors.New("expression does not return a bool expression")
 ```
 ``` go
+var ErrEvalNotComplex = errors.New("expression does not return a complex expression")
+```
+``` go
+var ErrEvalNotFloat = errors.New("expression does not return a float expression")
+```
+``` go
+var ErrEvalNotInt = errors.New("expression does not return an int expression")
+```
+``` go
 var ErrEvalNotString = errors.New("expression does not return a string expression")
 ```
 
 
-## <a name="ToBool">func</a> [ToBool](/src/target/expr.go?s=2333:2368#L85)
+## <a name="ToBool">func</a> [ToBool](/src/target/expr.go?s=4366:4401#L158)
 ``` go
 func ToBool(s string) (bool, error)
 ```
@@ -58,7 +69,23 @@ ToBool evaluates the given string as a bool, or it returns an error if the expre
 
 
 
-## <a name="ToFloat32">func</a> [ToFloat32](/src/target/expr.go?s=732:773#L27)
+## <a name="ToComplex128">func</a> [ToComplex128](/src/target/expr.go?s=2433:2480#L85)
+``` go
+func ToComplex128(s string) (complex128, error)
+```
+ToComplex128 evaluates the given string as a complex value, or it returns an error if the expression is Unknown.
+
+
+
+## <a name="ToComplex64">func</a> [ToComplex64](/src/target/expr.go?s=1880:1925#L66)
+``` go
+func ToComplex64(s string) (complex64, error)
+```
+ToComplex64 evaluates the given string as a complex value, or it returns an error if the expression is Unknown.
+
+
+
+## <a name="ToFloat32">func</a> [ToFloat32](/src/target/expr.go?s=979:1020#L30)
 ``` go
 func ToFloat32(s string) (float32, error)
 ```
@@ -66,7 +93,7 @@ ToFloat32 evaluates the given string as a float32, or it returns an error if the
 
 
 
-## <a name="ToFloat64">func</a> [ToFloat64](/src/target/expr.go?s=1021:1062#L37)
+## <a name="ToFloat64">func</a> [ToFloat64](/src/target/expr.go?s=1438:1479#L48)
 ``` go
 func ToFloat64(s string) (float64, error)
 ```
@@ -74,7 +101,7 @@ ToFloat64 evaluates the given string as a float64, or it returns an error if the
 
 
 
-## <a name="ToInt">func</a> [ToInt](/src/target/expr.go?s=1868:1901#L67)
+## <a name="ToInt">func</a> [ToInt](/src/target/expr.go?s=3901:3934#L140)
 ``` go
 func ToInt(s string) (int, error)
 ```
@@ -82,7 +109,7 @@ ToInt evaluates the given string as an int, or it returns an error if the result
 
 
 
-## <a name="ToInt64">func</a> [ToInt64](/src/target/expr.go?s=1307:1344#L47)
+## <a name="ToInt64">func</a> [ToInt64](/src/target/expr.go?s=3003:3040#L104)
 ``` go
 func ToInt64(s string) (int64, error)
 ```
@@ -90,7 +117,7 @@ ToInt64 evaluates the given string as an int64, or it returns an error if the re
 
 
 
-## <a name="ToString">func</a> [ToString](/src/target/expr.go?s=2643:2682#L97)
+## <a name="ToString">func</a> [ToString](/src/target/expr.go?s=4676:4715#L170)
 ``` go
 func ToString(s string) (string, error)
 ```
@@ -98,7 +125,7 @@ ToString evaluates the given string as a string, or it returns an error if the e
 
 
 
-## <a name="ToUint">func</a> [ToUint](/src/target/expr.go?s=2111:2146#L76)
+## <a name="ToUint">func</a> [ToUint](/src/target/expr.go?s=4144:4179#L149)
 ``` go
 func ToUint(s string) (uint, error)
 ```
@@ -106,7 +133,7 @@ ToUint evaluates the given string as a uint, or it returns an error if the resul
 
 
 
-## <a name="ToUint64">func</a> [ToUint64](/src/target/expr.go?s=1589:1628#L57)
+## <a name="ToUint64">func</a> [ToUint64](/src/target/expr.go?s=3453:3492#L122)
 ``` go
 func ToUint64(s string) (uint64, error)
 ```
