@@ -7,6 +7,7 @@ import (
 func TestExpr_Float64(t *testing.T) {
 
 	good := map[string]float64{
+		"1":               1.0,
 		"1.0 + 1.0":       2.0,
 		"(1.0 + 1.0)/0.5": 4.0,
 	}
@@ -20,7 +21,7 @@ func TestExpr_Float64(t *testing.T) {
 		}
 	}
 
-	bad := []string{"", "a", "1.0 / 0.0", "1.0 + ()", "2001.169"}
+	bad := []string{"", "a", "1.0 / 0.0", "1.0 + ()"}
 
 	for _, v := range bad {
 		if _, err := ToFloat64(v); err == nil {
@@ -32,6 +33,7 @@ func TestExpr_Float64(t *testing.T) {
 func TestExpr_Int64(t *testing.T) {
 
 	good := map[string]int64{
+		"1.0":           1,
 		"1":             1,
 		"-1":            -1,
 		"- 1":           -1,
@@ -112,7 +114,7 @@ func TestExpr_Uint(t *testing.T) {
 		}
 	}
 
-	bad := []string{"", " ", "\t", "1/0", "1 +", "-1"}
+	bad := []string{"", " ", "\t", "1/0", "1 +"}
 
 	for _, v := range bad {
 		if _, err := ToUint(v); err == nil {
@@ -168,6 +170,55 @@ func TestExpr_String(t *testing.T) {
 
 	for _, v := range bad {
 		if _, err := ToString(v); err == nil {
+			t.Errorf("invalid expr for \"%s\": expected and error but was nil", v)
+		}
+	}
+}
+
+func TestExpr_Complex64(t *testing.T) {
+
+	good := map[string]complex64{
+		"1.0":                               1.0,
+		"(1.0 + 1.0i) + 2.0":                (1.0 + 1.0i) + 2.0,
+		"(1.0 + 1.0i) + 2.0 / (1.0 + 1.0i)": (1.0 + 1.0i) + 2.0/(1.0+1.0i),
+	}
+
+	for k, v := range good {
+		switch x, err := ToComplex64(k); {
+		case err != nil:
+			t.Errorf("error with expr \"%s\": %v", k, err)
+		case x != v:
+			t.Errorf("invalid expr for \"%s\": expected %g, but got %g", k, v, x)
+		}
+	}
+
+	bad := []string{"", "a", "1.0 / 0.0", "1.0 + ()"}
+
+	for _, v := range bad {
+		if _, err := ToComplex64(v); err == nil {
+			t.Errorf("invalid expr for \"%s\": expected and error but was nil", v)
+		}
+	}
+}
+func TestExpr_Complex128(t *testing.T) {
+
+	good := map[string]complex128{
+		"(1.0 + 1.0i) + 2.0": (1.0 + 1.0i) + 2.0,
+	}
+
+	for k, v := range good {
+		switch x, err := ToComplex128(k); {
+		case err != nil:
+			t.Errorf("error with expr \"%s\": %v", k, err)
+		case x != v:
+			t.Errorf("invalid expr for \"%s\": expected %g, but got %g", k, v, x)
+		}
+	}
+
+	bad := []string{"", "a", "1.0 / 0.0", "1.0 + ()"}
+
+	for _, v := range bad {
+		if _, err := ToComplex128(v); err == nil {
 			t.Errorf("invalid expr for \"%s\": expected and error but was nil", v)
 		}
 	}
