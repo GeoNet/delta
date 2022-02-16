@@ -695,13 +695,6 @@ func TestList(t *testing.T) {
 						north:    "0",
 						east:     "0",
 					},
-					Scale: Scale{
-						Factor: 1.0,
-						Bias:   0.0,
-
-						factor: "1",
-						bias:   "0",
-					},
 					Station:  "COVZ",
 					Location: "90",
 				},
@@ -730,13 +723,6 @@ func TestList(t *testing.T) {
 						vertical: "0",
 						north:    "0",
 						east:     "0",
-					},
-					Scale: Scale{
-						Factor: 1.0,
-						Bias:   0.0,
-
-						factor: "1",
-						bias:   "0",
 					},
 					Station:  "INZ",
 					Location: "10",
