@@ -240,5 +240,128 @@ filter:
     delay: 1.745000e-01
     inputunits: count
     outputunits: count
+  OBSIDIAN-4X-50:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 4.201680e+05
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50-S5C
+    frequency: 0
+    samplerate: 6000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A3-50
+    frequency: 0
+    samplerate: 2000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A4-50
+    frequency: 0
+    samplerate: 500
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50
+    frequency: 0
+    samplerate: 100
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_B2-80
+    frequency: 0
+    samplerate: 50
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  OBSIDIAN-4X-200:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 4.201680e+05
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50-S5C
+    frequency: 0
+    samplerate: 6000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A3-50
+    frequency: 0
+    samplerate: 2000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50
+    frequency: 0
+    samplerate: 400
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_B2-80
+    frequency: 0
+    samplerate: 200
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
