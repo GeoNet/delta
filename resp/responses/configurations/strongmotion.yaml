@@ -156,7 +156,6 @@ response:
     dataloggers:
     - dataloggers:
       - OBSIDIAN
-      - Obsidian 4X Datalogger
       type: TG
       label: HN
       samplerate: 200
@@ -168,7 +167,6 @@ response:
       reversed: false
     - dataloggers:
       - OBSIDIAN
-      - Obsidian 4X Datalogger
       type: CG
       label: BN
       samplerate: 50
@@ -177,6 +175,28 @@ response:
       clockdrift: 0.0001
       filters:
       - BASALT-50
+      reversed: false
+    - dataloggers:
+      - Obsidian 4X Datalogger
+      type: TG
+      label: HN
+      samplerate: 200
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - OBSIDIAN-4X-200
+      reversed: false
+    - dataloggers:
+      - Obsidian 4X Datalogger
+      type: CG
+      label: BN
+      samplerate: 50
+      frequency: 1
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - OBSIDIAN-4X-50
       reversed: false
     - dataloggers:
       - BASALT
