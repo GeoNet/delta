@@ -930,6 +930,10 @@ func TestList(t *testing.T) {
 			"testdata/constituents.csv",
 			&ConstituentList{
 				Constituent{
+					Span: Span{
+						Start: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
 					Gauge:     "AUCT",
 					Number:    1,
 					Name:      "Z0",
@@ -940,6 +944,10 @@ func TestList(t *testing.T) {
 					lag:       "0",
 				},
 				Constituent{
+					Span: Span{
+						Start: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
 					Gauge:     "AUCT",
 					Number:    2,
 					Name:      "SA",
