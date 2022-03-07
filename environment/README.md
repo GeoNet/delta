@@ -45,6 +45,8 @@ _Lists the geological and physical environment details of collection points._
 | _Analysis Latitude_ | Latitude used in the Tidal Constituent Analysis, usually positive
 | _Analysis Longitude_ | Longitude used in the Tidal Constituent Analysis
 | _Crex Tag_ | Tide gauge Crex format location
+| _Start Date_ | General date and time at which the _Gauge_ description was valid.
+| _End Date_ | General date and time at which the _Gauge_ description was no longer valid.
 
 #### _VISIBILITY_ ####
 
