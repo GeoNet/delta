@@ -5,6 +5,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"time"
 )
 
 const (
@@ -15,10 +16,13 @@ const (
 	gaugeAnalysisLatitude
 	gaugeAnalysisLongitude
 	gaugeCrex
+	gaugeStart
+	gaugeEnd
 	gaugeLast
 )
 
 type Gauge struct {
+	Span
 	Reference
 	Point
 
@@ -31,9 +35,20 @@ type Gauge struct {
 
 type GaugeList []Gauge
 
-func (g GaugeList) Len() int           { return len(g) }
-func (g GaugeList) Swap(i, j int)      { g[i], g[j] = g[j], g[i] }
-func (g GaugeList) Less(i, j int) bool { return g[i].Code < g[j].Code }
+func (g GaugeList) Len() int      { return len(g) }
+func (g GaugeList) Swap(i, j int) { g[i], g[j] = g[j], g[i] }
+func (g GaugeList) Less(i, j int) bool {
+	switch {
+	case g[i].Code < g[j].Code:
+		return true
+	case g[i].Code > g[j].Code:
+		return false
+	case g[i].Start.Before(g[j].Start):
+		return true
+	default:
+		return false
+	}
+}
 
 func (g GaugeList) encode() [][]string {
 	data := [][]string{{
@@ -44,6 +59,8 @@ func (g GaugeList) encode() [][]string {
 		"Analysis Latitude",
 		"Analysis Longitude",
 		"Crex Tag",
+		"Start Date",
+		"End Date",
 	}}
 	for _, v := range g {
 		data = append(data, []string{
@@ -54,6 +71,8 @@ func (g GaugeList) encode() [][]string {
 			strings.TrimSpace(v.latitude),
 			strings.TrimSpace(v.longitude),
 			strings.TrimSpace(v.Crex),
+			v.Start.Format(DateTimeFormat),
+			v.End.Format(DateTimeFormat),
 		})
 	}
 	return data
@@ -79,7 +98,20 @@ func (g *GaugeList) decode(data [][]string) error {
 				return err
 			}
 
+			start, err := time.Parse(DateTimeFormat, d[gaugeStart])
+			if err != nil {
+				return err
+			}
+			end, err := time.Parse(DateTimeFormat, d[gaugeEnd])
+			if err != nil {
+				return err
+			}
+
 			gauges = append(gauges, Gauge{
+				Span: Span{
+					Start: start,
+					End:   end,
+				},
 				Reference: Reference{
 					Code:    strings.TrimSpace(d[gaugeCode]),
 					Network: strings.TrimSpace(d[gaugeNetwork]),
