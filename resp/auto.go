@@ -33,10 +33,17 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Manufacturer: "SAIC",
 		Vendor:       "",
 	},
+	"CUSP-M4": {
+		Name:         "CUSP-M4",
+		Type:         "Strong Motion Recorder",
+		Description:  "CuspM4",
+		Manufacturer: "Canterbury Seismic Instruments",
+		Vendor:       "",
+	},
 	"CUSP-Me": {
 		Name:         "CUSP-Me",
 		Type:         "Strong Motion Recorder",
-		Description:  "CUSP-Me",
+		Description:  "CuspMe",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 	},
@@ -78,7 +85,7 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 	"CUSPM": {
 		Name:         "CUSPM",
 		Type:         "Strong Motion Recorder",
-		Description:  "CUSPM",
+		Description:  "CuspM",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 	},
@@ -921,6 +928,12 @@ var Responses []Response = []Response{
 				},
 				Channels: "21Z",
 				Reversed: false,
+			}, {
+				SensorList: []string{},
+				FilterList: []string{"CUSPM", "CUSP-M4", "CUSP-Me"},
+				Stages:     []ResponseStage{},
+				Channels:   "21Z",
+				Reversed:   false,
 			},
 		},
 		Dataloggers: []Datalogger{
@@ -955,7 +968,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, {
-				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3", "CUSPM", "CUSP-Me"},
+				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3", "CUSPM", "CUSP-M4", "CUSP-Me"},
 				Type:           "TG",
 				Label:          "HN",
 				SampleRate:     200,

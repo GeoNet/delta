@@ -27,12 +27,17 @@ datalogger-model:
     vendor: ""
   CUSPM:
     type: Strong Motion Recorder
-    description: CUSPM
+    description: CuspM
+    manufacturer: Canterbury Seismic Instruments
+    vendor: ""
+  CUSP-M4:
+    type: Strong Motion Recorder
+    description: CuspM4
     manufacturer: Canterbury Seismic Instruments
     vendor: ""
   CUSP-Me:
     type: Strong Motion Recorder
-    description: CUSP-Me
+    description: CuspMe
     manufacturer: Canterbury Seismic Instruments
     vendor: ""
   EQR120:
