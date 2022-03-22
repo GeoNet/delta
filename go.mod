@@ -1,6 +1,6 @@
 module github.com/GeoNet/delta
 
-go 1.13
+go 1.16
 
 require (
 	github.com/GeoNet/kit v0.0.0-20190918224938-2cc27e012059
