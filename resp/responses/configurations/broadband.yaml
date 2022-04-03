@@ -464,6 +464,12 @@ response:
       - TRILLIUM-HORIZON-TH120-1
       channels: ZNE
       reversed: false
+    - sensors:
+      - CMG-3ESPC
+      - CMG-3ESP
+      filters:
+      - CMG-3ESP-GN
+      channels: ZNE
     dataloggers:
     - dataloggers:
       - Centaur CTR4-6S

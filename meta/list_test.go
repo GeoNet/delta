@@ -891,6 +891,10 @@ func TestList(t *testing.T) {
 			"testdata/gauges.csv",
 			&GaugeList{
 				Gauge{
+					Span: Span{
+						Start: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
 					Reference: Reference{
 						Code:    "AUCT",
 						Network: "TG",
@@ -908,6 +912,10 @@ func TestList(t *testing.T) {
 					Crex: "-3683144 17478654 AUCT",
 				},
 				Gauge{
+					Span: Span{
+						Start: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
 					Reference: Reference{
 						Code:    "CPIT",
 						Network: "TG",
@@ -930,6 +938,10 @@ func TestList(t *testing.T) {
 			"testdata/constituents.csv",
 			&ConstituentList{
 				Constituent{
+					Span: Span{
+						Start: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
 					Gauge:     "AUCT",
 					Number:    1,
 					Name:      "Z0",
@@ -940,6 +952,10 @@ func TestList(t *testing.T) {
 					lag:       "0",
 				},
 				Constituent{
+					Span: Span{
+						Start: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
 					Gauge:     "AUCT",
 					Number:    2,
 					Name:      "SA",

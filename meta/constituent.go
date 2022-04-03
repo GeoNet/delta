@@ -5,6 +5,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"time"
 )
 
 const (
@@ -13,10 +14,14 @@ const (
 	constituentName
 	constituentAmplitude
 	constituentLag
+	constituentStart
+	constituentEnd
 	constituentLast
 )
 
 type Constituent struct {
+	Span
+
 	Gauge     string
 	Number    int
 	Name      string
@@ -37,8 +42,14 @@ func (c ConstituentList) Less(i, j int) bool {
 		return true
 	case c[i].Gauge > c[j].Gauge:
 		return false
+	case c[i].Start.Before(c[j].Start):
+		return true
+	case c[i].Start.After(c[j].Start):
+		return false
+	case c[i].Number < c[j].Number:
+		return true
 	default:
-		return c[i].Number < c[j].Number
+		return false
 	}
 }
 
@@ -49,6 +60,8 @@ func (c ConstituentList) encode() [][]string {
 		"Constituent",
 		"Amplitude",
 		"Lag",
+		"Start Date",
+		"End Date",
 	}}
 	for _, v := range c {
 		data = append(data, []string{
@@ -57,6 +70,8 @@ func (c ConstituentList) encode() [][]string {
 			strings.TrimSpace(v.Name),
 			strings.TrimSpace(v.amplitude),
 			strings.TrimSpace(v.lag),
+			v.Start.Format(DateTimeFormat),
+			v.End.Format(DateTimeFormat),
 		})
 	}
 	return data
@@ -84,7 +99,21 @@ func (c *ConstituentList) decode(data [][]string) error {
 				return err
 			}
 
+			start, err := time.Parse(DateTimeFormat, d[constituentStart])
+			if err != nil {
+				return err
+			}
+			end, err := time.Parse(DateTimeFormat, d[constituentEnd])
+			if err != nil {
+				return err
+			}
+
 			constituents = append(constituents, Constituent{
+				Span: Span{
+					Start: start,
+					End:   end,
+				},
+
 				Gauge:     d[constituentGauge],
 				Number:    num,
 				Name:      d[constituentName],
