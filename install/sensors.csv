@@ -520,8 +520,8 @@ Institute of Geological & Nuclear Sciences Ltd.,LM35,T002,GLKZ,81,0,,0,0,0,0,0,0
 Institute of Geological & Nuclear Sciences Ltd.,SDP,A5,EDAS,22,95,,0,9.6,0,0,0,0,2008-06-11T00:00:00Z,2015-06-22T23:00:00Z
 Institute of Geological & Nuclear Sciences Ltd.,SDP,A6,EDAS,21,95,,0,20,0,0,0,0,2008-06-11T00:00:00Z,2015-06-22T23:00:00Z
 Institute of Geological & Nuclear Sciences Ltd.,SDP,A9,CPLB,2G,0,,0,19.7,0,0,0,0,2009-04-15T00:00:03Z,2011-01-01T00:00:00Z
-Institute of Geological & Nuclear Sciences Ltd.,SDP,SDP-001,WDAS,22,184,,0,12,0,0,0,0,2004-06-22T04:00:00Z,9999-01-01T00:00:00Z
-Institute of Geological & Nuclear Sciences Ltd.,SDP,SDP-002,WDAS,23,274,,0,22,0,0,0,0,2004-06-22T04:00:00Z,9999-01-01T00:00:00Z
+Institute of Geological & Nuclear Sciences Ltd.,SDP,SDP-001,WDAS,22,184,,0,12,0,0,0,0,2004-06-22T04:00:00Z,2014-06-06T00:00:00Z
+Institute of Geological & Nuclear Sciences Ltd.,SDP,SDP-002,WDAS,23,274,,0,22,0,0,0,0,2004-06-22T04:00:00Z,2014-06-06T00:00:00Z
 Intech,Platinum resistance thermometer,001,OT001,01,0,,0,0,0,0,0,0,2017-12-06T00:30:00Z,2019-06-30T19:50:00Z
 Intech,Platinum resistance thermometer,002,TO006,03,0,,0,0,0,0,0,0,2018-08-28T00:30:00Z,2019-03-31T20:30:00Z
 Intech,Platinum resistance thermometer,003,TO006,02,0,,0,0,0,0,0,0,2018-10-08T23:50:00Z,2019-03-31T20:30:00Z
@@ -1619,7 +1619,7 @@ Setra Systems Inc.,270-600/24V,2625799,WHVZ,30,0,,0,0,0,0,0,0,2010-11-12T00:02:0
 Setra Systems Inc.,270-600/24V,2625800,GNSW,30,0,,0,0,0,0,0,0,2006-08-31T00:00:02Z,2007-01-24T01:00:00Z
 Setra Systems Inc.,270-600/24V,2625800,WSRZ,30,0,,0,0,0,0,0,0,2013-04-08T04:00:00Z,2017-06-01T23:30:00Z
 Setra Systems Inc.,270-800/12V,MIC_CAN,COVZ,32,0,,0,-10,0,0,0,0,1998-03-25T22:51:00Z,2000-11-28T18:46:00Z
-Terra Technology Inc.,SSA-320,1324,WDAS,21,274,,0,0,0,0,0,0,2004-06-22T04:00:00Z,9999-01-01T00:00:00Z
+Terra Technology Inc.,SSA-320,1324,WDAS,21,274,,0,0,0,0,0,0,2004-06-22T04:00:00Z,2014-06-06T00:00:00Z
 Thompson Sintra Pacific,Scout Hydrophone,H1,GBIH,41,0,,0,75.5,0,0,0,0,2007-06-12T00:00:00Z,9999-01-01T00:00:00Z
 Thompson Sintra Pacific,Scout Hydrophone,H2,GBIH,42,0,,0,75.5,0,0,0,0,2007-06-12T00:00:00Z,9999-01-01T00:00:00Z
 Thompson Sintra Pacific,Scout Hydrophone,H3,GBIH,43,0,,0,75.5,0,0,0,0,2007-06-12T00:00:00Z,9999-01-01T00:00:00Z
