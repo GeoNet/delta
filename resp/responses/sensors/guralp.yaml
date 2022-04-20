@@ -108,21 +108,9 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
-  Fortis-2g:
+  Fortis:
     type: Accelerometer
-    description: Fortis-2g
-    manufacturer: "Guralp"
-    vendor: ""
-    components:
-    - azimuth: 0
-      dip: -90
-    - azimuth: 0
-      dip: 0
-    - azimuth: 90
-      dip: 0
-  Fortis-4g:
-    type: Accelerometer
-    description: Fortis-4g
+    description: Fortis
     manufacturer: "Guralp"
     vendor: ""
     components:
@@ -413,18 +401,6 @@ filter:
     correction: 0
     delay: 0
     inputunits: m/s
-    outputunits: V
-  Fortis-DC-100Hz-2g:
-  - type: paz
-    lookup: Fortis-DC-100Hz
-    frequency: 1
-    samplerate: 0
-    decimate: 0
-    gain: 1.02
-    scale: 1
-    correction: 0
-    delay: 0
-    inputunits: m/s**2
     outputunits: V
   Fortis-DC-100Hz-4g:
   - type: paz
