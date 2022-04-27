@@ -58,6 +58,8 @@ func TestConsistency(t *testing.T) {
 		"sensors":      {f: "../install/sensors.csv", l: &meta.InstalledSensorList{}},
 		"firmware":     {f: "../install/firmware.csv", l: &meta.FirmwareHistoryList{}},
 		"streams":      {f: "../install/streams.csv", l: &meta.StreamList{}},
+		"gains":        {f: "../install/gains.csv", l: &meta.GainList{}},
+		"calibrations": {f: "../install/calibrations.csv", l: &meta.CalibrationList{}},
 		"networks":     {f: "../network/networks.csv", l: &meta.NetworkList{}},
 		"stations":     {f: "../network/stations.csv", l: &meta.StationList{}},
 		"sites":        {f: "../network/sites.csv", l: &meta.SiteList{}},
