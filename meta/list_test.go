@@ -815,19 +815,17 @@ func TestList(t *testing.T) {
 					Station:  "APZ",
 					Location: "10",
 					Place:    "The Paps",
-					//PreAmp:       false,
-					//Gain:         0,
+					Number:   3,
 					Span: Span{
 						Start: time.Date(2006, time.May, 7, 3, 23, 54, 0, time.UTC),
 						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
+					number: "3",
 				},
 				Connection{
 					Station:  "BSWZ",
 					Location: "10",
 					Place:    "Blackbirch Station",
-					//PreAmp:       true,
-					//Gain:         1,
 					Span: Span{
 						Start: time.Date(2003, time.December, 9, 0, 0, 0, 0, time.UTC),
 						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
