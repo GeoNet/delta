@@ -12,6 +12,7 @@ const (
 	connectionLocation
 	connectionPlace
 	connectionRole
+	connectionNumber
 	connectionStart
 	connectionEnd
 	connectionLast
@@ -24,6 +25,9 @@ type Connection struct {
 	Location string
 	Place    string
 	Role     string
+	Number   int
+
+	number string
 }
 
 func (c Connection) less(con Connection) bool {
@@ -44,8 +48,14 @@ func (c Connection) less(con Connection) bool {
 		return true
 	case c.Role > con.Role:
 		return false
+	case c.Number < con.Number:
+		return true
+	case c.Number > con.Number:
+		return false
+	case c.Start.Before(con.Start):
+		return true
 	default:
-		return c.Start.Before(con.Start)
+		return false
 	}
 }
 
@@ -61,6 +71,7 @@ func (c ConnectionList) encode() [][]string {
 		"Location",
 		"Place",
 		"Role",
+		"Number",
 		"Start Date",
 		"End Date",
 	}}
@@ -70,6 +81,7 @@ func (c ConnectionList) encode() [][]string {
 			strings.TrimSpace(v.Location),
 			strings.TrimSpace(v.Place),
 			strings.TrimSpace(v.Role),
+			strings.TrimSpace(v.number),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -84,13 +96,19 @@ func (c *ConnectionList) decode(data [][]string) error {
 			if len(v) != connectionLast {
 				return fmt.Errorf("incorrect number of installed connection fields")
 			}
-			var err error
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[connectionStart]); err != nil {
+			number, err := ParseInt(strings.TrimSpace(v[connectionNumber]))
+			if err != nil {
 				return err
 			}
-			if end, err = time.Parse(DateTimeFormat, v[connectionEnd]); err != nil {
+
+			start, err := time.Parse(DateTimeFormat, strings.TrimSpace(v[connectionStart]))
+			if err != nil {
+				return err
+			}
+
+			end, err := time.Parse(DateTimeFormat, strings.TrimSpace(v[connectionEnd]))
+			if err != nil {
 				return err
 			}
 
@@ -99,10 +117,13 @@ func (c *ConnectionList) decode(data [][]string) error {
 				Location: strings.TrimSpace(v[connectionLocation]),
 				Place:    strings.TrimSpace(v[connectionPlace]),
 				Role:     strings.TrimSpace(v[connectionRole]),
+				Number:   number,
 				Span: Span{
 					Start: start,
 					End:   end,
 				},
+
+				number: strings.TrimSpace(v[connectionNumber]),
 			})
 		}
 

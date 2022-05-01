@@ -190,6 +190,9 @@ A list of _datalogger_ connections, these are used to attach the sensors
 at a given _site_ location to the dataloggers deployed at the associated
 _place_. Multiple _dataloggers_ installed at the same place are distinguished
 by an operational _role_, if required.
+For dataloggers that have different response characteristics depending on
+what channel number (or pin) is used, an offset can be given for the sensor
+channel start.
 
 | Field | Description | Units |
 | --- | --- | --- |
@@ -197,6 +200,7 @@ by an operational _role_, if required.
 | _Location_ | Sensor _site_ location
 | _Place_ | Datalogger deployment _place_
 | _Role_ | Datalogger deployment _role_
+| _Number_ | Initial datalogger pin, or channel, offset number used for the sensor
 | _Start_ | Connection start time
 | _Stop_ | Connection stop time
 
@@ -224,7 +228,7 @@ For the scale factor and bias either a value can be given directly or an express
 | --- | --- | --- |
 | _Station_ | Datalogger recording _Station_|
 | _Location_ | Recording sensor site _Location_ |
-| _SubLocation_ | additional location identifier for multiparametric sensors installations, if applicable |
+| _SubLocation_ | additional location identifier for multi-parametric sensors installations, if applicable |
 | _Channel_ | The sensor channel, as defined in the response configuration, which requires a gain adjustment, multiple channels can be joined (e.g _"Z"_ or _"ZNE"_).
 | _Scale Factor_ | Scale, or gain factor, that the input signal is multiplied by prior to digitisation, or for polynomial responses it is the factor used to convert Volts into the signal units. If this field is empty, it should be assumed to have a value of __1.0__ which in theory should have no impact.
 | _Scale Bias_ | An offset value that needs to be added to the signal prior to digitisation and indicates a polynomial response is expected, if this field is blank it is assumed that the value is __0.0__.
@@ -237,7 +241,7 @@ For a second order polynomial response, the output is expected to be `Y = a * X 
  
 Sensor specific calibrations that may impact overall sensitivity. A list of installation times where calibrated values of the _Sensor_ sensitivity are known and can be used to override 
 the default _Model_ sensitivities.
-For the component, sensitivity, and frequency either a value can be given directly or an expression can be used if that is more readible.
+For the component, sensitivity, and frequency either a value can be given directly or an expression can be used if that is more readable.
 
 | Field | Description | Units |
 | --- | --- | --- |
@@ -245,7 +249,7 @@ For the component, sensitivity, and frequency either a value can be given direct
 | _Model_ | Sensor model name
 | _Serial_ | Sensor serial number
 | _Component_ | The sensor component, as defined in the response configuration or elsewhere, which overrides the default values, a blank value is interpreted as the first sensor component, or __"pin"__ zero.
-| _Scale Factor_ | Sensitivity, or scale factor, that the input signal is generally multiplied by to convert to Volts, or for polynomial responses the value used to convert Volts into the signal units. A blank value is expected to be read as __1.0__, an expicit value of zero is required to be entered if intended.
+| _Scale Factor_ | Sensitivity, or scale factor, that the input signal is generally multiplied by to convert to Volts, or for polynomial responses the value used to convert Volts into the signal units. A blank value is expected to be read as __1.0__, an explicit value of zero is required to be entered if intended.
 | _Scale Bias_ | An offset, or scale bias, for polynomial responses that is added to the converted volts to give the signal values. If this field is blank it should be assumed that the value is __0.0__.
 | _Frequency_ | Frequency at which the calibration value is correct for if appropriate.
 | _Start_ | Calibration start time|
