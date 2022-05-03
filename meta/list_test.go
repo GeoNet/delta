@@ -1100,6 +1100,92 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
+		{
+			"testdata/components.csv",
+			&ComponentList{
+				Component{
+					Make:      "Guralp",
+					Model:     "Fortis",
+					Type:      "Accelerometer",
+					Number:    0,
+					Subsource: "Z",
+					Dip:       -90.0,
+					Azimuth:   0.0,
+					Types:     "G",
+					Response:  "sensor_guralp_fortis_response",
+
+					number:  "0",
+					dip:     "-90",
+					azimuth: "0",
+				},
+				Component{
+					Make:      "Guralp",
+					Model:     "Fortis",
+					Type:      "Accelerometer",
+					Number:    1,
+					Subsource: "N",
+					Dip:       0.0,
+					Azimuth:   0.0,
+					Types:     "G",
+					Response:  "sensor_guralp_fortis_response",
+
+					number:  "1",
+					dip:     "0",
+					azimuth: "0",
+				},
+				Component{
+					Make:      "Guralp",
+					Model:     "Fortis",
+					Type:      "Accelerometer",
+					Number:    2,
+					Subsource: "E",
+					Dip:       0.0,
+					Azimuth:   90.0,
+					Types:     "G",
+					Response:  "sensor_guralp_fortis_response",
+
+					number:  "2",
+					dip:     "0",
+					azimuth: "90",
+				},
+			},
+		},
+		{
+			"testdata/channels.csv",
+			&ChannelList{
+				Channel{
+					Make:         "Nanometrics",
+					Model:        "Centaur CTR4-6S",
+					Type:         "Datalogger",
+					SamplingRate: 200,
+					Response:     "datalogger_nanometrics_centaur_200_response",
+
+					samplingRate: "200",
+				},
+				Channel{
+					Make:         "Quanterra",
+					Model:        "Q330HR/6",
+					Type:         "Datalogger",
+					Number:       0,
+					SamplingRate: 200,
+					Response:     "datalogger_quanterra_q330_highgain_200_response",
+
+					number:       "0",
+					samplingRate: "200",
+				},
+				Channel{
+					Make:         "Quanterra",
+					Model:        "Q330HR/6",
+					Type:         "Datalogger",
+					Number:       3,
+					SamplingRate: 200,
+					Response:     "datalogger_quanterra_q330_200_response",
+
+					number:       "3",
+					samplingRate: "200",
+				},
+			},
+		},
 	}
 
 	for _, tt := range listtests {
