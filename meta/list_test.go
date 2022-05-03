@@ -890,6 +890,38 @@ func TestList(t *testing.T) {
 			},
 		},
 		{
+			"testdata/codenames.csv",
+			&CodenameList{
+				Codename{
+					Type:         "Accelerometer",
+					SamplingRate: 200.0,
+					Dip:          -90,
+					Azimuth:      0,
+					Code:         "HNZ",
+					Axial:        "",
+					Flags:        "G",
+
+					samplingRate: "200",
+					dip:          "-90",
+					azimuth:      "0",
+				},
+				Codename{
+					Type:         "Broadband Seismomemter",
+					SamplingRate: 100.0,
+					Dip:          0,
+					Azimuth:      0,
+					Code:         "HHN",
+					Axial:        "",
+					Flags:        "G",
+
+					samplingRate: "100",
+					dip:          "0",
+					azimuth:      "0",
+					axial:        "HH1",
+				},
+			},
+		},
+		{
 			"testdata/gauges.csv",
 			&GaugeList{
 				Gauge{
@@ -1097,6 +1129,71 @@ func TestList(t *testing.T) {
 
 					latitude:  "-36.85",
 					longitude: "174.767",
+				},
+			},
+		},
+		{
+			"testdata/components.csv",
+			&ComponentList{
+				Component{
+					Make:     "Guralp",
+					Model:    "Fortis",
+					Type:     "Accelerometer",
+					Pin:      0,
+					Azimuth:  0.0,
+					Dip:      -90.0,
+					Response: "sensor_guralp_fortis_response",
+
+					pin:     "0",
+					azimuth: "0",
+					dip:     "-90",
+				},
+			},
+		},
+		{
+			"testdata/channels.csv",
+			&ChannelList{
+				Channel{
+					Make:         "Nanometrics",
+					Model:        "Centaur CTR4-6S",
+					Description:  "Centaur",
+					Type:         "Datalogger",
+					Pin:          0,
+					SamplingRate: 200.0,
+					Gain:         1.0,
+					Response:     "datalogger_nanometrics_centaur_200_response",
+
+					pin:          "",
+					gain:         "",
+					samplingRate: "200",
+				},
+				Channel{
+					Make:         "Quanterra",
+					Model:        "Q330HR/6",
+					Description:  "Q330",
+					Type:         "Datalogger",
+					Pin:          0,
+					Gain:         1.0,
+					SamplingRate: 200.0,
+					Response:     "datalogger_quanterra_q330_highgain_200_response",
+
+					pin:          "0",
+					gain:         "",
+					samplingRate: "200",
+				},
+				Channel{
+					Make:         "Quanterra",
+					Model:        "Q330HR/6",
+					Description:  "Q330",
+					Type:         "Datalogger",
+					Pin:          3,
+					SamplingRate: 200.0,
+					Gain:         2,
+					Response:     "datalogger_quanterra_q330_200_response",
+
+					pin:          "3",
+					gain:         "2",
+					samplingRate: "200",
 				},
 			},
 		},
