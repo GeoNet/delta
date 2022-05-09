@@ -3,6 +3,8 @@ package resp
 //go:generate bash -c "go run generate/*.go | gofmt -s > auto.go; test -s auto.go || rm auto.go"
 
 import (
+	//	"log"
+
 	"math"
 	"math/cmplx"
 	"strings"
@@ -165,6 +167,89 @@ type ResponseStage struct {
 	InputUnits  string
 	OutputUnits string
 }
+
+func (r *ResponseStage) AppyGain(factor, bias float64) bool {
+	switch v := r.StageSet.(type) {
+	case Polynomial:
+		switch c := v.Coefficients; len(c) {
+		case 1:
+			// only a bias is given
+			v.Coefficients = []Coefficient{
+				{
+					Value: c[0].Value + bias,
+				},
+			}
+			r.StageSet = v
+			return true
+		case 2:
+			// a bias and a factor is given
+			v.Coefficients = []Coefficient{
+				{
+					Value: c[0].Value + bias,
+				}, {
+					Value: c[1].Value * factor,
+				},
+			}
+			// adjust the polynomial gain if a factor given
+			if x := c[1].Value * factor; x != 0.0 {
+				v.Gain = 1.0 / x
+			}
+			r.StageSet = v
+			return true
+		default:
+			return false
+		}
+	case PAZ:
+		// only update the stage gain
+		r.Gain *= factor
+		return true
+	default:
+		return false
+	}
+}
+
+func (r *ResponseStage) Calibrate(factor, bias, freq float64) bool {
+	switch v := r.StageSet.(type) {
+	case Polynomial:
+		switch len(v.Coefficients) {
+		case 1:
+			// only a bias is given
+			v.Coefficients = []Coefficient{
+				{
+					Value: bias,
+				},
+			}
+			r.StageSet = v
+			return true
+		case 2:
+			// a bias and a factor is given, keep the bias
+			v.Coefficients = []Coefficient{
+				{
+					Value: bias,
+				}, {
+					Value: factor,
+				},
+			}
+			// adjust the polynomial gain if a factor given
+			if factor != 0.0 {
+				v.Gain = 1.0 / factor
+			}
+			r.StageSet = v
+			return true
+		default:
+			return false
+		}
+	case PAZ:
+		// only update the stage gain and frequency
+		r.Gain = factor
+		r.Frequency = freq
+		return true
+	default:
+		return false
+	}
+}
+
+type ResponseStages []ResponseStage
 
 type PAZ struct {
 	Name  string

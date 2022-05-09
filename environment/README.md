@@ -30,7 +30,10 @@ _Lists the geological and physical environment details of collection points._
 | --- | --- |
 | _Station_ | Code used to uniquely identify Recording _Station_.
 | _Location_ | Code used to uniquely identify the _Site_ at the  Recording _Station_.
+| _SubLocation_ | Code used to uniquely identify the _Site_ SubLocation if applicable.
+| _Property_ | Property being measured.
 | _Description_ | A helpful description of the physical site location.
+| _Aspect_ | Additional description of the physical site location, if applicable.
 | _Start Date_ | General date and time at which the _Site_ description was valid.
 | _End Date_ | General date and time at which the _Site_ description was no longer valid.
 
