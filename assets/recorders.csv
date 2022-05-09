@@ -18,6 +18,7 @@ CSI,CUSP-Me,3DE-20746,15175,
 CSI,CUSP-Me,3DE-20747,15176,
 CSI,CUSP-Me,3DE-20748,15177,
 CSI,CUSP-Me,3DE-20749,15178,
+CSI,CUSP-Me,3DE-20750,15588,
 CSI,CUSP-Me,3De-20752e,15502,
 CSI,CUSP-Me,3De-20753e,15503,
 CSI,CUSP-Me,3De-20754e,15504,
@@ -634,12 +635,16 @@ CSI,EQR120,46524,,
 CSI,EQR120,46525,,
 CSI,EQR120,46526,,
 CSI,EQR120,46527,,
+CSI,EQR120,46528,,
 CSI,EQR120,46529,,
 CSI,EQR120,46530,,
 CSI,EQR120,46531,,
 CSI,EQR120,46532,,
 CSI,EQR120,46535,,
 CSI,EQR120,46536,,
+CSI,EQR120,46537,,
+CSI,EQR120,46540,,
+GEM Systems,GSM-19,28480,,
 Kinemetrics,BASALT,1196,14805,
 Kinemetrics,BASALT,1245,14806,
 Kinemetrics,BASALT,1263,14807,
@@ -1016,15 +1021,28 @@ Nanometrics,TitanSMA,001258,8081,
 Nanometrics,TitanSMA,001259,8104,
 Nanometrics,TitanSMA,001260,8096,
 Nanometrics,TitanSMA,001261,8087,
+Nanometrics,TitanSMA,001705,,
+Nanometrics,TitanSMA,001706,,
+Nanometrics,TitanSMA,001708,,
+Nanometrics,TitanSMA,001712,,
+Nanometrics,TitanSMA,001714,,
+Nanometrics,TitanSMA,001715,,
 Paroscientific,BPR Subsystem,141002,,DART 4G
 Paroscientific,BPR Subsystem,141012,,DART 4G
 Paroscientific,BPR Subsystem,141016,,DART 4G
 Paroscientific,BPR Subsystem,141019,,DART 4G
+Paroscientific,BPR Subsystem,190704,,DART 4G
 Paroscientific,BPR Subsystem,2-190706,,DART 4G
 Paroscientific,BPR Subsystem,190724,,DART 4G
 Paroscientific,BPR Subsystem,190726,,DART 4G
+Paroscientific,BPR Subsystem,191002,,DART 4G
 Paroscientific,BPR Subsystem,191002-9,,DART 4G
+Paroscientific,BPR Subsystem,200101,,DART 4G
 Paroscientific,BPR Subsystem,200117-16,,DART 4G
+Paroscientific,BPR Subsystem,201002,,DART 4G
+Paroscientific,BPR Subsystem,201003,,DART 4G
+Paroscientific,BPR Subsystem,201004,,DART 4G
+Paroscientific,BPR Subsystem,201005,,DART 4G
 PEL,MO1,0001,,
 PEL,MO1,0002,,
 PEL,MO1,0003,,

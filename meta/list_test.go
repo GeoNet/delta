@@ -226,7 +226,10 @@ func TestList(t *testing.T) {
 					},
 					Station:     "CNZ",
 					Location:    "12",
+					SubLocation: "01",
+					Property:    "Toto",
 					Description: "Over the rainbow",
+					Aspect:      "oklahoma",
 				},
 				Feature{
 					Span: Span{
@@ -235,7 +238,10 @@ func TestList(t *testing.T) {
 					},
 					Station:     "MSCZ",
 					Location:    "10",
+					SubLocation: "02",
+					Property:    "Tin",
 					Description: "Somewhere up on high",
+					Aspect:      "tulsa",
 				},
 			},
 		},
@@ -885,6 +891,10 @@ func TestList(t *testing.T) {
 			"testdata/gauges.csv",
 			&GaugeList{
 				Gauge{
+					Span: Span{
+						Start: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
 					Reference: Reference{
 						Code:    "AUCT",
 						Network: "TG",
@@ -902,6 +912,10 @@ func TestList(t *testing.T) {
 					Crex: "-3683144 17478654 AUCT",
 				},
 				Gauge{
+					Span: Span{
+						Start: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
 					Reference: Reference{
 						Code:    "CPIT",
 						Network: "TG",
@@ -924,6 +938,10 @@ func TestList(t *testing.T) {
 			"testdata/constituents.csv",
 			&ConstituentList{
 				Constituent{
+					Span: Span{
+						Start: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
 					Gauge:     "AUCT",
 					Number:    1,
 					Name:      "Z0",
@@ -934,6 +952,10 @@ func TestList(t *testing.T) {
 					lag:       "0",
 				},
 				Constituent{
+					Span: Span{
+						Start: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
 					Gauge:     "AUCT",
 					Number:    2,
 					Name:      "SA",
@@ -1001,6 +1023,55 @@ func TestList(t *testing.T) {
 					},
 					Mount: "TOD02",
 					View:  "01",
+				},
+			},
+		},
+		{
+			"testdata/calibrations.csv",
+			&CalibrationList{
+				Calibration{
+					Install: Install{
+						Equipment: Equipment{
+							Make:   "Acme",
+							Model:  "ACME01",
+							Serial: "257",
+						},
+						Span: Span{
+							Start: time.Date(2021, time.July, 1, 0, 0, 0, 0, time.UTC),
+							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+						},
+					},
+					ScaleFactor: 2000.169 / 2.0,
+					ScaleBias:   1.0,
+					Frequency:   10.0,
+					Component:   0,
+
+					component: "0",
+					factor:    "2000.169/2.0",
+					bias:      "1.0",
+					frequency: "10.0",
+				},
+			},
+		},
+		{
+			"testdata/gains.csv",
+			&GainList{
+				Gain{
+					Span: Span{
+						Start: time.Date(2021, time.July, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+					Scale: Scale{
+						Factor: 1298.169,
+						Bias:   11865.556,
+
+						factor: "1298.169",
+						bias:   "11865.556",
+					},
+					Station:     "SBAM",
+					Location:    "50",
+					SubLocation: "01",
+					Channel:     "XZ",
 				},
 			},
 		},

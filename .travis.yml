@@ -15,7 +15,7 @@ services:
 language: go
 
 go:
-  - 1.13.1
+  - 1.16.13
 
 install:
   - export GOFLAGS=-mod=vendor

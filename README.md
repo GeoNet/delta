@@ -26,6 +26,16 @@ Equipment installation and connections details.
 
 - see [further details about the installation files](install/README.md)
 
+## calibration
+
+Equipment calibration files.
+
+- see [further details about the calibration files](calibration/README.md)
+
+## docs
+
+Miscellaneous documentation.
+
 ## meta
 
 Golang module to load the meta data csv files.

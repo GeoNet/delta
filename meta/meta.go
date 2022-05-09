@@ -1,6 +1,7 @@
 package meta
 
 import (
+	"strings"
 	"time"
 )
 
@@ -178,13 +179,13 @@ func (e Equipment) String() string {
 func (e Equipment) Less(eq Equipment) bool {
 
 	switch {
-	case e.Make < eq.Make:
+	case strings.ToLower(e.Make) < strings.ToLower(eq.Make):
 		return true
-	case e.Make > eq.Make:
+	case strings.ToLower(e.Make) > strings.ToLower(eq.Make):
 		return false
-	case e.Model < eq.Model:
+	case strings.ToLower(e.Model) < strings.ToLower(eq.Model):
 		return true
-	case e.Model > eq.Model:
+	case strings.ToLower(e.Model) > strings.ToLower(eq.Model):
 		return false
 	}
 
