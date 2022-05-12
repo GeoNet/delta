@@ -173,8 +173,6 @@ Geospace Technologies Corporation,GS-11D seismometer,130738-003,RT02,10,0,,0,0,0
 Geospace Technologies Corporation,GS-11D seismometer,167522-001,KQB,10,0,,0,0,0,0,0,0,2012-04-04T01:00:00Z,2017-05-04T02:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,167522-002,KQF,10,0,,0,0,0,0,0,0,2012-04-04T01:00:00Z,2015-11-26T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,167522-003,KQE,10,0,,0,0,0,0,0,0,2012-04-04T01:00:00Z,2015-06-23T00:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,167522-003,RT22,10,0,,0,0,0,0,0,0,2015-06-24T23:06:00Z,2016-05-17T00:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,167522-003,RT24,10,0,,0,0,0,0,0,0,2016-05-17T03:10:00Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,167522-004,KQG,10,0,,0,0,0,0,0,0,2012-04-04T01:00:00Z,2017-05-04T02:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,167522-005,KQD,10,0,,0,0,0,0,0,0,2012-04-04T01:00:00Z,2014-03-13T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,167522-005,KQH,10,0,,0,0,0,0,0,0,2014-04-10T00:02:00Z,2015-11-26T00:00:00Z
@@ -182,7 +180,6 @@ Geospace Technologies Corporation,GS-11D seismometer,17757001,NS07,10,0,,0,0,0,0
 Geospace Technologies Corporation,GS-11D seismometer,17757001,NS08,10,0,,0,0,0,0,0,0,2012-05-16T22:29:00Z,2015-04-23T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,17757001,NS18,10,0,,0,0,0,0,0,0,2015-04-24T01:00:00Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,17757002,RT06,10,0,,0,0,0,0,0,0,2012-05-25T00:00:40Z,2012-10-29T00:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,17757002,RT14,10,0,,0,0,0,0,0,0,2012-10-29T00:00:25Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,17757003,NS10,10,0,,0,0,0,0,0,0,2012-11-01T00:00:25Z,2014-07-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,17757004,NS06,10,0,,0,0,0,0,0,0,2012-05-15T22:02:00Z,2012-11-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,17757004,NS11,10,0,,0,0,0,0,0,0,2012-11-01T00:00:25Z,9999-01-01T00:00:00Z
@@ -200,7 +197,6 @@ Geospace Technologies Corporation,GS-11D seismometer,186859-02,NS09,10,0,,0,0,0,
 Geospace Technologies Corporation,GS-11D seismometer,186859-02,NS16,10,0,,0,0,0,0,0,0,2015-05-01T00:02:00Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,186859-03,SM16,10,0,,0,0,0,0,0,0,2017-02-16T00:02:38Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,186859-04,SM07,10,0,,0,0,0,0,0,0,2015-12-16T12:40:00Z,9999-01-01T00:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,186859-08,RT23,10,0,,0,0,0,0,0,0,2015-06-25T00:32:00Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,195380-01,SM05,10,0,,0,0,0,0,0,0,2013-06-12T23:02:00Z,2015-12-16T11:07:00Z
 Geospace Technologies Corporation,GS-11D seismometer,195380-02,SM10,10,0,,0,0,0,0,0,0,2013-06-12T21:44:00Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,195380-03,SM06,10,0,,0,0,0,0,0,0,2013-06-12T01:55:00Z,9999-01-01T00:00:00Z
@@ -218,24 +214,14 @@ Geospace Technologies Corporation,GS-11D seismometer,195380-08,SM16,10,0,,0,0,0,
 Geospace Technologies Corporation,GS-11D seismometer,195380-09,SM02,10,0,,0,0,0,0,0,0,2013-06-12T00:10:00Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,195380-10,SM07,10,0,,0,0,0,0,0,0,2013-06-12T22:55:00Z,2015-12-16T12:24:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP 015,RT02,10,0,,0,0,0,0,0,0,2012-02-03T00:00:20Z,2012-10-29T00:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,MRP 015,RT13,10,0,,0,0,0,0,0,0,2012-11-01T00:00:20Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP 016,RT09,10,0,,0,0,0,0,0,0,2012-02-02T00:00:20Z,2012-10-29T00:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,MRP 016,RT16,10,0,,0,0,0,0,0,0,2012-11-01T00:00:20Z,2013-03-14T23:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,MRP 016,RT18,10,0,,0,0,0,0,0,0,2013-03-14T23:02:00Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP001,RT05,10,0,,0,0,0,0,0,0,2008-10-10T00:00:10Z,2018-01-01T00:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,MRP002,RT17,10,0,,0,0,0,0,0,0,2012-11-01T00:00:20Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP003,RT03,10,0,,0,0,0,0,0,0,2008-10-10T00:00:10Z,2012-10-29T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP004,RT08,10,0,,0,0,0,0,0,0,2008-10-10T00:00:10Z,2012-10-29T00:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,MRP004,RT13,10,0,,0,0,0,0,0,0,2012-10-29T00:00:25Z,2012-11-01T00:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,MRP004,RT15,10,0,,0,0,0,0,0,0,2012-11-01T00:00:20Z,2013-03-14T23:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,MRP004,RT19,10,0,,0,0,0,0,0,0,2013-03-14T23:02:00Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP005,RT07,10,0,,0,0,0,0,0,0,2008-10-10T00:00:10Z,2013-03-14T23:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,MRP005,RT20,10,0,,0,0,0,0,0,0,2013-03-14T23:02:00Z,2013-08-28T00:05:00Z
-Geospace Technologies Corporation,GS-11D seismometer,MRP005,RT21,10,0,,0,0,0,0,0,0,2013-08-28T02:00:00Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP006,RT11,10,0,,0,0,0,0,0,0,2009-06-22T01:00:00Z,2015-06-24T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP007,RT10,10,0,,0,0,0,0,0,0,2008-10-30T00:01:01Z,2009-06-22T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP008,RT06,10,0,,0,0,0,0,0,0,2008-10-10T00:00:10Z,2012-05-25T00:00:00Z
-Geospace Technologies Corporation,GS-11D seismometer,MRP009,RT12,10,0,,0,0,0,0,0,0,2011-05-29T00:00:10Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP010,RT01,10,0,,0,0,0,0,0,0,2008-10-10T00:00:10Z,2013-03-15T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP011,RT11,10,0,,0,0,0,0,0,0,2008-10-10T00:00:10Z,2009-06-22T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,MRP012,RT09,10,0,,0,0,0,0,0,0,2008-10-30T01:01:01Z,2012-02-02T00:00:00Z
