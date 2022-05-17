@@ -22,10 +22,10 @@ datalogger-model:
     vendor: ""
 
 paz:
-  CENTAUR-PREAMP:
+  CENTAUR-GAIN:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
-    notes: A simple place holder indicating the PREAMP has been enables
+    notes: A simple place holder indicating a GAIN has been enabled
     poles: []
     zeros: []
 
@@ -286,9 +286,9 @@ filter:
     inputunits: count
     outputunits: count
 
-  CENTAUR-100-LP-PREAMP40:
+  CENTAUR-100-LP-GAIN40:
   - type: paz
-    lookup: CENTAUR-PREAMP
+    lookup: CENTAUR-GAIN
     frequency: 15
     samplerate: 0
     decimate: 0

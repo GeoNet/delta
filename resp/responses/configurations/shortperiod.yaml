@@ -142,7 +142,7 @@ response:
       - EARSS-50
       reversed: false
 
-  Nanometrics Dataloggers Connected to Short Period Sensors with Pre Amp:
+  Nanometrics Dataloggers Connected to Short Period Sensors with Gain Enabled:
     sensors:
     - sensors:
       - 2 Hz Duke Malin Seismometer
@@ -159,7 +159,7 @@ response:
       storageformat: Steim1
       clockdrift: 0.0001
       filters:
-        - CENTAUR-100-LP-PREAMP40
+        - CENTAUR-100-LP-GAIN40
 
   Nanometrics Dataloggers Connected to Short Period Sensors:
     sensors:

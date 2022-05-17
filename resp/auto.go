@@ -4260,7 +4260,7 @@ var Responses []Response = []Response{
 			},
 		},
 	}, {
-		Name: "Nanometrics Dataloggers Connected to Short Period Sensors with Pre Amp",
+		Name: "Nanometrics Dataloggers Connected to Short Period Sensors with Gain Enabled",
 		Sensors: []Sensor{
 			{
 				SensorList: []string{"2 Hz Duke Malin Seismometer"},
@@ -4293,17 +4293,17 @@ var Responses []Response = []Response{
 				Reversed: true,
 			}, {
 				SensorList: []string{},
-				FilterList: []string{"CENTAUR-100-LP-PREAMP40"},
+				FilterList: []string{"CENTAUR-100-LP-GAIN40"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
-						Lookup: "CENTAUR-PREAMP",
-						Filter: "CENTAUR-100-LP-PREAMP40",
+						Lookup: "CENTAUR-GAIN",
+						Filter: "CENTAUR-100-LP-GAIN40",
 						StageSet: PAZ{
-							Name:  "CENTAUR-PREAMP",
+							Name:  "CENTAUR-GAIN",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
 							Type:  "Laplace transform analog stage response, in rad/sec.",
-							Notes: "A simple place holder indicating the PREAMP has been enables",
+							Notes: "A simple place holder indicating a GAIN has been enabled",
 						},
 						Frequency:  15,
 						SampleRate: 0,
@@ -4317,7 +4317,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "CENTAUR-100-LP-PREAMP40",
+						Filter: "CENTAUR-100-LP-GAIN40",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -4336,7 +4336,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "CENTAUR_PRIM100STAGE1_LP",
-						Filter: "CENTAUR-100-LP-PREAMP40",
+						Filter: "CENTAUR-100-LP-GAIN40",
 						StageSet: FIR{
 							Name:       "CENTAUR_PRIM100STAGE1_LP",
 							Causal:     false,
@@ -4357,7 +4357,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "CENTAUR_PRIM100STAGE2_LP",
-						Filter: "CENTAUR-100-LP-PREAMP40",
+						Filter: "CENTAUR-100-LP-GAIN40",
 						StageSet: FIR{
 							Name:       "CENTAUR_PRIM100STAGE2_LP",
 							Causal:     false,
@@ -4378,7 +4378,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "CENTAUR_PRIM100STAGE3_LP",
-						Filter: "CENTAUR-100-LP-PREAMP40",
+						Filter: "CENTAUR-100-LP-GAIN40",
 						StageSet: FIR{
 							Name:       "CENTAUR_PRIM100STAGE3_LP",
 							Causal:     false,
