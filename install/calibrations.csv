@@ -2,3 +2,4 @@ Make,Model,Serial,Number,Scale Factor,Scale Bias,Scale Absolute,Frequency,Start 
 Danish Meteorological Institute,FGE,S0263,0,37683.0/59.0,59.0/255.0,,,2013-12-15T00:00:00Z,9999-01-01T00:00:00Z
 Danish Meteorological Institute,FGE,S0263,1,37968.0/59.0,59.0/255.0,,,2013-12-15T00:00:00Z,9999-01-01T00:00:00Z
 Danish Meteorological Institute,FGE,S0263,2,-37618.0/59.0,59.0/255.0,-38000,,2013-12-15T00:00:00Z,9999-01-01T00:00:00Z
+Danish Meteorological Institute,FGE,S0263,3,10,,,,2013-12-15T00:00:00Z,9999-01-01T00:00:00Z
