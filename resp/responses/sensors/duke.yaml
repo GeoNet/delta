@@ -40,7 +40,7 @@ paz:
   MALIN_4.5:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
-    notes: derived from information passed on from Eylon Shalev <shalev@duke.edu>
+    notes: derived from information passed on from Peter Malin <pem@asirseismic.com> 
     poles:
     - (-60.822916536+71.994505702i)
     - (-60.822916536-71.994505702i)
