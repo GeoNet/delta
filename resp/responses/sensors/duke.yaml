@@ -69,7 +69,7 @@ filter:
     frequency: 15
     samplerate: 0
     decimate: 0
-    gain: 62.2
+    gain: 78.7
     scale: 1
     correction: 0
     delay: 0
