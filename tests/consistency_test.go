@@ -69,6 +69,7 @@ func TestConsistency(t *testing.T) {
 		"gauges":       {f: "../environment/gauges.csv", l: &meta.GaugeList{}},
 		"constituents": {f: "../environment/constituents.csv", l: &meta.ConstituentList{}},
 		"features":     {f: "../environment/features.csv", l: &meta.FeatureList{}},
+		"visibility":   {f: "../environment/visibility.csv", l: &meta.VisibilityList{}},
 	}
 
 	for f, v := range files {
