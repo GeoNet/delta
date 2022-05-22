@@ -888,6 +888,35 @@ func TestList(t *testing.T) {
 			},
 		},
 		{
+			"testdata/labels.csv",
+			&LabelList{
+				Label{
+					Type:         "Broadband Seismometer",
+					SamplingRate: 100.0,
+					Azimuth:      0.0,
+					Dip:          -90.0,
+					Code:         "HHZ",
+					Flags:        "G",
+
+					azimuth:      "0",
+					dip:          "-90",
+					samplingRate: "100",
+				},
+				Label{
+					Type:         "Accelerometer",
+					SamplingRate: 200.0,
+					Azimuth:      0.0,
+					Dip:          0.0,
+					Code:         "HNN",
+					Flags:        "G",
+
+					azimuth:      "0",
+					dip:          "0",
+					samplingRate: "200",
+				},
+			},
+		},
+		{
 			"testdata/gauges.csv",
 			&GaugeList{
 				Gauge{
