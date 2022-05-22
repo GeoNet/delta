@@ -897,7 +897,9 @@ func TestList(t *testing.T) {
 					Dip:          -90.0,
 					Code:         "HHZ",
 					Flags:        "G",
+					Axial:        "HHZ",
 
+					axial:        "",
 					azimuth:      "0",
 					dip:          "-90",
 					samplingRate: "100",
@@ -909,7 +911,9 @@ func TestList(t *testing.T) {
 					Dip:          0.0,
 					Code:         "HNN",
 					Flags:        "G",
+					Axial:        "HN2",
 
+					axial:        "HN2",
 					azimuth:      "0",
 					dip:          "0",
 					samplingRate: "200",

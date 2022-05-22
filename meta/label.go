@@ -13,6 +13,7 @@ const (
 	labelAzimuth
 	labelDip
 	labelCode
+	labelAxial
 	labelFlags
 	labelLast
 )
@@ -21,12 +22,14 @@ const (
 type Label struct {
 	Type  string
 	Code  string
+	Axial string
 	Flags string
 
 	SamplingRate float64
 	Azimuth      float64
 	Dip          float64
 
+	axial        string
 	azimuth      string
 	dip          string
 	samplingRate string
@@ -68,6 +71,7 @@ func (s LabelList) encode() [][]string {
 		"Azimuth",
 		"Dip",
 		"Code",
+		"Axial",
 		"Flags",
 	}}
 
@@ -78,6 +82,7 @@ func (s LabelList) encode() [][]string {
 			strings.TrimSpace(v.azimuth),
 			strings.TrimSpace(v.dip),
 			strings.TrimSpace(v.Code),
+			strings.TrimSpace(v.axial),
 			strings.TrimSpace(string(v.Flags)),
 		})
 	}
@@ -108,15 +113,22 @@ func (s *LabelList) decode(data [][]string) error {
 				return err
 			}
 
+			axial := strings.TrimSpace(d[labelCode])
+			if s := strings.TrimSpace(d[labelAxial]); s != "" {
+				axial = s
+			}
+
 			labels = append(labels, Label{
 				Type:  strings.TrimSpace(d[labelType]),
 				Code:  strings.TrimSpace(d[labelCode]),
 				Flags: strings.TrimSpace(d[labelFlags]),
+				Axial: axial,
 
 				SamplingRate: rate,
 				Azimuth:      azimuth,
 				Dip:          dip,
 
+				axial:        strings.TrimSpace(d[labelAxial]),
 				samplingRate: strings.TrimSpace(d[labelSamplingRate]),
 				azimuth:      strings.TrimSpace(d[labelAzimuth]),
 				dip:          strings.TrimSpace(d[labelDip]),

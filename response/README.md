@@ -15,6 +15,7 @@ _Lists the equipment details useful for building response information._
 | _Azimuth_ | The internal _Sensor_ component azimuth relative to North.
 | _Dip_ | The internal _Sensor_ dip angle relative to the horizontal, with positive down.
 | _Code_ | The code used for the __StationXML__ Channel for the _Stream_ and _Sensor_ pair.
+| _Axial_ | An optional code to used for the __StationXML__ Channel when the sensor is aligned axially.
 | _Flags_ | Any specific _Sensor_ meta-data flags as expected by __StationXML__.
 
 The _Flags_ should be single characters arranged alphabetically into a single word.
