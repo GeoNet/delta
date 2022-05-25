@@ -319,7 +319,7 @@ paz:
     - (0+0i)
     - (0+0i)
   Fortis-DC-100Hz:
-    code: A
+    code: B
     type: Analogue response, in Hz.
     notes: https://www.guralp.com/apps/paz?x=yes%3Fr%3Ddc100&r=dc100+Acceleration
     poles:
