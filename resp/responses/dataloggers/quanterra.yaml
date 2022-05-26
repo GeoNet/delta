@@ -45,7 +45,7 @@ paz:
   Q330-PREAMP:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
-    notes: A simple place holder indicating the PREAMP has been enables
+    notes: A simple place holder indicating the PREAMP has been enabled
     poles: []
     zeros: []
 
