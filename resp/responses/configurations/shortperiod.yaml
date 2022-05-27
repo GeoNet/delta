@@ -43,6 +43,12 @@ response:
   Quanterra Dataloggers Connected to Short Period Sensors:
     sensors:
     - sensors:
+      - IESE HS-1-LT Mini 4.5Hz
+      filters:
+      - IESE HS-1-LT Mini 4.5Hz
+      channels: Z
+      reversed: false
+    - sensors:
       - L4C
       filters:
       - L4C

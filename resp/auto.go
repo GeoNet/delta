@@ -502,8 +502,8 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 	"IESE HS-1-LT Mini 4.5Hz": {
 		Name:         "IESE HS-1-LT Mini 4.5Hz",
 		Type:         "Short Period Seismometer",
-		Description:  "HS1-1-LT",
-		Manufacturer: "",
+		Description:  "HS1-1-LT-MINI",
+		Manufacturer: "OYO GeoSpace",
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
@@ -9903,6 +9903,35 @@ var Responses []Response = []Response{
 		Name: "Quanterra Dataloggers Connected to Short Period Sensors",
 		Sensors: []Sensor{
 			{
+				SensorList: []string{"IESE HS-1-LT Mini 4.5Hz"},
+				FilterList: []string{"IESE HS-1-LT Mini 4.5Hz"},
+				Stages: []ResponseStage{
+					{
+						Type:   "paz",
+						Lookup: "IESE-4.5Hz-10K-SHUNT",
+						Filter: "IESE HS-1-LT Mini 4.5Hz",
+						StageSet: PAZ{
+							Name:  "IESE-4.5Hz-10K-SHUNT",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "from Carolin Boese IESE, damping 0.5 gain 50.4",
+							Poles: []complex128{(-14.137167 + 24.486291i), (-14.137167 - 24.486291i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i)},
+						},
+						Frequency:  15,
+						SampleRate: 0,
+						Decimate:   0,
+						Gain:       50.4,
+						//Scale: 1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "m/s",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "Z",
+				Reversed: false,
+			}, {
 				SensorList: []string{"L4C"},
 				FilterList: []string{"L4C"},
 				Stages: []ResponseStage{

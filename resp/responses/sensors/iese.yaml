@@ -2,8 +2,8 @@
 sensor-model:
   IESE HS-1-LT Mini 4.5Hz:
     type: Short Period Seismometer
-    description: HS1-1-LT
-    manufacturer: ""
+    description: HS1-1-LT-MINI
+    manufacturer: "OYO GeoSpace"
     vendor: ""
     components:
     - azimuth: 0
@@ -60,5 +60,20 @@ paz:
     zeros:
     - (0+0i)
     - (0+0i)
+
+filter:
+  IESE HS-1-LT Mini 4.5Hz:
+  - type: paz
+    lookup: IESE-4.5Hz-10K-SHUNT
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 50.4
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
