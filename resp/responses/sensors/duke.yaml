@@ -37,18 +37,6 @@ paz:
     - (0+0i)
     - (0+0i)
 
-  MALIN_4.5:
-    code: A
-    type: Laplace transform analog stage response, in rad/sec.
-    notes: derived from information passed on from Peter Malin <pem@asirseismic.com> 
-    poles:
-    - (-60.822916536+71.994505702i)
-    - (-60.822916536-71.994505702i)
-    zeros:
-    - (0+0i)
-    - (0+0i)
-
-
 filter:
   2_Hz_Duke_Malin_Seismometer:
   - type: paz
@@ -62,19 +50,5 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
-
-  4.5_Hz_Duke_Malin_Seismometer:
-  - type: paz
-    lookup: MALIN_4.5
-    frequency: 15
-    samplerate: 0
-    decimate: 0
-    gain: 78.7
-    scale: 1
-    correction: 0
-    delay: 0
-    inputunits: m/s
-    outputunits: V
-
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
