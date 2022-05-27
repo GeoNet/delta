@@ -8,12 +8,6 @@ response:
       - 2_Hz_Duke_Malin_Seismometer
       channels: Z12
       reversed: true
-    - sensors:
-      - 4.5 Hz Duke Malin Seismometer
-      filters:
-      - 4.5_Hz_Duke_Malin_Seismometer
-      channels: Z12
-      reversed: true
     dataloggers:
     - dataloggers:
       - Q330S/3
