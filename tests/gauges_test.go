@@ -11,12 +11,27 @@ var testGauges = map[string]func([]meta.Gauge) func(t *testing.T){
 		return func(t *testing.T) {
 			for i := 0; i < len(gauges); i++ {
 				for j := i + 1; j < len(gauges); j++ {
-					if gauges[i].Code == gauges[j].Code {
-						t.Errorf("gauge code duplication: " + gauges[i].Code)
+					if gauges[i].Code != gauges[j].Code {
+						continue
 					}
-					if gauges[i].Number == gauges[j].Number && gauges[i].Number != "" {
-						t.Errorf("gauge number duplication: " + gauges[i].Code)
+					if !gauges[i].Start.Equal(gauges[j].Start) {
+						continue
 					}
+					t.Errorf("gauge code duplication: " + gauges[i].Code)
+				}
+			}
+			for i := 0; i < len(gauges); i++ {
+				for j := i + 1; j < len(gauges); j++ {
+					if gauges[i].Number == "" {
+						continue
+					}
+					if gauges[i].Number != gauges[j].Number {
+						continue
+					}
+					if !gauges[i].Start.Equal(gauges[j].Start) {
+						continue
+					}
+					t.Errorf("gauge number duplication: " + gauges[i].Code)
 				}
 			}
 		}

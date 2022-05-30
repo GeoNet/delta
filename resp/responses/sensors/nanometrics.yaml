@@ -36,6 +36,18 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
+  Trillium Compact 20PH-2:
+    type: Broadband Seismometer
+    description: Trillium Compact 20 Posthole
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
   Trillium Compact 120PH-2:
     type: Broadband Seismometer
     description: Trillium Compact 120 Posthole
@@ -109,6 +121,22 @@ paz:
     - (-160+0i)
     - (-350+0i)
     - (-3177+0i)
+  TRILLIUM-COMPACT-20:
+    code: A
+    type: Laplace transform analog stage response, in rad/sec.
+    notes: derived from Nanometrics documentation for Trillium Compact Posthole 20s (Model TC20-PH2, Part Number 17327-20)
+    poles:
+    - (-0.2214+0.2221i)
+    - (-0.2214-0.2221i)
+    - (-343+0i)
+    - (-370+467i)
+    - (-370-467i)
+    - (-836+1522i)
+    - (-836-1522i)
+    - (-4900+4700i)
+    - (-4900-4700i)
+    - (-6900+0i)
+    - (-15000+0i)
   TRILLIUM-COMPACT-120:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
@@ -198,6 +226,18 @@ filter:
     samplerate: 0
     decimate: 0
     gain: 754.3
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  TRILLIUM-COMPACT-20PH-2:
+  - type: paz
+    lookup: TRILLIUM-COMPACT-20
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 753.1
     scale: 1
     correction: 0
     delay: 0

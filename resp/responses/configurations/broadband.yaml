@@ -447,6 +447,12 @@ response:
       channels: ZNE
       reversed: false
     - sensors:
+      - Trillium Compact 20PH-2
+      filters:
+      - TRILLIUM-COMPACT-20PH-2
+      channels: ZNE
+      reversed: false
+    - sensors:
       - Trillium Compact 120PH-2
       filters:
       - TRILLIUM-COMPACT-120PH-2
@@ -464,6 +470,12 @@ response:
       - TRILLIUM-HORIZON-TH120-1
       channels: ZNE
       reversed: false
+    - sensors:
+      - CMG-3ESPC
+      - CMG-3ESP
+      filters:
+      - CMG-3ESP-GN
+      channels: ZNE
     dataloggers:
     - dataloggers:
       - Centaur CTR4-6S

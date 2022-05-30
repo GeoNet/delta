@@ -1,0 +1,292 @@
+Name,Latitude,Longitude,Level
+Ashburton,-43.9,171.75,1
+Auckland,-36.85,174.767,0
+Akaroa,-43.817,172.967,2
+Albany,-36.733,174.683,3
+Albury,-44.233,170.867,3
+Alexandra,-45.25,169.383,2
+Amberley,-43.167,172.733,2
+Aria,-38.567,174.983,3
+Arthur's Pass,-42.95,171.567,2
+Ashhurst,-40.283,175.75,3
+Atiamuri,-38.4,176.033,3
+Awanui,-35.05,173.267,3
+Blenheim,-41.517,173.95,1
+Balclutha,-46.233,169.733,2
+Balfour,-45.85,168.583,3
+Benneydale,-38.517,175.367,3
+Blackball,-42.367,171.417,3
+Bombay,-37.2,174.983,3
+Brighton,-45.95,170.333,3
+Brightwater,-41.383,173.1,3
+Broadwood,-35.267,173.383,3
+Bulls,-40.183,175.383,3
+Cambridge,-37.883,175.467,1
+Christchurch,-43.533,172.633,0
+Cape Reinga,-34.433,172.683,2
+Carterton,-41.017,175.533,3
+Castlepoint,-40.9,176.217,2
+Cave,-44.317,170.95,3
+Cheviot,-42.817,173.267,2
+Clinton,-46.2,169.367,3
+Coalgate,-43.483,171.967,3
+Collingwood,-40.683,172.683,2
+Coromandel,-36.75,175.5,3
+Cromwell,-45.05,169.2,3
+Culverden,-42.783,172.85,2
+Dunedin,-45.883,170.5,0
+Dannevirke,-40.2,176.1,2
+Darfield,-43.483,172.117,3
+Dargaville,-35.933,173.867,3
+Dipton,-45.9,168.383,3
+Dobson,-42.467,171.3,3
+Drury,-37.1,174.95,3
+Edgecumbe,-37.983,176.817,3
+Eketahuna,-40.65,175.7,2
+Eltham,-39.433,174.3,3
+Feilding,-40.233,175.567,1
+Fairlie,-44.1,170.833,2
+Featherston,-41.117,175.317,3
+Foxton,-40.467,175.283,3
+French Pass,-40.933,173.833,2
+Gisborne,-38.667,178.017,1
+Gore,-46.1,168.933,1
+Greymouth,-42.45,171.2,1
+Geraldine,-44.1,171.233,2
+Glenorchy,-44.85,168.383,3
+Greta Valley,-42.933,173.1,3
+Greytown,-41.083,175.45,3
+Hamilton,-37.783,175.283,1
+Hastings,-39.65,176.85,1
+Hawera,-39.583,174.283,1
+Haast,-43.883,169.05,2
+Halfmoon Bay,-46.9,168.133,3
+Hanmer Springs,-42.517,172.833,2
+Harihari,-43.15,170.567,3
+Havelock,-41.283,173.767,3
+Havelock North,-39.667,176.883,3
+Hawarden,-42.933,172.65,3
+Helensville,-36.683,174.45,3
+Hikuai,-37.067,175.767,3
+Hikurangi,-35.6,174.283,3
+Hokitika,-42.717,170.967,2
+Hunterville,-39.933,175.567,2
+Huntly,-37.567,175.167,3
+Invercargill,-46.417,168.367,1
+Inglewood,-39.167,174.183,3
+Kaeo,-35.1,173.783,3
+Kaiapoi,-43.383,172.65,3
+Kaikohe,-35.417,173.8,3
+Kaikoura,-42.4,173.683,2
+Kaitaia,-35.117,173.267,2
+Kaitangata,-46.283,169.85,3
+Kaiwaka,-36.167,174.433,3
+Karamea,-41.25,172.117,2
+Katikati,-37.55,175.917,3
+Kaukapakapa,-36.617,174.5,3
+Kawakawa,-35.367,174.067,3
+Kawerau,-38.083,176.7,3
+Kawhia,-38.067,174.817,2
+Kerikeri,-35.233,173.95,3
+Kimbolton,-40.067,175.783,3
+Kohukohu,-35.367,173.533,3
+Kotemaori,-39.067,177.033,3
+Kumara,-42.633,171.183,3
+Kumeu,-36.783,174.567,3
+Kurow,-44.733,170.467,3
+Levin,-40.617,175.283,1
+Lawrence,-45.917,169.683,3
+Leeston,-43.767,172.3,3
+Little River,-43.767,172.783,3
+Lower Hutt,-41.217,174.917,3
+Lumsden,-45.733,168.45,2
+Lyttelton,-43.6,172.7,3
+Masterton,-40.95,175.65,1
+Mahoenui,-38.583,174.833,3
+Mangakino,-38.367,175.767,3
+Mangaweka,-39.8,175.8,3
+Mangonui,-34.983,173.533,3
+Manutuke,-38.683,177.917,3
+Martinborough,-41.217,175.45,2
+Marton,-40.083,175.383,3
+Matakohe,-36.133,174.183,3
+Matamata,-37.817,175.767,3
+Matata,-37.883,176.75,3
+Matawai,-38.35,177.533,2
+Matiere,-38.767,175.1,3
+Maungaturoto,-36.1,174.35,3
+Mercer,-37.283,175.05,3
+Methven,-43.633,171.65,2
+Middlemarch,-45.517,170.117,3
+Milford Sound,-44.683,167.933,2
+Milton,-46.117,169.967,3
+Mokau,-38.7,174.617,2
+Morrinsville,-37.65,175.533,3
+Mosgiel,-45.883,170.35,3
+Mossburn,-45.667,168.233,3
+Motueka,-41.117,173.017,2
+Mount Cook,-43.733,170.1,2
+Murchison,-41.8,172.333,2
+Murupara,-38.45,176.7,2
+Napier,-39.5,176.9,1
+Nelson,-41.267,173.283,1
+New Plymouth,-39.067,174.067,1
+Ngaruawahia,-37.667,175.15,3
+Ngatea,-37.283,175.5,3
+Ngongotaha,-38.083,176.217,3
+Norsewood,-40.083,176.217,3
+Nuhaka,-39.05,177.733,3
+Oamaru,-45.1,170.967,1
+Ohakune,-39.417,175.417,2
+Ohaupo,-37.917,175.3,3
+Ohinewai,-37.483,175.167,3
+Ohura,-38.85,174.983,3
+Okaihau,-35.317,173.767,3
+Okato,-39.2,173.883,3
+Omakau,-45.1,169.6,3
+Ongaonga,-39.917,176.417,3
+Ongarue,-38.717,175.283,3
+Oparau,-38.05,174.933,3
+Opotiki,-38.017,177.283,2
+Opunake,-39.45,173.85,2
+Orewa,-36.583,174.7,3
+Otaki,-40.767,175.15,3
+Otautau,-46.15,168,3
+Otorohanga,-38.183,175.217,3
+Oturehua,-45.017,169.917,3
+Outram,-45.867,170.233,3
+Owaka,-46.45,169.65,3
+Owhango,-39,175.367,3
+Oxford,-43.3,172.2,2
+Palmerston North,-40.367,175.617,1
+Paeroa,-37.383,175.667,3
+Pahiatua,-40.45,175.833,3
+Paihia,-35.283,174.083,3
+Palmerston,-45.483,170.717,2
+Papakura,-37.067,174.95,3
+Paparoa,-36.1,174.233,3
+Paraparaumu,-40.917,175,3
+Patea,-39.75,174.467,3
+Peel Forest,-43.917,171.267,3
+Picton,-41.3,174,2
+Piopio,-38.467,175.017,3
+Pleasant Place,-44.267,171.133,3
+Pokeno,-37.25,175.017,3
+Pongaroa,-40.55,176.183,2
+Porangahau,-40.3,176.617,2
+Porirua,-41.133,174.833,3
+Port Chalmers,-45.817,170.617,3
+Pukeatua,-38.067,175.55,3
+Pukekohe,-37.2,174.9,3
+Putaruru,-38.067,175.783,3
+Queenstown,-45.033,168.667,2
+Rotorua,-38.133,176.233,1
+Raetihi,-39.433,175.283,3
+Raglan,-37.8,174.883,3
+Rai Valley,-41.233,173.583,3
+Rakaia,-43.75,172.033,3
+Ranfurly,-45.133,170.1,2
+Rangiora,-43.317,172.6,3
+Raupunga,-39.083,177.15,3
+Reefton,-42.117,171.867,2
+Reporoa,-38.433,176.35,3
+Rewa,-39.983,175.633,3
+Richmond,-41.35,173.2,3
+Riverton,-46.367,168.017,3
+Ross,-42.9,170.817,3
+Rotherham,-42.7,172.95,3
+Roxburgh,-45.55,169.317,2
+Ruatoria,-37.883,178.317,2
+Ruawai,-36.133,174.067,3
+Runanga,-42.4,171.25,3
+Russell,-35.267,174.117,3
+Seddon,-41.667,174.067,2
+Sheffield,-43.383,172.017,3
+Springfield,-43.333,171.933,3
+St Andrews,-44.533,171.183,3
+St Arnaud,-41.8,172.85,2
+Stratford,-39.35,174.283,2
+Taupo,-38.7,176.083,1
+Tauranga,-37.683,176.167,1
+Te Awamutu,-38.017,175.333,1
+Timaru,-44.4,171.25,1
+Tokoroa,-38.233,175.867,1
+Taihape,-39.683,175.8,2
+Takaka,-40.85,172.8,3
+Tangiteroria,-35.833,174.05,3
+Tapanui,-45.95,169.267,3
+Tarras,-44.833,169.417,3
+Taumarunui,-38.883,175.267,2
+Taupiri,-37.617,175.2,3
+Te Anau,-45.417,167.717,2
+Te Araroa,-37.633,178.367,2
+Te Aroha,-37.533,175.7,2
+Te Kaha,-37.75,177.683,2
+Te Karaka,-38.467,177.867,3
+Te Kauwhata,-37.4,175.15,3
+Te Kopuru,-36.033,173.917,3
+Te Kuiti,-38.333,175.167,2
+Te Mata,-37.883,174.867,3
+Te Puke,-37.783,176.333,3
+Temuka,-44.25,171.283,3
+Thames,-37.15,175.55,2
+Tikitiki,-37.8,178.417,3
+Tikokino,-39.817,176.45,3
+Tinui,-40.883,176.067,3
+Tirau,-37.983,175.767,3
+Tokanui,-46.567,168.95,3
+Tokomaru Bay,-38.133,178.317,2
+Tolaga Bay,-38.367,178.3,2
+Tuakau,-37.267,174.933,3
+Tuatapere,-46.133,167.683,2
+Turangi,-39,175.8,2
+Twizel,-44.267,170.1,2
+Upper Hutt,-41.117,175.067,3
+Upper Moutere,-41.267,173,3
+Urenui,-39,174.383,3
+Whanganui,-39.933,175.05,1
+Wellington,-41.283,174.767,0
+Whakatane,-37.967,176.983,1
+Whangarei,-35.717,174.317,1
+Waiau,-42.65,173.05,3
+Waihi,-37.4,175.833,3
+Waikaia,-45.733,168.85,3
+Waikanae,-40.883,175.067,3
+Waikari,-42.967,172.683,3
+Waikouaiti,-45.6,170.683,3
+Waimana,-38.15,177.083,3
+Waimate,-44.733,171.05,2
+Waimauku,-36.767,174.5,3
+Waimiha,-38.617,175.317,3
+Waiotira,-35.933,174.2,3
+Waiouru,-39.467,175.683,3
+Waipawa,-39.95,176.583,3
+Waipu,-35.983,174.45,3
+Waipukurau,-40,176.55,2
+Wairoa,-39.05,177.417,2
+Waitara,-39,174.233,3
+Waitati,-45.75,170.583,3
+Waitoa,-37.6,175.633,3
+Waitotara,-39.817,174.733,3
+Waiuku,-37.25,174.733,3
+Wakefield,-41.4,173.05,3
+Walton,-37.733,175.7,3
+Wanaka,-44.7,169.133,2
+Warkworth,-36.4,174.667,3
+Waverley,-39.767,174.633,2
+Wellsford,-36.3,174.517,3
+Westport,-41.75,171.6,2
+Whangamata,-37.217,175.867,2
+Whataroa,-43.267,170.367,3
+White Island,-37.517,177.183,2
+Whitianga,-36.817,175.7,2
+Winton,-46.15,168.317,3
+Woodville,-40.35,175.867,3
+Wyndham,-46.333,168.85,3
+Scott Base,-77.85,166.77,0
+Raoul Island,-29.231,-177.869,0
+"Apia, Samoa",-13.833,-171.75,0
+"Suva, Fiji",-18.142,178.442,0
+"Port Vila, Vanuatu",-17.75,168.3,0
+"Sydney, Australia",-33.865,151.209,0
+"Macquarie Island, Australia",-54.6167,158.85,0

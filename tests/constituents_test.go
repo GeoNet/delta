@@ -12,9 +12,17 @@ var testConstituents = map[string]func([]meta.Constituent) func(t *testing.T){
 		return func(t *testing.T) {
 			for i := 0; i < len(constituents); i++ {
 				for j := i + 1; j < len(constituents); j++ {
-					if constituents[i].Gauge == constituents[j].Gauge && constituents[i].Number == constituents[j].Number {
-						t.Error("contituent duplication: " + constituents[i].Gauge + "/" + strconv.Itoa(constituents[i].Number))
+					if constituents[i].Gauge != constituents[j].Gauge {
+						continue
 					}
+					if constituents[i].Number != constituents[j].Number {
+						continue
+					}
+					if !constituents[i].Start.Equal(constituents[j].Start) {
+						continue
+					}
+
+					t.Error("constituent duplication: " + constituents[i].Gauge + "/" + strconv.Itoa(constituents[i].Number))
 				}
 			}
 		}
