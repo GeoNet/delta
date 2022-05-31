@@ -3,32 +3,32 @@ datalogger-model:
   Q330/3:
     type: Datalogger
     description: Q330
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q330/6:
     type: Datalogger
     description: Q330
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q330HR/6:
     type: Datalogger
     description: Q330HR
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q330HRS/6:
     type: Datalogger
     description: Q330HR
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q330S/3:
     type: Datalogger
     description: Q330
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q330S/6:
     type: Datalogger
     description: Q330
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q730/4:
     type: Datalogger
