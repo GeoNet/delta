@@ -55,7 +55,7 @@
         <DataLogger resourceId="Datalogger#Q330/3:507">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>507</SerialNumber>
           <InstallationDate>2003-06-15T04:50:00</InstallationDate>
@@ -252,7 +252,7 @@
         <DataLogger resourceId="Datalogger#Q330/3:507">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>507</SerialNumber>
           <InstallationDate>2003-06-15T04:50:00</InstallationDate>
@@ -449,7 +449,7 @@
         <DataLogger resourceId="Datalogger#Q330/3:507">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>507</SerialNumber>
           <InstallationDate>2003-06-15T04:50:00</InstallationDate>
@@ -646,7 +646,7 @@
         <DataLogger resourceId="Datalogger#Q330/3:2464">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>2464</SerialNumber>
           <InstallationDate>2014-09-03T03:00:01</InstallationDate>
@@ -843,7 +843,7 @@
         <DataLogger resourceId="Datalogger#Q330/3:2464">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>2464</SerialNumber>
           <InstallationDate>2014-09-03T03:00:01</InstallationDate>
@@ -1040,7 +1040,7 @@
         <DataLogger resourceId="Datalogger#Q330/3:2464">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>2464</SerialNumber>
           <InstallationDate>2014-09-03T03:00:01</InstallationDate>
@@ -1237,7 +1237,7 @@
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
@@ -1439,7 +1439,7 @@
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
@@ -1641,7 +1641,7 @@
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
@@ -1843,7 +1843,7 @@
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
@@ -2021,7 +2021,7 @@
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
@@ -2199,7 +2199,7 @@
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
@@ -2377,7 +2377,7 @@
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
@@ -2592,7 +2592,7 @@
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
@@ -2807,7 +2807,7 @@
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
           <Description>Q330</Description>
-          <Manufacturer>Quanterra</Manufacturer>
+          <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
           <InstallationDate>2016-12-05T06:25:01</InstallationDate>
