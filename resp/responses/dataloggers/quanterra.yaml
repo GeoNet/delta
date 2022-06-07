@@ -176,7 +176,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  Q330_FLbelow100-1-PREAMP:
+  Q330_FLbelow100-1-GAIN30:
   - type: paz
     lookup: Q330-PREAMP
     frequency: 15
@@ -210,7 +210,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  Q330_FLbelow100-100-PREAMP:
+  Q330_FLbelow100-100-GAIN30:
   - type: paz
     lookup: Q330-PREAMP
     frequency: 15
@@ -267,7 +267,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  Q330_FLbelow100-200-PREAMP:
+  Q330_FLbelow100-200-GAIN30:
   - type: paz
     lookup: Q330-PREAMP
     frequency: 15
@@ -438,7 +438,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  Q330S+_FLbelow100-1-PREAMP32:
+  Q330S+_FLbelow100-1-GAIN32:
   - type: paz
     lookup: Q330-PREAMP
     frequency: 15
@@ -541,7 +541,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  Q330S+_FLbelow100-100-PREAMP32:
+  Q330S+_FLbelow100-100-GAIN32:
   - type: paz
     lookup: Q330-PREAMP
     frequency: 15
