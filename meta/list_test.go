@@ -1075,6 +1075,29 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
+		{
+			"testdata/placenames.csv",
+			&PlacenameList{
+				Placename{
+					Name:      "Ashburton",
+					Latitude:  -43.9,
+					Longitude: 171.75,
+					Level:     1,
+
+					latitude:  "-43.9",
+					longitude: "171.75",
+				},
+				Placename{
+					Name:      "Auckland",
+					Latitude:  -36.85,
+					Longitude: 174.767,
+					Level:     0,
+
+					latitude:  "-36.85",
+					longitude: "174.767",
+				},
+			},
+		},
 	}
 
 	for _, tt := range listtests {

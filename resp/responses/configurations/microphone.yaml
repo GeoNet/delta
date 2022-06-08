@@ -18,7 +18,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Q330S+_FLbelow100-100-PREAMP32
+      - Q330S+_FLbelow100-100-GAIN32
       reversed: false
     - dataloggers:
       - Q330S/6
@@ -40,7 +40,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Q330S+_FLbelow100-1-PREAMP32
+      - Q330S+_FLbelow100-1-GAIN32
       reversed: false
     - dataloggers:
       - Q330S/6
@@ -63,7 +63,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Q330_FLbelow100-100-PREAMP
+      - Q330_FLbelow100-100-GAIN30
       reversed: false
     - dataloggers:
       - Q330/3
@@ -75,7 +75,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Q330_FLbelow100-1-PREAMP
+      - Q330_FLbelow100-1-GAIN30
       reversed: false
 
   Nanometrics Dataloggers Connected to Microphones:

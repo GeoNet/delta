@@ -3,32 +3,32 @@ datalogger-model:
   Q330/3:
     type: Datalogger
     description: Q330
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q330/6:
     type: Datalogger
     description: Q330
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q330HR/6:
     type: Datalogger
     description: Q330HR
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q330HRS/6:
     type: Datalogger
     description: Q330HR
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q330S/3:
     type: Datalogger
     description: Q330
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q330S/6:
     type: Datalogger
     description: Q330
-    manufacturer: Quanterra
+    manufacturer: Kinemetrics
     vendor: ""
   Q730/4:
     type: Datalogger
@@ -45,7 +45,7 @@ paz:
   Q330-PREAMP:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
-    notes: A simple place holder indicating the PREAMP has been enables
+    notes: A simple place holder indicating the PREAMP has been enabled
     poles: []
     zeros: []
 
@@ -176,7 +176,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  Q330_FLbelow100-1-PREAMP:
+  Q330_FLbelow100-1-GAIN30:
   - type: paz
     lookup: Q330-PREAMP
     frequency: 15
@@ -210,7 +210,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  Q330_FLbelow100-100-PREAMP:
+  Q330_FLbelow100-100-GAIN30:
   - type: paz
     lookup: Q330-PREAMP
     frequency: 15
@@ -267,7 +267,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  Q330_FLbelow100-200-PREAMP:
+  Q330_FLbelow100-200-GAIN30:
   - type: paz
     lookup: Q330-PREAMP
     frequency: 15
@@ -438,7 +438,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  Q330S+_FLbelow100-1-PREAMP32:
+  Q330S+_FLbelow100-1-GAIN32:
   - type: paz
     lookup: Q330-PREAMP
     frequency: 15
@@ -541,7 +541,7 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
-  Q330S+_FLbelow100-100-PREAMP32:
+  Q330S+_FLbelow100-100-GAIN32:
   - type: paz
     lookup: Q330-PREAMP
     frequency: 15
