@@ -7911,12 +7911,12 @@ var Responses []Response = []Response{
 				Frequency:      15,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Q330S+_FLbelow100-100-PREAMP32"},
+				FilterList:     []string{"Q330S+_FLbelow100-100-GAIN32"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
-						Filter: "Q330S+_FLbelow100-100-PREAMP32",
+						Filter: "Q330S+_FLbelow100-100-GAIN32",
 						StageSet: PAZ{
 							Name:  "Q330-PREAMP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
@@ -7933,7 +7933,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Q330S+_FLbelow100-100-PREAMP32",
+						Filter: "Q330S+_FLbelow100-100-GAIN32",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -7950,7 +7950,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-100",
-						Filter: "Q330S+_FLbelow100-100-PREAMP32",
+						Filter: "Q330S+_FLbelow100-100-GAIN32",
 						StageSet: FIR{
 							Name:       "Q330S+_FLbelow100-100",
 							Causal:     true,
@@ -8030,12 +8030,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Q330S+_FLbelow100-1-PREAMP32"},
+				FilterList:     []string{"Q330S+_FLbelow100-1-GAIN32"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
-						Filter: "Q330S+_FLbelow100-1-PREAMP32",
+						Filter: "Q330S+_FLbelow100-1-GAIN32",
 						StageSet: PAZ{
 							Name:  "Q330-PREAMP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
@@ -8052,7 +8052,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Q330S+_FLbelow100-1-PREAMP32",
+						Filter: "Q330S+_FLbelow100-1-GAIN32",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -8069,7 +8069,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-1",
-						Filter: "Q330S+_FLbelow100-1-PREAMP32",
+						Filter: "Q330S+_FLbelow100-1-GAIN32",
 						StageSet: FIR{
 							Name:       "Q330S+_FLbelow100-1",
 							Causal:     true,
@@ -8149,12 +8149,12 @@ var Responses []Response = []Response{
 				Frequency:      15,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Q330_FLbelow100-100-PREAMP"},
+				FilterList:     []string{"Q330_FLbelow100-100-GAIN30"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
-						Filter: "Q330_FLbelow100-100-PREAMP",
+						Filter: "Q330_FLbelow100-100-GAIN30",
 						StageSet: PAZ{
 							Name:  "Q330-PREAMP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
@@ -8171,7 +8171,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Q330_FLbelow100-100-PREAMP",
+						Filter: "Q330_FLbelow100-100-GAIN30",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -8188,7 +8188,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-100",
-						Filter: "Q330_FLbelow100-100-PREAMP",
+						Filter: "Q330_FLbelow100-100-GAIN30",
 						StageSet: FIR{
 							Name:       "Q330_FLbelow100-100",
 							Causal:     true,
@@ -8217,12 +8217,12 @@ var Responses []Response = []Response{
 				Frequency:      0.1,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Q330_FLbelow100-1-PREAMP"},
+				FilterList:     []string{"Q330_FLbelow100-1-GAIN30"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
-						Filter: "Q330_FLbelow100-1-PREAMP",
+						Filter: "Q330_FLbelow100-1-GAIN30",
 						StageSet: PAZ{
 							Name:  "Q330-PREAMP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
@@ -8239,7 +8239,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Q330_FLbelow100-1-PREAMP",
+						Filter: "Q330_FLbelow100-1-GAIN30",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -8256,7 +8256,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-1",
-						Filter: "Q330_FLbelow100-1-PREAMP",
+						Filter: "Q330_FLbelow100-1-GAIN30",
 						StageSet: FIR{
 							Name:       "Q330_FLbelow100-1",
 							Causal:     true,
@@ -10542,12 +10542,12 @@ var Responses []Response = []Response{
 				Frequency:      15,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Q330S+_FLbelow100-100-PREAMP32"},
+				FilterList:     []string{"Q330S+_FLbelow100-100-GAIN32"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
-						Filter: "Q330S+_FLbelow100-100-PREAMP32",
+						Filter: "Q330S+_FLbelow100-100-GAIN32",
 						StageSet: PAZ{
 							Name:  "Q330-PREAMP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
@@ -10564,7 +10564,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Q330S+_FLbelow100-100-PREAMP32",
+						Filter: "Q330S+_FLbelow100-100-GAIN32",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -10581,7 +10581,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "Q330S+_FLbelow100-100",
-						Filter: "Q330S+_FLbelow100-100-PREAMP32",
+						Filter: "Q330S+_FLbelow100-100-GAIN32",
 						StageSet: FIR{
 							Name:       "Q330S+_FLbelow100-100",
 							Causal:     true,
@@ -10610,12 +10610,12 @@ var Responses []Response = []Response{
 				Frequency:      15,
 				StorageFormat:  "Steim2",
 				ClockDrift:     0.0001,
-				FilterList:     []string{"Q330_FLbelow100-100-PREAMP"},
+				FilterList:     []string{"Q330_FLbelow100-100-GAIN30"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
 						Lookup: "Q330-PREAMP",
-						Filter: "Q330_FLbelow100-100-PREAMP",
+						Filter: "Q330_FLbelow100-100-GAIN30",
 						StageSet: PAZ{
 							Name:  "Q330-PREAMP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
@@ -10632,7 +10632,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "a2d",
 						Lookup: "A2D",
-						Filter: "Q330_FLbelow100-100-PREAMP",
+						Filter: "Q330_FLbelow100-100-GAIN30",
 						StageSet: A2D{
 							Name:  "A2D",
 							Code:  PZFunctionLaplaceZTransform,
@@ -10649,7 +10649,7 @@ var Responses []Response = []Response{
 					}, {
 						Type:   "fir",
 						Lookup: "Q330_FLbelow100-100",
-						Filter: "Q330_FLbelow100-100-PREAMP",
+						Filter: "Q330_FLbelow100-100-GAIN30",
 						StageSet: FIR{
 							Name:       "Q330_FLbelow100-100",
 							Causal:     true,
