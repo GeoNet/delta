@@ -150,6 +150,7 @@ response:
       - 2_Hz_Duke_Malin_Seismometer
       channels: Z12
       reversed: true
+    dataloggers:
     - dataloggers:
       - Centaur CTR4-6S
       type: CG
