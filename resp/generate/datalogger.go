@@ -13,6 +13,19 @@ type DataloggerModel struct {
 	Vendor       string `yaml:"vendor"`
 }
 
+func (d DataloggerModel) Make() string {
+	switch parts := strings.Fields(d.Manufacturer); {
+	case len(parts) > 0:
+		label := strings.Join(parts, " ")
+		for _, s := range []string{"/", ".", "+", " "} {
+			label = strings.ReplaceAll(label, s, "-")
+		}
+		return strings.TrimRight(label, "-")
+	default:
+		return "Unknown"
+	}
+}
+
 var dataloggerModelTemplate = `
 
 var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
