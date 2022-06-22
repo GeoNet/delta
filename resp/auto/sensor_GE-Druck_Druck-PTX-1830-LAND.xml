@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentPolynomial resourceId="Polynomial#Druck PTX-1830-LAND">
+    <InputUnits>
+      <Name>m</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+    <ApproximationType>MACLAURIN</ApproximationType>
+    <FrequencyLowerBound>0</FrequencyLowerBound>
+    <FrequencyUpperBound>0</FrequencyUpperBound>
+    <ApproximationLowerBound>0</ApproximationLowerBound>
+    <ApproximationUpperBound>20</ApproximationUpperBound>
+    <MaximumError>0</MaximumError>
+    <Coefficient>-5</Coefficient>
+    <Coefficient number="1">5</Coefficient>
+  </InstrumentPolynomial>
+  <Stage number="1">
+    <Polynomial resourceId="Polynomial#Druck PTX-1830-LAND">
+      <InputUnits>
+        <Name>m</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <ApproximationType>MACLAURIN</ApproximationType>
+      <FrequencyLowerBound>0</FrequencyLowerBound>
+      <FrequencyUpperBound>0</FrequencyUpperBound>
+      <ApproximationLowerBound>0</ApproximationLowerBound>
+      <ApproximationUpperBound>20</ApproximationUpperBound>
+      <MaximumError>0</MaximumError>
+      <Coefficient>-5</Coefficient>
+      <Coefficient number="1">5</Coefficient>
+    </Polynomial>
+  </Stage>
+</Response>
