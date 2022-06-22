@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>10000</Value>
+    <Frequency>1</Frequency>
+    <InputUnits>
+      <Name>m/s</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <PolesZeros resourceId="PolesZeros#CMG-3TB-CTBTO">
+      <InputUnits>
+        <Name>m/s</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (HERTZ)</PzTransferFunctionType>
+      <NormalizationFactor>2.304260560345202e+06</NormalizationFactor>
+      <NormalizationFrequency>1</NormalizationFrequency>
+      <Zero number="5">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="6">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Pole>
+        <Real>-0.00589</Real>
+        <Imaginary>-0.00589</Imaginary>
+      </Pole>
+      <Pole number="1">
+        <Real>-0.00589</Real>
+        <Imaginary>0.00589</Imaginary>
+      </Pole>
+      <Pole number="2">
+        <Real>-180</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+      <Pole number="3">
+        <Real>-160</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+      <Pole number="4">
+        <Real>-80</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+    </PolesZeros>
+    <StageGain>
+      <Value>10000</Value>
+      <Frequency>1</Frequency>
+    </StageGain>
+  </Stage>
+</Response>

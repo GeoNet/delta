@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentPolynomial resourceId="Polynomial#270-600/12V">
+    <InputUnits>
+      <Name>hPa</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+    <ApproximationType>MACLAURIN</ApproximationType>
+    <FrequencyLowerBound>0</FrequencyLowerBound>
+    <FrequencyUpperBound>0</FrequencyUpperBound>
+    <ApproximationLowerBound>600</ApproximationLowerBound>
+    <ApproximationUpperBound>1100</ApproximationUpperBound>
+    <MaximumError>0</MaximumError>
+    <Coefficient>600</Coefficient>
+    <Coefficient number="1">100</Coefficient>
+  </InstrumentPolynomial>
+  <Stage number="1">
+    <Polynomial resourceId="Polynomial#270-600/12V">
+      <InputUnits>
+        <Name>hPa</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <ApproximationType>MACLAURIN</ApproximationType>
+      <FrequencyLowerBound>0</FrequencyLowerBound>
+      <FrequencyUpperBound>0</FrequencyUpperBound>
+      <ApproximationLowerBound>600</ApproximationLowerBound>
+      <ApproximationUpperBound>1100</ApproximationUpperBound>
+      <MaximumError>0</MaximumError>
+      <Coefficient>600</Coefficient>
+      <Coefficient number="1">100</Coefficient>
+    </Polynomial>
+  </Stage>
+</Response>
