@@ -14,6 +14,13 @@ TO003,01,01,temperature,air,,2021-05-27T04:40:00Z,9999-01-01T00:00:00Z
 TO003,02,01,temperature,fumarole,,2021-05-27T04:40:00Z,9999-01-01T00:00:00Z
 TO003,03,01,temperature,fumarole,,2021-05-27T04:40:00Z,9999-01-01T00:00:00Z
 TO003,04,01,temperature,fumarole,,2021-05-27T04:40:00Z,9999-01-01T00:00:00Z
+TO003,05,01,temperature,ground,at enclosure,2022-06-22T02:40:00Z,9999-01-01T00:00:00Z
+TO003,06,01,temperature,ground,20 m north of enclosure,2022-06-22T02:40:00Z,9999-01-01T00:00:00Z
+TO003,07,01,temperature,ground,20 m south of enclosure,2022-06-22T02:50:00Z,9999-01-01T00:00:00Z
+TO003,08,01,temperature,ground,40 m south of enclosure,2022-06-22T03:00:00Z,9999-01-01T00:00:00Z
+TO003,09,01,selfpotential,ground,20 m north relative to enclosure,2022-06-21T23:10:00Z,9999-01-01T00:00:00Z
+TO003,10,01,selfpotential,ground,20 m south relative to enclosure,2022-06-21T23:10:00Z,9999-01-01T00:00:00Z
+TO003,11,01,selfpotential,ground,40 m south relative to enclosure,2022-06-21T23:10:00Z,9999-01-01T00:00:00Z
 TO006,01,01,temperature,air,,2021-11-19T00:00:00Z,9999-01-01T00:00:00Z
 TO006,02,01,temperature,fumarole,south vent,2018-10-08T23:50:00Z,9999-01-01T00:00:00Z
 TO006,03,01,temperature,fumarole,east vent,2018-08-28T00:30:00Z,9999-01-01T00:00:00Z
