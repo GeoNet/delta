@@ -150,8 +150,6 @@ func main() {
 		// Higher download priority marks are scheduled for download first.
 		// Download rate can be restricted here as well.
 		switch {
-		case m.Code == "SBAM" || m.Code == "SCTB" || m.Code == "AHAM": // scott base sites
-			mark_pb.Download = &gloria_pb.Download{Priority: 0, Rate: 1024} // Rate unit is bytes per second
 		case m.Igs:
 			mark_pb.Download = &gloria_pb.Download{Priority: 1000}
 			mark_pb.Distribution = &gloria_pb.Distribution{Igs: true}
@@ -160,6 +158,10 @@ func main() {
 			mark_pb.Distribution = &gloria_pb.Distribution{Linz: true}
 		default:
 			mark_pb.Download = &gloria_pb.Download{Priority: 0}
+		}
+
+		if m.Code == "SBAM" || m.Code == "SCTB" || m.Code == "AHAM" { // scott base sites
+			mark_pb.Download.Rate = 1024 // Rate unit is bytes per second
 		}
 
 		for _, tps := range thirdPartySites {
