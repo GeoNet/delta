@@ -23,6 +23,9 @@ var testFeatures = map[string]func([]meta.Feature) func(t *testing.T){
 					if features[i].SubLocation != features[j].SubLocation {
 						continue
 					}
+					if features[i].Property != features[j].Property {
+						continue
+					}
 					if features[i].End.Before(features[j].Start) {
 						continue
 					}
