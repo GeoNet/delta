@@ -1,89 +1,67 @@
 package main
 
 import (
-	"crypto/tls"
+	"encoding/xml"
 	"flag"
-	"io"
 	"log"
-	"net/http"
 	"os"
 	"path/filepath"
-
-	"aqwari.net/xml/xsdgen"
+	"strings"
 )
-
-func download(wr io.Writer, url string, insecure bool) error {
-
-	client := &http.Client{
-		Transport: &http.Transport{
-			TLSClientConfig: &tls.Config{InsecureSkipVerify: insecure}, //nolint:gosec // needed until fdsn.org passed checks
-		},
-	}
-
-	resp, err := client.Get(url)
-	if err != nil {
-		return err
-	}
-	defer resp.Body.Close()
-
-	if _, err = io.Copy(wr, resp.Body); err != nil {
-		return err
-	}
-
-	return nil
-}
 
 func main() {
 
 	var name string
 	flag.StringVar(&name, "name", "stationxml", "package name")
 
-	var remote string
-	flag.StringVar(&remote, "schema", "https://www.fdsn.org/xml/station/fdsn-station-1.2.xsd", "schema service endpoint to download from")
-
-	var base string
-	flag.StringVar(&base, "base", ".", "base directory")
-
-	var version string
-	flag.StringVar(&version, "version", "v1.2", "optional schema version to add to directory path")
+	var input string
+	flag.StringVar(&input, "schema", "fdsn-station-1.2.xsd", "input schema file")
 
 	var output string
-	flag.StringVar(&output, "output", "stationxml.go", "output file")
-
-	var insecure bool
-	flag.BoolVar(&insecure, "insecure", false, "whether the remote site has certificate issues, use with caution")
+	flag.StringVar(&output, "output", "output", "output dir")
 
 	flag.Parse()
 
-	file, err := os.CreateTemp(".", "schema")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer os.Remove(file.Name())
-
-	if err := download(file, remote, insecure); err != nil {
+	if err := os.MkdirAll(output, 0755); err != nil {
 		log.Fatal(err)
 	}
 
-	// where to store the output file
-	path := filepath.Join(base, version, output)
-
-	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
-		log.Fatal(err)
-	}
-
-	var cfg xsdgen.Config
-	cfg.Option(
-		xsdgen.PackageName(name),
-		xsdgen.UseFieldNames(),
-	)
-
-	code, err := cfg.GenSource(file.Name())
+	data, err := os.ReadFile(input)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	if err := os.WriteFile(path, code, 0644); err != nil {
+	var schema Schema
+	if err := xml.Unmarshal(data, &schema); err != nil {
 		log.Fatal(err)
+	}
+
+	var elements []*Element
+
+	elements = append(elements, schema.Groups()...)
+	elements = append(elements, schema.AttributeGroups()...)
+	elements = append(elements, schema.Simple()...)
+	elements = append(elements, schema.Complex()...)
+	elements = append(elements, schema.Elements()...)
+
+	for _, e := range elements {
+		switch path := filepath.Join(output, strings.Title(e.AttrName)); {
+		case e.IsEnumeration():
+			if err := RenderFile(path, enumerationTemplate, e); err != nil {
+				log.Fatal(err)
+			}
+		case e.IsSimple():
+			if err := RenderFile(path, simpleTemplate, e); err != nil {
+				log.Fatal(err)
+			}
+		case e.IsDerived():
+			if err := RenderFile(path, derivedTemplate, e); err != nil {
+				log.Fatal(err)
+			}
+		default:
+			if err := RenderFile(path, complexTemplate, e); err != nil {
+				log.Fatal(e.AttrName, err)
+			}
+		}
 	}
 }
