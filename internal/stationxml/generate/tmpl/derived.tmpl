@@ -10,6 +10,6 @@ type {{.AttrName}} struct {
 		{{range $c := $v.Comments -}}
 			// {{$c}}
 		{{end -}}
-		{{title $v.AttrName}} {{type $v.AttrType "string"}} {{attr $v.AttrName $v.Use }}
+		{{title $v.AttrName}} {{type $v.AttrType "string"}} {{xml $v.AttrName "attr" (use $v.Use) }}
 	{{end -}}
 }

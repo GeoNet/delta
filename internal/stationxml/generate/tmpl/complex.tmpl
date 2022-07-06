@@ -14,13 +14,13 @@ type {{title .AttrName}} struct {
 		{{range $c := $v.Comments -}}
 			// {{$c}}
 		{{end -}}
-		{{title $v.AttrName}} {{type $v.AttrType "string"}} {{attr $v.AttrName $v.Use }}
+		{{title $v.AttrName}} {{type $v.AttrType "string"}} {{xml $v.AttrName "attr" (use $v.Use)}}
 	{{end -}}
 	{{range $e := .Elements}}
 
 		{{range $c := $e.Comments -}}
 			// {{$c}}
 		{{end -}}
-		{{title $e.AttrName}} {{if $e.IsMultiple}}[]{{end}}{{type $e.Type $e.AttrName}} {{if $e.IsOptional}}{{omit $e.AttrName}}{{else}}{{xml $e.AttrName}}{{end}}
+		{{title $e.AttrName}} {{if $e.IsMultiple}}[]{{end}}{{type $e.Type $e.AttrName}} {{if $e.IsOptional}}{{xml $e.AttrName "omitempty"}}{{else}}{{xml $e.AttrName}}{{end}}
 	{{end -}}
 }

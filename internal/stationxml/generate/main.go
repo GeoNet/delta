@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	//	"strings"
+	"strings"
 )
 
 //go:embed tmpl
@@ -92,26 +92,24 @@ func main() {
 	elements = append(elements, schema.Complex()...)
 	elements = append(elements, schema.Elements()...)
 
-	/*
-		for _, e := range elements {
-			switch path := filepath.Join(output, FileName(strings.Title(e.AttrName), ".go")); {
-			case e.IsEnumeration():
-				if err := FormatFile(path, enumerationTemplate, e); err != nil {
-					log.Fatal(err)
-				}
-			case e.IsSimple():
-				if err := FormatFile(path, simpleTemplate, e); err != nil {
-					log.Fatal(err)
-				}
-			case e.IsDerived():
-				if err := FormatFile(path, derivedTemplate, e); err != nil {
-					log.Fatal(err)
-				}
-			default:
-				if err := FormatFile(path, complexTemplate, e); err != nil {
-					log.Fatal(e.AttrName, err)
-				}
+	for _, e := range elements {
+		switch path := filepath.Join(output, FileName(strings.Title(e.AttrName), ".go")); {
+		case e.IsEnumeration():
+			if err := FormatFile(tmpls, path, "tmpl/enumeration.tmpl", e); err != nil {
+				log.Fatal(err)
+			}
+		case e.IsSimple():
+			if err := FormatFile(tmpls, path, "tmpl/simple.tmpl", e); err != nil {
+				log.Fatal(err)
+			}
+		case e.IsDerived():
+			if err := FormatFile(tmpls, path, "tmpl/derived.tmpl", e); err != nil {
+				log.Fatal(err)
+			}
+		default:
+			if err := FormatFile(tmpls, path, "tmpl/complex.tmpl", e); err != nil {
+				log.Fatal(e.AttrName, err)
 			}
 		}
-	*/
+	}
 }

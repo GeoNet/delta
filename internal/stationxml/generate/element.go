@@ -1,7 +1,12 @@
 package main
 
 import (
+	"fmt"
+	"io"
+	"io/fs"
+	"path/filepath"
 	"strings"
+	"text/template"
 )
 
 type Element struct {
@@ -250,4 +255,63 @@ func (e *Element) Walk(key string, fn func(string, *Element) bool) {
 	for _, v := range e.AnyAttribute {
 		v.Walk("anyAttribute", fn)
 	}
+}
+
+func (e *Element) Render(fsys fs.FS, w io.Writer, tmpl string) error {
+	t, err := template.New(filepath.Base(tmpl)).Funcs(
+		template.FuncMap{
+			"title":  func(s string) string { return strings.Title(s) },
+			"lower":  func(s string) string { return strings.ToLower(s) },
+			"upper":  func(s string) string { return strings.ToUpper(s) },
+			"suffix": func(s, v string) string { return strings.TrimSuffix(s, v) },
+			"use": func(s string) string {
+				switch s {
+				case "optional":
+					return "omitempty"
+				default:
+					return ""
+				}
+			},
+			"xml": func(s string, p ...string) string {
+				list := []string{s}
+				for _, v := range p {
+					if x := strings.TrimSpace(v); x != "" {
+						list = append(list, x)
+					}
+				}
+				return fmt.Sprintf("`xml:\"%s\"`", strings.Join(list, ","))
+			},
+			"type": func(s, t string) string {
+				switch s {
+				case "xs:integer":
+					return "int"
+				case "xs:string":
+					return "string"
+				case "xs:double", "xs:decimal":
+					return "float64"
+				case "xs:dateTime":
+					return "DateTime"
+				case "xs:anyURI":
+					return "AnyURI"
+				case "xs:NMTOKEN":
+					return t
+				}
+				switch {
+				case strings.HasPrefix(s, "fsx:"):
+					return strings.TrimPrefix(s, "fsx:")
+				default:
+					return s
+				}
+			},
+		},
+	).ParseFS(fsys, tmpl)
+	if err != nil {
+		return err
+	}
+
+	if err := t.ExecuteTemplate(w, filepath.Base(tmpl), e); err != nil {
+		return err
+	}
+
+	return nil
 }
