@@ -1,12 +1,6 @@
 package main
 
-import (
-//	"log"
-)
-
 type Schema struct {
-	Xs                   string `xml:"xs,attr"`
-	Fsx                  string `xml:"fsx,attr"`
 	TargetNamespace      string `xml:"targetNamespace,attr"`
 	ElementFormDefault   string `xml:"elementFormDefault,attr"`
 	AttributeFormDefault string `xml:"attributeFormDefault,attr"`

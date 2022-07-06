@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-	"io"
 	"strings"
 )
 
@@ -120,13 +118,6 @@ func (e *Element) Enumerations() []*Element {
 	return elements
 }
 
-func (e *Element) Dump(wr io.Writer) {
-	fmt.Fprintf(wr, "%s (%s)\n", e.AttrName, e.Type())
-	e.SearchAll(func(key string, self *Element) {
-		fmt.Fprintf(wr, "\t%s -> %s (%s)\n", self.AttrName, key, self.Type())
-	})
-}
-
 func (e *Element) Attributes() []*Element {
 	var elements []*Element
 	e.Search(func(key string, self *Element) bool {
@@ -182,7 +173,8 @@ func (e *Element) WalkAll(key string, fn func(string, *Element)) {
 
 func (e *Element) Walk(key string, fn func(string, *Element) bool) {
 
-	// process the function, stop recursing if true is returned
+	// process the function,
+	// stop recursing if true is returned
 	if fn(key, e) {
 		return
 	}
