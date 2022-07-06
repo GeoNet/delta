@@ -74,10 +74,10 @@ func main() {
 	}
 
 	for k, v := range map[string]string{
-		//	base:     baseTemplate,
-		//	doc:      docTemplate,
-		//	datetime: dateTimeTemplate,
-		//	test:     baseTestTemplate,
+		base:     "tmpl/base.tmpl",
+		doc:      "tmpl/doc.tmpl",
+		datetime: "tmpl/date_time.tmpl",
+		test:     "tmpl/base_test.tmpl",
 	} {
 		if err := FormatFile(tmpls, filepath.Join(output, k), v, schema); err != nil {
 			log.Fatalf("unable to format %s: %v", k, err)
