@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"io"
+	"io/fs"
 	"os"
 	"testing"
 )
@@ -24,9 +25,9 @@ func test() string {
 }
 `
 
-type Dummy struct{}
+type mirror struct{}
 
-func (d Dummy) Render(wr io.Writer, str string) error {
+func (d mirror) Render(fsys fs.FS, wr io.Writer, str string) error {
 	if _, err := wr.Write([]byte(str)); err != nil {
 		return err
 	}
@@ -35,7 +36,7 @@ func (d Dummy) Render(wr io.Writer, str string) error {
 
 func TestRender(t *testing.T) {
 	var buf bytes.Buffer
-	if err := Render(&buf, testString, Dummy{}); err != nil {
+	if err := Render(nil, &buf, testString, mirror{}); err != nil {
 		t.Fatalf("unable to render test string: %v", err)
 	}
 	if s := buf.String(); s != testString {
@@ -50,7 +51,7 @@ func TestRenderFile(t *testing.T) {
 	}
 	defer os.Remove(tmp.Name())
 
-	if err := RenderFile(tmp.Name(), testString, Dummy{}); err != nil {
+	if err := RenderFile(nil, tmp.Name(), testString, mirror{}); err != nil {
 		t.Fatalf("unable to render test string: %v", err)
 	}
 
@@ -66,7 +67,7 @@ func TestRenderFile(t *testing.T) {
 
 func TestFormat(t *testing.T) {
 	var buf bytes.Buffer
-	if err := Format(&buf, testProgram, Dummy{}); err != nil {
+	if err := Format(nil, &buf, testProgram, mirror{}); err != nil {
 		t.Fatalf("unable to format test program: %v", err)
 	}
 	if s := buf.String(); s != testFormatted {
@@ -81,7 +82,7 @@ func TestFormatFile(t *testing.T) {
 	}
 	defer os.Remove(tmp.Name())
 
-	if err := FormatFile(tmp.Name(), testProgram, Dummy{}); err != nil {
+	if err := FormatFile(nil, tmp.Name(), testProgram, mirror{}); err != nil {
 		t.Fatalf("unable to render test program: %v", err)
 	}
 
