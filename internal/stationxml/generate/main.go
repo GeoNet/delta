@@ -116,7 +116,7 @@ func main() {
 	elements = append(elements, schema.Elements()...)
 
 	for _, e := range elements {
-		switch path := filepath.Join(output, FileName(strings.Title(e.AttrName))); {
+		switch path := filepath.Join(output, FileName(strings.Title(e.AttrName), ".go")); {
 		case e.IsEnumeration():
 			if err := FormatFile(path, enumerationTemplate, e); err != nil {
 				log.Fatal(err)

@@ -5,44 +5,7 @@ import (
 	"go/format"
 	"io"
 	"os"
-	"path/filepath"
-	"strings"
-	"unicode"
 )
-
-// FileName returns a snake-case version of the struct based on it's name, it will attempt to
-// replace camel case runs with underscore breaks as well as full uppercase names.
-func FileName(name string) string {
-	var label string
-	var multi bool
-	for _, r := range filepath.Base(name) {
-		switch l := unicode.ToLower(r); {
-		case l == unicode.ToUpper(l):
-			multi = false
-		case unicode.IsUpper(r) && len(label) > 0 && !multi:
-			label += "_" + string(l)
-			multi = true
-		case unicode.IsUpper(r):
-			label += string(l)
-			multi = true
-		default:
-			label += string(l)
-			multi = false
-		}
-	}
-
-	// handle uppercase name bleeding into Type
-	switch {
-	case label == "type":
-	case strings.HasSuffix(label, "_type"):
-	case !strings.HasSuffix(label, "type"):
-	default:
-		label = strings.TrimSuffix(label, "type") + "_type"
-	}
-
-	// building a golang file
-	return filepath.Join(filepath.Dir(name), label+".go")
-}
 
 // Renderer is an interface to describe writing a rendered go template into a writer.
 type Renderer interface {
