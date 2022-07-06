@@ -57,6 +57,33 @@ func Render(wr io.Writer, tmpl string, renderer Renderer) error {
 		return err
 	}
 
+	if _, err := wr.Write(bytes.Bytes()); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// RenderFile writes a rendered template into a file.
+func RenderFile(name string, tmpl string, renderer Renderer) error {
+
+	file, err := os.Create(name)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	return Render(file, tmpl, renderer)
+}
+
+// Format writes a rendered go template into a writer.
+func Format(wr io.Writer, tmpl string, renderer Renderer) error {
+
+	var bytes bytes.Buffer
+	if err := renderer.Render(&bytes, tmpl); err != nil {
+		return err
+	}
+
 	formatted, err := format.Source(bytes.Bytes())
 	if err != nil {
 		return err
@@ -69,13 +96,14 @@ func Render(wr io.Writer, tmpl string, renderer Renderer) error {
 	return nil
 }
 
-// RenderFile writes a rendered go template into a file.
-func RenderFile(name string, tmpl string, renderer Renderer) error {
-	file, err := os.Create(FileName(name))
+// FormatFile writes a rendered go template into a file.
+func FormatFile(name string, tmpl string, renderer Renderer) error {
+
+	file, err := os.Create(name)
 	if err != nil {
 		return err
 	}
 	defer file.Close()
 
-	return Render(file, tmpl, renderer)
+	return Format(file, tmpl, renderer)
 }

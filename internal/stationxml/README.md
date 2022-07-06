@@ -2,7 +2,7 @@
 
 Automatically generate _FDSN StationXML_ golang bindings from their respective Schema `xsd` files.
 
-Documentation on the format can be found at https://docs.fdsn.org/projects/stationxml
+Documentation on the XML schema format can be found at https://docs.fdsn.org/projects/stationxml
 
 ## Schemas Available
 
@@ -38,9 +38,3 @@ Then in the current directory run:
         `go generate`
 
 The doc.go file and generated code, in the versioned directories, should be commited to git.
-
-## Reference
-
-The automatic conversion is generated via golang module:
-
-- [aqwari.net/xml/xsdgen](https/aqwari.net/xml/xsdgen)
