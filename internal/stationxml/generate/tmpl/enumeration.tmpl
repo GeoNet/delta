@@ -1,0 +1,70 @@
+{{- $base := . -}}
+package stationxml
+
+import (
+	"encoding/xml"
+	"fmt"
+)
+
+const (
+	{{range $n, $e := .Enumerations -}}
+	{{title (lower $e.Value)}}{{if eq 0 $n}} {{$base.AttrName}} = iota{{end}}
+	{{end -}}
+)
+
+{{range $c := .Comments -}}
+// {{$c}}
+{{end -}}
+type {{.AttrName}} uint32
+
+func (v {{.AttrName}}) String() string {
+	switch v {
+        {{range $e := .Enumerations -}}
+	case {{title (lower $e.Value)}}:
+		return "{{$e.Value}}"
+	{{end -}}
+	default:
+		return ""
+	}
+}
+
+func (v {{.AttrName}}) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
+        return xml.Attr{Name: name, Value: v.String()}, nil
+}
+
+func (v *{{.AttrName}}) UnmarshalXMLAttr(attr xml.Attr) error {
+        switch attr.Value {
+        {{range $e := .Enumerations -}}
+        case "{{$e.Value}}":
+                *v = {{title (lower $e.Value)}}
+        {{end -}}
+        default:
+                return fmt.Errorf("unknown {{.AttrName}}: %s", attr.Value)
+        }
+
+        return nil
+}
+
+func ( v {{.AttrName}}) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+        return e.EncodeElement(v.String(), start)
+}
+
+func (v *{{.AttrName}}) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+
+        var s string
+        err := d.DecodeElement(&s, &start)
+        if err != nil {
+                return err
+        }
+
+        switch s {
+        {{range $e := .Enumerations -}}
+        case "{{$e.Value}}":
+                *v = {{title (lower $e.Value)}}
+        {{end -}}
+        default:
+                return fmt.Errorf("unknown {{.AttrName}}: %s", s)
+        }
+
+        return nil
+}

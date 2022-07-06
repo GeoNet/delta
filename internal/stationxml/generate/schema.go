@@ -2,6 +2,7 @@ package main
 
 import (
 	"io"
+	"io/fs"
 	"text/template"
 )
 
@@ -100,12 +101,12 @@ func (s Schema) Elements() []*Element {
 	return elements
 }
 
-func (s Schema) Render(w io.Writer, tmpl string) error {
+func (s Schema) Render(fsys fs.FS, w io.Writer, tmpl string) error {
 	t, err := template.New("base").Funcs(
 		template.FuncMap{
 			"bt": func() string { return "`" },
 		},
-	).Parse(tmpl)
+	).ParseFS(fsys, tmpl)
 	if err != nil {
 		return err
 	}

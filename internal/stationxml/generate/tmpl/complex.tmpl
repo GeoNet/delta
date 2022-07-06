@@ -1,0 +1,26 @@
+{{- $base := . -}}
+package stationxml
+
+{{range $c := .Comments -}}
+// {{$c}}
+{{end -}}
+type {{title .AttrName}} struct {
+	{{with $v := .UseExtension }}
+
+		{{type $v.Base $v.Base}}
+	{{end -}}
+	{{range $v := .Attributes }}
+
+		{{range $c := $v.Comments -}}
+			// {{$c}}
+		{{end -}}
+		{{title $v.AttrName}} {{type $v.AttrType "string"}} {{attr $v.AttrName $v.Use }}
+	{{end -}}
+	{{range $e := .Elements}}
+
+		{{range $c := $e.Comments -}}
+			// {{$c}}
+		{{end -}}
+		{{title $e.AttrName}} {{if $e.IsMultiple}}[]{{end}}{{type $e.Type $e.AttrName}} {{if $e.IsOptional}}{{omit $e.AttrName}}{{else}}{{xml $e.AttrName}}{{end}}
+	{{end -}}
+}

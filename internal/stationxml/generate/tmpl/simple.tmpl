@@ -1,0 +1,7 @@
+{{- $base := . -}}
+package stationxml
+
+{{range $c := .Comments -}}
+// {{$c}}
+{{end -}}
+type {{.AttrName}} {{type .Type .AttrName}}

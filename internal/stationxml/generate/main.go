@@ -1,26 +1,17 @@
 package main
 
 import (
-	_ "embed"
+	"embed"
 	"encoding/xml"
 	"flag"
 	"log"
 	"os"
 	"path/filepath"
-	"strings"
+	//	"strings"
 )
 
-//go:embed base.tmpl
-var baseTemplate string
-
-//go:embed base_test.tmpl
-var baseTestTemplate string
-
-//go:embed doc.tmpl
-var docTemplate string
-
-//go:embed date_time.tmpl
-var dateTimeTemplate string
+//go:embed tmpl
+var tmpls embed.FS
 
 func main() {
 
@@ -83,12 +74,12 @@ func main() {
 	}
 
 	for k, v := range map[string]string{
-		base:     baseTemplate,
-		doc:      docTemplate,
-		datetime: dateTimeTemplate,
-		test:     baseTestTemplate,
+		//	base:     baseTemplate,
+		//	doc:      docTemplate,
+		//	datetime: dateTimeTemplate,
+		//	test:     baseTestTemplate,
 	} {
-		if err := FormatFile(filepath.Join(output, k), v, schema); err != nil {
+		if err := FormatFile(tmpls, filepath.Join(output, k), v, schema); err != nil {
 			log.Fatalf("unable to format %s: %v", k, err)
 		}
 	}
@@ -101,24 +92,26 @@ func main() {
 	elements = append(elements, schema.Complex()...)
 	elements = append(elements, schema.Elements()...)
 
-	for _, e := range elements {
-		switch path := filepath.Join(output, FileName(strings.Title(e.AttrName), ".go")); {
-		case e.IsEnumeration():
-			if err := FormatFile(path, enumerationTemplate, e); err != nil {
-				log.Fatal(err)
-			}
-		case e.IsSimple():
-			if err := FormatFile(path, simpleTemplate, e); err != nil {
-				log.Fatal(err)
-			}
-		case e.IsDerived():
-			if err := FormatFile(path, derivedTemplate, e); err != nil {
-				log.Fatal(err)
-			}
-		default:
-			if err := FormatFile(path, complexTemplate, e); err != nil {
-				log.Fatal(e.AttrName, err)
+	/*
+		for _, e := range elements {
+			switch path := filepath.Join(output, FileName(strings.Title(e.AttrName), ".go")); {
+			case e.IsEnumeration():
+				if err := FormatFile(path, enumerationTemplate, e); err != nil {
+					log.Fatal(err)
+				}
+			case e.IsSimple():
+				if err := FormatFile(path, simpleTemplate, e); err != nil {
+					log.Fatal(err)
+				}
+			case e.IsDerived():
+				if err := FormatFile(path, derivedTemplate, e); err != nil {
+					log.Fatal(err)
+				}
+			default:
+				if err := FormatFile(path, complexTemplate, e); err != nil {
+					log.Fatal(e.AttrName, err)
+				}
 			}
 		}
-	}
+	*/
 }

@@ -4,19 +4,20 @@ import (
 	"bytes"
 	"go/format"
 	"io"
+	"io/fs"
 	"os"
 )
 
 // Renderer is an interface to describe writing a rendered go template into a writer.
 type Renderer interface {
-	Render(io.Writer, string) error
+	Render(fs.FS, io.Writer, string) error
 }
 
 // Render writes a rendered go template into a writer.
-func Render(wr io.Writer, tmpl string, renderer Renderer) error {
+func Render(fsys fs.FS, wr io.Writer, tmpl string, renderer Renderer) error {
 
 	var bytes bytes.Buffer
-	if err := renderer.Render(&bytes, tmpl); err != nil {
+	if err := renderer.Render(fsys, &bytes, tmpl); err != nil {
 		return err
 	}
 
@@ -28,7 +29,7 @@ func Render(wr io.Writer, tmpl string, renderer Renderer) error {
 }
 
 // RenderFile writes a rendered template into a file.
-func RenderFile(name string, tmpl string, renderer Renderer) error {
+func RenderFile(fsys fs.FS, name string, tmpl string, renderer Renderer) error {
 
 	file, err := os.Create(name)
 	if err != nil {
@@ -36,14 +37,14 @@ func RenderFile(name string, tmpl string, renderer Renderer) error {
 	}
 	defer file.Close()
 
-	return Render(file, tmpl, renderer)
+	return Render(fsys, file, tmpl, renderer)
 }
 
 // Format writes a rendered go template into a writer.
-func Format(wr io.Writer, tmpl string, renderer Renderer) error {
+func Format(fsys fs.FS, wr io.Writer, tmpl string, renderer Renderer) error {
 
 	var bytes bytes.Buffer
-	if err := renderer.Render(&bytes, tmpl); err != nil {
+	if err := renderer.Render(fsys, &bytes, tmpl); err != nil {
 		return err
 	}
 
@@ -60,7 +61,7 @@ func Format(wr io.Writer, tmpl string, renderer Renderer) error {
 }
 
 // FormatFile writes a rendered go template into a file.
-func FormatFile(name string, tmpl string, renderer Renderer) error {
+func FormatFile(fsys fs.FS, name string, tmpl string, renderer Renderer) error {
 
 	file, err := os.Create(name)
 	if err != nil {
@@ -68,5 +69,5 @@ func FormatFile(name string, tmpl string, renderer Renderer) error {
 	}
 	defer file.Close()
 
-	return Format(file, tmpl, renderer)
+	return Format(fsys, file, tmpl, renderer)
 }

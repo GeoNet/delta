@@ -1,0 +1,15 @@
+{{- $base := . -}}
+package stationxml
+
+{{range $c := .Comments -}}
+// {{$c}}
+{{end -}}
+type {{.AttrName}} struct {
+	{{type .Type .Type}}{{range $v := .Attributes }}
+
+		{{range $c := $v.Comments -}}
+			// {{$c}}
+		{{end -}}
+		{{title $v.AttrName}} {{type $v.AttrType "string"}} {{attr $v.AttrName $v.Use }}
+	{{end -}}
+}
