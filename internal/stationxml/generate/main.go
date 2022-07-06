@@ -1,40 +1,26 @@
 package main
 
 import (
-	"bytes"
-	"crypto/tls"
+	_ "embed"
 	"encoding/xml"
 	"flag"
-	"io"
 	"log"
-	"net/http"
 	"os"
 	"path/filepath"
 	"strings"
 )
 
-// download the remote url contents, an insecure option is available for problem sites.
-func download(url string, insecure bool) ([]byte, error) {
+//go:embed base.tmpl
+var baseTemplate string
 
-	client := &http.Client{
-		Transport: &http.Transport{
-			TLSClientConfig: &tls.Config{InsecureSkipVerify: insecure}, //nolint:gosec // needed until fdsn.org passed checks
-		},
-	}
+//go:embed base_test.tmpl
+var baseTestTemplate string
 
-	resp, err := client.Get(url)
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
+//go:embed doc.tmpl
+var docTemplate string
 
-	var buf bytes.Buffer
-	if _, err = io.Copy(&buf, resp.Body); err != nil {
-		return nil, err
-	}
-
-	return buf.Bytes(), nil
-}
+//go:embed date_time.tmpl
+var dateTimeTemplate string
 
 func main() {
 
@@ -100,7 +86,7 @@ func main() {
 		base:     baseTemplate,
 		doc:      docTemplate,
 		datetime: dateTimeTemplate,
-		test:     testTemplate,
+		test:     baseTestTemplate,
 	} {
 		if err := FormatFile(filepath.Join(output, k), v, schema); err != nil {
 			log.Fatalf("unable to format %s: %v", k, err)

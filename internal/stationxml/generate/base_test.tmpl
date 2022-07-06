@@ -1,0 +1,60 @@
+package stationxml
+
+import (
+	"testing"
+)
+
+const exampleXML ={{bt}}<?xml version="1.0" encoding="UTF-8"?>
+<FDSNStationXML xmlns="http://www.fdsn.org/xml/station/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.fdsn.org/xml/station/1 http://www.fdsn.org/xml/station/fdsn-station-{{.Version}}.xsd" schemaVersion="{{.Version}}">
+  <Source>Source</Source>
+  <Sender>Sender</Sender>
+  <Module>Module</Module>
+  <ModuleURI>ModuleURI</ModuleURI>
+  <Created>2022-07-05T21:54:16.7130Z</Created>
+</FDSNStationXML>
+{{bt}}
+
+func TestSchema(t *testing.T) {
+
+	base := FDSNStationXML{
+		SchemaLocation: "http://www.fdsn.org/xml/station/1 http://www.fdsn.org/xml/station/fdsn-station-1.2.xsd",
+		RootType: RootType{
+			SchemaVersion: {{.Version}},
+			Source: "Source",
+			Sender: "Sender",
+			Module: "Module",
+			ModuleURI: "ModuleURI",
+			Created: MustParseDateTime("2022-07-05T21:54:16.7130Z"),
+		},
+	}
+
+	data, err := base.MarshalIndent("", "  ")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if s := string(data); s != exampleXML {
+		t.Errorf("invalid test xml, expected %s, got %s", exampleXML, s)
+	}
+}
+
+func TestNewSchema(t *testing.T) {
+
+	base := NewFDSNStationXML(RootType{
+		SchemaVersion: {{.Version}},
+		Source: "Source",
+		Sender: "Sender",
+		Module: "Module",
+		ModuleURI: "ModuleURI",
+		Created: MustParseDateTime("2022-07-05T21:54:16.7130Z"),
+	})
+
+	data, err := base.MarshalIndent("", "  ")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if s := string(data); s != exampleXML {
+		t.Errorf("invalid test xml, expected %s, got %s", exampleXML, s)
+	}
+}

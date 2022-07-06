@@ -1,0 +1,52 @@
+package stationxml
+
+import (
+	"bytes"
+	"encoding/xml"
+)
+
+const (
+	fixFrom = {{bt}}xmlns:xsi="xsi"{{bt}}
+	fixTo = {{bt}}xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"{{bt}}
+)
+
+// there's a golang missing feature https://github.com/golang/go/issues/13400 related to names spaces,
+// this is a crude workaround to simply swap in and out the bad marshalling.
+func fix(from []byte) []byte {
+	return bytes.ReplaceAll(from, []byte(fixFrom), []byte(fixTo))
+}
+
+// add a workaround base URI type
+type AnyURI string
+
+// FDSNStationXML is a wrapper around the RootType to help with XML marshalling.
+type FDSNStationXML struct {
+	XMLName   xml.Name {{bt}}xml:"http://www.fdsn.org/xml/station/1 FDSNStationXML"{{bt}}
+	SchemaLocation string {{bt}}xml:"xsi schemaLocation,attr"{{bt}}
+
+	RootType
+}
+
+// NewFDSNStationXML returns an FDSNStationXML value that is wrapping the given RootType.
+func NewFDSNStationXML(root RootType) FDSNStationXML{
+	return FDSNStationXML{
+		SchemaLocation: "http://www.fdsn.org/xml/station/1 http://www.fdsn.org/xml/station/fdsn-station-1.2.xsd",
+		RootType: root,
+	}
+}
+
+func (x FDSNStationXML) Marshal() ([]byte, error) {
+	s, err := xml.Marshal(x)
+	if err != nil {
+		return nil, err
+	}
+	return append([]byte(xml.Header), append(fix(s), '\n')...), nil
+}
+
+func (x FDSNStationXML) MarshalIndent(prefix, indent string) ([]byte, error) {
+	s, err := xml.MarshalIndent(x, prefix, indent)
+	if err != nil {
+		return nil, err
+	}
+	return append([]byte(xml.Header), append(fix(s), '\n')...), nil
+}

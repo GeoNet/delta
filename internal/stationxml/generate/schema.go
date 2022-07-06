@@ -1,5 +1,10 @@
 package main
 
+import (
+	"io"
+	"text/template"
+)
+
 type Schema struct {
 	TargetNamespace      string `xml:"targetNamespace,attr"`
 	ElementFormDefault   string `xml:"elementFormDefault,attr"`
@@ -93,4 +98,19 @@ func (s Schema) Elements() []*Element {
 		elements = append(elements, self)
 	})
 	return elements
+}
+
+func (s Schema) Render(w io.Writer, tmpl string) error {
+	t, err := template.New("base").Funcs(
+		template.FuncMap{
+			"bt": func() string { return "`" },
+		},
+	).Parse(tmpl)
+	if err != nil {
+		return err
+	}
+	if err := t.Execute(w, s); err != nil {
+		return err
+	}
+	return nil
 }
