@@ -3,6 +3,7 @@ package main
 import (
 	"io"
 	"io/fs"
+	"path/filepath"
 	"text/template"
 )
 
@@ -102,7 +103,7 @@ func (s Schema) Elements() []*Element {
 }
 
 func (s Schema) Render(fsys fs.FS, w io.Writer, tmpl string) error {
-	t, err := template.New("base").Funcs(
+	t, err := template.New(filepath.Base(tmpl)).Funcs(
 		template.FuncMap{
 			"bt": func() string { return "`" },
 		},
@@ -110,8 +111,10 @@ func (s Schema) Render(fsys fs.FS, w io.Writer, tmpl string) error {
 	if err != nil {
 		return err
 	}
-	if err := t.Execute(w, s); err != nil {
+
+	if err := t.ExecuteTemplate(w, filepath.Base(tmpl), s); err != nil {
 		return err
 	}
+
 	return nil
 }
