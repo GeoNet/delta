@@ -84,6 +84,14 @@ func main() {
 		log.Fatalf("unable to parse enum type: %v", err)
 	}
 
+	if err := schemas.ParseSimple(name, func(name string, t Simple) error {
+		path := filepath.Join(output, FileName(name, ".go"))
+		log.Printf("rendering simple %s => %s", name, path)
+		return t.RenderFile(path)
+	}); err != nil {
+		log.Fatalf("unable to parse simple type: %v", err)
+	}
+
 	settings := Datetime{
 		Package: name,
 		Format:  format,

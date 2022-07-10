@@ -59,3 +59,11 @@ func toEnum(pkg string, simple *xsd.SimpleType) Enum {
 		Values:  simple.Restriction.Enum,
 	}
 }
+
+func toSimple(pkg string, simple *xsd.SimpleType) Simple {
+	return Simple{
+		Package: pkg,
+		Name:    simple.Name.Local,
+		Type:    toFormat(simple.Base),
+	}
+}
