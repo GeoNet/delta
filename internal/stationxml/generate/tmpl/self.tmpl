@@ -1,0 +1,41 @@
+package {{.Package}}
+
+/*
+ *  WARNING: CODE GENERATED AUTOMATICALLY.
+ *
+ *  Use "go generate" to update these files.
+ *
+ *  THIS FILE SHOULD NOT BE EDITED BY HAND.
+ *
+ */
+
+import (
+        "encoding/xml"
+)
+
+// for use when building the root element
+const SchemaVersion = {{printf "%.1f" .Version}}
+
+type {{.Name}} struct {
+        XMLName   xml.Name {{bt}}xml:"{{.Space}} {{.Name}}"{{bt}}
+
+       {{with $v := .Derived -}}
+              {{$v}}
+       {{end -}}
+}
+
+func (x {{.Name}}) Marshal() ([]byte, error) {
+        s, err := xml.Marshal(x)
+        if err != nil {
+                return nil, err
+        }
+        return append([]byte(xml.Header), append(s, '\n')...), nil
+}
+
+func (x {{.Name}}) MarshalIndent(prefix, indent string) ([]byte, error) {
+        s, err := xml.MarshalIndent(x, prefix, indent)
+        if err != nil {
+                return nil, err
+        }
+        return append([]byte(xml.Header), append(s, '\n')...), nil
+}

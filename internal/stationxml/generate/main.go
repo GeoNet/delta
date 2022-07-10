@@ -12,6 +12,12 @@ func main() {
 	var name string
 	flag.StringVar(&name, "name", "stationxml", "package name")
 
+	var base string
+	flag.StringVar(&base, "base", "station_xml.go", "file name for base go code")
+
+	var version float64
+	flag.Float64Var(&version, "version", 0.0, "schema version encoded into module")
+
 	var datetime string
 	flag.StringVar(&datetime, "datetime", "date_time.go", "file name for extra date time go code")
 
@@ -55,6 +61,19 @@ func main() {
 
 	if err := os.MkdirAll(output, 0755); err != nil {
 		log.Fatal(err)
+	}
+
+	defaults := Self{
+		Package: name,
+		Version: version,
+	}
+
+	if err := schemas.ParseSelf(defaults, func(t Self) error {
+		path := filepath.Join(output, base)
+		log.Printf("rendering self => %s", path)
+		return t.RenderFile(path)
+	}); err != nil {
+		log.Fatalf("unable to parse self: %v", err)
 	}
 
 	settings := Datetime{
