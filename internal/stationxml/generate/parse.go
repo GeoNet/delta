@@ -33,3 +33,32 @@ func (s *Schemas) ParseSelf(defaults Self, fn func(Self) error) error {
 
 	return nil
 }
+
+// ParseEnum decode the schema to process enum types
+func (s *Schemas) ParseEnum(pkg string, fn func(string, Enum) error) error {
+
+	for _, v := range s.Schema {
+		if v.TargetNS != s.Namespace {
+			continue
+		}
+
+		for k, t := range v.Types {
+			if k.Space != s.Namespace {
+				continue
+			}
+
+			switch t := t.(type) {
+			case *xsd.SimpleType:
+				if !(len(t.Restriction.Enum) > 0) {
+					continue
+				}
+
+				if err := fn(xsd.XMLName(t).Local, toEnum(pkg, t)); err != nil {
+					return err
+				}
+			}
+		}
+	}
+
+	return nil
+}

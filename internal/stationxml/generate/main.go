@@ -76,6 +76,14 @@ func main() {
 		log.Fatalf("unable to parse self: %v", err)
 	}
 
+	if err := schemas.ParseEnum(name, func(name string, t Enum) error {
+		path := filepath.Join(output, FileName(name, ".go"))
+		log.Printf("rendering enum %s => %s", name, path)
+		return t.RenderFile(path)
+	}); err != nil {
+		log.Fatalf("unable to parse enum type: %v", err)
+	}
+
 	settings := Datetime{
 		Package: name,
 		Format:  format,
