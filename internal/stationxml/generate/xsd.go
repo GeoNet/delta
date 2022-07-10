@@ -51,3 +51,11 @@ func toSelf(cmplx *xsd.ComplexType, defaults Self) Self {
 
 	return defaults
 }
+
+func toEnum(pkg string, simple *xsd.SimpleType) Enum {
+	return Enum{
+		Package: pkg,
+		Type:    simple.Name.Local,
+		Values:  simple.Restriction.Enum,
+	}
+}
