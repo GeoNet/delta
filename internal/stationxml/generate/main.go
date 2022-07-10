@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 func main() {
@@ -42,9 +43,19 @@ func main() {
 	var output string
 	flag.StringVar(&output, "output", "output", "output dir")
 
+	var null string
+	flag.StringVar(&null, "null", "Created,FrequencyStart,FrequencyEnd,FrequencyDBVariation", "related to groups some variables should be pointers")
+
 	flag.Parse()
 
-	schemas := NewSchemas(ns)
+	var pointers []string
+	for _, s := range strings.Split(null, ",") {
+		if p := strings.TrimSpace(s); p != "" {
+			pointers = append(pointers, p)
+		}
+	}
+
+	schemas := NewSchemas(ns, pointers...)
 
 	switch {
 	case remote != "":
@@ -90,6 +101,14 @@ func main() {
 		return t.RenderFile(path)
 	}); err != nil {
 		log.Fatalf("unable to parse simple type: %v", err)
+	}
+
+	if err := schemas.ParseComplex(name, func(name string, t Complex) error {
+		path := filepath.Join(output, FileName(name, ".go"))
+		log.Printf("rendering complex %s => %s", name, path)
+		return t.RenderFile(path)
+	}); err != nil {
+		log.Fatalf("unable to parse complex type: %v", err)
 	}
 
 	settings := Datetime{
