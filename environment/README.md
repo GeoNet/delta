@@ -10,6 +10,8 @@ _Lists the geological and physical environment details of collection points._
 
 * `gauges.csv` - Gauges Descriptions.
 
+* `placenames.csv` - Placename Descriptions.
+
 * `visibility.csv` - Sky View Descriptions.
 
 #### _CONSTITUENTS_ ####
@@ -30,7 +32,10 @@ _Lists the geological and physical environment details of collection points._
 | --- | --- |
 | _Station_ | Code used to uniquely identify Recording _Station_.
 | _Location_ | Code used to uniquely identify the _Site_ at the  Recording _Station_.
+| _SubLocation_ | Code used to uniquely identify the _Site_ SubLocation if applicable.
+| _Property_ | Property being measured.
 | _Description_ | A helpful description of the physical site location.
+| _Aspect_ | Additional description of the physical site location, if applicable.
 | _Start Date_ | General date and time at which the _Site_ description was valid.
 | _End Date_ | General date and time at which the _Site_ description was no longer valid.
 
@@ -47,6 +52,17 @@ _Lists the geological and physical environment details of collection points._
 | _Crex Tag_ | Tide gauge Crex format location
 | _Start Date_ | General date and time at which the _Gauge_ description was valid.
 | _End Date_ | General date and time at which the _Gauge_ description was no longer valid.
+
+#### _PLACENAMES_ ####
+
+| Field | Description |
+| --- | --- |
+| _Name_ | The name of the place to use for distance measurements.
+| _Latitude_ | The latitude of the place.
+| _Longitude_ | The longitude of the place, this should be within -180 to 180 degrees.
+| _Level_ | The level is used to discard small places when finding the closest place at large distances.
+
+The level should be from 0 to 3, with 3 used for the smallest places.
 
 #### _VISIBILITY_ ####
 

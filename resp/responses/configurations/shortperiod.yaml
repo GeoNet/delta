@@ -19,7 +19,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Q330S+_FLbelow100-100-PREAMP32
+      - Q330S+_FLbelow100-100-GAIN32
       reversed: false
     - dataloggers:
       - Q330/3
@@ -31,7 +31,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Q330_FLbelow100-100-PREAMP
+      - Q330_FLbelow100-100-GAIN30
       reversed: false
 
   Quanterra Dataloggers Connected to Short Period Sensors:
@@ -141,6 +141,26 @@ response:
       filters:
       - EARSS-50
       reversed: false
+
+  Nanometrics Dataloggers Connected to Short Period Sensors with Gain Enabled:
+    sensors:
+    - sensors:
+      - 2 Hz Duke Malin Seismometer
+      filters:
+      - 2_Hz_Duke_Malin_Seismometer
+      channels: Z12
+      reversed: true
+    dataloggers:
+    - dataloggers:
+      - Centaur CTR4-6S
+      type: CG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim1
+      clockdrift: 0.0001
+      filters:
+        - CENTAUR-100-LP-GAIN40
 
   Nanometrics Dataloggers Connected to Short Period Sensors:
     sensors:
