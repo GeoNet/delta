@@ -44,7 +44,7 @@ func (m *MetaDB) Gain(sta, loc, cha string, at time.Time) (*meta.Gain, error) {
 		if g.Location != loc {
 			continue
 		}
-		if g.Channel != cha {
+		if g.Subsource != cha {
 			continue
 		}
 		if g.Start.After(at) {
