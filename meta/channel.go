@@ -10,29 +10,24 @@ import (
 const (
 	channelMake = iota
 	channelModel
-	channelDescription
 	channelType
-	channelPin
+	channelNumber
 	channelSamplingRate
-	channelGain
 	channelResponse
 	channelLast
 )
 
+// Channel is used to describe a generic recording from a Datalogger.
 type Channel struct {
-	Make        string
-	Model       string
-	Description string
-	Type        string
-	Response    string
-
-	Pin          int
+	Make         string
+	Model        string
+	Type         string
 	SamplingRate float64
-	Gain         float64
+	Response     string
+	Number       int
 
-	pin          string
+	number       string
 	samplingRate string
-	gain         string
 }
 
 // Less compares Channel structs suitable for sorting.
@@ -47,18 +42,16 @@ func (c Channel) Less(comp Channel) bool {
 		return true
 	case strings.ToLower(c.Model) > strings.ToLower(comp.Model):
 		return false
-	case c.Pin < comp.Pin:
+	case c.Number < comp.Number:
 		return true
-	case c.Pin > comp.Pin:
+	case c.Number > comp.Number:
 		return false
 	case c.SamplingRate < comp.SamplingRate:
 		return true
 	case c.SamplingRate > comp.SamplingRate:
 		return false
-	case c.Gain < comp.Gain:
-		return true
 	default:
-		return false
+		return true
 	}
 }
 
@@ -72,11 +65,9 @@ func (s ChannelList) encode() [][]string {
 	data := [][]string{{
 		"Make",
 		"Model",
-		"Description",
 		"Type",
-		"Pin",
+		"Number",
 		"SamplingRate",
-		"Gain",
 		"Response",
 	}}
 
@@ -84,14 +75,13 @@ func (s ChannelList) encode() [][]string {
 		data = append(data, []string{
 			strings.TrimSpace(v.Make),
 			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.Description),
 			strings.TrimSpace(v.Type),
-			strings.TrimSpace(v.pin),
+			strings.TrimSpace(v.number),
 			strings.TrimSpace(v.samplingRate),
-			strings.TrimSpace(v.gain),
 			strings.TrimSpace(v.Response),
 		})
 	}
+
 	return data
 }
 func (s *ChannelList) decode(data [][]string) error {
@@ -106,43 +96,34 @@ func (s *ChannelList) decode(data [][]string) error {
 			return fmt.Errorf("incorrect number of installed channel fields")
 		}
 
-		var pin int
-		if v := strings.TrimSpace(d[channelPin]); v != "" {
-			n, err := strconv.Atoi(v)
+		var number int
+		if s := strings.TrimSpace(d[channelNumber]); s != "" {
+			v, err := strconv.Atoi(s)
 			if err != nil {
 				return err
 			}
-			pin = n
-		}
-
-		var gain float64
-		if v := strings.TrimSpace(d[channelGain]); v != "" {
-			f, err := strconv.ParseFloat(v, 64)
-			if err != nil {
-				return err
-			}
-			gain = f
+			number = v
 		}
 
 		samplingRate, err := strconv.ParseFloat(d[channelSamplingRate], 64)
 		if err != nil {
 			return err
 		}
+		if samplingRate < 0.0 {
+			samplingRate = -1.0 / samplingRate
+		}
 
 		channels = append(channels, Channel{
-			Make:        strings.TrimSpace(d[channelMake]),
-			Model:       strings.TrimSpace(d[channelModel]),
-			Description: strings.TrimSpace(d[channelDescription]),
-			Type:        strings.TrimSpace(d[channelType]),
-			Response:    strings.TrimSpace(d[channelResponse]),
+			Make:     strings.TrimSpace(d[channelMake]),
+			Model:    strings.TrimSpace(d[channelModel]),
+			Type:     strings.TrimSpace(d[channelType]),
+			Response: strings.TrimSpace(d[channelResponse]),
 
-			Pin:          pin,
-			Gain:         gain,
+			Number:       number,
 			SamplingRate: samplingRate,
 
 			samplingRate: strings.TrimSpace(d[channelSamplingRate]),
-			pin:          strings.TrimSpace(d[channelPin]),
-			gain:         strings.TrimSpace(d[channelGain]),
+			number:       strings.TrimSpace(d[channelNumber]),
 		})
 	}
 

@@ -11,7 +11,8 @@ const (
 	componentMake = iota
 	componentModel
 	componentType
-	componentPin
+	componentNumber
+	componentSubsource
 	componentDip
 	componentAzimuth
 	componentResponse
@@ -19,18 +20,18 @@ const (
 )
 
 type Component struct {
-	Make     string
-	Model    string
-	Type     string
-	Response string
+	Make      string
+	Model     string
+	Type      string
+	Number    int
+	Subsource string
+	Dip       float64
+	Azimuth   float64
+	Response  string
 
-	Pin     int
-	Azimuth float64
-	Dip     float64
-
-	pin     string
-	azimuth string
+	number  string
 	dip     string
+	azimuth string
 }
 
 // Less compares Component structs suitable for sorting.
@@ -45,10 +46,12 @@ func (c Component) Less(comp Component) bool {
 		return true
 	case strings.ToLower(c.Model) > strings.ToLower(comp.Model):
 		return false
-	case c.Pin < comp.Pin:
+	case c.Number < comp.Number:
 		return true
-	default:
+	case c.Number > comp.Number:
 		return false
+	default:
+		return true
 	}
 }
 
@@ -63,7 +66,8 @@ func (s ComponentList) encode() [][]string {
 		"Make",
 		"Model",
 		"Type",
-		"Pin",
+		"Number",
+		"Subsource",
 		"Dip",
 		"Azimuth",
 		"Response",
@@ -74,7 +78,8 @@ func (s ComponentList) encode() [][]string {
 			strings.TrimSpace(v.Make),
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Type),
-			strings.TrimSpace(v.pin),
+			strings.TrimSpace(v.number),
+			strings.TrimSpace(v.Subsource),
 			strings.TrimSpace(v.dip),
 			strings.TrimSpace(v.azimuth),
 			strings.TrimSpace(v.Response),
@@ -90,30 +95,44 @@ func (s *ComponentList) decode(data [][]string) error {
 				return fmt.Errorf("incorrect pin of installed component fields")
 			}
 
-			pin, err := strconv.Atoi(d[componentPin])
-			if err != nil {
-				return err
+			var number int
+			if s := strings.TrimSpace(d[componentNumber]); s != "" {
+				v, err := strconv.Atoi(s)
+				if err != nil {
+					return err
+				}
+				number = v
 			}
 
-			azimuth, err := strconv.ParseFloat(d[componentAzimuth], 64)
-			if err != nil {
-				return err
+			var dip float64
+			if s := strings.TrimSpace(d[componentDip]); s != "" {
+				v, err := strconv.ParseFloat(s, 64)
+				if err != nil {
+					return err
+				}
+				dip = v
 			}
-			dip, err := strconv.ParseFloat(d[componentDip], 64)
-			if err != nil {
-				return err
+
+			var azimuth float64
+			if s := strings.TrimSpace(d[componentAzimuth]); s != "" {
+				v, err := strconv.ParseFloat(d[componentAzimuth], 64)
+				if err != nil {
+					return err
+				}
+				azimuth = v
 			}
 
 			components = append(components, Component{
-				Make:     strings.TrimSpace(d[componentMake]),
-				Model:    strings.TrimSpace(d[componentModel]),
-				Type:     strings.TrimSpace(d[componentType]),
-				Response: strings.TrimSpace(d[componentResponse]),
-				Pin:      pin,
-				Dip:      dip,
-				Azimuth:  azimuth,
+				Make:      strings.TrimSpace(d[componentMake]),
+				Model:     strings.TrimSpace(d[componentModel]),
+				Type:      strings.TrimSpace(d[componentType]),
+				Number:    number,
+				Subsource: strings.TrimSpace(d[componentSubsource]),
+				Dip:       dip,
+				Azimuth:   azimuth,
+				Response:  strings.TrimSpace(d[componentResponse]),
 
-				pin:     strings.TrimSpace(d[componentPin]),
+				number:  strings.TrimSpace(d[componentNumber]),
 				dip:     strings.TrimSpace(d[componentDip]),
 				azimuth: strings.TrimSpace(d[componentAzimuth]),
 			})

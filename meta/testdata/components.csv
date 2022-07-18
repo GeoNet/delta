@@ -1,2 +1,4 @@
-Make,Model,Type,Pin,Dip,Azimuth,Response
-Guralp,Fortis,Accelerometer,0,-90,0,sensor_guralp_fortis_response
+Make,Model,Type,Number,Subsource,Dip,Azimuth,Response
+Guralp,Fortis,Accelerometer,0,Z,-90,0,sensor_guralp_fortis_response
+Guralp,Fortis,Accelerometer,1,N,0,0,sensor_guralp_fortis_response
+Guralp,Fortis,Accelerometer,2,E,0,90,sensor_guralp_fortis_response
