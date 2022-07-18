@@ -283,6 +283,7 @@ overall sensor installation values to provide component dips and azimuths.
 | _Subsource_ | Sensor component label
 | _Dip_       | Internal dip of the compnent relative to whole sensor
 | _Azimuth_   | Internal azimuth of the compnent relative to whole sensor
+| _Types_     | A shorthand reference to the SEED type labels
 | _Response_  | A reference to the nominal StationXML response 
 
 

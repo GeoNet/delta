@@ -15,6 +15,7 @@ const (
 	componentSubsource
 	componentDip
 	componentAzimuth
+	componentTypes
 	componentResponse
 	componentLast
 )
@@ -27,6 +28,7 @@ type Component struct {
 	Subsource string
 	Dip       float64
 	Azimuth   float64
+	Types     string
 	Response  string
 
 	number  string
@@ -70,6 +72,7 @@ func (s ComponentList) encode() [][]string {
 		"Subsource",
 		"Dip",
 		"Azimuth",
+		"Types",
 		"Response",
 	}}
 
@@ -82,6 +85,7 @@ func (s ComponentList) encode() [][]string {
 			strings.TrimSpace(v.Subsource),
 			strings.TrimSpace(v.dip),
 			strings.TrimSpace(v.azimuth),
+			strings.TrimSpace(v.Types),
 			strings.TrimSpace(v.Response),
 		})
 	}
@@ -130,6 +134,7 @@ func (s *ComponentList) decode(data [][]string) error {
 				Subsource: strings.TrimSpace(d[componentSubsource]),
 				Dip:       dip,
 				Azimuth:   azimuth,
+				Types:     strings.TrimSpace(d[componentTypes]),
 				Response:  strings.TrimSpace(d[componentResponse]),
 
 				number:  strings.TrimSpace(d[componentNumber]),

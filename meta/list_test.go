@@ -1111,6 +1111,7 @@ func TestList(t *testing.T) {
 					Subsource: "Z",
 					Dip:       -90.0,
 					Azimuth:   0.0,
+					Types:     "G",
 					Response:  "sensor_guralp_fortis_response",
 
 					number:  "0",
@@ -1125,6 +1126,7 @@ func TestList(t *testing.T) {
 					Subsource: "N",
 					Dip:       0.0,
 					Azimuth:   0.0,
+					Types:     "G",
 					Response:  "sensor_guralp_fortis_response",
 
 					number:  "1",
@@ -1139,6 +1141,7 @@ func TestList(t *testing.T) {
 					Subsource: "E",
 					Dip:       0.0,
 					Azimuth:   90.0,
+					Types:     "G",
 					Response:  "sensor_guralp_fortis_response",
 
 					number:  "2",
