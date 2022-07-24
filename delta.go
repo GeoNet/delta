@@ -3,6 +3,7 @@ package delta
 import (
 	"embed"
 	"io/fs"
+	"os"
 	"sync"
 
 	"github.com/GeoNet/delta/meta"
@@ -39,4 +40,13 @@ func NewFS(fs fs.FS) (*meta.Set, error) {
 	}
 
 	return set, nil
+}
+
+// NewBase returns a Delta pointer based on an optional directory base prefix.
+// If the base is empty then the default embeded Set will be returned.
+func NewBase(base string) (*meta.Set, error) {
+	if base != "" {
+		return NewFS(os.DirFS(base))
+	}
+	return New()
 }
