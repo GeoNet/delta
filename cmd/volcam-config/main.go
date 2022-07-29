@@ -65,76 +65,77 @@ func main() {
 	}
 
 	var volcs []Volcam
-	for _, l := range set.Views() {
-		if time.Since(l.Span.End) > 0 {
+	for _, view := range set.Views() {
+		if time.Since(view.Span.End) > 0 {
 			continue
 		}
 
-		for _, m := range set.Mounts() {
-			if time.Since(m.Span.End) > 0 {
+		for _, mount := range set.Mounts() {
+			if time.Since(mount.Span.End) > 0 {
 				continue
 			}
-			if m.Code != l.Mount {
+			if mount.Code != view.Mount {
 				continue
 			}
 
-			for _, v := range set.InstalledCameras() {
-				if time.Since(v.Span.End) > 0 {
+			for _, camera := range set.InstalledCameras() {
+				if time.Since(camera.Span.End) > 0 {
 					continue
 				}
 
-				if v.Mount != m.Code {
+				if camera.Mount != mount.Code {
 					continue
 				}
 
-				if v.View != l.Code {
+				if camera.View != view.Code {
 					continue
 				}
 
 				targets := make(map[string]string)
-				for k, v := range keywords {
-					n, ok := titles[k]
+				for id, vals := range keywords {
+					target, ok := titles[id]
 					if !ok {
 						continue
 					}
-					for _, w := range v {
-						if strings.Contains(l.Label, w) {
-							targets[k] = n
+					for _, val := range vals {
+						if strings.Contains(view.Label, val) {
+							targets[id] = target
 						}
-						if strings.Contains(l.Description, w) {
-							targets[k] = n
+						if strings.Contains(view.Description, val) {
+							targets[id] = target
 						}
 					}
 				}
+
 				var volcanoes []Volcano
-				for k, w := range targets {
+				for id, title := range targets {
 					volcanoes = append(volcanoes, Volcano{
-						Id:    k,
-						Title: w,
+						Id:    id,
+						Title: title,
 					})
 				}
 
 				volcs = append(volcs, Volcam{
-					Id:        strings.Join(strings.FieldsFunc(strings.ToLower(l.Label), letters), ""),
-					Mount:     v.Mount,
-					View:      v.View,
-					Title:     l.Label,
-					Latitude:  m.Latitude,
-					Longitude: m.Longitude,
+					Id:        strings.Join(strings.FieldsFunc(strings.ToLower(view.Label), letters), ""),
+					Mount:     camera.Mount,
+					View:      camera.View,
+					Title:     view.Label,
+					Latitude:  mount.Latitude,
+					Longitude: mount.Longitude,
 					Datum: func() string {
-						if m.Datum == "WGS84" {
+						if mount.Datum == "WGS84" {
 							return "EPSG:4326"
 						}
-						return m.Datum
+						return mount.Datum
 					}(),
 					Height: func() float64 {
-						if m.Elevation == 9999 {
+						if mount.Elevation == 9999 {
 							return 0
 						}
-						return m.Elevation
+						return mount.Elevation
 					}(),
-					Azimuth:   v.Azimuth,
-					Ground:    v.Offset.Vertical,
+					Azimuth:   camera.Azimuth,
+					Ground:    camera.Offset.Vertical,
 					Volcanoes: volcanoes,
 				})
 			}

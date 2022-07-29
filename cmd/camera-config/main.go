@@ -57,25 +57,25 @@ func main() {
 
 	var captions []Caption
 
-	for _, m := range set.Mounts() {
-		if _, ok := nets[m.Network]; len(nets) > 0 && !ok {
+	for _, mount := range set.Mounts() {
+		if _, ok := nets[mount.Network]; len(nets) > 0 && !ok {
 			continue
 		}
-		if t := time.Since(m.End); active && t > 0 {
+		if t := time.Since(mount.End); active && t > 0 {
 			continue
 		}
 
-		for _, v := range set.Views() {
-			if v.Mount != m.Code {
+		for _, view := range set.Views() {
+			if view.Mount != mount.Code {
 				continue
 			}
-			if t := time.Since(v.End); active && t > 0 {
+			if t := time.Since(view.End); active && t > 0 {
 				continue
 			}
 			captions = append(captions, Caption{
-				Mount: v.Mount,
-				View:  v.Code,
-				Label: v.Label,
+				Mount: view.Mount,
+				View:  view.Code,
+				Label: view.Label,
 			})
 		}
 	}
