@@ -1,4 +1,4 @@
 Station,Location,Band,Source,Sampling Rate,Axial,Reversed,Triggered,Start Date,End Date
 CMWZ,10,H,E,100,false,false,false,2003-12-10T19:00:02Z,9999-01-01T00:00:00Z
 CMWZ,20,B,N,50,false,false,false,2016-12-05T06:30:00Z,9999-01-01T00:00:00Z
-CMWZ,20,H,H,200,false,false,true,2016-12-05T06:30:00Z,9999-01-01T00:00:00Z
+CMWZ,20,H,N,200,false,false,true,2016-12-05T06:30:00Z,9999-01-01T00:00:00Z
