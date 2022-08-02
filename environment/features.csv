@@ -80,6 +80,7 @@ TO006,02,01,temperature,fumarole,south vent,2018-10-08T23:50:00Z,9999-01-01T00:0
 TO006,03,01,temperature,fumarole,east vent,2018-08-28T00:30:00Z,9999-01-01T00:00:00Z
 TO015,01,01,temperature,air,,2021-11-19T00:30:00Z,9999-01-01T00:00:00Z
 TO015,02,01,temperature,fumarole,,2018-08-10T00:00:00Z,9999-01-01T00:00:00Z
+TO015,03,01,temperature,fumarole,,2022-08-01T02:49:00Z,9999-01-01T00:00:00Z
 TO063,01,01,temperature,air,,2021-05-07T00:00:00Z,9999-01-01T00:00:00Z
 TO063,02,01,temperature,spring,at source,2021-05-07T00:00:00Z,9999-01-01T00:00:00Z
 TO063,03,01,temperature,spring,downstream from source,2021-05-07T00:00:00Z,9999-01-01T00:00:00Z
