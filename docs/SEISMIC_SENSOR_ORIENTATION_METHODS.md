@@ -1,31 +1,39 @@
-# Seismic Sensor Orientation Methods
+# Seismic Sensor Orientation Conventions and Methods
 
-The methods used by GeoNet to determine seismic sensor orientation are outlined in this document.
+The conventions and methods used by GeoNet to measure and record seismic sensor orientation are outlined in this document.
 
-Seismic sensor orientations and a description of the method used to determine these, when known, are captured in `install/sensors.csv` in the `Azimuth` and `Orientation Method` columns respectively.
+Seismic sensor orientations indicate the bearing of the sensor's north component. Seismic sensor orientations and the method used to determine them are presented in `install/sensors.csv` in the `Azimuth` and `Method` columns. 
 
-Seismic sensor orientations are the bearing of the sensor's north component. Sensors that are not aligned at a 000 bearing (north component pointing north) will have their horizontal components labeled with `1` and `2` as the last character of the channel code, as per `docs/SEISMIC_CHANNEL_NAMING_CONVENTIONS.md`.
-
-If a sensor is "north-aligned", i.e. orientation of 000, then no orientation method is noted in the metadata. Similarly, if a sensor is not north-aligned but GeoNet is unaware of the misorientation, the metadata will record correct sensor orientation. This is an issue currently being addressed.  
+Sensors that are not intended to be north-aligned will have `1` and `2` as the last character of their horizontal component channel code, and sensors that are intended to be north-aligned will be `N` and `E` as the last character of their horizontal component channel code - as per `docs/SEISMIC_CHANNEL_NAMING_CONVENTIONS.md`. It is important to mark this distinction: that all sensors have an orientation, but not all sensors are intended to be north-oriented.
 
 ## Orientation Methods
 
-### Compass
+### Unknown
 
-The compass method involves taking a bearing of the sensor's north component using a compass.
+When an orientation is unknown, the `Azimuth` value will be `360` and the `Method` will be `unknown`.
 
-In *delta*, the compass method is noted as `compass` in the `Orientation Method` column of the `install/sensors.csv` file.
+### Onsite
 
-### Azimuth Pointing System
+When an orientation has been measured at the station, the `Azimuth` value will be this measurement and the `Method` will be `onsite`.
 
-The Azimuth Pointing System (APS) method uses a differential GPS system with two GPS antennae at a short horizontal offset (~1 m) at either ends of an arm with one end afixed to a tripod. The APS instrument projects a laser downward from below its outer antenna which can be aligned with the sensor's north component marking. The relative position of the outer antenna compared to the inner antenna on the APS arm gives the sensor orientation.
+The most common onsite orientation methods are using a compass and an azimuith pointing system. A compass measurement involves taking a bearing of the sensor's north component using a compass. An azimuth pointing system (APS) projects a laser onto the sensor's north component marking and uses differential GPS positioning of two antenna at either end of its laser to measure the sensor orientation. Both of these approaches are considered reliable and which method has been used to measure sensor orientation is not noted.
 
-In *delta*, the APS method is noted as `APS` in the `Orientation Method` column of the `install/sensors.csv` file.
+### Offsite
 
-### Signal Coherency
+When an orientation is calculated using the data from a station or - as in the case of strong motion sensors in building arrays - using geographic references, the `Azimuth` value is the calculated value and the `Method` is `offsite`.
 
-The signal coherency method uses a reference seismometer with a known orientation and the coherency of a given signal between the two seismic sensors to determine the sensor orientation. Signal coherency methods simulate a rotation of the sensor and find the rotation angle for which the signal recorded on both sensors is most similar. The sensor orientation is then determined from this rotation angle.
+There are many offsite orientation methods. Besides geographic referencing, the most common method is to use the polarisation of seismic waves from a known source to calculate the sensor orientation. Here both teleseismic earthquake phases and the Rayleigh waves of the secondary microseism recoverable using ambient noise techniques are used. Historically comparisons between surface and borehole seismic sensors have been used to calculate borehole sensor orientation, as has the approach of minimising moment tensor solution residuals by orienting the data from sensors with unknown orientations. To avoid presenting the full description of orientation techniques here, we simply note that offsite orientation methods are always the best possible and orientations are verified by the agreement of two or more methods where possible.
 
-Signal coherency methods work best when the distance between sensors is small and the signals used are strongly coherent between the two sensors. Commonly the signal coherency method is used for orientating borehole sensors as neither of the other methods are applicable.
+Often offsite orientation methods are used for borehole sensors and other sensors that cannot be oriented using onsite methods, i.e. those in building arrays.
 
-In *delta*, the signal coherency method is noted as either `local coherency` or `remote coherency` in the `Orientation Method` column of the `install/sensors.csv` file, depending on whether an oriented surface sensor was used (in the case of borehole sensors), or if an oriented remote sensor was used.
+### Method Accuracy
+
+Uncertainty is not measured for orientation values. Unless the sensor orientation is unknown, the orientation uncertainty can be safely assumed to be +/- 5 degrees, if not much less.
+
+## Legacy Sensor Orientations
+
+In the GeoNet archive there are data from a long legacy of sensors. Unless the orientations of these sensors are stated as `360` or `unknown`, these are considered reliable.
+
+## Reporting Sensor Orientation Inaccuracies
+
+There is always the possibility that sensor orientations in delta are not accuruate. Through its operations, GeoNet will ocassionally discover inaccuracies and update its metadata accordingly. If you find an inaccuracy through your work, please reach out to info@geonet.org.nz.
