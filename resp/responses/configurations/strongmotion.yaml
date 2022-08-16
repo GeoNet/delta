@@ -9,6 +9,12 @@ response:
       - FBA-ES-T
       channels: ZNE
       reversed: false
+   - sensors:
+      - Fortis
+      filters:
+      - Fortis-DC-100Hz-4g
+      channels: ZNE
+      reversed: false
     dataloggers:
     - dataloggers:
       - Q330S/6
@@ -343,6 +349,12 @@ response:
       - FBA-ES-T-ISO
       filters:
       - FBA-ES-T
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - Fortis
+      filters:
+      - Fortis-DC-100Hz-4g
       channels: ZNE
       reversed: false
     dataloggers:
