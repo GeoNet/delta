@@ -139,8 +139,8 @@ The second letter represents the sensor type, e.g..
 
 The third letter either represents the sensor orientation or a processing stage.
 
-- `Z,N,E` (Three component sensor aligned to North)
-- `Z,1,2` (Three component sensor with non-aligned orientation, generally used for borehole sensors or strong motion recorders)
+- `Z,N,E` (Three component sensor with intended north alignment)
+- `Z,1,2` (Three component sensor with non-intended north-alignment, generally used for borehole sensors or strong motion recorders)
 - `X,Y,Z` (Three component sensors with site specific orientations, generally used for building arrays)
 - `U,V,W` (Three component sensors with non-standard orientations, generally used for mass positions of broadband sensors)
 - `Z` (Single component vertical sensor, or pressure sensor used to measure height).
