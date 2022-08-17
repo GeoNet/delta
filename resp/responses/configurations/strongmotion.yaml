@@ -9,7 +9,7 @@ response:
       - FBA-ES-T
       channels: ZNE
       reversed: false
-   - sensors:
+    - sensors:
       - Fortis
       filters:
       - Fortis-DC-100Hz-4g
