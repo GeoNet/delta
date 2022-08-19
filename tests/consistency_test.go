@@ -59,6 +59,7 @@ func TestConsistency(t *testing.T) {
 		"firmware":     {f: "../install/firmware.csv", l: &meta.FirmwareHistoryList{}},
 		"streams":      {f: "../install/streams.csv", l: &meta.StreamList{}},
 		"gains":        {f: "../install/gains.csv", l: &meta.GainList{}},
+		"polarities":   {f: "../install/polarities.csv", l: &meta.PolarityList{}},
 		"calibrations": {f: "../install/calibrations.csv", l: &meta.CalibrationList{}},
 		"networks":     {f: "../network/networks.csv", l: &meta.NetworkList{}},
 		"stations":     {f: "../network/stations.csv", l: &meta.StationList{}},
@@ -69,7 +70,7 @@ func TestConsistency(t *testing.T) {
 		"gauges":       {f: "../environment/gauges.csv", l: &meta.GaugeList{}},
 		"constituents": {f: "../environment/constituents.csv", l: &meta.ConstituentList{}},
 		"features":     {f: "../environment/features.csv", l: &meta.FeatureList{}},
-		"visibility":   {f: "../environment/visibility.csv", l: &meta.VisibilityList{}},
+		"citations":    {f: "../references/citations.csv", l: &meta.CitationList{}},
 	}
 
 	for f, v := range files {

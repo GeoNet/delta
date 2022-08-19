@@ -24,6 +24,13 @@ func (s Set) Calibrations() []Calibration {
 	return calibrations
 }
 
+// Citations is a helper function to return a slice copy of Citation values.
+func (s Set) Citations() []Citation {
+	citations := make([]Citation, len(s.citations))
+	copy(citations, s.citations)
+	return citations
+}
+
 // Connections is a helper function to return a slice copy of Connection values.
 func (s Set) Connections() []Connection {
 	connections := make([]Connection, len(s.connections))
@@ -162,6 +169,13 @@ func (s Set) Placenames() []Placename {
 	placenames := make([]Placename, len(s.placenames))
 	copy(placenames, s.placenames)
 	return placenames
+}
+
+// Polarities is a helper function to return a slice copy of Polarity values.
+func (s Set) Polarities() []Polarity {
+	polarities := make([]Polarity, len(s.polarities))
+	copy(polarities, s.polarities)
+	return polarities
 }
 
 // Sessions is a helper function to return a slice copy of Session values.

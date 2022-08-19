@@ -1,0 +1,4 @@
+Station,Location,Sublocation,Subsource,Primary,Reversed,Method,Citation,Start Date,End Date
+WEL,10,,Z,,true,field,,2022-07-28T01:59:00Z,9999-01-01T00:00:00Z
+WEL,11,,,,true,field,,2022-07-28T01:59:00Z,2023-01-01T00:00:00Z
+WEL,11,,,,false,field,,2023-01-01T00:00:00Z,9999-01-01T00:00:00Z

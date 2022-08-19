@@ -25,6 +25,7 @@ func main() {
 
 	if err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
 		if !info.IsDir() && filepath.Ext(path) == ".yaml" {
+			log.Println(path)
 			b, err := ioutil.ReadFile(path)
 			if err != nil {
 				return err

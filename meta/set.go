@@ -34,6 +34,7 @@ const (
 	SensorsFile      = "install/sensors.csv"
 	SessionsFile     = "install/sessions.csv"
 	StreamsFile      = "install/streams.csv"
+	PolaritiesFile   = "install/polarities.csv"
 
 	ConstituentsFile = "environment/constituents.csv"
 	FeaturesFile     = "environment/features.csv"
@@ -44,6 +45,8 @@ const (
 	ChannelsFile   = "install/channels.csv"
 	ComponentsFile = "install/components.csv"
 	CodenamesFile  = "install/codenames.csv"
+
+	CitationsFile = "references/citations.csv"
 )
 
 // SetPathMap is used to manipulate the filepath inside the Set.
@@ -71,6 +74,7 @@ type Set struct {
 	doases              InstalledDoasList
 	firmwareHistory     FirmwareHistoryList
 	gains               GainList
+	polarities          PolarityList
 	calibrations        CalibrationList
 	installedMetSensors InstalledMetSensorList
 	installedRadomes    InstalledRadomeList
@@ -86,6 +90,7 @@ type Set struct {
 	gauges       GaugeList
 	visibilities VisibilityList
 	placenames   PlacenameList
+	citations    CitationList
 }
 
 func (s *Set) files() map[string]List {
@@ -107,6 +112,7 @@ func (s *Set) files() map[string]List {
 		DoasesFile:       &s.doases,
 		FirmwareFile:     &s.firmwareHistory,
 		GainsFile:        &s.gains,
+		PolaritiesFile:   &s.polarities,
 		CalibrationsFile: &s.calibrations,
 		MetsensorsFile:   &s.installedMetSensors,
 		RadomesFile:      &s.installedRadomes,
@@ -121,6 +127,7 @@ func (s *Set) files() map[string]List {
 		GaugesFile:       &s.gauges,
 		VisibilityFile:   &s.visibilities,
 		PlacenamesFile:   &s.placenames,
+		CitationsFile:    &s.citations,
 	}
 }
 
