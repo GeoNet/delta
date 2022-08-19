@@ -644,6 +644,9 @@ CSI,EQR120,46535,,
 CSI,EQR120,46536,,
 CSI,EQR120,46537,,
 CSI,EQR120,46540,,
+CSI,EQR120,46541,,
+CSI,EQR120,46542,,
+CSI,EQR120,46543,,
 GEM Systems,GSM-19,28480,,
 Kinemetrics,BASALT,1196,14805,
 Kinemetrics,BASALT,1245,14806,
@@ -1027,6 +1030,8 @@ Nanometrics,TitanSMA,001708,,
 Nanometrics,TitanSMA,001712,,
 Nanometrics,TitanSMA,001714,,
 Nanometrics,TitanSMA,001715,,
+Nanometrics,TitanSMA,001895,,
+Nanometrics,TitanSMA,001898,,
 Paroscientific,BPR Subsystem,141002,,DART 4G
 Paroscientific,BPR Subsystem,141012,,DART 4G
 Paroscientific,BPR Subsystem,141016,,DART 4G

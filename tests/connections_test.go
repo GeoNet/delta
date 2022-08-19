@@ -1,6 +1,7 @@
 package delta_test
 
 import (
+	"strconv"
 	"strings"
 	"testing"
 	"time"
@@ -20,6 +21,9 @@ var testConnections = map[string]func([]meta.Connection) func(t *testing.T){
 					if connections[i].Location != connections[j].Location {
 						continue
 					}
+					if connections[i].Number != connections[j].Number {
+						continue
+					}
 					if connections[i].Start.After(connections[j].End) {
 						continue
 					}
@@ -29,6 +33,7 @@ var testConnections = map[string]func([]meta.Connection) func(t *testing.T){
 					t.Errorf("connection overlap: " + strings.Join([]string{
 						connections[i].Station,
 						connections[i].Location,
+						strconv.Itoa(connections[i].Number),
 						connections[i].Start.String(),
 						connections[i].End.String(),
 					}, " "))
@@ -43,6 +48,7 @@ var testConnections = map[string]func([]meta.Connection) func(t *testing.T){
 					t.Error("connection span mismatch: " + strings.Join([]string{
 						c.Station,
 						c.Location,
+						strconv.Itoa(c.Number),
 						c.Start.String(),
 						"after",
 						c.End.String(),

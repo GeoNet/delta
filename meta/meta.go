@@ -161,6 +161,62 @@ type Span struct {
 	End time.Time
 }
 
+// Overlaps returns whether the time range of the Span overlaps the given Span.
+// It is assumed that the End time for a span can overlap with the start of
+// another Span if they exactly match.
+func (s Span) Overlaps(span Span) bool {
+	switch {
+	case s.Start.After(span.End):
+		return false
+	case s.End.Before(span.Start):
+		return false
+	default:
+		return true
+	}
+}
+
+// Extent returns the Span that is the sum of the given overlapping Span values,
+// the extra boolean return value will be false if no window could be found. It
+// is assumed that the end must be greater than the start of the resultant Span.
+func (s Span) Extent(spans ...Span) (Span, bool) {
+
+	clip := s
+
+	for _, span := range spans {
+		if span.Start.Before(clip.Start) {
+			continue
+		}
+		clip.Start = span.Start
+	}
+	for _, span := range spans {
+		if span.End.After(clip.End) {
+			continue
+		}
+		clip.End = span.End
+	}
+
+	if clip.Start.After(clip.End) {
+		return Span{}, false
+	}
+
+	if !clip.Overlaps(s) {
+		return Span{}, false
+	}
+
+	for _, span := range spans {
+		if span.Overlaps(clip) {
+			continue
+		}
+		return Span{}, false
+	}
+
+	if clip.Start.Equal(clip.End) {
+		return Span{}, false
+	}
+
+	return clip, true
+}
+
 // Equipment represents an indiviual piece of hardware.
 type Equipment struct {
 	// Make describes the manufacturer or equipment maker.
