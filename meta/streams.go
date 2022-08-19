@@ -11,6 +11,8 @@ import (
 const (
 	streamStation = iota
 	streamLocation
+	streamBand
+	streamSource
 	streamSamplingRate
 	streamAxial
 	streamReversed
@@ -25,6 +27,8 @@ type Stream struct {
 
 	Station      string
 	Location     string
+	Band         string
+	Source       string
 	SamplingRate float64
 	Axial        string
 	Reversed     bool
@@ -66,6 +70,8 @@ func (s StreamList) encode() [][]string {
 	data := [][]string{{
 		"Station",
 		"Location",
+		"Band",
+		"Source",
 		"Sampling Rate",
 		"Axial",
 		"Reversed",
@@ -77,6 +83,8 @@ func (s StreamList) encode() [][]string {
 		data = append(data, []string{
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
+			strings.TrimSpace(v.Band),
+			strings.TrimSpace(v.Source),
 			strings.TrimSpace(v.samplingRate),
 			strings.TrimSpace(v.Axial),
 			strings.TrimSpace(strconv.FormatBool(v.Reversed)),
@@ -124,6 +132,8 @@ func (c *StreamList) decode(data [][]string) error {
 			streams = append(streams, Stream{
 				Station:      strings.TrimSpace(v[streamStation]),
 				Location:     strings.TrimSpace(v[streamLocation]),
+				Band:         strings.TrimSpace(v[streamBand]),
+				Source:       strings.TrimSpace(v[streamSource]),
 				SamplingRate: rate,
 				samplingRate: strings.TrimSpace(v[streamSamplingRate]),
 				Axial:        strings.TrimSpace(v[streamAxial]),
