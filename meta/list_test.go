@@ -1096,6 +1096,65 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
+		{
+			"testdata/polarities.csv",
+			&PolarityList{
+				Polarity{
+					Station:   "WEL",
+					Location:  "10",
+					Subsource: "Z",
+					Reversed:  true,
+					Method:    PolarityCompass,
+					Span: Span{
+						Start: time.Date(2022, time.July, 28, 1, 59, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+
+					reversed: "true",
+					method:   "compass",
+				},
+				Polarity{
+					Station:  "WEL",
+					Location: "11",
+					Reversed: true,
+					Span: Span{
+						Start: time.Date(2022, time.July, 28, 1, 59, 0, 0, time.UTC),
+						End:   time.Date(2023, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+
+					reversed: "true",
+				},
+				Polarity{
+					Station:  "WEL",
+					Location: "11",
+					Reversed: false,
+					Method:   PolarityUnknown,
+					Span: Span{
+						Start: time.Date(2023, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+
+					reversed: "false",
+					method:   "unknown",
+				},
+			},
+		},
+		{
+			"testdata/citations.csv",
+			&CitationList{
+				Citation{
+					Key:       "key2002",
+					Author:    "A Writer",
+					Title:     "A test",
+					Year:      2002,
+					Published: "Journal of test",
+					Link:      "http://example.com",
+					Retrieved: time.Date(2021, time.January, 12, 0, 0, 0, 0, time.UTC),
+
+					retrieved: "2021-01-12T00:00:00Z",
+				},
+			},
+		},
 	}
 
 	for _, tt := range listtests {

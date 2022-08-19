@@ -1,6 +1,7 @@
 package meta
 
 import (
+	"errors"
 	"fmt"
 	"sort"
 	"strconv"
@@ -22,6 +23,46 @@ const (
 	polarityLast
 )
 
+var ErrInvalidPolarityMethod = errors.New("invalid polarity method")
+
+const (
+	PolarityUnknown PolarityMethod = iota
+	PolarityCompass
+)
+
+// PolarityMethod lists the various mechanisms for determining signal polarity.
+type PolarityMethod int
+
+// String implements the Stringer interface.
+func (p PolarityMethod) String() string {
+	switch p {
+	case PolarityUnknown:
+		return "unknown"
+	case PolarityCompass:
+		return "compass"
+	default:
+		return "unknown"
+	}
+}
+
+// UnmarshalText implements the TextUnmarshaler interface.
+func (p *PolarityMethod) UnmarshalText(data []byte) error {
+	switch strings.ToLower(string(data)) {
+	case "unknown":
+		*p = PolarityUnknown
+	case "compass":
+		*p = PolarityCompass
+	default:
+		return ErrInvalidPolarityMethod
+	}
+	return nil
+}
+
+// MarshalText implements the TextMarshaler interface.
+func (p PolarityMethod) MarshalText() ([]byte, error) {
+	return []byte(p.String()), nil
+}
+
 // Polarity defines times where the sensor or datalogger installation results in a signal may be opposite polarity to that intended.
 type Polarity struct {
 	Span
@@ -32,9 +73,10 @@ type Polarity struct {
 	Subsource   string
 	Primary     bool
 	Reversed    bool
-	Method      string
+	Method      PolarityMethod
 	Citation    string
 
+	method   string
 	primary  string
 	reversed string
 }
@@ -131,7 +173,7 @@ func (g PolarityList) encode() [][]string {
 			strings.TrimSpace(v.Subsource),
 			strings.TrimSpace(v.primary),
 			strings.TrimSpace(v.reversed),
-			strings.TrimSpace(v.Method),
+			strings.TrimSpace(v.method),
 			strings.TrimSpace(v.Citation),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
@@ -167,6 +209,13 @@ func (g *PolarityList) decode(data [][]string) error {
 				reversed = b
 			}
 
+			var method PolarityMethod
+			if s := strings.TrimSpace(d[polarityMethod]); s != "" {
+				if err := method.UnmarshalText([]byte(s)); err != nil {
+					return err
+				}
+			}
+
 			start, err := time.Parse(DateTimeFormat, d[polarityStart])
 			if err != nil {
 				return err
@@ -188,9 +237,10 @@ func (g *PolarityList) decode(data [][]string) error {
 				Subsource:   strings.TrimSpace(d[polaritySubsource]),
 				Primary:     primary,
 				Reversed:    reversed,
-				Method:      strings.TrimSpace(d[polarityMethod]),
+				Method:      method,
 				Citation:    strings.TrimSpace(d[polarityCitation]),
 
+				method:   strings.TrimSpace(d[polarityMethod]),
 				primary:  strings.TrimSpace(d[polarityPrimary]),
 				reversed: strings.TrimSpace(d[polarityReversed]),
 			})
