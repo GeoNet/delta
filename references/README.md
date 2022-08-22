@@ -25,7 +25,12 @@ All fields, other than Key, are optional and can be left blank.
 | _Link_ | A URL link to the reference if available
 | _Retrieved_ | The last time a valid URL was retrieved
 
+#### EXAMPLE #####
+
+    Key,Author,Year,Title,Published,Volume,DOI,Link,Retrieved
+    Fry2020,"Fry, B., S.-J. McCurrach, K. Gledhill, W. Power, M. Williams, M. Angove, D. Arcas, and C. Moore",2020,Sensor network warns of stealth tsunamis,Eos,101,https://doi.org/10.1029/2020EO144274,,
+
 ### NOTES ###
 
 - Dates should be given as in _ISO 8601_ (i.e. `2016-09-18T02:24:26Z`)
-- When entering a field value which has a comma, the field should be enclosed within double quotes. (e.g. "Last, F., Name ...")
+- Any field entries with commas should be enclosed within double quotes. (e.g. "Last, F., Name ...")
