@@ -7,7 +7,7 @@ response:
       filters:
       - 2_Hz_Duke_Malin_Seismometer
       channels: Z12
-      reversed: true
+      reversed: false
     dataloggers:
     - dataloggers:
       - Q330S/3

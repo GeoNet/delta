@@ -10636,7 +10636,7 @@ var Responses []Response = []Response{
 					},
 				},
 				Channels: "Z12",
-				Reversed: true,
+				Reversed: false,
 			},
 		},
 		Dataloggers: []Datalogger{
