@@ -19,6 +19,8 @@ Meta information for the GeoNet equipment network.
 * `connections.csv` - Datalogger and sensor connection details
 * `streams.csv` - Datalogger and recorder sampling configurations
 * `gains.csv` - site specific settings applied to individual datalogger and sensor that may impact overall sensitivities
+* `components.csv` - Individual sensor elements including measurement position and responses.
+* `channels.csv` - Individual datalogger recording elements including digitiser position, sampling rate, and responses.
 * `calibrations.csv` - Individual sensor sensitivity values that can be used rather than default values.
 * `components.csv` - Individual sensor elements including measurement position and responses.
 * `channels.csv` - Individual datalogger recording elements including digitiser position, sampling rate, and responses.
@@ -244,6 +246,56 @@ For the scale factor and bias either a value can be given directly or an express
 | _Stop_ | Gain stop time|
 
 For a second order polynomial response, the output is expected to be `Y = a * X + b` where `X` is normally the input voltage, and Y the corrected signal. The terms `a` and `b` are the factor and bias respectively. The gain adjustments (`a'`, `b'`) update this via `Y = (a * a') * X + (b + b')`
+
+#### _COMPONENTS_ ####
+
+Sensor model component descriptions. The type is generally of the form "Accelerometer, Short Period Seismometer" etc.
+The number represents the order of sensor components, this generally maps to the sensor cable and how it is connected
+into the datalogger.
+Subsource is the general term used for labelling the sensor component and is usually the last character in the SEED channel convention.
+Dip and Azimuth are used to indicate the relative position of the sensor component within the sensor package and will be used with the
+overall sensor installation values to provide component dips and azimuths.
+
+| Field       | Description |
+| ----------- | ----------- |
+| _Make_      | Sensor make
+| _Model_     | Sensor model name
+| _Type_      | Sensor type
+| _Number_    | Sensor component offset
+| _Subsource_ | Sensor component label
+| _Dip_       | Internal dip of the compnent relative to whole sensor
+| _Azimuth_   | Internal azimuth of the compnent relative to whole sensor
+| _Types_     | A shorthand reference to the SEED type labels
+| _Response_  | A reference to the nominal StationXML response
+
+Example:
+
+    Make,Model,Type,Number,Subsource,Dip,Azimuth,Types,Response
+    Guralp,Fortis,Accelerometer,0,Z,-90,0,G,sensor_guralp_fortis_response
+    Guralp,Fortis,Accelerometer,1,N,0,0,G,sensor_guralp_fortis_response
+    Guralp,Fortis,Accelerometer,2,E,0,90,G,sensor_guralp_fortis_response
+
+#### _CHANNELS_ ####
+
+The individual channels configured for a given datalogger model, these include the channel numbers and sampling rates.
+The channel number is an offset into the digitiser or digitisers and are used to match the connected sensor component
+and the expected response. Some digitisers have different nominal responses for different groups of digitiser channels.
+
+| Field           | Description |
+| --------------- | ----------- |
+| _Make_          | Datalogger make
+| _Model_         | Datalogger model name
+| _Type_          | Datalogger type
+| _Number_        | Datalogger channel offset, an empty value will map to zero
+| _Sampling Rate_ | Configured Channel sampling rate
+| _Response_      | A reference to the nominal StationXML response
+
+Example:
+
+    Make,Model,Type,Number,SamplingRate,Response
+    Nanometrics,Centaur CTR4-6S,Datalogger,,200,datalogger_nanometrics_centaur_200_response
+    Quanterra,Q330HR/6,Datalogger,0,200,datalogger_quanterra_q330_highgain_200_response
+    Quanterra,Q330HR/6,Datalogger,3,200,datalogger_quanterra_q330_200_response
 
 #### _CALIBRATIONS_ ####
  
