@@ -3,13 +3,15 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testNetworks = map[string]func([]meta.Network) func(t *testing.T){
-
-	"check for duplicated networks": func(networks []meta.Network) func(t *testing.T) {
+var testNetworks = map[string]func(set *meta.Set) func(t *testing.T){
+	"check for duplicated networks": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
+
+			networks := set.Networks()
 
 			for i := 0; i < len(networks); i++ {
 				for j := i + 1; j < len(networks); j++ {
@@ -23,10 +25,13 @@ var testNetworks = map[string]func([]meta.Network) func(t *testing.T){
 }
 
 func TestNetworks(t *testing.T) {
-	var networks meta.NetworkList
-	loadListFile(t, "../network/networks.csv", &networks)
+
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	for k, fn := range testNetworks {
-		t.Run(k, fn(networks))
+		t.Run(k, fn(set))
 	}
 }
