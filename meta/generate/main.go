@@ -18,6 +18,7 @@ func main() {
 			"deployedDataloggers": {"DeployedDatalogger"},
 			"deployedReceivers":   {"DeployedReceiver"},
 			"doases":              {"InstalledDoas"},
+			"domains":             {"Domain"},
 			"features":            {"Feature"},
 			"firmwareHistory":     {"FirmwareHistory"},
 			"gains":               {"Gain"},

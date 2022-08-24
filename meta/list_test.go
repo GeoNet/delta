@@ -1096,6 +1096,20 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
+		{
+			"testdata/domains.csv",
+			&DomainList{
+				Domain{
+					Station: "WI227",
+					Network: "EN",
+					Domain:  "MC",
+					Span: Span{
+						Start: time.Date(2018, time.September, 13, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+				},
+			},
+		},
 	}
 
 	for _, tt := range listtests {

@@ -59,6 +59,13 @@ func (s Set) Doases() []InstalledDoas {
 	return doases
 }
 
+// Domains is a helper function to return a slice copy of Domain values.
+func (s Set) Domains() []Domain {
+	domains := make([]Domain, len(s.domains))
+	copy(domains, s.domains)
+	return domains
+}
+
 // Features is a helper function to return a slice copy of Feature values.
 func (s Set) Features() []Feature {
 	features := make([]Feature, len(s.features))

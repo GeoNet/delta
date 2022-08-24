@@ -18,6 +18,7 @@ const (
 	SitesFile     = "network/sites.csv"
 	StationsFile  = "network/stations.csv"
 	ViewsFile     = "network/views.csv"
+	DomainsFile   = "network/domains.csv"
 
 	AntennasFile     = "install/antennas.csv"
 	CamerasFile      = "install/cameras.csv"
@@ -63,6 +64,7 @@ type Set struct {
 	sites     SiteList
 	stations  StationList
 	views     ViewList
+	domains   DomainList
 
 	installedAntennas   InstalledAntennaList
 	installedCameras    InstalledCameraList
@@ -99,6 +101,7 @@ func (s *Set) files() map[string]List {
 		SitesFile:     &s.sites,
 		StationsFile:  &s.stations,
 		ViewsFile:     &s.views,
+		DomainsFile:   &s.domains,
 
 		AntennasFile:     &s.installedAntennas,
 		CamerasFile:      &s.installedCameras,
