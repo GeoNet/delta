@@ -1,4 +1,4 @@
-Station,Location,SubLocation,Property,Description,Aspect,Start Date,End Date
+Station,Location,Sublocation,Property,Description,Aspect,Start Date,End Date
 FOXAG,01,01,rainfall,total,,2019-02-06T13:10:00Z,9999-01-01T00:00:00Z
 FOXAG,02,01,rainfall,total,,2019-02-06T13:10:00Z,9999-01-01T00:00:00Z
 FOXAG,03,01,moisture,soil,10 cm,2021-05-05T23:09:59Z,9999-01-01T00:00:00Z

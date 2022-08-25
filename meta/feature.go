@@ -10,7 +10,7 @@ import (
 const (
 	featureStation = iota
 	featureLocation
-	featureSubLocation
+	featureSublocation
 	featureProperty
 	featureDescription
 	featureAspect
@@ -24,7 +24,7 @@ type Feature struct {
 
 	Station     string
 	Location    string
-	SubLocation string
+	Sublocation string
 	Property    string
 	Description string
 	Aspect      string
@@ -40,9 +40,9 @@ func (f Feature) Less(feature Feature) bool {
 		return true
 	case f.Location > feature.Location:
 		return false
-	case f.SubLocation < feature.SubLocation:
+	case f.Sublocation < feature.Sublocation:
 		return true
-	case f.SubLocation > feature.SubLocation:
+	case f.Sublocation > feature.Sublocation:
 		return false
 	case f.Property < feature.Property:
 		return true
@@ -65,7 +65,7 @@ func (f FeatureList) encode() [][]string {
 	data := [][]string{{
 		"Station",
 		"Location",
-		"SubLocation",
+		"Sublocation",
 		"Property",
 		"Description",
 		"Aspect",
@@ -77,7 +77,7 @@ func (f FeatureList) encode() [][]string {
 		data = append(data, []string{
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.SubLocation),
+			strings.TrimSpace(v.Sublocation),
 			strings.TrimSpace(v.Property),
 			strings.TrimSpace(v.Description),
 			strings.TrimSpace(v.Aspect),
@@ -117,7 +117,7 @@ func (f *FeatureList) decode(data [][]string) error {
 			},
 			Station:     strings.TrimSpace(d[featureStation]),
 			Location:    strings.TrimSpace(d[featureLocation]),
-			SubLocation: strings.TrimSpace(d[featureSubLocation]),
+			Sublocation: strings.TrimSpace(d[featureSublocation]),
 			Property:    strings.TrimSpace(d[featureProperty]),
 			Description: strings.TrimSpace(d[featureDescription]),
 			Aspect:      strings.TrimSpace(d[featureAspect]),
