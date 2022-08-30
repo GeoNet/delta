@@ -860,6 +860,8 @@ func TestList(t *testing.T) {
 				Stream{
 					Station:      "AKSS",
 					Location:     "20",
+					Band:         "B",
+					Source:       "N",
 					SamplingRate: 50.0,
 					samplingRate: "50",
 					Axial:        "true",
@@ -873,6 +875,8 @@ func TestList(t *testing.T) {
 				Stream{
 					Station:      "APZ",
 					Location:     "20",
+					Band:         "H",
+					Source:       "N",
 					SamplingRate: 200.0,
 					samplingRate: "200",
 					Axial:        "false",
