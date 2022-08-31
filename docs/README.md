@@ -16,7 +16,7 @@ To easily access metadata in a domain specific format please refer to our websit
 
 * `CAMERA_METADATA_CONVENTIONS_AND_IMAGE_INFORMATION.md` - conventions used for camera image stations.
 * `MINISEED_METADATA_CONVENTIONS.md` - conventions used for seismic stations.
-* `SEISMIC_SENSOR_ORIENTATION_METHODS.md` - description of the conventions and methods used to measure and present seismic sensor orientation.
+* `SEISMIC_SENSOR_ORIENTATION_POLARITIES.md` - description of the conventions and methods used to measure and present seismic sensor orientations and polarities.
 * `TSUNAMI_METADATA_CONVENTIONS.md` - conventions used for tsunami monitoring stations.
 
 
