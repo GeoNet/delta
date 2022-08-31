@@ -1,4 +1,4 @@
-# Seismic Sensor Orientation Conventions and Methods
+# Seismic Sensor Orientation and Polarity Conventions and Methods
 
 The conventions and methods used by GeoNet to measure and represent seismic sensor orientations and polarities are outlined in this document.
 
