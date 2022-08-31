@@ -212,12 +212,18 @@ A list of _datalogger_ sampling configurations for a given _station_ and recordi
 | --- | --- | --- |
 | _Station_ | Recording _Station_|
 | _Location_ | Recording locations _Site_|
+| _Band_ | Channel _Band_ code|
+| _Source_ | Channel _Source_ code|
 | _Sampling Rate_ | Nominal stream sampling rate | samples per second (_Hz_)
 | _Axial_ | Whether the stream is configured for</br>axial coordinates (_Z12_) or geographic (_ZNE_) |_"yes"_ or _"no"_
 | _Reversed_ | Whether the recorded signal should</br>be reversed over the time window|_"yes"_ or _"no"_
 | _Triggered_ | Whether the stream represents</br>triggered recordings|_"yes"_ or _"no"_
 | _Start_ | Stream start time|
 | _Stop_ | Stream stop time|
+
+The band and source codes are representitives of the FDSN channel naming convention as found at:
+
+[FDSN Source Identifiers: Channel codes](http://docs.fdsn.org/projects/source-identifiers/en/v1.0/channel-codes.html)
 
 #### _GAINS_ ####
  
