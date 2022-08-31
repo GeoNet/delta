@@ -1,16 +1,16 @@
 # MiniSEED Metadata Conventions
 
-In this document we describe the metadata conventions used for GeoNet sensors that collect miniSEED waveform data. This include different data domains such as seismic sensors, water level pressure sensors and geomagnetic sensors. The documentation covered in this file specifically describes the conventions used for seismic sensors, although these apply generally to the other sensors which collect miniSEED waveform data. When exceptions to this exist, a specific document describing these will be available in the same folder as this document.
+In this document we describe the metadata conventions used for GeoNet sensors that collect miniSEED waveform data. This includes different data domains such as seismic sensors, water level pressure sensors and geomagnetic sensors. The documentation covered in this file specifically describes the conventions used for seismic sensors, although these apply generally to the other sensors which collect miniSEED waveform data. When exceptions to this exist, a specific document describing these will be available in the same folder as this document.
 
 ## Overview
 
 GeoNet has two types of seismic stations: weak motion and broadband stations (velocimeters), and strong motion stations (accelerometers). The distinction is made by the primary purpose of the station: whether it exists principally to record weak ground motion (via a seismometer) or strong ground motion (via an accelerometer).
 
-Data are sampled at sites, which are located at stations. 
+Data are sampled at sites, which are located at stations. Stations have station codes, sites have station codes (of their host station) and location codes (distinguishing the actual location of data collection).
 
 At each station there can be many sites, and sites are often referred to by their station code. The terms "site" and "station" are often used interchangably, and while the two often reference the same thing, this is not true when more than one site exists at a station.
 
-Stations are aggregated by network codes. There are internal-facing network codes, like those described in the `network/networks.csv` and in `network/stations.csv` files, and there are external-facing network codes: `NZ` for permanent sites, and `XX` for temporary sites. In _delta_, network codes often reference the internal code, and the internal code in turn references an external code.
+Stations are aggregated by network codes. There are internal-facing network codes, like those described in the `network/networks.csv` and in `network/stations.csv` files, and there are external-facing network codes: `NZ` for permanent sites, and `XX` for temporary sites. In _delta_, network codes often reference the internal code, and all internal codes map to external codes.
 
 The hierarchy used for data stream naming is:
 - Network (group of stations)
@@ -23,7 +23,7 @@ A station can host many data streams, and each data stream contains a unique set
 
 __&lt;NETWORK&gt; &lt;STATION&gt; &lt;LOCATION&gt; &lt;CHANNEL&gt;__  
 
-The seismic, and related, data stream naming conventions are based on historical usage together with recommendations from the [SEED manual](https://www.fdsn.org/seed_manual/SEEDManual_V2.4.pdf). Sometimes codes were created and used where no appropriate conventions applied at the time, and these have generally been left as is even after later conventions were developed.
+The seismic, and related, data stream naming conventions are based on historical usage together with recommendations from the [SEED manual](https://www.fdsn.org/seed_manual/SEEDManual_V2.4.pdf). Sometimes codes were created and used where no appropriate conventions applied at the time, and these have generally been left as is for continuity even after later conventions were developed.
 
 
 ## Network Code
@@ -55,12 +55,12 @@ In the past, the National Strong Motion Network recording sites tended to have a
 
 As with weak motion, strong motion stations end in a particular character: 'S'.
 
-Due to the utility of co-locating strong motion sensors with sensors of other types, many strong motion sites exist at weak motion stations. Such sites will have the weak motion station code but a different location code.
+Due to the utility of co-locating strong motion sensors with sensors of other types, many strong motion sites exist at weak motion stations. Such sites will have the weak motion station code but a location code in the strong motion range (`2?`)
 
 
 ## Location Codes
 
-The location code is primarily used to distinguish between multiple sensors installed at a single recording station where the same station code is used.
+The location code is primarily used to distinguish between many data collection points or multiple coincident sensors installations where the same station code is used.
 
 Location codes are associated to station codes and we refer to location codes when we make reference to a "site", even though we often use the host station code to make this reference.
 
@@ -86,14 +86,14 @@ There is an informal convention of using `01` for the primary datalogger (genera
 
 Testing, or non-production, dataloggers will have codes using the sequence: 0Z, 0Y, 0X, ... etc.  They should also use a similar sensor location sequence depending on sensor type, e.g. 1Z, 1Y, 1X ... etc.
 
-### Naming Conventions When Moving or Installating Different Sensors
+### Naming Conventions When Moving or Installating Surface Sensors
 
 Sites are associated with stations at the start of data collection from the site. Data collection is from a datalogger, which is connected to a sensor. 
 
 When a sensor is moved at a station or a new sensor is installed, the station and location code describing that installation follows these conventions:
 
 1. If the sensor is of the same type and in the same position as the previous sensor, neither station nor location code changes.
-1. If the sensor is of a different type but in the same position as the previous sensor, the station code remains the same but the location code changes .
+1. If the sensor is of a different type but in the same position as the previous sensor, the station code remains the same but the location code changes.
 1. If the sensor is more than 1 m from the position of the previous sensor, the station code remains the same but the location code changes. 
 1. If the sensor is more than 200 m from the position of the previous sensor, the station code changes. Here a new station may need to be made with a new set of location codes describing data collection at the station. 
 
@@ -101,13 +101,13 @@ These conventions reflect GeoNet's understanding of the purpose of its seismic s
 
 Ultimately, these conventions are used at the discretion of the person(s) responsible for the metadata describing equipment changes. If, for example, a sensor moved less than 200 m but the geologic or local site conditions changed substantially, a new station may be established to reflect this change.
 
-### Borehole Naming Conventions
+### Naming Conventions When Moving or Installating Borehole Sensors
 
-Sensors in a borehole invoke a special set of metadata conventions as follows:
-- Naming conventions for the station codes and location codes of borehole sensors are the standard conventions, e.g., WHSZ station code, location code 11 for the borehole seismometer at Whataroa DFDP-2b (a station where a surface seismometer also exists).
-- Changes in position in a borehole are not considered as position changes, e.g., WHSZ borehole sensor moving from 5 m to 500 m would not require a change in the sensor's station or location code.
-- If multiple sensors of the same type are installed in a borehole, the standard location code conventions apply to distinguish the data from each sensor, but changes in borehole sensor position can occur at any location code without requiring the location or station code to change. In this way, the location code "follows" the sensor in the borehole.
-- Surface sensors are covered by the standard conventions without special exceptions.
+Naming conventions for borehole sensors follow the same logic as for surface sensors, but with variations as follows:
+- Station codes describe the surface region of the borehole, meaning, as in the case of WHSZ, that a surface sensor can exist with station code WHSZ and location code 10, and a borehole sensor can exist with the same station code but location code 11 (and ~400 m depth).
+- Lateral position changes for borehole sensors due to depth changes and borehole tilt do not invoke name change conventions.
+- If a borehole sensor installation depth changes by more than 2 m from the depth of the previous sensor, the station code remains the same but the location code changes. Effectively, this convention defines possible location codes at 2, 6, 10, 14, etc. metre depths in boreholes covering 0-4 m, 4-8m, etc. installation depth ranges which - though not rigidly required - should be considered in location code assignment to support long-term order in the metadata.
+- Regardless of depth or depth changes, a borehole sensor retains the station code of the equivalent surface installation.
 
 
 ## Channel Codes
