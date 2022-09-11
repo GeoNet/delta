@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>753.1</Value>
+    <Frequency>1</Frequency>
+    <InputUnits>
+      <Name>m/s</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <PolesZeros resourceId="PolesZeros#TRILLIUM-COMPACT-20PH-2">
+      <InputUnits>
+        <Name>m/s</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+      <NormalizationFactor>6.916860291045512e+31</NormalizationFactor>
+      <NormalizationFrequency>1</NormalizationFrequency>
+      <Pole>
+        <Real>-0.2214</Real>
+        <Imaginary>0.2221</Imaginary>
+      </Pole>
+      <Pole number="1">
+        <Real>-0.2214</Real>
+        <Imaginary>-0.2221</Imaginary>
+      </Pole>
+      <Pole number="2">
+        <Real>-343</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+      <Pole number="3">
+        <Real>-370</Real>
+        <Imaginary>467</Imaginary>
+      </Pole>
+      <Pole number="4">
+        <Real>-370</Real>
+        <Imaginary>-467</Imaginary>
+      </Pole>
+      <Pole number="5">
+        <Real>-836</Real>
+        <Imaginary>1522</Imaginary>
+      </Pole>
+      <Pole number="6">
+        <Real>-836</Real>
+        <Imaginary>-1522</Imaginary>
+      </Pole>
+      <Pole number="7">
+        <Real>-4900</Real>
+        <Imaginary>4700</Imaginary>
+      </Pole>
+      <Pole number="8">
+        <Real>-4900</Real>
+        <Imaginary>-4700</Imaginary>
+      </Pole>
+      <Pole number="9">
+        <Real>-6900</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+      <Pole number="10">
+        <Real>-15000</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+    </PolesZeros>
+    <StageGain>
+      <Value>753.1</Value>
+      <Frequency>1</Frequency>
+    </StageGain>
+  </Stage>
+</Response>
