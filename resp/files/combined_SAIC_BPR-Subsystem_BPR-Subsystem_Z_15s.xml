@@ -1,0 +1,34 @@
+<Response>
+  <InstrumentSensitivity>
+    <Value>149253.73134328358</Value>
+    <Frequency>1</Frequency>
+    <InputUnits>
+      <Name>m</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>count</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <Coefficients resourceId="Coefficients#DART-15s" name="">
+      <InputUnits>
+        <Name>m</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>count</Name>
+      </OutputUnits>
+      <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
+    </Coefficients>
+    <Decimation>
+      <InputSampleRate>0.06666666666666667</InputSampleRate>
+      <Factor>1</Factor>
+      <Offset>0</Offset>
+      <Delay>0</Delay>
+      <Correction>0</Correction>
+    </Decimation>
+    <StageGain>
+      <Value>149253.73134328358</Value>
+      <Frequency>1</Frequency>
+    </StageGain>
+  </Stage>
+</Response>
