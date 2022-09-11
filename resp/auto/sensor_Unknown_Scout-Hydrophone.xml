@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>25700</Value>
+    <Frequency>15</Frequency>
+    <InputUnits>
+      <Name>PA</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <PolesZeros resourceId="PolesZeros#Scout Hydrophone">
+      <InputUnits>
+        <Name>PA</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+      <NormalizationFactor>1</NormalizationFactor>
+      <NormalizationFrequency>15</NormalizationFrequency>
+    </PolesZeros>
+    <StageGain>
+      <Value>25700</Value>
+      <Frequency>15</Frequency>
+    </StageGain>
+  </Stage>
+</Response>

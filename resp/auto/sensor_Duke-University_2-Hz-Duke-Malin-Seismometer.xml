@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>62.2</Value>
+    <Frequency>15</Frequency>
+    <InputUnits>
+      <Name>m/s</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <PolesZeros resourceId="PolesZeros#2_Hz_Duke_Malin_Seismometer">
+      <InputUnits>
+        <Name>m/s</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+      <NormalizationFactor>0.9956007926230296</NormalizationFactor>
+      <NormalizationFrequency>15</NormalizationFrequency>
+      <Zero number="2">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="3">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Pole>
+        <Real>-7.6654860747591</Real>
+        <Imaginary>9.95760983645695</Imaginary>
+      </Pole>
+      <Pole number="1">
+        <Real>-7.6654860747591</Real>
+        <Imaginary>-9.95760983645695</Imaginary>
+      </Pole>
+    </PolesZeros>
+    <StageGain>
+      <Value>62.2</Value>
+      <Frequency>15</Frequency>
+    </StageGain>
+  </Stage>
+</Response>
