@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>177.8</Value>
+    <Frequency>15</Frequency>
+    <InputUnits>
+      <Name>m/s</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <PolesZeros resourceId="PolesZeros#L4C">
+      <InputUnits>
+        <Name>m/s</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+      <NormalizationFactor>0.9995555150145211</NormalizationFactor>
+      <NormalizationFrequency>15</NormalizationFrequency>
+      <Zero number="2">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="3">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Pole>
+        <Real>-4.2097</Real>
+        <Imaginary>4.6644</Imaginary>
+      </Pole>
+      <Pole number="1">
+        <Real>-4.2097</Real>
+        <Imaginary>-4.6644</Imaginary>
+      </Pole>
+    </PolesZeros>
+    <StageGain>
+      <Value>177.8</Value>
+      <Frequency>15</Frequency>
+    </StageGain>
+  </Stage>
+</Response>

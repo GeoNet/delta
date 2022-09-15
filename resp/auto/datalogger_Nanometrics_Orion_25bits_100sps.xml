@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>788033</Value>
+    <Frequency>25</Frequency>
+    <InputUnits>
+      <Name>V</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>count</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <Coefficients resourceId="Coefficients#ORION-100">
+      <InputUnits>
+        <Name>V</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>count</Name>
+      </OutputUnits>
+      <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
+    </Coefficients>
+    <Decimation>
+      <InputSampleRate>30000</InputSampleRate>
+      <Factor>1</Factor>
+      <Offset>0</Offset>
+      <Delay>0</Delay>
+      <Correction>0</Correction>
+    </Decimation>
+    <StageGain>
+      <Value>788033</Value>
+      <Frequency>25</Frequency>
+    </StageGain>
+  </Stage>
+  <Stage number="2">
+    <FIR resourceId="FIR#ORION-100" name="ORION_FIR_1_FILTER">
+      <InputUnits>
+        <Name>count</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>count</Name>
+      </OutputUnits>
+      <Symmetry>EVEN</Symmetry>
+      <NumeratorCoefficient i="1">3.788775e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="2">0.0001997269</NumeratorCoefficient>
+      <NumeratorCoefficient i="3">0.0005912768</NumeratorCoefficient>
+      <NumeratorCoefficient i="4">0.001198337</NumeratorCoefficient>
+      <NumeratorCoefficient i="5">0.001677196</NumeratorCoefficient>
+      <NumeratorCoefficient i="6">0.001234444</NumeratorCoefficient>
+      <NumeratorCoefficient i="7">-0.001158774</NumeratorCoefficient>
+      <NumeratorCoefficient i="8">-0.006071729</NumeratorCoefficient>
+      <NumeratorCoefficient i="9">-0.01261023</NumeratorCoefficient>
+      <NumeratorCoefficient i="10">-0.01766685</NumeratorCoefficient>
+      <NumeratorCoefficient i="11">-0.0161537</NumeratorCoefficient>
+      <NumeratorCoefficient i="12">-0.00263181</NumeratorCoefficient>
+      <NumeratorCoefficient i="13">0.02601663</NumeratorCoefficient>
+      <NumeratorCoefficient i="14">0.06805387</NumeratorCoefficient>
+      <NumeratorCoefficient i="15">0.1159861</NumeratorCoefficient>
+      <NumeratorCoefficient i="16">0.1582344</NumeratorCoefficient>
+      <NumeratorCoefficient i="17">0.1830499</NumeratorCoefficient>
+    </FIR>
+    <Decimation>
+      <InputSampleRate>30000</InputSampleRate>
+      <Factor>5</Factor>
+      <Offset>0</Offset>
+      <Delay>0.00275</Delay>
+      <Correction>0.00275</Correction>
+    </Decimation>
+    <StageGain>
+      <Value>1</Value>
+      <Frequency>25</Frequency>
+    </StageGain>
+  </Stage>
+  <Stage number="3">
+    <FIR resourceId="FIR#ORION-100" name="ORION_FIR_2_FILTER">
+      <InputUnits>
+        <Name>count</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>count</Name>
+      </OutputUnits>
+      <Symmetry>EVEN</Symmetry>
+      <NumeratorCoefficient i="1">6.587914e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="2">0.0001899969</NumeratorCoefficient>
+      <NumeratorCoefficient i="3">-4.827186e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="4">-0.001216777</NumeratorCoefficient>
+      <NumeratorCoefficient i="5">-0.002457607</NumeratorCoefficient>
+      <NumeratorCoefficient i="6">-0.0005687041</NumeratorCoefficient>
+      <NumeratorCoefficient i="7">0.006495283</NumeratorCoefficient>
+      <NumeratorCoefficient i="8">0.01294971</NumeratorCoefficient>
+      <NumeratorCoefficient i="9">0.00544901</NumeratorCoefficient>
+      <NumeratorCoefficient i="10">-0.02159296</NumeratorCoefficient>
+      <NumeratorCoefficient i="11">-0.04696462</NumeratorCoefficient>
+      <NumeratorCoefficient i="12">-0.02711075</NumeratorCoefficient>
+      <NumeratorCoefficient i="13">0.06566507</NumeratorCoefficient>
+      <NumeratorCoefficient i="14">0.2029431</NumeratorCoefficient>
+      <NumeratorCoefficient i="15">0.3061833</NumeratorCoefficient>
+    </FIR>
+    <Decimation>
+      <InputSampleRate>6000</InputSampleRate>
+      <Factor>3</Factor>
+      <Offset>0</Offset>
+      <Delay>0.00725</Delay>
+      <Correction>0.00725</Correction>
+    </Decimation>
+    <StageGain>
+      <Value>1</Value>
+      <Frequency>25</Frequency>
+    </StageGain>
+  </Stage>
+  <Stage number="4">
+    <FIR resourceId="FIR#ORION-100" name="ORION_FIR_3_FILTER">
+      <InputUnits>
+        <Name>count</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>count</Name>
+      </OutputUnits>
+      <Symmetry>EVEN</Symmetry>
+      <NumeratorCoefficient i="1">-1.046905e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="2">-2.377585e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="3">-5.718979e-06</NumeratorCoefficient>
+      <NumeratorCoefficient i="4">3.423591e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="5">3.051089e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="6">-4.393138e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="7">-7.445012e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="8">3.356967e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="9">0.0001362692</NumeratorCoefficient>
+      <NumeratorCoefficient i="10">1.277561e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="11">-0.0002025092</NumeratorCoefficient>
+      <NumeratorCoefficient i="12">-0.0001122147</NumeratorCoefficient>
+      <NumeratorCoefficient i="13">0.0002488128</NumeratorCoefficient>
+      <NumeratorCoefficient i="14">0.0002730092</NumeratorCoefficient>
+      <NumeratorCoefficient i="15">-0.0002378789</NumeratorCoefficient>
+      <NumeratorCoefficient i="16">-0.0004882986</NumeratorCoefficient>
+      <NumeratorCoefficient i="17">0.0001257253</NumeratorCoefficient>
+      <NumeratorCoefficient i="18">0.0007273434</NumeratorCoefficient>
+      <NumeratorCoefficient i="19">0.0001293681</NumeratorCoefficient>
+      <NumeratorCoefficient i="20">-0.0009317625</NumeratorCoefficient>
+      <NumeratorCoefficient i="21">-0.0005524018</NumeratorCoefficient>
+      <NumeratorCoefficient i="22">0.001016527</NumeratorCoefficient>
+      <NumeratorCoefficient i="23">0.001135685</NumeratorCoefficient>
+      <NumeratorCoefficient i="24">-0.0008796328</NumeratorCoefficient>
+      <NumeratorCoefficient i="25">-0.001823778</NumeratorCoefficient>
+      <NumeratorCoefficient i="26">0.0004200994</NumeratorCoefficient>
+      <NumeratorCoefficient i="27">0.002504274</NumeratorCoefficient>
+      <NumeratorCoefficient i="28">0.0004363557</NumeratorCoefficient>
+      <NumeratorCoefficient i="29">-0.003008321</NumeratorCoefficient>
+      <NumeratorCoefficient i="30">-0.001707706</NumeratorCoefficient>
+      <NumeratorCoefficient i="31">0.003124313</NumeratorCoefficient>
+      <NumeratorCoefficient i="32">0.003327176</NumeratorCoefficient>
+      <NumeratorCoefficient i="33">-0.002625743</NumeratorCoefficient>
+      <NumeratorCoefficient i="34">-0.005122464</NumeratorCoefficient>
+      <NumeratorCoefficient i="35">0.001311452</NumeratorCoefficient>
+      <NumeratorCoefficient i="36">0.006808534</NumeratorCoefficient>
+      <NumeratorCoefficient i="37">0.0009463453</NumeratorCoefficient>
+      <NumeratorCoefficient i="38">-0.007998371</NumeratorCoefficient>
+      <NumeratorCoefficient i="39">-0.00415349</NumeratorCoefficient>
+      <NumeratorCoefficient i="40">0.008232391</NumeratorCoefficient>
+      <NumeratorCoefficient i="41">0.008152581</NumeratorCoefficient>
+      <NumeratorCoefficient i="42">-0.007023114</NumeratorCoefficient>
+      <NumeratorCoefficient i="43">-0.01259593</NumeratorCoefficient>
+      <NumeratorCoefficient i="44">0.003905999</NumeratorCoefficient>
+      <NumeratorCoefficient i="45">0.01693529</NumeratorCoefficient>
+      <NumeratorCoefficient i="46">0.001518937</NumeratorCoefficient>
+      <NumeratorCoefficient i="47">-0.02042215</NumeratorCoefficient>
+      <NumeratorCoefficient i="48">-0.009579908</NumeratorCoefficient>
+      <NumeratorCoefficient i="49">0.02209426</NumeratorCoefficient>
+      <NumeratorCoefficient i="50">0.02060824</NumeratorCoefficient>
+      <NumeratorCoefficient i="51">-0.02067742</NumeratorCoefficient>
+      <NumeratorCoefficient i="52">-0.03521951</NumeratorCoefficient>
+      <NumeratorCoefficient i="53">0.01417054</NumeratorCoefficient>
+      <NumeratorCoefficient i="54">0.05525585</NumeratorCoefficient>
+      <NumeratorCoefficient i="55">0.001904586</NumeratorCoefficient>
+      <NumeratorCoefficient i="56">-0.08790202</NumeratorCoefficient>
+      <NumeratorCoefficient i="57">-0.04504146</NumeratorCoefficient>
+      <NumeratorCoefficient i="58">0.182297</NumeratorCoefficient>
+      <NumeratorCoefficient i="59">0.4105864</NumeratorCoefficient>
+    </FIR>
+    <Decimation>
+      <InputSampleRate>2000</InputSampleRate>
+      <Factor>2</Factor>
+      <Offset>0</Offset>
+      <Delay>0.0585</Delay>
+      <Correction>0.0585</Correction>
+    </Decimation>
+    <StageGain>
+      <Value>1</Value>
+      <Frequency>25</Frequency>
+    </StageGain>
+  </Stage>
+  <Stage number="5">
+    <FIR resourceId="FIR#ORION-100" name="ORION_FIR_5_FILTER">
+      <InputUnits>
+        <Name>count</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>count</Name>
+      </OutputUnits>
+      <Symmetry>EVEN</Symmetry>
+      <NumeratorCoefficient i="1">1.278289e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="2">4.864359e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="3">0.0001144121</NumeratorCoefficient>
+      <NumeratorCoefficient i="4">0.0001910125</NumeratorCoefficient>
+      <NumeratorCoefficient i="5">0.0002191873</NumeratorCoefficient>
+      <NumeratorCoefficient i="6">0.0001043084</NumeratorCoefficient>
+      <NumeratorCoefficient i="7">-0.0002426295</NumeratorCoefficient>
+      <NumeratorCoefficient i="8">-0.0008288109</NumeratorCoefficient>
+      <NumeratorCoefficient i="9">-0.001497339</NumeratorCoefficient>
+      <NumeratorCoefficient i="10">-0.001894279</NumeratorCoefficient>
+      <NumeratorCoefficient i="11">-0.001544016</NumeratorCoefficient>
+      <NumeratorCoefficient i="12">-5.73342e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="13">0.002574218</NumeratorCoefficient>
+      <NumeratorCoefficient i="14">0.005724076</NumeratorCoefficient>
+      <NumeratorCoefficient i="15">0.00808691</NumeratorCoefficient>
+      <NumeratorCoefficient i="16">0.00798133</NumeratorCoefficient>
+      <NumeratorCoefficient i="17">0.004009124</NumeratorCoefficient>
+      <NumeratorCoefficient i="18">-0.004101318</NumeratorCoefficient>
+      <NumeratorCoefficient i="19">-0.01480032</NumeratorCoefficient>
+      <NumeratorCoefficient i="20">-0.02455139</NumeratorCoefficient>
+      <NumeratorCoefficient i="21">-0.02845132</NumeratorCoefficient>
+      <NumeratorCoefficient i="22">-0.02161206</NumeratorCoefficient>
+      <NumeratorCoefficient i="23">-0.0009396188</NumeratorCoefficient>
+      <NumeratorCoefficient i="24">0.03330763</NumeratorCoefficient>
+      <NumeratorCoefficient i="25">0.07683237</NumeratorCoefficient>
+      <NumeratorCoefficient i="26">0.1218946</NumeratorCoefficient>
+      <NumeratorCoefficient i="27">0.1591557</NumeratorCoefficient>
+      <NumeratorCoefficient i="28">0.1802514</NumeratorCoefficient>
+    </FIR>
+    <Decimation>
+      <InputSampleRate>1000</InputSampleRate>
+      <Factor>5</Factor>
+      <Offset>0</Offset>
+      <Delay>0.1375</Delay>
+      <Correction>0.1375</Correction>
+    </Decimation>
+    <StageGain>
+      <Value>1</Value>
+      <Frequency>25</Frequency>
+    </StageGain>
+  </Stage>
+  <Stage number="6">
+    <FIR resourceId="FIR#ORION-100" name="ORION_FIR_3_FILTER">
+      <InputUnits>
+        <Name>count</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>count</Name>
+      </OutputUnits>
+      <Symmetry>EVEN</Symmetry>
+      <NumeratorCoefficient i="1">-1.046905e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="2">-2.377585e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="3">-5.718979e-06</NumeratorCoefficient>
+      <NumeratorCoefficient i="4">3.423591e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="5">3.051089e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="6">-4.393138e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="7">-7.445012e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="8">3.356967e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="9">0.0001362692</NumeratorCoefficient>
+      <NumeratorCoefficient i="10">1.277561e-05</NumeratorCoefficient>
+      <NumeratorCoefficient i="11">-0.0002025092</NumeratorCoefficient>
+      <NumeratorCoefficient i="12">-0.0001122147</NumeratorCoefficient>
+      <NumeratorCoefficient i="13">0.0002488128</NumeratorCoefficient>
+      <NumeratorCoefficient i="14">0.0002730092</NumeratorCoefficient>
+      <NumeratorCoefficient i="15">-0.0002378789</NumeratorCoefficient>
+      <NumeratorCoefficient i="16">-0.0004882986</NumeratorCoefficient>
+      <NumeratorCoefficient i="17">0.0001257253</NumeratorCoefficient>
+      <NumeratorCoefficient i="18">0.0007273434</NumeratorCoefficient>
+      <NumeratorCoefficient i="19">0.0001293681</NumeratorCoefficient>
+      <NumeratorCoefficient i="20">-0.0009317625</NumeratorCoefficient>
+      <NumeratorCoefficient i="21">-0.0005524018</NumeratorCoefficient>
+      <NumeratorCoefficient i="22">0.001016527</NumeratorCoefficient>
+      <NumeratorCoefficient i="23">0.001135685</NumeratorCoefficient>
+      <NumeratorCoefficient i="24">-0.0008796328</NumeratorCoefficient>
+      <NumeratorCoefficient i="25">-0.001823778</NumeratorCoefficient>
+      <NumeratorCoefficient i="26">0.0004200994</NumeratorCoefficient>
+      <NumeratorCoefficient i="27">0.002504274</NumeratorCoefficient>
+      <NumeratorCoefficient i="28">0.0004363557</NumeratorCoefficient>
+      <NumeratorCoefficient i="29">-0.003008321</NumeratorCoefficient>
+      <NumeratorCoefficient i="30">-0.001707706</NumeratorCoefficient>
+      <NumeratorCoefficient i="31">0.003124313</NumeratorCoefficient>
+      <NumeratorCoefficient i="32">0.003327176</NumeratorCoefficient>
+      <NumeratorCoefficient i="33">-0.002625743</NumeratorCoefficient>
+      <NumeratorCoefficient i="34">-0.005122464</NumeratorCoefficient>
+      <NumeratorCoefficient i="35">0.001311452</NumeratorCoefficient>
+      <NumeratorCoefficient i="36">0.006808534</NumeratorCoefficient>
+      <NumeratorCoefficient i="37">0.0009463453</NumeratorCoefficient>
+      <NumeratorCoefficient i="38">-0.007998371</NumeratorCoefficient>
+      <NumeratorCoefficient i="39">-0.00415349</NumeratorCoefficient>
+      <NumeratorCoefficient i="40">0.008232391</NumeratorCoefficient>
+      <NumeratorCoefficient i="41">0.008152581</NumeratorCoefficient>
+      <NumeratorCoefficient i="42">-0.007023114</NumeratorCoefficient>
+      <NumeratorCoefficient i="43">-0.01259593</NumeratorCoefficient>
+      <NumeratorCoefficient i="44">0.003905999</NumeratorCoefficient>
+      <NumeratorCoefficient i="45">0.01693529</NumeratorCoefficient>
+      <NumeratorCoefficient i="46">0.001518937</NumeratorCoefficient>
+      <NumeratorCoefficient i="47">-0.02042215</NumeratorCoefficient>
+      <NumeratorCoefficient i="48">-0.009579908</NumeratorCoefficient>
+      <NumeratorCoefficient i="49">0.02209426</NumeratorCoefficient>
+      <NumeratorCoefficient i="50">0.02060824</NumeratorCoefficient>
+      <NumeratorCoefficient i="51">-0.02067742</NumeratorCoefficient>
+      <NumeratorCoefficient i="52">-0.03521951</NumeratorCoefficient>
+      <NumeratorCoefficient i="53">0.01417054</NumeratorCoefficient>
+      <NumeratorCoefficient i="54">0.05525585</NumeratorCoefficient>
+      <NumeratorCoefficient i="55">0.001904586</NumeratorCoefficient>
+      <NumeratorCoefficient i="56">-0.08790202</NumeratorCoefficient>
+      <NumeratorCoefficient i="57">-0.04504146</NumeratorCoefficient>
+      <NumeratorCoefficient i="58">0.182297</NumeratorCoefficient>
+      <NumeratorCoefficient i="59">0.4105864</NumeratorCoefficient>
+    </FIR>
+    <Decimation>
+      <InputSampleRate>200</InputSampleRate>
+      <Factor>2</Factor>
+      <Offset>0</Offset>
+      <Delay>0.585</Delay>
+      <Correction>0.585</Correction>
+    </Decimation>
+    <StageGain>
+      <Value>1</Value>
+      <Frequency>25</Frequency>
+    </StageGain>
+  </Stage>
+</Response>
