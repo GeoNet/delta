@@ -104,3 +104,19 @@ func (r ResponseInfo) Generate(w io.Writer) error {
 
 	return nil
 }
+
+func (r ResponseInfo) Build(path string) error {
+	g := Generate{
+		ResponseMap: responseMap(r.Response),
+		FilterMap:   filterMap(r.Filter),
+		PazMap:      pazMap(r.PAZ),
+		FirMap:      firMap(r.FIR),
+		PolyMap:     polynomialMap(r.Polynomial),
+	}
+
+	if err := g.build(path, r.DataloggerModel, r.SensorModel); err != nil {
+		return err
+	}
+
+	return nil
+}
