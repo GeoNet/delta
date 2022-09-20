@@ -77,6 +77,9 @@ type Set struct {
 	installedMetSensors InstalledMetSensorList
 	installedRadomes    InstalledRadomeList
 
+	channels   ChannelList
+	components ComponentList
+
 	installedSensors   InstalledSensorList
 	installedRecorders InstalledRecorderList
 	deployedReceivers  DeployedReceiverList
@@ -118,6 +121,9 @@ func (s *Set) files() map[string]List {
 		SensorsFile:      &s.installedSensors,
 		SessionsFile:     &s.sessions,
 		StreamsFile:      &s.streams,
+
+		ChannelsFile:   &s.channels,
+		ComponentsFile: &s.components,
 
 		ConstituentsFile: &s.constituents,
 		FeaturesFile:     &s.features,
