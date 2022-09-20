@@ -40,6 +40,8 @@ func main() {
 			"streams":             {"Stream"},
 			"views":               {"View"},
 			"visibilities":        {"Visibility"},
+			"channels":            {"Channel"},
+			"components":          {"Component"},
 		},
 		Lookup: map[string]struct {
 			Key    string

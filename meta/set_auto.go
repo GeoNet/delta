@@ -24,11 +24,25 @@ func (s Set) Calibrations() []Calibration {
 	return calibrations
 }
 
+// Channels is a helper function to return a slice copy of Channel values.
+func (s Set) Channels() []Channel {
+	channels := make([]Channel, len(s.channels))
+	copy(channels, s.channels)
+	return channels
+}
+
 // Citations is a helper function to return a slice copy of Citation values.
 func (s Set) Citations() []Citation {
 	citations := make([]Citation, len(s.citations))
 	copy(citations, s.citations)
 	return citations
+}
+
+// Components is a helper function to return a slice copy of Component values.
+func (s Set) Components() []Component {
+	components := make([]Component, len(s.components))
+	copy(components, s.components)
+	return components
 }
 
 // Connections is a helper function to return a slice copy of Connection values.
