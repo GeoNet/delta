@@ -12,8 +12,8 @@ import (
 const (
 	gainStation = iota
 	gainLocation
-	gainSubLocation
-	gainChannel
+	gainSublocation
+	gainSubsource
 	gainScaleFactor
 	gainScaleBias
 	gainStart
@@ -29,13 +29,13 @@ type Gain struct {
 
 	Station     string
 	Location    string
-	SubLocation string
-	Channel     string
+	Sublocation string
+	Subsource   string
 }
 
 // Id returns a unique string which can be used for sorting or checking.
 func (g Gain) Id() string {
-	return strings.Join([]string{g.Station, g.Location, g.Channel}, ":")
+	return strings.Join([]string{g.Station, g.Location, g.Subsource}, ":")
 }
 
 // Less returns whether one Gain sorts before another.
@@ -49,13 +49,13 @@ func (g Gain) Less(gain Gain) bool {
 		return true
 	case g.Location > gain.Location:
 		return false
-	case g.SubLocation < gain.SubLocation:
+	case g.Sublocation < gain.Sublocation:
 		return true
-	case g.SubLocation > gain.SubLocation:
+	case g.Sublocation > gain.Sublocation:
 		return false
-	case g.Channel < gain.Channel:
+	case g.Subsource < gain.Subsource:
 		return true
-	case g.Channel > gain.Channel:
+	case g.Subsource > gain.Subsource:
 		return false
 	case g.Span.Start.Before(gain.Span.Start):
 		return true
@@ -64,10 +64,10 @@ func (g Gain) Less(gain Gain) bool {
 	}
 }
 
-// Channels returns a sorted slice of single defined components.
-func (g Gain) Channels() []string {
+// Subsources returns a sorted slice of single defined components.
+func (g Gain) Subsources() []string {
 	var comps []string
-	for _, c := range g.Channel {
+	for _, c := range g.Subsource {
 		comps = append(comps, string(c))
 	}
 	return comps
@@ -76,14 +76,14 @@ func (g Gain) Channels() []string {
 // Gains returns a sorted slice of single Gain entries.
 func (g Gain) Gains() []Gain {
 	var gains []Gain
-	for _, c := range g.Channel {
+	for _, c := range g.Subsources() {
 		gains = append(gains, Gain{
 			Span:        g.Span,
 			Scale:       g.Scale,
 			Station:     g.Station,
 			Location:    g.Location,
-			SubLocation: g.SubLocation,
-			Channel:     string(c),
+			Sublocation: g.Sublocation,
+			Subsource:   string(c),
 		})
 	}
 
@@ -102,8 +102,8 @@ func (g GainList) encode() [][]string {
 	data := [][]string{{
 		"Station",
 		"Location",
-		"SubLocation",
-		"Channel",
+		"Sublocation",
+		"Subsource",
 		"Scale Factor",
 		"Scale Bias",
 		"Start Date",
@@ -114,8 +114,8 @@ func (g GainList) encode() [][]string {
 		data = append(data, []string{
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.SubLocation),
-			strings.TrimSpace(v.Channel),
+			strings.TrimSpace(v.Sublocation),
+			strings.TrimSpace(v.Subsource),
 			strings.TrimSpace(v.factor),
 			strings.TrimSpace(v.bias),
 			v.Start.Format(DateTimeFormat),
@@ -177,8 +177,8 @@ func (g *GainList) decode(data [][]string) error {
 				},
 				Station:     strings.TrimSpace(d[gainStation]),
 				Location:    strings.TrimSpace(d[gainLocation]),
-				SubLocation: strings.TrimSpace(d[gainSubLocation]),
-				Channel:     strings.TrimSpace(d[gainChannel]),
+				Sublocation: strings.TrimSpace(d[gainSublocation]),
+				Subsource:   strings.TrimSpace(d[gainSubsource]),
 			})
 		}
 

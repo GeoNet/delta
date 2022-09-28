@@ -20,6 +20,8 @@ Meta information for the GeoNet equipment network.
 * `streams.csv` - Datalogger and recorder sampling configurations
 * `gains.csv` - site specific settings applied to individual datalogger and sensor that may impact overall sensitivities
 * `calibrations.csv` - Individual sensor sensitivity values that can be used rather than default values.
+* `components.csv` - Individual sensor elements including measurement position and responses.
+* `channels.csv` - Individual datalogger recording elements including digitiser position, sampling rate, and responses.
 
 * `cameras.csv` - Installed field cameras.
 * `doases.csv` - Installed field DOAS (Differential Optical Absorption Spectrometer) equipment.
@@ -212,12 +214,18 @@ A list of _datalogger_ sampling configurations for a given _station_ and recordi
 | --- | --- | --- |
 | _Station_ | Recording _Station_|
 | _Location_ | Recording locations _Site_|
+| _Band_ | Channel _Band_ code|
+| _Source_ | Channel _Source_ code|
 | _Sampling Rate_ | Nominal stream sampling rate | samples per second (_Hz_)
 | _Axial_ | Whether the stream is configured for</br>axial coordinates (_Z12_) or geographic (_ZNE_) |_"yes"_ or _"no"_
 | _Reversed_ | Whether the recorded signal should</br>be reversed over the time window|_"yes"_ or _"no"_
 | _Triggered_ | Whether the stream represents</br>triggered recordings|_"yes"_ or _"no"_
 | _Start_ | Stream start time|
 | _Stop_ | Stream stop time|
+
+The band and source codes are representitives of the FDSN channel naming convention as found at:
+
+[FDSN Source Identifiers: Channel codes](http://docs.fdsn.org/projects/source-identifiers/en/v1.0/channel-codes.html)
 
 #### _GAINS_ ####
  
@@ -228,8 +236,8 @@ For the scale factor and bias either a value can be given directly or an express
 | --- | --- | --- |
 | _Station_ | Datalogger recording _Station_|
 | _Location_ | Recording sensor site _Location_ |
-| _SubLocation_ | additional location identifier for multi-parametric sensors installations, if applicable |
-| _Channel_ | The sensor channel, as defined in the response configuration, which requires a gain adjustment, multiple channels can be joined (e.g _"Z"_ or _"ZNE"_).
+| _Sublocation_ | additional location identifier for multi-parametric sensors installations, if applicable |
+| _Subsource_ | The sensor channel(s), as defined in the response configuration, which requires a gain adjustment, multiple subsource channels can be joined (e.g _"Z"_ or _"ZNE"_).
 | _Scale Factor_ | Scale, or gain factor, that the input signal is multiplied by prior to digitisation, or for polynomial responses it is the factor used to convert Volts into the signal units. If this field is empty, it should be assumed to have a value of __1.0__ which in theory should have no impact.
 | _Scale Bias_ | An offset value that needs to be added to the signal prior to digitisation and indicates a polynomial response is expected, if this field is blank it is assumed that the value is __0.0__.
 | _Start_ | Gain start time|
@@ -256,6 +264,44 @@ For the component, sensitivity, and frequency either a value can be given direct
 | _Stop_ | Calibration stop time|
 
 For a second order polynomial response, the output is expected to be `Y = a * X + b` where `X` is normally the input voltage, and Y the corrected signal. The terms `a` and `b` are the factor and bias respectively. The gain adjustments (`a'`, `b'`) update this via `Y =  a' * X + b'`
+
+#### _COMPONENTS_ ####
+
+Sensor model component descriptions. The type is generally of the form "Accelerometer, Short Period Seismometer" etc.
+The number represents the order of sensor components, this generally maps to the sensor cable and how it is connected
+into the datalogger.
+Subsource is the general term used for labelling the sensor component and is usually the last character in the SEED channel convention.
+Dip and Azimuth are used to indicate the relative position of the sensor component within the sensor package and will be used with the
+overall sensor installation values to provide component dips and azimuths.
+
+| Field       | Description | 
+| ----------- | ----------- |
+| _Make_      | Sensor make
+| _Model_     | Sensor model name
+| _Type_      | Sensor type
+| _Number_    | Sensor component offset
+| _Subsource_ | Sensor component label
+| _Dip_       | Internal dip of the compnent relative to whole sensor
+| _Azimuth_   | Internal azimuth of the compnent relative to whole sensor
+| _Types_     | A shorthand reference to the SEED type labels
+| _Response_  | A reference to the nominal StationXML response 
+
+
+#### _CHANNELS_ ####
+
+The individual channels configured for a given datalogger model, these include the channel numbers and sampling rates.
+The channel number is an offset into the digitiser or digitisers and are used to match the connected sensor component
+and the expected response. Some digitisers have different nominal responses for different groups of digitiser channels.
+
+| Field           | Description | 
+| --------------- | ----------- |
+| _Make_          | Datalogger make
+| _Model_         | Datalogger model name
+| _Type_          | Datalogger type
+| _Number_        | Datalogger channel offset, an empty value will map to zero
+| _Sampling Rate_ | Configured Channel sampling rate
+| _Response_      | A reference to the nominal StationXML response 
+
 
 ### CAMERA ###
 

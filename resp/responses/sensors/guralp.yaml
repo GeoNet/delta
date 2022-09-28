@@ -108,6 +108,18 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
+  Fortis:
+    type: Accelerometer
+    description: Fortis
+    manufacturer: "Guralp"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
 
 paz:
   CMG-3ESP-GN:
@@ -306,6 +318,16 @@ paz:
     zeros:
     - (0+0i)
     - (0+0i)
+  Fortis-DC-100Hz:
+    code: B
+    type: Analogue response, in Hz.
+    notes: https://www.guralp.com/apps/paz?x=yes%3Fr%3Ddc100&r=dc100+Acceleration
+    poles:
+    - (-63.793-90.386i)
+    - (-63.793+90.386i)
+    - (-755.90+0i)
+    - (-209.66+0i)
+    zeros: []
 
 filter:
   CMG-3ESP-GN:
@@ -379,6 +401,18 @@ filter:
     correction: 0
     delay: 0
     inputunits: m/s
+    outputunits: V
+  Fortis-DC-100Hz-4g:
+  - type: paz
+    lookup: Fortis-DC-100Hz
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 0.51
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s**2
     outputunits: V
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

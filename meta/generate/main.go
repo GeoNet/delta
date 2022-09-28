@@ -14,6 +14,7 @@ func main() {
 			"assets":              {"Asset"},
 			"calibrations":        {"Calibration"},
 			"connections":         {"Connection"},
+			"citations":           {"Citation"},
 			"constituents":        {"Constituent"},
 			"deployedDataloggers": {"DeployedDatalogger"},
 			"deployedReceivers":   {"DeployedReceiver"},
