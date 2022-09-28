@@ -20,6 +20,19 @@ type SensorModel struct {
 	Components []SensorComponent `yaml:"components"`
 }
 
+func (s SensorModel) Make() string {
+	switch parts := strings.Fields(s.Manufacturer); {
+	case len(parts) > 0:
+		label := strings.Join(parts, " ")
+		for _, s := range []string{"/", ".", "+", " "} {
+			label = strings.ReplaceAll(label, s, "-")
+		}
+		return strings.TrimRight(label, "-")
+	default:
+		return "Unknown"
+	}
+}
+
 var sensorModelTemplate = `
 
 var SensorModels map[string]SensorModel = map[string]SensorModel{

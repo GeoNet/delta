@@ -35,7 +35,7 @@ var testGains = map[string]func([]meta.Gain) func(t *testing.T){
 						}
 
 						t.Errorf("gain %s/%s has component %s overlap between %s and %s",
-							v[i].Station, v[i].Location, v[i].Channel,
+							v[i].Station, v[i].Location, v[i].Subsource,
 							v[i].Start.Format(meta.DateTimeFormat),
 							v[i].End.Format(meta.DateTimeFormat))
 					}

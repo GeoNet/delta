@@ -20,7 +20,7 @@ var testFeatures = map[string]func([]meta.Feature) func(t *testing.T){
 					if features[i].Location != features[j].Location {
 						continue
 					}
-					if features[i].SubLocation != features[j].SubLocation {
+					if features[i].Sublocation != features[j].Sublocation {
 						continue
 					}
 					if features[i].Property != features[j].Property {
@@ -29,7 +29,7 @@ var testFeatures = map[string]func([]meta.Feature) func(t *testing.T){
 					if features[i].End.Before(features[j].Start) {
 						continue
 					}
-					t.Errorf("site feature overlap: " + features[i].Station + "/" + features[i].Location + "/" + features[i].SubLocation)
+					t.Errorf("site feature overlap: " + features[i].Station + "/" + features[i].Location + "/" + features[i].Sublocation)
 				}
 			}
 		}
