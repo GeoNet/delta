@@ -44,6 +44,8 @@ const (
 	ChannelsFile   = "install/channels.csv"
 	ComponentsFile = "install/components.csv"
 	CodenamesFile  = "install/codenames.csv"
+
+	CitationsFile = "references/citations.csv"
 )
 
 // SetPathMap is used to manipulate the filepath inside the Set.
@@ -86,6 +88,7 @@ type Set struct {
 	gauges       GaugeList
 	visibilities VisibilityList
 	placenames   PlacenameList
+	citations    CitationList
 }
 
 func (s *Set) files() map[string]List {
@@ -121,6 +124,7 @@ func (s *Set) files() map[string]List {
 		GaugesFile:       &s.gauges,
 		VisibilityFile:   &s.visibilities,
 		PlacenamesFile:   &s.placenames,
+		CitationsFile:    &s.citations,
 	}
 }
 

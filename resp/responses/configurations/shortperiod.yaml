@@ -141,6 +141,18 @@ response:
       filters:
       - EARSS-50
       reversed: false
+    - dataloggers:
+      - EARSS/3
+      type: TG
+      label: EH
+      samplerate: 100
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - EARSS-100
+      reversed: false
+
 
   Nanometrics Dataloggers Connected to Short Period Sensors with Gain Enabled:
     sensors:
