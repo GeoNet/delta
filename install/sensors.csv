@@ -452,13 +452,13 @@ Guralp Systems Ltd.,Fortis,TF1009,TUWZ,20,0,,0,0,0,0,0,0,2022-09-02T03:55:00Z,99
 Guralp Systems Ltd.,Fortis,TF1114,CMWZ,20,0,,0,0,0,0,0,0,2022-09-01T23:23:00Z,9999-01-01T00:00:00Z
 Hydrological Services Pty Ltd,HS55 Bubbler WL100D,07-01,INFR,41,0,,0,0,0,0,0,0,2013-05-21T00:10:00Z,9999-01-01T00:00:00Z
 Hyquest,Tipping bucket rain gauge TB3 0.2mm,08-201,FOXAG,01,0,,0,0,0,0,0,0,2019-02-06T13:10:00Z,9999-01-01T00:00:00Z
-Hyquest,Tipping bucket rain gauge TB3 0.5mm,22-0043,FOXVV,01,0,,0,0,0,0,0,0,2022-05-27T00:00:01Z,9999-01-01T00:00:00Z
-Hyquest,Tipping bucket rain gauge TB3 0.2mm,21-31,FOXVV,01,0,,0,0,0,0,0,0,2021-08-03T00:00:00Z,2022-05-27T00:00:00Z
-Hyquest,Tipping bucket rain gauge TB3 0.5mm,22-0044,FOXKP,01,0,,0,0,0,0,0,0,2022-05-27T00:00:01Z,9999-01-01T00:00:00Z
-Hyquest,Tipping bucket rain gauge TB3 0.2mm,21-33,FOXKP,01,0,,0,0,0,0,0,0,2021-08-03T00:00:00Z,2022-05-27T00:00:00Z
 Hyquest,Tipping bucket rain gauge TB3 0.2mm,21-30,FOXRB,01,0,,0,0,0,0,0,0,2021-08-03T03:50:00Z,9999-01-01T00:00:00Z
+Hyquest,Tipping bucket rain gauge TB3 0.2mm,21-31,FOXVV,01,0,,0,0,0,0,0,0,2021-08-03T00:00:00Z,2022-05-27T00:00:00Z
 Hyquest,Tipping bucket rain gauge TB3 0.2mm,21-32,FOXVF,01,0,,0,0,0,0,0,0,2021-11-21T11:50:00Z,9999-01-01T00:00:00Z
-Hyquest,Tipping bucket rain gauge TB3 0.5mm,22-0077,TRAR1,05,0,,0,0,0,0,0,0,2022-09-07T03:50:00Z,9999-01-01T00:00:00Z
+Hyquest,Tipping bucket rain gauge TB3 0.2mm,21-33,FOXKP,01,0,,0,0,0,0,0,0,2021-08-03T00:00:00Z,2022-05-27T00:00:00Z
+Hyquest,Tipping bucket rain gauge TB3 0.5mm,22-43,FOXVV,01,0,,0,0,0,0,0,0,2022-05-27T00:00:01Z,9999-01-01T00:00:00Z
+Hyquest,Tipping bucket rain gauge TB3 0.5mm,22-44,FOXKP,01,0,,0,0,0,0,0,0,2022-05-27T00:00:01Z,9999-01-01T00:00:00Z
+Hyquest,Tipping bucket rain gauge TB3 0.5mm,22-77,TRAR1,05,0,,0,0,0,0,0,0,2022-09-07T03:50:00Z,9999-01-01T00:00:00Z
 IESE Institute of Earth Science & Engineering,IESE HS-1-LT 2Hz,106,WQSZ,10,95,,0,61,0,0,0,0,2014-06-23T00:00:05Z,9999-01-01T00:00:00Z
 IESE Institute of Earth Science & Engineering,IESE HS-1-LT Mini 4.5Hz,197,WMSZ,10,0,,0,29,0,0,0,0,2014-06-23T00:00:05Z,9999-01-01T00:00:00Z
 IESE Institute of Earth Science & Engineering,IESE HS-1-LT Mini 4.5Hz,198,WPSZ,10,0,,0,29,0,0,0,0,2014-06-23T00:00:05Z,9999-01-01T00:00:00Z
