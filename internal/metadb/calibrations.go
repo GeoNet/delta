@@ -44,7 +44,7 @@ func (m *MetaDB) Calibration(model, serial string, comp int, at time.Time) (*met
 		if g.Serial != serial {
 			continue
 		}
-		if g.Component != comp {
+		if g.Number != comp {
 			continue
 		}
 		if g.Start.After(at) {

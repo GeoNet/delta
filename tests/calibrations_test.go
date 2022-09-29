@@ -32,8 +32,8 @@ var testCalibrations = map[string]func([]meta.Calibration) func(t *testing.T){
 							continue
 						}
 
-						t.Errorf("calibration %s/%s has component \"%d\" overlap between %s and %s",
-							v[i].Model, v[i].Serial, v[i].Component,
+						t.Errorf("calibration %s/%s has number \"%d\" overlap between %s and %s",
+							v[i].Model, v[i].Serial, v[i].Number,
 							v[i].Start.Format(meta.DateTimeFormat),
 							v[i].End.Format(meta.DateTimeFormat))
 					}
