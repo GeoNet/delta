@@ -1,4 +1,4 @@
-Make,Model,Type,Number,SamplingRate,Response
+Make,Model,Type,Number,SamplingRate,Gain,Response
 Nanometrics,Centaur CTR4-6S,Datalogger,,200,datalogger_nanometrics_centaur_200_response
 Quanterra,Q330HR/6,Datalogger,0,200,datalogger_quanterra_q330_highgain_200_response
 Quanterra,Q330HR/6,Datalogger,3,200,datalogger_quanterra_q330_200_response

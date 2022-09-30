@@ -28,6 +28,7 @@ type Channel struct {
 
 	number       string
 	samplingRate string
+	gain         string
 }
 
 // Less compares Channel structs suitable for sorting.
@@ -48,10 +49,8 @@ func (c Channel) Less(comp Channel) bool {
 		return false
 	case c.SamplingRate < comp.SamplingRate:
 		return true
-	case c.SamplingRate > comp.SamplingRate:
-		return false
 	default:
-		return true
+		return false
 	}
 }
 
@@ -78,6 +77,7 @@ func (s ChannelList) encode() [][]string {
 			strings.TrimSpace(v.Type),
 			strings.TrimSpace(v.number),
 			strings.TrimSpace(v.samplingRate),
+			strings.TrimSpace(v.gain),
 			strings.TrimSpace(v.Response),
 		})
 	}
@@ -105,12 +105,18 @@ func (s *ChannelList) decode(data [][]string) error {
 			number = v
 		}
 
-		samplingRate, err := strconv.ParseFloat(d[channelSamplingRate], 64)
-		if err != nil {
-			return err
-		}
-		if samplingRate < 0.0 {
-			samplingRate = -1.0 / samplingRate
+		var samplingRate float64
+		if s := strings.TrimSpace(d[channelSamplingRate]); s != "" {
+			v, err := strconv.ParseFloat(s, 64)
+			if err != nil {
+				return err
+			}
+			switch {
+			case v < 0.0:
+				samplingRate = -1.0 / v
+			default:
+				samplingRate = v
+			}
 		}
 
 		channels = append(channels, Channel{

@@ -125,7 +125,7 @@
       <NumeratorCoefficient i="82">5.3750237e-15</NumeratorCoefficient>
     </FIR>
     <Decimation>
-      <InputSampleRate>1</InputSampleRate>
+      <InputSampleRate>10</InputSampleRate>
       <Factor>1</Factor>
       <Offset>0</Offset>
       <Delay>0</Delay>

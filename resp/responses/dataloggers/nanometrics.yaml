@@ -3,22 +3,22 @@ datalogger-model:
   ORION:
     type: Datalogger
     description: Orion
-    manufacturer: Nanometrics
+    manufacturer: "Nanometrics"
     vendor: ""
   Taurus:
     type: Datalogger
     description: Taurus
-    manufacturer: Nanometrics
+    manufacturer: "Nanometrics"
     vendor: ""
   TitanSMA:
     type: Strong Motion Recorder
     description: TitanSMA
-    manufacturer: Nanometrics
+    manufacturer: "Nanometrics"
     vendor: ""
   Centaur CTR4-6S:
     type: Datalogger
     description: Centaur
-    manufacturer: Nanometrics
+    manufacturer: "Nanometrics"
     vendor: ""
 
 paz:

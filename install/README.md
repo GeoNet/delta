@@ -218,9 +218,9 @@ A list of _datalogger_ sampling configurations for a given _station_ and recordi
 | _Band_ | Channel _Band_ code|
 | _Source_ | Channel _Source_ code|
 | _Sampling Rate_ | Nominal stream sampling rate | samples per second (_Hz_)
-| _Axial_ | Whether the stream is configured for</br>axial coordinates (_Z12_) or geographic (_ZNE_) |_"yes"_ or _"no"_
-| _Reversed_ | Whether the recorded signal should</br>be reversed over the time window|_"yes"_ or _"no"_
-| _Triggered_ | Whether the stream represents</br>triggered recordings|_"yes"_ or _"no"_
+| _Axial_ | Whether the stream is configured for</br>axial coordinates (_Z12_) or geographic (_ZNE_) |_"true"_ or _"false"_, an empty value is assumed to be not axial
+| _Reversed_ | Whether the recorded signal should</br>be reversed over the time window|_"true"_ or _"false"_, an empty value is assumed to be not reversed
+| _Triggered_ | Whether the stream represents</br>triggered recordings|_"true"_ or _"false"_, an empty value is assumed to be not triggered
 | _Start_ | Stream start time|
 | _Stop_ | Stream stop time|
 

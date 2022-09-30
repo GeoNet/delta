@@ -28,6 +28,8 @@ const (
 	GainsFile        = "install/gains.csv"
 	CalibrationsFile = "install/calibrations.csv"
 	MetsensorsFile   = "install/metsensors.csv"
+	PolaritiesFile   = "install/polarities.csv"
+	PreampsFile      = "install/preamps.csv"
 	RadomesFile      = "install/radomes.csv"
 	ReceiversFile    = "install/receivers.csv"
 	RecordersFile    = "install/recorders.csv"
@@ -73,9 +75,11 @@ type Set struct {
 	doases              InstalledDoasList
 	firmwareHistory     FirmwareHistoryList
 	gains               GainList
+	preamps             PreampList
 	calibrations        CalibrationList
 	installedMetSensors InstalledMetSensorList
 	installedRadomes    InstalledRadomeList
+	polarities          PolarityList
 
 	channels   ChannelList
 	components ComponentList
@@ -113,8 +117,10 @@ func (s *Set) files() map[string]List {
 		DoasesFile:       &s.doases,
 		FirmwareFile:     &s.firmwareHistory,
 		GainsFile:        &s.gains,
+		PreampsFile:      &s.preamps,
 		CalibrationsFile: &s.calibrations,
 		MetsensorsFile:   &s.installedMetSensors,
+		PolaritiesFile:   &s.polarities,
 		RadomesFile:      &s.installedRadomes,
 		ReceiversFile:    &s.deployedReceivers,
 		RecordersFile:    &s.installedRecorders,

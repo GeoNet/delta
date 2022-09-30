@@ -1225,6 +1225,44 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
+		{
+			"testdata/polarities.csv",
+			&PolarityList{
+				Polarity{
+					Station:   "WEL",
+					Location:  "10",
+					Subsource: "Z",
+					Reversed:  true,
+					Method:    "compass",
+					Span: Span{
+						Start: time.Date(2022, time.July, 28, 1, 59, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+					reversed: "true",
+				},
+				Polarity{
+					Station:  "WEL",
+					Location: "11",
+					Reversed: true,
+					Span: Span{
+						Start: time.Date(2022, time.July, 28, 1, 59, 0, 0, time.UTC),
+						End:   time.Date(2023, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+					reversed: "true",
+				},
+				Polarity{
+					Station:  "WEL",
+					Location: "11",
+					Reversed: false,
+					Method:   "unknown",
+					Span: Span{
+						Start: time.Date(2023, time.January, 1, 0, 0, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+					reversed: "false",
+				},
+			},
+		},
 	}
 
 	for _, tt := range listtests {
