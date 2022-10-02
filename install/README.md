@@ -256,7 +256,7 @@ For the component, sensitivity, and frequency either a value can be given direct
 | _Make_ | Sensor make
 | _Model_ | Sensor model name
 | _Serial_ | Sensor serial number
-| _Component_ | The sensor component, as defined in the response configuration or elsewhere, which overrides the default values, a blank value is interpreted as the first sensor component, or __"pin"__ zero.
+| _Number_ | The sensor component or datalogger digitiser channel, as defined in the response configuration or elsewhere, which overrides the default values, a blank value is interpreted as the first sensor component, or __"pin"__ zero.
 | _Scale Factor_ | Sensitivity, or scale factor, that the input signal is generally multiplied by to convert to Volts, or for polynomial responses the value used to convert Volts into the signal units. A blank value is expected to be read as __1.0__, an explicit value of zero is required to be entered if intended.
 | _Scale Bias_ | An offset, or scale bias, for polynomial responses that is added to the converted volts to give the signal values. If this field is blank it should be assumed that the value is __0.0__.
 | _Frequency_ | Frequency at which the calibration value is correct for if appropriate.

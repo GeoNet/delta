@@ -1046,9 +1046,9 @@ func TestList(t *testing.T) {
 					ScaleFactor: 2000.169 / 2.0,
 					ScaleBias:   1.0,
 					Frequency:   10.0,
-					Component:   0,
+					Number:      0,
 
-					component: "0",
+					number:    "0",
 					factor:    "2000.169/2.0",
 					bias:      "1.0",
 					frequency: "10.0",
