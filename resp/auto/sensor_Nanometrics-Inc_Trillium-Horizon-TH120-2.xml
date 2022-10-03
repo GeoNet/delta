@@ -11,7 +11,7 @@
     </OutputUnits>
   </InstrumentSensitivity>
   <Stage number="1">
-    <PolesZeros resourceId="PolesZeros#TRILLIUM-HORIZON-TH120-2">
+    <PolesZeros resourceId="PolesZeros#TRILLIUM-HORIZON-TH120-1">
       <InputUnits>
         <Name>m/s</Name>
       </InputUnits>
