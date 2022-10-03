@@ -699,6 +699,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
+	"Trillium Horizon TH120-2": {
+		Name:         "Trillium Horizon TH120-2",
+		Type:         "Broadband Seismometer",
+		Description:  "Trillium Horizon 120",
+		Manufacturer: "Nanometrics Inc.",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
+	},
 }
 
 var Responses []Response = []Response{
@@ -3129,6 +3137,35 @@ var Responses []Response = []Response{
 						Type:   "paz",
 						Lookup: "TRILLIUM-HORIZON-120",
 						Filter: "TRILLIUM-HORIZON-TH120-1",
+						StageSet: PAZ{
+							Name:  "TRILLIUM-HORIZON-120",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "derived from IRIS NRL Trillium Horizon 120",
+							Poles: []complex128{(-0.036614 + 0.037059i), (-0.036614 - 0.037059i), (-32.55 + 0i), (-142 + 0i), (-364 + 404i), (-364 - 404i), (-1260 + 0i), (-4900 + 5200i), (-4900 - 5200i), (-7100 + 1700i), (-7100 - 1700i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i), (-31.63 + 0i), (-160 + 0i), (-350 + 0i), (-3177 + 0i)},
+						},
+						Frequency:  1,
+						SampleRate: 0,
+						Decimate:   0,
+						Gain:       1202.5,
+						//Scale: 1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "m/s",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "ZNE",
+				Reversed: false,
+			}, {
+				SensorList: []string{"Trillium Horizon TH120-2"},
+				FilterList: []string{"TRILLIUM-HORIZON-TH120-2"},
+				Stages: []ResponseStage{
+					{
+						Type:   "paz",
+						Lookup: "TRILLIUM-HORIZON-120",
+						Filter: "TRILLIUM-HORIZON-TH120-2",
 						StageSet: PAZ{
 							Name:  "TRILLIUM-HORIZON-120",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
@@ -5673,6 +5710,35 @@ var Responses []Response = []Response{
 						Type:   "paz",
 						Lookup: "TRILLIUM-HORIZON-120",
 						Filter: "TRILLIUM-HORIZON-TH120-1",
+						StageSet: PAZ{
+							Name:  "TRILLIUM-HORIZON-120",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "derived from IRIS NRL Trillium Horizon 120",
+							Poles: []complex128{(-0.036614 + 0.037059i), (-0.036614 - 0.037059i), (-32.55 + 0i), (-142 + 0i), (-364 + 404i), (-364 - 404i), (-1260 + 0i), (-4900 + 5200i), (-4900 - 5200i), (-7100 + 1700i), (-7100 - 1700i)},
+							Zeros: []complex128{(0 + 0i), (0 + 0i), (-31.63 + 0i), (-160 + 0i), (-350 + 0i), (-3177 + 0i)},
+						},
+						Frequency:  1,
+						SampleRate: 0,
+						Decimate:   0,
+						Gain:       1202.5,
+						//Scale: 1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "m/s",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "ZNE",
+				Reversed: false,
+			}, {
+				SensorList: []string{"Trillium Horizon TH120-2"},
+				FilterList: []string{"TRILLIUM-HORIZON-TH120-2"},
+				Stages: []ResponseStage{
+					{
+						Type:   "paz",
+						Lookup: "TRILLIUM-HORIZON-120",
+						Filter: "TRILLIUM-HORIZON-TH120-2",
 						StageSet: PAZ{
 							Name:  "TRILLIUM-HORIZON-120",
 							Code:  PZFunctionLaplaceRadiansPerSecond,

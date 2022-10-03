@@ -188,6 +188,12 @@ response:
       channels: ZNE
       reversed: false
     - sensors:
+      - Trillium Horizon TH120-2
+      filters:
+      - TRILLIUM-HORIZON-TH120-2
+      channels: ZNE
+      reversed: false
+    - sensors:
       - CMG-3TB-GN
       filters:
       - CMG-3TB-GN
@@ -468,6 +474,12 @@ response:
       - Trillium Horizon TH120-1
       filters:
       - TRILLIUM-HORIZON-TH120-1
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - Trillium Horizon TH120-2
+      filters:
+      - TRILLIUM-HORIZON-TH120-2
       channels: ZNE
       reversed: false
     - sensors:

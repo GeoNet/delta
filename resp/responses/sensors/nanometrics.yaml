@@ -72,6 +72,18 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
+  Trillium Horizon TH120-2:
+    type: Broadband Seismometer
+    description: Trillium Horizon 120
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
   Trillium 360:
     type: Broadband Seismometer
     description: Trillium Vault 360
@@ -268,6 +280,18 @@ filter:
     inputunits: m/s
     outputunits: V
   TRILLIUM-HORIZON-TH120-1:
+  - type: paz
+    lookup: TRILLIUM-HORIZON-120
+    frequency: 1
+    samplerate: 0
+    decimate: 0
+    gain: 1202.5
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
+    outputunits: V
+  TRILLIUM-HORIZON-TH120-2:
   - type: paz
     lookup: TRILLIUM-HORIZON-120
     frequency: 1
