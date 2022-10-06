@@ -93,6 +93,8 @@ Quality estimates are roughly
 | _Analysis Latitude_ | Latitude used in the Tidal Constituent Analysis, usually positive
 | _Analysis Longitude_ | Longitude used in the Tidal Constituent Analysis
 | _Crex Tag_ | Tide gauge Crex format location
+| _Bulletin Header_ | GTS Bulletin header
+| _WMO Number_ | GTS WMO Number
 | _Start Date_ | General date and time at which the _Gauge_ description was valid.
 | _End Date_ | General date and time at which the _Gauge_ description was no longer valid.
 
