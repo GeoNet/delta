@@ -224,7 +224,7 @@ A list of _datalogger_ sampling configurations for a given _station_ and recordi
 | _Start_ | Stream start time|
 | _Stop_ | Stream stop time|
 
-The band and source codes are representitives of the FDSN channel naming convention as found at:
+The band and source codes are representatives of the FDSN channel naming convention as found at:
 
 [FDSN Source Identifiers: Channel codes](http://docs.fdsn.org/projects/source-identifiers/en/v1.0/channel-codes.html)
 
@@ -316,18 +316,21 @@ Subsource is the general term used for labelling the sensor component and is usu
 Dip and Azimuth are used to indicate the relative position of the sensor component within the sensor package and will be used with the
 overall sensor installation values to provide component dips and azimuths.
 
-| Field       | Description | 
-| ----------- | ----------- |
-| _Make_      | Sensor make
-| _Model_     | Sensor model name
-| _Type_      | Sensor type
-| _Number_    | Sensor component offset
-| _Subsource_ | Sensor component label
-| _Dip_       | Internal dip of the compnent relative to whole sensor
-| _Azimuth_   | Internal azimuth of the compnent relative to whole sensor
-| _Types_     | A shorthand reference to the SEED type labels
-| _Response_  | A reference to the nominal StationXML response 
+For derived streams, such as a simple gain or unit conversion, can be indicated by providing an input sampling rate. This is matched by
+the equivalent _Stream_ and allows for the response to be generated with the provided reference response only.
 
+| Field           | Description |
+| --------------- | ----------- |
+| _Make_          | Sensor make
+| _Model_         | Sensor model name
+| _Type_          | Sensor type
+| _Number_        | Sensor component offset
+| _Subsource_     | Sensor component label
+| _Dip_           | Internal dip of the component relative to whole sensor
+| _Azimuth_       | Internal azimuth of the component relative to whole sensor
+| _Types_         | A shorthand reference to the SEED type labels
+| _Sampling Rate_ | An input sampling rate which can be used to indicate a _derived_ stream
+| _Response_      | A reference to the nominal StationXML response
 
 #### _CHANNELS_ ####
 
