@@ -1,4 +1,4 @@
-Make,Model,Type,Number,Subsource,Dip,Azimuth,Types,Response
-Guralp,Fortis,Accelerometer,0,Z,-90,0,G,sensor_guralp_fortis_response
-Guralp,Fortis,Accelerometer,1,N,0,0,G,sensor_guralp_fortis_response
-Guralp,Fortis,Accelerometer,2,E,0,90,G,sensor_guralp_fortis_response
+Make,Model,Type,Number,Subsource,Dip,Azimuth,Types,Sampling Rate,Response
+Guralp,Fortis,Accelerometer,0,Z,-90,0,G,10,sensor_guralp_fortis_response
+Guralp,Fortis,Accelerometer,1,N,0,0,G,,sensor_guralp_fortis_response
+Guralp,Fortis,Accelerometer,2,E,0,90,G,-10,sensor_guralp_fortis_response
