@@ -1,6 +1,6 @@
 # DELTA
 
-Meta information for the GeoNet sensor network.
+Meta information for the GeoNet sensor network, please cite as https://doi.org/10.21420/0VY2-C144.
 
 ## network
 
