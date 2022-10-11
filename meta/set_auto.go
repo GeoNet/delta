@@ -24,6 +24,13 @@ func (s Set) Calibrations() []Calibration {
 	return calibrations
 }
 
+// Citations is a helper function to return a slice copy of Citation values.
+func (s Set) Citations() []Citation {
+	citations := make([]Citation, len(s.citations))
+	copy(citations, s.citations)
+	return citations
+}
+
 // Connections is a helper function to return a slice copy of Connection values.
 func (s Set) Connections() []Connection {
 	connections := make([]Connection, len(s.connections))

@@ -70,6 +70,7 @@ func TestConsistency(t *testing.T) {
 		"constituents": {f: "../environment/constituents.csv", l: &meta.ConstituentList{}},
 		"features":     {f: "../environment/features.csv", l: &meta.FeatureList{}},
 		"visibility":   {f: "../environment/visibility.csv", l: &meta.VisibilityList{}},
+		"citations":    {f: "../references/citations.csv", l: &meta.CitationList{}},
 	}
 
 	for f, v := range files {

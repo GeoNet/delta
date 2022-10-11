@@ -9,11 +9,16 @@ Campbell Scientific,CR6,04115,Ruapehu Crater Lake Outlet,,2018-05-03T00:00:00Z,2
 Campbell Scientific,CR6,04115,Tongariro Lower Emerald Spring,,2022-03-30T21:10:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,04116,Waimangu Inferno Crater,,2017-11-07T00:00:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,04117,Upper Tama Lake,,2019-03-12T03:30:00Z,2022-03-30T20:39:59Z
+Campbell Scientific,CR6,04117,Taranaki Arawhata Road 1,,2022-09-07T03:50:00Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,11300,Fox Glacier Rapanui Bluff,,2021-08-03T00:00:00Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,11303,Fox Glacier Valley View,,2021-08-03T00:00:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,15365,Rotoma Soda Spring,,2021-03-17T22:20:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,15366,Upper Te Maari Fumarole 3,,2021-05-27T00:00:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,15367,Ngauruhoe Outer Rim Fumarole,,2021-05-06T00:00:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,15368,Tongariro Upper Emerald,,2021-05-21T00:00:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,15369,Tongariro Lower Emerald Spring,,2021-05-07T00:00:00Z,2022-03-30T21:09:59Z
+Campbell Scientific,CR6,15370,Fox Glacier Kea Point,,2021-08-04T00:00:00Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,15371,Fox Glacier Victoria Falls,,2021-11-24T11:50:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,17444,Upper Tama Lake,,2022-03-30T20:40:00Z,9999-01-01T00:00:00Z
 GNS Science,EARSS/16,204,Taranaki Emergency Management Office,EARSS Network,1993-12-14T23:51:00Z,2002-09-18T21:00:00Z
 GNS Science,EARSS/16,207,Chateau Observatory,EARSS Network,1993-11-12T03:00:00Z,1998-06-11T09:00:00Z
@@ -780,7 +785,7 @@ Kinemetrics,Q330S/6,5863,Far West,,2017-04-20T00:00:02Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330S/6,6048,Puysegur Point,,2017-01-19T21:20:01Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330S/6,6049,Denniston North,,2016-11-09T23:15:00Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330S/6,6050,Matarangi,,2017-04-20T22:00:02Z,9999-01-01T00:00:00Z
-Kinemetrics,Q330S/6,6051,Tuamarina,,2016-12-07T00:00:01Z,9999-01-01T00:00:00Z
+Kinemetrics,Q330S/6,6051,Tuamarina,,2016-12-07T00:00:01Z,2022-09-01T02:50:00Z
 Kinemetrics,Q330S/6,6052,Raoul Island Met Station,,2016-09-17T13:00:01Z,2020-11-10T03:45:00Z
 Kinemetrics,Q330S/6,6053,Whangaehu Hut,,2019-01-09T01:00:00Z,2021-10-14T21:46:00Z
 Kinemetrics,Q330S/6,6054,Milford Sound,,2017-05-23T04:15:01Z,9999-01-01T00:00:00Z
@@ -810,7 +815,7 @@ Kinemetrics,Q330S/6,6140,Waitaha Valley,,2018-07-08T23:30:00Z,9999-01-01T00:00:0
 Kinemetrics,Q330S/6,6141,Pawanui,,2016-07-22T00:30:01Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330S/6,6142,Moumoukai,,2018-07-05T01:00:00Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330S/6,6143,Port of Tauranga,,2019-12-05T22:32:01Z,9999-01-01T00:00:00Z
-Kinemetrics,Q330S/6,6144,Whataroa Gaunt Creek,,2018-10-15T00:10:00Z,9999-01-01T00:00:00Z
+Kinemetrics,Q330S/6,6144,Whataroa Gaunt Creek,,2018-10-15T00:10:00Z,2022-02-02T09:20:00Z
 Kinemetrics,Q330S/6,6664,Tintock,,2018-10-16T23:40:00Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330S/6,6665,Okepuha Station,,2018-09-25T22:25:00Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330S/6,6666,Kiriroa,,2018-09-23T20:00:00Z,9999-01-01T00:00:00Z
@@ -892,6 +897,7 @@ Nanometrics,Centaur CTR4-6S,8753,Whataroa River,,2021-11-03T22:57:00Z,9999-01-01
 Nanometrics,Centaur CTR4-6S,8754,Raoul Island Boat Cove,,2021-10-24T03:28:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9134,Lake Rotokare,,2022-05-19T00:29:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9167,Hikuraki Station,,2022-07-07T23:30:00Z,9999-01-01T00:00:00Z
+Nanometrics,Centaur CTR4-6S,9187,Tuamarina,,2022-09-02T03:55:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9279,Tuapeka,,2022-07-07T09:06:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9284,Kakaramea,,2022-08-02T01:14:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9285,Newall Road,,2022-06-21T00:34:00Z,9999-01-01T00:00:00Z
