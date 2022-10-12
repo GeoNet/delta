@@ -130,7 +130,7 @@ func (s *ComponentList) decode(data [][]string) error {
 
 		var azimuth float64
 		if s := strings.TrimSpace(d[componentAzimuth]); s != "" {
-			v, err := strconv.ParseFloat(d[componentAzimuth], 64)
+			v, err := strconv.ParseFloat(s, 64)
 			if err != nil {
 				return err
 			}
@@ -139,7 +139,7 @@ func (s *ComponentList) decode(data [][]string) error {
 
 		var samplingRate float64
 		if s := strings.TrimSpace(d[componentSamplingRate]); s != "" {
-			v, err := strconv.ParseFloat(d[componentSamplingRate], 64)
+			v, err := strconv.ParseFloat(s, 64)
 			if err != nil {
 				return err
 			}
