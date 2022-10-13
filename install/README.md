@@ -282,6 +282,7 @@ For the scale factor and bias either a value can be given directly or an express
 | _Subsource_ | The sensor channel(s), as defined in the response configuration, which requires a gain adjustment, multiple subsource channels can be joined (e.g _"Z"_ or _"ZNE"_).
 | _Scale Factor_ | Scale, or gain factor, that the input signal is multiplied by prior to digitisation, or for polynomial responses it is the factor used to convert Volts into the signal units. If this field is empty, it should be assumed to have a value of __1.0__ which in theory should have no impact.
 | _Scale Bias_ | An offset value that needs to be added to the signal prior to digitisation and indicates a polynomial response is expected, if this field is blank it is assumed that the value is __0.0__.
+| _Response_ | An optional StationXML block that can be used to describe a response stage applied after the sensor stages and prior to the datalogger stages. This usually describes a pre-amp, scale factor and bias values if given will be assumed to apply to the sensitivity or polynomial of the sensor as well as the given response stage.
 | _Start_ | Gain start time|
 | _Stop_ | Gain stop time|
 
