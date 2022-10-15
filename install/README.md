@@ -19,10 +19,11 @@ Meta information for the GeoNet equipment network.
 * `connections.csv` - Datalogger and sensor connection details
 * `streams.csv` - Datalogger and recorder sampling configurations
 * `polarities.csv` - site specific polarity settings which indicate when a site may have reversed polarity, or otherwise
-* `gains.csv` - site specific settings applied to individual datalogger and sensor that may impact overall sensitivities
+* `gains.csv` - site specific settings applied to individual sensors that may impact overall sensitivities.
 * `calibrations.csv` - Individual sensor sensitivity values that can be used rather than default values.
 * `components.csv` - Individual sensor elements including measurement position and responses.
 * `channels.csv` - Individual datalogger recording elements including digitiser position, sampling rate, and responses.
+* [`preamps.csv`](#preamps) - site specific settings applied to individual datalogger pre-amplification that may impact overall sensitivities.
 
 * `cameras.csv` - Installed field cameras.
 * `doases.csv` - Installed field DOAS (Differential Optical Absorption Spectrometer) equipment.
@@ -347,6 +348,16 @@ and the expected response. Some digitisers have different nominal responses for 
 | _Sampling Rate_ | Configured Channel sampling rate
 | _Response_      | A reference to the nominal StationXML response 
 
+#### _PREAMPS_ ####
+
+| Field | Description | Units |
+| --- | --- | --- |
+| _Station_ | Datalogger recording _Station_|
+| _Location_ | Recording sensor site _Location_ |
+| _Subsource_ | The sensor channel _Subsource_ which has the preamp configured (e.g _"Z"_). An empty value indicates all channels have this setting for the provided _Location_.
+| _Scale Factor_ | The datalogger pre-amp scale factor used for this time span. These tend to be integer steps and may be referenced as **gain** settings.
+| _Start_ | Gain start time|
+| _Stop_ | Gain stop time|
 
 ### CAMERA ###
 
