@@ -261,6 +261,22 @@ func (p PlacenameList) Closest(lat, lon float64) (Placename, bool) {
 	return res, found
 }
 
+// Description returns a string representation of where a point location is relative to the nearest place.
+func (p PlacenameList) Description(lat, lon float64) string {
+
+	loc, ok := p.Closest(lat, lon)
+	if !ok {
+		return ""
+	}
+
+	switch dist := loc.Distance(lat, lon); {
+	case dist < 5.0:
+		return fmt.Sprintf("within 5 km of %s", loc.Name)
+	default:
+		return fmt.Sprintf("%.0f km %s of %s", dist, loc.Compass(lat, lon), loc.Name)
+	}
+}
+
 func LoadPlacenames(path string) ([]Placename, error) {
 	var s []Placename
 
