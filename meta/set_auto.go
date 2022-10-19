@@ -185,6 +185,13 @@ func (s Set) Placenames() []Placename {
 	return placenames
 }
 
+// Polarities is a helper function to return a slice copy of Polarity values.
+func (s Set) Polarities() []Polarity {
+	polarities := make([]Polarity, len(s.polarities))
+	copy(polarities, s.polarities)
+	return polarities
+}
+
 // Sessions is a helper function to return a slice copy of Session values.
 func (s Set) Sessions() []Session {
 	sessions := make([]Session, len(s.sessions))
