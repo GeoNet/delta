@@ -34,6 +34,7 @@ func main() {
 			"mounts":              {"Mount"},
 			"networks":            {"Network"},
 			"placenames":          {"Placename"},
+			"polarities":          {"Polarity"},
 			"sessions":            {"Session"},
 			"sites":               {"Site"},
 			"stations":            {"Station"},
