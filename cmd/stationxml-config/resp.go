@@ -1,16 +1,16 @@
 package main
 
 import (
-	//	"log"
+//	"log"
 
-	//	"encoding/xml"
-	//"fmt"
-	//	"math"
-	//"math/cmplx"
-	//	"strings"
+//	"encoding/xml"
+//"fmt"
+//	"math"
+//"math/cmplx"
+//	"strings"
 
-	"github.com/GeoNet/delta/internal/build/v1.2"
-	"github.com/GeoNet/delta/internal/stationxml/v1.2"
+//	"github.com/GeoNet/delta/internal/build/v1.2"
+//	"github.com/GeoNet/delta/internal/stationxml/v1.2"
 )
 
 /*
@@ -46,69 +46,71 @@ func Derived(prefix string, data []byte) (*stationxml.ResponseType, error) {
 }
 */
 
+/*
 func Resp(resp *build.Response, prefix, id string, freq, gain, bias, preamp float64, sensor, datalogger []byte) (*stationxml.ResponseType, error) {
+*/
 
-	//resp := build.NewResponse(prefix, id, freq)
+//resp := build.NewResponse(prefix, id, freq)
 
-	//var stages []stationxml.ResponseStageType
+//var stages []stationxml.ResponseStageType
 
+/*
 	if len(sensor) == 0 {
 		return nil, nil
 	}
 
-	/*
 		if err := resp.Sensor(gain, bias, sensor); err != nil {
 			return nil, err
 		}
-	*/
+*/
 
-	/*
-		s, err := build.Sensor(gain, bias, freq, sensor)
-		if err != nil || s == nil {
-			return nil, err
-		}
-		stages = append(stages, s.Stage...)
-	*/
+/*
+	s, err := build.Sensor(gain, bias, freq, sensor)
+	if err != nil || s == nil {
+		return nil, err
+	}
+	stages = append(stages, s.Stage...)
+*/
 
+/*
 	if len(datalogger) == 0 {
 		return nil, nil
 	}
-	/*
 
 		if err := resp.Datalogger(preamp, datalogger); err != nil {
 			return nil, err
 		}
-	*/
+*/
 
-	/*
-		d, err := build.Datalogger(preamp, freq, datalogger)
-		if err != nil || d == nil {
-			return nil, err
-		}
-		stages = append(stages, d.Stage...)
-	*/
+/*
+	d, err := build.Datalogger(preamp, freq, datalogger)
+	if err != nil || d == nil {
+		return nil, err
+	}
+	stages = append(stages, d.Stage...)
+*/
 
-	/*
-		res, err := build.Stages(prefix, freq, resp.Stages()...)
-		if err != nil {
-			return nil, err
-		}
-	*/
+/*
+	res, err := build.Stages(prefix, freq, resp.Stages()...)
+	if err != nil {
+		return nil, err
+	}
+*/
 
-	/*
-		if err := resp.Normalise(); err != nil {
-			return nil, err
-		}
-	*/
+/*
+	if err := resp.Normalise(); err != nil {
+		return nil, err
+	}
+*/
 
-	//scale := build.InstrumentScale(freq, res...)
-	//poly := build.InstrumentPoly(res...)
-	//coeffs := build.InstrumentCoeffs(freq, res...)
+//scale := build.InstrumentScale(freq, res...)
+//poly := build.InstrumentPoly(res...)
+//coeffs := build.InstrumentCoeffs(freq, res...)
 
-	//TODO:
-	//stages = res
+//TODO:
+//stages = res
 
-	/*
+/*
 		r := &stationxml.ResponseType{
 			InstrumentSensitivity: func() *stationxml.SensitivityType {
 				if s.InstrumentSensitivity != nil {
@@ -149,9 +151,9 @@ func Resp(resp *build.Response, prefix, id string, freq, gain, bias, preamp floa
 		if false {
 			return r, nil
 		}
-	*/
 	return resp.ResponseType(), nil
 }
+*/
 
 /*
 func Gain(pz *stationxml.PolesZerosType, freq float64) float64 {
