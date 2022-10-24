@@ -160,7 +160,21 @@ func main() {
 		sites[s.Station] = append(sites[s.Station], s)
 	}
 
-	resps, err := NewResponses(lookup, set)
+	var keys []string
+	for _, c := range set.Components() {
+		if c.Response == "" {
+			continue
+		}
+		keys = append(keys, c.Response)
+	}
+	for _, c := range set.Channels() {
+		if c.Response == "" {
+			continue
+		}
+		keys = append(keys, c.Response)
+	}
+
+	resps, err := NewResponses(lookup, keys...)
 	if err != nil {
 		log.Fatal(err)
 	}

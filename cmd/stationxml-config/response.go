@@ -6,7 +6,6 @@ import (
 	"github.com/GeoNet/delta/internal/build/v1.2"
 	"github.com/GeoNet/delta/internal/stationxml/v1.2"
 
-	//	    "github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/delta/resp"
 )
@@ -15,35 +14,18 @@ type Responses struct {
 	resps map[string][]byte
 }
 
-func NewResponses(lookup string, set *meta.Set) (*Responses, error) {
+func NewResponses(lookup string, keys ...string) (*Responses, error) {
 	resps := make(map[string][]byte)
-	for _, c := range set.Components() {
-		if c.Response == "" {
-			continue
-		}
-		data, err := resp.LookupBase(lookup, c.Response)
+	for _, k := range keys {
+		data, err := resp.LookupBase(lookup, k)
 		if err != nil {
 			return nil, err
 		}
 		if data == nil {
 			continue
 		}
-		resps[c.Response] = data
+		resps[k] = data
 	}
-	for _, c := range set.Channels() {
-		if c.Response == "" {
-			continue
-		}
-		data, err := resp.LookupBase(lookup, c.Response)
-		if err != nil {
-			return nil, err
-		}
-		if data == nil {
-			continue
-		}
-		resps[c.Response] = data
-	}
-
 	responses := Responses{
 		resps: resps,
 	}
@@ -51,8 +33,7 @@ func NewResponses(lookup string, set *meta.Set) (*Responses, error) {
 	return &responses, nil
 }
 
-func (r *Responses) Response(c meta.Collection, v meta.Correction) (*stationxml.ResponseType, error) {
-
+func (r *Responses) Prefix(c meta.Collection) string {
 	at := c.InstalledSensor.Start
 	if c.DeployedDatalogger.Start.After(at) {
 		at = c.DeployedDatalogger.Start
@@ -61,20 +42,25 @@ func (r *Responses) Response(c meta.Collection, v meta.Correction) (*stationxml.
 		at = c.Connection.Start
 	}
 
-	prefix := fmt.Sprintf("%s.%s.%s.%s.", c.InstalledSensor.Station, c.InstalledSensor.Location, c.Code(), at.Format("2006.002"))
+	return fmt.Sprintf("%s.%s.%s.%s.", c.InstalledSensor.Station, c.InstalledSensor.Location, c.Code(), at.Format("2006.002"))
+}
 
-	resp := build.NewResponse(prefix, c.InstalledSensor.Serial, LegacyFrequency(c.Code()))
-	if c.InstalledSensor.Station == "KAVZ" {
-		resp = build.NewResponse(prefix, c.InstalledSensor.Serial, 1.0)
+func (r *Responses) DerivedResponseType(c meta.Collection) (*stationxml.ResponseType, error) {
+	resp := build.NewResponse(r.Prefix(c), c.InstalledSensor.Serial, LegacyFrequency(c.Code()))
+
+	derived, ok := r.resps[c.Component.Response]
+	if !ok || !(len(derived) > 0) {
+		return nil, nil
 	}
 
-	// may be a derived response independent of installed equipment
-	if c.Component.SamplingRate != 0 {
-		derived, ok := r.resps[c.Component.Response]
-		if !ok || !(len(derived) > 0) {
-			return nil, nil
-		}
-		return resp.Derived(derived)
+	return resp.Derived(derived)
+}
+
+func (r *Responses) PairedResponseType(c meta.Collection, v meta.Correction) (*stationxml.ResponseType, error) {
+	resp := build.NewResponse(r.Prefix(c), c.InstalledSensor.Serial, LegacyFrequency(c.Code()))
+
+	if c.InstalledSensor.Station == "KAVZ" {
+		resp = build.NewResponse(r.Prefix(c), c.InstalledSensor.Serial, 1.0)
 	}
 
 	var gain, bias float64
@@ -103,4 +89,13 @@ func (r *Responses) Response(c meta.Collection, v meta.Correction) (*stationxml.
 	}
 
 	return resp.ResponseType()
+}
+
+func (r *Responses) Response(c meta.Collection, v meta.Correction) (*stationxml.ResponseType, error) {
+	switch {
+	case c.Component.SamplingRate != 0:
+		return r.DerivedResponseType(c)
+	default:
+		return r.PairedResponseType(c, v)
+	}
 }
