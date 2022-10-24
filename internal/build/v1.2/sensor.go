@@ -7,6 +7,7 @@ import (
 )
 
 //TODO: handle calibration etc
+/*
 func Sensor(gain, bias, freq float64, data []byte) (*stationxml.ResponseType, error) {
 
 	var sensor stationxml.ResponseType
@@ -32,6 +33,7 @@ func Sensor(gain, bias, freq float64, data []byte) (*stationxml.ResponseType, er
 
 	return &sensor, nil
 }
+*/
 
 //TODO: handle calibration etc
 func (r *Response) Sensor(gain, bias float64, data []byte) error {
@@ -62,6 +64,7 @@ func (r *Response) Sensor(gain, bias float64, data []byte) error {
 	return nil
 }
 
+/*
 func Datalogger(preamp, freq float64, data []byte) (*stationxml.ResponseType, error) {
 
 	var datalogger stationxml.ResponseType
@@ -94,6 +97,7 @@ func Datalogger(preamp, freq float64, data []byte) (*stationxml.ResponseType, er
 
 	return &datalogger, nil
 }
+*/
 
 /*
 func InstrumentScale(freq float64, stages ...stationxml.ResponseStageType) float64 {
