@@ -3,9 +3,11 @@ package build
 import (
 	"bytes"
 	"encoding/gob"
+
+	"github.com/GeoNet/delta/internal/stationxml/v1.2"
 )
 
-func clone(a, b interface{}) error {
+func clone(a, b *stationxml.ResponseStageType) error {
 
 	var buff bytes.Buffer
 

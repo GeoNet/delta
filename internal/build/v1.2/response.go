@@ -25,26 +25,6 @@ func NewResponse(prefix, id string, freq float64) *Response {
 	}
 }
 
-/*
-func (r *Response) Sensor(gain, bias float64, data []byte) error {
-	sensor, err := Sensor(gain, bias, r.freq, data)
-	if err != nil || sensor == nil {
-		return err
-	}
-	r.sensor = sensor
-	return nil
-}
-
-func (r *Response) Datalogger(preamp float64, data []byte) error {
-	datalogger, err := Datalogger(preamp, r.freq, data)
-	if err != nil || datalogger == nil {
-		return err
-	}
-	r.datalogger = datalogger
-	return nil
-}
-*/
-
 func (r *Response) Stages() []stationxml.ResponseStageType {
 	var stages []stationxml.ResponseStageType
 	stages = append(stages, r.sensor.Stage...)
