@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 
-	"github.com/GeoNet/delta/internal/build/v1.2"
 	"github.com/GeoNet/delta/internal/stationxml/v1.2"
 
 	"github.com/GeoNet/delta/meta"
@@ -46,7 +45,7 @@ func (r *Responses) Prefix(c meta.Collection) string {
 }
 
 func (r *Responses) DerivedResponseType(c meta.Collection) (*stationxml.ResponseType, error) {
-	resp := build.NewResponse(r.Prefix(c), c.InstalledSensor.Serial, LegacyFrequency(c.Code()))
+	resp := NewResponse(r.Prefix(c), c.InstalledSensor.Serial, LegacyFrequency(c.Code()))
 
 	derived, ok := r.resps[c.Component.Response]
 	if !ok || !(len(derived) > 0) {
@@ -57,10 +56,10 @@ func (r *Responses) DerivedResponseType(c meta.Collection) (*stationxml.Response
 }
 
 func (r *Responses) PairedResponseType(c meta.Collection, v meta.Correction) (*stationxml.ResponseType, error) {
-	resp := build.NewResponse(r.Prefix(c), c.InstalledSensor.Serial, LegacyFrequency(c.Code()))
+	resp := NewResponse(r.Prefix(c), c.InstalledSensor.Serial, LegacyFrequency(c.Code()))
 
 	if c.InstalledSensor.Station == "KAVZ" {
-		resp = build.NewResponse(r.Prefix(c), c.InstalledSensor.Serial, 1.0)
+		resp = NewResponse(r.Prefix(c), c.InstalledSensor.Serial, 1.0)
 	}
 
 	var gain, bias float64
