@@ -7,8 +7,9 @@ import (
 )
 
 func (r *Response) Normalise() error {
+
 	var stages []stationxml.ResponseStageType
-	for n, s := range r.Stages() {
+	for n, s := range append(r.sensor.Stage, r.datalogger.Stage...) {
 		var stage stationxml.ResponseStageType
 		if err := clone(&s, &stage); err != nil {
 			return err

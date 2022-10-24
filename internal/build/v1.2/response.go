@@ -25,16 +25,22 @@ func NewResponse(prefix, id string, freq float64) *Response {
 	}
 }
 
+/*
 func (r *Response) Stages() []stationxml.ResponseStageType {
 	var stages []stationxml.ResponseStageType
 	stages = append(stages, r.sensor.Stage...)
 	stages = append(stages, r.datalogger.Stage...)
 	return stages
 }
+*/
 
-func (r *Response) ResponseType() *stationxml.ResponseType {
+func (r *Response) ResponseType() (*stationxml.ResponseType, error) {
 
-	return &stationxml.ResponseType{
+	if err := r.Normalise(); err != nil {
+		return nil, err
+	}
+
+	resp := stationxml.ResponseType{
 		InstrumentSensitivity: func() *stationxml.SensitivityType {
 			if r.sensor.InstrumentSensitivity != nil {
 				return &stationxml.SensitivityType{
@@ -70,4 +76,6 @@ func (r *Response) ResponseType() *stationxml.ResponseType {
 		}(),
 		Stage: r.stages,
 	}
+
+	return &resp, nil
 }
