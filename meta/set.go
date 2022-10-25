@@ -31,6 +31,7 @@ const (
 	GainsFile        = "install/gains.csv"
 	MetsensorsFile   = "install/metsensors.csv"
 	PolaritiesFile   = "install/polarities.csv"
+	PreampsFile      = "install/preamps.csv"
 	RadomesFile      = "install/radomes.csv"
 	ReceiversFile    = "install/receivers.csv"
 	RecordersFile    = "install/recorders.csv"
@@ -77,6 +78,7 @@ type Set struct {
 	gains               GainList
 	installedMetSensors InstalledMetSensorList
 	polarities          PolarityList
+	preamps             PreampList
 	installedRadomes    InstalledRadomeList
 	deployedReceivers   DeployedReceiverList
 	installedRecorders  InstalledRecorderList
@@ -117,6 +119,7 @@ func (s *Set) files() map[string]List {
 		GainsFile:        &s.gains,
 		MetsensorsFile:   &s.installedMetSensors,
 		PolaritiesFile:   &s.polarities,
+		PreampsFile:      &s.preamps,
 		RadomesFile:      &s.installedRadomes,
 		ReceiversFile:    &s.deployedReceivers,
 		RecordersFile:    &s.installedRecorders,

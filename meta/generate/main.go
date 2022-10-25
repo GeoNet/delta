@@ -35,6 +35,7 @@ func main() {
 			"networks":            {"Network"},
 			"placenames":          {"Placename"},
 			"polarities":          {"Polarity"},
+			"preamps":             {"Preamp"},
 			"sessions":            {"Session"},
 			"sites":               {"Site"},
 			"stations":            {"Station"},

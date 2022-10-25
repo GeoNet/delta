@@ -192,6 +192,13 @@ func (s Set) Polarities() []Polarity {
 	return polarities
 }
 
+// Preamps is a helper function to return a slice copy of Preamp values.
+func (s Set) Preamps() []Preamp {
+	preamps := make([]Preamp, len(s.preamps))
+	copy(preamps, s.preamps)
+	return preamps
+}
+
 // Sessions is a helper function to return a slice copy of Session values.
 func (s Set) Sessions() []Session {
 	sessions := make([]Session, len(s.sessions))
