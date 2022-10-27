@@ -2,11 +2,55 @@ package meta
 
 import (
 	"io/ioutil"
+	"os"
 	"testing"
 	"time"
 
 	"github.com/google/go-cmp/cmp"
 )
+
+func testListFunc(path string, list List) func(t *testing.T) {
+	return func(t *testing.T) {
+		res, err := MarshalList(list)
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		t.Run("compare raw list file: "+path, func(t *testing.T) {
+			check, err := os.ReadFile(path)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if string(res) != string(check) {
+				t.Errorf("unexpected %s content -got/+exp\n%s", path, cmp.Diff(res, check))
+			}
+		})
+		t.Run("check encode/decode list file: "+path, func(t *testing.T) {
+			if err := UnmarshalList(res, list); err != nil {
+				t.Fatal(err)
+			}
+			check, err := MarshalList(list)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if string(res) != string(check) {
+				t.Errorf("unexpected %s content -got/+exp\n%s", path, cmp.Diff(res, check))
+			}
+		})
+		t.Run("check list file: "+path, func(t *testing.T) {
+			if err := LoadList(path, list); err != nil {
+				t.Fatal(err)
+			}
+			check, err := MarshalList(list)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if string(res) != string(check) {
+				t.Errorf("unexpected %s content -got/+exp\n%s", path, cmp.Diff(res, check))
+			}
+		})
+	}
+}
 
 func TestList(t *testing.T) {
 
@@ -1025,199 +1069,6 @@ func TestList(t *testing.T) {
 					},
 					Mount: "TOD02",
 					View:  "01",
-				},
-			},
-		},
-		{
-			"testdata/calibrations.csv",
-			&CalibrationList{
-				Calibration{
-					Install: Install{
-						Equipment: Equipment{
-							Make:   "Acme",
-							Model:  "ACME01",
-							Serial: "257",
-						},
-						Span: Span{
-							Start: time.Date(2021, time.July, 1, 0, 0, 0, 0, time.UTC),
-							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
-						},
-					},
-					ScaleFactor: 2000.169 / 2.0,
-					ScaleBias:   1.0,
-					Frequency:   10.0,
-					Component:   0,
-
-					component: "0",
-					factor:    "2000.169/2.0",
-					bias:      "1.0",
-					frequency: "10.0",
-				},
-			},
-		},
-		{
-			"testdata/gains.csv",
-			&GainList{
-				Gain{
-					Span: Span{
-						Start: time.Date(2021, time.July, 1, 0, 0, 0, 0, time.UTC),
-						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
-					},
-					Scale: Scale{
-						Factor: 1298.169,
-						Bias:   11865.556,
-
-						factor: "1298.169",
-						bias:   "11865.556",
-					},
-					Station:     "SBAM",
-					Location:    "50",
-					Sublocation: "01",
-					Subsource:   "XZ",
-				},
-			},
-		},
-		{
-			"testdata/placenames.csv",
-			&PlacenameList{
-				Placename{
-					Name:      "Ashburton",
-					Latitude:  -43.9,
-					Longitude: 171.75,
-					Level:     1,
-
-					latitude:  "-43.9",
-					longitude: "171.75",
-				},
-				Placename{
-					Name:      "Auckland",
-					Latitude:  -36.85,
-					Longitude: 174.767,
-					Level:     0,
-
-					latitude:  "-36.85",
-					longitude: "174.767",
-				},
-			},
-		},
-		{
-			"testdata/components.csv",
-			&ComponentList{
-				Component{
-					Make:      "Guralp",
-					Model:     "Fortis",
-					Type:      "Accelerometer",
-					Number:    0,
-					Subsource: "Z",
-					Dip:       -90.0,
-					Azimuth:   0.0,
-					Types:     "G",
-					Response:  "sensor_guralp_fortis_response",
-
-					number:  "0",
-					dip:     "-90",
-					azimuth: "0",
-				},
-				Component{
-					Make:      "Guralp",
-					Model:     "Fortis",
-					Type:      "Accelerometer",
-					Number:    1,
-					Subsource: "N",
-					Dip:       0.0,
-					Azimuth:   0.0,
-					Types:     "G",
-					Response:  "sensor_guralp_fortis_response",
-
-					number:  "1",
-					dip:     "0",
-					azimuth: "0",
-				},
-				Component{
-					Make:      "Guralp",
-					Model:     "Fortis",
-					Type:      "Accelerometer",
-					Number:    2,
-					Subsource: "E",
-					Dip:       0.0,
-					Azimuth:   90.0,
-					Types:     "G",
-					Response:  "sensor_guralp_fortis_response",
-
-					number:  "2",
-					dip:     "0",
-					azimuth: "90",
-				},
-			},
-		},
-		{
-			"testdata/channels.csv",
-			&ChannelList{
-				Channel{
-					Make:         "Nanometrics",
-					Model:        "Centaur CTR4-6S",
-					Type:         "Datalogger",
-					SamplingRate: 200,
-					Response:     "datalogger_nanometrics_centaur_200_response",
-
-					samplingRate: "200",
-				},
-				Channel{
-					Make:         "Quanterra",
-					Model:        "Q330HR/6",
-					Type:         "Datalogger",
-					Number:       0,
-					SamplingRate: 200,
-					Response:     "datalogger_quanterra_q330_highgain_200_response",
-
-					number:       "0",
-					samplingRate: "200",
-				},
-				Channel{
-					Make:         "Quanterra",
-					Model:        "Q330HR/6",
-					Type:         "Datalogger",
-					Number:       3,
-					SamplingRate: 200,
-					Response:     "datalogger_quanterra_q330_200_response",
-
-					number:       "3",
-					samplingRate: "200",
-				},
-			},
-		},
-		{
-			"testdata/citations.csv",
-			&CitationList{
-				Citation{
-					Key:       "fry2020",
-					Author:    "Fry, B., S.-J. McCurrach, K. Gledhill, W. Power, M. Williams, M. Angove, D. Arcas, and C. Moore",
-					Title:     "Sensor network warns of stealth tsunamis",
-					Published: "Eos",
-					Volume:    "101",
-					Doi:       MustDoi("https://doi.org/10.1029/2020EO144274"),
-
-					doi:  "https://doi.org/10.1029/2020EO144274",
-					year: "2020",
-				},
-				Citation{
-					Key:       "key2002",
-					Author:    "A Writer",
-					Title:     "A test",
-					Year:      2002,
-					Published: "Journal of test",
-					Volume:    "1",
-					Pages:     "1-2",
-					Doi:       MustDoi("https://doi.org/10.21420/8TCZ-TV02"),
-					Link:      "http://example.com",
-					Retrieved: time.Date(2021, time.January, 12, 0, 0, 0, 0, time.UTC),
-
-					doi:       "https://doi.org/10.21420/8TCZ-TV02",
-					year:      "2002",
-					retrieved: "2021-01-12T00:00:00Z",
-				},
-				Citation{
-					Key: "unknown",
 				},
 			},
 		},

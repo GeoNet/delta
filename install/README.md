@@ -18,6 +18,7 @@ Meta information for the GeoNet equipment network.
 * `dataloggers.csv` - Recording dataloggers
 * `connections.csv` - Datalogger and sensor connection details
 * `streams.csv` - Datalogger and recorder sampling configurations
+* `polarities.csv` - site specific polarity settings which indicate when a site may have reversed polarity, or otherwise
 * `gains.csv` - site specific settings applied to individual datalogger and sensor that may impact overall sensitivities
 * `calibrations.csv` - Individual sensor sensitivity values that can be used rather than default values.
 * `components.csv` - Individual sensor elements including measurement position and responses.
@@ -223,9 +224,50 @@ A list of _datalogger_ sampling configurations for a given _station_ and recordi
 | _Start_ | Stream start time|
 | _Stop_ | Stream stop time|
 
-The band and source codes are representitives of the FDSN channel naming convention as found at:
+The band and source codes are representatives of the FDSN channel naming convention as found at:
 
 [FDSN Source Identifiers: Channel codes](http://docs.fdsn.org/projects/source-identifiers/en/v1.0/channel-codes.html)
+
+#### _POLARITIES_ ####
+
+Site specific times when the recorded values may have a reversed, or otherwise, polarity.
+This is often difficult to track with the known instrument responses and installation details as it can
+often be caused by in-field wiring or cabling changes from the expected standard.
+
+There is also the possibility that there may be conflicting information or studies, where this is
+the case the _Primary_ field can be used to indicate which one should be used for downstream processing.
+
+To reduce the number valid _Method_ entries these are defined as a set of "known" values, and an "unknown" one.
+Where possibly the code should be updated to add any standard polarity detection methods, there is also
+room to provide a reference citation for any associated studies.
+
+
+| Field | Description | Units |
+| --- | --- | --- |
+| _Station_ | Recording _Station_|
+| _Location_ | Recording location _Site_|
+| _Sublocation_ | Recording location _Sublocation_|
+| _Subsource_ | Recording location _Subsource_|
+| _Primary_ | Whether the entry takes precedence| _"yes"_, _"no"_, or blank.
+| _Reversed_ | Whether the stream in the time window should be considered reversed or not| _"yes"_ or _"no"_
+| _Method_ | How this information was obtained| _"study"_, _"compass"_, or _"unknown"_
+| _Citation_ | A reference citation for the method if appropriate| _"key"_
+| _Start_ | Time window start time|
+| _Stop_ | Time window stop time|
+
+Notes:
+
+- For the _Subsource_, this can either be individual entries (e.g., "Z", "N"), or multiple entries ("ZNE"), or it can be empty, which will be interpreted as all subsource values.
+(The subsource is the last character in the standard SEED channel naming convention, e.g. EHZ).
+
+- If a citation is given the actual reference information should be given in the _citations.csv_ file.
+
+- An empty, or blank, _Method_ is treated as _unknown_.
+
+Example:
+
+    Station,Location,Sublocation,Subsource,Primary,Reversed,Method,Citation,Start Date,End Date
+    WEL,10,,Z,,true,compass,,2022-07-28T01:59:00Z,9999-01-01T00:00:00Z
 
 #### _GAINS_ ####
  
@@ -256,7 +298,7 @@ For the component, sensitivity, and frequency either a value can be given direct
 | _Make_ | Sensor make
 | _Model_ | Sensor model name
 | _Serial_ | Sensor serial number
-| _Component_ | The sensor component, as defined in the response configuration or elsewhere, which overrides the default values, a blank value is interpreted as the first sensor component, or __"pin"__ zero.
+| _Number_ | The sensor component or datalogger digitiser channel, as defined in the response configuration or elsewhere, which overrides the default values, a blank value is interpreted as the first sensor component, or __"pin"__ zero.
 | _Scale Factor_ | Sensitivity, or scale factor, that the input signal is generally multiplied by to convert to Volts, or for polynomial responses the value used to convert Volts into the signal units. A blank value is expected to be read as __1.0__, an explicit value of zero is required to be entered if intended.
 | _Scale Bias_ | An offset, or scale bias, for polynomial responses that is added to the converted volts to give the signal values. If this field is blank it should be assumed that the value is __0.0__.
 | _Frequency_ | Frequency at which the calibration value is correct for if appropriate.
@@ -274,18 +316,21 @@ Subsource is the general term used for labelling the sensor component and is usu
 Dip and Azimuth are used to indicate the relative position of the sensor component within the sensor package and will be used with the
 overall sensor installation values to provide component dips and azimuths.
 
-| Field       | Description | 
-| ----------- | ----------- |
-| _Make_      | Sensor make
-| _Model_     | Sensor model name
-| _Type_      | Sensor type
-| _Number_    | Sensor component offset
-| _Subsource_ | Sensor component label
-| _Dip_       | Internal dip of the compnent relative to whole sensor
-| _Azimuth_   | Internal azimuth of the compnent relative to whole sensor
-| _Types_     | A shorthand reference to the SEED type labels
-| _Response_  | A reference to the nominal StationXML response 
+For derived streams, such as a simple gain or unit conversion, can be indicated by providing an input sampling rate. This is matched by
+the equivalent _Stream_ and allows for the response to be generated with the provided reference response only.
 
+| Field           | Description |
+| --------------- | ----------- |
+| _Make_          | Sensor make
+| _Model_         | Sensor model name
+| _Type_          | Sensor type
+| _Number_        | Sensor component offset
+| _Subsource_     | Sensor component label
+| _Dip_           | Internal dip of the component relative to whole sensor
+| _Azimuth_       | Internal azimuth of the component relative to whole sensor
+| _Types_         | A shorthand reference to the SEED type labels
+| _Sampling Rate_ | An input sampling rate which can be used to indicate a _derived_ stream
+| _Response_      | A reference to the nominal StationXML response
 
 #### _CHANNELS_ ####
 
