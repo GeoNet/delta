@@ -38,6 +38,9 @@ func main() {
 	var dart bool
 	flag.BoolVar(&dart, "dart", false, "build a DART map")
 
+	var manual bool
+	flag.BoolVar(&manual, "manual", false, "build a manually collected map")
+
 	var output string
 	flag.StringVar(&output, "output", "", "output file")
 
@@ -91,9 +94,44 @@ func main() {
 			f.AddProperty("marker-symbol", strings.ToLower(s.Code[len(s.Code)-1:]))
 			fc.AddFeature(*f)
 		}
+	case manual:
+		fc.AddMetadata("name", "geonet manually collected delta locations")
+		for _, s := range stations {
+			if s.Network != "MC" {
+				continue
+			}
+			network, err := db.Network(s.Network)
+			if err != nil {
+				log.Fatal(err)
+			}
+			lon, lat := s.Longitude, s.Latitude
+			for lon < 0.0 {
+				lon += 360.0
+			}
+
+			f := NewFeature()
+			f.SetId(s.Code)
+			f.AddPointGeometry(lon, lat)
+			if network != nil {
+				f.AddProperty("network", network.Description)
+			}
+			f.AddProperty("code", s.Code)
+			f.AddProperty("name", s.Name)
+			f.AddProperty("type", "Station")
+			f.AddProperty("opened", s.Start.Format(time.RFC3339))
+			if s.End.Before(time.Now()) {
+				f.AddProperty("closed", s.End.Format(time.RFC3339))
+			}
+			f.AddProperty("marker-size", "medium")
+			f.AddProperty("marker-color", "#ff3333")
+			fc.AddFeature(*f)
+		}
 	default:
 		fc.AddMetadata("name", "geonet delta locations")
 		for _, s := range stations {
+			if s.Network == "MC" {
+				continue
+			}
 			network, err := db.Network(s.Network)
 			if err != nil {
 				log.Fatal(err)
