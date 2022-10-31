@@ -10,7 +10,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          176.914,
+          176.911,
           -42.371
         ]
       },
@@ -21,7 +21,7 @@
         "marker-size": "large",
         "marker-symbol": "a",
         "name": "Offshore Wellington Hikurangi",
-        "opened": "2019-12-22T00:00:00Z"
+        "opened": "2019-12-21T17:00:00Z"
       }
     },
     {
@@ -30,8 +30,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          179.096,
-          -40.599
+          179.0962,
+          -40.5992
         ]
       },
       "properties": {
@@ -61,7 +61,7 @@
         "marker-size": "large",
         "marker-symbol": "c",
         "name": "Offshore Gisborne Hikurangi",
-        "opened": "2019-12-13T00:00:00Z"
+        "opened": "2019-12-12T18:00:00Z"
       }
     },
     {
@@ -90,7 +90,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          182.297,
+          182.292,
           -36.049
         ]
       },
@@ -101,7 +101,7 @@
         "marker-size": "large",
         "marker-symbol": "e",
         "name": "Offshore East Cape Kermadec",
-        "opened": "2019-12-19T00:00:00Z"
+        "opened": "2019-12-18T17:00:00Z"
       }
     },
     {
@@ -110,8 +110,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          184.991,
-          -29.682
+          184.9875,
+          -29.6826
         ]
       },
       "properties": {
@@ -130,13 +130,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          186.591,
-          -23.344
+          186.5982,
+          -23.3517
         ]
       },
       "properties": {
         "code": "NZG",
-        "depth": "5742 m",
+        "depth": "5741 m",
         "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "g",
@@ -150,13 +150,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          188.146,
-          -20.087
+          188.137,
+          -20.0885
         ]
       },
       "properties": {
         "code": "NZH",
-        "depth": "5530 m",
+        "depth": "5531 m",
         "marker-color": "#f5bd1f",
         "marker-size": "large",
         "marker-symbol": "h",
@@ -170,8 +170,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          188.802,
-          -16.89
+          188.8095,
+          -16.889
         ]
       },
       "properties": {

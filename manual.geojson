@@ -1,0 +1,1268 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "name": "geonet manually collected delta locations"
+  },
+  "features": [
+    {
+      "id": "OK001",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.1425,
+          -38.47326
+        ]
+      },
+      "properties": {
+        "code": "OK001",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Orakei Korako Camp Ground Bubbling Pool",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2022-05-05T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT001",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.3997,
+          -38.2819
+        ]
+      },
+      "properties": {
+        "code": "OT001",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Waimangu Inferno Crater",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2009-02-04T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT002",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.39503,
+          -38.28358
+        ]
+      },
+      "properties": {
+        "code": "OT002",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Waimangu Frying Pan Lake",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2009-02-04T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT010",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.382087,
+          -38.038819
+        ]
+      },
+      "properties": {
+        "code": "OT010",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Okataina Rotoiti Manupirua Springs",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2003-04-30T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT011",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.35628,
+          -38.045405
+        ]
+      },
+      "properties": {
+        "code": "OT011",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Okataina Rotoiti Parengarenga Bay Springs",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2003-04-30T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT012",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.35742,
+          -38.043892
+        ]
+      },
+      "properties": {
+        "code": "OT012",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Okataina Rotoiti Parengarenga Point Springs",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2003-04-30T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT013",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.549492,
+          -38.03853
+        ]
+      },
+      "properties": {
+        "code": "OT013",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Okataina Rotoma Soda Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2003-01-30T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT014",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.417669,
+          -38.269847
+        ]
+      },
+      "properties": {
+        "code": "OT014",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Okataina Rotomahana Hole in Wall Spring No 21",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2008-12-18T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT015",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.418689,
+          -38.264235
+        ]
+      },
+      "properties": {
+        "code": "OT015",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Okataina Rotomahana Spring No 8",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2008-12-18T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT016",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.43328,
+          -38.243532
+        ]
+      },
+      "properties": {
+        "code": "OT016",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Okataina Tarawera Hot Water Beach Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2003-01-17T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT018",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.304881,
+          -38.326951
+        ]
+      },
+      "properties": {
+        "code": "OT018",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Okataina Waikite Te Manaroa Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2008-12-02T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT019",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.304462,
+          -38.327288
+        ]
+      },
+      "properties": {
+        "code": "OT019",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Okataina Waikite Baths Lower Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2008-12-02T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT020",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.304534,
+          -38.327358
+        ]
+      },
+      "properties": {
+        "code": "OT020",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Okataina Waikite Baths Upper Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2008-12-02T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT021",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.368744,
+          -38.359303
+        ]
+      },
+      "properties": {
+        "code": "OT021",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Okataina Waiotapu Champagne Pool",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2001-04-03T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT022",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.699564,
+          -38.088952
+        ]
+      },
+      "properties": {
+        "code": "OT022",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Kawerau Council Bore",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2005-11-17T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "OT023",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.69965,
+          -38.08889
+        ]
+      },
+      "properties": {
+        "code": "OT023",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Kawerau Council Bore 2022",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2022-01-28T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RL001",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          182.08022,
+          -29.2624
+        ]
+      },
+      "properties": {
+        "code": "RL001",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Raoul Island Green Lake",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2000-03-21T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RL002",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          182.07984,
+          -29.25407
+        ]
+      },
+      "properties": {
+        "code": "RL002",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Raoul Island Blue Lake",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2000-03-21T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RL003",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          182.08322,
+          -29.24923
+        ]
+      },
+      "properties": {
+        "code": "RL003",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Raoul Island Oneraki Beach",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2000-03-19T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RL004",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          182.08098,
+          -29.26207
+        ]
+      },
+      "properties": {
+        "code": "RL004",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Raoul Island Eastern Pool",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2007-03-27T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RL005",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          182.07975,
+          -29.26231
+        ]
+      },
+      "properties": {
+        "code": "RL005",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Raoul Island Marker Bay Pool",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2006-08-28T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RP001",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.361682,
+          -38.412777
+        ]
+      },
+      "properties": {
+        "code": "RP001",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Reporoa Loop Road Pool No 2",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2002-11-18T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RP002",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.36238,
+          -38.411323
+        ]
+      },
+      "properties": {
+        "code": "RP002",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Reporoa Loop Road Spring No 3",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2002-11-19T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RP003",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.363077,
+          -38.41151
+        ]
+      },
+      "properties": {
+        "code": "RP003",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Reporoa Loop Road Spring No 4",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2002-11-18T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RR001",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.268123,
+          -38.142485
+        ]
+      },
+      "properties": {
+        "code": "RR001",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Rotorua Ngapuna Stopbank Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2002-04-23T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RR002",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.258417,
+          -38.160474
+        ]
+      },
+      "properties": {
+        "code": "RR002",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Rotorua THC Blowout",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2002-04-23T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RR003",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.257237,
+          -38.136443
+        ]
+      },
+      "properties": {
+        "code": "RR003",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Rotorua Rachel Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2002-04-23T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RR004",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.245052,
+          -38.131879
+        ]
+      },
+      "properties": {
+        "code": "RR004",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Rotorua JC Fountain Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2002-04-23T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RR005",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.247767,
+          -38.128862
+        ]
+      },
+      "properties": {
+        "code": "RR005",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Rotorua Ohinemutu Little Waikite Geyser",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2009-01-09T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RR1021",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.258413,
+          -38.13841
+        ]
+      },
+      "properties": {
+        "code": "RR1021",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Rotorua Alternative Polynesian Spa Well",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2008-06-25T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RR1076",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.257931,
+          -38.137369
+        ]
+      },
+      "properties": {
+        "code": "RR1076",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Rotorua Northern Polynesian Spa Well",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2010-07-20T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RR12183",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.244663,
+          -38.133856
+        ]
+      },
+      "properties": {
+        "code": "RR12183",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Rotorua Aquatic Centre Well 2017",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2017-05-04T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RR887",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.258517,
+          -38.138443
+        ]
+      },
+      "properties": {
+        "code": "RR887",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Rotorua Polynesian Spa Well",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2003-01-08T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RR913",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.244377,
+          -38.133828
+        ]
+      },
+      "properties": {
+        "code": "RR913",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Rotorua Aquatic Centre Well",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2003-01-08T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RU001",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.565,
+          -39.2816
+        ]
+      },
+      "properties": {
+        "code": "RU001",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Ruapehu Crater Lake",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1954-01-22T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "RU020",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.527965,
+          -39.224927
+        ]
+      },
+      "properties": {
+        "code": "RU020",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Ruapehu Silica Rapids",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1990-03-18T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO050",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.659012,
+          -39.125853
+        ]
+      },
+      "properties": {
+        "code": "TO050",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Blue Lake",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1981-02-08T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO051",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.60419,
+          -39.200689
+        ]
+      },
+      "properties": {
+        "code": "TO051",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Lower Tama Lake",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1981-12-06T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO052",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.616767,
+          -39.187799
+        ]
+      },
+      "properties": {
+        "code": "TO052",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Upper Tama Lake",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1981-12-06T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO053",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.625869,
+          -39.139467
+        ]
+      },
+      "properties": {
+        "code": "TO053",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Soda Springs",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1989-11-16T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO054",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.647856,
+          -39.106545
+        ]
+      },
+      "properties": {
+        "code": "TO054",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Ketetahi Black Cauldron",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1989-04-04T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO055",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.647573,
+          -39.107912
+        ]
+      },
+      "properties": {
+        "code": "TO055",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Ketetahi Upper Iron Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1984-02-16T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO056",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.647368,
+          -39.106196
+        ]
+      },
+      "properties": {
+        "code": "TO056",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Ketetahi Stream Lower",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2001-07-06T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO057",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.647596,
+          -39.107894
+        ]
+      },
+      "properties": {
+        "code": "TO057",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Ketetahi Stream Headwaters",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2005-12-01T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO060",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.654487,
+          -39.134251
+        ]
+      },
+      "properties": {
+        "code": "TO060",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Upper Emerald Lake",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1981-02-08T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO061",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.654552,
+          -39.134123
+        ]
+      },
+      "properties": {
+        "code": "TO061",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Middle Emerald Lake",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1981-02-08T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO062",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.656721,
+          -39.133667
+        ]
+      },
+      "properties": {
+        "code": "TO062",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Lower Emerald Lake",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1981-02-08T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TO063",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.656303,
+          -39.133929
+        ]
+      },
+      "properties": {
+        "code": "TO063",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Tongariro Lower Emerald Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1994-04-30T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TP041",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.764548,
+          -38.968018
+        ]
+      },
+      "properties": {
+        "code": "TP041",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Taupo Tokaanu No 31D Spring Teretere",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2002-11-28T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TP042",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.763013,
+          -38.968055
+        ]
+      },
+      "properties": {
+        "code": "TP042",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Taupo Tokaanu No 5 Pool",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2002-11-28T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TP043",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.76508,
+          -38.967761
+        ]
+      },
+      "properties": {
+        "code": "TP043",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Taupo Tokaanu Taumatapuhipuhi Geyser",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2002-11-28T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TP044",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.762336,
+          -38.968739
+        ]
+      },
+      "properties": {
+        "code": "TP044",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Taupo Tokaanu Sintered Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2015-11-02T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TP045",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.763895,
+          -38.966988
+        ]
+      },
+      "properties": {
+        "code": "TP045",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Taupo Tokaanu Baths Bore well TA3",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2002-11-28T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "WI201",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.185932,
+          -37.522837
+        ]
+      },
+      "properties": {
+        "code": "WI201",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "White Island Crater Lake",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1995-11-15T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "WI220",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.191769,
+          -37.526413
+        ]
+      },
+      "properties": {
+        "code": "WI220",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "White Island Acid Stream",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2001-04-19T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "WI221",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.190384,
+          -37.525391
+        ]
+      },
+      "properties": {
+        "code": "WI221",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "White Island Black Pot Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "1995-11-15T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "WI222",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.188748,
+          -37.523359
+        ]
+      },
+      "properties": {
+        "code": "WI222",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "White Island Teds Head Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2004-09-17T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "WI223",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.188013,
+          -37.524153
+        ]
+      },
+      "properties": {
+        "code": "WI223",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "White Island Sulphur Cave Spring",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2005-08-26T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "WI224",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.186082,
+          -37.523392
+        ]
+      },
+      "properties": {
+        "code": "WI224",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "White Island Sulphur Wall Collapse",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2005-11-08T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "WI225",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.187982,
+          -37.52382
+        ]
+      },
+      "properties": {
+        "code": "WI225",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "White Island Cindys Mistake Pool",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2009-08-12T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "WI226",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.188649,
+          -37.523597
+        ]
+      },
+      "properties": {
+        "code": "WI226",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "White Island Iron Stream",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2004-08-03T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "WI227",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.189942,
+          -37.52188
+        ]
+      },
+      "properties": {
+        "code": "WI227",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "White Island Fumarole 13",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2007-04-01T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "WI228",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          177.186671,
+          -37.520946
+        ]
+      },
+      "properties": {
+        "code": "WI228",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "White Island Yellow Duck Stream",
+        "network": "Manually collected volcano monitoring data",
+        "opened": "2017-06-29T00:00:00Z",
+        "type": "Station"
+      }
+    }
+  ]
+}

@@ -12462,6 +12462,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-02-16T01:00:00Z",
         "code": "AKUS",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -12877,6 +12878,7 @@
         ]
       },
       "properties": {
+        "closed": "2015-02-12T00:00:00Z",
         "code": "AP2W",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -12925,6 +12927,26 @@
         "name": "Apia",
         "network": "New Zealand National Seismograph Network",
         "opened": "1902-01-01T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "APIM",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          188.225,
+          -13.8072
+        ]
+      },
+      "properties": {
+        "code": "APIM",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Apia Geomagnetic Observatory",
+        "network": "New Zealand geomagnetic observatories network",
+        "opened": "2011-07-25T00:00:00Z",
         "type": "Station"
       }
     },
@@ -12980,6 +13002,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "APSZ",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13082,6 +13105,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC01",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13102,6 +13126,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC02",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13122,6 +13147,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC03",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13142,6 +13168,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC04",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13162,6 +13189,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC05",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13182,6 +13210,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC06",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13202,6 +13231,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC07",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13222,6 +13252,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC08",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13242,6 +13273,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC09",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13262,6 +13294,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC10",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13282,6 +13315,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC11",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13302,6 +13336,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC12",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13322,6 +13357,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC13",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13342,6 +13378,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC14",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13362,6 +13399,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC15",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13382,6 +13420,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC16",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13402,6 +13441,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC17",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13422,6 +13462,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC18",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13442,6 +13483,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC19",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13462,6 +13504,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC20",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13482,6 +13525,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC21",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13502,6 +13546,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC22",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13522,6 +13567,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC23",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13542,6 +13588,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC24",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13562,6 +13609,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC25",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13582,6 +13630,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC26",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13602,6 +13651,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC27",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13622,6 +13672,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC28",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13642,6 +13693,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC29",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13662,6 +13714,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC30",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13682,6 +13735,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC31",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13702,6 +13756,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC32",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13722,6 +13777,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC33",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13742,6 +13798,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC34",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13762,6 +13819,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC35",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13782,6 +13840,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC36",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13802,6 +13861,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC37",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13822,6 +13882,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC38",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13842,6 +13903,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC39",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13862,6 +13924,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC40",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -13882,6 +13945,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-01-01T00:00:00Z",
         "code": "ARC41",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -14166,6 +14230,7 @@
         ]
       },
       "properties": {
+        "closed": "2015-04-15T00:00:00Z",
         "code": "AVIO",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -14374,6 +14439,7 @@
         ]
       },
       "properties": {
+        "closed": "2004-01-22T00:00:00Z",
         "code": "BB1",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -15388,6 +15454,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-01-18T00:00:01Z",
         "code": "BYTT",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -15701,7 +15768,7 @@
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "Canterbury University Business \u0026 Law Building CBLB",
-        "network": "New Zealand National Seismograph Network",
+        "network": "Building array network",
         "opened": "2016-08-27T00:00:00Z",
         "type": "Station"
       }
@@ -15798,6 +15865,7 @@
         ]
       },
       "properties": {
+        "closed": "2012-01-01T00:00:00Z",
         "code": "CCH1",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -15818,6 +15886,7 @@
         ]
       },
       "properties": {
+        "closed": "2012-01-01T00:00:00Z",
         "code": "CCH2",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -19428,16 +19497,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          172.355124,
-          -43.421695
+          172.35544,
+          -43.42134
         ]
       },
       "properties": {
+        "closed": "2013-12-15T23:59:59Z",
         "code": "EYRM",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "Eyrewell Geomagnetic Observatory",
-        "opened": "2010-02-26T00:00:00Z",
+        "network": "New Zealand geomagnetic observatories network",
+        "opened": "1978-01-01T00:00:00Z",
         "type": "Station"
       }
     },
@@ -19459,6 +19530,26 @@
         "name": "Eyrewell Observatory",
         "network": "National strong motion network",
         "opened": "2011-03-25T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "EYWM",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.23339,
+          -43.28262
+        ]
+      },
+      "properties": {
+        "code": "EYWM",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "West Melton Geomagnetic Observatory",
+        "network": "New Zealand geomagnetic observatories network",
+        "opened": "2013-12-15T00:00:00Z",
         "type": "Station"
       }
     },
@@ -19514,6 +19605,7 @@
         ]
       },
       "properties": {
+        "closed": "2022-04-27T06:00:00Z",
         "code": "FAIS",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -19850,6 +19942,86 @@
         "name": "Fox Glacier Alpine Gardens",
         "network": "GeoNet environmental data using low rate data collection platform network",
         "opened": "2019-02-06T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "FOXKP",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.075519,
+          -43.498401
+        ]
+      },
+      "properties": {
+        "code": "FOXKP",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Fox Glacier Kea Point",
+        "network": "GeoNet environmental data using low rate data collection platform network",
+        "opened": "2021-08-04T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "FOXRB",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.093465,
+          -43.498265
+        ]
+      },
+      "properties": {
+        "code": "FOXRB",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Fox Glacier Rapanui Bluff",
+        "network": "GeoNet environmental data using low rate data collection platform network",
+        "opened": "2021-08-04T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "FOXVF",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.097863,
+          -43.502881
+        ]
+      },
+      "properties": {
+        "code": "FOXVF",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Fox Glacier Victoria Falls",
+        "network": "GeoNet environmental data using low rate data collection platform network",
+        "opened": "2021-09-01T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "FOXVV",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.059362,
+          -43.500266
+        ]
+      },
+      "properties": {
+        "code": "FOXVV",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Fox Glacier Valley View",
+        "network": "GeoNet environmental data using low rate data collection platform network",
+        "opened": "2021-08-03T00:00:00Z",
         "type": "Station"
       }
     },
@@ -20399,6 +20571,7 @@
         ]
       },
       "properties": {
+        "closed": "2022-02-02T09:20:00Z",
         "code": "GCSZ",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -21858,6 +22031,7 @@
         ]
       },
       "properties": {
+        "closed": "2021-04-13T15:20:00Z",
         "code": "HCDS",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -21889,215 +22063,6 @@
       }
     },
     {
-      "id": "HD01",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.947344,
-          -38.480203
-        ]
-      },
-      "properties": {
-        "closed": "2010-04-14T00:00:00Z",
-        "code": "HD01",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Hotter and Deeper 01",
-        "network": "Temporary sites",
-        "opened": "2009-09-20T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD02",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.91956,
-          -38.62747
-        ]
-      },
-      "properties": {
-        "closed": "2012-11-03T00:00:00Z",
-        "code": "HD02",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Waipapa Trust - Poihipi road",
-        "network": "Temporary sites",
-        "opened": "2009-09-21T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD03",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.056435,
-          -38.549675
-        ]
-      },
-      "properties": {
-        "closed": "2010-04-08T00:00:00Z",
-        "code": "HD03",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Hotter and Deeper 03",
-        "network": "Temporary sites",
-        "opened": "2009-09-22T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD04",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.220445,
-          -38.492969
-        ]
-      },
-      "properties": {
-        "code": "HD04",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Hall - Te Kopia road",
-        "network": "Temporary sites",
-        "opened": "2009-09-22T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD05",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.262728,
-          -38.466308
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD05",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Chadwick - Mangamingi road",
-        "network": "Temporary sites",
-        "opened": "2009-09-22T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD06",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.061888,
-          -38.393243
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD06",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Ohakuri road",
-        "network": "Temporary sites",
-        "opened": "2009-09-22T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD07",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.162644,
-          -38.321418
-        ]
-      },
-      "properties": {
-        "closed": "2010-04-10T00:00:00Z",
-        "code": "HD07",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Lyons - Poutakataka road",
-        "network": "Temporary sites",
-        "opened": "2009-09-23T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD08",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.3063,
-          -38.63
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD08",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Tiverton Downs",
-        "network": "Temporary sites",
-        "opened": "2009-09-23T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD09",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.1798,
-          -38.6674667
-        ]
-      },
-      "properties": {
-        "closed": "2010-11-11T00:00:00Z",
-        "code": "HD09",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Aratiatia Station",
-        "network": "Temporary sites",
-        "opened": "2010-01-14T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD10",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.366903,
-          -38.548245
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD10",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Allen rd",
-        "network": "Temporary sites",
-        "opened": "2010-01-12T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
       "id": "HD11",
       "type": "Feature",
       "geometry": {
@@ -22108,601 +22073,13 @@
         ]
       },
       "properties": {
-        "closed": "2011-11-01T00:00:00Z",
+        "closed": "2019-03-14T00:00:00Z",
         "code": "HD11",
         "marker-color": "#ff3333",
         "marker-size": "medium",
-        "name": "White road",
+        "name": "HADES 11",
         "network": "Temporary sites",
         "opened": "2010-04-07T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD12",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.15703,
-          -38.37114
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-08T00:00:00Z",
-        "code": "HD12",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Poutakataka road",
-        "network": "Temporary sites",
-        "opened": "2010-04-12T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD13",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.34581,
-          -38.45456
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-07T00:00:00Z",
-        "code": "HD13",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Pukekahu",
-        "network": "Temporary sites",
-        "opened": "2010-04-13T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD14",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.17139,
-          -38.45939
-        ]
-      },
-      "properties": {
-        "closed": "2010-11-09T00:00:00Z",
-        "code": "HD14",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Mangamini",
-        "network": "Temporary sites",
-        "opened": "2010-04-13T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD15",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.00426,
-          -38.48719
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD15",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Marua Farm",
-        "network": "Temporary sites",
-        "opened": "2010-04-14T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD16",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.94441,
-          -38.44077
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-28T00:00:00Z",
-        "code": "HD16",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Paerata rd",
-        "network": "Temporary sites",
-        "opened": "2010-04-15T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD17",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.05562,
-          -38.54826
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-26T00:00:00Z",
-        "code": "HD17",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Harakeke 2",
-        "network": "Temporary sites",
-        "opened": "2010-04-15T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD18",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.457267,
-          -38.52832
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD18",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Plateau rd",
-        "network": "Temporary sites",
-        "opened": "2010-11-01T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD19",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.369573,
-          -38.376203
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-26T00:00:00Z",
-        "code": "HD19",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Hotter and Deeper HD19",
-        "network": "Temporary sites",
-        "opened": "2010-11-02T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD20",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.146675,
-          -38.584179
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-28T00:00:00Z",
-        "code": "HD20",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Hotter Deeper HD20",
-        "network": "Temporary sites",
-        "opened": "2010-11-02T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD21",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.087686,
-          -38.505229
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-28T00:00:00Z",
-        "code": "HD21",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Tutukau Trust",
-        "network": "Temporary sites",
-        "opened": "2010-11-03T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD22",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.190704,
-          -38.566595
-        ]
-      },
-      "properties": {
-        "closed": "2011-01-28T00:00:00Z",
-        "code": "HD22",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Achilles Station",
-        "network": "Temporary sites",
-        "opened": "2010-11-04T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD23",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.953273,
-          -38.625327
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD23",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Hotter and Deeper HD23",
-        "network": "Temporary sites",
-        "opened": "2010-11-05T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD24",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.089477,
-          -38.56709
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-26T00:00:00Z",
-        "code": "HD24",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Carnoustie",
-        "network": "Temporary sites",
-        "opened": "2010-11-05T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD25",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.294487,
-          -38.585468
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-28T00:00:00Z",
-        "code": "HD25",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Hotter and Deeper HD25",
-        "network": "Temporary sites",
-        "opened": "2010-11-07T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD26",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.954702,
-          -38.569567
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD26",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Kiwitahi",
-        "network": "Temporary sites",
-        "opened": "2010-11-08T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD27",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.237367,
-          -38.432413
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-26T00:00:00Z",
-        "code": "HD27",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Pukemoremore",
-        "network": "Temporary sites",
-        "opened": "2010-11-08T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD28",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.158004,
-          -38.442371
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD28",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Hotter and Deeper HD28",
-        "network": "Temporary sites",
-        "opened": "2010-11-09T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD29",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.199099,
-          -38.401231
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD29",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Hotter and Deeper 29",
-        "network": "Temporary sites",
-        "opened": "2010-11-09T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD30",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.937738,
-          -38.529114
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-28T00:00:00Z",
-        "code": "HD30",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Tuaropaki Trust",
-        "network": "Temporary sites",
-        "opened": "2010-11-10T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD31",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.305269,
-          -38.301904
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-28T00:00:00Z",
-        "code": "HD31",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Earthquake Flat rd",
-        "network": "Temporary sites",
-        "opened": "2010-11-12T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD32",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.14339,
-          -38.70349
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-28T00:00:00Z",
-        "code": "HD32",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Mountain rd",
-        "network": "Temporary sites",
-        "opened": "2010-12-16T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD33",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.26344,
-          -38.50313
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-26T00:00:00Z",
-        "code": "HD33",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "HD33",
-        "network": "Temporary sites",
-        "opened": "2011-01-31T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD34",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.04974,
-          -38.476438
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD34",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Hotter and Deeper 34",
-        "network": "Temporary sites",
-        "opened": "2011-02-01T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD35",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.000753,
-          -38.533092
-        ]
-      },
-      "properties": {
-        "closed": "2011-03-29T00:00:00Z",
-        "code": "HD35",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Forest rd",
-        "network": "Temporary sites",
-        "opened": "2011-02-01T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD36",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.167673,
-          -38.491191
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD36",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Te Kopia rd",
-        "network": "Temporary sites",
-        "opened": "2011-02-02T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD37",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.1366,
-          -38.41773
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD37",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Waikite Valley",
-        "network": "Temporary sites",
-        "opened": "2011-02-03T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD38",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.204081,
-          -38.519034
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-27T00:00:00Z",
-        "code": "HD38",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Te Kopia rd",
-        "network": "Temporary sites",
-        "opened": "2011-02-03T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "HD39",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.322103,
-          -38.486774
-        ]
-      },
-      "properties": {
-        "closed": "2011-04-24T00:00:00Z",
-        "code": "HD39",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Anzio rd",
-        "network": "Temporary sites",
-        "opened": "2011-02-03T00:00:00Z",
         "type": "Station"
       }
     },
@@ -22723,7 +22100,7 @@
         "marker-size": "medium",
         "name": "HADES 50",
         "network": "Temporary sites",
-        "opened": "2015-11-17T00:00:00Z",
+        "opened": "2015-11-17T22:46:00Z",
         "type": "Station"
       }
     },
@@ -22738,12 +22115,13 @@
         ]
       },
       "properties": {
+        "closed": "2019-05-09T04:17:36Z",
         "code": "HD51",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 51",
         "network": "Temporary sites",
-        "opened": "2015-11-18T00:00:00Z",
+        "opened": "2015-11-18T20:57:00Z",
         "type": "Station"
       }
     },
@@ -22758,13 +22136,13 @@
         ]
       },
       "properties": {
-        "closed": "2016-11-29T23:09:24Z",
+        "closed": "2016-11-29T23:09:23Z",
         "code": "HD53",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 53",
         "network": "Temporary sites",
-        "opened": "2015-12-08T00:00:00Z",
+        "opened": "2015-12-08T21:39:00Z",
         "type": "Station"
       }
     },
@@ -22779,12 +22157,13 @@
         ]
       },
       "properties": {
+        "closed": "2017-12-06T22:35:52Z",
         "code": "HD54",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 54",
         "network": "Temporary sites",
-        "opened": "2015-12-08T00:00:00Z",
+        "opened": "2015-12-08T23:34:00Z",
         "type": "Station"
       }
     },
@@ -22799,12 +22178,13 @@
         ]
       },
       "properties": {
+        "closed": "2019-06-27T03:57:40Z",
         "code": "HD55",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 55",
         "network": "Temporary sites",
-        "opened": "2015-12-09T00:00:00Z",
+        "opened": "2015-12-09T01:09:00Z",
         "type": "Station"
       }
     },
@@ -22825,7 +22205,7 @@
         "marker-size": "medium",
         "name": "HADES 56",
         "network": "Temporary sites",
-        "opened": "2015-12-09T00:00:00Z",
+        "opened": "2015-12-09T21:37:00Z",
         "type": "Station"
       }
     },
@@ -22846,7 +22226,7 @@
         "marker-size": "medium",
         "name": "HADES 57",
         "network": "Temporary sites",
-        "opened": "2015-12-10T00:00:00Z",
+        "opened": "2015-12-10T00:12:00Z",
         "type": "Station"
       }
     },
@@ -22861,12 +22241,13 @@
         ]
       },
       "properties": {
+        "closed": "2019-08-11T22:21:16Z",
         "code": "HD58",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 58",
         "network": "Temporary sites",
-        "opened": "2015-12-10T00:00:00Z",
+        "opened": "2015-12-10T02:43:00Z",
         "type": "Station"
       }
     },
@@ -22881,12 +22262,13 @@
         ]
       },
       "properties": {
+        "closed": "2017-12-06T21:33:00Z",
         "code": "HD59",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 59",
         "network": "Temporary sites",
-        "opened": "2015-12-10T00:00:00Z",
+        "opened": "2015-12-10T22:06:00Z",
         "type": "Station"
       }
     },
@@ -22901,12 +22283,13 @@
         ]
       },
       "properties": {
+        "closed": "2019-05-07T01:32:36Z",
         "code": "HD60",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 60",
         "network": "Temporary sites",
-        "opened": "2016-03-07T00:00:00Z",
+        "opened": "2016-03-09T07:00:02Z",
         "type": "Station"
       }
     },
@@ -22916,17 +22299,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          176.16138487,
-          -38.21499882
+          176.161385,
+          -38.214999
         ]
       },
       "properties": {
+        "closed": "2019-06-27T02:22:10Z",
         "code": "HD61",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 61",
         "network": "Temporary sites",
-        "opened": "2016-07-18T00:00:00Z",
+        "opened": "2016-07-18T03:06:02Z",
         "type": "Station"
       }
     },
@@ -22941,12 +22325,13 @@
         ]
       },
       "properties": {
+        "closed": "2019-08-12T01:59:38Z",
         "code": "HD62",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 62",
         "network": "Temporary sites",
-        "opened": "2016-07-14T00:00:00Z",
+        "opened": "2016-07-14T00:30:02Z",
         "type": "Station"
       }
     },
@@ -22961,12 +22346,13 @@
         ]
       },
       "properties": {
+        "closed": "2018-08-22T01:10:12Z",
         "code": "HD63",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 63",
         "network": "Temporary sites",
-        "opened": "2017-03-08T00:00:00Z",
+        "opened": "2017-03-08T22:11:16Z",
         "type": "Station"
       }
     },
@@ -22981,12 +22367,13 @@
         ]
       },
       "properties": {
+        "closed": "2019-06-27T01:02:00Z",
         "code": "HD64",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 64",
         "network": "Temporary sites",
-        "opened": "2017-03-09T00:00:00Z",
+        "opened": "2017-03-09T01:34:04Z",
         "type": "Station"
       }
     },
@@ -23001,12 +22388,118 @@
         ]
       },
       "properties": {
+        "closed": "2019-06-27T00:40:40Z",
         "code": "HD65",
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "HADES 65",
         "network": "Temporary sites",
-        "opened": "2017-03-15T00:00:00Z",
+        "opened": "2017-03-15T01:09:37Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "HD71",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.273217,
+          -37.961263
+        ]
+      },
+      "properties": {
+        "closed": "2019-06-25T01:51:20Z",
+        "code": "HD71",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "HADES 71",
+        "network": "Temporary sites",
+        "opened": "2017-12-14T00:39:45Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "HD73",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.752353,
+          -38.478294
+        ]
+      },
+      "properties": {
+        "closed": "2018-08-21T00:00:00Z",
+        "code": "HD73",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "HADES 73",
+        "network": "Temporary sites",
+        "opened": "2018-02-19T22:35:55Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "HD80",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.504745,
+          -37.958011
+        ]
+      },
+      "properties": {
+        "closed": "2019-08-12T00:13:52Z",
+        "code": "HD80",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "HADES 80",
+        "network": "Temporary sites",
+        "opened": "2018-11-08T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "HD81",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.85519,
+          -38.02795
+        ]
+      },
+      "properties": {
+        "closed": "2019-10-04T03:27:00Z",
+        "code": "HD81",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "HADES 81",
+        "network": "Temporary sites",
+        "opened": "2019-03-19T01:26:35Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "HD83",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.7218,
+          -38.4347
+        ]
+      },
+      "properties": {
+        "closed": "2019-10-03T22:45:05Z",
+        "code": "HD83",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "HADES 83",
+        "network": "Temporary sites",
+        "opened": "2019-04-02T00:22:50Z",
         "type": "Station"
       }
     },
@@ -23854,6 +23347,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-16T23:00:00Z",
         "code": "IF01",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -23874,6 +23368,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-11T23:00:00Z",
         "code": "IF02",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -23894,6 +23389,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-11T23:00:00Z",
         "code": "IF03",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -23914,6 +23410,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-12T01:30:00Z",
         "code": "IF04",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -23934,6 +23431,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-11T04:00:00Z",
         "code": "IF05",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -23954,6 +23452,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-12T00:00:00Z",
         "code": "IF06",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -23974,6 +23473,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-11T22:00:00Z",
         "code": "IF07",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -23994,6 +23494,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-11T23:00:00Z",
         "code": "IF08",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -24014,6 +23515,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-11T22:00:00Z",
         "code": "IF09",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -24034,6 +23536,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-11T23:00:00Z",
         "code": "IF10",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -24054,6 +23557,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-13T01:00:00Z",
         "code": "IF11",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -24074,6 +23578,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-11T23:30:00Z",
         "code": "IF12",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -24094,6 +23599,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-11T22:00:00Z",
         "code": "IF13",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -24114,6 +23620,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-02-13T01:30:00Z",
         "code": "IF14",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -27023,7 +26530,7 @@
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "Lyttelton Port",
-        "network": "New Zealand National Seismograph Network",
+        "network": "Canterbury regional strong motion network",
         "opened": "2018-08-24T03:40:00Z",
         "type": "Station"
       }
@@ -28141,6 +27648,7 @@
         ]
       },
       "properties": {
+        "closed": "2021-04-22T21:50:00Z",
         "code": "MAYC",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29010,6 +28518,26 @@
       }
     },
     {
+      "id": "MMKS",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          182.092096,
+          -29.267289
+        ]
+      },
+      "properties": {
+        "code": "MMKS",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Raoul Mount Moumoukai",
+        "network": "Kermadec Islands volcano seismic network",
+        "opened": "2021-10-24T03:28:00Z",
+        "type": "Station"
+      }
+    },
+    {
       "id": "MMP",
       "type": "Feature",
       "geometry": {
@@ -29431,6 +28959,7 @@
         ]
       },
       "properties": {
+        "closed": "2009-01-18T00:00:01Z",
         "code": "MOTT",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29737,6 +29266,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS01",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29757,6 +29287,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS03",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29777,6 +29308,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS07",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29797,6 +29329,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS08",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29817,6 +29350,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS10",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29837,6 +29371,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS11",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29857,6 +29392,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS12",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29877,6 +29413,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS15",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29897,6 +29434,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS19",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29917,6 +29455,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS23",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29937,6 +29476,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS25",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29957,6 +29497,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS26",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29977,6 +29518,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS27",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -29997,6 +29539,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS28",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -30017,6 +29560,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "MS30",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -30058,6 +29602,7 @@
         ]
       },
       "properties": {
+        "closed": "2011-10-19T02:22:44Z",
         "code": "MSHC",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -30366,6 +29911,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-08-16T00:00:00Z",
         "code": "MTSX",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -31615,371 +31161,6 @@
       }
     },
     {
-      "id": "NS01",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.177,
-          -38.5082
-        ]
-      },
-      "properties": {
-        "code": "NS01",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki 1",
-        "network": "Private seismograph sites",
-        "opened": "2012-08-29T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS02",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.162275,
-          -38.554318
-        ]
-      },
-      "properties": {
-        "closed": "2015-04-22T00:00:00Z",
-        "code": "NS02",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki Seismic 2",
-        "network": "Private seismograph sites",
-        "opened": "2012-05-16T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS03",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.209102,
-          -38.523259
-        ]
-      },
-      "properties": {
-        "code": "NS03",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki Seismic 3",
-        "network": "Private seismograph sites",
-        "opened": "2012-05-16T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS04",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.225718,
-          -38.542487
-        ]
-      },
-      "properties": {
-        "code": "NS04",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki Seismic 4",
-        "network": "Private seismograph sites",
-        "opened": "2012-05-15T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS05",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.1772,
-          -38.5512
-        ]
-      },
-      "properties": {
-        "closed": "2014-08-21T00:00:00Z",
-        "code": "NS05",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki 5",
-        "network": "Private seismograph sites",
-        "opened": "2012-08-30T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS06",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.194571,
-          -38.565449
-        ]
-      },
-      "properties": {
-        "code": "NS06",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki Seismic 6",
-        "network": "Private seismograph sites",
-        "opened": "2012-05-15T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS07",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.227019,
-          -38.560793
-        ]
-      },
-      "properties": {
-        "code": "NS07",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki Seismic 7",
-        "network": "Private seismograph sites",
-        "opened": "2012-05-15T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS08",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.185438,
-          -38.530393
-        ]
-      },
-      "properties": {
-        "closed": "2015-04-23T00:00:00Z",
-        "code": "NS08",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki Seismic 8",
-        "network": "Private seismograph sites",
-        "opened": "2012-05-16T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS09",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.162759,
-          -38.575539
-        ]
-      },
-      "properties": {
-        "closed": "2015-04-23T00:00:00Z",
-        "code": "NS09",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki Seismic 9",
-        "network": "Private seismograph sites",
-        "opened": "2012-05-15T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS10",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.201928,
-          -38.584723
-        ]
-      },
-      "properties": {
-        "closed": "2014-07-01T00:00:00Z",
-        "code": "NS10",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki 10",
-        "network": "Private seismograph sites",
-        "opened": "2012-08-30T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS11",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.1903,
-          -38.5659
-        ]
-      },
-      "properties": {
-        "code": "NS11",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki 11",
-        "network": "Private seismograph sites",
-        "opened": "2012-08-30T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS12",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.190524,
-          -38.545408
-        ]
-      },
-      "properties": {
-        "code": "NS12",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki Seismic 12",
-        "network": "Private seismograph sites",
-        "opened": "2013-02-01T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS13",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.185137,
-          -38.553235
-        ]
-      },
-      "properties": {
-        "code": "NS13",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki Seismic 13",
-        "network": "Private seismograph sites",
-        "opened": "2013-02-12T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS14",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.197332,
-          -38.565986
-        ]
-      },
-      "properties": {
-        "code": "NS14",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki Seismic 14",
-        "network": "Private seismograph sites",
-        "opened": "2013-02-28T01:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS15",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.2154,
-          -38.5764
-        ]
-      },
-      "properties": {
-        "code": "NS15",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki Seismic 15",
-        "network": "Private seismograph sites",
-        "opened": "2015-05-01T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS16",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.162,
-          -38.5751
-        ]
-      },
-      "properties": {
-        "code": "NS16",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki 16",
-        "network": "Private seismograph sites",
-        "opened": "2015-04-23T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS17",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.162036,
-          -38.5559
-        ]
-      },
-      "properties": {
-        "code": "NS17",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki 17",
-        "network": "Private seismograph sites",
-        "opened": "2015-04-22T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "NS18",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.1852,
-          -38.5307
-        ]
-      },
-      "properties": {
-        "code": "NS18",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Ngatamariki 18",
-        "network": "Private seismograph sites",
-        "opened": "2015-04-23T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
       "id": "NSBS",
       "type": "Feature",
       "geometry": {
@@ -32127,7 +31308,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          176.914,
+          176.911,
           -42.371
         ]
       },
@@ -32137,7 +31318,7 @@
         "marker-size": "medium",
         "name": "Offshore Wellington Hikurangi",
         "network": "National tsunami deep ocean network",
-        "opened": "2019-12-22T00:00:00Z",
+        "opened": "2019-12-21T17:00:00Z",
         "type": "Station"
       }
     },
@@ -32168,8 +31349,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          179.096,
-          -40.599
+          179.0962,
+          -40.5992
         ]
       },
       "properties": {
@@ -32198,7 +31379,7 @@
         "marker-size": "medium",
         "name": "Offshore Gisborne Hikurangi",
         "network": "National tsunami deep ocean network",
-        "opened": "2019-12-13T00:00:00Z",
+        "opened": "2019-12-12T18:00:00Z",
         "type": "Station"
       }
     },
@@ -32228,7 +31409,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          182.297,
+          182.292,
           -36.049
         ]
       },
@@ -32238,7 +31419,7 @@
         "marker-size": "medium",
         "name": "Offshore East Cape Kermadec",
         "network": "National tsunami deep ocean network",
-        "opened": "2019-12-19T00:00:00Z",
+        "opened": "2019-12-18T17:00:00Z",
         "type": "Station"
       }
     },
@@ -32248,8 +31429,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          184.991,
-          -29.682
+          184.9875,
+          -29.6826
         ]
       },
       "properties": {
@@ -32268,8 +31449,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          186.591,
-          -23.344
+          186.5982,
+          -23.3517
         ]
       },
       "properties": {
@@ -32288,8 +31469,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          188.146,
-          -20.087
+          188.137,
+          -20.0885
         ]
       },
       "properties": {
@@ -32308,8 +31489,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          188.802,
-          -16.89
+          188.8095,
+          -16.889
         ]
       },
       "properties": {
@@ -36687,467 +35868,6 @@
       }
     },
     {
-      "id": "RT01",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.17208,
-          -38.62264
-        ]
-      },
-      "properties": {
-        "code": "RT01",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 01",
-        "network": "Private seismograph sites",
-        "opened": "2008-07-02T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT02",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.17658,
-          -38.60173
-        ]
-      },
-      "properties": {
-        "code": "RT02",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 02",
-        "network": "Private seismograph sites",
-        "opened": "2008-07-02T21:27:01Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT03",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.21815,
-          -38.60488
-        ]
-      },
-      "properties": {
-        "code": "RT03",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 03",
-        "network": "Private seismograph sites",
-        "opened": "2008-07-03T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT05",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.19599,
-          -38.63178
-        ]
-      },
-      "properties": {
-        "code": "RT05",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 05",
-        "network": "Private seismograph sites",
-        "opened": "2008-07-02T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT06",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.18922,
-          -38.61694
-        ]
-      },
-      "properties": {
-        "code": "RT06",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 06",
-        "network": "Private seismograph sites",
-        "opened": "2008-07-03T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT07",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.20653,
-          -38.60443
-        ]
-      },
-      "properties": {
-        "code": "RT07",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 07",
-        "network": "Private seismograph sites",
-        "opened": "2008-07-02T22:54:02Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT08",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.20201,
-          -38.61436
-        ]
-      },
-      "properties": {
-        "code": "RT08",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 08",
-        "network": "Private seismograph sites",
-        "opened": "2008-07-03T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT09",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.17524,
-          -38.61243
-        ]
-      },
-      "properties": {
-        "code": "RT09",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 09",
-        "network": "Private seismograph sites",
-        "opened": "2008-10-30T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT10",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.22112,
-          -38.61567
-        ]
-      },
-      "properties": {
-        "code": "RT10",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 10",
-        "network": "Private seismograph sites",
-        "opened": "2008-10-30T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT11",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.194057,
-          -38.599442
-        ]
-      },
-      "properties": {
-        "code": "RT11",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 11",
-        "network": "Private seismograph sites",
-        "opened": "2008-07-07T22:05:02Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT12",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.223066,
-          -38.614089
-        ]
-      },
-      "properties": {
-        "code": "RT12",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 12",
-        "network": "Private seismograph sites",
-        "opened": "2011-05-29T00:00:10Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT13",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.1788,
-          -38.591
-        ]
-      },
-      "properties": {
-        "code": "RT13",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 13",
-        "network": "Private seismograph sites",
-        "opened": "2012-10-29T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT14",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.1947,
-          -38.6168
-        ]
-      },
-      "properties": {
-        "code": "RT14",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 14",
-        "network": "Private seismograph sites",
-        "opened": "2012-10-29T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT15",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.2,
-          -38.6122
-        ]
-      },
-      "properties": {
-        "code": "RT15",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 15",
-        "network": "Private seismograph sites",
-        "opened": "2012-10-29T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT16",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.1784,
-          -38.6082
-        ]
-      },
-      "properties": {
-        "code": "RT16",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 16",
-        "network": "Private seismograph sites",
-        "opened": "2012-10-29T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT17",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.2272,
-          -38.6069
-        ]
-      },
-      "properties": {
-        "code": "RT17",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 17",
-        "network": "Private seismograph sites",
-        "opened": "2012-10-29T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT18",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.188968,
-          -38.606998
-        ]
-      },
-      "properties": {
-        "code": "RT18",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 18",
-        "network": "Private seismograph sites",
-        "opened": "2013-03-14T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT19",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.205294,
-          -38.608375
-        ]
-      },
-      "properties": {
-        "code": "RT19",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 19",
-        "network": "Private seismograph sites",
-        "opened": "2013-03-14T23:02:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT20",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.212467,
-          -38.601494
-        ]
-      },
-      "properties": {
-        "code": "RT20",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 20",
-        "network": "Private seismograph sites",
-        "opened": "2013-03-14T23:02:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT21",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.2245,
-          -38.6284
-        ]
-      },
-      "properties": {
-        "code": "RT21",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 21",
-        "network": "Private seismograph sites",
-        "opened": "2013-08-28T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT22",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.186985,
-          -38.580367
-        ]
-      },
-      "properties": {
-        "closed": "2016-05-17T00:00:00Z",
-        "code": "RT22",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 22",
-        "network": "Private seismograph sites",
-        "opened": "2015-06-24T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT23",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.160466,
-          -38.600085
-        ]
-      },
-      "properties": {
-        "code": "RT23",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 23",
-        "network": "Private seismograph sites",
-        "opened": "2015-06-25T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "RT24",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          176.18664,
-          -38.580533
-        ]
-      },
-      "properties": {
-        "code": "RT24",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Rotokawa 24",
-        "network": "Private seismograph sites",
-        "opened": "2016-05-17T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
       "id": "RTKC",
       "type": "Feature",
       "geometry": {
@@ -37524,8 +36244,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          166.758,
-          -77.849
+          166.76553,
+          -77.84892
         ]
       },
       "properties": {
@@ -37533,7 +36253,8 @@
         "marker-color": "#ff3333",
         "marker-size": "medium",
         "name": "Scott Base Geomagnetic Observatory",
-        "opened": "2009-03-01T00:00:00Z",
+        "network": "New Zealand geomagnetic observatories network",
+        "opened": "2009-03-02T00:00:00Z",
         "type": "Station"
       }
     },
@@ -38029,350 +36750,6 @@
       }
     },
     {
-      "id": "SM01",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.931111,
-          -38.50221
-        ]
-      },
-      "properties": {
-        "code": "SM01",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 01",
-        "network": "Private seismograph sites",
-        "opened": "2013-06-11T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM02",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.921907,
-          -38.492165
-        ]
-      },
-      "properties": {
-        "code": "SM02",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 02",
-        "network": "Private seismograph sites",
-        "opened": "2013-06-11T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM03",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.907848,
-          -38.503829
-        ]
-      },
-      "properties": {
-        "code": "SM03",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 03",
-        "network": "Private seismograph sites",
-        "opened": "2013-06-11T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM04",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.939305,
-          -38.509816
-        ]
-      },
-      "properties": {
-        "code": "SM04",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 04",
-        "network": "Private seismograph sites",
-        "opened": "2013-06-11T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM05",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.926862,
-          -38.514922
-        ]
-      },
-      "properties": {
-        "code": "SM05",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 05",
-        "network": "Private seismograph sites",
-        "opened": "2013-06-11T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM06",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.912952,
-          -38.52709
-        ]
-      },
-      "properties": {
-        "code": "SM06",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 06",
-        "network": "Private seismograph sites",
-        "opened": "2013-06-11T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM07",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.940699,
-          -38.518027
-        ]
-      },
-      "properties": {
-        "code": "SM07",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 07",
-        "network": "Private seismograph sites",
-        "opened": "2013-06-11T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM08",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.904394,
-          -38.514206
-        ]
-      },
-      "properties": {
-        "closed": "2014-08-26T00:00:00Z",
-        "code": "SM08",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 08",
-        "network": "Private seismograph sites",
-        "opened": "2013-06-11T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM09",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.929936,
-          -38.534537
-        ]
-      },
-      "properties": {
-        "code": "SM09",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 09",
-        "network": "Private seismograph sites",
-        "opened": "2013-06-11T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM10",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.951857,
-          -38.496749
-        ]
-      },
-      "properties": {
-        "code": "SM10",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 10",
-        "network": "Private seismograph sites",
-        "opened": "2013-06-11T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM11",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.9054,
-          -38.5026
-        ]
-      },
-      "properties": {
-        "closed": "2014-08-26T00:00:00Z",
-        "code": "SM11",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 11",
-        "network": "Private seismograph sites",
-        "opened": "2013-01-01T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM12",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.9281,
-          -38.5374
-        ]
-      },
-      "properties": {
-        "closed": "2014-02-11T00:00:00Z",
-        "code": "SM12",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 12",
-        "network": "Private seismograph sites",
-        "opened": "2013-10-03T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM13",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.9329,
-          -38.5039
-        ]
-      },
-      "properties": {
-        "code": "SM13",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 13",
-        "network": "Private seismograph sites",
-        "opened": "2013-10-03T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM14",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.9428,
-          -38.5312
-        ]
-      },
-      "properties": {
-        "closed": "2014-08-26T00:46:00Z",
-        "code": "SM14",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 14",
-        "network": "Private seismograph sites",
-        "opened": "2014-02-11T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM15",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.8915,
-          -38.5033
-        ]
-      },
-      "properties": {
-        "code": "SM15",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 15",
-        "network": "Private seismograph sites",
-        "opened": "2014-08-25T23:05:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM16",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.8897,
-          -38.516
-        ]
-      },
-      "properties": {
-        "code": "SM16",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 16",
-        "network": "Private seismograph sites",
-        "opened": "2014-08-26T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "SM17",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          175.9304,
-          -38.5431
-        ]
-      },
-      "properties": {
-        "code": "SM17",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "MRP Mokai 17",
-        "network": "Private seismograph sites",
-        "opened": "2014-08-26T00:00:00Z",
-        "type": "Station"
-      }
-    },
-    {
       "id": "SM1F",
       "type": "Feature",
       "geometry": {
@@ -38731,6 +37108,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR041",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38751,6 +37129,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR043",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38771,6 +37150,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR044",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38791,6 +37171,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR046",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38811,6 +37192,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR049",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38831,6 +37213,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR050",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38851,6 +37234,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR051",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38871,6 +37255,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR052",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38891,6 +37276,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR053",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38911,6 +37297,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR055",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38931,6 +37318,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR056",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38951,6 +37339,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR057",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38971,6 +37360,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR058",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -38991,6 +37381,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR059",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39011,6 +37402,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR060",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39031,6 +37423,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR061",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39051,6 +37444,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR062",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39071,6 +37465,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR063",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39091,6 +37486,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR064",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39111,6 +37507,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR065",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39131,6 +37528,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR066",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39151,6 +37549,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR067",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39171,6 +37570,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR068",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39191,6 +37591,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR069",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39211,6 +37612,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR070",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39231,6 +37633,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR074",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39251,6 +37654,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR075",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39271,6 +37675,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR077",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39291,6 +37696,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR078",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39311,6 +37717,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR083",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39331,6 +37738,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR094",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39351,6 +37759,7 @@
         ]
       },
       "properties": {
+        "closed": "2016-01-01T00:00:00Z",
         "code": "SR095",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39392,6 +37801,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "SS045",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39412,6 +37822,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "SS054",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39432,6 +37843,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "SS071",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39452,6 +37864,7 @@
         ]
       },
       "properties": {
+        "closed": "2017-01-01T00:00:00Z",
         "code": "SS073",
         "marker-color": "#009900",
         "marker-size": "medium",
@@ -39676,6 +38089,7 @@
         ]
       },
       "properties": {
+        "closed": "2022-03-31T20:00:00Z",
         "code": "SUMT",
         "marker-color": "#cc6600",
         "marker-size": "medium",
@@ -40074,6 +38488,25 @@
         "name": "Taita Central School",
         "network": "National strong motion network",
         "opened": "2011-06-14T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TOO",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.4905,
+          -37.5713
+        ]
+      },
+      "properties": {
+        "code": "TOO",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Toolangi",
+        "opened": "1962-01-01T00:00:00Z",
         "type": "Station"
       }
     },
@@ -41689,6 +40122,7 @@
         ]
       },
       "properties": {
+        "closed": "2013-06-07T00:00:00Z",
         "code": "TON1",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -41709,6 +40143,7 @@
         ]
       },
       "properties": {
+        "closed": "2012-10-12T00:00:00Z",
         "code": "TON2",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -41729,6 +40164,7 @@
         ]
       },
       "properties": {
+        "closed": "2013-06-07T00:00:00Z",
         "code": "TON3",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -41749,6 +40185,7 @@
         ]
       },
       "properties": {
+        "closed": "2013-06-07T00:00:00Z",
         "code": "TON4",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -41769,6 +40206,7 @@
         ]
       },
       "properties": {
+        "closed": "2013-06-07T00:00:00Z",
         "code": "TON7",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -41789,6 +40227,7 @@
         ]
       },
       "properties": {
+        "closed": "2014-11-06T23:59:00Z",
         "code": "TON8",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -41809,6 +40248,7 @@
         ]
       },
       "properties": {
+        "closed": "2015-01-01T00:00:00Z",
         "code": "TON9",
         "marker-color": "#ff3333",
         "marker-size": "medium",
@@ -41836,25 +40276,6 @@
         "name": "Tongariro River",
         "network": "Temporary sites",
         "opened": "1995-09-26T01:42:00Z",
-        "type": "Station"
-      }
-    },
-    {
-      "id": "TOO",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          145.4905,
-          -37.5713
-        ]
-      },
-      "properties": {
-        "code": "TOO",
-        "marker-color": "#ff3333",
-        "marker-size": "medium",
-        "name": "Toolangi",
-        "opened": "1962-01-01T00:00:00Z",
         "type": "Station"
       }
     },
@@ -42078,6 +40499,26 @@
         "name": "Tunnel Road Rail Overpass",
         "network": "Building array network",
         "opened": "2013-08-02T00:00:00Z",
+        "type": "Station"
+      }
+    },
+    {
+      "id": "TRAR1",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.935331,
+          -39.359317
+        ]
+      },
+      "properties": {
+        "code": "TRAR1",
+        "marker-color": "#ff3333",
+        "marker-size": "medium",
+        "name": "Taranaki Arawhata Road 1",
+        "network": "GeoNet environmental data using low rate data collection platform network",
+        "opened": "2022-09-07T03:50:00Z",
         "type": "Station"
       }
     },
@@ -46307,8 +44748,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          175.994779449,
-          -38.691851135
+          175.994779478,
+          -38.691850987
         ]
       },
       "properties": {
@@ -46383,8 +44824,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          176.136412112,
-          -38.61758168
+          176.136411989,
+          -38.617584507
         ]
       },
       "properties": {
@@ -46460,8 +44901,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          174.932860198,
-          -41.196440847
+          174.932860243,
+          -41.1964409
         ]
       },
       "properties": {
@@ -46575,8 +45016,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          175.136541284,
-          -41.340489746
+          175.13654136,
+          -41.340489736
         ]
       },
       "properties": {
@@ -46690,8 +45131,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          173.815394015,
-          -42.144605449
+          173.815401243,
+          -42.144610795
         ]
       },
       "properties": {
@@ -46829,8 +45270,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          174.213817058,
-          -41.74901944
+          174.21382531,
+          -41.749024717
         ]
       },
       "properties": {
@@ -47250,8 +45691,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          172.792787824,
-          -42.552839216
+          172.792795791,
+          -42.552839707
         ]
       },
       "properties": {
@@ -47573,8 +46014,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          175.240636358,
-          -40.58877883
+          175.240638256,
+          -40.588781691
         ]
       },
       "properties": {
@@ -47994,8 +46435,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          172.775203647,
-          -42.661761766
+          172.775206431,
+          -42.661761453
         ]
       },
       "properties": {
@@ -48199,6 +46640,44 @@
         "name": "Nelson Landslide 2",
         "network": "Temporary sites",
         "opened": "2011-12-20T00:00:00Z",
+        "type": "Mark"
+      }
+    },
+    {
+      "id": "NLS3",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.254811,
+          -41.277804
+        ]
+      },
+      "properties": {
+        "code": "NLS3",
+        "marker-color": "#66b2ff",
+        "name": "Nelson Landslide 3",
+        "network": "Temporary sites",
+        "opened": "2022-08-24T04:31:08Z",
+        "type": "Mark"
+      }
+    },
+    {
+      "id": "NLS4",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.25712,
+          -41.278511
+        ]
+      },
+      "properties": {
+        "code": "NLS4",
+        "marker-color": "#66b2ff",
+        "name": "Nelson Landslide 4",
+        "network": "Temporary sites",
+        "opened": "2022-08-24T01:22:38Z",
         "type": "Mark"
       }
     },
@@ -48417,8 +46896,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          174.95208121,
-          -41.02176626
+          174.95208129,
+          -41.021766288
         ]
       },
       "properties": {
@@ -48873,8 +47352,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          176.343032991,
-          -38.562045591
+          176.343032673,
+          -38.562046005
         ]
       },
       "properties": {
@@ -49712,8 +48191,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          172.960485522,
-          -41.033688116
+          172.960485532,
+          -41.033688114
         ]
       },
       "properties": {
@@ -49788,8 +48267,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          174.627646369,
-          -41.278054409
+          174.627646319,
+          -41.278054803
         ]
       },
       "properties": {
@@ -50674,8 +49153,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          173.586157714,
-          -41.595006111
+          173.586158958,
+          -41.595012369
         ]
       },
       "properties": {
@@ -50712,8 +49191,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          172.481135613,
-          -43.490771093
+          172.481135725,
+          -43.490770899
         ]
       },
       "properties": {
