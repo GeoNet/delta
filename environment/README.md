@@ -14,7 +14,7 @@ _Lists the geological and physical environment details of collection points._
 
 * `placenames.csv` - Placename Descriptions.
 
-* `technical.csv` - WMO Numbers and Bulletin Headers.
+* `gts.csv` - WMO Numbers and Bulletin Headers.
 
 * `visibility.csv` - Sky View Descriptions.
 
@@ -109,7 +109,7 @@ Quality estimates are roughly
 
 The level should be from 0 to 3, with 3 used for the smallest places.
 
-#### _TECHNICAL_ ####
+#### _GTS_ ####
 
 | Field | Description |
 | --- | --- |
