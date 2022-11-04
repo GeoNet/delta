@@ -329,6 +329,7 @@ the equivalent _Stream_ and allows for the response to be generated with the pro
 | _Model_         | Sensor model name
 | _Type_          | Sensor type
 | _Number_        | Sensor component offset
+| _Source_        | Sensor source as used for the matching streams 
 | _Subsource_     | Sensor component label
 | _Dip_           | Internal dip of the component relative to whole sensor
 | _Azimuth_       | Internal azimuth of the component relative to whole sensor
