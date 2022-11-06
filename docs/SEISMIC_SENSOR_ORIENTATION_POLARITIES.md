@@ -51,7 +51,7 @@ Polarity measurements are all data-based. Often polarities are communicated to G
 ## Combining and Communication Azimith and Polarity Information to Data Users
 
 Each seismic sensor component has an orientation and a polarity. GeoNet combines these as component orientations in StationXML as follows:
-1. The N or 1 component is described by the sensor azimuth, with the E/2 and Z component in a left-hand rule with respect to the N/1 component.
+1. The N, X or 1 component is described by the sensor azimuth, with the E/Y/2 and Z component in a left-hand rule with respect to the N/X/1 component.
 1. If a component polarity is reversed, a 180 degree phase shift is applied to its orientation.
 1. If a component polarity is unknown, no phase shift is applied to its orientation.
 1. If azimuth is unknown, no orientation information is provided, meaning polarity information is not conveyed in StationXML even if it exists in delta.git
