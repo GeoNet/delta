@@ -1338,6 +1338,138 @@ var _tides = map[string]Tide{
 		},
 	},
 
+	"NBRT": {
+		Code:      "NBRT",
+		Network:   "TG",
+		Number:    "370x",
+		TimeZone:  180,
+		Latitude:  43.34,
+		Longitude: 172.46,
+		Crex:      "-4357010 17277383 NBRT",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 11.2714,
+				Lag:       0,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 0.7754,
+				Lag:       48.24,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 2.5452,
+				Lag:       51.28,
+			},
+
+			{
+				Name:      "P1",
+				Amplitude: 1.4832,
+				Lag:       100.01,
+			},
+
+			{
+				Name:      "S1",
+				Amplitude: 1.0575,
+				Lag:       212.93,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 4.6079,
+				Lag:       94.68,
+			},
+
+			{
+				Name:      "EPS2",
+				Amplitude: 0.6091,
+				Lag:       40.74,
+			},
+
+			{
+				Name:      "2N2",
+				Amplitude: 2.6123,
+				Lag:       59.35,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 2.9501,
+				Lag:       60.91,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 19.1924,
+				Lag:       89.65,
+			},
+
+			{
+				Name:      "NU2",
+				Amplitude: 3.6012,
+				Lag:       93.93,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 83.4363,
+				Lag:       125.55,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 1.8929,
+				Lag:       160.28,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 5.4494,
+				Lag:       151.84,
+			},
+
+			{
+				Name:      "K2",
+				Amplitude: 1.826,
+				Lag:       121.83,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.5647,
+				Lag:       278.57,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.5722,
+				Lag:       72.95,
+			},
+
+			{
+				Name:      "MS4",
+				Amplitude: 0.3989,
+				Lag:       132.34,
+			},
+
+			{
+				Name:      "M6",
+				Amplitude: 0.6521,
+				Lag:       80.38,
+			},
+
+			{
+				Name:      "2MS6",
+				Amplitude: 0.6001,
+				Lag:       148.12,
+			},
+		},
+	},
+
 	"NCPT": {
 		Code:      "NCPT",
 		Network:   "TG",
@@ -1442,6 +1574,2418 @@ var _tides = map[string]Tide{
 				Name:      "SK3",
 				Amplitude: 0.3195,
 				Lag:       3.12,
+			},
+		},
+	},
+
+	"NZA": {
+		Code:      "NZA",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -42.3717,
+		Longitude: 176.9093,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 263875.87,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 56.2,
+				Lag:       156.2,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 12.12,
+				Lag:       125.6,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 5.28,
+				Lag:       190,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 3.48,
+				Lag:       245.8,
+			},
+
+			{
+				Name:      "NU2",
+				Amplitude: 2.42,
+				Lag:       130.1,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 2.09,
+				Lag:       230.7,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 1.92,
+				Lag:       100.3,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 1.71,
+				Lag:       242.3,
+			},
+
+			{
+				Name:      "2N2",
+				Amplitude: 1.51,
+				Lag:       98.8,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 1.37,
+				Lag:       168.5,
+			},
+
+			{
+				Name:      "P1",
+				Amplitude: 0.99,
+				Lag:       239,
+			},
+
+			{
+				Name:      "MM",
+				Amplitude: 0.83,
+				Lag:       147.2,
+			},
+
+			{
+				Name:      "MF",
+				Amplitude: 0.59,
+				Lag:       232.7,
+			},
+
+			{
+				Name:      "MSM",
+				Amplitude: 0.55,
+				Lag:       292.8,
+			},
+
+			{
+				Name:      "MSF",
+				Amplitude: 0.5,
+				Lag:       340.7,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.45,
+				Lag:       107.6,
+			},
+
+			{
+				Name:      "K2",
+				Amplitude: 0.41,
+				Lag:       152.1,
+			},
+
+			{
+				Name:      "MNS2",
+				Amplitude: 0.36,
+				Lag:       79.7,
+			},
+
+			{
+				Name:      "2Q1",
+				Amplitude: 0.33,
+				Lag:       172.6,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 0.31,
+				Lag:       229.4,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.29,
+				Lag:       183,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.28,
+				Lag:       1,
+			},
+
+			{
+				Name:      "SIG1",
+				Amplitude: 0.28,
+				Lag:       186,
+			},
+
+			{
+				Name:      "RO1",
+				Amplitude: 0.22,
+				Lag:       198.3,
+			},
+
+			{
+				Name:      "KJ2",
+				Amplitude: 0.21,
+				Lag:       129.5,
+			},
+
+			{
+				Name:      "BET1",
+				Amplitude: 0.2,
+				Lag:       184,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.19,
+				Lag:       211.9,
+			},
+
+			{
+				Name:      "OQ2",
+				Amplitude: 0.19,
+				Lag:       68.7,
+			},
+
+			{
+				Name:      "LDA2",
+				Amplitude: 0.19,
+				Lag:       202.5,
+			},
+
+			{
+				Name:      "SO3",
+				Amplitude: 0.17,
+				Lag:       257,
+			},
+
+			{
+				Name:      "ALP1",
+				Amplitude: 0.15,
+				Lag:       158.8,
+			},
+
+			{
+				Name:      "SO1",
+				Amplitude: 0.14,
+				Lag:       13.2,
+			},
+
+			{
+				Name:      "MS4",
+				Amplitude: 0.13,
+				Lag:       149.9,
+			},
+
+			{
+				Name:      "SK4",
+				Amplitude: 0.13,
+				Lag:       158.6,
+			},
+
+			{
+				Name:      "S4",
+				Amplitude: 0.12,
+				Lag:       191.9,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.11,
+				Lag:       75,
+			},
+
+			{
+				Name:      "MP1",
+				Amplitude: 0.11,
+				Lag:       43.3,
+			},
+
+			{
+				Name:      "2SK5",
+				Amplitude: 0.11,
+				Lag:       37.6,
+			},
+
+			{
+				Name:      "MKS2",
+				Amplitude: 0.11,
+				Lag:       337.2,
+			},
+
+			{
+				Name:      "MK4",
+				Amplitude: 0.11,
+				Lag:       141.6,
+			},
+
+			{
+				Name:      "MN4",
+				Amplitude: 0.1,
+				Lag:       155.1,
+			},
+
+			{
+				Name:      "FI1",
+				Amplitude: 0.1,
+				Lag:       205.5,
+			},
+
+			{
+				Name:      "Z0",
+				Amplitude: 263467.1,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 55.18,
+				Lag:       156.8,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 5.57,
+				Lag:       187.2,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 3.84,
+				Lag:       278,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 2.01,
+				Lag:       277.4,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.67,
+				Lag:       359.5,
+			},
+
+			{
+				Name:      "M6",
+				Amplitude: 0.34,
+				Lag:       196.9,
+			},
+
+			{
+				Name:      "2MS6",
+				Amplitude: 0.28,
+				Lag:       77.5,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.17,
+				Lag:       173.8,
+			},
+
+			{
+				Name:      "2SK5",
+				Amplitude: 0.11,
+				Lag:       215.7,
+			},
+		},
+	},
+
+	"NZB": {
+		Code:      "NZB",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -40.5992,
+		Longitude: 179.0962,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 318419.57,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 56.41,
+				Lag:       171,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 11.9,
+				Lag:       140.3,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 4.37,
+				Lag:       256.1,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 2.46,
+				Lag:       175,
+			},
+
+			{
+				Name:      "NU2",
+				Amplitude: 2.41,
+				Lag:       141.8,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 1.91,
+				Lag:       252.7,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 1.83,
+				Lag:       306.5,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 1.83,
+				Lag:       114.8,
+			},
+
+			{
+				Name:      "2N2",
+				Amplitude: 1.44,
+				Lag:       113.1,
+			},
+
+			{
+				Name:      "MM",
+				Amplitude: 1,
+				Lag:       133,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 0.73,
+				Lag:       161.1,
+			},
+
+			{
+				Name:      "MSM",
+				Amplitude: 0.7,
+				Lag:       309.4,
+			},
+
+			{
+				Name:      "K2",
+				Amplitude: 0.61,
+				Lag:       252.5,
+			},
+
+			{
+				Name:      "MSF",
+				Amplitude: 0.56,
+				Lag:       322.5,
+			},
+
+			{
+				Name:      "P1",
+				Amplitude: 0.51,
+				Lag:       297.6,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.43,
+				Lag:       107.9,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.36,
+				Lag:       1.7,
+			},
+
+			{
+				Name:      "MNS2",
+				Amplitude: 0.32,
+				Lag:       87.2,
+			},
+
+			{
+				Name:      "LDA2",
+				Amplitude: 0.27,
+				Lag:       204.1,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.27,
+				Lag:       191.1,
+			},
+
+			{
+				Name:      "2Q1",
+				Amplitude: 0.24,
+				Lag:       167.8,
+			},
+
+			{
+				Name:      "KJ2",
+				Amplitude: 0.2,
+				Lag:       126.2,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.19,
+				Lag:       72.3,
+			},
+
+			{
+				Name:      "RO1",
+				Amplitude: 0.18,
+				Lag:       195.6,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.18,
+				Lag:       221.4,
+			},
+
+			{
+				Name:      "SIG1",
+				Amplitude: 0.15,
+				Lag:       193.4,
+			},
+
+			{
+				Name:      "OQ2",
+				Amplitude: 0.15,
+				Lag:       92.2,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.15,
+				Lag:       35.1,
+			},
+
+			{
+				Name:      "MKS2",
+				Amplitude: 0.13,
+				Lag:       33.8,
+			},
+
+			{
+				Name:      "SO3",
+				Amplitude: 0.13,
+				Lag:       263.3,
+			},
+
+			{
+				Name:      "S4",
+				Amplitude: 0.13,
+				Lag:       159.8,
+			},
+
+			{
+				Name:      "ALP1",
+				Amplitude: 0.11,
+				Lag:       139.3,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 0.11,
+				Lag:       238.9,
+			},
+
+			{
+				Name:      "2SK5",
+				Amplitude: 0.11,
+				Lag:       67.5,
+			},
+
+			{
+				Name:      "FI1",
+				Amplitude: 0.1,
+				Lag:       272.6,
+			},
+		},
+	},
+
+	"NZC": {
+		Code:      "NZC",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -38.2004,
+		Longitude: -179.7978,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 354497.44,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 58.22,
+				Lag:       185.9,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 12.04,
+				Lag:       156.4,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 6.84,
+				Lag:       265.2,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 3.25,
+				Lag:       350.2,
+			},
+
+			{
+				Name:      "NU2",
+				Amplitude: 2.41,
+				Lag:       159.2,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 1.99,
+				Lag:       262.8,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 1.76,
+				Lag:       131.4,
+			},
+
+			{
+				Name:      "2N2",
+				Amplitude: 1.4,
+				Lag:       130.1,
+			},
+
+			{
+				Name:      "K2",
+				Amplitude: 1.39,
+				Lag:       271.3,
+			},
+
+			{
+				Name:      "P1",
+				Amplitude: 0.96,
+				Lag:       343.4,
+			},
+
+			{
+				Name:      "MSM",
+				Amplitude: 0.85,
+				Lag:       299.7,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 0.49,
+				Lag:       214,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.42,
+				Lag:       7,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.41,
+				Lag:       115.9,
+			},
+
+			{
+				Name:      "MNS2",
+				Amplitude: 0.38,
+				Lag:       103.6,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 0.33,
+				Lag:       177.4,
+			},
+
+			{
+				Name:      "LDA2",
+				Amplitude: 0.3,
+				Lag:       233.7,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.27,
+				Lag:       15.2,
+			},
+
+			{
+				Name:      "2Q1",
+				Amplitude: 0.2,
+				Lag:       204.3,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.2,
+				Lag:       225,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.2,
+				Lag:       202.6,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.19,
+				Lag:       70.5,
+			},
+
+			{
+				Name:      "RO1",
+				Amplitude: 0.17,
+				Lag:       211.6,
+			},
+
+			{
+				Name:      "OQ2",
+				Amplitude: 0.17,
+				Lag:       88.4,
+			},
+
+			{
+				Name:      "SO1",
+				Amplitude: 0.16,
+				Lag:       38.3,
+			},
+
+			{
+				Name:      "KJ2",
+				Amplitude: 0.15,
+				Lag:       130.8,
+			},
+
+			{
+				Name:      "SIG1",
+				Amplitude: 0.15,
+				Lag:       218.9,
+			},
+
+			{
+				Name:      "ALP1",
+				Amplitude: 0.13,
+				Lag:       118.3,
+			},
+
+			{
+				Name:      "MKS2",
+				Amplitude: 0.11,
+				Lag:       13.1,
+			},
+
+			{
+				Name:      "SK4",
+				Amplitude: 0.1,
+				Lag:       109.4,
+			},
+
+			{
+				Name:      "Z0",
+				Amplitude: 354734.7,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 57.47,
+				Lag:       185.8,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 11.87,
+				Lag:       141.7,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 7.51,
+				Lag:       284.2,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 4.07,
+				Lag:       4.9,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 2.61,
+				Lag:       249.5,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 2.13,
+				Lag:       169.4,
+			},
+
+			{
+				Name:      "MSF",
+				Amplitude: 1.76,
+				Lag:       303.7,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 1.35,
+				Lag:       243.9,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 0.47,
+				Lag:       178.3,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.39,
+				Lag:       194.3,
+			},
+
+			{
+				Name:      "MNS2",
+				Amplitude: 0.39,
+				Lag:       2.1,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.36,
+				Lag:       124.6,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 0.36,
+				Lag:       32.6,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.35,
+				Lag:       157.4,
+			},
+
+			{
+				Name:      "2Q1",
+				Amplitude: 0.32,
+				Lag:       52.4,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.25,
+				Lag:       103.1,
+			},
+
+			{
+				Name:      "KJ2",
+				Amplitude: 0.23,
+				Lag:       238,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.17,
+				Lag:       181.3,
+			},
+
+			{
+				Name:      "S4",
+				Amplitude: 0.17,
+				Lag:       174.8,
+			},
+
+			{
+				Name:      "MK3",
+				Amplitude: 0.15,
+				Lag:       129.2,
+			},
+
+			{
+				Name:      "ALP1",
+				Amplitude: 0.14,
+				Lag:       327,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 0.14,
+				Lag:       319.9,
+			},
+		},
+	},
+
+	"NZD": {
+		Code:      "NZD",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -36.0998,
+		Longitude: 178.6037,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 244556.99,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 63.68,
+				Lag:       201.3,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 11.69,
+				Lag:       265.8,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 11.55,
+				Lag:       179.3,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 4.07,
+				Lag:       5.2,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 1.95,
+				Lag:       269,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 1.22,
+				Lag:       123.9,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 0.99,
+				Lag:       322.5,
+			},
+
+			{
+				Name:      "MSF",
+				Amplitude: 0.78,
+				Lag:       153.3,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.75,
+				Lag:       332.2,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.45,
+				Lag:       58.4,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 0.41,
+				Lag:       28.3,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.36,
+				Lag:       48.4,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.3,
+				Lag:       145.2,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.3,
+				Lag:       262.3,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.26,
+				Lag:       55.9,
+			},
+
+			{
+				Name:      "MS4",
+				Amplitude: 0.23,
+				Lag:       186.5,
+			},
+
+			{
+				Name:      "MNS2",
+				Amplitude: 0.19,
+				Lag:       80.2,
+			},
+
+			{
+				Name:      "2Q1",
+				Amplitude: 0.17,
+				Lag:       197,
+			},
+
+			{
+				Name:      "UPS1",
+				Amplitude: 0.17,
+				Lag:       254.6,
+			},
+
+			{
+				Name:      "KJ2",
+				Amplitude: 0.17,
+				Lag:       62.2,
+			},
+
+			{
+				Name:      "2MS6",
+				Amplitude: 0.15,
+				Lag:       72.6,
+			},
+
+			{
+				Name:      "2SK5",
+				Amplitude: 0.1,
+				Lag:       174.9,
+			},
+		},
+	},
+
+	"NZE": {
+		Code:      "NZE",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -36.0499,
+		Longitude: -177.6974,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 577844.48,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 55.01,
+				Lag:       196.1,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 11.15,
+				Lag:       165.6,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 8.4,
+				Lag:       273.6,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 3.91,
+				Lag:       19,
+			},
+
+			{
+				Name:      "NU2",
+				Amplitude: 2.21,
+				Lag:       168.3,
+			},
+
+			{
+				Name:      "K2",
+				Amplitude: 1.96,
+				Lag:       286.3,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 1.96,
+				Lag:       268.3,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 1.58,
+				Lag:       141.1,
+			},
+
+			{
+				Name:      "2N2",
+				Amplitude: 1.33,
+				Lag:       143.3,
+			},
+
+			{
+				Name:      "P1",
+				Amplitude: 1.18,
+				Lag:       9.9,
+			},
+
+			{
+				Name:      "MSM",
+				Amplitude: 0.95,
+				Lag:       245.5,
+			},
+
+			{
+				Name:      "MM",
+				Amplitude: 0.86,
+				Lag:       42.1,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 0.81,
+				Lag:       28.5,
+			},
+
+			{
+				Name:      "MNS2",
+				Amplitude: 0.41,
+				Lag:       114.5,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.36,
+				Lag:       16.2,
+			},
+
+			{
+				Name:      "LDA2",
+				Amplitude: 0.36,
+				Lag:       256.6,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.33,
+				Lag:       113.4,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.32,
+				Lag:       43.3,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.26,
+				Lag:       91.6,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.24,
+				Lag:       191.1,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.23,
+				Lag:       240.2,
+			},
+
+			{
+				Name:      "OQ2",
+				Amplitude: 0.2,
+				Lag:       123.1,
+			},
+
+			{
+				Name:      "ALP1",
+				Amplitude: 0.19,
+				Lag:       121.5,
+			},
+
+			{
+				Name:      "MKS2",
+				Amplitude: 0.17,
+				Lag:       55.2,
+			},
+
+			{
+				Name:      "SIG1",
+				Amplitude: 0.16,
+				Lag:       218.1,
+			},
+
+			{
+				Name:      "2Q1",
+				Amplitude: 0.15,
+				Lag:       217.7,
+			},
+
+			{
+				Name:      "MP1",
+				Amplitude: 0.14,
+				Lag:       321.5,
+			},
+
+			{
+				Name:      "SO1",
+				Amplitude: 0.13,
+				Lag:       44.9,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 0.12,
+				Lag:       54.8,
+			},
+
+			{
+				Name:      "Z0",
+				Amplitude: 577702.9,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 54.41,
+				Lag:       195.9,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 10.89,
+				Lag:       151.4,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 8.92,
+				Lag:       293.8,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 4.68,
+				Lag:       31.9,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 2.38,
+				Lag:       254.8,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 1.94,
+				Lag:       178.8,
+			},
+
+			{
+				Name:      "MSF",
+				Amplitude: 1.65,
+				Lag:       283.2,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 1,
+				Lag:       40.5,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.49,
+				Lag:       184.6,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.4,
+				Lag:       136.2,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.39,
+				Lag:       42.6,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.39,
+				Lag:       11.9,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.26,
+				Lag:       50.3,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.23,
+				Lag:       235.6,
+			},
+
+			{
+				Name:      "S4",
+				Amplitude: 0.19,
+				Lag:       159.4,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 0.18,
+				Lag:       125.1,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 0.18,
+				Lag:       118.3,
+			},
+
+			{
+				Name:      "2Q1",
+				Amplitude: 0.16,
+				Lag:       24.1,
+			},
+
+			{
+				Name:      "MK3",
+				Amplitude: 0.15,
+				Lag:       91.8,
+			},
+
+			{
+				Name:      "MS4",
+				Amplitude: 0.11,
+				Lag:       313.8,
+			},
+		},
+	},
+
+	"NZF": {
+		Code:      "NZF",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -29.6826,
+		Longitude: -175.0125,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 505906.16,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 49.52,
+				Lag:       206,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 10.42,
+				Lag:       279.8,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 9.14,
+				Lag:       180.7,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 4.25,
+				Lag:       52.2,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 2.71,
+				Lag:       35,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 1.41,
+				Lag:       275.5,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 0.97,
+				Lag:       64.7,
+			},
+
+			{
+				Name:      "MSF",
+				Amplitude: 0.84,
+				Lag:       126.6,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 0.77,
+				Lag:       320.9,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.46,
+				Lag:       92.9,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.39,
+				Lag:       35.7,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.38,
+				Lag:       46,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.28,
+				Lag:       82.3,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 0.23,
+				Lag:       116.8,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.19,
+				Lag:       40.8,
+			},
+
+			{
+				Name:      "2Q1",
+				Amplitude: 0.18,
+				Lag:       284,
+			},
+
+			{
+				Name:      "S4",
+				Amplitude: 0.18,
+				Lag:       273.3,
+			},
+
+			{
+				Name:      "MS4",
+				Amplitude: 0.17,
+				Lag:       48,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.16,
+				Lag:       51.9,
+			},
+
+			{
+				Name:      "KJ2",
+				Amplitude: 0.16,
+				Lag:       184.6,
+			},
+
+			{
+				Name:      "MNS2",
+				Amplitude: 0.11,
+				Lag:       187.1,
+			},
+		},
+	},
+
+	"NZG": {
+		Code:      "NZG",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -23.3517,
+		Longitude: -173.4018,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 574211.46,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 44.72,
+				Lag:       203.3,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 10.19,
+				Lag:       173.6,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 6.25,
+				Lag:       273.1,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 5.37,
+				Lag:       61.7,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 3.18,
+				Lag:       42,
+			},
+
+			{
+				Name:      "NU2",
+				Amplitude: 1.95,
+				Lag:       176.9,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 1.62,
+				Lag:       147.7,
+			},
+
+			{
+				Name:      "P1",
+				Amplitude: 1.6,
+				Lag:       49.3,
+			},
+
+			{
+				Name:      "K2",
+				Amplitude: 1.38,
+				Lag:       286.9,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 1.37,
+				Lag:       273.7,
+			},
+
+			{
+				Name:      "2N2",
+				Amplitude: 1.29,
+				Lag:       149.7,
+			},
+
+			{
+				Name:      "MM",
+				Amplitude: 0.99,
+				Lag:       7,
+			},
+
+			{
+				Name:      "MF",
+				Amplitude: 0.71,
+				Lag:       3,
+			},
+
+			{
+				Name:      "MSM",
+				Amplitude: 0.47,
+				Lag:       203.5,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 0.45,
+				Lag:       31.9,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.42,
+				Lag:       21.2,
+			},
+
+			{
+				Name:      "MNS2",
+				Amplitude: 0.39,
+				Lag:       128,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.28,
+				Lag:       61.9,
+			},
+
+			{
+				Name:      "LDA2",
+				Amplitude: 0.27,
+				Lag:       254,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.27,
+				Lag:       81.4,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 0.24,
+				Lag:       83.1,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.2,
+				Lag:       193.9,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.18,
+				Lag:       125.1,
+			},
+
+			{
+				Name:      "SO1",
+				Amplitude: 0.18,
+				Lag:       47.5,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.18,
+				Lag:       340.9,
+			},
+
+			{
+				Name:      "OQ2",
+				Amplitude: 0.14,
+				Lag:       145.6,
+			},
+
+			{
+				Name:      "MS4",
+				Amplitude: 0.1,
+				Lag:       30.8,
+			},
+		},
+	},
+
+	"NZH": {
+		Code:      "NZH",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -20.0885,
+		Longitude: -171.863,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 553065.18,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 41.02,
+				Lag:       197.1,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 11.47,
+				Lag:       170.2,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 4.75,
+				Lag:       243.5,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 4.35,
+				Lag:       59.2,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 2.88,
+				Lag:       47.9,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 2.75,
+				Lag:       154.7,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 0.98,
+				Lag:       271.4,
+			},
+
+			{
+				Name:      "MNS2",
+				Amplitude: 0.86,
+				Lag:       129.7,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 0.8,
+				Lag:       321.3,
+			},
+
+			{
+				Name:      "MSF",
+				Amplitude: 0.54,
+				Lag:       30.6,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.43,
+				Lag:       34.8,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.38,
+				Lag:       92.4,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 0.36,
+				Lag:       21,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.33,
+				Lag:       114.6,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.29,
+				Lag:       24.1,
+			},
+
+			{
+				Name:      "MN4",
+				Amplitude: 0.29,
+				Lag:       132.6,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.28,
+				Lag:       330.9,
+			},
+
+			{
+				Name:      "MS4",
+				Amplitude: 0.23,
+				Lag:       234.9,
+			},
+
+			{
+				Name:      "KJ2",
+				Amplitude: 0.22,
+				Lag:       32,
+			},
+		},
+	},
+
+	"NZI": {
+		Code:      "NZI",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -16.889,
+		Longitude: -171.1905,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 523754.84,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 39.12,
+				Lag:       186.8,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 9.95,
+				Lag:       164.9,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 4.61,
+				Lag:       73,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 4.47,
+				Lag:       200.4,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 3.18,
+				Lag:       47.8,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 1.61,
+				Lag:       142.8,
+			},
+
+			{
+				Name:      "P1",
+				Amplitude: 1.35,
+				Lag:       65.6,
+			},
+
+			{
+				Name:      "K2",
+				Amplitude: 1.08,
+				Lag:       192.4,
+			},
+
+			{
+				Name:      "MF",
+				Amplitude: 1.04,
+				Lag:       24.2,
+			},
+
+			{
+				Name:      "MM",
+				Amplitude: 0.84,
+				Lag:       0.7,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 0.69,
+				Lag:       256.1,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 0.6,
+				Lag:       33.1,
+			},
+
+			{
+				Name:      "MNS2",
+				Amplitude: 0.51,
+				Lag:       132.3,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.47,
+				Lag:       19.2,
+			},
+
+			{
+				Name:      "MKS2",
+				Amplitude: 0.29,
+				Lag:       71,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.24,
+				Lag:       58.2,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.2,
+				Lag:       63.1,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.19,
+				Lag:       88.9,
+			},
+
+			{
+				Name:      "MP1",
+				Amplitude: 0.16,
+				Lag:       214.7,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.16,
+				Lag:       194.8,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.16,
+				Lag:       211.9,
+			},
+
+			{
+				Name:      "2Q1",
+				Amplitude: 0.16,
+				Lag:       234.3,
+			},
+
+			{
+				Name:      "S4",
+				Amplitude: 0.15,
+				Lag:       74.6,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 0.12,
+				Lag:       121.7,
+			},
+
+			{
+				Name:      "M6",
+				Amplitude: 0.11,
+				Lag:       353.1,
+			},
+		},
+	},
+
+	"NZJ": {
+		Code:      "NZJ",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -26.6672,
+		Longitude: 163.9549,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 191176.35,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 46.82,
+				Lag:       275.7,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 19.87,
+				Lag:       304.1,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 11.17,
+				Lag:       21.7,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 6.96,
+				Lag:       272.4,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 6.83,
+				Lag:       330.9,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 1.56,
+				Lag:       337.6,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 1.23,
+				Lag:       293.5,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 1.14,
+				Lag:       55.9,
+			},
+
+			{
+				Name:      "MSF",
+				Amplitude: 0.88,
+				Lag:       357.9,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.86,
+				Lag:       68.9,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 0.79,
+				Lag:       236.5,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.65,
+				Lag:       55.2,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.36,
+				Lag:       198.6,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.16,
+				Lag:       139.3,
+			},
+
+			{
+				Name:      "S4",
+				Amplitude: 0.14,
+				Lag:       139.7,
+			},
+
+			{
+				Name:      "2MS6",
+				Amplitude: 0.14,
+				Lag:       25,
+			},
+
+			{
+				Name:      "UPS1",
+				Amplitude: 0.13,
+				Lag:       47.3,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.11,
+				Lag:       179.7,
+			},
+
+			{
+				Name:      "2SK5",
+				Amplitude: 0.11,
+				Lag:       35.3,
+			},
+
+			{
+				Name:      "MS4",
+				Amplitude: 0.11,
+				Lag:       3.8,
+			},
+		},
+	},
+
+	"NZK": {
+		Code:      "NZK",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -24.3093,
+		Longitude: 169.4988,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 209852.88,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 41.49,
+				Lag:       234,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 10.68,
+				Lag:       278.9,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 9.86,
+				Lag:       37.8,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 6.64,
+				Lag:       211.9,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 5.81,
+				Lag:       354.1,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 1.38,
+				Lag:       306.5,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 1.1,
+				Lag:       69.8,
+			},
+
+			{
+				Name:      "MSF",
+				Amplitude: 0.84,
+				Lag:       16.8,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 0.82,
+				Lag:       316.2,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.67,
+				Lag:       75.6,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.67,
+				Lag:       81.3,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 0.56,
+				Lag:       160.7,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.47,
+				Lag:       56.7,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.32,
+				Lag:       153.5,
+			},
+
+			{
+				Name:      "2Q1",
+				Amplitude: 0.31,
+				Lag:       124.3,
+			},
+
+			{
+				Name:      "2SK5",
+				Amplitude: 0.22,
+				Lag:       274.2,
+			},
+
+			{
+				Name:      "SN4",
+				Amplitude: 0.11,
+				Lag:       347.4,
+			},
+
+			{
+				Name:      "2MS6",
+				Amplitude: 0.11,
+				Lag:       77.9,
+			},
+		},
+	},
+
+	"NZL": {
+		Code:      "NZL",
+		Network:   "TD",
+		Number:    "",
+		TimeZone:  0,
+		Latitude:  -19.3096,
+		Longitude: 166.782,
+		Crex:      "",
+		Constituents: []Constituent{
+
+			{
+				Name:      "Z0",
+				Amplitude: 388415.38,
+				Lag:       0,
+			},
+
+			{
+				Name:      "M2",
+				Amplitude: 34.33,
+				Lag:       210.9,
+			},
+
+			{
+				Name:      "K1",
+				Amplitude: 13.76,
+				Lag:       46.2,
+			},
+
+			{
+				Name:      "S2",
+				Amplitude: 11.56,
+				Lag:       215.8,
+			},
+
+			{
+				Name:      "O1",
+				Amplitude: 8.85,
+				Lag:       6.1,
+			},
+
+			{
+				Name:      "N2",
+				Amplitude: 6.73,
+				Lag:       199.2,
+			},
+
+			{
+				Name:      "Q1",
+				Amplitude: 1.45,
+				Lag:       341.9,
+			},
+
+			{
+				Name:      "M1",
+				Amplitude: 1.39,
+				Lag:       78.3,
+			},
+
+			{
+				Name:      "MSF",
+				Amplitude: 1.01,
+				Lag:       29.1,
+			},
+
+			{
+				Name:      "J1",
+				Amplitude: 0.86,
+				Lag:       77.2,
+			},
+
+			{
+				Name:      "L2",
+				Amplitude: 0.83,
+				Lag:       287.1,
+			},
+
+			{
+				Name:      "OO1",
+				Amplitude: 0.75,
+				Lag:       105,
+			},
+
+			{
+				Name:      "MU2",
+				Amplitude: 0.6,
+				Lag:       151.5,
+			},
+
+			{
+				Name:      "M3",
+				Amplitude: 0.55,
+				Lag:       142.5,
+			},
+
+			{
+				Name:      "S4",
+				Amplitude: 0.54,
+				Lag:       44,
+			},
+
+			{
+				Name:      "MO3",
+				Amplitude: 0.22,
+				Lag:       257.8,
+			},
+
+			{
+				Name:      "2SK5",
+				Amplitude: 0.21,
+				Lag:       352.9,
+			},
+
+			{
+				Name:      "MK3",
+				Amplitude: 0.2,
+				Lag:       353.5,
+			},
+
+			{
+				Name:      "2MS6",
+				Amplitude: 0.19,
+				Lag:       240.9,
+			},
+
+			{
+				Name:      "SK3",
+				Amplitude: 0.18,
+				Lag:       337.1,
+			},
+
+			{
+				Name:      "M4",
+				Amplitude: 0.18,
+				Lag:       161.4,
+			},
+
+			{
+				Name:      "KJ2",
+				Amplitude: 0.17,
+				Lag:       204.5,
+			},
+
+			{
+				Name:      "MNS2",
+				Amplitude: 0.15,
+				Lag:       251.2,
+			},
+
+			{
+				Name:      "SN4",
+				Amplitude: 0.11,
+				Lag:       327,
+			},
+
+			{
+				Name:      "2SM6",
+				Amplitude: 0.1,
+				Lag:       52.8,
 			},
 		},
 	},
