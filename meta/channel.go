@@ -96,13 +96,9 @@ func (s *ChannelList) decode(data [][]string) error {
 			return fmt.Errorf("incorrect number of installed channel fields")
 		}
 
-		var number int
-		if s := strings.TrimSpace(d[channelNumber]); s != "" {
-			v, err := strconv.Atoi(s)
-			if err != nil {
-				return err
-			}
-			number = v
+		number, err := ParseInt(d[channelNumber])
+		if err != nil {
+			return err
 		}
 
 		samplingRate, err := strconv.ParseFloat(d[channelSamplingRate], 64)

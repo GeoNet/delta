@@ -209,7 +209,7 @@ func (p *PlacenameList) decode(data [][]string) error {
 				return err
 			}
 
-			level, err := strconv.Atoi(d[placenameLevel])
+			level, err := ParseInt(d[placenameLevel])
 			if err != nil {
 				return err
 			}
