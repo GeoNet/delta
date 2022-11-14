@@ -47,6 +47,10 @@ func (s Stream) Less(stream Stream) bool {
 		return true
 	case s.Location > stream.Location:
 		return false
+	case s.Source < stream.Source:
+		return true
+	case s.Source > stream.Source:
+		return false
 	case s.SamplingRate < stream.SamplingRate:
 		return true
 	case s.SamplingRate > stream.SamplingRate:

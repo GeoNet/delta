@@ -3,7 +3,6 @@ package meta
 import (
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 )
 
@@ -110,43 +109,28 @@ func (s *ComponentList) decode(data [][]string) error {
 			return fmt.Errorf("incorrect pin of installed component fields")
 		}
 
-		var number int
-		if s := strings.TrimSpace(d[componentNumber]); s != "" {
-			v, err := strconv.Atoi(s)
-			if err != nil {
-				return err
-			}
-			number = v
+		number, err := ParseInt(d[componentNumber])
+		if err != nil {
+			return err
 		}
 
-		var dip float64
-		if s := strings.TrimSpace(d[componentDip]); s != "" {
-			v, err := strconv.ParseFloat(s, 64)
-			if err != nil {
-				return err
-			}
-			dip = v
+		dip, err := ParseFloat64(d[componentDip])
+		if err != nil {
+			return err
 		}
 
-		var azimuth float64
-		if s := strings.TrimSpace(d[componentAzimuth]); s != "" {
-			v, err := strconv.ParseFloat(s, 64)
-			if err != nil {
-				return err
-			}
-			azimuth = v
+		azimuth, err := ParseFloat64(d[componentAzimuth])
+		if err != nil {
+			return err
 		}
 
-		var samplingRate float64
-		if s := strings.TrimSpace(d[componentSamplingRate]); s != "" {
-			v, err := strconv.ParseFloat(s, 64)
-			if err != nil {
-				return err
-			}
-			if v < 0.0 {
-				v = -1.0 / v
-			}
-			samplingRate = v
+		samplingRate, err := ParseFloat64(d[componentSamplingRate])
+		if err != nil {
+			return err
+		}
+
+		if samplingRate < 0.0 {
+			samplingRate = -1.0 / samplingRate
 		}
 
 		components = append(components, Component{
