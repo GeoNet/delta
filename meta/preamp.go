@@ -134,6 +134,8 @@ func (g *PreampList) toFloat64(str string, def float64) (float64, error) {
 
 func (g *PreampList) decode(data [][]string) error {
 	var preamps []Preamp
+
+	// needs more than a comment line
 	if !(len(data) > 1) {
 		return nil
 	}
