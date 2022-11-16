@@ -12,6 +12,18 @@ import (
 	"strings"
 )
 
+func markPtr(mark meta.Mark) *meta.Mark {
+	return &mark
+}
+
+func mountPtr(mount meta.Mount) *meta.Mount {
+	return &mount
+}
+
+func stationPtr(station meta.Station) *meta.Station {
+	return &station
+}
+
 func main() {
 
 	//Meta Loading Code grabbed from rinexml
@@ -381,20 +393,20 @@ func main() {
 			},
 		}
 
-		markMap[m.Code] = &m
+		markMap[m.Code] = markPtr(m)
 		siteCodeList = append(siteCodeList, m.Code)
 		sitMarkList[m.Code] = &mark
 	}
 
 	stationMap := make(map[string]*meta.Station)
 	for _, m := range stationList {
-		stationMap[m.Code] = &m
+		stationMap[m.Code] = stationPtr(m)
 		siteCodeList = append(siteCodeList, m.Code)
 	}
 
 	mountMap := make(map[string]*meta.Mount)
 	for _, m := range mountList {
-		mountMap[m.Code] = &m
+		mountMap[m.Code] = mountPtr(m)
 		siteCodeList = append(siteCodeList, m.Code)
 	}
 
