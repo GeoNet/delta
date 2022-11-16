@@ -1,8 +1,9 @@
 package tides
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/google/go-cmp/cmp"
 )
 
 func TestTide(t *testing.T) {
@@ -12,8 +13,8 @@ func TestTide(t *testing.T) {
 			if r == nil {
 				t.Fatalf("unable to lookup tide: %s", g.Code)
 			}
-			if !reflect.DeepEqual(&g, r) {
-				t.Errorf("unable to match tide: expected %v, found %v", g, r)
+			if !cmp.Equal(g, *r) {
+				t.Errorf("unable to match tide %s: %s", g.Code, cmp.Diff(g, *r))
 			}
 		})
 	}
