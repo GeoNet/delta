@@ -6,6 +6,9 @@ import (
 	"strings"
 	"text/template"
 	"unicode"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 //go:embed tmpl/enum.tmpl
@@ -28,7 +31,7 @@ func (e Enum) Name(v string) string {
 	})
 	var list []string
 	for _, p := range parts {
-		list = append(list, strings.Title(strings.ToLower(p)))
+		list = append(list, cases.Title(language.English).String(strings.ToLower(p)))
 	}
 	return strings.TrimSuffix(strings.Join(list, "")+e.Type, "Type")
 }
