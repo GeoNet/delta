@@ -44,4 +44,5 @@ nomenclature used in sensor calibration files with respect to `X|Y|Z` and `N|E|v
 |res    | (kohm)  | scale resistor    |
 
 
+If calibrations are provided for Sensor and Electronic (driver), those are reported in the calibration file, alongside the component serial number.
 
