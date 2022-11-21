@@ -1,6 +1,7 @@
 package meta
 
 import (
+	"math"
 	"sort"
 	"strings"
 )
@@ -72,6 +73,49 @@ func (c Collection) Subsource() string {
 // Code returns the Channel code based on the Stream and Component values.
 func (c Collection) Code() string {
 	return c.Stream.Band + c.Stream.Source + c.Subsource()
+}
+
+// Dip returns the vertical orientation of the recorded stream in degrees from the vertical, positive values are downwards.
+func (c Collection) Dip(polarity *Polarity) float64 {
+
+	// only adjust dips on vertical orientations (ignore inclined sensors for now)
+	if c.Component.Dip == 0.0 {
+		return 0.0
+	}
+
+	// dip based on the sensor configurati0on
+	dip := c.Component.Dip
+
+	// there may be a correction needed if the stream is considered reversed
+	if polarity != nil && polarity.Primary && polarity.Reversed {
+		dip = -dip
+
+	}
+
+	return dip
+}
+
+// Azimuth returns the horizontal orientation of the recorded stream in degrees from north.
+func (c Collection) Azimuth(polarity *Polarity) float64 {
+
+	// only adjust azimuth on horizontal orientations (ignore inclined sensors for now)
+	if c.Component.Dip != 0.0 {
+		return 0.0
+	}
+
+	// combine the sensor and the installed azimuths
+	azimuth := c.InstalledSensor.Azimuth + c.Component.Azimuth
+
+	if polarity != nil && polarity.Primary && polarity.Reversed {
+		azimuth += 180.0
+	}
+
+	// check that the value is positive
+	for azimuth < 0.0 {
+		azimuth += 360.0
+	}
+
+	return math.Mod(azimuth, 360.0)
 }
 
 // Collections decodes the stored sensor and datalogger installation
