@@ -2,6 +2,7 @@ package meta
 
 import (
 	"sort"
+	"strings"
 )
 
 // Collection describes the period where a sensor and a datalogger are co-located at a site with the associated streams.
@@ -49,6 +50,28 @@ func (c Collection) Less(collection Collection) bool {
 	default:
 		return false
 	}
+}
+
+// Subsource returns the Subsource code based on the Stream and Component values.
+func (c Collection) Subsource() string {
+	switch strings.ToLower(c.Stream.Axial) {
+	case "true", "yes":
+		switch strings.ToUpper(c.Component.Subsource) {
+		case "N":
+			return "1"
+		case "E":
+			return "2"
+		default:
+			return c.Component.Subsource
+		}
+	default:
+		return c.Component.Subsource
+	}
+}
+
+// Code returns the Channel code based on the Stream and Component values.
+func (c Collection) Code() string {
+	return c.Stream.Band + c.Stream.Source + c.Subsource()
 }
 
 // Collections decodes the stored sensor and datalogger installation
