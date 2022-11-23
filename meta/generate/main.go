@@ -34,12 +34,16 @@ func main() {
 			"mounts":              {"Mount"},
 			"networks":            {"Network"},
 			"placenames":          {"Placename"},
+			"polarities":          {"Polarity"},
+			"preamps":             {"Preamp"},
 			"sessions":            {"Session"},
 			"sites":               {"Site"},
 			"stations":            {"Station"},
 			"streams":             {"Stream"},
 			"views":               {"View"},
 			"visibilities":        {"Visibility"},
+			"channels":            {"Channel"},
+			"components":          {"Component"},
 		},
 		Lookup: map[string]struct {
 			Key    string
