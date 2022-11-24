@@ -16,11 +16,6 @@ type Collection struct {
 
 	InstalledSensor
 	DeployedDatalogger
-
-	Gains []Gain
-
-	SensorCalibrations     []Calibration
-	DataloggerCalibrations []Calibration
 }
 
 // Less compares whether one Collection will sort before another.
@@ -152,49 +147,6 @@ func (s *Set) Collections(site Site) []Collection {
 					continue
 				}
 
-				var gains []Gain
-				for _, g := range s.Gains() {
-					if g.Station != stream.Station {
-						continue
-					}
-					if g.Location != stream.Location {
-						continue
-					}
-					if g.Subsource != component.Subsource {
-						continue
-					}
-					if !span.Overlaps(g.Span) {
-						continue
-					}
-					gains = append(gains, g)
-				}
-				sort.Slice(gains, func(i, j int) bool {
-					return gains[i].Span.Start.Before(gains[j].Span.Start)
-				})
-
-				var sensors []Calibration
-				for _, c := range s.Calibrations() {
-					if c.Make != recorder.InstalledSensor.Make {
-						continue
-					}
-					if c.Model != recorder.InstalledSensor.Model {
-						continue
-					}
-					if c.Serial != recorder.InstalledSensor.Serial {
-						continue
-					}
-					if c.Number != component.Number {
-						continue
-					}
-					if !span.Overlaps(c.Span) {
-						continue
-					}
-					sensors = append(sensors, c)
-				}
-				sort.Slice(sensors, func(i, j int) bool {
-					return sensors[i].Span.Start.Before(sensors[j].Span.Start)
-				})
-
 				for _, channel := range s.Channels() {
 					if recorder.Make != channel.Make {
 						continue
@@ -206,29 +158,6 @@ func (s *Set) Collections(site Site) []Collection {
 					if stream.SamplingRate != channel.SamplingRate {
 						continue
 					}
-
-					var dataloggers []Calibration
-					for _, c := range s.Calibrations() {
-						if c.Make != recorder.InstalledSensor.Make {
-							continue
-						}
-						if c.Model != recorder.DataloggerModel {
-							continue
-						}
-						if c.Serial != recorder.InstalledSensor.Serial {
-							continue
-						}
-						if c.Number != channel.Number {
-							continue
-						}
-						if !span.Overlaps(c.Span) {
-							continue
-						}
-						dataloggers = append(dataloggers, c)
-					}
-					sort.Slice(dataloggers, func(i, j int) bool {
-						return dataloggers[i].Span.Start.Before(dataloggers[j].Span.Start)
-					})
 
 					collections = append(collections, Collection{
 						InstalledSensor: recorder.InstalledSensor,
@@ -245,13 +174,10 @@ func (s *Set) Collections(site Site) []Collection {
 								},
 							},
 						},
-						Stream:                 stream,
-						Gains:                  gains,
-						SensorCalibrations:     sensors,
-						DataloggerCalibrations: dataloggers,
-						Channel:                channel,
-						Component:              component,
-						Span:                   span,
+						Stream:    stream,
+						Channel:   channel,
+						Component: component,
+						Span:      span,
 					})
 				}
 			}
@@ -308,49 +234,6 @@ func (s *Set) Collections(site Site) []Collection {
 							continue
 						}
 
-						var gains []Gain
-						for _, g := range s.Gains() {
-							if g.Station != stream.Station {
-								continue
-							}
-							if g.Location != stream.Location {
-								continue
-							}
-							if g.Subsource != component.Subsource {
-								continue
-							}
-							if !span.Overlaps(g.Span) {
-								continue
-							}
-							gains = append(gains, g)
-						}
-						sort.Slice(gains, func(i, j int) bool {
-							return gains[i].Span.Start.Before(gains[j].Span.Start)
-						})
-
-						var sensors []Calibration
-						for _, c := range s.Calibrations() {
-							if c.Make != sensor.Make {
-								continue
-							}
-							if c.Model != sensor.Model {
-								continue
-							}
-							if c.Serial != sensor.Serial {
-								continue
-							}
-							if c.Number != component.Number {
-								continue
-							}
-							if !span.Overlaps(c.Span) {
-								continue
-							}
-							sensors = append(sensors, c)
-						}
-						sort.Slice(sensors, func(i, j int) bool {
-							return sensors[i].Span.Start.Before(sensors[j].Span.Start)
-						})
-
 						for _, channel := range s.Channels() {
 							if datalogger.Make != channel.Make {
 								continue
@@ -366,39 +249,13 @@ func (s *Set) Collections(site Site) []Collection {
 								continue
 							}
 
-							var dataloggers []Calibration
-							for _, c := range s.Calibrations() {
-								if c.Make != datalogger.Make {
-									continue
-								}
-								if c.Model != datalogger.Model {
-									continue
-								}
-								if c.Serial != datalogger.Serial {
-									continue
-								}
-								if c.Number != channel.Number {
-									continue
-								}
-								if !span.Overlaps(c.Span) {
-									continue
-								}
-								dataloggers = append(dataloggers, c)
-							}
-							sort.Slice(dataloggers, func(i, j int) bool {
-								return dataloggers[i].Span.Start.Before(dataloggers[j].Span.Start)
-							})
-
 							collections = append(collections, Collection{
-								InstalledSensor:        sensor,
-								DeployedDatalogger:     datalogger,
-								Stream:                 stream,
-								Gains:                  gains,
-								SensorCalibrations:     sensors,
-								DataloggerCalibrations: dataloggers,
-								Channel:                channel,
-								Component:              component,
-								Span:                   span,
+								InstalledSensor:    sensor,
+								DeployedDatalogger: datalogger,
+								Stream:             stream,
+								Channel:            channel,
+								Component:          component,
+								Span:               span,
 							})
 
 						}
