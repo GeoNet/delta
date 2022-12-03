@@ -199,6 +199,13 @@ func (s Set) Preamps() []Preamp {
 	return preamps
 }
 
+// Samples is a helper function to return a slice copy of Sample values.
+func (s Set) Samples() []Sample {
+	samples := make([]Sample, len(s.samples))
+	copy(samples, s.samples)
+	return samples
+}
+
 // Sessions is a helper function to return a slice copy of Session values.
 func (s Set) Sessions() []Session {
 	sessions := make([]Session, len(s.sessions))
@@ -311,6 +318,17 @@ func (s Set) Placename(name string) (Placename, bool) {
 		return v, true
 	}
 	return Placename{}, false
+}
+
+// Sample is a helper function to return a Sample value and true if one exists.
+func (s Set) Sample(code string) (Sample, bool) {
+	for _, v := range s.samples {
+		if code != v.Code {
+			continue
+		}
+		return v, true
+	}
+	return Sample{}, false
 }
 
 // Site is a helper function to return a Site value and true if one exists.
