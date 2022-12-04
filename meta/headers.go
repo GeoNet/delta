@@ -39,9 +39,13 @@ func (h Header) Columns() []string {
 
 // Fields converts a csv header row into a Column for use with field name lookups.
 func (h Header) Fields(columns []string) Field {
+
 	lookup := make(map[int]int)
 	for i, v := range columns {
-		lookup[h[v]] = i
+		if _, ok := h[v]; !ok {
+			continue
+		}
+		lookup[i] = h[v]
 	}
 	return lookup
 }
@@ -54,6 +58,9 @@ type Field map[int]int
 func (f Field) Remap(data []string) map[int]string {
 	remap := make(map[int]string)
 	for i, v := range data {
+		if _, ok := f[i]; !ok {
+			continue
+		}
 		remap[f[i]] = v
 	}
 	return remap
