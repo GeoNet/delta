@@ -242,6 +242,9 @@ func main() {
 				if stn.Network != lookup {
 					continue
 				}
+				if _, ok := skip[stn.Code]; ok {
+					continue
+				}
 
 				var channels []stationxml.Channel
 				for _, site := range set.Sites() {
@@ -376,6 +379,12 @@ func main() {
 
 				Stations: stations,
 			})
+		}
+
+		// build a stationxml shadow external structure
+		externals = append(externals, stationxml.External{
+		if !(len(networks) > 0) {
+			continue
 		}
 
 		// build a stationxml shadow external structure
