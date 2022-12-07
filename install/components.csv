@@ -27,6 +27,10 @@ CSI,CUSP-Me,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instrume
 CSI,EQR120,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_EQR120
 CSI,EQR120,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_EQR120
 CSI,EQR120,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_EQR120
+Danish Meteorological Institude,FGE,Fluxgate Magnetometer,0,,X,1,0,G,,sensor_Danish_Meteorological_Institue_FGE
+Danish Meteorological Institude,FGE,Fluxgate Magnetometer,1,,Y,2,0,G,,sensor_Danish_Meteorological_Institue_FGE
+Danish Meteorological Institude,FGE,Fluxgate Magnetometer,2,,Z,3,0,G,,sensor_Danish_Meteorological_Institue_FGE
+Danish Meteorological Institude,FGE,Fluxgate Magnetometer,4,,I,4,0,G,,sensor_Danish_Meteorological_Institue_FGE_Temperature
 Duke University,2 Hz Duke Malin Seismometer,Short Period Borehole Seismometer,0,,Z,-90,0,G,,sensor_Duke-University_2-Hz-Duke-Malin-Seismometer
 Duke University,2 Hz Duke Malin Seismometer,Short Period Borehole Seismometer,1,,N,0,0,G,,sensor_Duke-University_2-Hz-Duke-Malin-Seismometer
 Duke University,2 Hz Duke Malin Seismometer,Short Period Borehole Seismometer,2,,E,0,90,G,,sensor_Duke-University_2-Hz-Duke-Malin-Seismometer

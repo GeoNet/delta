@@ -1,1 +1,7 @@
 Make,Model,Serial,Number,Scale Factor,Scale Bias,Frequency,Start Date,End Date
+Danish Meteorological Institude,FGE,S0257,0,38296.0 * 59.0 / 2.0,0.0,,1900-01-01T00:00:00Z,9999-01-01T00:00:00Z
+Danish Meteorological Institude,FGE,S0257,1,38367.0 * 59.0 / 2.0,0.0,,1900-01-01T00:00:00Z,9999-01-01T00:00:00Z
+Danish Meteorological Institude,FGE,S0257,2,38023.0 * 59.0 / 2.0,0.0,,1900-01-01T00:00:00Z,9999-01-01T00:00:00Z
+Danish Meteorological Institude,FGE,S0263,0,37683.0 * 59.0,0.0,,1900-01-01T00:00:00Z,9999-01-01T00:00:00Z
+Danish Meteorological Institude,FGE,S0263,1,37968.0 * 59.0,0.0,,1900-01-01T00:00:00Z,9999-01-01T00:00:00Z
+Danish Meteorological Institude,FGE,S0263,2,37618.0 * 59.0,0.0,,1900-01-01T00:00:00Z,9999-01-01T00:00:00Z
