@@ -9,6 +9,7 @@ _Lists the geographical and physical characteristics of collection points._
 * `monuments.csv` - GNSS Observation Monuments.
 * `mounts.csv` - Network Camera Mount Points.
 * `networks.csv` - Grouping of GNSS Marks & Recording Stations.
+* `points.csv` - Specific Observation Points where Samples are manually collected.
 * `samples.csv` - Location for a Group of Manually Collected Samples.
 * `sites.csv` - Specific Observation Points at a Specific Recording Station.
 * `stations.csv` - Location for a Group of Recording Sites.
@@ -77,9 +78,21 @@ Valid Monument Types are:
 * _Description_ - Information about the _Network_.
 * _Restricted_ - Whether the _Network_ has restrictions, a Boolean value [`true` or `false`].
 
-#### _SAMPLES_ ####
+#### _POINTS_ ####
 
 * _Station_ - Code used to uniquely identify a _Station_ where manually collected data are sampled.
+* _Location_ - Code used to uniquely identify the _Point_ at the Sampling _Stations_.
+* _Latitude_ - Geographical latitude of the _Point_ for the given _Datum_.
+* _Longitude_ - Geographical longitude of the _Point_ for the given _Datum_.
+* _Elevation_ - Height in meters of the _Point_ above the free surface for the given _Datum_.
+* _Depth_ - Depth of water in meters above the _Point_ if installed underwater.
+* _Datum_ - Geographical reference system used for the latitude, longitude & elevation.
+* _Start Date_ - General date and time at which samples might be manually collected at the _Point_.
+* _End Date_ - General date and time at which samples could not further be manually collected at the _Point_.
+
+#### _SAMPLES_ ####
+
+* _Sample_ - Code used to uniquely identify the area where _Samples_ are manually collected data are sampled.
 * _Network_ - Code used to group Sampling _Stations_ together by project or operator.
 * _Name_ - Used to describe the general geographical location of the _Station_.
 * _Latitude_ - Geographical latitude of the _Station_ for the given _Datum_.
