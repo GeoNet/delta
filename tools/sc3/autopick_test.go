@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"testing"
@@ -46,7 +45,7 @@ func TestAutoPick(t *testing.T) {
 
 	for k, p := range picks {
 		t.Run("check "+k, func(t *testing.T) {
-			d, err := ioutil.TempDir(os.TempDir(), "test")
+			d, err := os.MkdirTemp(os.TempDir(), "test")
 			if err != nil {
 				t.Fatal(err)
 			}
@@ -56,7 +55,7 @@ func TestAutoPick(t *testing.T) {
 				t.Fatalf("unable to store key output %s: %v", k, err)
 			}
 
-			key, err := ioutil.ReadFile(filepath.Join(d, k))
+			key, err := os.ReadFile(filepath.Join(d, k))
 			if err != nil {
 				t.Fatalf("unable to read temp key file %s: %v", d, err)
 			}

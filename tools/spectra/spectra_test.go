@@ -1,7 +1,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -10,7 +10,7 @@ import (
 func TestBuild(t *testing.T) {
 
 	// load in the test data and convert to stationxml indented text
-	b1, err := ioutil.ReadFile("./testdata/spectra.xml")
+	b1, err := os.ReadFile("./testdata/spectra.xml")
 	if err != nil {
 		t.Fatalf("error: unable to load test spectras file: %v", err)
 	}

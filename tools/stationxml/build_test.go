@@ -2,17 +2,18 @@ package main
 
 import (
 	"encoding/xml"
-	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+
 	"github.com/ozym/fdsn/stationxml"
 )
 
 func TestBuilder(t *testing.T) {
 
 	// load in the test data and convert to stationxml indented text
-	raw, err := ioutil.ReadFile("./testdata/test.xml")
+	raw, err := os.ReadFile("./testdata/test.xml")
 	if err != nil {
 		t.Fatalf("error: unable to load test stationxml file: %v", err)
 	}

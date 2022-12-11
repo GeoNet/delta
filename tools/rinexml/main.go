@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sort"
@@ -488,7 +487,7 @@ func main() {
 			fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
 			os.Exit(-1)
 		}
-		if err := ioutil.WriteFile(xmlfile, s, 0644); err != nil {
+		if err := os.WriteFile(xmlfile, s, 0600); err != nil {
 			fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 			os.Exit(-1)
 		}
@@ -505,7 +504,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
 		os.Exit(-1)
 	}
-	if err := ioutil.WriteFile(xmlfile, s, 0644); err != nil {
+	if err := os.WriteFile(xmlfile, s, 0600); err != nil {
 		fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 		os.Exit(-1)
 	}
@@ -521,7 +520,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
 		os.Exit(-1)
 	}
-	if err := ioutil.WriteFile(xmlfile, s, 0644); err != nil {
+	if err := os.WriteFile(xmlfile, s, 0600); err != nil {
 		fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 		os.Exit(-1)
 	}
