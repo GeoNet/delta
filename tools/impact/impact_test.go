@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"strings"
 	"testing"
 
@@ -12,7 +12,7 @@ import (
 func TestBuild_Network(t *testing.T) {
 
 	// load in the test data and convert to stationxml indented text
-	b1, err := ioutil.ReadFile("./testdata/impact.json")
+	b1, err := os.ReadFile("./testdata/impact.json")
 	if err != nil {
 		t.Fatalf("error: unable to load test amplitudes file: %v", err)
 	}

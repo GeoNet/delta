@@ -7,7 +7,6 @@ import (
 	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/kit/sit_delta_pb"
 	"github.com/golang/protobuf/proto"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -436,13 +435,13 @@ func main() {
 			fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
 			os.Exit(-1)
 		}
-		if err := ioutil.WriteFile(pbfile, b, 0644); err != nil {
+		if err := os.WriteFile(pbfile, b, 0600); err != nil {
 			fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 			os.Exit(-1)
 		}
 		if verbose {
 			out_json, _ := json.MarshalIndent(site_pb, "", "  ")
-			err = ioutil.WriteFile(filepath.Join(output, strings.ToUpper(s)+".json"), []byte(out_json), 0644)
+			err = os.WriteFile(filepath.Join(output, strings.ToUpper(s)+".json"), []byte(out_json), 0600)
 			if err != nil {
 				fmt.Fprintf(os.Stderr, "error: unable to write debug json: %v\n", err)
 			}

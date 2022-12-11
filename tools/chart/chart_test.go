@@ -1,7 +1,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -10,7 +10,7 @@ import (
 func TestBuild_Tsunami(t *testing.T) {
 
 	// load in the test data and convert to stationxml indented text
-	b1, err := ioutil.ReadFile("./testdata/tsunami-gauge.xml")
+	b1, err := os.ReadFile("./testdata/tsunami-gauge.xml")
 	if err != nil {
 		t.Fatalf("error: unable to load test amplitudes file: %v", err)
 	}
