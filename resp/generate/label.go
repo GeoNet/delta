@@ -5,6 +5,9 @@ import (
 	"math"
 	"strings"
 	"unicode"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 func isAllUpperCase(label string) bool {
@@ -67,7 +70,7 @@ func (g Generate) DataloggerPreamp(datalogger Datalogger) bool {
 
 func (g Generate) DataloggerName(model DataloggerModel, datalogger Datalogger, label string, rate float64) string {
 	if label = strings.Split(cleanLabel(label), "-")[0]; isAllUpperCase(label) {
-		label = strings.Title(strings.ToLower(label))
+		label = cases.Title(language.English).String(strings.ToLower(label))
 	}
 
 	bits := g.DataloggerBits(datalogger)

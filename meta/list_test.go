@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"io/ioutil"
 	"os"
 	"testing"
 	"time"
@@ -1082,7 +1081,7 @@ func TestList(t *testing.T) {
 
 		t.Log("Compare raw list file: " + tt.f)
 		{
-			b, err := ioutil.ReadFile(tt.f)
+			b, err := os.ReadFile(tt.f)
 			if err != nil {
 				t.Fatal(err)
 			}

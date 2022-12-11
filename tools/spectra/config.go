@@ -1,7 +1,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"os"
 
 	"gopkg.in/yaml.v2"
 )
@@ -51,7 +51,7 @@ type ConfigSite struct {
 func loadConfig(config string) (map[string]Config, error) {
 
 	cfgs := make(map[string]Config)
-	b, err := ioutil.ReadFile(config)
+	b, err := os.ReadFile(config)
 	if err != nil {
 		return nil, err
 	}

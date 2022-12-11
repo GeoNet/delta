@@ -11,7 +11,7 @@ import (
 	"aqwari.net/xml/xsd"
 )
 
-//TODO: go1.18 has this as a stdlib builtin
+// TODO: go1.18 has this as a stdlib builtin
 func cut(s, sep []byte) (before, after []byte, found bool) {
 	if i := bytes.Index(s, sep); i >= 0 {
 		return s[:i], s[i+len(sep):], true
