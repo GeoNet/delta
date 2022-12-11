@@ -234,6 +234,10 @@ func (s *Set) Collections(site Site) []Collection {
 							continue
 						}
 
+						if component.SamplingRate != 0.0 && stream.SamplingRate != component.SamplingRate {
+							continue
+						}
+
 						for _, channel := range s.Channels() {
 							if datalogger.Make != channel.Make {
 								continue
