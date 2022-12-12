@@ -5,7 +5,6 @@ import (
 	"encoding/hex"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"math"
 	"os"
@@ -647,7 +646,7 @@ func main() {
 		if err := os.MkdirAll(filepath.Dir(xmlfile), 0755); err != nil {
 			log.Fatalf("error: unable to create dir: %v", err)
 		}
-		if err := ioutil.WriteFile(xmlfile, current, 0644); err != nil {
+		if err := os.WriteFile(xmlfile, current, 0600); err != nil {
 			log.Fatalf("error: unable to write file: %v", err)
 		}
 

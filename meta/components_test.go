@@ -47,7 +47,7 @@ func TestComponentList(t *testing.T) {
 			Dip:          0.0,
 			Azimuth:      90.0,
 			Types:        "G",
-			SamplingRate: 1 / 10,
+			SamplingRate: 1.0 / 10.0,
 			Response:     "sensor_guralp_fortis_response",
 
 			number:       "2",
