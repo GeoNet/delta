@@ -2,59 +2,52 @@ package resp
 
 import (
 	"embed"
-	"encoding/xml"
 	"fmt"
 	"io/fs"
 	"os"
-
-	"github.com/GeoNet/delta/internal/stationxml/v1.1"
 )
 
-//TODO: add embed when populated
+// TODO: add embed when populated
 var locations = []string{"files", "auto"}
 
 //go:embed files/*.xml
 //go:embed auto/*.xml
 var files embed.FS
 
-// LookupFS returns a pointer to an stationxml Response if present in the given file system.
-func LookupFS(fsys fs.FS, response string) (*stationxml.ResponseType, error) {
+// LookupFS returns a byte slice representation of a generic stationxml Response if present in the given file system.
+func LookupFS(fsys fs.FS, response string) ([]byte, error) {
 	for _, l := range locations {
 		names, err := fs.Glob(fsys, fmt.Sprintf("%s/%s.xml", l, response))
 		if err != nil {
 			return nil, err
 		}
 
+		// return the first one found
 		for _, name := range names {
 			data, err := fs.ReadFile(files, name)
 			if err != nil {
 				return nil, err
 			}
-
-			var resp stationxml.ResponseType
-			if err := xml.Unmarshal(data, &resp); err != nil {
-				return nil, err
-			}
-			return &resp, nil
+			return data, nil
 		}
 	}
 
 	return nil, nil
 }
 
-// Lookup returns a pointer to an embeded stationxml Response if present.
-func Lookup(response string) (*stationxml.ResponseType, error) {
+// Lookup returns a byte slice representation of a generic embeded stationxml Response if present.
+func Lookup(response string) ([]byte, error) {
 	return LookupFS(files, response)
 }
 
-// LookupDir returns a pointer to an stationxml Response if stored in the given directory.
-func LookupDir(path string, response string) (*stationxml.ResponseType, error) {
+// LookupDir returns a byte slice representation of a generic stationxml Response if stored in the given directory.
+func LookupDir(path string, response string) ([]byte, error) {
 	return LookupFS(os.DirFS(path), response)
 }
 
-// LookupBase returns a pointer to an stationxml Response either stored in a given directory or
+// LookupBase returns a byte slice representation of a generic stationxml Response either stored in a given directory or
 // in the embedded files if no base directory given.
-func LookupBase(base string, response string) (*stationxml.ResponseType, error) {
+func LookupBase(base string, response string) ([]byte, error) {
 	if base != "" {
 		return LookupDir(base, response)
 	}
