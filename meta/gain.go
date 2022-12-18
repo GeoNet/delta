@@ -16,13 +16,15 @@ const (
 	gainSubsource
 	gainScaleFactor
 	gainScaleBias
+	gainAbsoluteBias
 	gainStart
 	gainEnd
 	gainLast
 )
 
 // Gain defines times where sensor installation scaling or offsets are needed, these will be applied to the
-// existing values, i.e. A + BX => A + A' + (B * B') X, where A' and B' are the given bias and scaling factors.
+// existing values, i.e. A * X + B => A * A' * X + B * A' + A * B' + C
+// where A' and B' are the gain scale factor and bias and C is the absolute bias.
 type Gain struct {
 	Span
 	Scale
@@ -31,6 +33,9 @@ type Gain struct {
 	Location    string
 	Sublocation string
 	Subsource   string
+	Absolute    float64
+
+	absolute string
 }
 
 // Id returns a unique string which can be used for sorting or checking.
@@ -80,10 +85,12 @@ func (g Gain) Gains() []Gain {
 		gains = append(gains, Gain{
 			Span:        g.Span,
 			Scale:       g.Scale,
+			Absolute:    g.Absolute,
 			Station:     g.Station,
 			Location:    g.Location,
 			Sublocation: g.Sublocation,
 			Subsource:   string(c),
+			absolute:    g.absolute,
 		})
 	}
 
@@ -106,6 +113,7 @@ func (g GainList) encode() [][]string {
 		"Subsource",
 		"Scale Factor",
 		"Scale Bias",
+		"Absolute Bias",
 		"Start Date",
 		"End Date",
 	}}
@@ -116,8 +124,9 @@ func (g GainList) encode() [][]string {
 			strings.TrimSpace(v.Location),
 			strings.TrimSpace(v.Sublocation),
 			strings.TrimSpace(v.Subsource),
-			strings.TrimSpace(v.factor),
-			strings.TrimSpace(v.bias),
+			strings.TrimSpace(v.Scale.factor),
+			strings.TrimSpace(v.Scale.bias),
+			strings.TrimSpace(v.absolute),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -137,53 +146,62 @@ func (g *GainList) toFloat64(str string, def float64) (float64, error) {
 
 func (g *GainList) decode(data [][]string) error {
 	var gains []Gain
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != gainLast {
-				return fmt.Errorf("incorrect number of installed gain fields")
-			}
+	if !(len(data) > 1) {
+		return nil
+	}
 
-			factor, err := g.toFloat64(d[gainScaleFactor], 1.0)
-			if err != nil {
-				return err
-			}
-
-			bias, err := g.toFloat64(d[gainScaleBias], 0.0)
-			if err != nil {
-				return err
-			}
-
-			start, err := time.Parse(DateTimeFormat, d[gainStart])
-			if err != nil {
-				return err
-			}
-
-			end, err := time.Parse(DateTimeFormat, d[gainEnd])
-			if err != nil {
-				return err
-			}
-
-			gains = append(gains, Gain{
-				Span: Span{
-					Start: start,
-					End:   end,
-				},
-				Scale: Scale{
-					Factor: factor,
-					Bias:   bias,
-
-					factor: strings.TrimSpace(d[gainScaleFactor]),
-					bias:   strings.TrimSpace(d[gainScaleBias]),
-				},
-				Station:     strings.TrimSpace(d[gainStation]),
-				Location:    strings.TrimSpace(d[gainLocation]),
-				Sublocation: strings.TrimSpace(d[gainSublocation]),
-				Subsource:   strings.TrimSpace(d[gainSubsource]),
-			})
+	for _, d := range data[1:] {
+		if len(d) != gainLast {
+			return fmt.Errorf("incorrect number of installed gain fields")
 		}
 
-		*g = GainList(gains)
+		factor, err := g.toFloat64(d[gainScaleFactor], 1.0)
+		if err != nil {
+			return err
+		}
+
+		bias, err := g.toFloat64(d[gainScaleBias], 0.0)
+		if err != nil {
+			return err
+		}
+
+		absolute, err := g.toFloat64(d[gainAbsoluteBias], 0.0)
+		if err != nil {
+			return err
+		}
+
+		start, err := time.Parse(DateTimeFormat, d[gainStart])
+		if err != nil {
+			return err
+		}
+
+		end, err := time.Parse(DateTimeFormat, d[gainEnd])
+		if err != nil {
+			return err
+		}
+
+		gains = append(gains, Gain{
+			Span: Span{
+				Start: start,
+				End:   end,
+			},
+			Scale: Scale{
+				Factor: factor,
+				Bias:   bias,
+
+				factor: strings.TrimSpace(d[gainScaleFactor]),
+				bias:   strings.TrimSpace(d[gainScaleBias]),
+			},
+			Absolute:    absolute,
+			Station:     strings.TrimSpace(d[gainStation]),
+			Location:    strings.TrimSpace(d[gainLocation]),
+			Sublocation: strings.TrimSpace(d[gainSublocation]),
+			Subsource:   strings.TrimSpace(d[gainSubsource]),
+			absolute:    strings.TrimSpace(d[gainAbsoluteBias]),
+		})
 	}
+
+	*g = GainList(gains)
 
 	return nil
 }

@@ -2,10 +2,10 @@ package main
 
 import (
 	"encoding/xml"
-	"io/ioutil"
 	"os"
-	"os/exec"
 	"testing"
+
+	"github.com/google/go-cmp/cmp"
 
 	"github.com/ozym/fdsn/stationxml"
 )
@@ -13,7 +13,7 @@ import (
 func TestBuilder(t *testing.T) {
 
 	// load in the test data and convert to stationxml indented text
-	raw, err := ioutil.ReadFile("./testdata/test.xml")
+	raw, err := os.ReadFile("./testdata/test.xml")
 	if err != nil {
 		t.Fatalf("error: unable to load test stationxml file: %v", err)
 	}
@@ -58,43 +58,6 @@ func TestBuilder(t *testing.T) {
 
 	// compare stored with computed
 	if string(b1) != string(b2) {
-		t.Error("**** stationxml mismatch ****")
-
-		f1, err := ioutil.TempFile(os.TempDir(), "tmp")
-		if err != nil {
-			t.Fatal(err)
-		}
-		defer os.Remove(f1.Name())
-		if _, err := f1.Write(b1); err != nil {
-			t.Fatal(err)
-		}
-
-		f2, err := ioutil.TempFile(os.TempDir(), "tmp")
-		if err != nil {
-			t.Fatal(err)
-		}
-		defer os.Remove(f2.Name())
-		if _, err := f2.Write(b2); err != nil {
-			t.Fatal(err)
-		}
-
-		cmd := exec.Command("diff", "-c", f1.Name(), f2.Name())
-		stdout, err := cmd.StdoutPipe()
-		if err != nil {
-			t.Fatal(err)
-		}
-		err = cmd.Start()
-		if err != nil {
-			t.Fatal(err)
-		}
-		diff, err := ioutil.ReadAll(stdout)
-		if err != nil {
-			t.Fatal(err)
-		}
-		t.Error(string(diff))
-
-		if err := cmd.Wait(); err != nil {
-			t.Fatal(err)
-		}
+		t.Errorf("unexpected content -got/+exp\n%s", cmp.Diff(string(b1), string(b2)))
 	}
 }

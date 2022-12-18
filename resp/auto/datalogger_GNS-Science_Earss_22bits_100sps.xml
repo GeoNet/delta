@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>88777.56348496498</Value>
+    <Frequency>25</Frequency>
+    <InputUnits>
+      <Name>V</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>count</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <PolesZeros resourceId="PolesZeros#EARSS-100">
+      <InputUnits>
+        <Name>V</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+      <NormalizationFactor>1</NormalizationFactor>
+      <NormalizationFrequency>25</NormalizationFrequency>
+    </PolesZeros>
+    <StageGain>
+      <Value>1</Value>
+      <Frequency>25</Frequency>
+    </StageGain>
+  </Stage>
+  <Stage number="2">
+    <PolesZeros resourceId="PolesZeros#EARSS-100">
+      <InputUnits>
+        <Name>V</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+      <NormalizationFactor>43257.70553220317</NormalizationFactor>
+      <NormalizationFrequency>25</NormalizationFrequency>
+      <Pole>
+        <Real>-133.2865</Real>
+        <Imaginary>-133.2865</Imaginary>
+      </Pole>
+      <Pole number="1">
+        <Real>-133.2865</Real>
+        <Imaginary>133.2865</Imaginary>
+      </Pole>
+    </PolesZeros>
+    <StageGain>
+      <Value>0.8466488216873643</Value>
+      <Frequency>25</Frequency>
+    </StageGain>
+  </Stage>
+  <Stage number="3">
+    <Coefficients resourceId="Coefficients#EARSS-100">
+      <InputUnits>
+        <Name>V</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>count</Name>
+      </OutputUnits>
+      <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
+    </Coefficients>
+    <Decimation>
+      <InputSampleRate>100</InputSampleRate>
+      <Factor>1</Factor>
+      <Offset>0</Offset>
+      <Delay>0</Delay>
+      <Correction>0</Correction>
+    </Decimation>
+    <StageGain>
+      <Value>104857.6</Value>
+      <Frequency>25</Frequency>
+    </StageGain>
+  </Stage>
+</Response>

@@ -15,11 +15,13 @@ HB,NZ,Hawke's Bay regional seismic network,false
 IG,LI,LINZ IGS CGPS Network,false
 KI,NZ,Kermadec Islands volcano seismic network,false
 LI,LI,The LINZ national CGPS network,false
+MC,MC,Manually collected volcano monitoring data,false
 NM,NZ,Nelson and Marlborough regional seismic network,false
 NX,NZ,Private seismograph sites,true
 NZ,NZ,New Zealand National Seismograph Network,false
 OT,NZ,Otago regional seismic network,false
 PK,NZ,Pukaki local seismic network,false
+RA,NZ,RCET research programme,false
 RT,NZ,Rotorua/Okataina volcano seismic network,false
 SA,SA,The Southern Alps CGPS network,false
 SB,NZ,Building array network,false

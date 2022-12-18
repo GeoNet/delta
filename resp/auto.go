@@ -699,6 +699,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
+	"Trillium Horizon TH120-2": {
+		Name:         "Trillium Horizon TH120-2",
+		Type:         "Broadband Seismometer",
+		Description:  "Trillium Horizon 120",
+		Manufacturer: "Nanometrics Inc.",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
+	},
 }
 
 var Responses []Response = []Response{
@@ -3122,7 +3130,7 @@ var Responses []Response = []Response{
 				Channels: "Z12",
 				Reversed: false,
 			}, {
-				SensorList: []string{"Trillium Horizon TH120-1"},
+				SensorList: []string{"Trillium Horizon TH120-1", "Trillium Horizon TH120-2"},
 				FilterList: []string{"TRILLIUM-HORIZON-TH120-1"},
 				Stages: []ResponseStage{
 					{
@@ -5666,7 +5674,7 @@ var Responses []Response = []Response{
 				Channels: "Z12",
 				Reversed: false,
 			}, {
-				SensorList: []string{"Trillium Horizon TH120-1"},
+				SensorList: []string{"Trillium Horizon TH120-1", "Trillium Horizon TH120-2"},
 				FilterList: []string{"TRILLIUM-HORIZON-TH120-1"},
 				Stages: []ResponseStage{
 					{
@@ -7852,7 +7860,7 @@ var Responses []Response = []Response{
 							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
 						},
 						Frequency:  0,
-						SampleRate: 1,
+						SampleRate: 10,
 						Decimate:   1,
 						Gain:       419430.4,
 						//Scale: 0,
@@ -9440,7 +9448,7 @@ var Responses []Response = []Response{
 							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
 						},
 						Frequency:  0,
-						SampleRate: 1,
+						SampleRate: 10,
 						Decimate:   1,
 						Gain:       419430.4,
 						//Scale: 0,

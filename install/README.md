@@ -18,10 +18,12 @@ Meta information for the GeoNet equipment network.
 * `dataloggers.csv` - Recording dataloggers
 * `connections.csv` - Datalogger and sensor connection details
 * `streams.csv` - Datalogger and recorder sampling configurations
-* `gains.csv` - site specific settings applied to individual datalogger and sensor that may impact overall sensitivities
+* `polarities.csv` - site specific polarity settings which indicate when a site may have reversed polarity, or otherwise
+* `gains.csv` - site specific settings applied to individual sensors that may impact overall sensitivities.
 * `calibrations.csv` - Individual sensor sensitivity values that can be used rather than default values.
 * `components.csv` - Individual sensor elements including measurement position and responses.
 * `channels.csv` - Individual datalogger recording elements including digitiser position, sampling rate, and responses.
+* [`preamps.csv`](#preamps) - site specific settings applied to individual datalogger pre-amplification that may impact overall sensitivities.
 
 * `cameras.csv` - Installed field cameras.
 * `doases.csv` - Installed field DOAS (Differential Optical Absorption Spectrometer) equipment.
@@ -223,9 +225,50 @@ A list of _datalogger_ sampling configurations for a given _station_ and recordi
 | _Start_ | Stream start time|
 | _Stop_ | Stream stop time|
 
-The band and source codes are representitives of the FDSN channel naming convention as found at:
+The band and source codes are representatives of the FDSN channel naming convention as found at:
 
 [FDSN Source Identifiers: Channel codes](http://docs.fdsn.org/projects/source-identifiers/en/v1.0/channel-codes.html)
+
+#### _POLARITIES_ ####
+
+Site specific times when the recorded values may have a reversed, or otherwise, polarity.
+This is often difficult to track with the known instrument responses and installation details as it can
+often be caused by in-field wiring or cabling changes from the expected standard.
+
+There is also the possibility that there may be conflicting information or studies, where this is
+the case the _Primary_ field can be used to indicate which one should be used for downstream processing.
+
+To reduce the number valid _Method_ entries these are defined as a set of "known" values, and an "unknown" one.
+Where possibly the code should be updated to add any standard polarity detection methods, there is also
+room to provide a reference citation for any associated studies.
+
+
+| Field | Description | Units |
+| --- | --- | --- |
+| _Station_ | Recording _Station_|
+| _Location_ | Recording location _Site_|
+| _Sublocation_ | Recording location _Sublocation_|
+| _Subsource_ | Recording location _Subsource_|
+| _Primary_ | Whether the entry takes precedence| _"yes"_, _"no"_, or blank.
+| _Reversed_ | Whether the stream in the time window should be considered reversed or not| _"yes"_ or _"no"_
+| _Method_ | How this information was obtained| _"study"_, _"compass"_, or _"unknown"_
+| _Citation_ | A reference citation for the method if appropriate| _"key"_
+| _Start_ | Time window start time|
+| _Stop_ | Time window stop time|
+
+Notes:
+
+- For the _Subsource_, this can either be individual entries (e.g., "Z", "N"), or multiple entries ("ZNE"), or it can be empty, which will be interpreted as all subsource values.
+(The subsource is the last character in the standard SEED channel naming convention, e.g. EHZ).
+
+- If a citation is given the actual reference information should be given in the _citations.csv_ file.
+
+- An empty, or blank, _Method_ is treated as _unknown_.
+
+Example:
+
+    Station,Location,Sublocation,Subsource,Primary,Reversed,Method,Citation,Start Date,End Date
+    WEL,10,,Z,,true,compass,,2022-07-28T01:59:00Z,9999-01-01T00:00:00Z
 
 #### _GAINS_ ####
  
@@ -240,10 +283,13 @@ For the scale factor and bias either a value can be given directly or an express
 | _Subsource_ | The sensor channel(s), as defined in the response configuration, which requires a gain adjustment, multiple subsource channels can be joined (e.g _"Z"_ or _"ZNE"_).
 | _Scale Factor_ | Scale, or gain factor, that the input signal is multiplied by prior to digitisation, or for polynomial responses it is the factor used to convert Volts into the signal units. If this field is empty, it should be assumed to have a value of __1.0__ which in theory should have no impact.
 | _Scale Bias_ | An offset value that needs to be added to the signal prior to digitisation and indicates a polynomial response is expected, if this field is blank it is assumed that the value is __0.0__.
+| _Absolute Bias_ | An offset value that needs to be added to the signal after the scale factors have been applied to the polynomial response, if this field is blank it is assumed that the value is __0.0__.
 | _Start_ | Gain start time|
 | _Stop_ | Gain stop time|
 
-For a second order polynomial response, the output is expected to be `Y = a * X + b` where `X` is normally the input voltage, and Y the corrected signal. The terms `a` and `b` are the factor and bias respectively. The gain adjustments (`a'`, `b'`) update this via `Y = (a * a') * X + (b + b')`
+For a second order polynomial response, the output is expected to be `Y = a * X + b` where `X` is normally the input voltage, and Y the corrected signal.
+The terms `a` and `b` are the factor and bias respectively. The gain adjustments (`a'`, `b'`, `c'`, the scale factor, scale bias, and absolute bias respectively)
+update this via `Y = (a * a') * X + (b * a') + (a * b') + c'`
 
 #### _CALIBRATIONS_ ####
  
@@ -274,18 +320,22 @@ Subsource is the general term used for labelling the sensor component and is usu
 Dip and Azimuth are used to indicate the relative position of the sensor component within the sensor package and will be used with the
 overall sensor installation values to provide component dips and azimuths.
 
-| Field       | Description | 
-| ----------- | ----------- |
-| _Make_      | Sensor make
-| _Model_     | Sensor model name
-| _Type_      | Sensor type
-| _Number_    | Sensor component offset
-| _Subsource_ | Sensor component label
-| _Dip_       | Internal dip of the compnent relative to whole sensor
-| _Azimuth_   | Internal azimuth of the compnent relative to whole sensor
-| _Types_     | A shorthand reference to the SEED type labels
-| _Response_  | A reference to the nominal StationXML response 
+For derived streams, such as a simple gain or unit conversion, can be indicated by providing an input sampling rate. This is matched by
+the equivalent _Stream_ and allows for the response to be generated with the provided reference response only.
 
+| Field           | Description |
+| --------------- | ----------- |
+| _Make_          | Sensor make
+| _Model_         | Sensor model name
+| _Type_          | Sensor type
+| _Number_        | Sensor component offset
+| _Source_        | Sensor source as used for the matching streams 
+| _Subsource_     | Sensor component label
+| _Dip_           | Internal dip of the component relative to whole sensor
+| _Azimuth_       | Internal azimuth of the component relative to whole sensor
+| _Types_         | A shorthand reference to the SEED type labels
+| _Sampling Rate_ | An input sampling rate which can be used to indicate a _derived_ stream
+| _Response_      | A reference to the nominal StationXML response
 
 #### _CHANNELS_ ####
 
@@ -302,6 +352,16 @@ and the expected response. Some digitisers have different nominal responses for 
 | _Sampling Rate_ | Configured Channel sampling rate
 | _Response_      | A reference to the nominal StationXML response 
 
+#### _PREAMPS_ ####
+
+| Field | Description | Units |
+| --- | --- | --- |
+| _Station_ | Datalogger recording _Station_|
+| _Location_ | Recording sensor site _Location_ |
+| _Subsource_ | The sensor channel _Subsource_ which has the preamp configured (e.g _"Z"_). An empty value indicates all channels have this setting for the provided _Location_.
+| _Scale Factor_ | The datalogger pre-amp scale factor used for this time span. These tend to be integer steps and may be referenced as **gain** settings.
+| _Start_ | Gain start time|
+| _Stop_ | Gain stop time|
 
 ### CAMERA ###
 

@@ -15,19 +15,24 @@ const (
 	MonumentsFile = "network/monuments.csv"
 	MountsFile    = "network/mounts.csv"
 	NetworksFile  = "network/networks.csv"
+	SamplesFile   = "network/samples.csv"
 	SitesFile     = "network/sites.csv"
 	StationsFile  = "network/stations.csv"
 	ViewsFile     = "network/views.csv"
 
 	AntennasFile     = "install/antennas.csv"
+	CalibrationsFile = "install/calibrations.csv"
 	CamerasFile      = "install/cameras.csv"
+	ChannelsFile     = "install/channels.csv"
+	ComponentsFile   = "install/components.csv"
 	ConnectionsFile  = "install/connections.csv"
 	DataloggersFile  = "install/dataloggers.csv"
 	DoasesFile       = "install/doases.csv"
 	FirmwareFile     = "install/firmware.csv"
 	GainsFile        = "install/gains.csv"
-	CalibrationsFile = "install/calibrations.csv"
 	MetsensorsFile   = "install/metsensors.csv"
+	PolaritiesFile   = "install/polarities.csv"
+	PreampsFile      = "install/preamps.csv"
 	RadomesFile      = "install/radomes.csv"
 	ReceiversFile    = "install/receivers.csv"
 	RecordersFile    = "install/recorders.csv"
@@ -38,12 +43,8 @@ const (
 	ConstituentsFile = "environment/constituents.csv"
 	FeaturesFile     = "environment/features.csv"
 	GaugesFile       = "environment/gauges.csv"
-	VisibilityFile   = "environment/visibility.csv"
 	PlacenamesFile   = "environment/placenames.csv"
-
-	ChannelsFile   = "install/channels.csv"
-	ComponentsFile = "install/components.csv"
-	CodenamesFile  = "install/codenames.csv"
+	VisibilityFile   = "environment/visibility.csv"
 
 	CitationsFile = "references/citations.csv"
 )
@@ -62,33 +63,38 @@ type Set struct {
 	monuments MonumentList
 	mounts    MountList
 	networks  NetworkList
+	samples   SampleList
 	sites     SiteList
 	stations  StationList
 	views     ViewList
 
 	installedAntennas   InstalledAntennaList
+	calibrations        CalibrationList
 	installedCameras    InstalledCameraList
+	channels            ChannelList
+	components          ComponentList
 	connections         ConnectionList
 	deployedDataloggers DeployedDataloggerList
 	doases              InstalledDoasList
 	firmwareHistory     FirmwareHistoryList
 	gains               GainList
-	calibrations        CalibrationList
 	installedMetSensors InstalledMetSensorList
+	polarities          PolarityList
+	preamps             PreampList
 	installedRadomes    InstalledRadomeList
-
-	installedSensors   InstalledSensorList
-	installedRecorders InstalledRecorderList
-	deployedReceivers  DeployedReceiverList
-	sessions           SessionList
-	streams            StreamList
+	deployedReceivers   DeployedReceiverList
+	installedRecorders  InstalledRecorderList
+	installedSensors    InstalledSensorList
+	sessions            SessionList
+	streams             StreamList
 
 	constituents ConstituentList
 	features     FeatureList
 	gauges       GaugeList
-	visibilities VisibilityList
 	placenames   PlacenameList
-	citations    CitationList
+	visibilities VisibilityList
+
+	citations CitationList
 }
 
 func (s *Set) files() map[string]List {
@@ -99,19 +105,24 @@ func (s *Set) files() map[string]List {
 		MonumentsFile: &s.monuments,
 		MountsFile:    &s.mounts,
 		NetworksFile:  &s.networks,
+		SamplesFile:   &s.samples,
 		SitesFile:     &s.sites,
 		StationsFile:  &s.stations,
 		ViewsFile:     &s.views,
 
 		AntennasFile:     &s.installedAntennas,
+		CalibrationsFile: &s.calibrations,
 		CamerasFile:      &s.installedCameras,
+		ChannelsFile:     &s.channels,
+		ComponentsFile:   &s.components,
 		ConnectionsFile:  &s.connections,
 		DataloggersFile:  &s.deployedDataloggers,
 		DoasesFile:       &s.doases,
 		FirmwareFile:     &s.firmwareHistory,
 		GainsFile:        &s.gains,
-		CalibrationsFile: &s.calibrations,
 		MetsensorsFile:   &s.installedMetSensors,
+		PolaritiesFile:   &s.polarities,
+		PreampsFile:      &s.preamps,
 		RadomesFile:      &s.installedRadomes,
 		ReceiversFile:    &s.deployedReceivers,
 		RecordersFile:    &s.installedRecorders,
@@ -122,9 +133,10 @@ func (s *Set) files() map[string]List {
 		ConstituentsFile: &s.constituents,
 		FeaturesFile:     &s.features,
 		GaugesFile:       &s.gauges,
-		VisibilityFile:   &s.visibilities,
 		PlacenamesFile:   &s.placenames,
-		CitationsFile:    &s.citations,
+		VisibilityFile:   &s.visibilities,
+
+		CitationsFile: &s.citations,
 	}
 }
 

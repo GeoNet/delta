@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentPolynomial name="DMI FGE Fluxgate">
+    <InputUnits>
+      <Name>nT</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+    <ApproximationType>MACLAURIN</ApproximationType>
+    <FrequencyLowerBound>0</FrequencyLowerBound>
+    <FrequencyUpperBound>0</FrequencyUpperBound>
+    <!-- <ApproximationLowerBound>0</ApproximationLowerBound> -->
+    <!-- <ApproximationUpperBound>20</ApproximationUpperBound> -->
+    <MaximumError>0</MaximumError>
+    <Coefficient number="0">0.0</Coefficient>
+    <Coefficient number="1">38000.0</Coefficient>
+  </InstrumentPolynomial>
+  <Stage number="1">
+    <Polynomial>
+      <InputUnits>
+        <Name>nT</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <ApproximationType>MACLAURIN</ApproximationType>
+      <FrequencyLowerBound>0</FrequencyLowerBound>
+      <FrequencyUpperBound>0</FrequencyUpperBound>
+      <!-- <ApproximationLowerBound>0</ApproximationLowerBound> -->
+      <!-- <ApproximationUpperBound>20</ApproximationUpperBound> -->
+      <MaximumError>0</MaximumError>
+      <Coefficient number="0">0.0</Coefficient>
+      <Coefficient number="1">38000.0</Coefficient>
+    </Polynomial>
+  </Stage>
+</Response>
