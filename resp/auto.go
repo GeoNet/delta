@@ -4934,7 +4934,7 @@ var Responses []Response = []Response{
 		Name: "Nanometrics Dataloggers Connected to Water Depth Sensors (Derived)",
 		Sensors: []Sensor{
 			{
-				SensorList: []string{"Druck PTX-1830"},
+				SensorList: []string{"Druck PTX-1830-LAND", "Druck PTX-1830"},
 				FilterList: []string{},
 				Stages:     []ResponseStage{},
 				Channels:   "H",
