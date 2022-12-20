@@ -91,6 +91,7 @@ Valid Monument Types are:
 * _Elevation_ - Height in meters of the _Site_ above the free surface for the given _Datum_.
 * _Depth_ - Depth of water in meters above the _Site_ if installed underwater.
 * _Datum_ - Geographical reference system used for the latitude, longitude & elevation.
+* _Survey_ - Method used to determine Geographical coordinates.
 * _Start Date_ - General date and time at which the _Site_ was operational.
 * _End Date_ - General date and time at which the _Site_ was no longer operational.
 
@@ -109,7 +110,7 @@ Valid Monument Types are:
 
 #### _VIEWS_ ####
 
-*  _Mount_ - Code used to uniquely identify a Camera _Mount_.
+* _Mount_ - Code used to uniquely identify a Camera _Mount_.
 * _View_ - Code used to uniquely identify a Camera _View_.
 * _Label_ - Feature the Camera is pointing to.
 * _Azimuth_ - Camera _View_ azimuth, measured in _degrees_ clockwise from north.
