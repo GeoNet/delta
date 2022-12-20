@@ -14,6 +14,7 @@ HA,NZ,Hydrophone Array,false
 HB,NZ,Hawke's Bay regional seismic network,false
 IG,LI,LINZ IGS CGPS Network,false
 KI,NZ,Kermadec Islands volcano seismic network,false
+LG,NZ,Lake tsunami gauge network,false
 LI,LI,The LINZ national CGPS network,false
 MC,MC,Manually collected volcano monitoring data,false
 NM,NZ,Nelson and Marlborough regional seismic network,false
