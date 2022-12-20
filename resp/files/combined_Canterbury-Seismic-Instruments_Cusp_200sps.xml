@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Response>
   <InstrumentSensitivity>
     <Value>1e+06</Value>
@@ -11,7 +11,7 @@
     </OutputUnits>
   </InstrumentSensitivity>
   <Stage number="1">
-    <Coefficients resourceId="Coefficients#CUSP-200" name="">
+    <Coefficients resourceId="Coefficients#CUSP-200">
       <InputUnits>
         <Name>V</Name>
       </InputUnits>
