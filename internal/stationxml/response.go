@@ -83,9 +83,7 @@ func NewResponse(opts ...ResponseOpt) *Response {
 		GainFactor:  1.0,
 		Preamp:      1.0,
 	}
-	for _, opt := range opts {
-		opt(&r)
-	}
+	r.Config(opts...)
 	return &r
 }
 
