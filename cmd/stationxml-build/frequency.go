@@ -4,32 +4,20 @@ import (
 	"strings"
 )
 
-func DefaultFrequency(code string) float64 {
+func Frequency(code string) float64 {
 	switch {
-	case strings.HasPrefix(code, "VH"):
+	case strings.HasPrefix(code, "V"):
 		return 0.05
-	case strings.HasPrefix(code, "VT"):
-		return 0.05
-	case strings.HasPrefix(code, "VD"):
-		return 0.05
-	case strings.HasPrefix(code, "LH"):
+	case strings.HasPrefix(code, "L"):
 		return 0.1
-	case strings.HasPrefix(code, "LT"):
-		return 0.1
-	case strings.HasPrefix(code, "LK"):
-		return 0.1
-	case strings.HasPrefix(code, "LD"):
-		return 0.1
-	case strings.HasPrefix(code, "BH"):
+	case strings.HasPrefix(code, "B"):
 		return 1.0
-	case strings.HasPrefix(code, "BN"):
+	case strings.HasPrefix(code, "H"):
 		return 1.0
-	case strings.HasPrefix(code, "BT"):
-		return 1.0
-	case strings.HasPrefix(code, "HN"):
-		return 1.0
-	case strings.HasPrefix(code, "HH"):
-		return 1.0
+	case strings.HasPrefix(code, "S"):
+		return 15.0
+	case strings.HasPrefix(code, "E"):
+		return 15.0
 	default:
 		return 15.0
 	}

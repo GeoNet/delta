@@ -62,7 +62,7 @@ func (b *Builder) DerivedResponseType(c meta.Collection) (*stationxml.ResponseTy
 	pair := stationxml.NewResponse(
 		stationxml.Prefix(b.Prefix(c)),
 		stationxml.Serial(c.InstalledSensor.Serial),
-		stationxml.Frequency(DefaultFrequency(c.Code())),
+		stationxml.Frequency(Frequency(c.Code())),
 	)
 
 	// find the derived response
@@ -85,7 +85,7 @@ func (b *Builder) PairedResponseType(c meta.Collection, v meta.Correction) (*sta
 	pair := stationxml.NewResponse(
 		stationxml.Prefix(b.Prefix(c)),
 		stationxml.Serial(c.InstalledSensor.Serial),
-		stationxml.Frequency(DefaultFrequency(c.Code())),
+		stationxml.Frequency(Frequency(c.Code())),
 	)
 
 	// adjust for corrections
