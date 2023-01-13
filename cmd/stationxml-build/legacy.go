@@ -4,35 +4,6 @@ import (
 	"strings"
 )
 
-func LegacyPrivate(code string) bool {
-	switch code {
-	case "AVIS":
-		return true
-	default:
-		return false
-	}
-}
-
-func LegacyStorageFormat(datalogger string) string {
-	switch {
-	case strings.HasPrefix(datalogger, "Centaur"):
-		return "Steim1"
-	case strings.HasPrefix(datalogger, "Titan"):
-		return "Steim1"
-	default:
-		return "Steim2"
-	}
-}
-
-func LegacyDescription(datalogger string) string {
-	switch {
-	case strings.HasPrefix(datalogger, "Q330"):
-		return "Q330"
-	default:
-		return datalogger
-	}
-}
-
 func LegacyFrequency(code string) float64 {
 	switch {
 	case strings.HasPrefix(code, "VH"):
