@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/delta/resp"
@@ -12,14 +13,14 @@ import (
 // Builder is a cache of response files.
 type Builder struct {
 	lookup string
-
-	resps map[string][]byte
+	freqs  map[string]float64
+	resps  map[string][]byte
 }
 
-// NewBuilder returns a Builder pointer for the given base, an empty base will assume the internal files.
-func NewBuilder(lookup string) *Builder {
+func NewBuilder(lookup string, freqs map[string]float64) *Builder {
 	return &Builder{
 		lookup: lookup,
+		freqs:  freqs,
 		resps:  make(map[string][]byte),
 	}
 }
@@ -36,6 +37,25 @@ func (b *Builder) Lookup(key string) ([]byte, error) {
 	b.resps[key] = data
 
 	return data, nil
+}
+
+// Frequency selects the longest matching response frequency.
+func (b *Builder) Frequency(code string) float64 {
+	var match int
+	// default frequency
+	freq := 15.0
+	for k, v := range b.freqs {
+		if len(k) < match {
+			continue
+		}
+		if !strings.HasPrefix(code, k) {
+			continue
+		}
+		freq = v
+		match = len(k)
+	}
+
+	return freq
 }
 
 // Response returns a stationxml ResponseType based on whether the Component has a sampling rate or not.
@@ -62,7 +82,7 @@ func (b *Builder) DerivedResponseType(c meta.Collection) (*stationxml.ResponseTy
 	pair := stationxml.NewResponse(
 		stationxml.Prefix(b.Prefix(c)),
 		stationxml.Serial(c.InstalledSensor.Serial),
-		stationxml.Frequency(Frequency(c.Code())),
+		stationxml.Frequency(b.Frequency(c.Code())),
 	)
 
 	// find the derived response
@@ -85,7 +105,7 @@ func (b *Builder) PairedResponseType(c meta.Collection, v meta.Correction) (*sta
 	pair := stationxml.NewResponse(
 		stationxml.Prefix(b.Prefix(c)),
 		stationxml.Serial(c.InstalledSensor.Serial),
-		stationxml.Frequency(Frequency(c.Code())),
+		stationxml.Frequency(b.Frequency(c.Code())),
 	)
 
 	// adjust for corrections
