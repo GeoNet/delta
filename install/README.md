@@ -377,6 +377,19 @@ telephone line, or an FM radio link. This table allows this to be documented, an
 | _Start_ | Telemetry start time|
 | _Stop_ | Telemetry stop time|
 
+#### _TELEMETRIES_ ####
+
+Sometimes the datalogger and the sensor are not at the same location. Usually this means there is some form of analogue link between the two, either a dedicated
+telephone line, or an FM radio link. This table allows this to be documented, and provides a mechanism to adjust the signal gains if known.
+
+| Field | Description | Units |
+| --- | --- | --- |
+| _Station_ | Datalogger recording _Station_|
+| _Location_ | Recording sensor site _Location_ |
+| _Gain_ | The telemetry gain factor for the analogue link, this represents the amplification of the signal if appropriate, an empty value is assumed to be 1.0
+| _Start_ | Gain start time|
+| _Stop_ | Gain stop time|
+
 ### CAMERA ###
 
 #### _CAMERAS_ ####

@@ -23,6 +23,7 @@ type Response struct {
 	GainFactor   float64
 	GainBias     float64
 	GainAbsolute float64
+	Telemetry    float64
 	Preamp       float64
 
 	sensor     *ResponseType
@@ -69,6 +70,13 @@ func Gain(factor, bias, absolute float64) ResponseOpt {
 	}
 }
 
+// Telemetry is used to adjusts the sensor and datalogger connection gain, this is in addition to the default values.
+func Telemetry(gain float64) ResponseOpt {
+	return func(r *Response) {
+		r.Telemetry = gain
+	}
+}
+
 // Preamp is used to adjusts the datalogger gains, this is in addition to the default values.
 func Preamp(preamp float64) ResponseOpt {
 	return func(r *Response) {
@@ -81,7 +89,6 @@ func NewResponse(opts ...ResponseOpt) *Response {
 	r := Response{
 		ScaleFactor: 1.0,
 		GainFactor:  1.0,
-		Preamp:      1.0,
 	}
 	r.Config(opts...)
 	return &r
@@ -122,6 +129,11 @@ func (r *Response) SetGain(scale, bias, absolute float64) {
 // SetPreamp is used to adjusts the datalogger gains, this is in addition to the default values.
 func (r *Response) SetPreamp(preamp float64) {
 	Preamp(preamp)(r)
+}
+
+// SetTelemetry is used to adjusts the datalogger gains, this is in addition to the default values.
+func (r *Response) SetTelemetry(gain float64) {
+	Telemetry(gain)(r)
 }
 
 // Polynomial finds the PolynomialType in the Response if one is present.
@@ -249,11 +261,31 @@ func (r *Response) SetDatalogger(data []byte) error {
 		return nil
 	}
 
-	// a preamp has been given, prepend an appropriate stage
-	if r.Preamp != 1.0 && r.Preamp != 0.0 {
+	// a telemetry gain has been given, prepend an appropriate stage
+	if r.Telemetry != 0.0 {
 		datalogger.Stages = append([]ResponseStageType{{
 			//TODO: technically the poles and zeros are not required, but kept to allow acceptance checks
 			PolesZeros: &PolesZerosType{
+				ResourceId:             "PolesZeros#Telemetry",
+				InputUnits:             datalogger.InstrumentSensitivity.InputUnits,
+				OutputUnits:            datalogger.InstrumentSensitivity.InputUnits,
+				PzTransferFunctionType: LaplaceRadiansSecondPzTransferFunction,
+				NormalizationFactor:    1.0,
+				NormalizationFrequency: r.Frequency,
+			},
+			StageGain: &StageGain{
+				Value:     r.Telemetry,
+				Frequency: r.Frequency,
+			},
+		}}, datalogger.Stages...)
+	}
+
+	// a preamp has been given, prepend an appropriate stage
+	if r.Preamp != 0.0 {
+		datalogger.Stages = append([]ResponseStageType{{
+			//TODO: technically the poles and zeros are not required, but kept to allow acceptance checks
+			PolesZeros: &PolesZerosType{
+				ResourceId:             "PolesZeros#Preamp",
 				InputUnits:             datalogger.InstrumentSensitivity.InputUnits,
 				OutputUnits:            datalogger.InstrumentSensitivity.InputUnits,
 				PzTransferFunctionType: LaplaceRadiansSecondPzTransferFunction,
