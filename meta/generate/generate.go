@@ -63,7 +63,7 @@ func (g Generate) Write(w io.Writer) error {
 
 	t, err := template.New("generate").Funcs(
 		template.FuncMap{
-			"title": func(s string) string { return cases.Title(language.English).String(s) },
+			"title": func(s string) string { return cases.Title(language.English, cases.NoLower).String(s) },
 			"join":  func(k string, s []string) string { return strings.Join(s, k) },
 		},
 	).Parse(generateTemplate)

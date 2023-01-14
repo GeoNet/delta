@@ -234,6 +234,13 @@ func (s Set) Streams() []Stream {
 	return streams
 }
 
+// Telemetries is a helper function to return a slice copy of Telemetry values.
+func (s Set) Telemetries() []Telemetry {
+	telemetries := make([]Telemetry, len(s.telemetries))
+	copy(telemetries, s.telemetries)
+	return telemetries
+}
+
 // Views is a helper function to return a slice copy of View values.
 func (s Set) Views() []View {
 	views := make([]View, len(s.views))
