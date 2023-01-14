@@ -24,6 +24,7 @@ Meta information for the GeoNet equipment network.
 * `components.csv` - Individual sensor elements including measurement position and responses.
 * `channels.csv` - Individual datalogger recording elements including digitiser position, sampling rate, and responses.
 * [`preamps.csv`](#preamps) - site specific settings applied to individual datalogger pre-amplification that may impact overall sensitivities.
+* [`telemetries.csv`](#telemetries) - site specific settings applied to datalogger and sensor connections that may use analogue telemetry.
 
 * `cameras.csv` - Installed field cameras.
 * `doases.csv` - Installed field DOAS (Differential Optical Absorption Spectrometer) equipment.
@@ -360,6 +361,19 @@ and the expected response. Some digitisers have different nominal responses for 
 | _Location_ | Recording sensor site _Location_ |
 | _Subsource_ | The sensor channel _Subsource_ which has the preamp configured (e.g _"Z"_). An empty value indicates all channels have this setting for the provided _Location_.
 | _Scale Factor_ | The datalogger pre-amp scale factor used for this time span. These tend to be integer steps and may be referenced as **gain** settings.
+| _Start_ | Gain start time|
+| _Stop_ | Gain stop time|
+
+#### _TELEMETRIES_ ####
+
+Sometimes the datalogger and the sensor are not at the same location. Usually this means there is some form of analogue link between the two, either a dedicated
+telephone line, or an FM radio link. This table allows this to be documented, and provides a mechanism to adjust the signal gains if known.
+
+| Field | Description | Units |
+| --- | --- | --- |
+| _Station_ | Datalogger recording _Station_|
+| _Location_ | Recording sensor site _Location_ |
+| _Gain_ | The telemetry gain factor for the analogue link, this represents the amplification of the signal if appropriate, an empty value is assumed to be 1.0
 | _Start_ | Gain start time|
 | _Stop_ | Gain stop time|
 

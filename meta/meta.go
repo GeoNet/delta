@@ -10,6 +10,11 @@ import (
 // and that times are in UTC.
 const DateTimeFormat = "2006-01-02T15:04:05Z"
 
+// Format outputs a Time using the DateTimeFormat format.
+func Format(t time.Time) string {
+	return t.Format(DateTimeFormat)
+}
+
 // Reference describes a location where measurements can be taken.
 type Reference struct {
 	// Code is used to identify the measurement location.
