@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 
 	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/delta/resp"
@@ -13,11 +12,11 @@ import (
 // Builder is a cache of response files.
 type Builder struct {
 	lookup string
-	freqs  map[string]float64
+	freqs  Frequencies
 	resps  map[string][]byte
 }
 
-func NewBuilder(lookup string, freqs map[string]float64) *Builder {
+func NewBuilder(lookup string, freqs Frequencies) *Builder {
 	return &Builder{
 		lookup: lookup,
 		freqs:  freqs,
@@ -41,21 +40,12 @@ func (b *Builder) Lookup(key string) ([]byte, error) {
 
 // Frequency selects the longest matching response frequency.
 func (b *Builder) Frequency(code string) float64 {
-	var match int
-	// default frequency
-	freq := 15.0
-	for k, v := range b.freqs {
-		if len(k) < match {
-			continue
-		}
-		if !strings.HasPrefix(code, k) {
-			continue
-		}
-		freq = v
-		match = len(k)
+
+	if v, ok := b.freqs.Find(code); ok {
+		return v
 	}
 
-	return freq
+	return 15.0
 }
 
 // Response returns a stationxml ResponseType based on whether the Component has a sampling rate or not.

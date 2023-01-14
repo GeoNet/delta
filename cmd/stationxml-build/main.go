@@ -8,7 +8,6 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"strconv"
 	"strings"
 	"text/template"
 
@@ -35,7 +34,8 @@ func redacted(contents []byte) []byte {
 	return created.ReplaceAll(contents, []byte("<Created>xxxxxxxxxx</Created>"))
 }
 
-var freqs = map[string]float64{
+// default response frequency values
+var freqs Frequencies = map[string]float64{
 	"V": 0.05,
 	"L": 0.1,
 	"B": 1.0,
@@ -124,21 +124,12 @@ func main() {
 	var ignore string
 	flag.StringVar(&ignore, "ignore", "", "list of stations to skip")
 
-	//flag.StringVar(&base, "base", "", "base of delta files on disk")
-	flag.Func("freq", "channel response frequency (e.g B=1.0)", func(s string) error {
-		parts := strings.Split(s, "=")
-		if n := len(parts); n < 1 || n > 2 {
-			return fmt.Errorf("frequency error %s: too few or too many elements (either \"1.0\" or \"A=1.0\")", s)
-		}
-		f, err := strconv.ParseFloat(parts[len(parts)-1], 64)
+	flag.Func("freq", "response frequency (e.g B:1.0)", func(s string) error {
+		freq, err := NewFrequency(s)
 		if err != nil {
-			return fmt.Errorf("unable to parse float: %s", parts[len(parts)-1])
+			return err
 		}
-		var c string
-		if len(parts) > 1 {
-			c = strings.TrimSpace(parts[0])
-		}
-		freqs[c] = f
+		freqs.Set(freq.Prefix, freq.Value)
 		return nil
 	})
 
