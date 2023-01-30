@@ -170,6 +170,11 @@ func (s Set) Preamps() []Preamp {
 	return s.preamps
 }
 
+// Qualities is a helper function to return a slice of Quality values.
+func (s Set) Qualities() []Quality {
+	return s.qualities
+}
+
 // Samples is a helper function to return a slice of Sample values.
 func (s Set) Samples() []Sample {
 	return s.samples

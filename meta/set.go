@@ -35,6 +35,7 @@ const (
 	MetsensorsFile   = "install/metsensors.csv"
 	PolaritiesFile   = "install/polarities.csv"
 	PreampsFile      = "install/preamps.csv"
+	QualitiesFile    = "install/qualities.csv"
 	RadomesFile      = "install/radomes.csv"
 	ReceiversFile    = "install/receivers.csv"
 	RecordersFile    = "install/recorders.csv"
@@ -98,6 +99,7 @@ type Set struct {
 	streams             StreamList
 	telemetries         TelemetryList
 	timings             TimingList
+	qualities           QualityList
 
 	classes      ClassList
 	constituents ConstituentList
@@ -139,6 +141,7 @@ func (s *Set) files() map[string]List {
 		MetsensorsFile:   &s.installedMetSensors,
 		PolaritiesFile:   &s.polarities,
 		PreampsFile:      &s.preamps,
+		QualitiesFile:    &s.qualities,
 		RadomesFile:      &s.installedRadomes,
 		ReceiversFile:    &s.deployedReceivers,
 		RecordersFile:    &s.installedRecorders,

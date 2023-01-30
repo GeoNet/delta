@@ -43,6 +43,7 @@ func main() {
 			"points":              {"Point"},
 			"polarities":          {"Polarity"},
 			"preamps":             {"Preamp"},
+			"qualities":           {"Quality"},
 			"samples":             {"Sample"},
 			"sessions":            {"Session"},
 			"sites":               {"Site"},

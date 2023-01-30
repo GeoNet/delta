@@ -26,6 +26,7 @@ Meta information for the GeoNet equipment network.
 * [`preamps.csv`](#preamps) - site specific settings applied to individual datalogger pre-amplification that may impact overall sensitivities.
 * [`telemetries.csv`](#telemetries) - site specific settings applied to datalogger and sensor connections that may use analogue telemetry.
 * [`timings.csv`](#timings) - site specific settings to indicate time corrections that may need to be applied to archived raw data.
+* [`quality.csv`](#quality) - site specific settings indicating the quality and usefulness of the recorded data.
 
 * `cameras.csv` - Installed field cameras.
 * `doases.csv` - Installed field DOAS (Differential Optical Absorption Spectrometer) equipment.
@@ -378,6 +379,19 @@ telephone line, or an FM radio link. This table allows this to be documented, an
 | _Scale Factor_ | The telemetry gain factor for the analogue link, this represents the amplification of the signal if appropriate, an empty value is assumed to be 1.0
 | _Start_ | Telemetry start time|
 | _Stop_ | Telemetry stop time|
+
+#### _QUALITIES_ ####
+
+Sometimes the datalogger will record faulty data, possibility due to a sensor fault. This table is a mechanism to indicate and quality issues related to the
+recorded data which cannot be identified from the data itself.
+
+| Field | Description | Units |
+| --- | --- | --- |
+| _Station_ | Datalogger recording _Station_|
+| _Location_ | Recording sensor site _Location_ |
+| _Fault_ | An indication that the data should not be used for processing (An empty entry will default to __false__)
+| _Start_ | Quality start time|
+| _Stop_ | Quality stop time|
 
 ### CAMERA ###
 
