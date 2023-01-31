@@ -11,6 +11,7 @@ type Correction struct {
 	Polarity              *Polarity
 	Gain                  *Gain
 	Preamp                *Preamp
+	Telemetry             *Telemetry
 	SensorCalibration     *Calibration
 	DataloggerCalibration *Calibration
 }
@@ -37,26 +38,34 @@ func (set *Set) Corrections(coll Collection) []Correction {
 					continue
 				}
 
-				for _, sensor := range set.SensorCalibrationCorrections(coll) {
-					span, ok := span.Extent(sensor.Span)
+				for _, telemetry := range set.TelemetryCorrections(coll) {
+					span, ok := span.Extent(telemetry.Span)
 					if !ok {
 						continue
 					}
 
-					for _, datalogger := range set.DataloggerCalibrationCorrections(coll) {
-						span, ok := span.Extent(datalogger.Span)
+					for _, sensor := range set.SensorCalibrationCorrections(coll) {
+						span, ok := span.Extent(sensor.Span)
 						if !ok {
 							continue
 						}
 
-						corrections = append(corrections, Correction{
-							Span:                  span,
-							Polarity:              polarity.Polarity,
-							Gain:                  gain.Gain,
-							Preamp:                preamp.Preamp,
-							SensorCalibration:     sensor.SensorCalibration,
-							DataloggerCalibration: datalogger.DataloggerCalibration,
-						})
+						for _, datalogger := range set.DataloggerCalibrationCorrections(coll) {
+							span, ok := span.Extent(datalogger.Span)
+							if !ok {
+								continue
+							}
+
+							corrections = append(corrections, Correction{
+								Span:                  span,
+								Polarity:              polarity.Polarity,
+								Gain:                  gain.Gain,
+								Preamp:                preamp.Preamp,
+								Telemetry:             telemetry.Telemetry,
+								SensorCalibration:     sensor.SensorCalibration,
+								DataloggerCalibration: datalogger.DataloggerCalibration,
+							})
+						}
 					}
 				}
 			}
@@ -440,6 +449,78 @@ func (s *Set) PreampCorrections(coll Collection) []Correction {
 
 	// check after the last gain
 	if v := preamps[len(preamps)-1]; v.End.Before(coll.Span.End) {
+		res = append(res, Correction{
+			Span: Span{
+				Start: v.End,
+				End:   coll.Span.End,
+			},
+		})
+	}
+
+	return res
+}
+
+// TelemetryCorrections returns a slice of Correction values to account for any changes in Preamp settings.
+func (s *Set) TelemetryCorrections(coll Collection) []Correction {
+
+	var telemetries []Telemetry
+	for _, t := range s.Telemetries() {
+		if t.Station != coll.Stream.Station {
+			continue
+		}
+		if t.Location != coll.Stream.Location {
+			continue
+		}
+		if !coll.Span.Overlaps(t.Span) {
+			continue
+		}
+		telemetries = append(telemetries, t)
+	}
+	sort.Slice(telemetries, func(i, j int) bool {
+		return telemetries[i].Span.Start.Before(telemetries[j].Span.Start)
+	})
+
+	// no telemetries found return an empty span
+	if !(len(telemetries) > 0) {
+		return []Correction{{Span: coll.Span}}
+	}
+
+	var res []Correction
+
+	// check prior to the first preamp
+	if v := telemetries[0]; v.Start.After(coll.Span.Start) {
+		res = append(res, Correction{
+			Span: Span{
+				Start: coll.Span.Start,
+				End:   v.Start,
+			},
+		})
+	}
+
+	// first telemetry
+	res = append(res, Correction{
+		Span:      telemetries[0].Span,
+		Telemetry: &telemetries[0],
+	})
+
+	// subsequent telemetries, checking for gaps
+	for i := 1; i < len(telemetries); i++ {
+		if telemetries[i].Start.After(telemetries[i-1].End) {
+			res = append(res, Correction{
+				Span: Span{
+					Start: telemetries[i-1].End,
+					End:   telemetries[i].Start,
+				},
+			})
+		}
+		res = append(res, Correction{
+			Span:      telemetries[i].Span,
+			Telemetry: &telemetries[i],
+		})
+	}
+
+	// check after the last telemetry
+	if v := telemetries[len(telemetries)-1]; v.End.Before(coll.Span.End) {
 		res = append(res, Correction{
 			Span: Span{
 				Start: v.End,
