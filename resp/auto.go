@@ -673,10 +673,10 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"Titan Borehole TACCL-BH1": {
-		Name:         "Titan Borehole TACCL-BH1",
+	"Titan TACCL-BH1": {
+		Name:         "Titan TACCL-BH1",
 		Type:         "Accelerometer",
-		Description:  "Titan Borehole Accelerometer",
+		Description:  "Titan",
 		Manufacturer: "Nanometrics Inc.",
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
@@ -4660,7 +4660,7 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, {
-				SensorList: []string{"Titan Borehole TACCL-BH1"},
+				SensorList: []string{"Titan TACCL-BH1"},
 				FilterList: []string{"TITAN-4G"},
 				Stages: []ResponseStage{
 					{
