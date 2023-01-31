@@ -15,8 +15,8 @@ func TestTelemetry(t *testing.T) {
 				Start: time.Date(2004, 12, 3, 22, 0, 0, 0, time.UTC),
 				End:   time.Date(2004, 12, 14, 19, 0, 0, 0, time.UTC),
 			},
-			Gain: 1.0,
-			gain: "",
+			ScaleFactor: 1.0,
+			factor:      "",
 		},
 	}))
 }
