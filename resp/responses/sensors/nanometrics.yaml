@@ -120,9 +120,9 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
-  Titan Borehole TACCL-BH1:
+  Titan TACCL-BH1:
     type: Accelerometer
-    description: Titan Borehole Accelerometer
+    description: Titan
     manufacturer: "Nanometrics Inc."
     vendor: ""
     components:

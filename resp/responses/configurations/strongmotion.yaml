@@ -370,7 +370,7 @@ response:
       channels: ZNE
       reversed: false
     - sensors:
-      - Titan Borehole TACCL-BH1
+      - Titan TACCL-BH1
       filters:
       - TITAN-4G
       channels: Z12
