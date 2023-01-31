@@ -11,29 +11,29 @@ import (
 const (
 	telemetryStation = iota
 	telemetryLocation
-	telemetryGain
+	telemetryScaleFactor
 	telemetryStart
 	telemetryEnd
 	telemetryLast
 )
 
 var telemetryHeaders Header = map[string]int{
-	"Station":    telemetryStation,
-	"Location":   telemetryLocation,
-	"Gain":       telemetryGain,
-	"Start Date": telemetryStart,
-	"End Date":   telemetryEnd,
+	"Station":      telemetryStation,
+	"Location":     telemetryLocation,
+	"Scale Factor": telemetryScaleFactor,
+	"Start Date":   telemetryStart,
+	"End Date":     telemetryEnd,
 }
 
 // Telemetry describes when a datalogger is connected to a sensor via analogue telemetry (e.g. FM radio).
 type Telemetry struct {
 	Span
 
-	Station  string
-	Location string
-	Gain     float64
+	Station     string
+	Location    string
+	ScaleFactor float64
 
-	gain string
+	factor string
 }
 
 // String implements the Stringer interface.
@@ -78,7 +78,7 @@ func (t TelemetryList) encode() [][]string {
 		data = append(data, []string{
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.gain),
+			strings.TrimSpace(v.factor),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -110,7 +110,7 @@ func (t *TelemetryList) decode(data [][]string) error {
 	for _, v := range data[1:] {
 		d := fields.Remap(v)
 
-		gain, err := t.toFloat64(d[telemetryGain], 1.0)
+		factor, err := t.toFloat64(d[telemetryScaleFactor], 1.0)
 		if err != nil {
 			return err
 		}
@@ -130,11 +130,11 @@ func (t *TelemetryList) decode(data [][]string) error {
 				Start: start,
 				End:   end,
 			},
-			Gain:     gain,
-			Station:  strings.TrimSpace(d[telemetryStation]),
-			Location: strings.TrimSpace(d[telemetryLocation]),
+			ScaleFactor: factor,
+			Station:     strings.TrimSpace(d[telemetryStation]),
+			Location:    strings.TrimSpace(d[telemetryLocation]),
 
-			gain: strings.TrimSpace(d[telemetryGain]),
+			factor: strings.TrimSpace(d[telemetryScaleFactor]),
 		})
 	}
 

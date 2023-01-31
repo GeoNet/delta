@@ -33,7 +33,7 @@ var telemetryChecks = map[string]func(*meta.Set) func(t *testing.T){
 	"check for zero gain telemetries": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			for _, v := range set.Telemetries() {
-				if v.Gain != 0.0 {
+				if v.ScaleFactor != 0.0 {
 					continue
 				}
 				t.Errorf("error: telemetry with zero gain for %q", v.String())
