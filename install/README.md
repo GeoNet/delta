@@ -361,8 +361,8 @@ and the expected response. Some digitisers have different nominal responses for 
 | _Location_ | Recording sensor site _Location_ |
 | _Subsource_ | The sensor channel _Subsource_ which has the preamp configured (e.g _"Z"_). An empty value indicates all channels have this setting for the provided _Location_.
 | _Scale Factor_ | The datalogger pre-amp scale factor used for this time span. These tend to be integer steps and may be referenced as **gain** settings.
-| _Start_ | Gain start time|
-| _Stop_ | Gain stop time|
+| _Start_ | Preamp start time|
+| _Stop_ | Preamp stop time|
 
 #### _TELEMETRIES_ ####
 
@@ -373,9 +373,9 @@ telephone line, or an FM radio link. This table allows this to be documented, an
 | --- | --- | --- |
 | _Station_ | Datalogger recording _Station_|
 | _Location_ | Recording sensor site _Location_ |
-| _Gain_ | The telemetry gain factor for the analogue link, this represents the amplification of the signal if appropriate, an empty value is assumed to be 1.0
-| _Start_ | Gain start time|
-| _Stop_ | Gain stop time|
+| _Scale Factor_ | The telemetry gain factor for the analogue link, this represents the amplification of the signal if appropriate, an empty value is assumed to be 1.0
+| _Start_ | Telemetry start time|
+| _Stop_ | Telemetry stop time|
 
 ### CAMERA ###
 
