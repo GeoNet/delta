@@ -20,7 +20,7 @@ Campbell Scientific,CR6,15369,Tongariro Lower Emerald Spring,,2021-05-07T00:00:0
 Campbell Scientific,CR6,15370,Fox Glacier Kea Point,,2021-08-04T00:00:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,15371,Fox Glacier Victoria Falls,,2021-11-24T11:50:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,17444,Upper Tama Lake,,2022-03-30T20:40:00Z,9999-01-01T00:00:00Z
-Campbell Scientific,CR6,17445,Raoul Green Lake,,2023-01-30T02:59:59Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,17445,Raoul Island Green Lake,Envirosensor,2023-01-30T02:59:59Z,9999-01-01T00:00:00Z
 GNS Science,EARSS/16,204,Taranaki Emergency Management Office,EARSS Network,1993-12-14T23:51:00Z,2002-09-18T21:00:00Z
 GNS Science,EARSS/16,207,Chateau Observatory,EARSS Network,1993-11-12T03:00:00Z,1998-06-11T09:00:00Z
 GNS Science,EARSS/16,209,Wellington Dominion Observatory,EARSS Network,1995-03-10T23:59:00Z,1998-01-27T01:00:00Z
@@ -760,7 +760,7 @@ Kinemetrics,Q330S/6,5438,South Ngauruhoe,,2015-03-27T01:00:01Z,9999-01-01T00:00:
 Kinemetrics,Q330S/6,5439,Kahui Hut,,2014-10-14T04:00:01Z,2022-06-11T05:44:00Z
 Kinemetrics,Q330S/6,5440,Palmer Road,,2014-05-14T00:00:01Z,2016-08-10T03:00:00Z
 Kinemetrics,Q330S/6,5440,The Sugar Loaf Quarry,,2017-03-14T21:20:01Z,2018-12-11T21:00:00Z
-Kinemetrics,Q330S/6,5440,Raoul Island Green Lake,,2021-10-24T21:28:00Z,9999-01-01T00:00:00Z
+Kinemetrics,Q330S/6,5440,Raoul Island Green Lake,Broadband,2021-10-24T21:28:00Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330S/6,5441,North Ngauruhoe,,2015-03-27T00:00:01Z,2022-12-20T05:15:00Z
 Kinemetrics,Q330S/6,5442,Earnscleugh,,2014-11-04T00:00:01Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330S/6,5572,Kekerengu Valley Road,,2016-12-01T00:00:01Z,2018-01-14T20:26:00Z
