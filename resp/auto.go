@@ -33,6 +33,13 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Manufacturer: "SAIC",
 		Vendor:       "",
 	},
+	"CUSP-Me": {
+		Name:         "CUSP-Me",
+		Type:         "Strong Motion Recorder",
+		Description:  "CUSP-Me",
+		Manufacturer: "Canterbury Seismic Instruments",
+		Vendor:       "",
+	},
 	"CUSP3A": {
 		Name:         "CUSP3A",
 		Type:         "Strong Motion Recorder",
@@ -65,6 +72,13 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Name:         "CUSP3D",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3D",
+		Manufacturer: "Canterbury Seismic Instruments",
+		Vendor:       "",
+	},
+	"CUSPM": {
+		Name:         "CUSPM",
+		Type:         "Strong Motion Recorder",
+		Description:  "CUSPM",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 	},
@@ -331,6 +345,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
+	"CUSP-Me": {
+		Name:         "CUSP-Me",
+		Type:         "Strong Motion Sensor",
+		Description:  "CUSP-Me",
+		Manufacturer: "Canterbury Seismic Instruments",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
+	},
 	"CUSP-Me SENSOR": {
 		Name:         "CUSP-Me SENSOR",
 		Type:         "Building Array Sensor",
@@ -399,6 +421,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Name:         "CUSP3D",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3D",
+		Manufacturer: "Canterbury Seismic Instruments",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
+	},
+	"CUSPM": {
+		Name:         "CUSPM",
+		Type:         "Strong Motion Sensor",
+		Description:  "CUSPM",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
@@ -768,7 +798,7 @@ var Responses []Response = []Response{
 				Channels: "21Z",
 				Reversed: false,
 			}, {
-				SensorList: []string{"CUSP3C"},
+				SensorList: []string{"CUSP3C", "CUSPM", "CUSP-Me"},
 				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
 					{
@@ -909,7 +939,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, {
-				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3"},
+				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3", "CUSPM", "CUSP-Me"},
 				Type:           "TG",
 				Label:          "HN",
 				SampleRate:     200,
@@ -939,7 +969,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, {
-				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3"},
+				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3", "CUSPM"},
 				Type:           "CG",
 				Label:          "BN",
 				SampleRate:     50,

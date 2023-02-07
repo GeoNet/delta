@@ -268,6 +268,8 @@ response:
       reversed: false
     - sensors:
       - CUSP3C
+      - CUSPM
+      - CUSP-Me
       filters:
       - CUSP SENSOR
       channels: 21Z
@@ -307,6 +309,8 @@ response:
       - CUSP3D
       - CUSP3C
       - CUSP3C3
+      - CUSPM
+      - CUSP-Me
       type: TG
       label: HN
       samplerate: 200
@@ -320,6 +324,7 @@ response:
       - CUSP3D
       - CUSP3C
       - CUSP3C3
+      - CUSPM
       type: CG
       label: BN
       samplerate: 50

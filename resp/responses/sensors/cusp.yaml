@@ -60,6 +60,30 @@ sensor-model:
       dip: 0
     - azimuth: 0
       dip: -90
+  CUSPM:
+    type: Strong Motion Sensor
+    description: CUSPM
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
+  CUSP-Me:
+    type: Strong Motion Sensor
+    description: CUSP-Me
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
   CUSP3C SENSOR:
     type: Strong Motion Sensor
     description: CUSP 3C
