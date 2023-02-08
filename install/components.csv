@@ -21,6 +21,9 @@ CSI,CUSP3D,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instrumen
 CSI,CUSPM,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
 CSI,CUSPM,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
 CSI,CUSPM,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
+CSI,CUSP-Me,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
+CSI,CUSP-Me,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
+CSI,CUSP-Me,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
 CSI,EQR120,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_EQR120
 CSI,EQR120,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_EQR120
 CSI,EQR120,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_EQR120

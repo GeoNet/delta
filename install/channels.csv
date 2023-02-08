@@ -10,6 +10,10 @@ CSI,CUSP3C3,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments
 CSI,CUSP3C3,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3C3_25bits_200sps
 CSI,CUSP3D,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_50sps
 CSI,CUSP3D,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_200sps
+CSI,CUSPM,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_50sps
+CSI,CUSPM,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_200sps
+CSI,CUSP-Me,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_50sps
+CSI,CUSP-Me,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_200sps
 CSI,EQR120,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_EQR120_25bits_200sps
 GNS Science,EARSS/3,Datalogger,,50,datalogger_GNS-Science_Earss_22bits_50sps
 GNS Science,EARSS/3,Datalogger,,100,datalogger_GNS-Science_Earss_22bits_100sps
