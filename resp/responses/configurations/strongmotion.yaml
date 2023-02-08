@@ -325,6 +325,7 @@ response:
       - CUSP3C
       - CUSP3C3
       - CUSPM
+      - CUSP-Me
       type: CG
       label: BN
       samplerate: 50
