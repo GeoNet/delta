@@ -969,7 +969,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, {
-				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3", "CUSPM"},
+				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3", "CUSPM", "CUSP-Me"},
 				Type:           "CG",
 				Label:          "BN",
 				SampleRate:     50,
