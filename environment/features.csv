@@ -62,6 +62,8 @@ FOXKP,04,01,displacement,crack,upper site south,2021-11-24T03:50:00Z,9999-01-01T
 FOXKP,04,01,temperature,wire,upper site south,2021-11-24T03:50:00Z,9999-01-01T00:00:00Z
 FOXKP,05,01,displacement,crack,lower site graben south,2022-01-26T01:50:00Z,9999-01-01T00:00:00Z
 FOXKP,05,01,temperature,wire,lower site graben south,2022-01-26T01:50:00Z,9999-01-01T00:00:00Z
+FOXKP,06,01,displacement,crack,upper site western face west,2023-02-08T01:00:00Z,9999-01-01T00:00:00Z
+FOXKP,06,01,temperature,wire,upper site western face west,2023-02-08T01:00:00Z,9999-01-01T00:00:00Z
 FOXRB,01,01,rainfall,total,,2021-08-03T03:50:00Z,9999-01-01T00:00:00Z
 FOXRB,03,01,direction,wind,,2021-11-24T00:00:00Z,9999-01-01T00:00:00Z
 FOXRB,03,01,direction-stddev,wind,,2021-11-24T00:00:00Z,9999-01-01T00:00:00Z
