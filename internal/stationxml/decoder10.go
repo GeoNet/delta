@@ -101,40 +101,25 @@ func (d Decoder10) Decode(data []byte) ([]byte, error) {
 				}
 				for v := range cha.Response.Stage {
 					stage := &cha.Response.Stage[v]
-					if stage.Polynomial == nil {
-						continue
+
+					if stage.Polynomial != nil {
+						stage.Polynomial.Name = ""
+						stage.Polynomial.ResourceId = ""
 					}
-					stage.Polynomial.Name = ""
-					stage.Polynomial.ResourceId = ""
-				}
-				for v := range cha.Response.Stage {
-					stage := &cha.Response.Stage[v]
-					if stage.FIR == nil {
-						continue
+					if stage.FIR != nil {
+						stage.FIR.Name = ""
+						stage.FIR.ResourceId = ""
 					}
-					stage.FIR.Name = ""
-					stage.FIR.ResourceId = ""
-				}
-				for v := range cha.Response.Stage {
-					stage := &cha.Response.Stage[v]
+					if stage.Coefficients != nil {
+						stage.Coefficients.Name = ""
+						stage.Coefficients.ResourceId = ""
+					}
+					if stage.Decimation != nil {
+						stage.Decimation.Delay.Value = 0.0
+						stage.Decimation.Correction.Value = 0.0
+					}
 
 					stage.StageGain.Value = math.Round(stage.StageGain.Value)
-				}
-				for v := range cha.Response.Stage {
-					stage := &cha.Response.Stage[v]
-					if stage.Coefficients == nil {
-						continue
-					}
-					stage.Coefficients.Name = ""
-					stage.Coefficients.ResourceId = ""
-				}
-				for v := range cha.Response.Stage {
-					stage := &cha.Response.Stage[v]
-					if stage.Decimation == nil {
-						continue
-					}
-					stage.Decimation.Delay.Value = 0.0
-					stage.Decimation.Correction.Value = 0.0
 				}
 				if cha.Response.InstrumentSensitivity != nil {
 					cha.Response.InstrumentSensitivity.Value = math.Round(cha.Response.InstrumentSensitivity.Value)
@@ -144,6 +129,23 @@ func (d Decoder10) Decode(data []byte) ([]byte, error) {
 			for i := range sta.Comment {
 				sta.Comment[i].Id = stationxml.CounterType(i + 1)
 			}
+
+			sort.Slice(root.Network[n].Station[s].Channel, func(i, j int) bool {
+				switch {
+				case root.Network[n].Station[s].Channel[i].LocationCode < root.Network[n].Station[s].Channel[j].LocationCode:
+					return true
+				case root.Network[n].Station[s].Channel[i].LocationCode > root.Network[n].Station[s].Channel[j].LocationCode:
+					return false
+				case root.Network[n].Station[s].Channel[i].StartDate.Before(root.Network[n].Station[s].Channel[j].StartDate.Time):
+					return true
+				case root.Network[n].Station[s].Channel[i].StartDate.After(root.Network[n].Station[s].Channel[j].StartDate.Time):
+					return false
+				case root.Network[n].Station[s].Channel[i].BaseNodeType.Code < root.Network[n].Station[s].Channel[j].BaseNodeType.Code:
+					return true
+				default:
+					return false
+				}
+			})
 
 			net.StartDate = stationxml.DateTime{}
 			net.EndDate = stationxml.DateTime{}
