@@ -175,6 +175,7 @@ Geokon,Long Range Displacement Meter 4427,2129516,FOXVF,05,0,0,0,0,0,0,0,0,2022-
 Geokon,Long Range Displacement Meter 4427,2129517,FOXKP,05,0,0,0,0,0,0,0,0,2022-01-26T01:50:00Z,9999-01-01T00:00:00Z
 Geokon,Long Range Displacement Meter 4427,2129518,FOXVV,04,0,0,0,0,0,0,0,0,2022-01-25T00:00:00Z,9999-01-01T00:00:00Z
 Geokon,Long Range Displacement Meter 4427,2129519,FOXVV,05,0,0,0,0,0,0,0,0,2022-01-25T00:00:00Z,9999-01-01T00:00:00Z
+Geokon,Long Range Displacement Meter 4427,2224047,FOXVF,06,0,0,0,0,0,0,0,0,2023-02-09T03:39:59Z,9999-01-01T00:00:00Z
 Geokon,Long Range Displacement Meter 4427,2224048,FOXKP,06,0,0,0,0,0,0,0,0,2023-02-08T01:10:00Z,9999-01-01T00:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,001,KQ01,10,0,,0,0,0,0,0,0,2008-06-04T00:00:01Z,2017-05-04T02:00:00Z
 Geospace Technologies Corporation,GS-11D seismometer,002,KQ02,10,0,,0,0,0,0,0,0,2008-06-12T00:00:02Z,2017-05-04T02:00:00Z
@@ -457,13 +458,14 @@ Guralp Systems Ltd.,Fortis,TF1119,OTNZ,20,0,,0,0,0,0,0,0,2022-12-20T00:35:00Z,99
 Guralp Systems Ltd.,Fortis,TF1127,OAHZ,20,0,,0,0,0,0,0,0,2022-12-07T04:30:00Z,9999-01-01T00:00:00Z
 Hydrological Services Pty Ltd,HS55 Bubbler WL100D,07-01,INFR,41,0,,0,0,0,0,0,0,2013-05-21T00:10:00Z,9999-01-01T00:00:00Z
 Hyquest,Tipping bucket rain gauge TB3 0.2mm,08-201,FOXAG,01,0,,0,0,0,0,0,0,2019-02-06T13:10:00Z,9999-01-01T00:00:00Z
-Hyquest,Tipping bucket rain gauge TB3 0.2mm,21-30,FOXRB,01,0,,0,0,0,0,0,0,2021-08-03T03:50:00Z,9999-01-01T00:00:00Z
+Hyquest,Tipping bucket rain gauge TB3 0.2mm,21-30,FOXRB,01,0,,0,0,0,0,0,0,2021-08-03T03:50:00Z,2023-02-08T21:50:01Z
 Hyquest,Tipping bucket rain gauge TB3 0.2mm,21-31,FOXVV,01,0,,0,0,0,0,0,0,2021-08-03T00:00:00Z,2022-05-27T00:00:00Z
 Hyquest,Tipping bucket rain gauge TB3 0.2mm,21-32,FOXVF,01,0,,0,0,0,0,0,0,2021-11-21T11:50:00Z,9999-01-01T00:00:00Z
 Hyquest,Tipping bucket rain gauge TB3 0.2mm,21-33,FOXKP,01,0,,0,0,0,0,0,0,2021-08-03T00:00:00Z,2022-05-27T00:00:00Z
 Hyquest,Tipping bucket rain gauge TB3 0.5mm,22-0043,FOXVV,01,0,,0,0,0,0,0,0,2022-05-27T00:00:01Z,9999-01-01T00:00:00Z
 Hyquest,Tipping bucket rain gauge TB3 0.5mm,22-0044,FOXKP,01,0,,0,0,0,0,0,0,2022-05-27T00:00:01Z,9999-01-01T00:00:00Z
 Hyquest,Tipping bucket rain gauge TB3 0.5mm,22-0077,TRAR1,05,0,,0,0,0,0,0,0,2022-09-07T03:50:00Z,9999-01-01T00:00:00Z
+Hyquest,Tipping bucket rain gauge TB3 0.5mm,22-xxxx,FOXRB,01,0,,0,0,0,0,0,0,2023-02-08T23:49:59Z,9999-01-01T00:00:00Z
 IESE Institute of Earth Science & Engineering,IESE HS-1-LT 2Hz,106,WQSZ,10,95,,0,61,0,0,0,0,2014-06-23T00:00:05Z,9999-01-01T00:00:00Z
 IESE Institute of Earth Science & Engineering,IESE HS-1-LT Mini 4.5Hz,197,WMSZ,10,0,,0,29,0,0,0,0,2014-06-23T00:00:05Z,9999-01-01T00:00:00Z
 IESE Institute of Earth Science & Engineering,IESE HS-1-LT Mini 4.5Hz,198,WPSZ,10,0,,0,29,0,0,0,0,2014-06-23T00:00:05Z,9999-01-01T00:00:00Z
