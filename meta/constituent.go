@@ -84,18 +84,19 @@ func (c *ConstituentList) decode(data [][]string) error {
 			if len(d) != constituentLast {
 				return fmt.Errorf("incorrect number of installed constituent fields")
 			}
-			var err error
 
-			var num int
-			if num, err = strconv.Atoi(d[constituentNumber]); err != nil {
+			num, err := ParseInt(d[constituentNumber])
+			if err != nil {
 				return err
 			}
 
-			var amp, lag float64
-			if amp, err = strconv.ParseFloat(d[constituentAmplitude], 64); err != nil {
+			amp, err := strconv.ParseFloat(d[constituentAmplitude], 64)
+			if err != nil {
 				return err
 			}
-			if lag, err = strconv.ParseFloat(d[constituentLag], 64); err != nil {
+
+			lag, err := strconv.ParseFloat(d[constituentLag], 64)
+			if err != nil {
 				return err
 			}
 

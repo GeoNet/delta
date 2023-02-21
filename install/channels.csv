@@ -1,0 +1,82 @@
+Make,Model,Type,Number,SamplingRate,Response
+Paroscientific,BPR Subsystem,Bottom Pressure Recorder,,-15,
+CSI,CUSP3A,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3C_25bits_50sps
+CSI,CUSP3A,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3A_25bits_200sps
+CSI,CUSP3B,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3C_25bits_50sps
+CSI,CUSP3B,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3B_25bits_200sps
+CSI,CUSP3C,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3C_25bits_50sps
+CSI,CUSP3C,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3C_25bits_200sps
+CSI,CUSP3C3,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3C3_25bits_50sps
+CSI,CUSP3C3,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3C3_25bits_200sps
+CSI,CUSP3D,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_50sps
+CSI,CUSP3D,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_200sps
+CSI,CUSPM,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_50sps
+CSI,CUSPM,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_200sps
+CSI,CUSP-Me,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_50sps
+CSI,CUSP-Me,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_200sps
+CSI,EQR120,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_EQR120_25bits_200sps
+GNS Science,EARSS/3,Datalogger,,50,datalogger_GNS-Science_Earss_22bits_50sps
+GNS Science,EARSS/3,Datalogger,,100,datalogger_GNS-Science_Earss_22bits_100sps
+Kinemetrics,BASALT,Strong Motion Recorder,,50,datalogger_Kinemetrics_Basalt_26bits_50sps
+Kinemetrics,BASALT,Strong Motion Recorder,,200,datalogger_Kinemetrics_Basalt_26bits_200sps
+Kinemetrics,BASALT 8X DATALOGGER,Strong Motion Recorder,,50,datalogger_Kinemetrics_BASALT8XDATALOGGER_26bits_50sps
+Kinemetrics,BASALT 8X DATALOGGER,Strong Motion Recorder,,200,datalogger_Kinemetrics_BASALT8XDATALOGGER_26bits_200sps
+Kinemetrics,ETNA,Strong Motion Recorder,,200,datalogger_Kinemetrics_Etna_27bits_200sps
+Kinemetrics,ETNA 2,Strong Motion Recorder,,200,datalogger_Kinemetrics_ETNA2_27bits_200sps
+Kinemetrics,K2,Strong Motion Recorder,,200,datalogger_Kinemetrics_K2_27bits_200sps
+Kinemetrics,OBSIDIAN,Strong Motion Recorder,,50,datalogger_Kinemetrics_Obsidian_26bits_50sps
+Kinemetrics,OBSIDIAN,Strong Motion Recorder,,200,datalogger_Kinemetrics_Obsidian_26bits_200sps
+Kinemetrics,Obsidian 4X Datalogger,Strong Motion Recorder,,50,datalogger_Kinemetrics_Obsidian4XDatalogger_24bits_50sps
+Kinemetrics,Obsidian 4X Datalogger,Strong Motion Recorder,,200,datalogger_Kinemetrics_Obsidian4XDatalogger_24bits_200sps
+Kinemetrics,Q330/3,Datalogger,,-10,datalogger_Kinemetrics_Q330_24bits_10s
+Kinemetrics,Q330/3,Datalogger,,1,datalogger_Kinemetrics_Q330_24bits_1s
+Kinemetrics,Q330/3,Datalogger,,10,datalogger_Kinemetrics_Q330_24bits_10sps
+Kinemetrics,Q330/3,Datalogger,,50,datalogger_Kinemetrics_Q330_24bits_50sps
+Kinemetrics,Q330/3,Datalogger,,100,datalogger_Kinemetrics_Q330_24bits_100sps
+Kinemetrics,Q330/3,Datalogger,,200,datalogger_Kinemetrics_Q330_24bits_200sps
+Kinemetrics,Q330/6,Datalogger,,-10,datalogger_Kinemetrics_Q330_24bits_10s
+Kinemetrics,Q330/6,Datalogger,,1,datalogger_Kinemetrics_Q330_24bits_1s
+Kinemetrics,Q330/6,Datalogger,,10,datalogger_Kinemetrics_Q330_24bits_10sps
+Kinemetrics,Q330/6,Datalogger,,50,datalogger_Kinemetrics_Q330_24bits_50sps
+Kinemetrics,Q330/6,Datalogger,,100,datalogger_Kinemetrics_Q330_24bits_100sps
+Kinemetrics,Q330/6,Datalogger,,200,datalogger_Kinemetrics_Q330_24bits_200sps
+Kinemetrics,Q330HR/6,Datalogger,0,-10,datalogger_Kinemetrics_Q330HR_26bits_10s
+Kinemetrics,Q330HR/6,Datalogger,0,1,datalogger_Kinemetrics_Q330HR_26bits_1s
+Kinemetrics,Q330HR/6,Datalogger,0,100,datalogger_Kinemetrics_Q330HR_26bits_100sps
+Kinemetrics,Q330HR/6,Datalogger,3,1,datalogger_Kinemetrics_Q330HR_24bits_1s
+Kinemetrics,Q330HR/6,Datalogger,3,50,datalogger_Kinemetrics_Q330HR_24bits_50sps
+Kinemetrics,Q330HR/6,Datalogger,3,200,datalogger_Kinemetrics_Q330HR_24bits_200sps
+Kinemetrics,Q330HRS/6,Datalogger,0,-10,datalogger_Kinemetrics_Q330HRS_26bits_10s
+Kinemetrics,Q330HRS/6,Datalogger,0,1,datalogger_Kinemetrics_Q330HRS_26bits_1s
+Kinemetrics,Q330HRS/6,Datalogger,0,100,datalogger_Kinemetrics_Q330HRS_26bits_100sps
+Kinemetrics,Q330S/3,Datalogger,,-10,datalogger_Kinemetrics_Q330S_24bits_10s
+Kinemetrics,Q330S/3,Datalogger,,1,datalogger_Kinemetrics_Q330S_24bits_1s
+Kinemetrics,Q330S/3,Datalogger,,10,datalogger_Kinemetrics_Q330S_24bits_10sps
+Kinemetrics,Q330S/3,Datalogger,,50,datalogger_Kinemetrics_Q330S_24bits_50sps
+Kinemetrics,Q330S/3,Datalogger,,100,datalogger_Kinemetrics_Q330S_24bits_100sps
+Kinemetrics,Q330S/3,Datalogger,,200,datalogger_Kinemetrics_Q330S_24bits_200sps
+Kinemetrics,Q330S/6,Datalogger,,-10,datalogger_Kinemetrics_Q330S_24bits_10s
+Kinemetrics,Q330S/6,Datalogger,,1,datalogger_Kinemetrics_Q330S_24bits_1s
+Kinemetrics,Q330S/6,Datalogger,,10,datalogger_Kinemetrics_Q330S_24bits_10sps
+Kinemetrics,Q330S/6,Datalogger,,50,datalogger_Kinemetrics_Q330S_24bits_50sps
+Kinemetrics,Q330S/6,Datalogger,,100,datalogger_Kinemetrics_Q330S_24bits_100sps
+Kinemetrics,Q330S/6,Datalogger,,200,datalogger_Kinemetrics_Q330S_24bits_200sps
+Nanometrics,Centaur CTR4-6S,Datalogger,,1,datalogger_Nanometrics_CentaurCTR4_24bits_1s
+Nanometrics,Centaur CTR4-6S,Datalogger,,10,datalogger_Nanometrics_CentaurCTR4_24bits_10sps
+Nanometrics,Centaur CTR4-6S,Datalogger,,100,datalogger_Nanometrics_CentaurCTR4_24bits_100sps
+Nanometrics,Centaur CTR4-6S,Datalogger,,200,datalogger_Nanometrics_CentaurCTR4_24bits_200sps
+Nanometrics,ORION,Datalogger,,100,datalogger_Nanometrics_Orion_25bits_100sps
+Nanometrics,Taurus,Datalogger,,100,datalogger_Nanometrics_Taurus_24bits_100sps
+Nanometrics,TitanSMA,Strong Motion Recorder,,200,datalogger_Nanometrics_TitanSMA_24bits_200sps
+Quanterra,Q4120/6,Datalogger,,-10,datalogger_Quanterra_Q4120_24bits_10s
+Quanterra,Q4120/6,Datalogger,,1,datalogger_Quanterra_Q4120_24bits_1s
+Quanterra,Q4120/6,Datalogger,,100,datalogger_Quanterra_Q4120_24bits_100sps
+Quanterra,Q4120/6,Datalogger,,200,datalogger_Quanterra_Q4120_24bits_200sps
+Quanterra,Q730/3,Datalogger,,-10,datalogger_Quanterra_Q730_24bits_10s
+Quanterra,Q730/3,Datalogger,,1,datalogger_Quanterra_Q730_24bits_1s
+Quanterra,Q730/3,Datalogger,,40,datalogger_Quanterra_Q730_24bits_40sps
+Quanterra,Q730/3,Datalogger,,100,datalogger_Quanterra_Q730_24bits_100sps
+Quanterra,Q730/4,Datalogger,,-10,datalogger_Quanterra_Q730_24bits_10s
+Quanterra,Q730/4,Datalogger,,1,datalogger_Quanterra_Q730_24bits_1s
+Quanterra,Q730/4,Datalogger,,40,datalogger_Quanterra_Q730_24bits_40sps
+Quanterra,Q730/4,Datalogger,,100,datalogger_Quanterra_Q730_24bits_100sps

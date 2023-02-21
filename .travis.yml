@@ -15,17 +15,17 @@ services:
 language: go
 
 go:
-  - 1.16.13
+  - 1.19.2
 
 install:
   - export GOFLAGS=-mod=vendor
 
 before_script:
-  - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b $(go env GOPATH)/bin v1.18.0
+  - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b $(go env GOPATH)/bin v1.50.1
 
 script:
   - test -z "$(gofmt -s -l `find . -name "*.go" | egrep -v vendor` | tee /dev/stderr)"
-  - golangci-lint run -E gosec
+  - golangci-lint run --timeout 5m -E gosec
   - ./test.sh
 
 deploy:

@@ -7,7 +7,6 @@ build template files for configuring a caps system based on site details
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -55,7 +54,7 @@ func (s Station) Store(path string) error {
 	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
 		return err
 	}
-	if err := ioutil.WriteFile(path, []byte(contents), 0644); err != nil {
+	if err := os.WriteFile(path, []byte(contents), 0600); err != nil {
 		return err
 	}
 	return nil

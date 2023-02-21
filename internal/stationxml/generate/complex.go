@@ -3,8 +3,10 @@ package main
 import (
 	"bytes"
 	_ "embed"
-	"strings"
 	"text/template"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 //go:embed tmpl/complex.tmpl
@@ -24,7 +26,7 @@ type Variable struct {
 }
 
 func (v Variable) Title() string {
-	return strings.Title(v.Name)
+	return cases.Title(language.English).String(v.Name)
 }
 
 func (v Variable) Optional() bool {
@@ -43,7 +45,7 @@ type Complex struct {
 }
 
 func (c Complex) Title() string {
-	return strings.Title(c.Name)
+	return cases.Title(language.English).String(c.Name)
 }
 
 func (c Complex) Render() ([]byte, error) {

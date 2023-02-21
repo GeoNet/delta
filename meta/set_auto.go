@@ -24,11 +24,25 @@ func (s Set) Calibrations() []Calibration {
 	return calibrations
 }
 
+// Channels is a helper function to return a slice copy of Channel values.
+func (s Set) Channels() []Channel {
+	channels := make([]Channel, len(s.channels))
+	copy(channels, s.channels)
+	return channels
+}
+
 // Citations is a helper function to return a slice copy of Citation values.
 func (s Set) Citations() []Citation {
 	citations := make([]Citation, len(s.citations))
 	copy(citations, s.citations)
 	return citations
+}
+
+// Components is a helper function to return a slice copy of Component values.
+func (s Set) Components() []Component {
+	components := make([]Component, len(s.components))
+	copy(components, s.components)
+	return components
 }
 
 // Connections is a helper function to return a slice copy of Connection values.
@@ -171,6 +185,27 @@ func (s Set) Placenames() []Placename {
 	return placenames
 }
 
+// Polarities is a helper function to return a slice copy of Polarity values.
+func (s Set) Polarities() []Polarity {
+	polarities := make([]Polarity, len(s.polarities))
+	copy(polarities, s.polarities)
+	return polarities
+}
+
+// Preamps is a helper function to return a slice copy of Preamp values.
+func (s Set) Preamps() []Preamp {
+	preamps := make([]Preamp, len(s.preamps))
+	copy(preamps, s.preamps)
+	return preamps
+}
+
+// Samples is a helper function to return a slice copy of Sample values.
+func (s Set) Samples() []Sample {
+	samples := make([]Sample, len(s.samples))
+	copy(samples, s.samples)
+	return samples
+}
+
 // Sessions is a helper function to return a slice copy of Session values.
 func (s Set) Sessions() []Session {
 	sessions := make([]Session, len(s.sessions))
@@ -197,6 +232,13 @@ func (s Set) Streams() []Stream {
 	streams := make([]Stream, len(s.streams))
 	copy(streams, s.streams)
 	return streams
+}
+
+// Telemetries is a helper function to return a slice copy of Telemetry values.
+func (s Set) Telemetries() []Telemetry {
+	telemetries := make([]Telemetry, len(s.telemetries))
+	copy(telemetries, s.telemetries)
+	return telemetries
 }
 
 // Views is a helper function to return a slice copy of View values.
@@ -283,6 +325,17 @@ func (s Set) Placename(name string) (Placename, bool) {
 		return v, true
 	}
 	return Placename{}, false
+}
+
+// Sample is a helper function to return a Sample value and true if one exists.
+func (s Set) Sample(code string) (Sample, bool) {
+	for _, v := range s.samples {
+		if code != v.Code {
+			continue
+		}
+		return v, true
+	}
+	return Sample{}, false
 }
 
 // Site is a helper function to return a Site value and true if one exists.

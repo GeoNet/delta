@@ -3,7 +3,6 @@ package meta
 import (
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 )
 
@@ -12,28 +11,33 @@ const (
 	componentModel
 	componentType
 	componentNumber
+	componentSource
 	componentSubsource
 	componentDip
 	componentAzimuth
 	componentTypes
+	componentSamplingRate
 	componentResponse
 	componentLast
 )
 
 type Component struct {
-	Make      string
-	Model     string
-	Type      string
-	Number    int
-	Subsource string
-	Dip       float64
-	Azimuth   float64
-	Types     string
-	Response  string
+	Make         string
+	Model        string
+	Type         string
+	Number       int
+	Source       string
+	Subsource    string
+	Dip          float64
+	Azimuth      float64
+	Types        string
+	SamplingRate float64
+	Response     string
 
-	number  string
-	dip     string
-	azimuth string
+	number       string
+	dip          string
+	azimuth      string
+	samplingRate string
 }
 
 // Less compares Component structs suitable for sorting.
@@ -52,8 +56,10 @@ func (c Component) Less(comp Component) bool {
 		return true
 	case c.Number > comp.Number:
 		return false
-	default:
+	case c.SamplingRate < comp.SamplingRate:
 		return true
+	default:
+		return false
 	}
 }
 
@@ -69,10 +75,12 @@ func (s ComponentList) encode() [][]string {
 		"Model",
 		"Type",
 		"Number",
+		"Source",
 		"Subsource",
 		"Dip",
 		"Azimuth",
 		"Types",
+		"Sampling Rate",
 		"Response",
 	}}
 
@@ -82,10 +90,12 @@ func (s ComponentList) encode() [][]string {
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Type),
 			strings.TrimSpace(v.number),
+			strings.TrimSpace(v.Source),
 			strings.TrimSpace(v.Subsource),
 			strings.TrimSpace(v.dip),
 			strings.TrimSpace(v.azimuth),
 			strings.TrimSpace(v.Types),
+			strings.TrimSpace(v.samplingRate),
 			strings.TrimSpace(v.Response),
 		})
 	}
@@ -103,47 +113,47 @@ func (s *ComponentList) decode(data [][]string) error {
 			return fmt.Errorf("incorrect pin of installed component fields")
 		}
 
-		var number int
-		if s := strings.TrimSpace(d[componentNumber]); s != "" {
-			v, err := strconv.Atoi(s)
-			if err != nil {
-				return err
-			}
-			number = v
+		number, err := ParseInt(d[componentNumber])
+		if err != nil {
+			return err
 		}
 
-		var dip float64
-		if s := strings.TrimSpace(d[componentDip]); s != "" {
-			v, err := strconv.ParseFloat(s, 64)
-			if err != nil {
-				return err
-			}
-			dip = v
+		dip, err := ParseFloat64(d[componentDip])
+		if err != nil {
+			return err
 		}
 
-		var azimuth float64
-		if s := strings.TrimSpace(d[componentAzimuth]); s != "" {
-			v, err := strconv.ParseFloat(d[componentAzimuth], 64)
-			if err != nil {
-				return err
-			}
-			azimuth = v
+		azimuth, err := ParseFloat64(d[componentAzimuth])
+		if err != nil {
+			return err
+		}
+
+		samplingRate, err := ParseFloat64(d[componentSamplingRate])
+		if err != nil {
+			return err
+		}
+
+		if samplingRate < 0.0 {
+			samplingRate = -1.0 / samplingRate
 		}
 
 		components = append(components, Component{
-			Make:      strings.TrimSpace(d[componentMake]),
-			Model:     strings.TrimSpace(d[componentModel]),
-			Type:      strings.TrimSpace(d[componentType]),
-			Number:    number,
-			Subsource: strings.TrimSpace(d[componentSubsource]),
-			Dip:       dip,
-			Azimuth:   azimuth,
-			Types:     strings.TrimSpace(d[componentTypes]),
-			Response:  strings.TrimSpace(d[componentResponse]),
+			Make:         strings.TrimSpace(d[componentMake]),
+			Model:        strings.TrimSpace(d[componentModel]),
+			Type:         strings.TrimSpace(d[componentType]),
+			Number:       number,
+			Source:       strings.TrimSpace(d[componentSource]),
+			Subsource:    strings.TrimSpace(d[componentSubsource]),
+			Dip:          dip,
+			Azimuth:      azimuth,
+			Types:        strings.TrimSpace(d[componentTypes]),
+			SamplingRate: samplingRate,
+			Response:     strings.TrimSpace(d[componentResponse]),
 
-			number:  strings.TrimSpace(d[componentNumber]),
-			dip:     strings.TrimSpace(d[componentDip]),
-			azimuth: strings.TrimSpace(d[componentAzimuth]),
+			number:       strings.TrimSpace(d[componentNumber]),
+			dip:          strings.TrimSpace(d[componentDip]),
+			azimuth:      strings.TrimSpace(d[componentAzimuth]),
+			samplingRate: strings.TrimSpace(d[componentSamplingRate]),
 		})
 	}
 

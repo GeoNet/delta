@@ -2,11 +2,10 @@ package main
 
 import (
 	"encoding/xml"
-	"io/ioutil"
-	"os"
-	"os/exec"
 	"strings"
 	"testing"
+
+	"github.com/google/go-cmp/cmp"
 )
 
 func TestSiteXML_Marshal(t *testing.T) {
@@ -167,44 +166,7 @@ func TestSiteXML_Marshal(t *testing.T) {
 
 		// compare stored with computed
 		if string(s) != test.s {
-			t.Error("**** rinexml mismatch ****")
-
-			f1, err := ioutil.TempFile(os.TempDir(), "tmp")
-			if err != nil {
-				t.Fatal(err)
-			}
-			defer os.Remove(f1.Name())
-			if _, err := f1.Write(s); err != nil {
-				t.Fatal(err)
-			}
-
-			f2, err := ioutil.TempFile(os.TempDir(), "tmp")
-			if err != nil {
-				t.Fatal(err)
-			}
-			defer os.Remove(f2.Name())
-			if _, err := f2.Write([]byte(test.s)); err != nil {
-				t.Fatal(err)
-			}
-
-			cmd := exec.Command("diff", "-c", f1.Name(), f2.Name())
-			stdout, err := cmd.StdoutPipe()
-			if err != nil {
-				t.Fatal(err)
-			}
-			err = cmd.Start()
-			if err != nil {
-				t.Fatal(err)
-			}
-			diff, err := ioutil.ReadAll(stdout)
-			if err != nil {
-				t.Fatal(err)
-			}
-			t.Error(string(diff))
-
-			if err := cmd.Wait(); err != nil {
-				t.Fatal(err)
-			}
+			t.Errorf("unexpected content -got/+exp\n%s", cmp.Diff(string(s), test.s))
 		}
 
 	}

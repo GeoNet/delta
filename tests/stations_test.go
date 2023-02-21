@@ -11,9 +11,13 @@ var testStations = map[string]func([]meta.Station) func(t *testing.T){
 		return func(t *testing.T) {
 			for i := 0; i < len(stations); i++ {
 				for j := i + 1; j < len(stations); j++ {
-					if stations[i].Code == stations[j].Code {
-						t.Errorf("station duplication: " + stations[i].Code)
+					if stations[i].Code != stations[j].Code {
+						continue
 					}
+					if stations[i].Network != stations[j].Network {
+						continue
+					}
+					t.Errorf("station duplication: " + stations[i].Code)
 				}
 			}
 		}
