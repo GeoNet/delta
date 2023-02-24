@@ -1,4 +1,6 @@
 Station,Location,Sublocation,Property,Description,Aspect,Start Date,End Date
+ALS1R,01,01,rainfall,total,,2023-02-24T01:09:00Z,9999-01-01T00:00:00Z
+ALS1R,02,01,rainfall,total,,2023-02-24T01:09:00Z,9999-01-01T00:00:00Z
 ALS2R,01,01,rainfall,total,,2023-02-23T03:59:00Z,9999-01-01T00:00:00Z
 ALS2R,02,01,rainfall,total,,2023-02-23T03:59:00Z,9999-01-01T00:00:00Z
 FOXAG,01,01,rainfall,total,,2019-02-06T13:10:00Z,9999-01-01T00:00:00Z
