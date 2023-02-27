@@ -12,6 +12,7 @@ Campbell Scientific,CR6,04117,Upper Tama Lake,,2019-03-12T03:30:00Z,2022-03-30T2
 Campbell Scientific,CR6,04117,Taranaki Arawhata Road 1,,2022-09-07T03:50:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,11300,Fox Glacier Rapanui Bluff,,2021-08-03T00:00:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,11303,Fox Glacier Valley View,,2021-08-03T00:00:00Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,11770,Auckland Rayner Road Piha,,2023-02-23T03:59:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,15365,Rotoma Soda Spring,,2021-03-17T22:20:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,15366,Upper Te Maari Fumarole 3,,2021-05-27T00:00:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,15367,Ngauruhoe Outer Rim Fumarole,,2021-05-06T00:00:00Z,9999-01-01T00:00:00Z
@@ -22,6 +23,7 @@ Campbell Scientific,CR6,15371,Fox Glacier Victoria Falls,,2021-11-24T11:50:00Z,9
 Campbell Scientific,CR6,17444,Upper Tama Lake,,2022-03-30T20:40:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,17445,Raoul Island Green Lake,Envirosensor,2023-01-30T02:59:59Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,20464,Fox Glacier Alpine Gardens,,2023-02-08T19:29:59Z,9999-01-01T00:00:00Z
+Campbell Scientific,CR6,20469,Auckland Scenic Drive Waiatarua,,2023-02-24T01:09:00Z,9999-01-01T00:00:00Z
 GNS Science,EARSS/16,204,Taranaki Emergency Management Office,EARSS Network,1993-12-14T23:51:00Z,2002-09-18T21:00:00Z
 GNS Science,EARSS/16,207,Chateau Observatory,EARSS Network,1993-11-12T03:00:00Z,1998-06-11T09:00:00Z
 GNS Science,EARSS/16,209,Wellington Dominion Observatory,EARSS Network,1995-03-10T23:59:00Z,1998-01-27T01:00:00Z
@@ -462,7 +464,7 @@ Kinemetrics,Q330/3,2321,Pakihiroa,,2010-10-19T00:20:01Z,2011-01-13T00:00:00Z
 Kinemetrics,Q330/3,2321,Kakaramea,,2011-09-21T00:00:11Z,2022-06-29T22:34:00Z
 Kinemetrics,Q330/3,2322,Raoul Island Fishing Rock,,2009-05-18T00:00:01Z,2021-10-20T22:13:00Z
 Kinemetrics,Q330/3,2323,Mount Tarawera,,2007-11-21T21:00:01Z,9999-01-01T00:00:00Z
-Kinemetrics,Q330/3,2324,Pukeatua Road,,2008-01-14T02:00:01Z,9999-01-01T00:00:00Z
+Kinemetrics,Q330/3,2324,Pukeatua Road,,2008-01-14T02:00:01Z,2023-02-21T20:48:00Z
 Kinemetrics,Q330/3,2325,Plateau Road,,2007-11-12T22:00:01Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330/3,2327,Te Maipa,,2008-03-27T22:00:02Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330/3,2328,Lottin Point,,2008-10-03T06:00:01Z,2021-07-15T20:03:00Z
@@ -470,7 +472,7 @@ Kinemetrics,Q330/3,2329,Kawakawa Station,,2007-06-27T23:30:01Z,9999-01-01T00:00:
 Kinemetrics,Q330/3,2330,Waihaha,,2009-06-05T00:53:01Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330/3,2331,Karaka Road Borehole,,2008-11-11T00:00:01Z,2018-12-06T02:00:00Z
 Kinemetrics,Q330/3,2332,Mount Edgecumbe,,2008-06-30T23:55:01Z,2013-11-19T21:25:00Z
-Kinemetrics,Q330/3,2333,Kaahu Road,,2010-04-14T21:00:01Z,9999-01-01T00:00:00Z
+Kinemetrics,Q330/3,2333,Kaahu Road,,2010-04-14T21:00:01Z,2023-02-17T02:15:00Z
 Kinemetrics,Q330/3,2334,Durham Road,,2008-03-03T02:00:01Z,2022-06-28T21:26:00Z
 Kinemetrics,Q330/3,2335,Whangaparaoa Navy Base,,2008-10-13T01:00:01Z,2023-01-19T02:25:00Z
 Kinemetrics,Q330/3,2336,Pori Road,,2008-11-03T01:00:01Z,2022-11-29T21:28:00Z
@@ -509,7 +511,7 @@ Kinemetrics,Q330/3,2542,Whale Island,,2011-06-26T20:00:01Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330/3,2546,Kaikoura North Wharf,,2010-05-27T01:00:01Z,2021-11-02T01:29:00Z
 Kinemetrics,Q330/3,2548,Kereru,,2008-05-17T04:00:01Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330/3,2551,Makara Bunker,Test 1,2008-04-15T22:00:01Z,2008-04-21T22:00:00Z
-Kinemetrics,Q330/3,2551,Castlepoint Station,,2009-07-07T00:00:01Z,9999-01-01T00:00:00Z
+Kinemetrics,Q330/3,2551,Castlepoint Station,,2009-07-07T00:00:01Z,2023-02-09T23:53:00Z
 Kinemetrics,Q330/3,2552,Whakapapataringa,,2010-03-25T03:35:01Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330/3,2553,Waiheke Station,,2010-07-25T21:00:01Z,9999-01-01T00:00:00Z
 Kinemetrics,Q330/3,2554,North Cape,,2008-12-10T06:10:01Z,2011-09-23T01:00:00Z
@@ -894,6 +896,7 @@ Nanometrics,Centaur CTR4-6S,8744,Raoul Island Fishing Rock,,2021-10-22T01:57:00Z
 Nanometrics,Centaur CTR4-6S,8745,Puketiti,,2021-11-02T03:28:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,8746,Kaikoura North Wharf,,2021-11-02T02:57:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,8747,Devonport Naval Base,,2021-10-17T21:48:00Z,9999-01-01T00:00:00Z
+Nanometrics,Centaur CTR4-6S,8748,Castlepoint Station,,2023-02-10T02:04:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,8749,Charleston Constant Bay,,2021-12-15T08:29:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,8750,Otahua Downs,,2021-10-21T01:30:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,8751,Kuaotunu,,2021-11-11T02:38:00Z,9999-01-01T00:00:00Z
@@ -931,6 +934,7 @@ Nanometrics,Centaur CTR4-6S,9497,Omania,,2022-11-22T00:32:00Z,9999-01-01T00:00:0
 Nanometrics,Centaur CTR4-6S,9500,Post Office Road,,2022-11-30T01:14:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9501,Eden Park,,2022-10-31T01:37:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9502,North Ngauruhoe,,2023-01-16T02:04:00Z,9999-01-01T00:00:00Z
+Nanometrics,Centaur CTR4-6S,9504,Pukeatua Road,,2023-02-22T19:13:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9507,Highlands Station,,2022-11-17T22:13:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9508,Holdsworth Station,,2022-11-29T03:55:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9511,Takaka Hill,,2023-01-18T01:13:00Z,9999-01-01T00:00:00Z
@@ -944,6 +948,7 @@ Nanometrics,Centaur CTR4-6S,9730,Mangateitei,,2023-01-16T01:03:00Z,9999-01-01T00
 Nanometrics,Centaur CTR4-6S,9731,Awakino Point,,2022-12-21T02:40:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9732,Whangaparaoa Navy Base,,2023-01-24T20:20:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9733,Horomatangi Reefs,,2022-12-22T00:31:15Z,9999-01-01T00:00:00Z
+Nanometrics,Centaur CTR4-6S,9734,Kaahu Road,,2023-02-17T03:46:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9887,Logan Vale Farm,,2023-01-18T04:14:00Z,9999-01-01T00:00:00Z
 Nanometrics,ORION,0144,"Marble Point, Antarctica",,1999-11-03T00:00:01Z,2000-01-22T00:00:00Z
 Nanometrics,ORION,0145,"Table Mountain, Antarctica",,1999-12-07T00:00:01Z,2000-01-21T00:00:00Z

@@ -363,6 +363,18 @@ response:
       - Fortis-DC-100Hz-4g
       channels: ZNE
       reversed: false
+    - sensors:
+      - Titan TACCL-N1
+      filters:
+      - TITAN-4G
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - Titan TACCL-BH1
+      filters:
+      - TITAN-4G
+      channels: Z12
+      reversed: false
     dataloggers:
     - dataloggers:
       - Centaur CTR4-6S
