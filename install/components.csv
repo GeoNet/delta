@@ -101,6 +101,9 @@ Lennartz electronic GmbH,LE-3DliteMkIII,Short Period Seismometer,2,,E,0,90,G,,se
 Nanometrics,Titan,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
+Nanometrics Inc.,Titan TACCL-BH1,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan
+Nanometrics Inc.,Titan TACCL-BH1,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan
+Nanometrics Inc.,Titan TACCL-BH1,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics Inc.,Trillium 120QA,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Trillium-120QA
 Nanometrics Inc.,Trillium 120QA,Broadband Seismometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Trillium-120QA
 Nanometrics Inc.,Trillium 120QA,Broadband Seismometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Trillium-120QA
