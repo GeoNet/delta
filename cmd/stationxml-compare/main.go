@@ -64,6 +64,6 @@ func main() {
 			log.Fatal(err)
 		}
 	default:
-		log.Fatalf("requires two files to compare, or one to display")
+		log.Fatalf("requires two files to compare, or one to verify")
 	}
 }
