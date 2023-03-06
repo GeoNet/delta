@@ -305,6 +305,7 @@ response:
   "Nanometrics Dataloggers Connected to Water Depth Sensors (Derived)":
     sensors:
     - sensors:
+      - Druck PTX-1830-LAND
       - Druck PTX-1830
       filters: []
       channels: H

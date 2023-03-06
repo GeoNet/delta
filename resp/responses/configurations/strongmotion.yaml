@@ -268,6 +268,8 @@ response:
       reversed: false
     - sensors:
       - CUSP3C
+      - CUSPM
+      - CUSP-Me
       filters:
       - CUSP SENSOR
       channels: 21Z
@@ -307,6 +309,8 @@ response:
       - CUSP3D
       - CUSP3C
       - CUSP3C3
+      - CUSPM
+      - CUSP-Me
       type: TG
       label: HN
       samplerate: 200
@@ -320,6 +324,8 @@ response:
       - CUSP3D
       - CUSP3C
       - CUSP3C3
+      - CUSPM
+      - CUSP-Me
       type: CG
       label: BN
       samplerate: 50
@@ -356,6 +362,18 @@ response:
       filters:
       - Fortis-DC-100Hz-4g
       channels: ZNE
+      reversed: false
+    - sensors:
+      - Titan TACCL-N1
+      filters:
+      - TITAN-4G
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - Titan TACCL-BH1
+      filters:
+      - TITAN-4G
+      channels: Z12
       reversed: false
     dataloggers:
     - dataloggers:

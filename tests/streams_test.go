@@ -29,6 +29,7 @@ var testStreams = map[string]func([]meta.Stream) func(t *testing.T){
 					t.Error("stream span mismatch: " + strings.Join([]string{
 						c.Station,
 						c.Location,
+						c.Source,
 						c.Start.String(),
 						"after",
 						c.End.String(),
@@ -48,6 +49,9 @@ var testStreams = map[string]func([]meta.Stream) func(t *testing.T){
 					if streams[i].Location != streams[j].Location {
 						continue
 					}
+					if streams[i].Source != streams[j].Source {
+						continue
+					}
 					if streams[i].Start.After(streams[j].End) {
 						continue
 					}
@@ -61,6 +65,7 @@ var testStreams = map[string]func([]meta.Stream) func(t *testing.T){
 					t.Errorf("stream overlap: " + strings.Join([]string{
 						streams[i].Station,
 						streams[i].Location,
+						streams[i].Source,
 						streams[i].Start.String(),
 						streams[i].End.String(),
 					}, " "))
@@ -77,6 +82,7 @@ var testStreams = map[string]func([]meta.Stream) func(t *testing.T){
 					t.Errorf("invalid stream sample rate: " + strings.Join([]string{
 						s.Station,
 						s.Location,
+						s.Source,
 						s.Start.String(),
 						s.End.String(),
 					}, " "))
@@ -115,6 +121,7 @@ var testStreamsStations = map[string]func([]meta.Stream, []meta.Station) func(t 
 						t.Log("warning: stream span mismatch: " + strings.Join([]string{
 							c.Station,
 							c.Location,
+							c.Source,
 							c.Start.String(),
 							"before",
 							s.Start.String(),
@@ -123,6 +130,7 @@ var testStreamsStations = map[string]func([]meta.Stream, []meta.Station) func(t 
 						t.Log("warning: stream span mismatch: " + strings.Join([]string{
 							c.Station,
 							c.Location,
+							c.Source,
 							c.End.String(),
 							"after",
 							s.End.String(),
@@ -197,6 +205,7 @@ var testStreamsSites = map[string]func([]meta.Stream, []meta.Site) func(t *testi
 						t.Log("warning: stream span start mismatch: " + strings.Join([]string{
 							c.Station,
 							c.Location,
+							c.Source,
 							c.Start.String(),
 							"before",
 							s.Start.String(),
@@ -205,6 +214,7 @@ var testStreamsSites = map[string]func([]meta.Stream, []meta.Site) func(t *testi
 						t.Log("warning: stream span end mismatch: " + strings.Join([]string{
 							c.Station,
 							c.Location,
+							c.Source,
 							c.End.String(),
 							"after",
 							s.End.String(),

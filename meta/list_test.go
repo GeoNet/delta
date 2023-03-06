@@ -1,12 +1,55 @@
 package meta
 
 import (
-	"io/ioutil"
+	"os"
 	"testing"
 	"time"
 
 	"github.com/google/go-cmp/cmp"
 )
+
+func testListFunc(path string, list List) func(t *testing.T) {
+	return func(t *testing.T) {
+		res, err := MarshalList(list)
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		t.Run("compare raw list file: "+path, func(t *testing.T) {
+			check, err := os.ReadFile(path)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if string(res) != string(check) {
+				t.Errorf("unexpected %s content -got/+exp\n%s", path, cmp.Diff(res, check))
+			}
+		})
+		t.Run("check encode/decode list file: "+path, func(t *testing.T) {
+			if err := UnmarshalList(res, list); err != nil {
+				t.Fatal(err)
+			}
+			check, err := MarshalList(list)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if string(res) != string(check) {
+				t.Errorf("unexpected %s content -got/+exp\n%s", path, cmp.Diff(res, check))
+			}
+		})
+		t.Run("check list file: "+path, func(t *testing.T) {
+			if err := LoadList(path, list); err != nil {
+				t.Fatal(err)
+			}
+			check, err := MarshalList(list)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if string(res) != string(check) {
+				t.Errorf("unexpected %s content -got/+exp\n%s", path, cmp.Diff(res, check))
+			}
+		})
+	}
+}
 
 func TestList(t *testing.T) {
 
@@ -1028,78 +1071,6 @@ func TestList(t *testing.T) {
 				},
 			},
 		},
-		{
-			"testdata/calibrations.csv",
-			&CalibrationList{
-				Calibration{
-					Install: Install{
-						Equipment: Equipment{
-							Make:   "Acme",
-							Model:  "ACME01",
-							Serial: "257",
-						},
-						Span: Span{
-							Start: time.Date(2021, time.July, 1, 0, 0, 0, 0, time.UTC),
-							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
-						},
-					},
-					ScaleFactor: 2000.169 / 2.0,
-					ScaleBias:   1.0,
-					Frequency:   10.0,
-					Component:   0,
-
-					component: "0",
-					factor:    "2000.169/2.0",
-					bias:      "1.0",
-					frequency: "10.0",
-				},
-			},
-		},
-		{
-			"testdata/gains.csv",
-			&GainList{
-				Gain{
-					Span: Span{
-						Start: time.Date(2021, time.July, 1, 0, 0, 0, 0, time.UTC),
-						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
-					},
-					Scale: Scale{
-						Factor: 1298.169,
-						Bias:   11865.556,
-
-						factor: "1298.169",
-						bias:   "11865.556",
-					},
-					Station:     "SBAM",
-					Location:    "50",
-					Sublocation: "01",
-					Subsource:   "XZ",
-				},
-			},
-		},
-		{
-			"testdata/placenames.csv",
-			&PlacenameList{
-				Placename{
-					Name:      "Ashburton",
-					Latitude:  -43.9,
-					Longitude: 171.75,
-					Level:     1,
-
-					latitude:  "-43.9",
-					longitude: "171.75",
-				},
-				Placename{
-					Name:      "Auckland",
-					Latitude:  -36.85,
-					Longitude: 174.767,
-					Level:     0,
-
-					latitude:  "-36.85",
-					longitude: "174.767",
-				},
-			},
-		},
 	}
 
 	for _, tt := range listtests {
@@ -1110,7 +1081,7 @@ func TestList(t *testing.T) {
 
 		t.Log("Compare raw list file: " + tt.f)
 		{
-			b, err := ioutil.ReadFile(tt.f)
+			b, err := os.ReadFile(tt.f)
 			if err != nil {
 				t.Fatal(err)
 			}

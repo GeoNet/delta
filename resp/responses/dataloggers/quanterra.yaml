@@ -476,7 +476,7 @@ filter:
   - type: a2d
     lookup: A2D
     frequency: 0
-    samplerate: 1
+    samplerate: 10
     decimate: 1
     gain: 419430.4
     scale: 0

@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -54,7 +53,7 @@ func main() {
 		if err := os.MkdirAll(filepath.Dir(output), 0755); err != nil {
 			log.Fatalf("error: unable to create directory %s: %v", filepath.Dir(output), err)
 		}
-		if err := ioutil.WriteFile(output, res, 0644); err != nil {
+		if err := os.WriteFile(output, res, 0600); err != nil {
 			log.Fatalf("error: unable to write file %s: %v", output, err)
 		}
 	}

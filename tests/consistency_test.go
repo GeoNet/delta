@@ -3,7 +3,7 @@ package delta_test
 import (
 	"bytes"
 	"encoding/csv"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"sort"
 	"testing"
@@ -25,7 +25,7 @@ var testConsistency = map[string]func(path string, list meta.List) func(t *testi
 	"check file consistency": func(path string, list meta.List) func(t *testing.T) {
 		return func(t *testing.T) {
 
-			raw, err := ioutil.ReadFile(path)
+			raw, err := os.ReadFile(path)
 			if err != nil {
 				t.Fatalf("unable to read %s file: %v", path, err)
 			}
@@ -70,6 +70,7 @@ func TestConsistency(t *testing.T) {
 		"constituents": {f: "../environment/constituents.csv", l: &meta.ConstituentList{}},
 		"features":     {f: "../environment/features.csv", l: &meta.FeatureList{}},
 		"visibility":   {f: "../environment/visibility.csv", l: &meta.VisibilityList{}},
+		"citations":    {f: "../references/citations.csv", l: &meta.CitationList{}},
 	}
 
 	for f, v := range files {

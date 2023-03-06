@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strings"
 	"text/template"
@@ -155,7 +154,7 @@ func main() {
 
 	// process each template given on the command line
 	for _, t := range flag.Args() {
-		conf, err := ioutil.ReadFile(t)
+		conf, err := os.ReadFile(t)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "problem reading template file %s: %v\n", t, err)
 			os.Exit(1)

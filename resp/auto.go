@@ -33,6 +33,13 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Manufacturer: "SAIC",
 		Vendor:       "",
 	},
+	"CUSP-Me": {
+		Name:         "CUSP-Me",
+		Type:         "Strong Motion Recorder",
+		Description:  "CUSP-Me",
+		Manufacturer: "Canterbury Seismic Instruments",
+		Vendor:       "",
+	},
 	"CUSP3A": {
 		Name:         "CUSP3A",
 		Type:         "Strong Motion Recorder",
@@ -65,6 +72,13 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Name:         "CUSP3D",
 		Type:         "Strong Motion Recorder",
 		Description:  "Cusp3D",
+		Manufacturer: "Canterbury Seismic Instruments",
+		Vendor:       "",
+	},
+	"CUSPM": {
+		Name:         "CUSPM",
+		Type:         "Strong Motion Recorder",
+		Description:  "CUSPM",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 	},
@@ -331,6 +345,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
+	"CUSP-Me": {
+		Name:         "CUSP-Me",
+		Type:         "Strong Motion Sensor",
+		Description:  "CUSP-Me",
+		Manufacturer: "Canterbury Seismic Instruments",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
+	},
 	"CUSP-Me SENSOR": {
 		Name:         "CUSP-Me SENSOR",
 		Type:         "Building Array Sensor",
@@ -399,6 +421,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Name:         "CUSP3D",
 		Type:         "Strong Motion Sensor",
 		Description:  "CUSP 3D",
+		Manufacturer: "Canterbury Seismic Instruments",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
+	},
+	"CUSPM": {
+		Name:         "CUSPM",
+		Type:         "Strong Motion Sensor",
+		Description:  "CUSPM",
 		Manufacturer: "Canterbury Seismic Instruments",
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 90, Dip: 0}, {Azimuth: 0, Dip: 0}, {Azimuth: 0, Dip: -90}},
@@ -643,6 +673,22 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
+	"Titan TACCL-BH1": {
+		Name:         "Titan TACCL-BH1",
+		Type:         "Accelerometer",
+		Description:  "Titan",
+		Manufacturer: "Nanometrics Inc.",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
+	},
+	"Titan TACCL-N1": {
+		Name:         "Titan TACCL-N1",
+		Type:         "Accelerometer",
+		Description:  "Titan",
+		Manufacturer: "Nanometrics Inc.",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
+	},
 	"Trillium 120QA": {
 		Name:         "Trillium 120QA",
 		Type:         "Broadband Seismometer",
@@ -693,6 +739,14 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 	},
 	"Trillium Horizon TH120-1": {
 		Name:         "Trillium Horizon TH120-1",
+		Type:         "Broadband Seismometer",
+		Description:  "Trillium Horizon 120",
+		Manufacturer: "Nanometrics Inc.",
+		Vendor:       "",
+		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
+	},
+	"Trillium Horizon TH120-2": {
+		Name:         "Trillium Horizon TH120-2",
 		Type:         "Broadband Seismometer",
 		Description:  "Trillium Horizon 120",
 		Manufacturer: "Nanometrics Inc.",
@@ -760,7 +814,7 @@ var Responses []Response = []Response{
 				Channels: "21Z",
 				Reversed: false,
 			}, {
-				SensorList: []string{"CUSP3C"},
+				SensorList: []string{"CUSP3C", "CUSPM", "CUSP-Me"},
 				FilterList: []string{"CUSP SENSOR"},
 				Stages: []ResponseStage{
 					{
@@ -901,7 +955,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, {
-				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3"},
+				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3", "CUSPM", "CUSP-Me"},
 				Type:           "TG",
 				Label:          "HN",
 				SampleRate:     200,
@@ -931,7 +985,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, {
-				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3"},
+				DataloggerList: []string{"CUSP3D", "CUSP3C", "CUSP3C3", "CUSPM", "CUSP-Me"},
 				Type:           "CG",
 				Label:          "BN",
 				SampleRate:     50,
@@ -3122,7 +3176,7 @@ var Responses []Response = []Response{
 				Channels: "Z12",
 				Reversed: false,
 			}, {
-				SensorList: []string{"Trillium Horizon TH120-1"},
+				SensorList: []string{"Trillium Horizon TH120-1", "Trillium Horizon TH120-2"},
 				FilterList: []string{"TRILLIUM-HORIZON-TH120-1"},
 				Stages: []ResponseStage{
 					{
@@ -4576,6 +4630,64 @@ var Responses []Response = []Response{
 				},
 				Channels: "ZNE",
 				Reversed: false,
+			}, {
+				SensorList: []string{"Titan TACCL-N1"},
+				FilterList: []string{"TITAN-4G"},
+				Stages: []ResponseStage{
+					{
+						Type:   "paz",
+						Lookup: "TITAN",
+						Filter: "TITAN-4G",
+						StageSet: PAZ{
+							Name:  "TITAN",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "derived from Nanometrics instrument response query",
+							Poles: []complex128{(-977 + 328i), (-977 - 328i), (-1486 + 2512i), (-1486 - 2512i), (-5736 + 4946i), (-5736 - 4946i)},
+							Zeros: []complex128{(-515 + 0i)},
+						},
+						Frequency:  1,
+						SampleRate: 0,
+						Decimate:   0,
+						Gain:       0.51,
+						//Scale: 1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "m/s**2",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "ZNE",
+				Reversed: false,
+			}, {
+				SensorList: []string{"Titan TACCL-BH1"},
+				FilterList: []string{"TITAN-4G"},
+				Stages: []ResponseStage{
+					{
+						Type:   "paz",
+						Lookup: "TITAN",
+						Filter: "TITAN-4G",
+						StageSet: PAZ{
+							Name:  "TITAN",
+							Code:  PZFunctionLaplaceRadiansPerSecond,
+							Type:  "Laplace transform analog stage response, in rad/sec.",
+							Notes: "derived from Nanometrics instrument response query",
+							Poles: []complex128{(-977 + 328i), (-977 - 328i), (-1486 + 2512i), (-1486 - 2512i), (-5736 + 4946i), (-5736 - 4946i)},
+							Zeros: []complex128{(-515 + 0i)},
+						},
+						Frequency:  1,
+						SampleRate: 0,
+						Decimate:   0,
+						Gain:       0.51,
+						//Scale: 1,
+						Correction:  0,
+						Delay:       0,
+						InputUnits:  "m/s**2",
+						OutputUnits: "V",
+					},
+				},
+				Channels: "Z12",
+				Reversed: false,
 			},
 		},
 		Dataloggers: []Datalogger{
@@ -4934,7 +5046,7 @@ var Responses []Response = []Response{
 		Name: "Nanometrics Dataloggers Connected to Water Depth Sensors (Derived)",
 		Sensors: []Sensor{
 			{
-				SensorList: []string{"Druck PTX-1830"},
+				SensorList: []string{"Druck PTX-1830-LAND", "Druck PTX-1830"},
 				FilterList: []string{},
 				Stages:     []ResponseStage{},
 				Channels:   "H",
@@ -5666,7 +5778,7 @@ var Responses []Response = []Response{
 				Channels: "Z12",
 				Reversed: false,
 			}, {
-				SensorList: []string{"Trillium Horizon TH120-1"},
+				SensorList: []string{"Trillium Horizon TH120-1", "Trillium Horizon TH120-2"},
 				FilterList: []string{"TRILLIUM-HORIZON-TH120-1"},
 				Stages: []ResponseStage{
 					{
@@ -7852,7 +7964,7 @@ var Responses []Response = []Response{
 							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
 						},
 						Frequency:  0,
-						SampleRate: 1,
+						SampleRate: 10,
 						Decimate:   1,
 						Gain:       419430.4,
 						//Scale: 0,
@@ -9440,7 +9552,7 @@ var Responses []Response = []Response{
 							Notes: "This filter is used to represent an Analogue to Digital converter stage, it has no poles or zeros.",
 						},
 						Frequency:  0,
-						SampleRate: 1,
+						SampleRate: 10,
 						Decimate:   1,
 						Gain:       419430.4,
 						//Scale: 0,

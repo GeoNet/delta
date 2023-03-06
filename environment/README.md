@@ -4,6 +4,8 @@ _Lists the geological and physical environment details of collection points._
 
 ### FILES ###
 
+* `classes.csv` - Site Class Descriptions.
+
 * `constituents.csv` - Constituents Descriptions.
 
 * `features.csv` - Sensor Installation Descriptions.
@@ -13,6 +15,47 @@ _Lists the geological and physical environment details of collection points._
 * `placenames.csv` - Placename Descriptions.
 
 * `visibility.csv` - Sky View Descriptions.
+
+#### _CLASSES_ ####
+
+Site classes as used for earthquake engineering applications and studies, for more details please see:
+
+> __Kaiser, A., Van Houtte, C., Perrin, N., Wotherspoon, L., & McVerry, G. (2017).__
+> Site characterisation of GeoNet stations for the New Zealand Strong Motion Database.
+> Bulletin of the New Zealand Society for Earthquake Engineering, 50(1), 39–49. https://doi.org/10.5459/bnzsee.50.1.39-49
+
+| Field | Description |
+| --- | --- |
+| _Station_        | Station _Code_ used to identify where the site class has been described
+| _Site Class_     | Site class as defined by NZS1170, ranges between *A* and *E*
+| _Vs30_           | The time-averaged shear-wave velocity to 30m depth in meters per second
+| _Vs30 Quality_   | A quality estimate of the _Vs30_ estimate, ranges from *Q1* to *Q3*
+| _Tsite_          | The low-strain fundamental site period in seconds, a range can be given as a prefix (e.g. &lt; or &gt;)
+| _Tsite Method_   | An indication of the method used to estimate _Tsite_
+| _Tsite Quality_  | A quality estimate of the _Tsite_ estimate, ranges from *Q1* to *Q3*
+| _Basement Depth_ | Estimated depth to the basement layer in meters, this may also be estimated as the depth to 1000 meters per second.
+| _Depth Quality_  | A quality estimate of the depth to basement, ranges from *Q1* to *Q3*
+| _Link_           | A reference link to another site
+| _Citations_      | A semicolon separated list of reference citations for the site class estimates
+| _Notes_          | Extra notes which should be avoided in lieu of a better machine readable field
+
+For reference the NZS1170.5 site classes are roughly
+
+> | Class | Description |
+> | --- | --- |
+> | A   | __Strong Rock__
+> | B   | __Rock__
+> | C   | __Shallow Soil__
+> | D   | __Deep or Soft Soil__
+> | E   | __Very Soft Soil__
+
+Quality estimates are roughly
+
+> | Quality | Description |
+> | --- | --- |
+> | Q1  | &lt; 10 %
+> | Q2  | 10 - 20 %
+> | Q3  | &gt; 20 %
 
 #### _CONSTITUENTS_ ####
 
