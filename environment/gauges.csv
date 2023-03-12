@@ -1,4 +1,4 @@
-Gauge,Network,LINZ Number,Analysis Time Zone,Analysis Latitude,Analysis Longitude,Crex Tag,Start Date,End Date
+Gauge,Network,Identification Number,Analysis Time Zone,Analysis Latitude,Analysis Longitude,Crex Tag,Start Date,End Date
 AUCT,TG,363,180,36.5,174.47,-3683144 17478654 AUCT,2009-03-26T00:00:00Z,9999-01-01T00:00:00Z
 CHIT,TG,352,180,44.02,176.22,-4402404 -17636748 CHIT,2007-12-16T00:00:00Z,9999-01-01T00:00:00Z
 CHST,TG,407,180,41.54,171.26,-4190301 17143411 CHST,2015-06-25T00:00:00Z,9999-01-01T00:00:00Z
