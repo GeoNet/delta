@@ -1,0 +1,355 @@
+Version,Network,Type,Description,Manufacturer,Vendor,Model
+datalogger,BQ,,,,,
+datalogger,BQ,Centaur,,Nanometrics,,Centaur
+datalogger,BQ,Centaur-3,,Nanometrics,,Centaur-3
+datalogger,GQ,,DigiDummy/g=1,,,
+datalogger,GQ,Nanometrics Meridian,Meridian/g=400000,Nanometrics,,Meridian
+datalogger,GQ,RaspberryShake ShakePi,ShakePi/g=1,RaspberryShake,,ShakePi
+datalogger,GR,,,,,
+datalogger,GR,,DigiDummy/g=1,,,
+datalogger,GR,,DigiDummy/g=400000,,,
+datalogger,GR,Earth Data EDR-209,EDR-209/g=1000000,Earth Data,,EDR-209
+datalogger,GR,Guralp DM24,DM24/X1/g=348068,Guralp,,DM24
+datalogger,GR,Guralp DM24,DM24/X8/g=2784545,Guralp,,DM24
+datalogger,GR,Guralp DM24,DM24/g=1,Guralp,,DM24
+datalogger,GR,Guralp DM24,DM24/g=392157,Guralp,,DM24
+datalogger,GR,Nanometrics HRD24,HRD24/g=11854901,Nanometrics,,HRD24
+datalogger,GR,Nanometrics HRD24,HRD24/g=3329412,Nanometrics,,HRD24
+datalogger,GR,Nanometrics Meridian,Meridian/g=400000,Nanometrics,,Meridian
+datalogger,GR,Nanometrics Trident,Trident/g=1,Nanometrics,,Trident
+datalogger,GR,Quanterra Q330,Q330/HR/g=1677720,Quanterra,,Q330
+datalogger,GR,Quanterra Q330,Q330/N/g=419430,Quanterra,,Q330
+datalogger,GR,Quanterra Q330,Q330Mplus/g=419430,Quanterra,,Q330
+datalogger,GR,Refraction Technologies REFTEK-130,REFTEK-130/g=1,Refraction Technologies,,REFTEK-130
+datalogger,GR,Refraction Technologies REFTEK-130,REFTEK-130/g=20138451,Refraction Technologies,,REFTEK-130
+datalogger,GR,Refraction Technologies REFTEK-130,REFTEK-130/g=629326,Refraction Technologies,,REFTEK-130
+datalogger,GR,WXT530,WXT530/g=1,,,WXT530
+datalogger,HS,Nanometrics Centaur,,Nanometrics,,Centaur
+datalogger,HS,Nanometrics Taurus,,Nanometrics,,Taurus
+datalogger,KQ,,,,,
+datalogger,LE,,ABH.2019.227.HHE,,,
+datalogger,LE,,ABH.2019.227.HHN,,,
+datalogger,LE,,ABH.2019.227.HHZ,,,
+datalogger,LE,,BABA.2016.224.HHE,,,
+datalogger,LE,,BABA.2016.224.HHN,,,
+datalogger,LE,,BABA.2016.224.HHZ,,,
+datalogger,LE,,BEDO.2021.001.HHE,,,
+datalogger,LE,,BEDO.2021.001.HHN,,,
+datalogger,LE,,BEDO.2021.001.HHZ,,,
+datalogger,LE,,BEUR.2019.078.HHE,,,
+datalogger,LE,,BEUR.2019.078.HHN,,,
+datalogger,LE,,BEUR.2019.078.HHZ,,,
+datalogger,LE,,BIW.2017.149.EHE,,,
+datalogger,LE,,BIW.2017.149.EHN,,,
+datalogger,LE,,BIW.2017.149.EHZ,,,
+datalogger,LE,,BODE.2020.289.EHN00,,,
+datalogger,LE,,BODE.2020.289.EHZ00,,,
+datalogger,LE,,BRET.2019.213.EHE,,,
+datalogger,LE,,BRET.2019.213.EHN,,,
+datalogger,LE,,BRET.2019.213.EHZ,,,
+datalogger,LE,,BUCH.2017.103.HHE,,,
+datalogger,LE,,BUCH.2017.103.HHN,,,
+datalogger,LE,,BUCH.2017.103.HHZ,,,
+datalogger,LE,,DEGG.2017.055.HHE,,,
+datalogger,LE,,DEGG.2017.055.HHN,,,
+datalogger,LE,,DEGG.2017.055.HHZ,,,
+datalogger,LE,,DUP.2020.283.EHE01,,,
+datalogger,LE,,DUP.2020.283.EHN01,,,
+datalogger,LE,,DUP.2020.283.EHZ01,,,
+datalogger,LE,,ENDD.2016.222.HHE,,,
+datalogger,LE,,ENDD.2016.222.HHN,,,
+datalogger,LE,,ENDD.2016.222.HHZ,,,
+datalogger,LE,,FACH.2019.140.HHE,,,
+datalogger,LE,,FACH.2019.140.HHN,,,
+datalogger,LE,,FACH.2019.140.HHZ,,,
+datalogger,LE,,FBB.2017.300.HHE,,,
+datalogger,LE,,FBB.2017.300.HHN,,,
+datalogger,LE,,FBB.2017.300.HHZ,,,
+datalogger,LE,,FELD.2019.136.EHE,,,
+datalogger,LE,,FELD.2019.136.EHN,,,
+datalogger,LE,,FELD.2019.136.EHZ,,,
+datalogger,LE,,FREU.2017.123.HHE,,,
+datalogger,LE,,FREU.2017.123.HHN,,,
+datalogger,LE,,FREU.2017.123.HHZ,,,
+datalogger,LE,,GALG.2016.110.HHE,,,
+datalogger,LE,,GALG.2016.110.HHN,,,
+datalogger,LE,,GALG.2016.110.HHZ,,,
+datalogger,LE,,GLOK.2018.345.HHE,,,
+datalogger,LE,,GLOK.2018.345.HHN,,,
+datalogger,LE,,GLOK.2018.345.HHZ,,,
+datalogger,LE,,GUT.2016.349.HHE,,,
+datalogger,LE,,GUT.2016.349.HHN,,,
+datalogger,LE,,GUT.2016.349.HHZ,,,
+datalogger,LE,,HDH.2016.121.EHE,,,
+datalogger,LE,,HDH.2016.121.EHN,,,
+datalogger,LE,,HDH.2016.121.EHZ,,,
+datalogger,LE,,IMS.2019.233.EHE,,,
+datalogger,LE,,IMS.2019.233.EHN,,,
+datalogger,LE,,IMS.2019.233.EHZ,,,
+datalogger,LE,,KIZ.2016.150.HHE,,,
+datalogger,LE,,KIZ.2016.150.HHN,,,
+datalogger,LE,,KIZ.2016.150.HHZ,,,
+datalogger,LE,,KOGO.2020.214.EHE00,,,
+datalogger,LE,,KOGO.2020.214.EHN00,,,
+datalogger,LE,,KOGO.2020.214.EHZ00,,,
+datalogger,LE,,LAGB.2015.267.HHE,,,
+datalogger,LE,,LAGB.2015.267.HHN,,,
+datalogger,LE,,LAGB.2015.267.HHZ,,,
+datalogger,LE,,LDE.2018.212.EHE,,,
+datalogger,LE,,LDE.2018.212.EHN,,,
+datalogger,LE,,LDE.2018.212.EHZ,,,
+datalogger,LE,,LDO.2018.254.EH1,,,
+datalogger,LE,,LDO.2018.254.EH2,,,
+datalogger,LE,,LDO.2018.254.EHZ,,,
+datalogger,LE,,MSS.2017.095.EHE,,,
+datalogger,LE,,MSS.2017.095.EHN,,,
+datalogger,LE,,MSS.2017.095.EHZ,,,
+datalogger,LE,,MUEZ.2020.245.HH1,,,
+datalogger,LE,,MUEZ.2020.245.HH2,,,
+datalogger,LE,,MUEZ.2020.245.HHZ,,,
+datalogger,LE,,NICK.2019.078.HH1,,,
+datalogger,LE,,NICK.2019.078.HH2,,,
+datalogger,LE,,NICK.2019.078.HHZ,,,
+datalogger,LE,,OCHT.2014.140.EHE,,,
+datalogger,LE,,OCHT.2014.140.EHN,,,
+datalogger,LE,,OCHT.2014.140.EHZ,,,
+datalogger,LE,,OMED.2020.275.HHE,,,
+datalogger,LE,,OMED.2020.275.HHN,,,
+datalogger,LE,,OMED.2020.275.HHZ,,,
+datalogger,LE,,OPP.2016.265.EHE,,,
+datalogger,LE,,OPP.2016.265.EHN,,,
+datalogger,LE,,OPP.2016.265.EHZ,,,
+datalogger,LE,,PEB.2018.039.HHE,,,
+datalogger,LE,,PEB.2018.039.HHN,,,
+datalogger,LE,,PEB.2018.039.HHZ,,,
+datalogger,LE,,PYRM.2019.238.HHE,,,
+datalogger,LE,,PYRM.2019.238.HHN,,,
+datalogger,LE,,PYRM.2019.238.HHZ,,,
+datalogger,LE,,RIVT.2019.331.EHE,,,
+datalogger,LE,,RIVT.2019.331.EHN,,,
+datalogger,LE,,RIVT.2019.331.EHZ,,,
+datalogger,LE,,ROTE.2017.249.EHE,,,
+datalogger,LE,,ROTE.2017.249.EHN,,,
+datalogger,LE,,ROTE.2017.249.EHZ,,,
+datalogger,LE,,ROTT.2015.078.EH1,,,
+datalogger,LE,,ROTT.2015.078.EH2,,,
+datalogger,LE,,ROTT.2015.078.EHZ,,,
+datalogger,LE,,SIND.2016.231.HHE,,,
+datalogger,LE,,SIND.2016.231.HHN,,,
+datalogger,LE,,SIND.2016.231.HHZ,,,
+datalogger,LE,,TETT.2017.243.EHE,,,
+datalogger,LE,,TETT.2017.243.EHN,,,
+datalogger,LE,,TETT.2017.243.EHZ,,,
+datalogger,LE,,TUBL.2003.026.EHE00,,,
+datalogger,LE,,TUBL.2003.026.EHN00,,,
+datalogger,LE,,TUBL.2003.026.EHZ00,,,
+datalogger,LE,,URBA.2016.356.HHE,,,
+datalogger,LE,,URBA.2016.356.HHN,,,
+datalogger,LE,,URBA.2016.356.HHZ,,,
+datalogger,LE,,VOGT.2015.324.EHE,,,
+datalogger,LE,,VOGT.2015.324.EHN,,,
+datalogger,LE,,VOGT.2015.324.EHZ,,,
+datalogger,LE,,WOER.2018.162.EHE,,,
+datalogger,LE,,WOER.2018.162.EHN,,,
+datalogger,LE,,WOER.2018.162.EHZ,,,
+datalogger,LE,,ZWI.2017.214.HHE,,,
+datalogger,LE,,ZWI.2017.214.HHN,,,
+datalogger,LE,,ZWI.2017.214.HHZ,,,
+datalogger,LE,Guralp DM24,Guralp DM24,Guralp,,DM24
+datalogger,RN,,,,,
+datalogger,SX,Earth Data EDR-209,EDR-209_low,Earth Data,,EDR-209
+datalogger,SX,Earth Data PR6-24,PR6-24_low,Earth Data,,PR6-24
+datalogger,SX,Earth Data PS6-24,PS6-24_low,Earth Data,,PS6-24
+datalogger,SX,Guralp Guralp,Guralp_CMG_DM24_gy,Guralp,,Guralp
+datalogger,SX,LennartzM24,LennartzM24,,,LennartzM24
+datalogger,SX,Nanometrics Centaur,Centaur,Nanometrics,,Centaur
+datalogger,SX,Quanterra Q730alt,Q730alt,Quanterra,,Q730alt
+datalogger,SX,Quanterra Q730neu,Q730neu,Quanterra,,Q730neu
+datalogger,TH,Earth Data EDR-209,EDR-209_low,Earth Data,,EDR-209
+datalogger,TH,Earth Data EDR-209,EDR-209_very_low,Earth Data,,EDR-209
+datalogger,TH,Earth Data EDR-210,EDR-210_low,Earth Data,,EDR-210
+datalogger,TH,Nanometrics Centaur,Centaur,Nanometrics,,Centaur
+datalogger,TH,REF TEK Reftek130,Reftek130_1,REF TEK,,Reftek130
+datalogger,TH,REF TEK Reftek130S,Reftek130S_1,REF TEK,,Reftek130S
+datalogger,TH,Reftek,Reftek_169,,,Reftek
+datalogger,TH,Reftek,Reftek_524,,,Reftek
+datalogger,TH,Reftek,Reftek_526,,,Reftek
+datalogger,YA,,DigiDummy/g=1,,,
+datalogger,YA,Quanterra Q330,Q330/N/g=419463,Quanterra,,Q330
+sensor,BQ,,,Kinemetrics,,"Episensor (ES-T, ES-U, ES-U2, DS-DH, SBEPI)"
+sensor,BQ,,,Lennartz,,LE-3D-5s
+sensor,BQ,,,Nanometrics,,Trillium All-Terrain
+sensor,BQ,,"Episensor, DC to >200 Hz,  20V differential full s","Episensor,",,DC
+sensor,BQ,,"GTS13, 1.25 seconds","GTS13,",,1.25
+sensor,BQ,,"L-4C, 1 Hz, 51.5 V/m/s, Rc=500 Ohms, Rs=810 Ohms-G","L-4C,",,1
+sensor,BQ,,"LE-3D/5s, 5 s, 400 V/m/s-Generic Datalogger, Unity","LE-3D/5s,",,5
+sensor,BQ,,"LE-3Dlite MkII, 1 s, 400 V/m/s-Generic Datalogger,",LE-3Dlite,,"MkII,"
+sensor,BQ,,"S-13, 1 Hz, 629 V/m/s, 3600 ohm coil-Generic Datal","S-13,",,1
+sensor,BQ,,"STS-2, 120 s, 1500 V/m/s, generation 3 electronics","STS-2,",,120
+sensor,BQ,,STS2 120 s (Standard),Streckeisen,,STS-2
+sensor,BQ,,"Trillium Compact, 120 s, 754 V/m/s-Centaur, 40 vpp",Trillium,,"Compact,"
+sensor,BQ,BB,"STS-2, 120 s, 1500 V/m/s, generation 3 electronics",Streckeisen,,"STS-2/120s, 1500 V/m/s, gen 3"
+sensor,BQ,BB,"Trillium Horizon, 120 s, 1203 V/m/s",Nanometrics,,Trillium Horizon/120s
+sensor,BQ,SP,"LE-3D/5s, MKII, 400 V/m/s",Lennartz Electronics,,LE-3D/5s MKII
+sensor,GQ,,Meridian-PH-Compact/120/g=750,,,
+sensor,GQ,SP,ShakePi-3D/g=1,RaspberryShake,,ShakePi-3D
+sensor,GQ,VBB,blueSeis-3a/g=1000000000,iXBlue,,blueSeis-3a
+sensor,GR,,,,,
+sensor,GR,,IS-Bright/g=10,,,
+sensor,GR,,IS-Humidity/g=10,,,
+sensor,GR,,IS-Pressure/g=0,,,
+sensor,GR,,IS-Pressure/g=10,,,
+sensor,GR,,IS-Temp/g=10,,,
+sensor,GR,,IS-Temp/g=24875,,,
+sensor,GR,,IS-Temp/g=40000,,,
+sensor,GR,,IS-Temp/g=51315,,,
+sensor,GR,,IS-Temp/g=52438,,,
+sensor,GR,,IS-WindDir/g=1,,,
+sensor,GR,,IS-WindDir/g=10,,,
+sensor,GR,,IS-WindDir/g=11111,,,
+sensor,GR,,IS-WindDir/g=14250,,,
+sensor,GR,,IS-WindDir/g=14566,,,
+sensor,GR,,IS-WindDir/g=22222,,,
+sensor,GR,,IS-WindDir/g=6972,,,
+sensor,GR,,IS-WindSpeed/g=10,,,
+sensor,GR,,IS-WindSpeed/g=104876,,,
+sensor,GR,,IS-WindSpeed/g=106666,,,
+sensor,GR,,IS-WindSpeed/g=35635,,,
+sensor,GR,,IS-WindSpeed/g=66666,,,
+sensor,GR,,IS-WindSpeed/g=85598,,,
+sensor,GR,,"MB2000 (Infrasound), 0.02-4 Hz, 0.02 V/Pa-PR6-24,",,,
+sensor,GR,,"STS-2, 120 s, 1500 V/m/s, generation 3 electronics",,,
+sensor,GR,,STS1,,,
+sensor,GR,,STS1-24,,,
+sensor,GR,,STS1-VA,,,
+sensor,GR,,STS2,,,
+sensor,GR,,STS2.5,,,
+sensor,GR,,SensorDummy/g=18124478,,,
+sensor,GR,,SensorDummy/g=18124479,,,
+sensor,GR,,SensorDummy/g=1926782273,,,
+sensor,GR,,SensorDummy/g=251730648,,,
+sensor,GR,,SensorDummy/g=28800184,,,
+sensor,GR,,SensorDummy/g=579979120,,,
+sensor,GR,,SensorDummy/g=61728395061,,,
+sensor,GR,,SensorDummy/g=944019635,,,
+sensor,GR,BB,ESP-3V/g=2000,Guralp,,ESP-3V
+sensor,GR,BB,LE-3D/BH/g=400,Lennartz,,LE-3D
+sensor,GR,BB,Trillium-Compact-PH20/g=753,Nanometrics,,Trillium-Compact-PH20
+sensor,GR,Hyperion IFS3000,IFS3000/g=137000,Hyperion,,IFS3000
+sensor,GR,Hyperion IFS3000,IFS3000/g=55800,Hyperion,,IFS3000
+sensor,GR,MB,MB2000/g=1,,,MB
+sensor,GR,MB,MB2000/g=10336,,,MB
+sensor,GR,MB,MB2000/g=10487,,,MB
+sensor,GR,MB,MB2000/g=10646,,,MB
+sensor,GR,MB,MB2000/g=4,,,MB
+sensor,GR,MB,MB2000/g=40,,,MB
+sensor,GR,MB,MB2000/g=5,,,MB
+sensor,GR,MB,MB2000/g=524,,,MB
+sensor,GR,MB,MB2000/g=8000,,,MB
+sensor,GR,MB,MB2000/g=8067,,,MB
+sensor,GR,MB,MB2000/g=8073,,,MB
+sensor,GR,MB,MB2000/g=8079,,,MB
+sensor,GR,MB,MB2000/g=8080,,,MB
+sensor,GR,MB,MB2000/g=8081,,,MB
+sensor,GR,MB,MB2000/g=8084,,,MB
+sensor,GR,MB,MB2000/g=8094,,,MB
+sensor,GR,MB,MB2000/g=8096,,,MB
+sensor,GR,MB,MB2000/g=8101,,,MB
+sensor,GR,MB,MB2000/g=8112,,,MB
+sensor,GR,MB,MB2000/g=8183,,,MB
+sensor,GR,MB,MB2000/g=8186,,,MB
+sensor,GR,MB,MB2000/g=8216,,,MB
+sensor,GR,MB,MB2000/g=8352,,,MB
+sensor,GR,MB,MB2000/g=8385,,,MB
+sensor,GR,MB,MB2005/g=12586,,,MB
+sensor,GR,MB,MB2005/g=3,,,MB
+sensor,GR,MB,MB2005/g=6,,,MB
+sensor,GR,MB,MB2005/g=6968,,,MB
+sensor,GR,MB,MB3a/g=6968,,,MB
+sensor,GR,MB,MB3a/g=6975,,,MB
+sensor,GR,MB,MB3a/g=6978,,,MB
+sensor,GR,MB,MB3a/g=6980,,,MB
+sensor,GR,MB,MB3a/g=6983,,,MB
+sensor,GR,MB,MB3d/g=1,,,MB
+sensor,GR,MB,MB3d/g=100,,,MB
+sensor,GR,MB,MB3d/g=8488,,,MB
+sensor,GR,SP,GS13/g=80000,Geotech,,GS13
+sensor,GR,SP,LE-3D/1/g=400,Lennartz,,LE-3D
+sensor,GR,SP,LE-3D/5/g=400,Lennartz,,LE-3D
+sensor,GR,SP,LE-3D/liteMkII/g=400,Lennartz,,LE-3D
+sensor,GR,SP,LE-3D/liteMkIII/g=800,Lennartz,,LE-3D
+sensor,GR,SP,Mark-L4/1/g=12700,Mark,,
+sensor,GR,Unavailable,Unavailable,,,Unavailable
+sensor,GR,VBB,CMG-3T/120/g=1500,Guralp,,CMG-3T/120
+sensor,GR,VBB,CMG-3TB/360/g=6000,Guralp,,CMG-3TB
+sensor,GR,VBB,Meridian-PH/120/g=1200,Nanometrics,,Meridian-PH/120
+sensor,GR,VBB,STS-2.5/g=1500,Streckeisen,,
+sensor,GR,VBB,STS-2/g=1500,Streckeisen,,STS-2
+sensor,GR,VBB,STS-2/g=629128660,Streckeisen,,STS-2
+sensor,GR,VBB,Trillium-120/g=1202,Nanometrics,,Trillium-120
+sensor,HS,Lennartz LE-3Dlite Classic,,Lennartz,,LE-3Dlite Classic
+sensor,HS,Lennartz LE-3Dlite MkIII,,Lennartz,,LE-3Dlite MkIII
+sensor,HS,Nanometrics Titan Accelerometer,,Nanometrics,,Titan Accelerometer
+sensor,HS,Nanometrics Trillium 120 Posthole,,Nanometrics,,Trillium 120 Posthole
+sensor,HS,Nanometrics Trillium All-Terrain,,Nanometrics,,Trillium All-Terrain
+sensor,HS,Nanometrics Trillium Compact,,Nanometrics,,Trillium Compact
+sensor,KQ,,"CMG-3T, 120s to 50Hz, 1500 V/m/s-DM-24 Mk2 Differe",,,
+sensor,KQ,,"CMG-3TD, 120 s, 3000 V/m/s-DM-24 Mk2 Single-ended,",,,
+sensor,KQ,,"CMG-40T, 30 s, 2000 V/m/s-DM-24 Mk3 Fixed Gain, ga",,,
+sensor,KQ,,"STS-2.5, 120s, 1500 V/m/s-Q330S+, gain 1, 100 sps,",,,
+sensor,KQ,,"STS-2.5, 120s, 1500 V/m/s-Q330S+, gain 1, 20 sps,",,,
+sensor,KQ,,"Trillium Compact, 120 s, 754 V/m/s-Centaur, 40 vpp",,,
+sensor,KQ,,"Trillium Compact, 120 s, 754 V/m/s-Q330S+, gain 1,",,,
+sensor,KQ,,Trillium20,,,
+sensor,LE,1,1,,,1
+sensor,LE,5,5,,,5
+sensor,LE,"Compact,","Compact,",,,"Compact,"
+sensor,LE,"LE-3D/20s, 20",20,"LE-3D/20s,",,20
+sensor,LE,"LE-3D/5s, 5",5,"LE-3D/5s,",,5
+sensor,LE,"LE-3D/BH, 1",1,"LE-3D/BH,",,1
+sensor,LE,"LE-3Dlite MkII,","MkII,",LE-3Dlite,,"MkII,"
+sensor,LE,"LE-3Dlite MkIII,","MkIII,",LE-3Dlite,,"MkIII,"
+sensor,LE,Lennartz LE-3D/BH,Lennartz KABBA-LE-3D/BH,Lennartz,,LE-3D/BH
+sensor,LE,"MkII,","MkII,",,,"MkII,"
+sensor,LE,"MkIII,","MkIII,",,,"MkIII,"
+sensor,LE,"Trillium Compact,","Compact,",Trillium,,"Compact,"
+sensor,RN,"GS-13, 1","GS-13, 1 Hz, 2180 V/m/s, 9100 ohm coil-PS6-24, Low","GS-13,",,1
+sensor,RN,"L-4C, 1","L-4C, 1 Hz, 171 V/m/s, Rc=5500 Ohms, Rs=8905 Ohms-","L-4C,",,1
+sensor,RN,"L-4C, 1","L-4C, 1 Hz, 276 V/m/s, Rc=5500 Ohms, Rs=8905 Ohms-","L-4C,",,1
+sensor,RN,"S-13, 1","S-13, 1 Hz, 629 V/m/s, 3600 ohm coil-PR6-24, Very","S-13,",,1
+sensor,RN,"S-13, 1","S-13, 1 Hz, 629 V/m/s, 3600 ohm coil-PS6-24, Low (","S-13,",,1
+sensor,RN,"STS-2, 120","STS-2, 120 s, 1500 V/m/s, generation 3 electronics","STS-2,",,120
+sensor,RN,"Trillium 40,","Trillium 40, 40 s, 1553 V/m/s-PS6-24, Low (default",Trillium,,"40,"
+sensor,SX,Guralp CMG-3ESPC_60s,CMG-3ESPC_60s,Guralp,,CMG-3ESPC_60s
+sensor,SX,Guralp CMG-3ESP_30s,CMG-3ESP_30s,Guralp,,CMG-3ESP_30s
+sensor,SX,Guralp CMG-6T,CMG-6T,Guralp,,CMG-6T
+sensor,SX,Lennartz LE-3D_5s,LE-3D_5s,Lennartz,,LE-3D_5s
+sensor,SX,Lennartz LE-3Dlite,LE-3Dlite,Lennartz,,LE-3Dlite
+sensor,SX,Nanometrics TC120_120s,TC120_120s,Nanometrics,,TC120_120s
+sensor,SX,Streckeisen STS-2,STS-2,Streckeisen,,STS-2
+sensor,TH,CMG3ESP,CMG3ESP,,,CMG3ESP
+sensor,TH,Guralp CMG-3ESPC_60s,CMG-3ESPC_60s,Guralp,,CMG-3ESPC_60s
+sensor,TH,Guralp CMG-3ESP_120s,CMG-3ESP_120s,Guralp,,CMG-3ESP_120s
+sensor,TH,Guralp CMG-3ESP_30s,CMG-3ESP_30s,Guralp,,CMG-3ESP_30s
+sensor,TH,Guralp CMG-3ESP_60s,CMG-3ESP_60s,Guralp,,CMG-3ESP_60s
+sensor,TH,Guralp CMG-40T_1s,CMG-40T_1s,Guralp,,CMG-40T_1s
+sensor,TH,Guralp CMG-40T_30s,CMG-40T_30s,Guralp,,CMG-40T_30s
+sensor,TH,Guralp CMG-5T,CMG-5T,Guralp,,CMG-5T
+sensor,TH,Guralp CMG-5TC,CMG-5TC,Guralp,,CMG-5TC
+sensor,TH,Lennartz LE-3D_5s,LE-3D_5s,Lennartz,,LE-3D_5s
+sensor,TH,Nanometrics TC120H_120s,TC120H_120s,Nanometrics,,TC120H_120s
+sensor,TH,Nanometrics TC120_120s,TC120_120s,Nanometrics,,TC120_120s
+sensor,TH,Nanometrics TC20_20s,TC20_20s,Nanometrics,,TC20_20s
+sensor,TH,Nanometrics TH120_120s,TH120_120s,Nanometrics,,TH120_120s
+sensor,TH,S13,S13,,,S13
+sensor,TH,SM-3,SM-3,,,SM-3
+sensor,TH,SSJ-IIe_E,SSJ-IIe_E,,,SSJ-IIe_E
+sensor,TH,SSJ-IIe_N,SSJ-IIe_N,,,SSJ-IIe_N
+sensor,TH,Sercel/Mark Products Mark_4,Mark_4,Sercel/Mark Products,,Mark_4
+sensor,TH,Streckeisen STS-2,STS-2,Streckeisen,,STS-2
+sensor,TH,VSJ-IIe_Z,VSJ-IIe_Z,,,VSJ-IIe_Z
+sensor,YA,MB,MB2000/g=1,,,MB
+sensor,YA,MB,MB2005/g=1,,,MB
+sensor,YA,MB,MB3d/g=1,,,MB
+sensor,YA,MB,MB3d/g=8488,,,MB
+sensor,YA,Sensirion SDP610,SDP610/g=1200,Sensirion,,SDP610
