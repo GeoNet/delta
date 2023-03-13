@@ -88,7 +88,7 @@ Quality estimates are roughly
 | --- | --- |
 | _Gauge_ | Code used to uniquely identify Tide Gauge _Stations_
 | _Network_ | Code used to group Tide Gauge _Stations_ together by project or operator
-| _LINZ Number_ | Code used by _LINZ_ to identify the Tide Gauge _Station_
+| _Identification Number_ | For the tsunami gauges, this is a code used by LINZ, for the DART stations, this is the WMO number.
 | _Analysis Time Zone_ | Time-zone offset used in the Tidal Constituent Analysis
 | _Analysis Latitude_ | Latitude used in the Tidal Constituent Analysis, usually positive
 | _Analysis Longitude_ | Longitude used in the Tidal Constituent Analysis
