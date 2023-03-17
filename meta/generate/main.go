@@ -41,6 +41,7 @@ func main() {
 			"sites":               {"Site"},
 			"stations":            {"Station"},
 			"streams":             {"Stream"},
+			"telemetries":         {"Telemetry"},
 			"views":               {"View"},
 			"visibilities":        {"Visibility"},
 			"channels":            {"Channel"},

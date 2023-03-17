@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Response>
   <InstrumentSensitivity>
-    <Value>100.0</Value>
-    <Frequency>0.0</Frequency>
+    <Value>100</Value>
+    <Frequency>0</Frequency>
     <InputUnits>
       <Name>nT</Name>
     </InputUnits>
@@ -18,7 +19,7 @@
         <Name>count</Name>
       </OutputUnits>
       <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
-      <Numerator number="0">1.0</Numerator>
+      <Numerator number="0">1</Numerator>
     </Coefficients>
     <Decimation>
       <InputSampleRate>1</InputSampleRate>
@@ -28,8 +29,8 @@
       <Correction>0</Correction>
     </Decimation>
     <StageGain>
-      <Value>100.0</Value>
-      <Frequency>0.0</Frequency>
+      <Value>100</Value>
+      <Frequency>0</Frequency>
     </StageGain>
   </Stage>
 </Response>

@@ -24,6 +24,7 @@ Meta information for the GeoNet equipment network.
 * `components.csv` - Individual sensor elements including measurement position and responses.
 * `channels.csv` - Individual datalogger recording elements including digitiser position, sampling rate, and responses.
 * [`preamps.csv`](#preamps) - site specific settings applied to individual datalogger pre-amplification that may impact overall sensitivities.
+* [`telemetries.csv`](#telemetries) - site specific settings applied to datalogger and sensor connections that may use analogue telemetry.
 
 * `cameras.csv` - Installed field cameras.
 * `doases.csv` - Installed field DOAS (Differential Optical Absorption Spectrometer) equipment.
@@ -282,7 +283,7 @@ For the scale factor and bias either a value can be given directly or an express
 | _Sublocation_ | additional location identifier for multi-parametric sensors installations, if applicable |
 | _Subsource_ | The sensor channel(s), as defined in the response configuration, which requires a gain adjustment, multiple subsource channels can be joined (e.g _"Z"_ or _"ZNE"_).
 | _Scale Factor_ | Scale, or gain factor, that the input signal is multiplied by prior to digitisation, or for polynomial responses it is the factor used to convert Volts into the signal units. If this field is empty, it should be assumed to have a value of __1.0__ which in theory should have no impact.
-| _Scale Bias_ | An offset value that needs to be added to the signal prior to digitisation and indicates a polynomial response is expected, if this field is blank it is assumed that the value is __0.0__.
+| _Scale Bias_ | An offset value that needs to be added to the signal prior to digitisation or to raw digital data. The offset indicates a polynomial response is expected, if this field is blank it is assumed that the value is __0.0__.
 | _Absolute Bias_ | An offset value that needs to be added to the signal after the scale factors have been applied to the polynomial response, if this field is blank it is assumed that the value is __0.0__.
 | _Start_ | Gain start time|
 | _Stop_ | Gain stop time|
@@ -360,8 +361,21 @@ and the expected response. Some digitisers have different nominal responses for 
 | _Location_ | Recording sensor site _Location_ |
 | _Subsource_ | The sensor channel _Subsource_ which has the preamp configured (e.g _"Z"_). An empty value indicates all channels have this setting for the provided _Location_.
 | _Scale Factor_ | The datalogger pre-amp scale factor used for this time span. These tend to be integer steps and may be referenced as **gain** settings.
-| _Start_ | Gain start time|
-| _Stop_ | Gain stop time|
+| _Start_ | Preamp start time|
+| _Stop_ | Preamp stop time|
+
+#### _TELEMETRIES_ ####
+
+Sometimes the datalogger and the sensor are not at the same location. Usually this means there is some form of analogue link between the two, either a dedicated
+telephone line, or an FM radio link. This table allows this to be documented, and provides a mechanism to adjust the signal gains if known.
+
+| Field | Description | Units |
+| --- | --- | --- |
+| _Station_ | Datalogger recording _Station_|
+| _Location_ | Recording sensor site _Location_ |
+| _Scale Factor_ | The telemetry gain factor for the analogue link, this represents the amplification of the signal if appropriate, an empty value is assumed to be 1.0
+| _Start_ | Telemetry start time|
+| _Stop_ | Telemetry stop time|
 
 ### CAMERA ###
 

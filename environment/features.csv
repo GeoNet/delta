@@ -1,4 +1,8 @@
 Station,Location,Sublocation,Property,Description,Aspect,Start Date,End Date
+ALS1R,01,01,rainfall,total,,2023-02-24T01:09:00Z,9999-01-01T00:00:00Z
+ALS1R,02,01,rainfall,total,,2023-02-24T01:09:00Z,9999-01-01T00:00:00Z
+ALS2R,01,01,rainfall,total,,2023-02-23T03:59:00Z,9999-01-01T00:00:00Z
+ALS2R,02,01,rainfall,total,,2023-02-23T03:59:00Z,9999-01-01T00:00:00Z
 FOXAG,01,01,rainfall,total,,2019-02-06T13:10:00Z,9999-01-01T00:00:00Z
 FOXAG,02,01,rainfall,total,,2019-02-06T13:10:00Z,9999-01-01T00:00:00Z
 FOXAG,03,01,moisture,soil,10 cm,2021-05-05T23:09:59Z,9999-01-01T00:00:00Z
@@ -62,6 +66,8 @@ FOXKP,04,01,displacement,crack,upper site south,2021-11-24T03:50:00Z,9999-01-01T
 FOXKP,04,01,temperature,wire,upper site south,2021-11-24T03:50:00Z,9999-01-01T00:00:00Z
 FOXKP,05,01,displacement,crack,lower site graben south,2022-01-26T01:50:00Z,9999-01-01T00:00:00Z
 FOXKP,05,01,temperature,wire,lower site graben south,2022-01-26T01:50:00Z,9999-01-01T00:00:00Z
+FOXKP,06,01,displacement,crack,upper site western face west,2023-02-08T01:00:00Z,9999-01-01T00:00:00Z
+FOXKP,06,01,temperature,wire,upper site western face west,2023-02-08T01:00:00Z,9999-01-01T00:00:00Z
 FOXRB,01,01,rainfall,total,,2021-08-03T03:50:00Z,9999-01-01T00:00:00Z
 FOXRB,03,01,direction,wind,,2021-11-24T00:00:00Z,9999-01-01T00:00:00Z
 FOXRB,03,01,direction-stddev,wind,,2021-11-24T00:00:00Z,9999-01-01T00:00:00Z
@@ -80,6 +86,8 @@ FOXVF,04,01,displacement,crack,upper site main north,2021-11-22T11:50:00Z,9999-0
 FOXVF,04,01,temperature,wire,upper site main north,2021-11-22T11:50:00Z,9999-01-01T00:00:00Z
 FOXVF,05,01,displacement,crack,lower site main north,2022-02-23T00:50:00Z,9999-01-01T00:00:00Z
 FOXVF,05,01,temperature,wire,lower site main north,2022-02-23T00:50:00Z,9999-01-01T00:00:00Z
+FOXVF,06,01,displacement,crack,upper site secondary west,2023-02-09T03:39:59Z,9999-01-01T00:00:00Z
+FOXVF,06,01,temperature,wire,upper site secondary west,2023-02-09T03:39:59Z,9999-01-01T00:00:00Z
 FOXVV,01,01,rainfall,total,,2021-08-03T00:00:00Z,9999-01-01T00:00:00Z
 FOXVV,03,01,direction,wind,,2021-08-03T00:00:00Z,9999-01-01T00:00:00Z
 FOXVV,03,01,direction-stddev,wind,,2021-08-03T00:00:00Z,9999-01-01T00:00:00Z
@@ -585,6 +593,8 @@ RL006,MC02,01,temperature,ground,,1980-08-01T00:00:00Z,2006-03-16T00:00:00Z
 RL006,MC03,01,temperature,ground,,1980-08-01T00:00:00Z,2006-03-16T00:00:00Z
 RL006,MC04,01,temperature,ground,,1980-08-01T00:00:00Z,2006-03-16T00:00:00Z
 RL006,MC05,01,temperature,ground,,1980-08-01T00:00:00Z,2006-03-16T00:00:00Z
+RLGLK,04,01,height,lake,green lake,2023-01-30T02:59:59Z,9999-01-01T00:00:00Z
+RLGLK,04,02,temperature,lake,green lake,2023-01-30T02:59:59Z,9999-01-01T00:00:00Z
 RP001,MC01,01,Al-conc,spring,,2002-11-18T00:00:00Z,9999-01-01T00:00:00Z
 RP001,MC01,01,As-conc,spring,,2002-11-18T00:00:00Z,9999-01-01T00:00:00Z
 RP001,MC01,01,B-conc,spring,,2002-11-18T00:00:00Z,9999-01-01T00:00:00Z

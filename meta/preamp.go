@@ -13,7 +13,7 @@ const (
 	preampStation = iota
 	preampLocation
 	preampSubsource
-	preampGain
+	preampScaleFactor
 	preampStart
 	preampEnd
 	preampLast
@@ -23,12 +23,12 @@ const (
 type Preamp struct {
 	Span
 
-	Station   string
-	Location  string
-	Subsource string
-	Gain      float64
+	Station     string
+	Location    string
+	Subsource   string
+	ScaleFactor float64
 
-	gain string
+	factor string
 }
 
 // Id returns a unique string which can be used for sorting or checking.
@@ -51,10 +51,6 @@ func (g Preamp) Less(preamp Preamp) bool {
 		return true
 	case g.Subsource > preamp.Subsource:
 		return false
-	case g.Gain < preamp.Gain:
-		return true
-	case g.Gain > preamp.Gain:
-		return false
 	case g.Span.Start.Before(preamp.Span.Start):
 		return true
 	default:
@@ -76,11 +72,11 @@ func (g Preamp) Preamps() []Preamp {
 	var preamps []Preamp
 	for _, c := range g.Subsources() {
 		preamps = append(preamps, Preamp{
-			Span:      g.Span,
-			Gain:      g.Gain,
-			Station:   g.Station,
-			Location:  g.Location,
-			Subsource: string(c),
+			Span:        g.Span,
+			ScaleFactor: g.ScaleFactor,
+			Station:     g.Station,
+			Location:    g.Location,
+			Subsource:   string(c),
 		})
 	}
 
@@ -102,7 +98,7 @@ func (g PreampList) encode() [][]string {
 		"Station",
 		"Location",
 		"Subsource",
-		"Gain",
+		"Scale Factor",
 		"Start Date",
 		"End Date",
 	}}
@@ -112,7 +108,7 @@ func (g PreampList) encode() [][]string {
 			strings.TrimSpace(v.Station),
 			strings.TrimSpace(v.Location),
 			strings.TrimSpace(v.Subsource),
-			v.gain,
+			v.factor,
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
 		})
@@ -145,7 +141,7 @@ func (g *PreampList) decode(data [][]string) error {
 			return fmt.Errorf("incorrect number of installed preamp fields")
 		}
 
-		gain, err := g.toFloat64(d[preampGain], 1.0)
+		factor, err := g.toFloat64(d[preampScaleFactor], 1.0)
 		if err != nil {
 			return err
 		}
@@ -165,12 +161,12 @@ func (g *PreampList) decode(data [][]string) error {
 				Start: start,
 				End:   end,
 			},
-			Gain:      gain,
-			Station:   strings.TrimSpace(d[preampStation]),
-			Location:  strings.TrimSpace(d[preampLocation]),
-			Subsource: strings.TrimSpace(d[preampSubsource]),
+			ScaleFactor: factor,
+			Station:     strings.TrimSpace(d[preampStation]),
+			Location:    strings.TrimSpace(d[preampLocation]),
+			Subsource:   strings.TrimSpace(d[preampSubsource]),
 
-			gain: strings.TrimSpace(d[preampGain]),
+			factor: strings.TrimSpace(d[preampScaleFactor]),
 		})
 	}
 

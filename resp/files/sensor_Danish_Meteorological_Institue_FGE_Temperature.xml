@@ -9,13 +9,13 @@
       <Name>V</Name>
     </OutputUnits>
     <ApproximationType>MACLAURIN</ApproximationType>
-    <FrequencyLowerBound>0.0</FrequencyLowerBound>
-    <FrequencyUpperBound>0.0</FrequencyUpperBound>
-    <!-- <ApproximationLowerBound>0</ApproximationLowerBound> -->
-    <!-- <ApproximationUpperBound>20</ApproximationUpperBound> -->
-    <MaximumError>0.0</MaximumError>
-    <Coefficient number="0">-273.0</Coefficient>
-    <Coefficient number="1">200.0</Coefficient>
+    <FrequencyLowerBound>0</FrequencyLowerBound>
+    <FrequencyUpperBound>0</FrequencyUpperBound>
+    <ApproximationLowerBound>0</ApproximationLowerBound>
+    <ApproximationUpperBound>20</ApproximationUpperBound>
+    <MaximumError>0</MaximumError>
+    <Coefficient number="0">-273</Coefficient>
+    <Coefficient number="1">200</Coefficient>
   </InstrumentPolynomial>
   <Stage number="1">
     <Polynomial>
@@ -27,13 +27,13 @@
         <Name>V</Name>
       </OutputUnits>
       <ApproximationType>MACLAURIN</ApproximationType>
-      <FrequencyLowerBound>0.0</FrequencyLowerBound>
-      <FrequencyUpperBound>0.0</FrequencyUpperBound>
-      <!-- <ApproximationLowerBound>0</ApproximationLowerBound> -->
-      <!-- <ApproximationUpperBound>20</ApproximationUpperBound> -->
-      <MaximumError>0.0</MaximumError>
-      <Coefficient number="0">-273.0</Coefficient>
-      <Coefficient number="1">200.0</Coefficient>
+      <FrequencyLowerBound>0</FrequencyLowerBound>
+      <FrequencyUpperBound>0</FrequencyUpperBound>
+      <ApproximationLowerBound>0</ApproximationLowerBound>
+      <ApproximationUpperBound>20</ApproximationUpperBound>
+      <MaximumError>0</MaximumError>
+      <Coefficient number="0">-273</Coefficient>
+      <Coefficient number="1">200</Coefficient>
     </Polynomial>
   </Stage>
 </Response>

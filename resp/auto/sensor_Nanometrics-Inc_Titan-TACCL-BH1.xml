@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>0.51</Value>
+    <Frequency>1</Frequency>
+    <InputUnits>
+      <Name>m/s**2</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <PolesZeros resourceId="PolesZeros#TITAN-4G">
+      <InputUnits>
+        <Name>m/s**2</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+      <NormalizationFactor>1.0077252805562006e+18</NormalizationFactor>
+      <NormalizationFrequency>1</NormalizationFrequency>
+      <Zero number="6">
+        <Real>-515</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Pole>
+        <Real>-977</Real>
+        <Imaginary>328</Imaginary>
+      </Pole>
+      <Pole number="1">
+        <Real>-977</Real>
+        <Imaginary>-328</Imaginary>
+      </Pole>
+      <Pole number="2">
+        <Real>-1486</Real>
+        <Imaginary>2512</Imaginary>
+      </Pole>
+      <Pole number="3">
+        <Real>-1486</Real>
+        <Imaginary>-2512</Imaginary>
+      </Pole>
+      <Pole number="4">
+        <Real>-5736</Real>
+        <Imaginary>4946</Imaginary>
+      </Pole>
+      <Pole number="5">
+        <Real>-5736</Real>
+        <Imaginary>-4946</Imaginary>
+      </Pole>
+    </PolesZeros>
+    <StageGain>
+      <Value>0.51</Value>
+      <Frequency>1</Frequency>
+    </StageGain>
+  </Stage>
+</Response>
