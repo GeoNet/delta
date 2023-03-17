@@ -199,6 +199,13 @@ func (s Set) Preamps() []Preamp {
 	return preamps
 }
 
+// Qualities is a helper function to return a slice copy of Quality values.
+func (s Set) Qualities() []Quality {
+	qualities := make([]Quality, len(s.qualities))
+	copy(qualities, s.qualities)
+	return qualities
+}
+
 // Samples is a helper function to return a slice copy of Sample values.
 func (s Set) Samples() []Sample {
 	samples := make([]Sample, len(s.samples))
