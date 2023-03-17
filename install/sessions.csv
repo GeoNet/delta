@@ -1,5 +1,5 @@
 Mark,Operator,Agency,Model,Satellite System,Interval,Elevation Mask,Header Comment,Format,Start Date,End Date
-2004,GeoNet,GNS,TRIMBLE NETR9,GPS+GLO+GAL,15s,0,geonet,trimble_netr9 x4,2022-10-26T00:00:00Z,2022-12-06T01:37:07Z
+2004,GeoNet,GNS,TRIMBLE NETR9,GPS+GLO,15s,0,geonet,trimble_netr9 x4,2022-10-26T00:00:00Z,2022-12-06T01:37:07Z
 2004,GeoNet,GNS,TRIMBLE ALLOY,GPS+GLO,30s,0,geonet,trimble_netr9 x4,2022-12-06T01:37:08Z,9999-01-01T00:00:00Z
 2406,GeoNet,GNS,TRIMBLE NETR9,GPS+GLO,30s,3,geonet,trimble_netr9 x4,2012-02-13T00:38:01Z,2015-03-09T00:50:00Z
 2406,GeoNet,GNS,TRIMBLE NETR9,GPS+GLO,30s,0,geonet,trimble_netr9 x4,2015-03-09T00:50:01Z,2021-06-01T03:02:07Z
