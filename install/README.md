@@ -305,12 +305,13 @@ For the component, sensitivity, and frequency either a value can be given direct
 | _Serial_ | Sensor serial number
 | _Number_ | The sensor component or datalogger digitiser channel, as defined in the response configuration or elsewhere, which overrides the default values, a blank value is interpreted as the first sensor component, or __"pin"__ zero.
 | _Scale Factor_ | Sensitivity, or scale factor, that the input signal is generally multiplied by to convert to Volts, or for polynomial responses the value used to convert Volts into the signal units. A blank value is expected to be read as __1.0__, an explicit value of zero is required to be entered if intended.
-| _Scale Bias_ | An offset, or scale bias, for polynomial responses that is added to the converted volts to give the signal values. If this field is blank it should be assumed that the value is __0.0__.
+| _Scale Bias_ | A scale bias factor, for polynomial responses that is multiplied to any _Gain_ bias values before adding to the converted volts to give the signal values. If this field is blank it should be assumed that the value is __1.0__.
+| _Scale Absolute_ | An offset, or bias, for polynomial responses that is added to the converted volts to give the signal values. If this field is blank it should be assumed that the value is __0.0__.
 | _Frequency_ | Frequency at which the calibration value is correct for if appropriate.
 | _Start_ | Calibration start time|
 | _Stop_ | Calibration stop time|
 
-For a second order polynomial response, the output is expected to be `Y = a * X + b` where `X` is normally the input voltage, and Y the corrected signal. The terms `a` and `b` are the factor and bias respectively. The gain adjustments (`a'`, `b'`) update this via `Y =  a' * X + b'`
+For a second order polynomial response, the output is expected to be `Y = a * X + b` where `X` is normally the input voltage, and Y the corrected signal. The terms `a` and `b` are the scale factor and the absolute bias respectively. The scale bias `c` can be used with gain biases, e.g. for a gain adjustment of the equivalent (`a'`, `b'`, `c'`) values, then the polynomial adjustment will follow: `Y = a' * a * X + b * a' + a * b' * c + c'`.
 
 #### _COMPONENTS_ ####
 
