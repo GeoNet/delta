@@ -100,7 +100,7 @@ func (b *Builder) PairedResponseType(c meta.Collection, v meta.Correction) (*sta
 
 	// adjust for corrections
 	if v.SensorCalibration != nil {
-		pair.SetCalibration(v.SensorCalibration.ScaleFactor, v.SensorCalibration.ScaleBias)
+		pair.SetCalibration(v.SensorCalibration.ScaleFactor, v.SensorCalibration.ScaleBias, v.SensorCalibration.ScaleAbsolute)
 	}
 	if v.Gain != nil {
 		pair.SetGain(v.Gain.Scale.Factor, v.Gain.Scale.Bias, v.Gain.Absolute)
