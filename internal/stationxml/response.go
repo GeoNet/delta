@@ -15,16 +15,17 @@ type ResponseOpt func(*Response)
 // the StationXML version, ideally it should encompass all required elements. The conversion from a bas Response to a
 // particular version is done via encoding interfaces.
 type Response struct {
-	Prefix       string
-	Serial       string
-	Frequency    float64
-	ScaleFactor  float64
-	ScaleBias    float64
-	GainFactor   float64
-	GainBias     float64
-	GainAbsolute float64
-	Telemetry    float64
-	Preamp       float64
+	Prefix        string
+	Serial        string
+	Frequency     float64
+	ScaleFactor   float64
+	ScaleBias     float64
+	ScaleAbsolute float64
+	GainFactor    float64
+	GainBias      float64
+	GainAbsolute  float64
+	Telemetry     float64
+	Preamp        float64
 
 	sensor     *ResponseType
 	datalogger *ResponseType
@@ -54,10 +55,11 @@ func Frequency(frequency float64) ResponseOpt {
 }
 
 // Calibration is used to set a initial sensor reference gain, this overrides the default values.
-func Calibration(factor, bias float64) ResponseOpt {
+func Calibration(factor, bias, absolute float64) ResponseOpt {
 	return func(r *Response) {
 		r.ScaleFactor = factor
 		r.ScaleBias = bias
+		r.ScaleAbsolute = absolute
 	}
 }
 
@@ -117,8 +119,8 @@ func (r *Response) SetFrequency(frequency float64) {
 }
 
 // SetCalibration is used to set a initial sensor reference gain, this overrides the default values.
-func (r *Response) SetCalibration(scale, bias float64) {
-	Calibration(scale, bias)(r)
+func (r *Response) SetCalibration(scale, bias, absolute float64) {
+	Calibration(scale, bias, absolute)(r)
 }
 
 // SetGain is used to adjusts the installed sensor gains, this is in addition to the default values.
@@ -174,8 +176,9 @@ func (r *Response) SetSensor(data []byte) error {
 			break
 		}
 	case sensor.InstrumentPolynomial != nil:
+
 		// First adjust for any calibrations, these are simply replacing the first two coefficients
-		if r.ScaleFactor != 1.0 || r.ScaleBias != 0.0 {
+		if r.ScaleFactor != 1.0 || r.ScaleAbsolute != 0.0 {
 			for i := range sensor.Stages {
 				stage := sensor.Stages[i]
 
@@ -193,12 +196,12 @@ func (r *Response) SetSensor(data []byte) error {
 					}
 					stage.Polynomial.Coefficients[0] = PolynomialCoefficient{
 						Number: stage.Polynomial.Coefficients[0].Number,
-						Value:  r.ScaleBias,
+						Value:  r.ScaleAbsolute,
 					}
 				case c > 0:
 					stage.Polynomial.Coefficients[0] = PolynomialCoefficient{
 						Number: stage.Polynomial.Coefficients[0].Number,
-						Value:  r.ScaleBias,
+						Value:  r.ScaleAbsolute,
 					}
 				}
 
@@ -209,6 +212,7 @@ func (r *Response) SetSensor(data []byte) error {
 
 		// Second adjust for any gains, these will update the first two coefficents
 		if r.GainFactor != 1.0 || r.GainBias != 0.0 || r.GainAbsolute != 0.0 {
+
 			for i := range sensor.Stages {
 				stage := sensor.Stages[i]
 
@@ -223,7 +227,7 @@ func (r *Response) SetSensor(data []byte) error {
 					stage.Polynomial.Coefficients[0] = PolynomialCoefficient{
 						Number: stage.Polynomial.Coefficients[0].Number,
 						Value: stage.Polynomial.Coefficients[0].Value*r.GainFactor +
-							stage.Polynomial.Coefficients[1].Value*r.GainBias + r.GainAbsolute,
+							stage.Polynomial.Coefficients[1].Value*r.GainBias*r.ScaleBias + r.GainAbsolute,
 					}
 					stage.Polynomial.Coefficients[1] = PolynomialCoefficient{
 						Number: stage.Polynomial.Coefficients[1].Number,
