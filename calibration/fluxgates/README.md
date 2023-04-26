@@ -31,7 +31,7 @@ For the temperatures:
 __temp__<sub>i</sub> = __volts__<sub>i</sub> * __gain__ - 273.0
 
 
-nomenclature used in sensor calibration files with respect to `X|Y|Z` and `N|E|vert`
+Nomenclature used in sensor calibration files with respect to `X|Y|Z` and `N|E|vert`
 
 | Field | Units   | Description       |
 | ----- | ------- | ----------------- |
@@ -45,8 +45,10 @@ nomenclature used in sensor calibration files with respect to `X|Y|Z` and `N|E|v
 |ε4     | (mrad)  | Z-E misalignment  |
 |res    | (kohm)  | scale resistor    |
 
+If calibrations are provided for Sensor and Electronic (driver), those are reported in the calibration file, alongside the component serial number.
 
-nomenclature used in sensor calibration files for each component ("number" in `install/components.csv`)
+
+Nomenclature used in sensor calibration files for each component ("number" in `install/components.csv`) 
 
 | channel number | Fluxgate Component | Geographical Component |
 | -------------- | ------------------ | ---------------------- |
