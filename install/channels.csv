@@ -16,6 +16,7 @@ CSI,CUSP-Me,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments
 CSI,CUSP-Me,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_200sps
 CSI,EQR120,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_EQR120_25bits_200sps
 GEM Systems,GSM-19,Proton Magnetometer,,1,
+GEM Systems,GSM-90,Proton Magnetometer,,1,
 GNS Science,EARSS/3,Datalogger,,50,datalogger_GNS-Science_Earss_22bits_50sps
 GNS Science,EARSS/3,Datalogger,,100,datalogger_GNS-Science_Earss_22bits_100sps
 Kinemetrics,BASALT,Strong Motion Recorder,,50,datalogger_Kinemetrics_Basalt_26bits_50sps
