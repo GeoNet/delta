@@ -37,6 +37,7 @@ G. Streckeisen AG,STS-2,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Streckeisen_S
 G. Streckeisen AG,STS-2,Broadband Seismometer,1,,N,0,0,G,,sensor_Streckeisen_STS-2
 G. Streckeisen AG,STS-2,Broadband Seismometer,2,,E,0,90,G,,sensor_Streckeisen_STS-2
 GEM Systems,GSM-19,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-19-1s
+GEM Systems,GSM-90,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-90-1s
 General Electric Industrial Sensing,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,-10,derived_Water-Depth-10s
 General Electric Industrial Sensing,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,1,derived_Water-Depth-1s
 General Electric Industrial Sensing,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,10,derived_Water-Depth-10sps
