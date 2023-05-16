@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
+	"io/fs"
 	"log"
 	"os"
 	"path/filepath"
@@ -43,6 +44,25 @@ var freqs Frequencies = map[string]float64{
 	"S": 15.0,
 	"E": 15.0,
 	"":  15.0,
+}
+
+// update a file if it is new or its redacted contents differ.
+func updateFile(path string, contents []byte, mode fs.FileMode) error {
+	// write the file if it doesn't exist.
+	if _, err := os.Stat(path); err != nil {
+		return os.WriteFile(path, contents, mode)
+	}
+	// write the file if reading the existing one fails
+	existing, err := os.ReadFile(path)
+	if err != nil {
+		return os.WriteFile(path, contents, mode)
+	}
+	// write the file if the redacted contents differ
+	if !bytes.Equal(redacted(existing), redacted(contents)) {
+		return os.WriteFile(path, contents, mode)
+	}
+	// skip as they have the same contents
+	return nil
 }
 
 func main() {
@@ -121,6 +141,9 @@ func main() {
 	var output string
 	flag.StringVar(&output, "output", "", "output xml file, use \"-\" for stdout")
 
+	var changed bool
+	flag.BoolVar(&changed, "changed", false, "only update existing file if a change is detected")
+
 	var ignore string
 	flag.StringVar(&ignore, "ignore", "", "list of stations to skip")
 
@@ -134,6 +157,13 @@ func main() {
 	})
 
 	flag.Parse()
+
+	switch {
+	case changed && (output == "" || output == "-"):
+		log.Fatalf("invalid \"changed\" option, requires an output file to be given")
+	case single && (output != "" && output != "-"):
+		log.Fatalf("invalid \"single\" option, implies an empty output file should be given")
+	}
 
 	// set recovers the delta tables
 	set, err := delta.NewBase(base)
@@ -480,6 +510,14 @@ func main() {
 			log.Printf("built %d files, updated %d, removed %d", count, updated, purged)
 		}
 
+	case changed:
+		var raw bytes.Buffer
+		if err := root.Write(&raw, version); err != nil {
+			log.Fatalf("unable to encode response: %v", err)
+		}
+		if err := updateFile(output, raw.Bytes(), 0600); err != nil {
+			log.Fatalf("error: unable to update file %s: %v", output, err)
+		}
 	case output == "" || output == "-":
 		// using the given encoder write the stationxml to the standard output
 		if err := root.Write(os.Stdout, version); err != nil {
