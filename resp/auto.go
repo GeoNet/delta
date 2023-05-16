@@ -8030,7 +8030,7 @@ var Responses []Response = []Response{
 		},
 		Dataloggers: []Datalogger{
 			{
-				DataloggerList: []string{"Q330/3", "Q330/6"},
+				DataloggerList: []string{"Q330/3", "Q330S/6"},
 				Type:           "CG",
 				Label:          "HD",
 				SampleRate:     200,
