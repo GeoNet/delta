@@ -11,6 +11,7 @@ response:
     dataloggers:
     - dataloggers:
       - Q330/3
+      - Q330/6
       type: CG
       label: HD
       samplerate: 200
