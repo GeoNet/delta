@@ -3,17 +3,15 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testDeployedDataloggers = map[string]func([]meta.DeployedDatalogger) func(t *testing.T){
-	"check for datalogger installation place overlaps": func(dataloggers []meta.DeployedDatalogger) func(t *testing.T) {
+var dataloggerChecks = map[string]func(*meta.Set) func(t *testing.T){
+	"check for datalogger installation place overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			installs := make(map[string]meta.DeployedDataloggerList)
-			for _, d := range dataloggers {
-				if _, ok := installs[d.Place]; !ok {
-					installs[d.Place] = meta.DeployedDataloggerList{}
-				}
+			for _, d := range set.DeployedDataloggers() {
 				installs[d.Place] = append(installs[d.Place], d)
 			}
 
@@ -42,13 +40,10 @@ var testDeployedDataloggers = map[string]func([]meta.DeployedDatalogger) func(t 
 			}
 		}
 	},
-	"check for datalogger installation equipment overlaps": func(dataloggers []meta.DeployedDatalogger) func(t *testing.T) {
+	"check for datalogger installation equipment overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			installs := make(map[string]meta.DeployedDataloggerList)
-			for _, s := range dataloggers {
-				if _, ok := installs[s.Model]; !ok {
-					installs[s.Model] = meta.DeployedDataloggerList{}
-				}
+			for _, s := range set.DeployedDataloggers() {
 				installs[s.Model] = append(installs[s.Model], s)
 			}
 
@@ -74,14 +69,12 @@ var testDeployedDataloggers = map[string]func([]meta.DeployedDatalogger) func(t 
 			}
 		}
 	},
-}
 
-var testDeployedDataloggersAssets = map[string]func([]meta.DeployedDatalogger, []meta.Asset) func(t *testing.T){
-	"check for missing datalogger assets": func(dataloggers []meta.DeployedDatalogger, assets []meta.Asset) func(t *testing.T) {
+	"check for missing datalogger assets": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, r := range dataloggers {
+			for _, r := range set.DeployedDataloggers() {
 				var found bool
-				for _, a := range assets {
+				for _, a := range set.Assets() {
 					if a.Model != r.Model {
 						continue
 					}
@@ -100,23 +93,13 @@ var testDeployedDataloggersAssets = map[string]func([]meta.DeployedDatalogger, [
 }
 
 func TestDataloggers(t *testing.T) {
-	var dataloggers meta.DeployedDataloggerList
-	loadListFile(t, "../install/dataloggers.csv", &dataloggers)
 
-	for k, fn := range testDeployedDataloggers {
-		t.Run(k, fn(dataloggers))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
 
-}
-
-func TestDataloggers_Assets(t *testing.T) {
-	var dataloggers meta.DeployedDataloggerList
-	loadListFile(t, "../install/dataloggers.csv", &dataloggers)
-
-	var assets meta.AssetList
-	loadListFile(t, "../assets/dataloggers.csv", &assets)
-
-	for k, fn := range testDeployedDataloggersAssets {
-		t.Run(k, fn(dataloggers, assets))
+	for k, v := range dataloggerChecks {
+		t.Run(k, v(set))
 	}
 }
