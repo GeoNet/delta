@@ -3,16 +3,15 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testCombined = map[string]func([]meta.InstalledSensor, []meta.InstalledRecorder) func(t *testing.T){
-	"check for sensor/recorder installation location overlaps": func(sensors []meta.InstalledSensor, recorders []meta.InstalledRecorder) func(t *testing.T) {
+var combinedChecks = map[string]func(*meta.Set) func(t *testing.T){
+	"check for sensor/recorder installation location overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-
-			var combined meta.InstalledSensorList
-			combined = append(combined, sensors...)
-			for _, r := range recorders {
+			combined := set.InstalledSensors()
+			for _, r := range set.InstalledRecorders() {
 				combined = append(combined, meta.InstalledSensor{
 					Install:  r.Install,
 					Station:  r.Station,
@@ -27,6 +26,7 @@ var testCombined = map[string]func([]meta.InstalledSensor, []meta.InstalledRecor
 				}
 				installs[s.Station] = append(installs[s.Station], s)
 			}
+
 			for _, v := range installs {
 				for i := 0; i < len(v); i++ {
 					for j := i + 1; j < len(v); j++ {
@@ -60,14 +60,12 @@ var testCombined = map[string]func([]meta.InstalledSensor, []meta.InstalledRecor
 
 func TestCombined(t *testing.T) {
 
-	var sensors meta.InstalledSensorList
-	loadListFile(t, "../install/sensors.csv", &sensors)
-
-	var recorders meta.InstalledRecorderList
-	loadListFile(t, "../install/recorders.csv", &recorders)
-
-	for k, fn := range testCombined {
-		t.Run(k, fn(sensors, recorders))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
 
+	for k, v := range combinedChecks {
+		t.Run(k, v(set))
+	}
 }

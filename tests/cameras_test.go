@@ -3,16 +3,17 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testInstalledCameras = map[string]func([]meta.InstalledCamera) func(t *testing.T){
+var cameraChecks = map[string]func(*meta.Set) func(t *testing.T){
 
-	"check for cameras installation equipment overlaps": func(cameras []meta.InstalledCamera) func(t *testing.T) {
+	"check for cameras installation equipment overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			installs := make(map[string]meta.InstalledCameraList)
-			for _, c := range cameras {
+			for _, c := range set.InstalledCameras() {
 				installs[c.Model] = append(installs[c.Model], c)
 			}
 
@@ -44,52 +45,43 @@ var testInstalledCameras = map[string]func([]meta.InstalledCamera) func(t *testi
 			}
 		}
 	},
-}
 
-var testInstalledCamerasMounts = map[string]func([]meta.InstalledCamera, []meta.Mount) func(t *testing.T){
-
-	"check for cameras installation equipment overlaps": func(cameras []meta.InstalledCamera, mounts []meta.Mount) func(t *testing.T) {
+	"check for cameras installation mount overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			keys := make(map[string]interface{})
-			for _, m := range mounts {
+			for _, m := range set.Mounts() {
 				keys[m.Code] = true
 			}
 
-			for _, c := range cameras {
+			for _, c := range set.InstalledCameras() {
 				if _, ok := keys[c.Mount]; !ok {
 					t.Errorf("unable to find camera mount %-5s", c.Mount)
 				}
 			}
 		}
 	},
-}
 
-var testInstalledCamerasViews = map[string]func([]meta.InstalledCamera, []meta.View) func(t *testing.T){
-
-	"check for cameras installation views": func(cameras []meta.InstalledCamera, views []meta.View) func(t *testing.T) {
+	"check for cameras installation views": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			type view struct{ m, c string }
 			keys := make(map[view]interface{})
-			for _, m := range views {
+			for _, m := range set.Views() {
 				keys[view{m.Mount, m.Code}] = true
 			}
 
-			for _, c := range cameras {
+			for _, c := range set.InstalledCameras() {
 				if _, ok := keys[view{c.Mount, c.View}]; !ok {
 					t.Errorf("unable to find camera mount %-5s (%-2s)", c.Mount, c.View)
 				}
 			}
 		}
 	},
-}
 
-var testInstalledCamerasAssets = map[string]func([]meta.InstalledCamera, []meta.Asset) func(t *testing.T){
-	"check cameras assets": func(cameras []meta.InstalledCamera, assets []meta.Asset) func(t *testing.T) {
+	"check cameras assets": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-
-			for _, r := range cameras {
+			for _, r := range set.InstalledCameras() {
 				var found bool
-				for _, a := range assets {
+				for _, a := range set.Assets() {
 					if a.Model != r.Model {
 						continue
 					}
@@ -109,49 +101,12 @@ var testInstalledCamerasAssets = map[string]func([]meta.InstalledCamera, []meta.
 
 func TestCameras(t *testing.T) {
 
-	var cameras meta.InstalledCameraList
-	loadListFile(t, "../install/cameras.csv", &cameras)
-
-	for k, fn := range testInstalledCameras {
-		t.Run(k, fn(cameras))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
-}
 
-func TestCameras_Mounts(t *testing.T) {
-
-	var cameras meta.InstalledCameraList
-	loadListFile(t, "../install/cameras.csv", &cameras)
-
-	var mounts meta.MountList
-	loadListFile(t, "../network/mounts.csv", &mounts)
-
-	for k, fn := range testInstalledCamerasMounts {
-		t.Run(k, fn(cameras, mounts))
-	}
-}
-
-func TestCameras_Views(t *testing.T) {
-
-	var cameras meta.InstalledCameraList
-	loadListFile(t, "../install/cameras.csv", &cameras)
-
-	var views meta.ViewList
-	loadListFile(t, "../network/views.csv", &views)
-
-	for k, fn := range testInstalledCamerasViews {
-		t.Run(k, fn(cameras, views))
-	}
-}
-
-func TestCameras_Assets(t *testing.T) {
-
-	var cameras meta.InstalledCameraList
-	loadListFile(t, "../install/cameras.csv", &cameras)
-
-	var assets meta.AssetList
-	loadListFile(t, "../assets/cameras.csv", &assets)
-
-	for k, fn := range testInstalledCamerasAssets {
-		t.Run(k, fn(cameras, assets))
+	for k, v := range cameraChecks {
+		t.Run(k, v(set))
 	}
 }

@@ -75,7 +75,11 @@ func TestConsistency(t *testing.T) {
 
 	for f, v := range files {
 
-		loadListFile(t, v.f, v.l)
+		if err := meta.LoadList(v.f, v.l); err != nil {
+			t.Fatalf("unable to load list file %s: %v", v.f, err)
+		}
+
+		sort.Sort(v.l)
 
 		for k, fn := range testConsistency {
 			t.Run(k+": "+f, fn(v.f, v.l))
