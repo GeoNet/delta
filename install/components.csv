@@ -2,7 +2,7 @@ Make,Model,Type,Number,Source,Subsource,Dip,Azimuth,Types,Sampling Rate,Response
 Paroscientific,BPR Subsystem,Bottom Pressure Recorder,0,,Z,0,0,G,-15,combined_SAIC_BPR-Subsystem_BPR-Subsystem_Z_15s
 Institute of Geological & Nuclear Sciences Ltd.,LM35,,0,,O,0,0,W,,sensor_GNS-Science_LM35
 Thompson Sintra Pacific,Scout Hydrophone,Hydrophone,0,,H,0,0,G,,sensor_Unknown_Scout-Hydrophone
-Boise State University,InfraBSU microphone,Microphone,0,,F,0,0,W,,sensor_Boise-State-Univeristy_InfraBSU-microphone
+Boise State University,InfraBSU microphone,Microphone,0,,F,0,0,W,,sensor_Boise-State-University_InfraBSU-microphone
 CSI,CUSP3A,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3A
 CSI,CUSP3A,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3A
 CSI,CUSP3A,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3A
