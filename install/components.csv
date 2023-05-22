@@ -110,6 +110,9 @@ Nanometrics,Titan,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics Inc.,Titan TACCL-BH1,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics Inc.,Titan TACCL-BH1,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics Inc.,Titan TACCL-BH1,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
+Nanometrics Inc.,Titan TACCL-N1,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan-TACCL-N1
+Nanometrics Inc.,Titan TACCL-N1,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan-TACCL-N1
+Nanometrics Inc.,Titan TACCL-N1,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan-TACCL-N1
 Nanometrics Inc.,Trillium 120QA,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Trillium-120QA
 Nanometrics Inc.,Trillium 120QA,Broadband Seismometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Trillium-120QA
 Nanometrics Inc.,Trillium 120QA,Broadband Seismometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Trillium-120QA
