@@ -3,12 +3,12 @@ datalogger-model:
   EARSS/3:
     type: Datalogger
     description: EARSS
-    manufacturer: GNS Science
+    manufacturer: GNS Science Te Pū Ao
     vendor: ""
   EARSS/16:
     type: Datalogger
     description: EARSS
-    manufacturer: GNS Science
+    manufacturer: GNS Science Te Pū Ao
     vendor: ""
 
 paz:
