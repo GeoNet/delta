@@ -793,7 +793,7 @@ func TestList(t *testing.T) {
 					InstalledSensor: InstalledSensor{
 						Install: Install{
 							Equipment: Equipment{
-								Make:   "CSI",
+								Make:   "Canterbury Seismic Instruments",
 								Model:  "CUSP3A",
 								Serial: "3A-040001",
 							},

@@ -757,7 +757,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 
 var Responses []Response = []Response{
 	{
-		Name: "CSI Strong Motion Recorders",
+		Name: "Canterbury Seismic Instruments Strong Motion Recorders",
 		Sensors: []Sensor{
 			{
 				SensorList: []string{"EQR120"},
@@ -771,7 +771,7 @@ var Responses []Response = []Response{
 							Name:  "CUSP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
 							Type:  "Laplace transform analog stage response, in rad/sec.",
-							Notes: "A simple place holder for the CSI CUSP strong motion sensors",
+							Notes: "A simple place holder for the Canterbury Seismic Instruments CUSP strong motion sensors",
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -798,7 +798,7 @@ var Responses []Response = []Response{
 							Name:  "CUSP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
 							Type:  "Laplace transform analog stage response, in rad/sec.",
-							Notes: "A simple place holder for the CSI CUSP strong motion sensors",
+							Notes: "A simple place holder for the Canterbury Seismic Instruments CUSP strong motion sensors",
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -825,7 +825,7 @@ var Responses []Response = []Response{
 							Name:  "CUSP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
 							Type:  "Laplace transform analog stage response, in rad/sec.",
-							Notes: "A simple place holder for the CSI CUSP strong motion sensors",
+							Notes: "A simple place holder for the Canterbury Seismic Instruments CUSP strong motion sensors",
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -852,7 +852,7 @@ var Responses []Response = []Response{
 							Name:  "CUSP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
 							Type:  "Laplace transform analog stage response, in rad/sec.",
-							Notes: "A simple place holder for the CSI CUSP strong motion sensors",
+							Notes: "A simple place holder for the Canterbury Seismic Instruments CUSP strong motion sensors",
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -879,7 +879,7 @@ var Responses []Response = []Response{
 							Name:  "CUSP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
 							Type:  "Laplace transform analog stage response, in rad/sec.",
-							Notes: "A simple place holder for the CSI CUSP strong motion sensors",
+							Notes: "A simple place holder for the Canterbury Seismic Instruments CUSP strong motion sensors",
 						},
 						Frequency:  1,
 						SampleRate: 0,
@@ -906,7 +906,7 @@ var Responses []Response = []Response{
 							Name:  "CUSP",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
 							Type:  "Laplace transform analog stage response, in rad/sec.",
-							Notes: "A simple place holder for the CSI CUSP strong motion sensors",
+							Notes: "A simple place holder for the Canterbury Seismic Instruments CUSP strong motion sensors",
 						},
 						Frequency:  1,
 						SampleRate: 0,

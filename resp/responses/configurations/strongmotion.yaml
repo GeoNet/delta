@@ -252,7 +252,7 @@ response:
       - ETNA-2-200
       reversed: false
 
-  CSI Strong Motion Recorders:
+  Canterbury Seismic Instruments Strong Motion Recorders:
     sensors:
     - sensors:
       - EQR120
