@@ -50,27 +50,27 @@ General Electric Industrial Sensing,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0
 General Electric Industrial Sensing,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,1,derived_Water-Depth-1s
 General Electric Industrial Sensing,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,10,derived_Water-Depth-10sps
 General Electric Industrial Sensing,Druck PTX-1830-LAND,Pressure Sensor,0,,Z,0,0,G,,sensor_GE-Druck_Druck-PTX-1830-LAND
-Guralp Systems Ltd.,CMG-3ESP,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-3ESP
-Guralp Systems Ltd.,CMG-3ESP,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-3ESP
-Guralp Systems Ltd.,CMG-3ESP,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3ESP
-Guralp Systems Ltd.,CMG-3ESPC,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-3ESPC
-Guralp Systems Ltd.,CMG-3ESPC,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-3ESPC
-Guralp Systems Ltd.,CMG-3ESPC,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3ESPC
-Guralp Systems Ltd.,CMG-3TB,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-3TB
-Guralp Systems Ltd.,CMG-3TB,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-3TB
-Guralp Systems Ltd.,CMG-3TB,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3TB
-Guralp Systems Ltd.,CMG-3TB-GN,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-3TB-GN
-Guralp Systems Ltd.,CMG-3TB-GN,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-3TB-GN
-Guralp Systems Ltd.,CMG-3TB-GN,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3TB-GN
-Guralp Systems Ltd.,CMG-40T-30S,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-40T-30S
-Guralp Systems Ltd.,CMG-40T-30S,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-40T-30S
-Guralp Systems Ltd.,CMG-40T-30S,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-40T-30S
-Guralp Systems Ltd.,CMG-40T-60S,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-40T-60S
-Guralp Systems Ltd.,CMG-40T-60S,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-40T-60S
-Guralp Systems Ltd.,CMG-40T-60S,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-40T-60S
-Guralp Systems Ltd.,Fortis,Accelerometer,0,,Z,-90,0,G,,sensor_Guralp_Fortis
-Guralp Systems Ltd.,Fortis,Accelerometer,1,,N,0,0,G,,sensor_Guralp_Fortis
-Guralp Systems Ltd.,Fortis,Accelerometer,2,,E,0,90,G,,sensor_Guralp_Fortis
+Guralp,CMG-3ESP,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-3ESP
+Guralp,CMG-3ESP,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-3ESP
+Guralp,CMG-3ESP,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3ESP
+Guralp,CMG-3ESPC,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-3ESPC
+Guralp,CMG-3ESPC,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-3ESPC
+Guralp,CMG-3ESPC,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3ESPC
+Guralp,CMG-3TB,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-3TB
+Guralp,CMG-3TB,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-3TB
+Guralp,CMG-3TB,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3TB
+Guralp,CMG-3TB-GN,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-3TB-GN
+Guralp,CMG-3TB-GN,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-3TB-GN
+Guralp,CMG-3TB-GN,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3TB-GN
+Guralp,CMG-40T-30S,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-40T-30S
+Guralp,CMG-40T-30S,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-40T-30S
+Guralp,CMG-40T-30S,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-40T-30S
+Guralp,CMG-40T-60S,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-40T-60S
+Guralp,CMG-40T-60S,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-40T-60S
+Guralp,CMG-40T-60S,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-40T-60S
+Guralp,Fortis,Accelerometer,0,,Z,-90,0,G,,sensor_Guralp_Fortis
+Guralp,Fortis,Accelerometer,1,,N,0,0,G,,sensor_Guralp_Fortis
+Guralp,Fortis,Accelerometer,2,,E,0,90,G,,sensor_Guralp_Fortis
 Kinemetrics,FBA-23-DECK,Accelerometer,0,,Z,90,0,G,,sensor_Kinemetrics_FBA-23-DECK
 Kinemetrics,FBA-23-DECK,Accelerometer,1,,N,0,180,G,,sensor_Kinemetrics_FBA-23-DECK
 Kinemetrics,FBA-23-DECK,Accelerometer,2,,E,0,270,G,,sensor_Kinemetrics_FBA-23-DECK
