@@ -3,7 +3,7 @@ sensor-model:
   InfraBSU microphone:
     type: Microphone
     description: InfraBSU
-    manufacturer: "Boise State Univeristy"
+    manufacturer: "Boise State University"
     vendor: ""
     components:
     - azimuth: 0

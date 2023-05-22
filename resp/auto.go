@@ -573,7 +573,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Name:         "InfraBSU microphone",
 		Type:         "Microphone",
 		Description:  "InfraBSU",
-		Manufacturer: "Boise State Univeristy",
+		Manufacturer: "Boise State University",
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: 0}},
 	},
