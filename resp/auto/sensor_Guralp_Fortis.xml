@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>0.51</Value>
+    <Frequency>1</Frequency>
+    <InputUnits>
+      <Name>m/s**2</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <PolesZeros resourceId="PolesZeros#Fortis-DC-100Hz-4g">
+      <InputUnits>
+        <Name>m/s**2</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (HERTZ)</PzTransferFunctionType>
+      <NormalizationFactor>1.9396596675776258e+09</NormalizationFactor>
+      <NormalizationFrequency>1</NormalizationFrequency>
+      <Pole>
+        <Real>-63.793</Real>
+        <Imaginary>-90.386</Imaginary>
+      </Pole>
+      <Pole number="1">
+        <Real>-63.793</Real>
+        <Imaginary>90.386</Imaginary>
+      </Pole>
+      <Pole number="2">
+        <Real>-755.9</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+      <Pole number="3">
+        <Real>-209.66</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+    </PolesZeros>
+    <StageGain>
+      <Value>0.51</Value>
+      <Frequency>1</Frequency>
+    </StageGain>
+  </Stage>
+</Response>

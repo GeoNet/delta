@@ -4,7 +4,6 @@ import (
 	"encoding/xml"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 
@@ -50,7 +49,7 @@ func main() {
 			log.Printf("processing StationXML file: %s", f)
 		}
 
-		x, err := ioutil.ReadFile(f)
+		x, err := os.ReadFile(f)
 		if err != nil {
 			log.Fatalf("unable to read StationXML file: %s [%v]", f, err)
 		}

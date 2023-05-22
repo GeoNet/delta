@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io/ioutil"
 	"math"
 	"os"
 	"path/filepath"
@@ -63,7 +62,7 @@ func (p *Pod) Header() error {
 	if err := os.MkdirAll(filepath.Dir(header), 0755); err != nil {
 		return err
 	}
-	if err := ioutil.WriteFile(header, []byte(strings.Join(lines, "\n")+"\n"), 0644); err != nil {
+	if err := os.WriteFile(header, []byte(strings.Join(lines, "\n")+"\n"), 0600); err != nil {
 		return err
 	}
 
@@ -86,7 +85,7 @@ func (p *Pod) Station(net *stationxml.Network, sta *stationxml.Station) error {
 		return err
 	}
 
-	if err := ioutil.WriteFile(b50, []byte(Blockette{
+	if err := os.WriteFile(b50, []byte(Blockette{
 		Type: 50,
 		Content: StationIdentifier{
 			Station:   sta.Code,
@@ -111,7 +110,7 @@ func (p *Pod) Station(net *stationxml.Network, sta *stationxml.Station) error {
 			}(),
 			Network: net.Code,
 		}.String(),
-	}.String()+"\n"), 0644); err != nil {
+	}.String()+"\n"), 0600); err != nil {
 		return err
 	}
 
@@ -138,7 +137,7 @@ func (p *Pod) Station(net *stationxml.Network, sta *stationxml.Station) error {
 	if err := os.MkdirAll(filepath.Dir(b51), 0755); err != nil {
 		return err
 	}
-	if err := ioutil.WriteFile(b51, []byte(Blockettes(comments).Encode()+"\n"), 0644); err != nil {
+	if err := os.WriteFile(b51, []byte(Blockettes(comments).Encode()+"\n"), 0600); err != nil {
 		return err
 	}
 
@@ -160,7 +159,7 @@ func (p *Pod) Station(net *stationxml.Network, sta *stationxml.Station) error {
 		if err := os.MkdirAll(filepath.Dir(b52), 0755); err != nil {
 			return err
 		}
-		if err := ioutil.WriteFile(b52, []byte(Blockettes(v).Encode()+"\n"), 0644); err != nil {
+		if err := os.WriteFile(b52, []byte(Blockettes(v).Encode()+"\n"), 0600); err != nil {
 			return err
 		}
 	}
@@ -176,7 +175,7 @@ func (p *Pod) Station(net *stationxml.Network, sta *stationxml.Station) error {
 		if err := os.MkdirAll(filepath.Dir(b59), 0755); err != nil {
 			return err
 		}
-		if err := ioutil.WriteFile(b59, []byte(Blockettes(v).Encode()+"\n"), 0644); err != nil {
+		if err := os.WriteFile(b59, []byte(Blockettes(v).Encode()+"\n"), 0600); err != nil {
 			return err
 		}
 	}
@@ -204,13 +203,13 @@ func (p *Pod) Channel(cha *stationxml.Channel) []Blockette {
 					case "FBA-23-DECK":
 						model = "Kinemetrics FBA-23-DECK"
 					case "CUSP3A":
-						model = "CSI CUSP3A SENSOR"
+						model = "Canterbury Seismic Instruments CUSP3A SENSOR"
 					case "CUSP3B":
-						model = "CSI CUSP3B SENSOR"
+						model = "Canterbury Seismic Instruments CUSP3B SENSOR"
 					case "CUSP3C":
-						model = "CSI CUSP3C SENSOR"
+						model = "Canterbury Seismic Instruments CUSP3C SENSOR"
 					case "CUSP3D":
-						model = "CSI CUSP3D SENSOR"
+						model = "Canterbury Seismic Instruments CUSP3D SENSOR"
 					case "270-600/24V":
 						model = "Setra 270-600/24V"
 					case "270-600/12V":

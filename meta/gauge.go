@@ -54,7 +54,7 @@ func (g GaugeList) encode() [][]string {
 	data := [][]string{{
 		"Gauge",
 		"Network",
-		"LINZ Number",
+		"Identification Number",
 		"Analysis Time Zone",
 		"Analysis Latitude",
 		"Analysis Longitude",

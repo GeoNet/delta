@@ -2,6 +2,8 @@ Code,Sky Visibility,Start Date,End Date
 2406,good,2012-02-13T00:00:00Z,9999-01-01T00:00:00Z
 AHTI,dec. inc. 142 7 169 10,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
 AKTO,"Good to north, some fully grown trees to north east.",2006-04-27T00:00:00Z,9999-01-01T00:00:00Z
+ALS1,"Not great, trees to NE and SW, site on northern side of road.",2023-02-24T01:08:38Z,9999-01-01T00:00:00Z
+ALS2,Good,2023-02-23T01:17:02Z,9999-01-01T00:00:00Z
 ANAU,excellent,2010-10-18T00:00:00Z,9999-01-01T00:00:00Z
 ARTA,Good,2008-11-05T00:00:00Z,9999-01-01T00:00:00Z
 ATIA,Good,2006-10-12T00:00:00Z,2006-11-08T00:00:00Z
@@ -181,6 +183,7 @@ TEN2,good,2016-11-16T00:00:00Z,9999-01-01T00:00:00Z
 TENN,excellent,2017-03-10T00:00:00Z,9999-01-01T00:00:00Z
 TGHO,"2m pole ~ 1m to south of mark, otherwise no obstructions.",2008-12-22T00:00:00Z,9999-01-01T00:00:00Z
 TGHR,No obstructions.,2006-04-11T00:00:00Z,9999-01-01T00:00:00Z
+TGK1,Good no obstructions,2022-12-19T00:00:00Z,9999-01-01T00:00:00Z
 TGOH,vegetation growing around antenna. Obstructions remain up to 7deg elevation in SE direction and 5m high mast at 070mag,2006-04-01T00:00:00Z,9999-01-01T00:00:00Z
 TGOH,vegetation growing around the antenna impacting time series,2014-11-01T00:00:00Z,2015-03-31T23:59:59Z
 TGOH,"vegetation growing around antenna, was cleared. Obstructions remain up to 7deg elevation in SE direction and 5m high mast at 070mag",2015-04-01T00:00:00Z,2022-05-15T23:59:59Z

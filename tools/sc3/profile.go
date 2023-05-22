@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"text/template"
@@ -31,7 +30,7 @@ func Store(profile Profiler, path string) error {
 		return err
 	}
 
-	if err := ioutil.WriteFile(name, res.Bytes(), 0644); err != nil {
+	if err := os.WriteFile(name, res.Bytes(), 0600); err != nil {
 		return err
 	}
 

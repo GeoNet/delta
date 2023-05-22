@@ -30,9 +30,20 @@ type Station struct {
 
 type StationList []Station
 
-func (s StationList) Len() int           { return len(s) }
-func (s StationList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s StationList) Less(i, j int) bool { return s[i].Code < s[j].Code }
+func (s StationList) Len() int      { return len(s) }
+func (s StationList) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
+func (s StationList) Less(i, j int) bool {
+	switch {
+	case s[i].Code < s[j].Code:
+		return true
+	case s[i].Code > s[j].Code:
+		return false
+	case s[i].Network < s[j].Network:
+		return true
+	default:
+		return false
+	}
+}
 
 func (s StationList) encode() [][]string {
 	data := [][]string{{

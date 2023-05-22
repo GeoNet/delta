@@ -72,6 +72,18 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
+  Trillium Horizon TH120-2:
+    type: Broadband Seismometer
+    description: Trillium Horizon 120
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
   Trillium 360:
     type: Broadband Seismometer
     description: Trillium Vault 360
@@ -85,6 +97,30 @@ sensor-model:
     - azimuth: 90
       dip: 0
   Titan:
+    type: Accelerometer
+    description: Titan
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  Titan TACCL-N1:
+    type: Accelerometer
+    description: Titan
+    manufacturer: "Nanometrics Inc."
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
+      dip: 0
+  Titan TACCL-BH1:
     type: Accelerometer
     description: Titan
     manufacturer: "Nanometrics Inc."

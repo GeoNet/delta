@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/GeoNet/delta/internal/stationxml/v1.1"
 )
@@ -221,7 +222,7 @@ func (g Generate) build(dir string, dataloggers map[string]DataloggerModel, sens
 							return err
 						}
 
-						files[g.DataloggerName(model, datalogger, label, datalogger.SampleRate)] = data
+						files[g.DataloggerName(model, datalogger, strings.ReplaceAll(label, " ", ""), datalogger.SampleRate)] = data
 					}
 				}
 			}

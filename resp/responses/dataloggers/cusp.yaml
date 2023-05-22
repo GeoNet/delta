@@ -25,6 +25,16 @@ datalogger-model:
     description: Cusp3D
     manufacturer: Canterbury Seismic Instruments
     vendor: ""
+  CUSPM:
+    type: Strong Motion Recorder
+    description: CUSPM
+    manufacturer: Canterbury Seismic Instruments
+    vendor: ""
+  CUSP-Me:
+    type: Strong Motion Recorder
+    description: CUSP-Me
+    manufacturer: Canterbury Seismic Instruments
+    vendor: ""
   EQR120:
     type: Strong Motion Recorder
     description: Eqr120
@@ -35,7 +45,7 @@ paz:
   CUSP:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
-    notes: A simple place holder for the CSI CUSP strong motion sensors
+    notes: A simple place holder for the Canterbury Seismic Instruments CUSP strong motion sensors
     poles: []
     zeros: []
 

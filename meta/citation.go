@@ -3,7 +3,6 @@ package meta
 import (
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -75,13 +74,9 @@ func (c *CitationList) decode(data [][]string) error {
 			return fmt.Errorf("incorrect number of citation fields")
 		}
 
-		var year int
-		if s := strings.TrimSpace(d[citationYear]); s != "" {
-			i, err := strconv.Atoi(s)
-			if err != nil {
-				return err
-			}
-			year = i
+		year, err := ParseInt(d[citationYear])
+		if err != nil {
+			return err
 		}
 
 		var retrieved time.Time

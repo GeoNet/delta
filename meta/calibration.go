@@ -14,9 +14,10 @@ const (
 	calibrationMake = iota
 	calibrationModel
 	calibrationSerial
-	calibrationComponent
+	calibrationNumber
 	calibrationScaleFactor
 	calibrationScaleBias
+	calibrationScaleAbsolute
 	calibrationFrequency
 	calibrationStart
 	calibrationEnd
@@ -28,21 +29,22 @@ const (
 type Calibration struct {
 	Install
 
-	component string
+	ScaleFactor   float64
+	ScaleBias     float64
+	ScaleAbsolute float64
+	Frequency     float64
+	Number        int
+
 	factor    string
 	bias      string
+	absolute  string
 	frequency string
-
-	ScaleFactor float64
-	ScaleBias   float64
-	Frequency   float64
-
-	Component int
+	number    string
 }
 
 // Id returns a unique string which can be used for sorting or checking.
 func (c Calibration) Id() string {
-	return strings.Join([]string{c.Make, c.Model, c.Serial, strconv.Itoa(c.Component)}, ":")
+	return strings.Join([]string{c.Make, c.Model, c.Serial, strconv.Itoa(c.Number)}, ":")
 }
 
 // Less returns whether one Calibration sorts before another.
@@ -52,7 +54,7 @@ func (s Calibration) Less(calibration Calibration) bool {
 		return true
 	case calibration.Install.Less(s.Install):
 		return false
-	case s.Component < calibration.Component:
+	case s.Number < calibration.Number:
 		return true
 	default:
 		return false
@@ -71,9 +73,10 @@ func (c CalibrationList) encode() [][]string {
 		"Make",
 		"Model",
 		"Serial",
-		"Component",
+		"Number",
 		"Scale Factor",
 		"Scale Bias",
+		"Scale Absolute",
 		"Frequency",
 		"Start Date",
 		"End Date",
@@ -84,9 +87,10 @@ func (c CalibrationList) encode() [][]string {
 			strings.TrimSpace(v.Make),
 			strings.TrimSpace(v.Model),
 			strings.TrimSpace(v.Serial),
-			strconv.Itoa(v.Component),
+			strconv.Itoa(v.Number),
 			strings.TrimSpace(v.factor),
 			strings.TrimSpace(v.bias),
+			strings.TrimSpace(v.absolute),
 			strings.TrimSpace(v.frequency),
 			v.Start.Format(DateTimeFormat),
 			v.End.Format(DateTimeFormat),
@@ -126,7 +130,12 @@ func (c *CalibrationList) decode(data [][]string) error {
 				return err
 			}
 
-			bias, err := c.toFloat64(d[calibrationScaleBias], 0.0)
+			bias, err := c.toFloat64(d[calibrationScaleBias], 1.0)
+			if err != nil {
+				return err
+			}
+
+			absolute, err := c.toFloat64(d[calibrationScaleAbsolute], 0.0)
 			if err != nil {
 				return err
 			}
@@ -136,7 +145,7 @@ func (c *CalibrationList) decode(data [][]string) error {
 				return err
 			}
 
-			comp, err := c.toInt(d[calibrationComponent], 0)
+			number, err := c.toInt(d[calibrationNumber], 0)
 			if err != nil {
 				return err
 			}
@@ -163,15 +172,17 @@ func (c *CalibrationList) decode(data [][]string) error {
 						End:   end,
 					},
 				},
-				Component: comp,
+				Number: number,
 
-				ScaleFactor: factor,
-				ScaleBias:   bias,
-				Frequency:   freq,
+				ScaleFactor:   factor,
+				ScaleBias:     bias,
+				ScaleAbsolute: absolute,
+				Frequency:     freq,
 
-				component: strings.TrimSpace(d[calibrationComponent]),
+				number:    strings.TrimSpace(d[calibrationNumber]),
 				factor:    strings.TrimSpace(d[calibrationScaleFactor]),
 				bias:      strings.TrimSpace(d[calibrationScaleBias]),
+				absolute:  strings.TrimSpace(d[calibrationScaleAbsolute]),
 				frequency: strings.TrimSpace(d[calibrationFrequency]),
 			})
 		}

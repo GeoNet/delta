@@ -5,6 +5,6 @@
 //
 // It allows for code like this:
 //
-//     v, err := ToFloat64("1.0 + 1.0")
-//     // v == 2.0
+//	v, err := ToFloat64("1.0 + 1.0")
+//	// v == 2.0
 package expr

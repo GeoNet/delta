@@ -4,6 +4,9 @@ import (
 	"io"
 	"strings"
 	"text/template"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 var generateTemplate = `
@@ -60,7 +63,7 @@ func (g Generate) Write(w io.Writer) error {
 
 	t, err := template.New("generate").Funcs(
 		template.FuncMap{
-			"title": func(s string) string { return strings.Title(s) },
+			"title": func(s string) string { return cases.Title(language.English, cases.NoLower).String(s) },
 			"join":  func(k string, s []string) string { return strings.Join(s, k) },
 		},
 	).Parse(generateTemplate)

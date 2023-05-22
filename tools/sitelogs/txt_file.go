@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/xml"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sort"
@@ -44,7 +43,7 @@ func readLastSiteLog(dir, code string) (*SiteLog, error) {
 	})
 
 	if n := len(files); n > 0 {
-		raw, err := ioutil.ReadFile(files[n-1])
+		raw, err := os.ReadFile(files[n-1])
 		if err != nil {
 			return nil, err
 		}
