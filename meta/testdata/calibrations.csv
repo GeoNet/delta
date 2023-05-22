@@ -1,2 +1,2 @@
-Make,Model,Serial,Number,Scale Factor,Scale Bias,Frequency,Start Date,End Date
-Acme,ACME01,257,0,2000.169/2.0,1.0,10.0,2021-07-01T00:00:00Z,9999-01-01T00:00:00Z
+Make,Model,Serial,Number,Scale Factor,Scale Bias,Scale Absolute,Frequency,Start Date,End Date
+Acme,ACME01,257,0,2000.169/2.0,1.0,20,10.0,2021-07-01T00:00:00Z,9999-01-01T00:00:00Z

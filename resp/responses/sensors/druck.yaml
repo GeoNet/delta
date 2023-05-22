@@ -3,7 +3,7 @@ sensor-model:
   Druck PTX-1830:
     type: Pressure Sensor
     description: Druck PTX
-    manufacturer: "GE Druck"
+    manufacturer: "General Electric"
     vendor: ""
     components:
     - azimuth: 0
@@ -11,7 +11,7 @@ sensor-model:
   Druck PTX-1830-LAND:
     type: Pressure Sensor
     description: Druck PTX
-    manufacturer: "GE Druck"
+    manufacturer: "General Electric"
     vendor: ""
     components:
     - azimuth: 0
