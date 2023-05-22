@@ -39,17 +39,17 @@ G. Streckeisen AG,STS-2,Broadband Seismometer,2,,E,0,90,G,,sensor_Streckeisen_ST
 GEM Systems,GSM-19,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-19-1s
 GEM Systems,GSM-90,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-90-1s
 GEM Systems,GSM-90F1,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-90F1-1s
-General Electric Industrial Sensing,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,-10,derived_Water-Depth-10s
-General Electric Industrial Sensing,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,1,derived_Water-Depth-1s
-General Electric Industrial Sensing,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,10,derived_Water-Depth-10sps
-General Electric Industrial Sensing,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,-10,derived_Water-Depth-10s
-General Electric Industrial Sensing,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,1,derived_Water-Depth-1s
-General Electric Industrial Sensing,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,10,derived_Water-Depth-10sps
-General Electric Industrial Sensing,Druck PTX-1830,Pressure Sensor,0,,Z,0,0,G,,sensor_GE-Druck_Druck-PTX-1830
-General Electric Industrial Sensing,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,-10,derived_Water-Depth-10s
-General Electric Industrial Sensing,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,1,derived_Water-Depth-1s
-General Electric Industrial Sensing,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,10,derived_Water-Depth-10sps
-General Electric Industrial Sensing,Druck PTX-1830-LAND,Pressure Sensor,0,,Z,0,0,G,,sensor_GE-Druck_Druck-PTX-1830-LAND
+General Electric,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,-10,derived_Water-Depth-10s
+General Electric,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,1,derived_Water-Depth-1s
+General Electric,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,10,derived_Water-Depth-10sps
+General Electric,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,-10,derived_Water-Depth-10s
+General Electric,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,1,derived_Water-Depth-1s
+General Electric,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,10,derived_Water-Depth-10sps
+General Electric,Druck PTX-1830,Pressure Sensor,0,,Z,0,0,G,,sensor_General-Electric_Druck-PTX-1830
+General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,-10,derived_Water-Depth-10s
+General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,1,derived_Water-Depth-1s
+General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,10,derived_Water-Depth-10sps
+General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,Z,0,0,G,,sensor_General-Electric_Druck-PTX-1830-LAND
 Guralp,CMG-3ESP,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-3ESP
 Guralp,CMG-3ESP,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-3ESP
 Guralp,CMG-3ESP,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3ESP
