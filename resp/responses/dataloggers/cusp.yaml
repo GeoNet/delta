@@ -45,7 +45,7 @@ paz:
   CUSP:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
-    notes: A simple place holder for the CSI CUSP strong motion sensors
+    notes: A simple place holder for the Canterbury Seismic Instruments CUSP strong motion sensors
     poles: []
     zeros: []
 
