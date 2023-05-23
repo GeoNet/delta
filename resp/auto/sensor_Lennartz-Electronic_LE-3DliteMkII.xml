@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>400</Value>
+    <Frequency>15</Frequency>
+    <InputUnits>
+      <Name>m/s</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <PolesZeros resourceId="PolesZeros#LE-3DliteMkII">
+      <InputUnits>
+        <Name>m/s</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+      <NormalizationFactor>1.000075870745454</NormalizationFactor>
+      <NormalizationFrequency>15</NormalizationFrequency>
+      <Zero number="3">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="4">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="5">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Pole>
+        <Real>-4.44</Real>
+        <Imaginary>4.44</Imaginary>
+      </Pole>
+      <Pole number="1">
+        <Real>-4.44</Real>
+        <Imaginary>-4.44</Imaginary>
+      </Pole>
+      <Pole number="2">
+        <Real>-1.083</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+    </PolesZeros>
+    <StageGain>
+      <Value>400</Value>
+      <Frequency>15</Frequency>
+    </StageGain>
+  </Stage>
+</Response>
