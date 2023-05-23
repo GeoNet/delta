@@ -33,9 +33,9 @@ Danish Meteorological Institute,FGE,Fluxgate Magnetometer,2,,Z,-90,0,G,,sensor_D
 Duke University,2 Hz Duke Malin Seismometer,Short Period Borehole Seismometer,0,,Z,-90,0,G,,sensor_Duke-University_2-Hz-Duke-Malin-Seismometer
 Duke University,2 Hz Duke Malin Seismometer,Short Period Borehole Seismometer,1,,N,0,0,G,,sensor_Duke-University_2-Hz-Duke-Malin-Seismometer
 Duke University,2 Hz Duke Malin Seismometer,Short Period Borehole Seismometer,2,,E,0,90,G,,sensor_Duke-University_2-Hz-Duke-Malin-Seismometer
-G. Streckeisen AG,STS-2,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Streckeisen_STS-2
-G. Streckeisen AG,STS-2,Broadband Seismometer,1,,N,0,0,G,,sensor_Streckeisen_STS-2
-G. Streckeisen AG,STS-2,Broadband Seismometer,2,,E,0,90,G,,sensor_Streckeisen_STS-2
+Streckeisen,STS-2,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Streckeisen_STS-2
+Streckeisen,STS-2,Broadband Seismometer,1,,N,0,0,G,,sensor_Streckeisen_STS-2
+Streckeisen,STS-2,Broadband Seismometer,2,,E,0,90,G,,sensor_Streckeisen_STS-2
 GEM Systems,GSM-19,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-19-1s
 GEM Systems,GSM-90,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-90-1s
 GEM Systems,GSM-90F1,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-90F1-1s
@@ -95,15 +95,15 @@ Kinemetrics Inc.,FBA-ES-T-ISO,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-
 Kinemetrics Inc.,Kinemetrics SBEPI,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_Kinemetrics-SBEPI
 Kinemetrics Inc.,Kinemetrics SBEPI,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_Kinemetrics-SBEPI
 Kinemetrics Inc.,Kinemetrics SBEPI,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_Kinemetrics-SBEPI
-Lennartz electronic GmbH,LE-3Dlite,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3Dlite
-Lennartz electronic GmbH,LE-3Dlite,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3Dlite
-Lennartz electronic GmbH,LE-3Dlite,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3Dlite
-Lennartz electronic GmbH,LE-3DliteMkII,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3DliteMkII
-Lennartz electronic GmbH,LE-3DliteMkII,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3DliteMkII
-Lennartz electronic GmbH,LE-3DliteMkII,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3DliteMkII
-Lennartz electronic GmbH,LE-3DliteMkIII,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3DliteMkIII
-Lennartz electronic GmbH,LE-3DliteMkIII,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3DliteMkIII
-Lennartz electronic GmbH,LE-3DliteMkIII,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3DliteMkIII
+Lennartz Electronic,LE-3Dlite,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3Dlite
+Lennartz Electronic,LE-3Dlite,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3Dlite
+Lennartz Electronic,LE-3Dlite,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3Dlite
+Lennartz Electronic,LE-3DliteMkII,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3DliteMkII
+Lennartz Electronic,LE-3DliteMkII,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3DliteMkII
+Lennartz Electronic,LE-3DliteMkII,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3DliteMkII
+Lennartz Electronic,LE-3DliteMkIII,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3DliteMkIII
+Lennartz Electronic,LE-3DliteMkIII,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3DliteMkIII
+Lennartz Electronic,LE-3DliteMkIII,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3DliteMkIII
 Nanometrics,Titan,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
