@@ -18,8 +18,8 @@ Canterbury Seismic Instruments,EQR120,Strong Motion Recorder,,200,datalogger_Can
 GEM Systems,GSM-19,Proton Magnetometer,,1,
 GEM Systems,GSM-90,Proton Magnetometer,,1,
 GEM Systems,GSM-90F1,Proton Magnetometer,,1,
-GNS Science Te Pū Ao,EARSS/3,Datalogger,,50,datalogger_GNS-Science_Earss_22bits_50sps
-GNS Science Te Pū Ao,EARSS/3,Datalogger,,100,datalogger_GNS-Science_Earss_22bits_100sps
+GNS Science,EARSS/3,Datalogger,,50,datalogger_GNS-Science_Earss_22bits_50sps
+GNS Science,EARSS/3,Datalogger,,100,datalogger_GNS-Science_Earss_22bits_100sps
 Kinemetrics,BASALT,Strong Motion Recorder,,50,datalogger_Kinemetrics_Basalt_26bits_50sps
 Kinemetrics,BASALT,Strong Motion Recorder,,200,datalogger_Kinemetrics_Basalt_26bits_200sps
 Kinemetrics,BASALT 8X DATALOGGER,Strong Motion Recorder,,50,datalogger_Kinemetrics_BASALT8XDATALOGGER_26bits_50sps
