@@ -84,7 +84,7 @@ sensor-model:
        dip: 0
      - azimuth: 0
        dip: -90
-   Kinemetrics SBEPI:
+   SBEPI:
      type: Accelerometer
      description: SBEPI
      manufacturer: "Kinemetrics"
@@ -166,7 +166,7 @@ filter:
     delay: 0
     inputunits: m/s**2
     outputunits: V
-  Kinemetrics SBEPI:
+  SBEPI:
   - type: paz
     lookup: FBA-ES-T
     frequency: 1

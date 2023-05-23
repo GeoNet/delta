@@ -109,7 +109,7 @@ var genericAbbreviations = []GenericAbbreviation{
 	{Code: 25, Description: "Guralp CMG-3ESPC"},
 	{Code: 26, Description: "Kinemetrics FBA-ES-T-ISO"},
 	{Code: 27, Description: "Canterbury Seismic Instruments CUSP3D SENSOR"},
-	{Code: 28, Description: "Kinemetrics Kinemetrics SBEPI"},
+	{Code: 28, Description: "Kinemetrics SBEPI"},
 	{Code: 29, Description: "IESE IESE S10g-4.5 (with preamp)"},
 	{Code: 30, Description: "Guralp CMG-3ESP-Z"},
 	{Code: 31, Description: "Nanometrics Trillium 120QA"},
