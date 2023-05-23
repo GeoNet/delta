@@ -243,9 +243,9 @@ func (p *Pod) Channel(cha *stationxml.Channel) []Blockette {
 					case "L4C-3D":
 						model = "Sercel L4C-3D"
 					case "LE-3Dlite":
-						model = "Lennartz LE-3Dlite"
+						model = "Lennartz Electronic LE-3Dlite"
 					case "LE-3DliteMkII":
-						model = "Lennartz LE-3DliteMkII"
+						model = "Lennartz Electronic LE-3DliteMkII"
 					case "STS-2":
 						model = "Streckeisen STS-2"
 					case "Nanometrics Trillium 120QA", "Trillium 120QA":

@@ -3,7 +3,7 @@ sensor-model:
   LE-3Dlite:
     type: Short Period Seismometer
     description: LE-3Dlite
-    manufacturer: "Lennartz"
+    manufacturer: "Lennartz Electronic"
     vendor: ""
     components:
     - azimuth: 0
@@ -15,7 +15,7 @@ sensor-model:
   LE-3DliteMkII:
     type: Short Period Seismometer
     description: LE-3DliteMkII
-    manufacturer: "Lennartz"
+    manufacturer: "Lennartz Electronic"
     vendor: ""
     components:
     - azimuth: 0
@@ -27,7 +27,7 @@ sensor-model:
   LE-3DliteMkIII:
     type: Short Period Seismometer
     description: LE-3DliteMkIII
-    manufacturer: "Lennartz"
+    manufacturer: "Lennartz Electronic"
     vendor: ""
     components:
     - azimuth: 0
@@ -41,7 +41,7 @@ paz:
   LE-3Dlite:
     code: A
     type: Laplace transform analog stage response, in rad/sec.
-    notes: derived from Lennartz documentation, i.e. 990-0073 page 14 via http://www.lennartz-electronic.de
+    notes: derived from Lennartz Electronic documentation, i.e. 990-0073 page 14 via http://www.lennartz-electronic.de
     poles:
     - (-4.440+4.440i)
     - (-4.440-4.440i)
