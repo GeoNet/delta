@@ -479,7 +479,7 @@ func TestList(t *testing.T) {
 				DeployedDatalogger{
 					Install: Install{
 						Equipment: Equipment{
-							Make:   "GNS Science Te Pū Ao",
+							Make:   "GNS Science",
 							Model:  "EARSS/3",
 							Serial: "152",
 						},

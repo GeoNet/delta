@@ -3,7 +3,7 @@ sensor-model:
   LM35:
     type: ""
     description: LM35
-    manufacturer: "GNS Science Te Pū Ao"
+    manufacturer: "GNS Science"
     vendor: ""
     components:
     - azimuth: 0
@@ -11,7 +11,7 @@ sensor-model:
   SDP:
     type: ""
     description: SDP
-    manufacturer: "GNS Science Te Pū Ao"
+    manufacturer: "GNS Science"
     vendor: ""
     components:
     - azimuth: 0
