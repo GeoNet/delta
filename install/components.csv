@@ -1,6 +1,6 @@
 Make,Model,Type,Number,Source,Subsource,Dip,Azimuth,Types,Sampling Rate,Response
 Paroscientific,BPR Subsystem,Bottom Pressure Recorder,0,,Z,0,0,G,-15,combined_SAIC_BPR-Subsystem_BPR-Subsystem_Z_15s
-GNS Science Te Pū Ao,LM35,,0,,O,0,0,W,,sensor_GNS-Science_LM35
+GNS Science,LM35,,0,,O,0,0,W,,sensor_GNS-Science_LM35
 Thompson Sintra Pacific,Scout Hydrophone,Hydrophone,0,,H,0,0,G,,sensor_Unknown_Scout-Hydrophone
 Boise State University,InfraBSU microphone,Microphone,0,,F,0,0,W,,sensor_Boise-State-University_InfraBSU-microphone
 Canterbury Seismic Instruments,CUSP3A,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3A
@@ -86,15 +86,15 @@ Kinemetrics,FBA-ES-T-ETNA-2,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES
 Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
 Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
 Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
-Kinemetrics Inc.,FBA-ES-T,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T
-Kinemetrics Inc.,FBA-ES-T,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T
-Kinemetrics Inc.,FBA-ES-T,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T
-Kinemetrics Inc.,FBA-ES-T-ISO,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-ISO
-Kinemetrics Inc.,FBA-ES-T-ISO,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-ISO
-Kinemetrics Inc.,FBA-ES-T-ISO,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-ISO
-Kinemetrics Inc.,Kinemetrics SBEPI,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_Kinemetrics-SBEPI
-Kinemetrics Inc.,Kinemetrics SBEPI,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_Kinemetrics-SBEPI
-Kinemetrics Inc.,Kinemetrics SBEPI,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_Kinemetrics-SBEPI
+Kinemetrics,FBA-ES-T,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T
+Kinemetrics,FBA-ES-T,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T
+Kinemetrics,FBA-ES-T,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T
+Kinemetrics,FBA-ES-T-ISO,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-ISO
+Kinemetrics,FBA-ES-T-ISO,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-ISO
+Kinemetrics,FBA-ES-T-ISO,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-ISO
+Kinemetrics,SBEPI,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_SBEPI
+Kinemetrics,SBEPI,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_SBEPI
+Kinemetrics,SBEPI,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_SBEPI
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3Dlite
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3Dlite
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3Dlite
