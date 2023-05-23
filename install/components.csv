@@ -86,15 +86,15 @@ Kinemetrics,FBA-ES-T-ETNA-2,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES
 Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
 Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
 Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
-Kinemetrics Inc.,FBA-ES-T,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T
-Kinemetrics Inc.,FBA-ES-T,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T
-Kinemetrics Inc.,FBA-ES-T,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T
-Kinemetrics Inc.,FBA-ES-T-ISO,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-ISO
-Kinemetrics Inc.,FBA-ES-T-ISO,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-ISO
-Kinemetrics Inc.,FBA-ES-T-ISO,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-ISO
-Kinemetrics Inc.,Kinemetrics SBEPI,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_Kinemetrics-SBEPI
-Kinemetrics Inc.,Kinemetrics SBEPI,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_Kinemetrics-SBEPI
-Kinemetrics Inc.,Kinemetrics SBEPI,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_Kinemetrics-SBEPI
+Kinemetrics,FBA-ES-T,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T
+Kinemetrics,FBA-ES-T,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T
+Kinemetrics,FBA-ES-T,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T
+Kinemetrics,FBA-ES-T-ISO,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-ISO
+Kinemetrics,FBA-ES-T-ISO,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-ISO
+Kinemetrics,FBA-ES-T-ISO,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-ISO
+Kinemetrics,SBEPI,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_SBEPI
+Kinemetrics,SBEPI,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_SBEPI
+Kinemetrics,SBEPI,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_SBEPI
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3Dlite
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3Dlite
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3Dlite

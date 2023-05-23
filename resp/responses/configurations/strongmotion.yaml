@@ -148,9 +148,9 @@ response:
       channels: ENZ
       reversed: false
     - sensors:
-      - Kinemetrics SBEPI
+      - SBEPI
       filters:
-      - Kinemetrics SBEPI
+      - SBEPI
       channels: Z12
       reversed: false
     - sensors:
