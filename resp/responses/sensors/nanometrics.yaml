@@ -3,7 +3,7 @@ sensor-model:
   Trillium 120QA:
     type: Broadband Seismometer
     description: Trillium 120 QA
-    manufacturer: "Nanometrics Inc."
+    manufacturer: "Nanometrics"
     vendor: ""
     components:
     - azimuth: 0
@@ -15,7 +15,7 @@ sensor-model:
   Trillium Borehole T120-BH1:
     type: Broadband Seismometer
     description: Trillium Borehole T120-BH1
-    manufacturer: "Nanometrics Inc."
+    manufacturer: "Nanometrics"
     vendor: ""
     components:
     - azimuth: 0
@@ -27,7 +27,7 @@ sensor-model:
   Trillium Compact 120:
     type: Broadband Seismometer
     description: Trillium Compact 120
-    manufacturer: "Nanometrics Inc."
+    manufacturer: "Nanometrics"
     vendor: ""
     components:
     - azimuth: 0
@@ -39,7 +39,7 @@ sensor-model:
   Trillium Compact 20PH-2:
     type: Broadband Seismometer
     description: Trillium Compact 20 Posthole
-    manufacturer: "Nanometrics Inc."
+    manufacturer: "Nanometrics"
     vendor: ""
     components:
     - azimuth: 0
@@ -51,7 +51,7 @@ sensor-model:
   Trillium Compact 120PH-2:
     type: Broadband Seismometer
     description: Trillium Compact 120 Posthole
-    manufacturer: "Nanometrics Inc."
+    manufacturer: "Nanometrics"
     vendor: ""
     components:
     - azimuth: 0
@@ -63,7 +63,7 @@ sensor-model:
   Trillium Horizon TH120-1:
     type: Broadband Seismometer
     description: Trillium Horizon 120
-    manufacturer: "Nanometrics Inc."
+    manufacturer: "Nanometrics"
     vendor: ""
     components:
     - azimuth: 0
@@ -75,7 +75,7 @@ sensor-model:
   Trillium Horizon TH120-2:
     type: Broadband Seismometer
     description: Trillium Horizon 120
-    manufacturer: "Nanometrics Inc."
+    manufacturer: "Nanometrics"
     vendor: ""
     components:
     - azimuth: 0
@@ -87,7 +87,7 @@ sensor-model:
   Trillium 360:
     type: Broadband Seismometer
     description: Trillium Vault 360
-    manufacturer: "Nanometrics Inc."
+    manufacturer: "Nanometrics"
     vendor: ""
     components:
     - azimuth: 0
@@ -99,7 +99,7 @@ sensor-model:
   Titan:
     type: Accelerometer
     description: Titan
-    manufacturer: "Nanometrics Inc."
+    manufacturer: "Nanometrics"
     vendor: ""
     components:
     - azimuth: 0
@@ -111,7 +111,7 @@ sensor-model:
   Titan TACCL-N1:
     type: Accelerometer
     description: Titan
-    manufacturer: "Nanometrics Inc."
+    manufacturer: "Nanometrics"
     vendor: ""
     components:
     - azimuth: 0
@@ -123,7 +123,7 @@ sensor-model:
   Titan TACCL-BH1:
     type: Accelerometer
     description: Titan
-    manufacturer: "Nanometrics Inc."
+    manufacturer: "Nanometrics"
     vendor: ""
     components:
     - azimuth: 0
