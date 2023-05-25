@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>754.3</Value>
+    <Frequency>1</Frequency>
+    <InputUnits>
+      <Name>m/s</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <PolesZeros resourceId="PolesZeros#TRILLIUM-COMPACT-120">
+      <InputUnits>
+        <Name>m/s</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+      <NormalizationFactor>4.34492814617714e+17</NormalizationFactor>
+      <NormalizationFrequency>1</NormalizationFrequency>
+      <Zero number="11">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="12">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="13">
+        <Real>-392</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="14">
+        <Real>-1960</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="15">
+        <Real>-1490</Real>
+        <Imaginary>1740</Imaginary>
+      </Zero>
+      <Zero number="16">
+        <Real>-1490</Real>
+        <Imaginary>-1740</Imaginary>
+      </Zero>
+      <Pole>
+        <Real>-0.03691</Real>
+        <Imaginary>0.03702</Imaginary>
+      </Pole>
+      <Pole number="1">
+        <Real>-0.03691</Real>
+        <Imaginary>-0.03702</Imaginary>
+      </Pole>
+      <Pole number="2">
+        <Real>-343</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+      <Pole number="3">
+        <Real>-370</Real>
+        <Imaginary>467</Imaginary>
+      </Pole>
+      <Pole number="4">
+        <Real>-370</Real>
+        <Imaginary>-467</Imaginary>
+      </Pole>
+      <Pole number="5">
+        <Real>-836</Real>
+        <Imaginary>1522</Imaginary>
+      </Pole>
+      <Pole number="6">
+        <Real>-836</Real>
+        <Imaginary>-1522</Imaginary>
+      </Pole>
+      <Pole number="7">
+        <Real>-4900</Real>
+        <Imaginary>4700</Imaginary>
+      </Pole>
+      <Pole number="8">
+        <Real>-4900</Real>
+        <Imaginary>-4700</Imaginary>
+      </Pole>
+      <Pole number="9">
+        <Real>-6900</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+      <Pole number="10">
+        <Real>-15000</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+    </PolesZeros>
+    <StageGain>
+      <Value>754.3</Value>
+      <Frequency>1</Frequency>
+    </StageGain>
+  </Stage>
+</Response>
