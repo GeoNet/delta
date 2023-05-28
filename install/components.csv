@@ -141,6 +141,6 @@ Sercel,L4C,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Sercel_L4C
 Sercel,L4C-3D,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Sercel_L4C-3D
 Sercel,L4C-3D,Short Period Seismometer,1,,N,0,0,G,,sensor_Sercel_L4C-3D
 Sercel,L4C-3D,Short Period Seismometer,2,,E,0,90,G,,sensor_Sercel_L4C-3D
-Setra Systems Inc.,270-600/12V,Barometer,0,,F,0,0,W,,sensor_Setra_270-600-12V
-Setra Systems Inc.,270-600/24V,Barometer,0,,F,0,0,W,,sensor_Setra_270-600-24V
-Setra Systems Inc.,270-800/12V,Barometer,0,,F,0,0,W,,sensor_Setra_270-800-12V
+Setra,270-600/12V,Barometer,0,,F,0,0,W,,sensor_Setra_270-600-12V
+Setra,270-600/24V,Barometer,0,,F,0,0,W,,sensor_Setra_270-600-24V
+Setra,270-800/12V,Barometer,0,,F,0,0,W,,sensor_Setra_270-800-12V
