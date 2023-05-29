@@ -40,6 +40,11 @@ type Component struct {
 	samplingRate string
 }
 
+// Description returns a short label for the channel model family.
+func (c Component) Description() string {
+	return fmt.Sprintf("%s %s %s", c.Make, strings.Split(strings.Fields(c.Model)[0], "/")[0], c.Type)
+}
+
 // Less compares Component structs suitable for sorting.
 func (c Component) Less(comp Component) bool {
 

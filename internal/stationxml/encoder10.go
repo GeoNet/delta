@@ -349,18 +349,15 @@ func (e Encoder10) Channel(root Root, network Network, channel Channel) []statio
 			depth = -stream.Vertical
 		}
 
-		var datalogger *stationxml.EquipmentType
-		if stream.SamplingRate == 0.0 || stream.Datalogger.Response != "" {
-			datalogger = &stationxml.EquipmentType{
-				ResourceId:       "Datalogger#" + stream.Datalogger.Model + ":" + stream.Datalogger.SerialNumber,
-				Type:             stream.Datalogger.Type,
-				Description:      stream.Datalogger.Description,
-				Manufacturer:     stream.Datalogger.Manufacturer,
-				Model:            stream.Datalogger.Model,
-				SerialNumber:     stream.Datalogger.SerialNumber,
-				InstallationDate: e.toDateTime(stream.Datalogger.InstallationDate),
-				RemovalDate:      e.toDateTime(stream.Datalogger.RemovalDate),
-			}
+		datalogger := &stationxml.EquipmentType{
+			ResourceId:       "Datalogger#" + stream.Datalogger.Model + ":" + stream.Datalogger.SerialNumber,
+			Type:             stream.Datalogger.Type,
+			Description:      stream.Datalogger.Description,
+			Manufacturer:     stream.Datalogger.Manufacturer,
+			Model:            stream.Datalogger.Model,
+			SerialNumber:     stream.Datalogger.SerialNumber,
+			InstallationDate: e.toDateTime(stream.Datalogger.InstallationDate),
+			RemovalDate:      e.toDateTime(stream.Datalogger.RemovalDate),
 		}
 
 		channels = append(channels, stationxml.ChannelType{
