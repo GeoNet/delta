@@ -3,18 +3,16 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testDeployedReceivers = map[string]func([]meta.DeployedReceiver) func(t *testing.T){
-	"check for receiver installation overlaps": func(receivers []meta.DeployedReceiver) func(t *testing.T) {
+var deployedReceiverChecks = map[string]func(*meta.Set) func(t *testing.T){
+	"check for receiver installation overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			installs := make(map[string]meta.DeployedReceiverList)
-			for _, s := range receivers {
-				if _, ok := installs[s.Model]; !ok {
-					installs[s.Model] = meta.DeployedReceiverList{}
-				}
+			for _, s := range set.DeployedReceivers() {
 				installs[s.Model] = append(installs[s.Model], s)
 			}
 
@@ -39,14 +37,11 @@ var testDeployedReceivers = map[string]func([]meta.DeployedReceiver) func(t *tes
 		}
 	},
 
-	"check for receiver installation equipment overlaps": func(receivers []meta.DeployedReceiver) func(t *testing.T) {
+	"check for receiver installation equipment overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			installs := make(map[string]meta.DeployedReceiverList)
-			for _, s := range receivers {
-				if _, ok := installs[s.Mark]; !ok {
-					installs[s.Mark] = meta.DeployedReceiverList{}
-				}
+			for _, s := range set.DeployedReceivers() {
 				installs[s.Mark] = append(installs[s.Mark], s)
 			}
 
@@ -67,18 +62,16 @@ var testDeployedReceivers = map[string]func([]meta.DeployedReceiver) func(t *tes
 			}
 		}
 	},
-}
 
-var testDeployedReceiversMarks = map[string]func([]meta.DeployedReceiver, []meta.Mark) func(t *testing.T){
-	"check for missing receiver marks": func(receivers []meta.DeployedReceiver, marks []meta.Mark) func(t *testing.T) {
+	"check for missing receiver marks": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			keys := make(map[string]interface{})
-			for _, m := range marks {
+			for _, m := range set.Marks() {
 				keys[m.Code] = true
 			}
 
-			for _, r := range receivers {
+			for _, r := range set.DeployedReceivers() {
 				if _, ok := keys[r.Mark]; ok {
 					continue
 				}
@@ -86,14 +79,12 @@ var testDeployedReceiversMarks = map[string]func([]meta.DeployedReceiver, []meta
 			}
 		}
 	},
-}
 
-var testDeployedReceiversAssets = map[string]func([]meta.DeployedReceiver, []meta.Asset) func(t *testing.T){
-	"check for missing receiver assets": func(receivers []meta.DeployedReceiver, assets []meta.Asset) func(t *testing.T) {
+	"check for missing receiver assets": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, r := range receivers {
+			for _, r := range set.DeployedReceivers() {
 				var found bool
-				for _, a := range assets {
+				for _, a := range set.Assets() {
 					if a.Model != r.Model {
 						continue
 					}
@@ -112,34 +103,13 @@ var testDeployedReceiversAssets = map[string]func([]meta.DeployedReceiver, []met
 }
 
 func TestDeployedReceivers(t *testing.T) {
-	var receivers meta.DeployedReceiverList
-	loadListFile(t, "../install/receivers.csv", &receivers)
 
-	for k, fn := range testDeployedReceivers {
-		t.Run(k, fn(receivers))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
-}
 
-func TestDeployedReceiversMarks(t *testing.T) {
-	var receivers meta.DeployedReceiverList
-	loadListFile(t, "../install/receivers.csv", &receivers)
-
-	var marks meta.MarkList
-	loadListFile(t, "../network/marks.csv", &marks)
-
-	for k, fn := range testDeployedReceiversMarks {
-		t.Run(k, fn(receivers, marks))
-	}
-}
-
-func TestDeployedReceiversAssets(t *testing.T) {
-	var receivers meta.DeployedReceiverList
-	loadListFile(t, "../install/receivers.csv", &receivers)
-
-	var assets meta.AssetList
-	loadListFile(t, "../assets/receivers.csv", &assets)
-
-	for k, fn := range testDeployedReceiversAssets {
-		t.Run(k, fn(receivers, assets))
+	for k, v := range deployedReceiverChecks {
+		t.Run(k, v(set))
 	}
 }
