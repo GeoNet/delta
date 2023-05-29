@@ -5,13 +5,14 @@ import (
 	"testing"
 	"time"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testStreams = map[string]func([]meta.Stream) func(t *testing.T){
-	"check for invalid axial labels": func(streams []meta.Stream) func(t *testing.T) {
+var streamChecks = map[string]func(*meta.Set) func(t *testing.T){
+	"check for invalid axial labels": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, s := range streams {
+			for _, s := range set.Streams() {
 				switch s.Axial {
 				case "true", "false":
 				case "ZNE", "Z12", "XYZ":
@@ -22,9 +23,9 @@ var testStreams = map[string]func([]meta.Stream) func(t *testing.T){
 		}
 	},
 
-	"check for invalid stream span overlaps": func(streams []meta.Stream) func(t *testing.T) {
+	"check for invalid stream span overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, c := range streams {
+			for _, c := range set.Streams() {
 				if c.Start.After(c.End) {
 					t.Error("stream span mismatch: " + strings.Join([]string{
 						c.Station,
@@ -39,8 +40,9 @@ var testStreams = map[string]func([]meta.Stream) func(t *testing.T){
 		}
 	},
 
-	"check for invalid stream spans": func(streams []meta.Stream) func(t *testing.T) {
+	"check for invalid stream spans": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
+			streams := set.Streams()
 			for i := 0; i < len(streams); i++ {
 				for j := i + 1; j < len(streams); j++ {
 					if streams[i].Station != streams[j].Station {
@@ -74,10 +76,10 @@ var testStreams = map[string]func([]meta.Stream) func(t *testing.T){
 		}
 	},
 
-	"check for invalid stream sample rates": func(streams []meta.Stream) func(t *testing.T) {
+	"check for invalid stream sample rates": func(set *meta.Set) func(t *testing.T) {
 
 		return func(t *testing.T) {
-			for _, s := range streams {
+			for _, s := range set.Streams() {
 				if s.SamplingRate == 0 {
 					t.Errorf("invalid stream sample rate: " + strings.Join([]string{
 						s.Station,
@@ -90,31 +92,30 @@ var testStreams = map[string]func([]meta.Stream) func(t *testing.T){
 			}
 		}
 	},
-}
 
-var testStreamsStations = map[string]func([]meta.Stream, []meta.Station) func(t *testing.T){
-	"check for invalid stream stations": func(streams []meta.Stream, list []meta.Station) func(t *testing.T) {
+	"check for invalid stream stations": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			stas := make(map[string]interface{})
-			for _, s := range list {
+			for _, s := range set.Stations() {
 				stas[s.Code] = true
 			}
 
-			for _, c := range streams {
+			for _, c := range set.Streams() {
 				if _, ok := stas[c.Station]; !ok {
 					t.Error("unknown stream station: " + c.Station)
 				}
 			}
 		}
 	},
-	"check for invalid dates: stream within station": func(streams []meta.Stream, list []meta.Station) func(t *testing.T) {
+
+	"check for invalid dates: stream within station": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			stas := make(map[string]meta.Station)
-			for _, s := range list {
+			for _, s := range set.Stations() {
 				stas[s.Code] = s
 			}
 
-			for _, c := range streams {
+			for _, c := range set.Streams() {
 				if s, ok := stas[c.Station]; ok {
 					switch {
 					case c.Start.Before(s.Start):
@@ -140,17 +141,15 @@ var testStreamsStations = map[string]func([]meta.Stream, []meta.Station) func(t 
 			}
 		}
 	},
-}
 
-var testStreamsSites = map[string]func([]meta.Stream, []meta.Site) func(t *testing.T){
-	"check for invalid stream sites": func(streams []meta.Stream, list []meta.Site) func(t *testing.T) {
+	"check for invalid stream sites": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			sites := make(map[string]interface{})
-			for _, s := range list {
+			for _, s := range set.Sites() {
 				sites[s.Station] = true
 			}
 
-			for _, c := range streams {
+			for _, c := range set.Streams() {
 				if _, ok := sites[c.Station]; !ok {
 					t.Error("unknown stream station: " + c.Station)
 				}
@@ -158,20 +157,20 @@ var testStreamsSites = map[string]func([]meta.Stream, []meta.Site) func(t *testi
 		}
 	},
 
-	"check for invalid stream locations": func(streams []meta.Stream, list []meta.Site) func(t *testing.T) {
+	"check for invalid stream locations": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			sites := make(map[struct {
 				s string
 				l string
 			}]interface{})
-			for _, s := range list {
+			for _, s := range set.Sites() {
 				sites[struct {
 					s string
 					l string
 				}{s: s.Station, l: s.Location}] = true
 			}
 
-			for _, c := range streams {
+			for _, c := range set.Streams() {
 				if _, ok := sites[struct {
 					s string
 					l string
@@ -182,20 +181,20 @@ var testStreamsSites = map[string]func([]meta.Stream, []meta.Site) func(t *testi
 		}
 	},
 
-	"check for invalid dates: stream within site": func(streams []meta.Stream, list []meta.Site) func(t *testing.T) {
+	"check for invalid dates: stream within site": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			sites := make(map[struct {
 				s string
 				l string
 			}]meta.Site)
-			for _, s := range list {
+			for _, s := range set.Sites() {
 				sites[struct {
 					s string
 					l string
 				}{s: s.Station, l: s.Location}] = s
 			}
 
-			for _, c := range streams {
+			for _, c := range set.Streams() {
 				if s, ok := sites[struct {
 					s string
 					l string
@@ -224,24 +223,23 @@ var testStreamsSites = map[string]func([]meta.Stream, []meta.Site) func(t *testi
 			}
 		}
 	},
-}
 
-var testStreamsInstalledSensorsAssets = map[string]func([]meta.Stream, []meta.InstalledSensor, []meta.Asset) func(t *testing.T){
-	"check for invalid stream sensor sites": func(streams []meta.Stream, sensors []meta.InstalledSensor, assets []meta.Asset) func(t *testing.T) {
+	"check for invalid stream sensor sites": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			var list = make(map[struct {
 				m string
 				s string
 			}]meta.Asset)
-			for _, a := range assets {
+
+			for _, a := range set.Assets() {
 				list[struct {
 					m string
 					s string
 				}{m: a.Model, s: a.Serial}] = a
 			}
 
-			for _, v := range sensors {
+			for _, v := range set.InstalledSensors() {
 				a, ok := list[struct {
 					m string
 					s string
@@ -256,7 +254,7 @@ var testStreamsInstalledSensorsAssets = map[string]func([]meta.Stream, []meta.In
 					continue
 				}
 				var handled bool
-				for _, s := range streams {
+				for _, s := range set.Streams() {
 					if s.Station != v.Station || v.Location != s.Location {
 						continue
 					}
@@ -274,24 +272,22 @@ var testStreamsInstalledSensorsAssets = map[string]func([]meta.Stream, []meta.In
 			}
 		}
 	},
-}
 
-var testStreamsInstalledRecordersAssets = map[string]func([]meta.Stream, []meta.InstalledRecorder, []meta.Asset) func(t *testing.T){
-	"check for invalid stream sites": func(streams []meta.Stream, recorders []meta.InstalledRecorder, assets []meta.Asset) func(t *testing.T) {
+	"check for invalid stream recorder sites": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			var list = make(map[struct {
 				m string
 				s string
 			}]meta.Asset)
-			for _, a := range assets {
+			for _, a := range set.Assets() {
 				list[struct {
 					m string
 					s string
 				}{m: a.Model, s: a.Serial}] = a
 			}
 
-			for _, r := range recorders {
+			for _, r := range set.InstalledRecorders() {
 				a, ok := list[struct {
 					m string
 					s string
@@ -306,7 +302,7 @@ var testStreamsInstalledRecordersAssets = map[string]func([]meta.Stream, []meta.
 					continue
 				}
 				var handled bool
-				for _, s := range streams {
+				for _, s := range set.Streams() {
 					if s.Station != r.Station || r.Location != s.Location {
 						continue
 					}
@@ -328,66 +324,12 @@ var testStreamsInstalledRecordersAssets = map[string]func([]meta.Stream, []meta.
 
 func TestStreams(t *testing.T) {
 
-	var streams meta.StreamList
-	loadListFile(t, "../install/streams.csv", &streams)
-
-	for k, fn := range testStreams {
-		t.Run(k, fn(streams))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
-}
 
-func TestStreams_Stations(t *testing.T) {
-
-	var streams meta.StreamList
-	loadListFile(t, "../install/streams.csv", &streams)
-
-	var stations meta.StationList
-	loadListFile(t, "../network/stations.csv", &stations)
-
-	for k, fn := range testStreamsStations {
-		t.Run(k, fn(streams, stations))
-	}
-}
-
-func TestStreams_Sites(t *testing.T) {
-
-	var streams meta.StreamList
-	loadListFile(t, "../install/streams.csv", &streams)
-
-	var sites meta.SiteList
-	loadListFile(t, "../network/sites.csv", &sites)
-
-	for k, fn := range testStreamsSites {
-		t.Run(k, fn(streams, sites))
-	}
-}
-
-func TestStreams_InstalledSensorsAssets(t *testing.T) {
-	var streams meta.StreamList
-	loadListFile(t, "../install/streams.csv", &streams)
-
-	var sensors meta.InstalledSensorList
-	loadListFile(t, "../install/sensors.csv", &sensors)
-
-	var assets meta.AssetList
-	loadListFile(t, "../assets/sensors.csv", &assets)
-
-	for k, fn := range testStreamsInstalledSensorsAssets {
-		t.Run(k, fn(streams, sensors, assets))
-	}
-}
-
-func TestStreams_InstalledRecordersAssets(t *testing.T) {
-	var streams meta.StreamList
-	loadListFile(t, "../install/streams.csv", &streams)
-
-	var recorders meta.InstalledRecorderList
-	loadListFile(t, "../install/recorders.csv", &recorders)
-
-	var assets meta.AssetList
-	loadListFile(t, "../assets/recorders.csv", &assets)
-
-	for k, fn := range testStreamsInstalledRecordersAssets {
-		t.Run(k, fn(streams, recorders, assets))
+	for k, v := range streamChecks {
+		t.Run(k, v(set))
 	}
 }

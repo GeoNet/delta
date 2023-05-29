@@ -3,19 +3,17 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testInstalledSensors = map[string]func([]meta.InstalledSensor) func(t *testing.T){
+var installedSensorChecks = map[string]func(*meta.Set) func(t *testing.T){
 
-	"check for sensor installation overlaps": func(installed []meta.InstalledSensor) func(t *testing.T) {
+	"check for sensor installation overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			installs := make(map[string]meta.InstalledSensorList)
-			for _, s := range installed {
-				if _, ok := installs[s.Model]; !ok {
-					installs[s.Model] = meta.InstalledSensorList{}
-				}
+			for _, s := range set.InstalledSensors() {
 				installs[s.Model] = append(installs[s.Model], s)
 			}
 
@@ -49,10 +47,10 @@ var testInstalledSensors = map[string]func([]meta.InstalledSensor) func(t *testi
 		}
 	},
 
-	"check for invalid sensor azimuth": func(installed []meta.InstalledSensor) func(t *testing.T) {
+	"check for invalid sensor azimuth": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
-			for _, i := range installed {
+			for _, i := range set.InstalledSensors() {
 				if i.Orientation.Azimuth < -360.0 || i.Orientation.Azimuth > 360.0 {
 					t.Errorf("installed sensor has invalid orientation azimuth: %s [%g]", i.String(), i.Orientation.Azimuth)
 				}
@@ -60,33 +58,31 @@ var testInstalledSensors = map[string]func([]meta.InstalledSensor) func(t *testi
 		}
 	},
 
-	"check for invalid sensor dip": func(installed []meta.InstalledSensor) func(t *testing.T) {
+	"check for invalid sensor dip": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, i := range installed {
+			for _, i := range set.InstalledSensors() {
 				if i.Orientation.Dip < -90.0 || i.Orientation.Dip > 90.0 {
 					t.Errorf("installed sensor has invalid orientation dip: %s [%g]", i.String(), i.Orientation.Dip)
 				}
 			}
 		}
 	},
-}
 
-var testInstalledSensorsStations = map[string]func([]meta.InstalledSensor, []meta.Station) func(t *testing.T){
-	"check for missing sensor stations": func(installed []meta.InstalledSensor, list []meta.Station) func(t *testing.T) {
+	"check for missing sensor stations": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			stations := make(map[string]meta.Station)
-			for _, s := range list {
+			for _, s := range set.Stations() {
 				stations[s.Code] = s
 			}
 
-			for _, i := range installed {
+			for _, i := range set.InstalledSensors() {
 				if _, ok := stations[i.Station]; !ok {
 					t.Errorf("unable to find station: %s", i.Station)
 				}
 			}
 
-			for _, i := range installed {
+			for _, i := range set.InstalledSensors() {
 				if s, ok := stations[i.Station]; ok {
 					if i.Start.Before(s.Start) {
 						t.Logf("warning: installed sensor before station has been opened: %s: %s (%s %s)",
@@ -100,26 +96,24 @@ var testInstalledSensorsStations = map[string]func([]meta.InstalledSensor, []met
 			}
 		}
 	},
-}
 
-var testInstalledSensorsSites = map[string]func([]meta.InstalledSensor, []meta.Site) func(t *testing.T){
-	"check for missing sensor sites": func(installed []meta.InstalledSensor, list []meta.Site) func(t *testing.T) {
+	"check for missing sensor sites": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			sites := make(map[string]map[string]meta.Site)
-			for _, s := range list {
+			for _, s := range set.Sites() {
 				if _, ok := sites[s.Station]; !ok {
 					sites[s.Station] = make(map[string]meta.Site)
 				}
 				sites[s.Station][s.Location] = s
 			}
 
-			for _, i := range installed {
+			for _, i := range set.InstalledSensors() {
 				if _, ok := sites[i.Station]; !ok {
 					t.Errorf("unable to find sites for station: %s", i.Station)
 				}
 			}
 
-			for _, i := range installed {
+			for _, i := range set.InstalledSensors() {
 				if s, ok := sites[i.Station]; ok {
 					if _, ok := s[i.Location]; !ok {
 						t.Errorf("unable to find sites for station/location: %s/%s", i.Station, i.Location)
@@ -127,7 +121,7 @@ var testInstalledSensorsSites = map[string]func([]meta.InstalledSensor, []meta.S
 				}
 			}
 
-			for _, i := range installed {
+			for _, i := range set.InstalledSensors() {
 				if s, ok := sites[i.Station]; ok {
 					if l, ok := s[i.Location]; ok {
 						if i.Start.Before(l.Start) {
@@ -143,14 +137,12 @@ var testInstalledSensorsSites = map[string]func([]meta.InstalledSensor, []meta.S
 			}
 		}
 	},
-}
 
-var testInstalledSensorsAssets = map[string]func([]meta.InstalledSensor, []meta.Asset) func(t *testing.T){
-	"check for missing assets": func(installed []meta.InstalledSensor, assets []meta.Asset) func(t *testing.T) {
+	"check for missing assets": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, s := range installed {
+			for _, s := range set.InstalledSensors() {
 				var found bool
-				for _, a := range assets {
+				for _, a := range set.Assets() {
 					if a.Model != s.Model {
 						continue
 					}
@@ -170,47 +162,14 @@ var testInstalledSensorsAssets = map[string]func([]meta.InstalledSensor, []meta.
 }
 
 func TestInstalledSensors(t *testing.T) {
-	var installed meta.InstalledSensorList
-	loadListFile(t, "../install/sensors.csv", &installed)
 
-	for k, fn := range testInstalledSensors {
-		t.Run(k, fn(installed))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
 
-}
-
-func TestInstalledSensors_Assets(t *testing.T) {
-	var installed meta.InstalledSensorList
-	loadListFile(t, "../install/sensors.csv", &installed)
-
-	var sensors meta.AssetList
-	loadListFile(t, "../assets/sensors.csv", &sensors)
-
-	for k, fn := range testInstalledSensorsAssets {
-		t.Run(k, fn(installed, sensors))
+	for k, v := range installedSensorChecks {
+		t.Run(k, v(set))
 	}
-}
 
-func TestInstalledSensors_Stations(t *testing.T) {
-	var installed meta.InstalledSensorList
-	loadListFile(t, "../install/sensors.csv", &installed)
-
-	var stations meta.StationList
-	loadListFile(t, "../network/stations.csv", &stations)
-
-	for k, fn := range testInstalledSensorsStations {
-		t.Run(k, fn(installed, stations))
-	}
-}
-
-func TestInstalledSensors_Sites(t *testing.T) {
-	var installed meta.InstalledSensorList
-	loadListFile(t, "../install/sensors.csv", &installed)
-
-	var sites meta.SiteList
-	loadListFile(t, "../network/sites.csv", &sites)
-
-	for k, fn := range testInstalledSensorsSites {
-		t.Run(k, fn(installed, sites))
-	}
 }
