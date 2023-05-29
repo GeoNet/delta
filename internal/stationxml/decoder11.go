@@ -48,12 +48,6 @@ func (d Decoder11) Decode(data []byte) ([]byte, error) {
 				if cha.ClockDrift != nil {
 					cha.ClockDrift = nil
 				}
-				if cha.DataLogger != nil {
-					cha.DataLogger = nil
-				}
-				if cha.Sensor != nil {
-					cha.Sensor = nil
-				}
 
 				for i := range cha.Comment {
 					cha.Comment[i].Id = stationxml.CounterType(i + 1)
