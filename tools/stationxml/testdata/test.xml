@@ -46,7 +46,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
-          <Description>L4C-3D</Description>
+          <Description>Sercel L4C-3D Short Period Seismometer</Description>
           <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
@@ -54,7 +54,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330/3:507">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330 Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>507</SerialNumber>
@@ -243,7 +243,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
-          <Description>L4C-3D</Description>
+          <Description>Sercel L4C-3D Short Period Seismometer</Description>
           <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
@@ -251,7 +251,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330/3:507">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330 Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>507</SerialNumber>
@@ -440,7 +440,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
-          <Description>L4C-3D</Description>
+          <Description>Sercel L4C-3D Short Period Seismometer</Description>
           <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
@@ -448,7 +448,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330/3:507">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330 Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>507</SerialNumber>
@@ -637,7 +637,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
-          <Description>L4C-3D</Description>
+          <Description>Sercel L4C-3D Short Period Seismometer</Description>
           <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
@@ -645,7 +645,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330/3:2464">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330 Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>2464</SerialNumber>
@@ -834,7 +834,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
-          <Description>L4C-3D</Description>
+          <Description>Sercel L4C-3D Short Period Seismometer</Description>
           <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
@@ -842,7 +842,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330/3:2464">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330 Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>2464</SerialNumber>
@@ -1031,7 +1031,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
-          <Description>L4C-3D</Description>
+          <Description>Sercel L4C-3D Short Period Seismometer</Description>
           <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
@@ -1039,7 +1039,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330/3:2464">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330 Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330/3</Model>
           <SerialNumber>2464</SerialNumber>
@@ -1228,7 +1228,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
-          <Description>L4C-3D</Description>
+          <Description>Sercel L4C-3D Short Period Seismometer</Description>
           <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
@@ -1236,7 +1236,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330S Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
@@ -1430,7 +1430,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
-          <Description>L4C-3D</Description>
+          <Description>Sercel L4C-3D Short Period Seismometer</Description>
           <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
@@ -1438,7 +1438,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330S Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
@@ -1632,7 +1632,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#L4C-3D:2820">
           <Type>Short Period Seismometer</Type>
-          <Description>L4C-3D</Description>
+          <Description>Sercel L4C-3D Short Period Seismometer</Description>
           <Manufacturer>Sercel</Manufacturer>
           <Model>L4C-3D</Model>
           <SerialNumber>2820</SerialNumber>
@@ -1640,7 +1640,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330S Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
@@ -1834,7 +1834,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
-          <Description>FBA-ES-T</Description>
+          <Description>Kinemetrics FBA-ES-T Accelerometer</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
@@ -1842,7 +1842,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330S Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
@@ -2012,7 +2012,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
-          <Description>FBA-ES-T</Description>
+          <Description>Kinemetrics FBA-ES-T Accelerometer</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
@@ -2020,7 +2020,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330S Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
@@ -2190,7 +2190,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
-          <Description>FBA-ES-T</Description>
+          <Description>Kinemetrics FBA-ES-T Accelerometer</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
@@ -2198,7 +2198,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330S Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
@@ -2368,7 +2368,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
-          <Description>FBA-ES-T</Description>
+          <Description>Kinemetrics FBA-ES-T Accelerometer</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
@@ -2376,7 +2376,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330S Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
@@ -2583,7 +2583,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
-          <Description>FBA-ES-T</Description>
+          <Description>Kinemetrics FBA-ES-T Accelerometer</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
@@ -2591,7 +2591,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330S Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
@@ -2798,7 +2798,7 @@
         <ClockDrift>0.0001</ClockDrift>
         <Sensor resourceId="Sensor#FBA-ES-T:2264">
           <Type>Accelerometer</Type>
-          <Description>FBA-ES-T</Description>
+          <Description>Kinemetrics FBA-ES-T Accelerometer</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>FBA-ES-T</Model>
           <SerialNumber>2264</SerialNumber>
@@ -2806,7 +2806,7 @@
         </Sensor>
         <DataLogger resourceId="Datalogger#Q330S/6:6065">
           <Type>Datalogger</Type>
-          <Description>Q330</Description>
+          <Description>Kinemetrics Q330S Datalogger</Description>
           <Manufacturer>Kinemetrics</Manufacturer>
           <Model>Q330S/6</Model>
           <SerialNumber>6065</SerialNumber>
