@@ -1,5 +1,4 @@
 Make,Model,Type,Number,SamplingRate,Response
-Paroscientific,BPR Subsystem,Bottom Pressure Recorder,,-15,
 Canterbury Seismic Instruments,CUSP3A,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3C_25bits_50sps
 Canterbury Seismic Instruments,CUSP3A,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3A_25bits_200sps
 Canterbury Seismic Instruments,CUSP3B,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3C_25bits_50sps
@@ -83,3 +82,4 @@ Quanterra,Q730/4,Datalogger,,-10,datalogger_Quanterra_Q730_24bits_10s
 Quanterra,Q730/4,Datalogger,,1,datalogger_Quanterra_Q730_24bits_1s
 Quanterra,Q730/4,Datalogger,,40,datalogger_Quanterra_Q730_24bits_40sps
 Quanterra,Q730/4,Datalogger,,100,datalogger_Quanterra_Q730_24bits_100sps
+SAIC,BPR Subsystem,Bottom Pressure Recorder,,-15,

@@ -1065,27 +1065,6 @@ Nanometrics,TitanSMA,001912,,
 Nanometrics,TitanSMA,001913,,
 Nanometrics,TitanSMA,001915,,
 Nanometrics,TitanSMA,002029,,
-Paroscientific,BPR Subsystem,141002,,DART 4G
-Paroscientific,BPR Subsystem,141012,,DART 4G
-Paroscientific,BPR Subsystem,141016,,DART 4G
-Paroscientific,BPR Subsystem,141019,,DART 4G
-Paroscientific,BPR Subsystem,190704,,DART 4G
-Paroscientific,BPR Subsystem,2-190706,,DART 4G
-Paroscientific,BPR Subsystem,190707,,DART 4G
-Paroscientific,BPR Subsystem,190724,,DART 4G
-Paroscientific,BPR Subsystem,190725,,DART 4G
-Paroscientific,BPR Subsystem,190726,,DART 4G
-Paroscientific,BPR Subsystem,191002,,DART 4G
-Paroscientific,BPR Subsystem,191002-9,,DART 4G
-Paroscientific,BPR Subsystem,200101,,DART 4G
-Paroscientific,BPR Subsystem,200117-16,,DART 4G
-Paroscientific,BPR Subsystem,201002,,DART 4G
-Paroscientific,BPR Subsystem,201003,,DART 4G
-Paroscientific,BPR Subsystem,201004,,DART 4G
-Paroscientific,BPR Subsystem,201005,,DART 4G
-Paroscientific,BPR Subsystem,210325,,DART 4G
-Paroscientific,BPR Subsystem,220112,,DART 4G
-Paroscientific,BPR Subsystem,220113,,DART 4G
 PEL,MO1,0001,,
 PEL,MO1,0002,,
 PEL,MO1,0003,,
@@ -1398,6 +1377,27 @@ PEL / Vic Eng,MO2A,0572,,
 PEL / Vic Eng,MO2A,0573,,
 PEL / Vic Eng,MO2A,0594,,
 PEL / Vic Eng,MO2A,DUMMY_503A,,
+SAIC,BPR Subsystem,141002,,DART 4G
+SAIC,BPR Subsystem,141012,,DART 4G
+SAIC,BPR Subsystem,141016,,DART 4G
+SAIC,BPR Subsystem,141019,,DART 4G
+SAIC,BPR Subsystem,190704,,DART 4G
+SAIC,BPR Subsystem,2-190706,,DART 4G
+SAIC,BPR Subsystem,190707,,DART 4G
+SAIC,BPR Subsystem,190724,,DART 4G
+SAIC,BPR Subsystem,190725,,DART 4G
+SAIC,BPR Subsystem,190726,,DART 4G
+SAIC,BPR Subsystem,191002,,DART 4G
+SAIC,BPR Subsystem,191002-9,,DART 4G
+SAIC,BPR Subsystem,200101,,DART 4G
+SAIC,BPR Subsystem,200117-16,,DART 4G
+SAIC,BPR Subsystem,201002,,DART 4G
+SAIC,BPR Subsystem,201003,,DART 4G
+SAIC,BPR Subsystem,201004,,DART 4G
+SAIC,BPR Subsystem,201005,,DART 4G
+SAIC,BPR Subsystem,210325,,DART 4G
+SAIC,BPR Subsystem,220112,,DART 4G
+SAIC,BPR Subsystem,220113,,DART 4G
 Terra Tech,DCA-333,333,,
 Terra Tech,DCA-333,334,,
 Terra Tech,DCA-333,336,,
