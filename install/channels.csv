@@ -21,15 +21,15 @@ GNS Science,EARSS/3,Datalogger,,50,datalogger_GNS-Science_Earss_22bits_50sps
 GNS Science,EARSS/3,Datalogger,,100,datalogger_GNS-Science_Earss_22bits_100sps
 Kinemetrics,BASALT,Strong Motion Recorder,,50,datalogger_Kinemetrics_Basalt_26bits_50sps
 Kinemetrics,BASALT,Strong Motion Recorder,,200,datalogger_Kinemetrics_Basalt_26bits_200sps
-Kinemetrics,BASALT 8X DATALOGGER,Strong Motion Recorder,,50,datalogger_Kinemetrics_BASALT8XDATALOGGER_26bits_50sps
-Kinemetrics,BASALT 8X DATALOGGER,Strong Motion Recorder,,200,datalogger_Kinemetrics_BASALT8XDATALOGGER_26bits_200sps
+Kinemetrics,Basalt/8X,Strong Motion Recorder,,50,datalogger_Kinemetrics_Basalt8X_26bits_50sps
+Kinemetrics,Basalt/8X,Strong Motion Recorder,,200,datalogger_Kinemetrics_Basalt8X_26bits_200sps
 Kinemetrics,ETNA,Strong Motion Recorder,,200,datalogger_Kinemetrics_Etna_27bits_200sps
 Kinemetrics,ETNA 2,Strong Motion Recorder,,200,datalogger_Kinemetrics_ETNA2_27bits_200sps
 Kinemetrics,K2,Strong Motion Recorder,,200,datalogger_Kinemetrics_K2_27bits_200sps
 Kinemetrics,OBSIDIAN,Strong Motion Recorder,,50,datalogger_Kinemetrics_Obsidian_26bits_50sps
 Kinemetrics,OBSIDIAN,Strong Motion Recorder,,200,datalogger_Kinemetrics_Obsidian_26bits_200sps
-Kinemetrics,Obsidian 4X Datalogger,Strong Motion Recorder,,50,datalogger_Kinemetrics_Obsidian4XDatalogger_24bits_50sps
-Kinemetrics,Obsidian 4X Datalogger,Strong Motion Recorder,,200,datalogger_Kinemetrics_Obsidian4XDatalogger_24bits_200sps
+Kinemetrics,Obsidian/4X,Strong Motion Recorder,,50,datalogger_Kinemetrics_Obsidian4X_24bits_50sps
+Kinemetrics,Obsidian/4X,Strong Motion Recorder,,200,datalogger_Kinemetrics_Obsidian4X_24bits_200sps
 Kinemetrics,Q330/3,Datalogger,,-10,datalogger_Kinemetrics_Q330_24bits_10s
 Kinemetrics,Q330/3,Datalogger,,1,datalogger_Kinemetrics_Q330_24bits_1s
 Kinemetrics,Q330/3,Datalogger,,10,datalogger_Kinemetrics_Q330_24bits_10sps

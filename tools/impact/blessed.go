@@ -37,7 +37,7 @@ var blessedDataloggerList = []string{
 	"ETNA 2",
 	"CUSP3D",
 	"CUSP3C",
-	"Obsidian 4X Datalogger",
+	"Obsidian/4X",
 	"TitanSMA",
 	"EQR120",
 }

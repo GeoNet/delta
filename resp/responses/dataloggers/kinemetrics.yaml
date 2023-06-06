@@ -5,7 +5,7 @@ datalogger-model:
     description: Basalt
     manufacturer: Kinemetrics
     vendor: ""
-  BASALT 8X DATALOGGER:
+  Basalt/8X:
     type: Strong Motion Recorder
     description: Basalt
     manufacturer: Kinemetrics
@@ -20,7 +20,7 @@ datalogger-model:
     description: Etna 2
     manufacturer: Kinemetrics
     vendor: ""
-  Obsidian 4X Datalogger:
+  Obsidian/4X:
     type: Strong Motion Recorder
     description: Obsidian
     manufacturer: Kinemetrics
