@@ -111,7 +111,7 @@ func buildSites(base string) ([]Site, error) {
 			switch installation.Sensor.Model {
 			case "FBA-ES-T-OBSIDIAN", "FBA-ES-T-BASALT", "FBA-ES-T-DECK", "FBA-23-DECK", "FBA-ES-T", "FBA-ES-T-ISO", "SBEPI", "SDP":
 				switch installation.Datalogger.Model {
-				case "OBSIDIAN", "K2", "ETNA", "BASALT", "BASALT 8X DATALOGGER":
+				case "OBSIDIAN", "K2", "ETNA", "BASALT", "Basalt/8X":
 					for _, response := range resp.Streams(installation.Datalogger.Model, installation.Sensor.Model) {
 						stream, err := db.StationLocationSamplingRateStartStream(
 							station.Code,
@@ -157,7 +157,7 @@ func buildSites(base string) ([]Site, error) {
 									return "ETN"
 								case "BASALT":
 									return "BAS"
-								case "BASALT 8X DATALOGGER":
+								case "Basalt/8X":
 									return "BAS"
 								case "OBSIDIAN":
 									return "OBS"
@@ -167,7 +167,7 @@ func buildSites(base string) ([]Site, error) {
 							}(),
 							InstId: func() string {
 								switch installation.Datalogger.Model {
-								case "BASALT 8X DATALOGGER":
+								case "Basalt/8X":
 									return installation.Datalogger.Serial
 								default:
 									return installation.Sensor.Serial
@@ -249,7 +249,7 @@ func buildSites(base string) ([]Site, error) {
 										PinNo: pin,
 										ChanNo: func() string {
 											switch installation.Datalogger.Model {
-											case "BASALT 8X DATALOGGER":
+											case "Basalt/8X":
 												if chan_no > 2 {
 													return strconv.Itoa(chan_no)
 												}

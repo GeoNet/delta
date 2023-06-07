@@ -19,18 +19,18 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
-	"BASALT 8X DATALOGGER": {
-		Name:         "BASALT 8X DATALOGGER",
-		Type:         "Strong Motion Recorder",
-		Description:  "Kinemetrics BASALT Strong Motion Recorder",
-		Manufacturer: "Kinemetrics",
-		Vendor:       "",
-	},
 	"BPR Subsystem": {
 		Name:         "BPR Subsystem",
 		Type:         "Bottom Pressure Recorder",
 		Description:  "SAIC BPR Bottom Pressure Recorder",
 		Manufacturer: "SAIC",
+		Vendor:       "",
+	},
+	"Basalt/8X": {
+		Name:         "Basalt/8X",
+		Type:         "Strong Motion Recorder",
+		Description:  "Kinemetrics Basalt Strong Motion Recorder",
+		Manufacturer: "Kinemetrics",
 		Vendor:       "",
 	},
 	"CUSP-Me": {
@@ -145,8 +145,8 @@ var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 		Manufacturer: "Nanometrics",
 		Vendor:       "",
 	},
-	"Obsidian 4X Datalogger": {
-		Name:         "Obsidian 4X Datalogger",
+	"Obsidian/4X": {
+		Name:         "Obsidian/4X",
 		Type:         "Strong Motion Recorder",
 		Description:  "Kinemetrics Obsidian Strong Motion Recorder",
 		Manufacturer: "Kinemetrics",
@@ -1807,7 +1807,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, {
-				DataloggerList: []string{"Obsidian 4X Datalogger"},
+				DataloggerList: []string{"Obsidian/4X"},
 				Type:           "TG",
 				Label:          "HN",
 				SampleRate:     200,
@@ -1921,7 +1921,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, {
-				DataloggerList: []string{"Obsidian 4X Datalogger"},
+				DataloggerList: []string{"Obsidian/4X"},
 				Type:           "CG",
 				Label:          "BN",
 				SampleRate:     50,
@@ -2056,7 +2056,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, {
-				DataloggerList: []string{"BASALT", "BASALT 8X DATALOGGER"},
+				DataloggerList: []string{"BASALT", "Basalt/8X"},
 				Type:           "TG",
 				Label:          "HN",
 				SampleRate:     200,
@@ -2170,7 +2170,7 @@ var Responses []Response = []Response{
 				},
 				Reversed: false,
 			}, {
-				DataloggerList: []string{"BASALT", "BASALT 8X DATALOGGER"},
+				DataloggerList: []string{"BASALT", "Basalt/8X"},
 				Type:           "CG",
 				Label:          "BN",
 				SampleRate:     50,

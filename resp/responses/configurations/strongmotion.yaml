@@ -183,7 +183,7 @@ response:
       - BASALT-50
       reversed: false
     - dataloggers:
-      - Obsidian 4X Datalogger
+      - Obsidian/4X
       type: TG
       label: HN
       samplerate: 200
@@ -194,7 +194,7 @@ response:
       - OBSIDIAN-4X-200
       reversed: false
     - dataloggers:
-      - Obsidian 4X Datalogger
+      - Obsidian/4X
       type: CG
       label: BN
       samplerate: 50
@@ -206,7 +206,7 @@ response:
       reversed: false
     - dataloggers:
       - BASALT
-      - BASALT 8X DATALOGGER
+      - Basalt/8X
       type: TG
       label: HN
       samplerate: 200
@@ -218,7 +218,7 @@ response:
       reversed: false
     - dataloggers:
       - BASALT
-      - BASALT 8X DATALOGGER
+      - Basalt/8X
       type: CG
       label: BN
       samplerate: 50
