@@ -12,7 +12,7 @@ var blessedSensorList = []string{
 	"CMG-3ESP",
 	"CMG-3ESPC",
 	"CMG-3TB",
-	"CMG-3TB-GN",
+	"CMG-3TB/GN",
 	"STS-2",
 	"Trillium 120QA",
 	"Trillium Compact 120PH-2",
