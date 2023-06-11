@@ -3,19 +3,17 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testInstalledMetSensors = map[string]func([]meta.InstalledMetSensor) func(t *testing.T){
+var metSensorChecks = map[string]func(*meta.Set) func(t *testing.T){
 
-	"check for metsensors installation equipment overlaps": func(installedMetSensors []meta.InstalledMetSensor) func(t *testing.T) {
+	"check for metsensors installation equipment overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			installs := make(map[string]meta.InstalledMetSensorList)
-			for _, s := range installedMetSensors {
-				if _, ok := installs[s.Model]; !ok {
-					installs[s.Model] = meta.InstalledMetSensorList{}
-				}
+			for _, s := range set.InstalledMetSensors() {
 				installs[s.Model] = append(installs[s.Model], s)
 			}
 			for _, v := range installs {
@@ -46,33 +44,26 @@ var testInstalledMetSensors = map[string]func([]meta.InstalledMetSensor) func(t 
 			}
 		}
 	},
-}
-
-var testInstalledMetSensorsMarks = map[string]func([]meta.InstalledMetSensor, []meta.Mark) func(t *testing.T){
-
-	"check for missing metsensor marks": func(installedMetSensors []meta.InstalledMetSensor, marks []meta.Mark) func(t *testing.T) {
+	"check for missing metsensor marks": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			keys := make(map[string]interface{})
-			for _, m := range marks {
+			for _, m := range set.Marks() {
 				keys[m.Code] = true
 			}
 
-			for _, c := range installedMetSensors {
+			for _, c := range set.InstalledMetSensors() {
 				if _, ok := keys[c.Mark]; !ok {
 					t.Errorf("unable to find metsensor mark %-5s", c.Mark)
 				}
 			}
 		}
 	},
-}
-
-var testInstalledMetSensorsAssets = map[string]func([]meta.InstalledMetSensor, []meta.Asset) func(t *testing.T){
-	"check for missing metsensor assets": func(installedMetSensors []meta.InstalledMetSensor, assets []meta.Asset) func(t *testing.T) {
+	"check for missing metsensor assets": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
-			for _, r := range installedMetSensors {
+			for _, r := range set.InstalledMetSensors() {
 				var found bool
-				for _, a := range assets {
+				for _, a := range set.Assets() {
 					if a.Model != r.Model {
 						continue
 					}
@@ -90,38 +81,14 @@ var testInstalledMetSensorsAssets = map[string]func([]meta.InstalledMetSensor, [
 	},
 }
 
-func TestInstalledMetSensors(t *testing.T) {
+func TestMetSensors(t *testing.T) {
 
-	var installedMetSensors meta.InstalledMetSensorList
-	loadListFile(t, "../install/metsensors.csv", &installedMetSensors)
-
-	for k, fn := range testInstalledMetSensors {
-		t.Run(k, fn(installedMetSensors))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
-}
 
-func TestInstalledMetSensors_Marks(t *testing.T) {
-
-	var installedMetSensors meta.InstalledMetSensorList
-	loadListFile(t, "../install/metsensors.csv", &installedMetSensors)
-
-	var marks meta.MarkList
-	loadListFile(t, "../network/marks.csv", &marks)
-
-	for k, fn := range testInstalledMetSensorsMarks {
-		t.Run(k, fn(installedMetSensors, marks))
-	}
-}
-
-func TestInstalledMetSensors_Assets(t *testing.T) {
-
-	var installedMetSensors meta.InstalledMetSensorList
-	loadListFile(t, "../install/metsensors.csv", &installedMetSensors)
-
-	var assets meta.AssetList
-	loadListFile(t, "../assets/metsensors.csv", &assets)
-
-	for k, fn := range testInstalledMetSensorsAssets {
-		t.Run(k, fn(installedMetSensors, assets))
+	for k, v := range metSensorChecks {
+		t.Run(k, v(set))
 	}
 }
