@@ -3,21 +3,19 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testGains = map[string]func([]meta.Gain) func(t *testing.T){
-
-	"check for gain installation overlaps": func(installed []meta.Gain) func(t *testing.T) {
+var gainChecks = map[string]func(*meta.Set) func(t *testing.T){
+	"check for gain installation overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-
 			installs := make(map[string]meta.GainList)
-			for _, s := range installed {
+			for _, s := range set.Gains() {
 				for _, c := range s.Gains() {
 					installs[c.Id()] = append(installs[c.Id()], c)
 				}
 			}
-
 			for _, v := range installs {
 				for i := 0; i < len(v); i++ {
 					for j := i + 1; j < len(v); j++ {
@@ -43,14 +41,11 @@ var testGains = map[string]func([]meta.Gain) func(t *testing.T){
 			}
 		}
 	},
-}
-
-var testGainsSites = map[string]func([]meta.Gain, []meta.Site) func(t *testing.T){
-	"check for missing sites": func(installed []meta.Gain, sites []meta.Site) func(t *testing.T) {
+	"check for missing sites": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, s := range installed {
+			for _, s := range set.Gains() {
 				var found bool
-				for _, a := range sites {
+				for _, a := range set.Sites() {
 					if a.Station != s.Station {
 						continue
 					}
@@ -64,28 +59,17 @@ var testGainsSites = map[string]func([]meta.Gain, []meta.Site) func(t *testing.T
 				}
 				t.Errorf("unable to find gain site: %s [%s]", s.Station, s.Location)
 			}
-
 		}
 	},
 }
 
 func TestGains(t *testing.T) {
-	var installed meta.GainList
-	loadListFile(t, "../install/gains.csv", &installed)
-
-	for k, fn := range testGains {
-		t.Run(k, fn(installed))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
-}
 
-func TestGains_Sites(t *testing.T) {
-	var installed meta.GainList
-	loadListFile(t, "../install/gains.csv", &installed)
-
-	var sites meta.SiteList
-	loadListFile(t, "../network/sites.csv", &sites)
-
-	for k, fn := range testGainsSites {
-		t.Run(k, fn(installed, sites))
+	for k, v := range gainChecks {
+		t.Run(k, v(set))
 	}
 }

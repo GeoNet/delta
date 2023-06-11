@@ -3,19 +3,17 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testInstalledRecorders = map[string]func([]meta.InstalledRecorder) func(t *testing.T){
+var installedRecorderChecks = map[string]func(*meta.Set) func(t *testing.T){
 
-	"check for recorder installation overlaps": func(installed []meta.InstalledRecorder) func(t *testing.T) {
+	"check for recorder installation overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			installs := make(map[string]meta.InstalledRecorderList)
-			for _, s := range installed {
-				if _, ok := installs[s.Model]; !ok {
-					installs[s.Model] = meta.InstalledRecorderList{}
-				}
+			for _, s := range set.InstalledRecorders() {
 				installs[s.Model] = append(installs[s.Model], s)
 			}
 
@@ -49,10 +47,10 @@ var testInstalledRecorders = map[string]func([]meta.InstalledRecorder) func(t *t
 		}
 	},
 
-	"check for invalid sensor azimuth": func(installed []meta.InstalledRecorder) func(t *testing.T) {
+	"check for invalid sensor azimuth": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
-			for _, i := range installed {
+			for _, i := range set.InstalledRecorders() {
 				if i.Orientation.Azimuth < -360.0 || i.Orientation.Azimuth > 360.0 {
 					t.Errorf("installed sensor has invalid orientation azimuth: %s [%g]", i.String(), i.Orientation.Azimuth)
 				}
@@ -60,33 +58,31 @@ var testInstalledRecorders = map[string]func([]meta.InstalledRecorder) func(t *t
 		}
 	},
 
-	"check for invalid sensor dip": func(installed []meta.InstalledRecorder) func(t *testing.T) {
+	"check for invalid sensor dip": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, i := range installed {
+			for _, i := range set.InstalledRecorders() {
 				if i.Orientation.Dip < -90.0 || i.Orientation.Dip > 90.0 {
 					t.Errorf("installed sensor has invalid orientation dip: %s [%g]", i.String(), i.Orientation.Dip)
 				}
 			}
 		}
 	},
-}
 
-var testInstalledRecordersStations = map[string]func([]meta.InstalledRecorder, []meta.Station) func(t *testing.T){
-	"check for missing recorder stations": func(installed []meta.InstalledRecorder, list []meta.Station) func(t *testing.T) {
+	"check for missing recorder stations": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			stations := make(map[string]meta.Station)
-			for _, s := range list {
+			for _, s := range set.Stations() {
 				stations[s.Code] = s
 			}
 
-			for _, i := range installed {
+			for _, i := range set.InstalledRecorders() {
 				if _, ok := stations[i.Station]; !ok {
 					t.Errorf("unable to find station: %s", i.Station)
 				}
 			}
 
-			for _, i := range installed {
+			for _, i := range set.InstalledRecorders() {
 				if s, ok := stations[i.Station]; ok {
 					if i.Start.Before(s.Start) {
 						t.Logf("warning: installed sensor before station has been opened: %s: %s (%s %s)",
@@ -100,26 +96,24 @@ var testInstalledRecordersStations = map[string]func([]meta.InstalledRecorder, [
 			}
 		}
 	},
-}
 
-var testInstalledRecordersSites = map[string]func([]meta.InstalledRecorder, []meta.Site) func(t *testing.T){
-	"check for missing recorder sites": func(installed []meta.InstalledRecorder, list []meta.Site) func(t *testing.T) {
+	"check for missing recorder sites": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			sites := make(map[string]map[string]meta.Site)
-			for _, s := range list {
+			for _, s := range set.Sites() {
 				if _, ok := sites[s.Station]; !ok {
 					sites[s.Station] = make(map[string]meta.Site)
 				}
 				sites[s.Station][s.Location] = s
 			}
 
-			for _, i := range installed {
+			for _, i := range set.InstalledRecorders() {
 				if _, ok := sites[i.Station]; !ok {
 					t.Errorf("unable to find sites for station: %s", i.Station)
 				}
 			}
 
-			for _, i := range installed {
+			for _, i := range set.InstalledRecorders() {
 				if s, ok := sites[i.Station]; ok {
 					if _, ok := s[i.Location]; !ok {
 						t.Errorf("unable to find sites for station/location: %s/%s", i.Station, i.Location)
@@ -127,7 +121,7 @@ var testInstalledRecordersSites = map[string]func([]meta.InstalledRecorder, []me
 				}
 			}
 
-			for _, i := range installed {
+			for _, i := range set.InstalledRecorders() {
 				if s, ok := sites[i.Station]; ok {
 					if l, ok := s[i.Location]; ok {
 						if i.Start.Before(l.Start) {
@@ -143,14 +137,12 @@ var testInstalledRecordersSites = map[string]func([]meta.InstalledRecorder, []me
 			}
 		}
 	},
-}
 
-var testInstalledRecordersAssets = map[string]func([]meta.InstalledRecorder, []meta.Asset) func(t *testing.T){
-	"check for missing assets": func(installed []meta.InstalledRecorder, assets []meta.Asset) func(t *testing.T) {
+	"check for missing assets": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, r := range installed {
+			for _, r := range set.InstalledRecorders() {
 				var found bool
-				for _, a := range assets {
+				for _, a := range set.Assets() {
 					if a.Model != r.DataloggerModel {
 						continue
 					}
@@ -170,47 +162,13 @@ var testInstalledRecordersAssets = map[string]func([]meta.InstalledRecorder, []m
 }
 
 func TestInstalledRecorders(t *testing.T) {
-	var installed meta.InstalledRecorderList
-	loadListFile(t, "../install/recorders.csv", &installed)
 
-	for k, fn := range testInstalledRecorders {
-		t.Run(k, fn(installed))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
 
-}
-
-func TestInstalledRecorders_Assets(t *testing.T) {
-	var installed meta.InstalledRecorderList
-	loadListFile(t, "../install/recorders.csv", &installed)
-
-	var recorders meta.AssetList
-	loadListFile(t, "../assets/recorders.csv", &recorders)
-
-	for k, fn := range testInstalledRecordersAssets {
-		t.Run(k, fn(installed, recorders))
-	}
-}
-
-func TestInstalledRecorders_Stations(t *testing.T) {
-	var installed meta.InstalledRecorderList
-	loadListFile(t, "../install/recorders.csv", &installed)
-
-	var stations meta.StationList
-	loadListFile(t, "../network/stations.csv", &stations)
-
-	for k, fn := range testInstalledRecordersStations {
-		t.Run(k, fn(installed, stations))
-	}
-}
-
-func TestInstalledRecorders_Sites(t *testing.T) {
-	var installed meta.InstalledRecorderList
-	loadListFile(t, "../install/recorders.csv", &installed)
-
-	var sites meta.SiteList
-	loadListFile(t, "../network/sites.csv", &sites)
-
-	for k, fn := range testInstalledRecordersSites {
-		t.Run(k, fn(installed, sites))
+	for k, v := range installedRecorderChecks {
+		t.Run(k, v(set))
 	}
 }
