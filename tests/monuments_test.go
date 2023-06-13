@@ -3,14 +3,16 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testMonuments = map[string]func([]meta.Monument) func(t *testing.T){
+var monumentChecks = map[string]func(*meta.Set) func(t *testing.T){
 
-	"check for duplicated monuments": func(monuments []meta.Monument) func(t *testing.T) {
+	"check for duplicated monuments": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
+			monuments := set.Monuments()
 			for i := 0; i < len(monuments); i++ {
 				for j := i + 1; j < len(monuments); j++ {
 					if monuments[i].Mark == monuments[j].Mark {
@@ -21,10 +23,10 @@ var testMonuments = map[string]func([]meta.Monument) func(t *testing.T){
 		}
 	},
 
-	"check for monument ground relationships": func(monuments []meta.Monument) func(t *testing.T) {
+	"check for monument ground relationships": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
-			for _, m := range monuments {
+			for _, m := range set.Monuments() {
 				if m.GroundRelationship > 0.0 {
 					t.Errorf("monument has a positive ground relationship: %s [%g]", m.Mark, m.GroundRelationship)
 				}
@@ -32,9 +34,9 @@ var testMonuments = map[string]func([]meta.Monument) func(t *testing.T){
 		}
 	},
 
-	"check for monument types": func(monuments []meta.Monument) func(t *testing.T) {
+	"check for monument types": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, m := range monuments {
+			for _, m := range set.Monuments() {
 				switch m.Type {
 				case "Shallow Rod / Braced Antenna Mount":
 				case "Wyatt/Agnew Drilled-Braced":
@@ -50,10 +52,13 @@ var testMonuments = map[string]func([]meta.Monument) func(t *testing.T){
 }
 
 func TestMonuments(t *testing.T) {
-	var monuments meta.MonumentList
-	loadListFile(t, "../network/monuments.csv", &monuments)
 
-	for k, fn := range testMonuments {
-		t.Run(k, fn(monuments))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for k, v := range monumentChecks {
+		t.Run(k, v(set))
 	}
 }

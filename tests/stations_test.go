@@ -3,12 +3,14 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testStations = map[string]func([]meta.Station) func(t *testing.T){
-	"check for duplicated stations": func(stations []meta.Station) func(t *testing.T) {
+var stationChecks = map[string]func(*meta.Set) func(t *testing.T){
+	"check for duplicated stations": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
+			stations := set.Stations()
 			for i := 0; i < len(stations); i++ {
 				for j := i + 1; j < len(stations); j++ {
 					if stations[i].Code != stations[j].Code {
@@ -22,16 +24,14 @@ var testStations = map[string]func([]meta.Station) func(t *testing.T){
 			}
 		}
 	},
-}
 
-var testStationsNetworks = map[string]func([]meta.Station, []meta.Network) func(t *testing.T){
-	"check for missing networks": func(stations []meta.Station, networks []meta.Network) func(t *testing.T) {
+	"check for missing networks": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			nets := make(map[string]meta.Network)
-			for _, n := range networks {
+			for _, n := range set.Networks() {
 				nets[n.Code] = n
 			}
-			for _, s := range stations {
+			for _, s := range set.Stations() {
 				if _, ok := nets[s.Network]; !ok {
 					t.Logf("warning: missing network %s: %s", s.Code, s.Network)
 				}
@@ -42,23 +42,12 @@ var testStationsNetworks = map[string]func([]meta.Station, []meta.Network) func(
 
 func TestStations(t *testing.T) {
 
-	var stations meta.StationList
-	loadListFile(t, "../network/stations.csv", &stations)
-
-	for k, fn := range testStations {
-		t.Run(k, fn(stations))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
-}
 
-func TestStations_Networks(t *testing.T) {
-
-	var stations meta.StationList
-	loadListFile(t, "../network/stations.csv", &stations)
-
-	var networks meta.NetworkList
-	loadListFile(t, "../network/networks.csv", &networks)
-
-	for k, fn := range testStationsNetworks {
-		t.Run(k, fn(stations, networks))
+	for k, v := range stationChecks {
+		t.Run(k, v(set))
 	}
 }

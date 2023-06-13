@@ -3,14 +3,16 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testMarks = map[string]func([]meta.Mark) func(t *testing.T){
+var markChecks = map[string]func(*meta.Set) func(t *testing.T){
 
 	// check for session overlaps, there can't be two sessions running at the same mark for the same sampling interval.
-	"check for duplicated marks": func(marks []meta.Mark) func(t *testing.T) {
+	"check for duplicated marks": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
+			marks := set.Marks()
 			for i := 0; i < len(marks); i++ {
 				for j := i + 1; j < len(marks); j++ {
 					if marks[i].Code == marks[j].Code {
@@ -23,10 +25,12 @@ var testMarks = map[string]func([]meta.Mark) func(t *testing.T){
 }
 
 func TestMarks(t *testing.T) {
-	var marks meta.MarkList
-	loadListFile(t, "../network/marks.csv", &marks)
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
+	}
 
-	for k, fn := range testMarks {
-		t.Run(k, fn(marks))
+	for k, v := range markChecks {
+		t.Run(k, v(set))
 	}
 }
