@@ -181,7 +181,8 @@ TAUW,good,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
 TEMA,Excellent,2007-02-12T00:00:00Z,9999-01-01T00:00:00Z
 TEN2,good,2016-11-16T00:00:00Z,9999-01-01T00:00:00Z
 TENN,excellent,2017-03-10T00:00:00Z,9999-01-01T00:00:00Z
-TGHO,"2m pole ~ 1m to south of mark, otherwise no obstructions.",2008-12-22T00:00:00Z,9999-01-01T00:00:00Z
+TGHM,2m mast (navigation light) ~ 2m to the west,2023-05-25T00:00:00Z,9999-01-01T00:00:00Z
+TGHO,2m pole ~ 1m to south of mark otherwise no obstructions,2008-12-22T00:00:00Z,2023-05-25T00:00:00Z
 TGHR,No obstructions.,2006-04-11T00:00:00Z,9999-01-01T00:00:00Z
 TGK1,Good no obstructions,2022-12-19T00:00:00Z,9999-01-01T00:00:00Z
 TGOH,vegetation growing around antenna. Obstructions remain up to 7deg elevation in SE direction and 5m high mast at 070mag,2006-04-01T00:00:00Z,9999-01-01T00:00:00Z
