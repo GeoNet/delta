@@ -30,6 +30,11 @@ type Channel struct {
 	samplingRate string
 }
 
+// Description returns a short label for the channel model family.
+func (c Channel) Description() string {
+	return fmt.Sprintf("%s %s %s", c.Make, strings.Split(strings.Fields(c.Model)[0], "/")[0], c.Type)
+}
+
 // Less compares Channel structs suitable for sorting.
 func (c Channel) Less(comp Channel) bool {
 

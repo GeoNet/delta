@@ -4,13 +4,16 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testSessions = map[string]func([]meta.Session) func(t *testing.T){
+var sessionChecks = map[string]func(*meta.Set) func(t *testing.T){
 
-	"check session overlap": func(sessions []meta.Session) func(t *testing.T) {
+	"check session overlap": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
+
+			sessions := set.Sessions()
 			for i := 0; i < len(sessions); i++ {
 				for j := i + 1; j < len(sessions); j++ {
 					if sessions[i].Mark != sessions[j].Mark {
@@ -50,9 +53,9 @@ var testSessions = map[string]func([]meta.Session) func(t *testing.T){
 		}
 	},
 
-	"check session spans": func(sessions []meta.Session) func(t *testing.T) {
+	"check session spans": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, s := range sessions {
+			for _, s := range set.Sessions() {
 				if s.Start.After(s.End) {
 					t.Errorf("session span mismatch: %s", strings.Join([]string{
 						s.Mark,
@@ -65,9 +68,9 @@ var testSessions = map[string]func([]meta.Session) func(t *testing.T){
 			}
 		}
 	},
-	"check session satellite system": func(sessions []meta.Session) func(t *testing.T) {
+	"check session satellite system": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, s := range sessions {
+			for _, s := range set.Sessions() {
 				switch s.SatelliteSystem {
 				case "GPS":
 				case "GPS+GLO":
@@ -78,17 +81,14 @@ var testSessions = map[string]func([]meta.Session) func(t *testing.T){
 			}
 		}
 	},
-}
 
-var testSessionsMarks = map[string]func([]meta.Session, []meta.Mark) func(t *testing.T){
-
-	"check session marks": func(sessions []meta.Session, marks []meta.Mark) func(t *testing.T) {
+	"check session marks": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			check := make(map[string]meta.Mark)
-			for _, m := range marks {
+			for _, m := range set.Marks() {
 				check[m.Code] = m
 			}
-			for _, s := range sessions {
+			for _, s := range set.Sessions() {
 				if _, ok := check[s.Mark]; !ok {
 					t.Errorf("unknown session mark: %s", s.Mark)
 				}
@@ -99,23 +99,12 @@ var testSessionsMarks = map[string]func([]meta.Session, []meta.Mark) func(t *tes
 
 func TestSessions(t *testing.T) {
 
-	var sessions meta.SessionList
-	loadListFile(t, "../install/sessions.csv", &sessions)
-
-	for k, fn := range testSessions {
-		t.Run(k, fn(sessions))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
-}
 
-func TestSessions_Marks(t *testing.T) {
-
-	var sessions meta.SessionList
-	loadListFile(t, "../install/sessions.csv", &sessions)
-
-	var marks meta.MarkList
-	loadListFile(t, "../network/marks.csv", &marks)
-
-	for k, fn := range testSessionsMarks {
-		t.Run(k, fn(sessions, marks))
+	for k, v := range sessionChecks {
+		t.Run(k, v(set))
 	}
 }

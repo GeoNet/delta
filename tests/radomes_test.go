@@ -3,18 +3,16 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testInstalledRadomes = map[string]func([]meta.InstalledRadome) func(t *testing.T){
+var installedRadomeChecks = map[string]func(*meta.Set) func(t *testing.T){
 
-	"check for radomes installation equipment overlaps": func(radomes []meta.InstalledRadome) func(t *testing.T) {
+	"check for radomes installation equipment overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			installs := make(map[string]meta.InstalledRadomeList)
-			for _, s := range radomes {
-				if _, ok := installs[s.Model]; !ok {
-					installs[s.Model] = meta.InstalledRadomeList{}
-				}
+			for _, s := range set.InstalledRadomes() {
 				installs[s.Model] = append(installs[s.Model], s)
 			}
 			for _, v := range installs {
@@ -37,13 +35,10 @@ var testInstalledRadomes = map[string]func([]meta.InstalledRadome) func(t *testi
 		}
 	},
 
-	"check for overlapping radomes installations": func(radomes []meta.InstalledRadome) func(t *testing.T) {
+	"check for overlapping radomes installations": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			installs := make(map[string]meta.InstalledRadomeList)
-			for _, s := range radomes {
-				if _, ok := installs[s.Mark]; !ok {
-					installs[s.Mark] = meta.InstalledRadomeList{}
-				}
+			for _, s := range set.InstalledRadomes() {
 				installs[s.Mark] = append(installs[s.Mark], s)
 			}
 
@@ -67,34 +62,29 @@ var testInstalledRadomes = map[string]func([]meta.InstalledRadome) func(t *testi
 			}
 		}
 	},
-}
 
-var testInstalledRadomesMarks = map[string]func([]meta.InstalledRadome, []meta.Mark) func(t *testing.T){
-
-	"check for missing radome marks": func(radomes []meta.InstalledRadome, marks []meta.Mark) func(t *testing.T) {
+	"check for missing radome marks": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			keys := make(map[string]interface{})
-			for _, m := range marks {
+			for _, m := range set.Marks() {
 				keys[m.Code] = true
 			}
 
-			for _, c := range radomes {
+			for _, c := range set.InstalledRadomes() {
 				if _, ok := keys[c.Mark]; !ok {
 					t.Errorf("unable to find radome mark %-5s", c.Mark)
 				}
 			}
 		}
 	},
-}
 
-var testInstalledRadomesAssets = map[string]func([]meta.InstalledRadome, []meta.Asset) func(t *testing.T){
-	"check for missing radome assets": func(radomes []meta.InstalledRadome, assets []meta.Asset) func(t *testing.T) {
+	"check for missing radome assets": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
-			for _, r := range radomes {
+			for _, r := range set.InstalledRadomes() {
 				var found bool
-				for _, a := range assets {
+				for _, a := range set.Assets() {
 					if a.Model != r.Model {
 						continue
 					}
@@ -114,36 +104,12 @@ var testInstalledRadomesAssets = map[string]func([]meta.InstalledRadome, []meta.
 
 func TestInstalledRadomes(t *testing.T) {
 
-	var radomes meta.InstalledRadomeList
-	loadListFile(t, "../install/radomes.csv", &radomes)
-
-	for k, fn := range testInstalledRadomes {
-		t.Run(k, fn(radomes))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
-}
 
-func TestInstalledRadomes_Marks(t *testing.T) {
-
-	var radomes meta.InstalledRadomeList
-	loadListFile(t, "../install/radomes.csv", &radomes)
-
-	var marks meta.MarkList
-	loadListFile(t, "../network/marks.csv", &marks)
-
-	for k, fn := range testInstalledRadomesMarks {
-		t.Run(k, fn(radomes, marks))
-	}
-}
-
-func TestInstalledRadomes_Assets(t *testing.T) {
-
-	var radomes meta.InstalledRadomeList
-	loadListFile(t, "../install/radomes.csv", &radomes)
-
-	var assets meta.AssetList
-	loadListFile(t, "../assets/radomes.csv", &assets)
-
-	for k, fn := range testInstalledRadomesAssets {
-		t.Run(k, fn(radomes, assets))
+	for k, v := range installedRadomeChecks {
+		t.Run(k, v(set))
 	}
 }

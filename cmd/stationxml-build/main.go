@@ -319,8 +319,8 @@ func main() {
 
 								Datalogger: stationxml.Equipment{
 									Type:             collection.Channel.Type,
-									Description:      strings.Fields(collection.Channel.Model)[0],
-									Manufacturer:     strings.Fields(collection.Channel.Make)[0],
+									Description:      collection.Channel.Description(),
+									Manufacturer:     collection.Channel.Make,
 									Model:            collection.DeployedDatalogger.Model,
 									SerialNumber:     collection.DeployedDatalogger.Serial,
 									InstallationDate: collection.DeployedDatalogger.Start,
@@ -328,8 +328,8 @@ func main() {
 								},
 								Sensor: stationxml.Equipment{
 									Type:             collection.Component.Type,
-									Description:      strings.Fields(collection.Component.Model)[0],
-									Manufacturer:     strings.Fields(collection.Component.Make)[0],
+									Description:      collection.Component.Description(),
+									Manufacturer:     collection.Component.Make,
 									Model:            collection.InstalledSensor.Model,
 									SerialNumber:     collection.InstalledSensor.Serial,
 									InstallationDate: collection.InstalledSensor.Start,
