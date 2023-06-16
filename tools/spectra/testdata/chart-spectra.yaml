@@ -76,11 +76,11 @@ ssam:
     - L4C-3D
     - LE-3DliteMkII
     - STS-2
-    - CMG-3TB-GN
+    - CMG-3TB/GN
     - CMG-3ESP
     - CMG-3ESPC
-    - CMG-40T-30S
-    - CMG-40T-60S
+    - CMG-40T/30S
+    - CMG-40T/60S
     - Nanometrics Trillium 120QA
     - Nanometrics Trillium Compact PH TC120-PH2
   stations:

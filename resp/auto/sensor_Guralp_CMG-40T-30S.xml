@@ -11,7 +11,7 @@
     </OutputUnits>
   </InstrumentSensitivity>
   <Stage number="1">
-    <PolesZeros resourceId="PolesZeros#CMG-40T-30S-GNS">
+    <PolesZeros resourceId="PolesZeros#CMG-40T/30S-GNS">
       <InputUnits>
         <Name>m/s</Name>
       </InputUnits>

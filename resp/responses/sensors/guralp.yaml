@@ -12,7 +12,7 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
-  CMG-3ESP-Z:
+  CMG-3ESP/Z:
     type: Broadband Seismometer
     description: CMG-3ESP
     manufacturer: "Guralp"
@@ -60,7 +60,7 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
-  CMG-3TB-GN:
+  CMG-3TB/GN:
     type: Broadband Seismometer
     description: CMG-3T
     manufacturer: "Guralp"
@@ -84,7 +84,7 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
-  CMG-40T-30S:
+  CMG-40T/30S:
     type: Broadband Seismometer
     description: CMG-40T
     manufacturer: "Guralp"
@@ -96,7 +96,7 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
-  CMG-40T-60S:
+  CMG-40T/60S:
     type: Broadband Seismometer
     description: CMG-40T
     manufacturer: "Guralp"
@@ -175,7 +175,7 @@ paz:
     - (0+0i)
     - (0+0i)
     - (146.5+0i)
-  CMG-3TB-GN:
+  CMG-3TB/GN:
     code: B
     type: Analogue response, in Hz.
     notes: derived from Guralp documentation for T35920, i.e. caldoc@guralp.com
@@ -203,7 +203,7 @@ paz:
     - (0+0i)
     - (0+0i)
     - (-31.6+0i)
-  CMG-40T-30S:
+  CMG-40T/30S:
     code: B
     type: Analogue response, in Hz.
     notes: Standard GNS specification CMG-40T as initially deployed
@@ -215,7 +215,7 @@ paz:
     - (0+0i)
     - (0+0i)
     - (159+0i)
-  CMG-40T-30S-GN:
+  CMG-40T/30S-GN:
     code: B
     type: Analogue response, in Hz.
     notes: Standard GeoNet specification CMG-40T as initially deployed
@@ -228,7 +228,7 @@ paz:
     - (0+0i)
     - (0+0i)
     - (189+0i)
-  CMG-40T-30S-GN-H:
+  CMG-40T/30S-GN-H:
     code: B
     type: Analogue response, in Hz.
     notes: Standard GeoNet specification CMG-40T as initially deployed
@@ -241,7 +241,7 @@ paz:
     - (0+0i)
     - (0+0i)
     - (174.208+0i)
-  CMG-40T-30S-GNS-ORIG:
+  CMG-40T/30S-GNS-ORIG:
     code: B
     type: Analogue response, in Hz.
     notes: Standard GNS specification CMG-40T as initially deployed
@@ -253,7 +253,7 @@ paz:
     - (0+0i)
     - (0+0i)
     - (159+0i)
-  CMG-40T-30S-GNS:
+  CMG-40T/30S-GNS:
     code: B
     type: Analogue response, in Hz.
     notes: Standard GNS specification CMG-40T as initially deployed
@@ -266,7 +266,7 @@ paz:
     zeros:
     - (0+0i)
     - (0+0i)
-  CMG-40T-30S-GNS-H:
+  CMG-40T/30S-GNS-H:
     code: B
     type: Analogue response, in Hz.
     notes: Standard GeoNet specification CMG-40T as initially deployed
@@ -279,7 +279,7 @@ paz:
     zeros:
     - (0+0i)
     - (0+0i)
-  CMG-40T-30S-GNS-Z:
+  CMG-40T/30S-GNS-Z:
     code: B
     type: Analogue response, in Hz.
     notes: Standard GeoNet specification CMG-40T as initially deployed
@@ -293,7 +293,7 @@ paz:
     zeros:
     - (0+0i)
     - (0+0i)
-  CMG-40T-60S-GN-ORIG:
+  CMG-40T/60S-GN-ORIG:
     code: B
     type: Analogue response, in Hz.
     notes: Standard GeoNet specification CMG-40T as initially deployed
@@ -305,7 +305,7 @@ paz:
     - (0+0i)
     - (0+0i)
     - (140+0i)
-  CMG-40T-60S-GN:
+  CMG-40T/60S-GN:
     code: B
     type: Analogue response, in Hz.
     notes: Standard GeoNet specification CMG-40T as initially deployed
@@ -344,7 +344,7 @@ filter:
     outputunits: V
   CMG-3TB-CTBTO:
   - type: paz
-    lookup: CMG-3TB-GN
+    lookup: CMG-3TB/GN
     frequency: 1
     samplerate: 0
     decimate: 0
@@ -354,9 +354,9 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
-  CMG-3TB-GN:
+  CMG-3TB/GN:
   - type: paz
-    lookup: CMG-3TB-GN
+    lookup: CMG-3TB/GN
     frequency: 1
     samplerate: 0
     decimate: 0
@@ -366,9 +366,9 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
-  CMG-40T-30S-GN:
+  CMG-40T/30S-GN:
   - type: paz
-    lookup: CMG-40T-30S-GN
+    lookup: CMG-40T/30S-GN
     frequency: 1
     samplerate: 0
     decimate: 0
@@ -378,9 +378,9 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
-  CMG-40T-30S-GNS:
+  CMG-40T/30S-GNS:
   - type: paz
-    lookup: CMG-40T-30S-GNS
+    lookup: CMG-40T/30S-GNS
     frequency: 1
     samplerate: 0
     decimate: 0
@@ -390,9 +390,9 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
-  CMG-40T-60S-GN:
+  CMG-40T/60S-GN:
   - type: paz
-    lookup: CMG-40T-60S-GN
+    lookup: CMG-40T/60S-GN
     frequency: 1
     samplerate: 0
     decimate: 0

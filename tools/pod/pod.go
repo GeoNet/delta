@@ -218,16 +218,16 @@ func (p *Pod) Channel(cha *stationxml.Channel) []Blockette {
 						model = "Guralp CMG-3ESP"
 					case "CMG-3ESPC":
 						model = "Guralp CMG-3ESPC"
-					case "CMG-3ESP-Z":
-						model = "Guralp CMG-3ESP-Z"
+					case "CMG-3ESP/Z":
+						model = "Guralp CMG-3ESP/Z"
 					case "CMG-3TB":
 						model = "Guralp CMG-3TB"
-					case "CMG-3TB-GN":
-						model = "Guralp CMG-3TB-GN"
-					case "CMG-40T-30S":
-						model = "Guralp CMG-40T-30S"
-					case "CMG-40T-60S":
-						model = "Guralp CMG-40T-60S"
+					case "CMG-3TB/GN":
+						model = "Guralp CMG-3TB/GN"
+					case "CMG-40T/30S":
+						model = "Guralp CMG-40T/30S"
+					case "CMG-40T/60S":
+						model = "Guralp CMG-40T/60S"
 					case "FBA-ES-T":
 						model = "Kinemetrics FBA-ES-T"
 					case "FBA-ES-T-ISO":

@@ -281,10 +281,10 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-3ESP-Z": {
-		Name:         "CMG-3ESP-Z",
+	"CMG-3ESP/Z": {
+		Name:         "CMG-3ESP/Z",
 		Type:         "Broadband Seismometer",
-		Description:  "Guralp CMG-3ESP-Z Broadband Seismometer",
+		Description:  "Guralp CMG-3ESP Broadband Seismometer",
 		Manufacturer: "Guralp",
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
@@ -313,26 +313,26 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-3TB-GN": {
-		Name:         "CMG-3TB-GN",
+	"CMG-3TB/GN": {
+		Name:         "CMG-3TB/GN",
 		Type:         "Broadband Seismometer",
-		Description:  "Guralp CMG-3TB-GN Broadband Seismometer",
+		Description:  "Guralp CMG-3TB Broadband Seismometer",
 		Manufacturer: "Guralp",
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-40T-30S": {
-		Name:         "CMG-40T-30S",
+	"CMG-40T/30S": {
+		Name:         "CMG-40T/30S",
 		Type:         "Broadband Seismometer",
-		Description:  "Guralp CMG-40T-30S Broadband Seismometer",
+		Description:  "Guralp CMG-40T Broadband Seismometer",
 		Manufacturer: "Guralp",
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
 	},
-	"CMG-40T-60S": {
-		Name:         "CMG-40T-60S",
+	"CMG-40T/60S": {
+		Name:         "CMG-40T/60S",
 		Type:         "Broadband Seismometer",
-		Description:  "Guralp CMG-40T-60S Broadband Seismometer",
+		Description:  "Guralp CMG-40T Broadband Seismometer",
 		Manufacturer: "Guralp",
 		Vendor:       "",
 		Components:   []SensorComponent{{Azimuth: 0, Dip: -90}, {Azimuth: 0, Dip: 0}, {Azimuth: 90, Dip: 0}},
@@ -5236,15 +5236,15 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, {
-				SensorList: []string{"CMG-40T-30S"},
-				FilterList: []string{"CMG-40T-30S-GNS"},
+				SensorList: []string{"CMG-40T/30S"},
+				FilterList: []string{"CMG-40T/30S-GNS"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
-						Lookup: "CMG-40T-30S-GNS",
-						Filter: "CMG-40T-30S-GNS",
+						Lookup: "CMG-40T/30S-GNS",
+						Filter: "CMG-40T/30S-GNS",
 						StageSet: PAZ{
-							Name:  "CMG-40T-30S-GNS",
+							Name:  "CMG-40T/30S-GNS",
 							Code:  PZFunctionLaplaceHertz,
 							Type:  "Analogue response, in Hz.",
 							Notes: "Standard GNS specification CMG-40T as initially deployed",
@@ -5265,15 +5265,15 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, {
-				SensorList: []string{"CMG-40T-60S"},
-				FilterList: []string{"CMG-40T-60S-GN"},
+				SensorList: []string{"CMG-40T/60S"},
+				FilterList: []string{"CMG-40T/60S-GN"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
-						Lookup: "CMG-40T-60S-GN",
-						Filter: "CMG-40T-60S-GN",
+						Lookup: "CMG-40T/60S-GN",
+						Filter: "CMG-40T/60S-GN",
 						StageSet: PAZ{
-							Name:  "CMG-40T-60S-GN",
+							Name:  "CMG-40T/60S-GN",
 							Code:  PZFunctionLaplaceHertz,
 							Type:  "Analogue response, in Hz.",
 							Notes: "Standard GeoNet specification CMG-40T as initially deployed",
@@ -5807,15 +5807,15 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, {
-				SensorList: []string{"CMG-3TB-GN"},
-				FilterList: []string{"CMG-3TB-GN"},
+				SensorList: []string{"CMG-3TB/GN"},
+				FilterList: []string{"CMG-3TB/GN"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
-						Lookup: "CMG-3TB-GN",
-						Filter: "CMG-3TB-GN",
+						Lookup: "CMG-3TB/GN",
+						Filter: "CMG-3TB/GN",
 						StageSet: PAZ{
-							Name:  "CMG-3TB-GN",
+							Name:  "CMG-3TB/GN",
 							Code:  PZFunctionLaplaceHertz,
 							Type:  "Analogue response, in Hz.",
 							Notes: "derived from Guralp documentation for T35920, i.e. caldoc@guralp.com",
@@ -5865,15 +5865,15 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, {
-				SensorList: []string{"CMG-40T-30S"},
-				FilterList: []string{"CMG-40T-30S-GNS"},
+				SensorList: []string{"CMG-40T/30S"},
+				FilterList: []string{"CMG-40T/30S-GNS"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
-						Lookup: "CMG-40T-30S-GNS",
-						Filter: "CMG-40T-30S-GNS",
+						Lookup: "CMG-40T/30S-GNS",
+						Filter: "CMG-40T/30S-GNS",
 						StageSet: PAZ{
-							Name:  "CMG-40T-30S-GNS",
+							Name:  "CMG-40T/30S-GNS",
 							Code:  PZFunctionLaplaceHertz,
 							Type:  "Analogue response, in Hz.",
 							Notes: "Standard GNS specification CMG-40T as initially deployed",
@@ -5894,15 +5894,15 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, {
-				SensorList: []string{"CMG-40T-60S"},
-				FilterList: []string{"CMG-40T-60S-GN"},
+				SensorList: []string{"CMG-40T/60S"},
+				FilterList: []string{"CMG-40T/60S-GN"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
-						Lookup: "CMG-40T-60S-GN",
-						Filter: "CMG-40T-60S-GN",
+						Lookup: "CMG-40T/60S-GN",
+						Filter: "CMG-40T/60S-GN",
 						StageSet: PAZ{
-							Name:  "CMG-40T-60S-GN",
+							Name:  "CMG-40T/60S-GN",
 							Code:  PZFunctionLaplaceHertz,
 							Type:  "Analogue response, in Hz.",
 							Notes: "Standard GeoNet specification CMG-40T as initially deployed",
@@ -7061,10 +7061,10 @@ var Responses []Response = []Response{
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
-						Lookup: "CMG-3TB-GN",
+						Lookup: "CMG-3TB/GN",
 						Filter: "CMG-3TB-CTBTO",
 						StageSet: PAZ{
-							Name:  "CMG-3TB-GN",
+							Name:  "CMG-3TB/GN",
 							Code:  PZFunctionLaplaceHertz,
 							Type:  "Analogue response, in Hz.",
 							Notes: "derived from Guralp documentation for T35920, i.e. caldoc@guralp.com",

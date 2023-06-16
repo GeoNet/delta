@@ -108,12 +108,12 @@ drum:
     - LE-3Dlite
     - STS-2
     - CMG-3TB
-    - CMG-3TB-GN
+    - CMG-3TB/GN
     - CMG-3ESP
     - CMG-3ESPC
-    - CMG-3ESP-Z
-    - CMG-40T-30S
-    - CMG-40T-60S
+    - CMG-3ESP/Z
+    - CMG-40T/30S
+    - CMG-40T/60S
     - 270-600/12V
     - 270-600/24V
     - 270-800/12V
@@ -255,8 +255,8 @@ rsam:
     - L4C-3D
     - CMG-3ESP
     - CMG-3ESPC
-    - CMG-40T-30S
-    - CMG-40T-60S
+    - CMG-40T/30S
+    - CMG-40T/60S
     - Scout Hydrophone
     - Microphone
     - 270-600/12V
@@ -265,7 +265,7 @@ rsam:
     - InfraBSU microphone
     - SM-6 Geophone
     - LE-3DliteMkII
-    - CMG-3TB-GN
+    - CMG-3TB/GN
     - Nanometrics Trillium 120QA
     - Nanometrics Trillium Compact PH TC120-PH2
   stations:
