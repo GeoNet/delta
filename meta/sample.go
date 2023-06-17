@@ -89,18 +89,18 @@ func (s SampleList) encode() [][]string {
 	var data [][]string
 
 	data = append(data, sampleHeaders.Columns())
-	for _, v := range s {
+	for _, row := range s {
 		data = append(data, []string{
-			strings.TrimSpace(v.Code),
-			strings.TrimSpace(v.Network),
-			strings.TrimSpace(v.Name),
-			strings.TrimSpace(v.latitude),
-			strings.TrimSpace(v.longitude),
-			strings.TrimSpace(v.elevation),
-			strings.TrimSpace(v.depth),
-			strings.TrimSpace(v.Datum),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Code),
+			strings.TrimSpace(row.Network),
+			strings.TrimSpace(row.Name),
+			strings.TrimSpace(row.latitude),
+			strings.TrimSpace(row.longitude),
+			strings.TrimSpace(row.elevation),
+			strings.TrimSpace(row.depth),
+			strings.TrimSpace(row.Datum),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
 
@@ -115,8 +115,8 @@ func (s *SampleList) decode(data [][]string) error {
 	}
 
 	fields := sampleHeaders.Fields(data[0])
-	for _, v := range data[1:] {
-		d := fields.Remap(v)
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
 		lat, err := strconv.ParseFloat(d[sampleLatitude], 64)
 		if err != nil {

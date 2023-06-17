@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -22,6 +21,20 @@ const (
 	sessionEnd
 	sessionLast
 )
+
+var sessionHeaders Header = map[string]int{
+	"Mark":             sessionMark,
+	"Operator":         sessionOperator,
+	"Agency":           sessionAgency,
+	"Model":            sessionModel,
+	"Satellite System": sessionSatelliteSystem,
+	"Interval":         sessionInterval,
+	"Elevation Mask":   sessionElevationMask,
+	"Header Comment":   sessionHeaderComment,
+	"Format":           sessionFormat,
+	"Start Date":       sessionStart,
+	"End Date":         sessionEnd,
+}
 
 type Session struct {
 	Span
@@ -69,85 +82,80 @@ func (s SessionList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
 func (s SessionList) Less(i, j int) bool { return s[i].Less(s[j]) }
 
 func (s SessionList) encode() [][]string {
-	data := [][]string{{
-		"Mark",
-		"Operator",
-		"Agency",
-		"Model",
-		"Satellite System",
-		"Interval",
-		"Elevation Mask",
-		"Header Comment",
-		"Format",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range s {
+	var data [][]string
+
+	data = append(data, sessionHeaders.Columns())
+
+	for _, row := range s {
 		data = append(data, []string{
-			strings.TrimSpace(v.Mark),
-			strings.TrimSpace(v.Operator),
-			strings.TrimSpace(v.Agency),
-			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.SatelliteSystem),
-			strings.TrimSpace(v.Interval.String()),
-			strings.TrimSpace(v.elevationMask),
-			strings.TrimSpace(v.HeaderComment),
-			strings.TrimSpace(v.Format),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Mark),
+			strings.TrimSpace(row.Operator),
+			strings.TrimSpace(row.Agency),
+			strings.TrimSpace(row.Model),
+			strings.TrimSpace(row.SatelliteSystem),
+			strings.TrimSpace(row.Interval.String()),
+			strings.TrimSpace(row.elevationMask),
+			strings.TrimSpace(row.HeaderComment),
+			strings.TrimSpace(row.Format),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
-func (c *SessionList) decode(data [][]string) error {
+func (s *SessionList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var sessions []Session
-	if len(data) > 1 {
-		for _, v := range data[1:] {
-			if len(v) != sessionLast {
-				return fmt.Errorf("incorrect number of installed session fields")
-			}
-			var err error
 
-			var interval time.Duration
-			if interval, err = time.ParseDuration(v[sessionInterval]); err != nil {
-				return err
-			}
+	fields := sessionHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[sessionStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, v[sessionEnd]); err != nil {
-				return err
-			}
-
-			var mask float64
-			if mask, err = strconv.ParseFloat(v[sessionElevationMask], 64); err != nil {
-				return err
-			}
-
-			sessions = append(sessions, Session{
-				Mark:            strings.TrimSpace(v[sessionMark]),
-				Operator:        strings.TrimSpace(v[sessionOperator]),
-				Agency:          strings.TrimSpace(v[sessionAgency]),
-				Model:           strings.TrimSpace(v[sessionModel]),
-				SatelliteSystem: strings.TrimSpace(v[sessionSatelliteSystem]),
-				Interval:        interval,
-				ElevationMask:   mask,
-				HeaderComment:   strings.TrimSpace(v[sessionHeaderComment]),
-				Format:          strings.TrimSpace(v[sessionFormat]),
-				Span: Span{
-					Start: start,
-					End:   end,
-				},
-
-				elevationMask: strings.TrimSpace(v[sessionElevationMask]),
-			})
+		interval, err := time.ParseDuration(d[sessionInterval])
+		if err != nil {
+			return err
 		}
 
-		*c = SessionList(sessions)
+		start, err := time.Parse(DateTimeFormat, d[sessionStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[sessionEnd])
+		if err != nil {
+			return err
+		}
+
+		mask, err := strconv.ParseFloat(d[sessionElevationMask], 64)
+		if err != nil {
+			return err
+		}
+
+		sessions = append(sessions, Session{
+			Mark:            strings.TrimSpace(d[sessionMark]),
+			Operator:        strings.TrimSpace(d[sessionOperator]),
+			Agency:          strings.TrimSpace(d[sessionAgency]),
+			Model:           strings.TrimSpace(d[sessionModel]),
+			SatelliteSystem: strings.TrimSpace(d[sessionSatelliteSystem]),
+			Interval:        interval,
+			ElevationMask:   mask,
+			HeaderComment:   strings.TrimSpace(d[sessionHeaderComment]),
+			Format:          strings.TrimSpace(d[sessionFormat]),
+			Span: Span{
+				Start: start,
+				End:   end,
+			},
+
+			elevationMask: strings.TrimSpace(d[sessionElevationMask]),
+		})
 	}
+
+	*s = SessionList(sessions)
+
 	return nil
 }
 

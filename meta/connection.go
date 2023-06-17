@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strings"
 	"time"
@@ -17,6 +16,16 @@ const (
 	connectionEnd
 	connectionLast
 )
+
+var connectionHeaders Header = map[string]int{
+	"Station":    connectionStation,
+	"Location":   connectionLocation,
+	"Place":      connectionPlace,
+	"Role":       connectionRole,
+	"Number":     connectionNumber,
+	"Start Date": connectionStart,
+	"End Date":   connectionEnd,
+}
 
 type Connection struct {
 	Span
@@ -66,69 +75,68 @@ func (c ConnectionList) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
 func (c ConnectionList) Less(i, j int) bool { return c[i].less(c[j]) }
 
 func (c ConnectionList) encode() [][]string {
-	data := [][]string{{
-		"Station",
-		"Location",
-		"Place",
-		"Role",
-		"Number",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range c {
+	var data [][]string
+
+	data = append(data, connectionHeaders.Columns())
+
+	for _, row := range c {
 		data = append(data, []string{
-			strings.TrimSpace(v.Station),
-			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.Place),
-			strings.TrimSpace(v.Role),
-			strings.TrimSpace(v.number),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Station),
+			strings.TrimSpace(row.Location),
+			strings.TrimSpace(row.Place),
+			strings.TrimSpace(row.Role),
+			strings.TrimSpace(row.number),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
 func (c *ConnectionList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var connections []Connection
-	if len(data) > 1 {
-		for _, v := range data[1:] {
-			if len(v) != connectionLast {
-				return fmt.Errorf("incorrect number of installed connection fields")
-			}
 
-			number, err := ParseInt(strings.TrimSpace(v[connectionNumber]))
-			if err != nil {
-				return err
-			}
+	fields := connectionHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			start, err := time.Parse(DateTimeFormat, strings.TrimSpace(v[connectionStart]))
-			if err != nil {
-				return err
-			}
-
-			end, err := time.Parse(DateTimeFormat, strings.TrimSpace(v[connectionEnd]))
-			if err != nil {
-				return err
-			}
-
-			connections = append(connections, Connection{
-				Station:  strings.TrimSpace(v[connectionStation]),
-				Location: strings.TrimSpace(v[connectionLocation]),
-				Place:    strings.TrimSpace(v[connectionPlace]),
-				Role:     strings.TrimSpace(v[connectionRole]),
-				Number:   number,
-				Span: Span{
-					Start: start,
-					End:   end,
-				},
-
-				number: strings.TrimSpace(v[connectionNumber]),
-			})
+		number, err := ParseInt(strings.TrimSpace(d[connectionNumber]))
+		if err != nil {
+			return err
 		}
 
-		*c = ConnectionList(connections)
+		start, err := time.Parse(DateTimeFormat, strings.TrimSpace(d[connectionStart]))
+		if err != nil {
+			return err
+		}
+
+		end, err := time.Parse(DateTimeFormat, strings.TrimSpace(d[connectionEnd]))
+		if err != nil {
+			return err
+		}
+
+		connections = append(connections, Connection{
+			Station:  strings.TrimSpace(d[connectionStation]),
+			Location: strings.TrimSpace(d[connectionLocation]),
+			Place:    strings.TrimSpace(d[connectionPlace]),
+			Role:     strings.TrimSpace(d[connectionRole]),
+			Number:   number,
+			Span: Span{
+				Start: start,
+				End:   end,
+			},
+
+			number: strings.TrimSpace(d[connectionNumber]),
+		})
 	}
+
+	*c = ConnectionList(connections)
+
 	return nil
 }
 

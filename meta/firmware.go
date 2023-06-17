@@ -1,22 +1,31 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strings"
 	"time"
 )
 
 const (
-	firmwareMake int = iota
-	firmwareModel
-	firmwareSerial
-	firmwareVersion
-	firmwareStart
-	firmwareEnd
-	firmwareNotes
-	firmwareLast
+	firmwareHistoryMake int = iota
+	firmwareHistoryModel
+	firmwareHistorySerial
+	firmwareHistoryVersion
+	firmwareHistoryStart
+	firmwareHistoryEnd
+	firmwareHistoryNotes
+	firmwareHistoryLast
 )
+
+var firmwareHistoryHeaders Header = map[string]int{
+	"Make":       firmwareHistoryMake,
+	"Model":      firmwareHistoryModel,
+	"Serial":     firmwareHistorySerial,
+	"Version":    firmwareHistoryVersion,
+	"Start Date": firmwareHistoryStart,
+	"End Date":   firmwareHistoryEnd,
+	"Notes":      firmwareHistoryNotes,
+}
 
 type FirmwareHistory struct {
 	Install
@@ -27,81 +36,80 @@ type FirmwareHistory struct {
 
 type FirmwareHistoryList []FirmwareHistory
 
-func (f FirmwareHistoryList) Len() int           { return len(f) }
-func (f FirmwareHistoryList) Swap(i, j int)      { f[i], f[j] = f[j], f[i] }
-func (f FirmwareHistoryList) Less(i, j int) bool { return f[i].Install.Less(f[j].Install) }
+func (fh FirmwareHistoryList) Len() int           { return len(fh) }
+func (fh FirmwareHistoryList) Swap(i, j int)      { fh[i], fh[j] = fh[j], fh[i] }
+func (fh FirmwareHistoryList) Less(i, j int) bool { return fh[i].Install.Less(fh[j].Install) }
 
-func (f FirmwareHistoryList) encode() [][]string {
-	data := [][]string{{
-		"Make",
-		"Model",
-		"Serial",
-		"Version",
-		"Start Date",
-		"End Date",
-		"Notes",
-	}}
-	for _, v := range f {
+func (fh FirmwareHistoryList) encode() [][]string {
+	var data [][]string
+
+	data = append(data, firmwareHistoryHeaders.Columns())
+
+	for _, row := range fh {
 		data = append(data, []string{
-			strings.TrimSpace(v.Make),
-			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.Version),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
-			strings.TrimSpace(v.Notes),
+			strings.TrimSpace(row.Make),
+			strings.TrimSpace(row.Model),
+			strings.TrimSpace(row.Serial),
+			strings.TrimSpace(row.Version),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Notes),
 		})
 	}
+
 	return data
 }
 
-func (f *FirmwareHistoryList) decode(data [][]string) error {
+func (fh *FirmwareHistoryList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var histories []FirmwareHistory
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != firmwareLast {
-				return fmt.Errorf("incorrect number of firmware history fields")
-			}
-			var err error
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[firmwareStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, d[firmwareEnd]); err != nil {
-				return err
-			}
+	fields := firmwareHistoryHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			histories = append(histories, FirmwareHistory{
-				Install: Install{
-					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[firmwareMake]),
-						Model:  strings.TrimSpace(d[firmwareModel]),
-						Serial: strings.TrimSpace(d[firmwareSerial]),
-					},
-					Span: Span{
-						Start: start,
-						End:   end,
-					},
-				},
-				Version: strings.TrimSpace(d[firmwareVersion]),
-				Notes:   strings.TrimSpace(d[firmwareNotes]),
-			})
+		start, err := time.Parse(DateTimeFormat, d[firmwareHistoryStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[firmwareHistoryEnd])
+		if err != nil {
+			return err
 		}
 
-		*f = FirmwareHistoryList(histories)
+		histories = append(histories, FirmwareHistory{
+			Install: Install{
+				Equipment: Equipment{
+					Make:   strings.TrimSpace(d[firmwareHistoryMake]),
+					Model:  strings.TrimSpace(d[firmwareHistoryModel]),
+					Serial: strings.TrimSpace(d[firmwareHistorySerial]),
+				},
+				Span: Span{
+					Start: start,
+					End:   end,
+				},
+			},
+			Version: strings.TrimSpace(d[firmwareHistoryVersion]),
+			Notes:   strings.TrimSpace(d[firmwareHistoryNotes]),
+		})
 	}
+
+	*fh = FirmwareHistoryList(histories)
+
 	return nil
 }
 
 func LoadFirmwareHistory(path string) ([]FirmwareHistory, error) {
-	var f []FirmwareHistory
+	var fh []FirmwareHistory
 
-	if err := LoadList(path, (*FirmwareHistoryList)(&f)); err != nil {
+	if err := LoadList(path, (*FirmwareHistoryList)(&fh)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(FirmwareHistoryList(f))
+	sort.Sort(FirmwareHistoryList(fh))
 
-	return f, nil
+	return fh, nil
 }

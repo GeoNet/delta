@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strings"
 	"time"
@@ -17,6 +16,15 @@ const (
 	deployedReceiverLast
 )
 
+var deployedReceiverHeaders Header = map[string]int{
+	"Make":       deployedReceiverMake,
+	"Model":      deployedReceiverModel,
+	"Serial":     deployedReceiverSerial,
+	"Mark":       deployedReceiverMark,
+	"Start Date": deployedReceiverStart,
+	"End Date":   deployedReceiverEnd,
+}
+
 type DeployedReceiver struct {
 	Install
 
@@ -25,78 +33,78 @@ type DeployedReceiver struct {
 
 type DeployedReceiverList []DeployedReceiver
 
-func (r DeployedReceiverList) Len() int           { return len(r) }
-func (r DeployedReceiverList) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
-func (r DeployedReceiverList) Less(i, j int) bool { return r[i].Install.Less(r[j].Install) }
+func (dr DeployedReceiverList) Len() int           { return len(dr) }
+func (dr DeployedReceiverList) Swap(i, j int)      { dr[i], dr[j] = dr[j], dr[i] }
+func (dr DeployedReceiverList) Less(i, j int) bool { return dr[i].Install.Less(dr[j].Install) }
 
-func (r DeployedReceiverList) encode() [][]string {
-	data := [][]string{{
-		"Make",
-		"Model",
-		"Serial",
-		"Mark",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range r {
+func (dr DeployedReceiverList) encode() [][]string {
+	var data [][]string
+
+	data = append(data, deployedReceiverHeaders.Columns())
+
+	for _, row := range dr {
 		data = append(data, []string{
-			strings.TrimSpace(v.Make),
-			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.Mark),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Make),
+			strings.TrimSpace(row.Model),
+			strings.TrimSpace(row.Serial),
+			strings.TrimSpace(row.Mark),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
-func (r *DeployedReceiverList) decode(data [][]string) error {
+func (dr *DeployedReceiverList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var receivers []DeployedReceiver
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != deployedReceiverLast {
-				return fmt.Errorf("incorrect number of installed receiver fields")
-			}
-			var err error
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[deployedReceiverStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, d[deployedReceiverEnd]); err != nil {
-				return err
-			}
+	fields := deployedReceiverHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			receivers = append(receivers, DeployedReceiver{
-				Install: Install{
-					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[deployedReceiverMake]),
-						Model:  strings.TrimSpace(d[deployedReceiverModel]),
-						Serial: strings.TrimSpace(d[deployedReceiverSerial]),
-					},
-					Span: Span{
-						Start: start,
-						End:   end,
-					},
-				},
-				Mark: strings.TrimSpace(d[deployedReceiverMark]),
-			})
+		start, err := time.Parse(DateTimeFormat, d[deployedReceiverStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[deployedReceiverEnd])
+		if err != nil {
+			return err
 		}
 
-		*r = DeployedReceiverList(receivers)
+		receivers = append(receivers, DeployedReceiver{
+			Install: Install{
+				Equipment: Equipment{
+					Make:   strings.TrimSpace(d[deployedReceiverMake]),
+					Model:  strings.TrimSpace(d[deployedReceiverModel]),
+					Serial: strings.TrimSpace(d[deployedReceiverSerial]),
+				},
+				Span: Span{
+					Start: start,
+					End:   end,
+				},
+			},
+			Mark: strings.TrimSpace(d[deployedReceiverMark]),
+		})
 	}
+
+	*dr = DeployedReceiverList(receivers)
+
 	return nil
 }
 
 func LoadDeployedReceivers(path string) ([]DeployedReceiver, error) {
-	var r []DeployedReceiver
+	var dr []DeployedReceiver
 
-	if err := LoadList(path, (*DeployedReceiverList)(&r)); err != nil {
+	if err := LoadList(path, (*DeployedReceiverList)(&dr)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(DeployedReceiverList(r))
+	sort.Sort(DeployedReceiverList(dr))
 
-	return r, nil
+	return dr, nil
 }

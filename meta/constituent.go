@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -18,6 +17,16 @@ const (
 	constituentEnd
 	constituentLast
 )
+
+var constituentHeaders Header = map[string]int{
+	"Gauge":       constituentGauge,
+	"Number":      constituentNumber,
+	"Constituent": constituentName,
+	"Amplitude":   constituentAmplitude,
+	"Lag":         constituentLag,
+	"Start Date":  constituentStart,
+	"End Date":    constituentEnd,
+}
 
 type Constituent struct {
 	Span
@@ -54,80 +63,79 @@ func (c ConstituentList) Less(i, j int) bool {
 }
 
 func (c ConstituentList) encode() [][]string {
-	data := [][]string{{
-		"Gauge",
-		"Number",
-		"Constituent",
-		"Amplitude",
-		"Lag",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range c {
+	var data [][]string
+
+	data = append(data, constituentHeaders.Columns())
+
+	for _, row := range c {
 		data = append(data, []string{
-			strings.TrimSpace(v.Gauge),
-			strconv.Itoa(v.Number),
-			strings.TrimSpace(v.Name),
-			strings.TrimSpace(v.amplitude),
-			strings.TrimSpace(v.lag),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Gauge),
+			strconv.Itoa(row.Number),
+			strings.TrimSpace(row.Name),
+			strings.TrimSpace(row.amplitude),
+			strings.TrimSpace(row.lag),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
 func (c *ConstituentList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var constituents []Constituent
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != constituentLast {
-				return fmt.Errorf("incorrect number of installed constituent fields")
-			}
 
-			num, err := ParseInt(d[constituentNumber])
-			if err != nil {
-				return err
-			}
+	fields := constituentHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			amp, err := strconv.ParseFloat(d[constituentAmplitude], 64)
-			if err != nil {
-				return err
-			}
-
-			lag, err := strconv.ParseFloat(d[constituentLag], 64)
-			if err != nil {
-				return err
-			}
-
-			start, err := time.Parse(DateTimeFormat, d[constituentStart])
-			if err != nil {
-				return err
-			}
-			end, err := time.Parse(DateTimeFormat, d[constituentEnd])
-			if err != nil {
-				return err
-			}
-
-			constituents = append(constituents, Constituent{
-				Span: Span{
-					Start: start,
-					End:   end,
-				},
-
-				Gauge:     d[constituentGauge],
-				Number:    num,
-				Name:      d[constituentName],
-				Amplitude: amp,
-				Lag:       lag,
-
-				amplitude: d[constituentAmplitude],
-				lag:       d[constituentLag],
-			})
+		num, err := ParseInt(d[constituentNumber])
+		if err != nil {
+			return err
 		}
 
-		*c = ConstituentList(constituents)
+		amp, err := strconv.ParseFloat(d[constituentAmplitude], 64)
+		if err != nil {
+			return err
+		}
+
+		lag, err := strconv.ParseFloat(d[constituentLag], 64)
+		if err != nil {
+			return err
+		}
+
+		start, err := time.Parse(DateTimeFormat, d[constituentStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[constituentEnd])
+		if err != nil {
+			return err
+		}
+
+		constituents = append(constituents, Constituent{
+			Span: Span{
+				Start: start,
+				End:   end,
+			},
+
+			Gauge:     d[constituentGauge],
+			Number:    num,
+			Name:      d[constituentName],
+			Amplitude: amp,
+			Lag:       lag,
+
+			amplitude: d[constituentAmplitude],
+			lag:       d[constituentLag],
+		})
 	}
+
+	*c = ConstituentList(constituents)
+
 	return nil
 }
 

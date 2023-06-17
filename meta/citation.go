@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strings"
 	"time"
@@ -20,6 +19,19 @@ const (
 	citationRetrieved
 	citationLast
 )
+
+var citationHeaders Header = map[string]int{
+	"Key":       citationKey,
+	"Author":    citationAuthor,
+	"Year":      citationYear,
+	"Title":     citationTitle,
+	"Published": citationPublished,
+	"Volume":    citationVolume,
+	"Pages":     citationPages,
+	"DOI":       citationDoi,
+	"Link":      citationLink,
+	"Retrieved": citationRetrieved,
+}
 
 type Citation struct {
 	Key       string
@@ -45,34 +57,38 @@ func (c CitationList) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
 func (c CitationList) Less(i, j int) bool { return c[i].Key < c[j].Key }
 
 func (c CitationList) encode() [][]string {
-	data := [][]string{{"Key", "Author", "Year", "Title", "Published", "Volume", "Pages", "DOI", "Link", "Retrieved"}}
-	for _, v := range c {
+	var data [][]string
+
+	data = append(data, citationHeaders.Columns())
+
+	for _, row := range c {
 		data = append(data, []string{
-			v.Key,
-			v.Author,
-			v.year,
-			v.Title,
-			v.Published,
-			v.Volume,
-			v.Pages,
-			v.doi,
-			v.Link,
-			v.retrieved,
+			row.Key,
+			row.Author,
+			row.year,
+			row.Title,
+			row.Published,
+			row.Volume,
+			row.Pages,
+			row.doi,
+			row.Link,
+			row.retrieved,
 		})
 	}
+
 	return data
 }
 
 func (c *CitationList) decode(data [][]string) error {
-	var citations []Citation
-
 	if !(len(data) > 1) {
 		return nil
 	}
-	for _, d := range data[1:] {
-		if len(d) != citationLast {
-			return fmt.Errorf("incorrect number of citation fields")
-		}
+
+	var citations []Citation
+
+	fields := citationHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
 		year, err := ParseInt(d[citationYear])
 		if err != nil {
