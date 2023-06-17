@@ -74,13 +74,13 @@ func (t TelemetryList) encode() [][]string {
 	var data [][]string
 
 	data = append(data, telemetryHeaders.Columns())
-	for _, v := range t {
+	for _, row := range t {
 		data = append(data, []string{
-			strings.TrimSpace(v.Station),
-			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.factor),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Station),
+			strings.TrimSpace(row.Location),
+			strings.TrimSpace(row.factor),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
 
@@ -99,16 +99,16 @@ func (t *TelemetryList) toFloat64(str string, def float64) (float64, error) {
 }
 
 func (t *TelemetryList) decode(data [][]string) error {
-	var telemetries []Telemetry
-
 	// needs more than a comment line
 	if !(len(data) > 1) {
 		return nil
 	}
 
+	var telemetries []Telemetry
+
 	fields := telemetryHeaders.Fields(data[0])
-	for _, v := range data[1:] {
-		d := fields.Remap(v)
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
 		factor, err := t.toFloat64(d[telemetryScaleFactor], 1.0)
 		if err != nil {
@@ -144,13 +144,13 @@ func (t *TelemetryList) decode(data [][]string) error {
 }
 
 func LoadTelemetries(path string) ([]Telemetry, error) {
-	var g []Telemetry
+	var t []Telemetry
 
-	if err := LoadList(path, (*TelemetryList)(&g)); err != nil {
+	if err := LoadList(path, (*TelemetryList)(&t)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(TelemetryList(g))
+	sort.Sort(TelemetryList(t))
 
-	return g, nil
+	return t, nil
 }

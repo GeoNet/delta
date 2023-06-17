@@ -21,6 +21,20 @@ const (
 	componentLast
 )
 
+var componentHeaders Header = map[string]int{
+	"Make":          componentMake,
+	"Model":         componentModel,
+	"Type":          componentType,
+	"Number":        componentNumber,
+	"Source":        componentSource,
+	"Subsource":     componentSubsource,
+	"Dip":           componentDip,
+	"Azimuth":       componentAzimuth,
+	"Types":         componentTypes,
+	"Sampling Rate": componentSamplingRate,
+	"Response":      componentResponse,
+}
+
 type Component struct {
 	Make         string
 	Model        string
@@ -70,53 +84,44 @@ func (c Component) Less(comp Component) bool {
 
 type ComponentList []Component
 
-func (s ComponentList) Len() int           { return len(s) }
-func (s ComponentList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s ComponentList) Less(i, j int) bool { return s[i].Less(s[j]) }
+func (c ComponentList) Len() int           { return len(c) }
+func (c ComponentList) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
+func (c ComponentList) Less(i, j int) bool { return c[i].Less(c[j]) }
 
-func (s ComponentList) encode() [][]string {
-	data := [][]string{{
-		"Make",
-		"Model",
-		"Type",
-		"Number",
-		"Source",
-		"Subsource",
-		"Dip",
-		"Azimuth",
-		"Types",
-		"Sampling Rate",
-		"Response",
-	}}
+func (c ComponentList) encode() [][]string {
+	var data [][]string
 
-	for _, v := range s {
+	data = append(data, componentHeaders.Columns())
+
+	for _, row := range c {
 		data = append(data, []string{
-			strings.TrimSpace(v.Make),
-			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.Type),
-			strings.TrimSpace(v.number),
-			strings.TrimSpace(v.Source),
-			strings.TrimSpace(v.Subsource),
-			strings.TrimSpace(v.dip),
-			strings.TrimSpace(v.azimuth),
-			strings.TrimSpace(v.Types),
-			strings.TrimSpace(v.samplingRate),
-			strings.TrimSpace(v.Response),
+			strings.TrimSpace(row.Make),
+			strings.TrimSpace(row.Model),
+			strings.TrimSpace(row.Type),
+			strings.TrimSpace(row.number),
+			strings.TrimSpace(row.Source),
+			strings.TrimSpace(row.Subsource),
+			strings.TrimSpace(row.dip),
+			strings.TrimSpace(row.azimuth),
+			strings.TrimSpace(row.Types),
+			strings.TrimSpace(row.samplingRate),
+			strings.TrimSpace(row.Response),
 		})
 	}
+
 	return data
 }
-func (s *ComponentList) decode(data [][]string) error {
-	var components []Component
 
+func (c *ComponentList) decode(data [][]string) error {
 	if !(len(data) > 1) {
 		return nil
 	}
 
-	for _, d := range data[1:] {
-		if len(d) != componentLast {
-			return fmt.Errorf("incorrect pin of installed component fields")
-		}
+	var components []Component
+
+	fields := componentHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
 		number, err := ParseInt(d[componentNumber])
 		if err != nil {
@@ -162,19 +167,19 @@ func (s *ComponentList) decode(data [][]string) error {
 		})
 	}
 
-	*s = ComponentList(components)
+	*c = ComponentList(components)
 
 	return nil
 }
 
 func LoadComponents(path string) ([]Component, error) {
-	var s []Component
+	var c []Component
 
-	if err := LoadList(path, (*ComponentList)(&s)); err != nil {
+	if err := LoadList(path, (*ComponentList)(&c)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(ComponentList(s))
+	sort.Sort(ComponentList(c))
 
-	return s, nil
+	return c, nil
 }
