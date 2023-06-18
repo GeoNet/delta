@@ -1,6 +1,6 @@
 Network,External,Description,Restricted
 AK,NZ,Auckland volcano seismic network,false
-BC,BC,Building monioring camera network,false
+BC,BC,Building monitoring camera network,false
 CB,NZ,Canterbury regional seismic network,false
 CG,CG,The GeoNet CGPS network,false
 CH,NZ,Tongariro National Park volcano seismic network,false
@@ -35,6 +35,6 @@ TD,NZ,National tsunami deep ocean network,false
 TG,NZ,National tsunami gauge network,false
 TP,NZ,Taupo volcano seismic network,false
 TR,NZ,Taranaki volcano seismic network,false
-VC,VC,Volcano monioring camera network,false
+VC,VC,Volcano monitoring camera network,false
 WL,NZ,Wellington regional seismic network,false
 XX,NZ,Temporary sites,false
