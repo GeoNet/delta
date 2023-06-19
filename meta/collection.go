@@ -269,6 +269,98 @@ func (s *Set) Collections(site Site) []Collection {
 		}
 	}
 
+	for _, recorder := range s.InstalledRecorders() {
+		if recorder.Station != site.Station {
+			continue
+		}
+		for _, connection := range s.Connections() {
+			if connection.Station != recorder.Station {
+				continue
+			}
+			if connection.Role != recorder.Location {
+				continue
+			}
+
+			for _, sensor := range s.InstalledSensors() {
+				if sensor.Station != site.Station {
+					continue
+				}
+				if sensor.Location != connection.Location {
+					continue
+				}
+
+				span, ok := connection.Span.Extent(sensor.Span, recorder.Span)
+				if !ok {
+					continue
+				}
+
+				for _, stream := range s.Streams() {
+					if stream.Station != site.Station {
+						continue
+					}
+					if stream.Location != site.Location {
+						continue
+					}
+
+					span, ok := span.Extent(stream.Span)
+					if !ok {
+						continue
+					}
+
+					for _, component := range s.Components() {
+						if sensor.Make != component.Make {
+							continue
+						}
+						if sensor.Model != component.Model {
+							continue
+						}
+
+						if component.SamplingRate != 0.0 && stream.SamplingRate != component.SamplingRate {
+							continue
+						}
+
+						for _, channel := range s.Channels() {
+							if recorder.Make != channel.Make {
+								continue
+							}
+							if recorder.DataloggerModel != channel.Model {
+								continue
+							}
+							if component.Number+connection.Number < channel.Number {
+								continue
+							}
+
+							if stream.SamplingRate != channel.SamplingRate {
+								continue
+							}
+
+							collections = append(collections, Collection{
+								InstalledSensor: sensor,
+								DeployedDatalogger: DeployedDatalogger{
+									Install: Install{
+										Equipment: Equipment{
+											Make:   recorder.InstalledSensor.Make,
+											Model:  recorder.DataloggerModel,
+											Serial: recorder.InstalledSensor.Serial,
+										},
+										Span: Span{
+											Start: recorder.Start,
+											End:   recorder.End,
+										},
+									},
+								},
+								Stream:    stream,
+								Channel:   channel,
+								Component: component,
+								Span:      span,
+							})
+						}
+					}
+				}
+			}
+		}
+	}
+
 	sort.Slice(collections, func(i, j int) bool {
 		return collections[i].Less(collections[j])
 	})
