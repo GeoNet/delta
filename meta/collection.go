@@ -274,7 +274,7 @@ func (s *Set) Collections(site Site) []Collection {
 			continue
 		}
 		for _, connection := range s.Connections() {
-			if connection.Station != recorder.Station {
+			if connection.Station != site.Station {
 				continue
 			}
 			if connection.Role != recorder.Location {
@@ -308,10 +308,10 @@ func (s *Set) Collections(site Site) []Collection {
 					}
 
 					for _, component := range s.Components() {
-						if sensor.Make != component.Make {
+						if component.Make != sensor.Make {
 							continue
 						}
-						if sensor.Model != component.Model {
+						if component.Model != sensor.Model {
 							continue
 						}
 
@@ -320,17 +320,17 @@ func (s *Set) Collections(site Site) []Collection {
 						}
 
 						for _, channel := range s.Channels() {
-							if recorder.Make != channel.Make {
+							if channel.Make != recorder.Make {
 								continue
 							}
-							if recorder.DataloggerModel != channel.Model {
+							if channel.Model != recorder.DataloggerModel {
 								continue
 							}
-							if component.Number+connection.Number < channel.Number {
+							if channel.SamplingRate != stream.SamplingRate {
 								continue
 							}
 
-							if stream.SamplingRate != channel.SamplingRate {
+							if component.Number+connection.Number < channel.Number {
 								continue
 							}
 
