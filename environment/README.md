@@ -12,6 +12,8 @@ _Lists the geological and physical environment details of collection points._
 
 * `gauges.csv` - Gauges Descriptions.
 
+* `notes.csv` - miscellaneous notes about site geological characteristics
+
 * `placenames.csv` - Placename Descriptions.
 
 * `visibility.csv` - Sky View Descriptions.
