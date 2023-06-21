@@ -1,75 +1,97 @@
 package delta_test
 
 import (
+	"strings"
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-func TestClasses(t *testing.T) {
+var classChecks = map[string]func(*meta.Set) func(t *testing.T){
 
-	var classes meta.ClassList
-	t.Log("Load site classes file")
-	{
-		if err := meta.LoadList("../environment/classes.csv", &classes); err != nil {
-			t.Fatal(err)
-		}
-	}
+	"check for duplicated classes": func(set *meta.Set) func(t *testing.T) {
+		return func(t *testing.T) {
+			classes := set.Classes()
 
-	for i := 0; i < len(classes); i++ {
-		for j := i + 1; j < len(classes); j++ {
-			if classes[i].Station == classes[j].Station {
-				t.Errorf("class site duplication: " + classes[i].Station + " <=> " + classes[j].Station)
+			for i := 0; i < len(classes); i++ {
+				for j := i + 1; j < len(classes); j++ {
+					if classes[i].Station == classes[j].Station {
+						t.Errorf("class site duplication: " + classes[i].Station + " <=> " + classes[j].Station)
+					}
+				}
 			}
 		}
+	},
+
+	"check for missing class stations": func(set *meta.Set) func(t *testing.T) {
+		return func(t *testing.T) {
+
+			for _, c := range set.Classes() {
+				if strings.HasPrefix(c.Station, "#") {
+					continue
+				}
+				if _, ok := set.Station(c.Station); !ok {
+					t.Errorf("class station missing: " + c.Station)
+				}
+			}
+		}
+	},
+
+	"check for invalid class settings": func(set *meta.Set) func(t *testing.T) {
+		return func(t *testing.T) {
+			for _, c := range set.Classes() {
+				switch c.SiteClass {
+				case "A", "B", "C", "D", "E":
+				default:
+					t.Errorf("class invalid site class for station " + c.Station + ": " + c.SiteClass)
+				}
+				switch c.Vs30Quality {
+				case "Q3", "Q2", "Q1":
+				default:
+					t.Errorf("class invalid Vs30 quality for station " + c.Station + ": " + c.Vs30Quality)
+				}
+				switch c.TsiteQuality {
+				case "I", "Q3", "Q2", "Q1":
+				default:
+					t.Errorf("class invalid Tsite quality for station " + c.Station + ": " + c.TsiteQuality)
+				}
+				switch c.TsiteMethod {
+				case "I", "Ms", "Mw", "Mn", "Mu", "Ma":
+				default:
+					t.Errorf("class invalid Tsite method for station " + c.Station + ": " + c.TsiteMethod)
+				}
+
+				switch c.DepthQuality {
+				case "Q3", "Q2", "Q1":
+				default:
+					t.Errorf("class invalid depth quality for station " + c.Station + ": " + c.DepthQuality)
+				}
+			}
+		}
+	},
+
+	"check for missing class citations": func(set *meta.Set) func(t *testing.T) {
+		return func(t *testing.T) {
+			for _, c := range set.Classes() {
+				for _, r := range c.Citations {
+					if _, ok := set.Citation(r); !ok {
+						t.Errorf("class unknown citation for station " + c.Station + ": \"" + r + "\"")
+					}
+				}
+			}
+		}
+	},
+}
+
+func TestClasses(t *testing.T) {
+
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
 
-	stations := make(map[string]meta.Station)
-	t.Log("Load stations file")
-	{
-		var list meta.StationList
-		if err := meta.LoadList("../network/stations.csv", &list); err != nil {
-			t.Fatal(err)
-		}
-		for _, l := range list {
-			stations[l.Code] = l
-		}
+	for k, v := range classChecks {
+		t.Run(k, v(set))
 	}
-
-	for _, c := range classes {
-		if _, ok := stations[c.Station]; !ok {
-			t.Errorf("class station missing: " + c.Station)
-		}
-	}
-
-	for _, c := range classes {
-		switch c.Class {
-		case "A", "B", "C", "D", "E":
-		default:
-			t.Errorf("class invalid class: " + c.Station + " " + c.Class)
-		}
-		switch c.QVs30 {
-		case "Q3", "Q2", "Q1":
-		default:
-			t.Errorf("class invalid Q_Vs30: " + c.Station + " " + c.QVs30)
-		}
-		switch c.QTsite {
-		case "I", "Q3", "Q2", "Q1":
-		default:
-			t.Errorf("class invalid Q_Tsite: " + c.Station + " " + c.QTsite)
-		}
-		switch c.DTsite {
-		case "I", "Ms", "Mw", "Mn", "Mu", "Ma":
-		default:
-			t.Errorf("class invalid D_Tsite: " + c.Station + " " + c.DTsite)
-		}
-
-		switch c.QZb {
-		case "Q3", "Q2", "Q1":
-		default:
-			t.Errorf("class invalid Q_Zb: " + c.Station + " " + c.QZb)
-		}
-
-	}
-
 }

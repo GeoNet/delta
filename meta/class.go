@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -9,29 +8,48 @@ import (
 
 const (
 	classStation = iota
-	classClass
+	classSiteClass
 	classVs30
+	classVs30Quality
 	classTsite
-	classZb
-	classQVs30
-	classQTsite
-	classDTsite
-	classQZb
-	classReferences
+	classTsiteMethod
+	classTsiteQuality
+	classBasementDepth
+	classDepthQuality
+	classLink
+	classCitations
+	classNotes
 	classLast
 )
 
+var classHeaders Header = map[string]int{
+	"Station":        classStation,
+	"Site Class":     classSiteClass,
+	"Vs30":           classVs30,
+	"Vs30 Quality":   classVs30Quality,
+	"Tsite":          classTsite,
+	"Tsite Method":   classTsiteMethod,
+	"Tsite Quality":  classTsiteQuality,
+	"Basement Depth": classBasementDepth,
+	"Depth Quality":  classDepthQuality,
+	"Link":           classLink,
+	"Citations":      classCitations,
+	"Notes":          classNotes,
+}
+
 type Class struct {
-	Station    string
-	Class      string
-	Vs30       float64
-	Tsite      Range
-	Zb         float64
-	QVs30      string
-	QTsite     string
-	DTsite     string
-	QZb        string
-	References string
+	Station       string
+	SiteClass     string
+	Vs30          float64
+	Vs30Quality   string
+	Tsite         Range
+	TsiteMethod   string
+	TsiteQuality  string
+	BasementDepth float64
+	DepthQuality  string
+	Link          string
+	Citations     []string
+	Notes         string
 }
 
 func (c Class) Less(class Class) bool {
@@ -50,76 +68,77 @@ func (c ClassList) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
 func (c ClassList) Less(i, j int) bool { return c[i].Less(c[j]) }
 
 func (c ClassList) encode() [][]string {
-	data := [][]string{{
-		"Station",
-		"Class",
-		"Vs30",
-		"Tsite",
-		"Zb",
-		"Q_Vs30",
-		"Q_Tsite",
-		"D_Tsite",
-		"Q_Zb",
-		"References",
-	}}
-	for _, v := range c {
+	var data [][]string
+
+	data = append(data, classHeaders.Columns())
+
+	for _, row := range c {
 		data = append(data, []string{
-			strings.TrimSpace(v.Station),
-			strings.TrimSpace(v.Class),
-			strconv.FormatFloat(v.Vs30, 'g', -1, 64),
-			strings.TrimSpace(v.Tsite.String()),
-			strconv.FormatFloat(v.Zb, 'g', -1, 64),
-			strings.TrimSpace(v.QVs30),
-			strings.TrimSpace(v.QTsite),
-			strings.TrimSpace(v.DTsite),
-			strings.TrimSpace(v.QZb),
-			strings.TrimSpace(v.References),
+			strings.TrimSpace(row.Station),
+			strings.TrimSpace(row.SiteClass),
+			strconv.FormatFloat(row.Vs30, 'g', -1, 64),
+			strings.TrimSpace(row.Vs30Quality),
+			strings.TrimSpace(row.Tsite.String()),
+			strings.TrimSpace(row.TsiteMethod),
+			strings.TrimSpace(row.TsiteQuality),
+			strconv.FormatFloat(row.BasementDepth, 'g', -1, 64),
+			strings.TrimSpace(row.DepthQuality),
+			strings.TrimSpace(row.Link),
+			strings.Join(row.Citations, " "),
+			strings.TrimSpace(row.Notes),
 		})
 	}
+
 	return data
 }
 
 func (c *ClassList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var classes []Class
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != classLast {
-				return fmt.Errorf("incorrect number of installed class fields")
-			}
-			if strings.HasPrefix(strings.TrimSpace(d[0]), "#") {
-				continue
-			}
-			var err error
 
-			var vs30, zb float64
-			if vs30, err = strconv.ParseFloat(d[classVs30], 64); err != nil {
-				return err
-			}
-			if zb, err = strconv.ParseFloat(d[classZb], 64); err != nil {
-				return err
-			}
+	fields := classHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			var r Range
-			if r, err = NewRange(d[classTsite]); err != nil {
-				return err
-			}
-
-			classes = append(classes, Class{
-				Station:    strings.TrimSpace(d[classStation]),
-				Class:      strings.TrimSpace(d[classClass]),
-				Vs30:       vs30,
-				Tsite:      r,
-				Zb:         zb,
-				QVs30:      strings.TrimSpace(d[classQVs30]),
-				QTsite:     strings.TrimSpace(d[classQTsite]),
-				DTsite:     strings.TrimSpace(d[classDTsite]),
-				QZb:        strings.TrimSpace(d[classQZb]),
-				References: strings.TrimSpace(d[classReferences]),
-			})
+		vs30, err := strconv.ParseFloat(d[classVs30], 64)
+		if err != nil {
+			return err
+		}
+		zb, err := strconv.ParseFloat(d[classBasementDepth], 64)
+		if err != nil {
+			return err
 		}
 
-		*c = ClassList(classes)
+		r, err := NewRange(d[classTsite])
+		if err != nil {
+			return err
+		}
+
+		citations := strings.Fields(strings.TrimSpace(d[classCitations]))
+
+		sort.Strings(citations)
+
+		classes = append(classes, Class{
+			Station:       strings.TrimSpace(d[classStation]),
+			SiteClass:     strings.TrimSpace(d[classSiteClass]),
+			Vs30:          vs30,
+			Vs30Quality:   strings.TrimSpace(d[classVs30Quality]),
+			Tsite:         r,
+			TsiteMethod:   strings.TrimSpace(d[classTsiteMethod]),
+			TsiteQuality:  strings.TrimSpace(d[classTsiteQuality]),
+			BasementDepth: zb,
+			DepthQuality:  strings.TrimSpace(d[classDepthQuality]),
+			Link:          strings.TrimSpace(d[classLink]),
+			Citations:     citations,
+			Notes:         strings.TrimSpace(d[classNotes]),
+		})
 	}
+
+	*c = ClassList(classes)
+
 	return nil
 }
 

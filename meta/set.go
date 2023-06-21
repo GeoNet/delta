@@ -41,6 +41,7 @@ const (
 	StreamsFile      = "install/streams.csv"
 	TelemetriesFile  = "install/telemetries.csv"
 
+	ClassesFile      = "environment/classes.csv"
 	ConstituentsFile = "environment/constituents.csv"
 	FeaturesFile     = "environment/features.csv"
 	GaugesFile       = "environment/gauges.csv"
@@ -90,6 +91,7 @@ type Set struct {
 	streams             StreamList
 	telemetries         TelemetryList
 
+	classes      ClassList
 	constituents ConstituentList
 	features     FeatureList
 	gauges       GaugeList
@@ -133,6 +135,7 @@ func (s *Set) files() map[string]List {
 		StreamsFile:      &s.streams,
 		TelemetriesFile:  &s.telemetries,
 
+		ClassesFile:      &s.classes,
 		ConstituentsFile: &s.constituents,
 		FeaturesFile:     &s.features,
 		GaugesFile:       &s.gauges,

@@ -38,6 +38,13 @@ func (s Set) Citations() []Citation {
 	return citations
 }
 
+// Classes is a helper function to return a slice copy of Class values.
+func (s Set) Classes() []Class {
+	classes := make([]Class, len(s.classes))
+	copy(classes, s.classes)
+	return classes
+}
+
 // Components is a helper function to return a slice copy of Component values.
 func (s Set) Components() []Component {
 	components := make([]Component, len(s.components))
@@ -270,6 +277,28 @@ func (s Set) Asset(make, model, serial string) (Asset, bool) {
 		return v, true
 	}
 	return Asset{}, false
+}
+
+// Citation is a helper function to return a Citation value and true if one exists.
+func (s Set) Citation(key string) (Citation, bool) {
+	for _, v := range s.citations {
+		if key != v.Key {
+			continue
+		}
+		return v, true
+	}
+	return Citation{}, false
+}
+
+// Class is a helper function to return a Class value and true if one exists.
+func (s Set) Class(station string) (Class, bool) {
+	for _, v := range s.classes {
+		if station != v.Station {
+			continue
+		}
+		return v, true
+	}
+	return Class{}, false
 }
 
 // Mark is a helper function to return a Mark value and true if one exists.
