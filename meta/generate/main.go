@@ -13,6 +13,7 @@ func main() {
 		}{
 			"assets":              {"Asset"},
 			"calibrations":        {"Calibration"},
+			"classes":             {"Class"},
 			"connections":         {"Connection"},
 			"citations":           {"Citation"},
 			"constituents":        {"Constituent"},
@@ -52,6 +53,8 @@ func main() {
 			Fields []string
 		}{
 			"assets":     {"Asset", []string{"make", "model", "serial"}},
+			"citations":  {"Citation", []string{"key"}},
+			"classes":    {"Class", []string{"station"}},
 			"marks":      {"Mark", []string{"code"}},
 			"monuments":  {"Monument", []string{"mark"}},
 			"mounts":     {"Mount", []string{"code"}},
