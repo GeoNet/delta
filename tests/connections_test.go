@@ -130,6 +130,9 @@ var connectionChecks = map[string]func(*meta.Set) func(t *testing.T){
 					places[d.Place+"/"+d.Role] = d.Place
 				}
 			}
+			for _, r := range set.InstalledRecorders() {
+				places[r.Station+"/"+r.Location] = r.Station
+			}
 			for _, c := range set.Connections() {
 				switch c.Role {
 				case "":
