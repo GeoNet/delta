@@ -99,6 +99,9 @@ func main() {
 	var create bool
 	flag.BoolVar(&create, "create", false, "add a root XML \"Created\" entry")
 
+	var corrections bool
+	flag.BoolVar(&corrections, "corrections", false, "add calculated and applied response delays and corrections")
+
 	var source string
 	flag.StringVar(&source, "source", "GeoNet", "stationxml source")
 
@@ -180,7 +183,7 @@ func main() {
 	}
 
 	// builder is used to manage response files
-	builder := NewBuilder(resp, freqs)
+	builder := NewBuilder(resp, corrections, freqs)
 
 	// placenames is a delta utility table to geographically name stations
 	placenames := meta.PlacenameList(set.Placenames())

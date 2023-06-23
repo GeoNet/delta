@@ -11,16 +11,18 @@ import (
 
 // Builder is a cache of response files.
 type Builder struct {
-	lookup string
-	freqs  Frequencies
-	resps  map[string][]byte
+	lookup     string
+	correction bool
+	freqs      Frequencies
+	resps      map[string][]byte
 }
 
-func NewBuilder(lookup string, freqs Frequencies) *Builder {
+func NewBuilder(lookup string, correction bool, freqs Frequencies) *Builder {
 	return &Builder{
-		lookup: lookup,
-		freqs:  freqs,
-		resps:  make(map[string][]byte),
+		lookup:     lookup,
+		correction: correction,
+		freqs:      freqs,
+		resps:      make(map[string][]byte),
 	}
 }
 
@@ -87,6 +89,17 @@ func (b *Builder) DerivedResponseType(c meta.Collection) (*stationxml.ResponseTy
 		return nil, err
 	}
 
+	// zero out corrections if not wanted
+	if !b.correction {
+		for i, s := range ans.Stages {
+			if s.Decimation == nil {
+				continue
+			}
+			ans.Stages[i].Decimation.Delay = 0.0
+			ans.Stages[i].Decimation.Correction = 0.0
+		}
+	}
+
 	return ans, nil
 }
 
@@ -134,6 +147,17 @@ func (b *Builder) PairedResponseType(c meta.Collection, v meta.Correction) (*sta
 	ans, err := pair.ResponseType()
 	if err != nil {
 		return nil, err
+	}
+
+	// zero out corrections if not wanted
+	if !b.correction {
+		for i, s := range ans.Stages {
+			if s.Decimation == nil {
+				continue
+			}
+			ans.Stages[i].Decimation.Delay = 0.0
+			ans.Stages[i].Decimation.Correction = 0.0
+		}
 	}
 
 	return ans, nil
