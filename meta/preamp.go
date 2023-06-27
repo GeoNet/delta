@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strings"
 	"time"
@@ -19,6 +18,15 @@ const (
 	preampLast
 )
 
+var preampHeaders Header = map[string]int{
+	"Station":      preampStation,
+	"Location":     preampLocation,
+	"Subsource":    preampSubsource,
+	"Scale Factor": preampScaleFactor,
+	"Start Date":   preampStart,
+	"End Date":     preampEnd,
+}
+
 // Preamp describes when a datalogger is using an analogue pre-amplification gain setting to boost the input signal.
 type Preamp struct {
 	Span
@@ -32,26 +40,26 @@ type Preamp struct {
 }
 
 // Id returns a unique string which can be used for sorting or checking.
-func (g Preamp) Id() string {
-	return strings.Join([]string{g.Station, g.Location, g.Subsource}, ":")
+func (p Preamp) Id() string {
+	return strings.Join([]string{p.Station, p.Location, p.Subsource}, ":")
 }
 
 // Less returns whether one Preamp sorts before another.
-func (g Preamp) Less(preamp Preamp) bool {
+func (p Preamp) Less(preamp Preamp) bool {
 	switch {
-	case g.Station < preamp.Station:
+	case p.Station < preamp.Station:
 		return true
-	case g.Station > preamp.Station:
+	case p.Station > preamp.Station:
 		return false
-	case g.Location < preamp.Location:
+	case p.Location < preamp.Location:
 		return true
-	case g.Location > preamp.Location:
+	case p.Location > preamp.Location:
 		return false
-	case g.Subsource < preamp.Subsource:
+	case p.Subsource < preamp.Subsource:
 		return true
-	case g.Subsource > preamp.Subsource:
+	case p.Subsource > preamp.Subsource:
 		return false
-	case g.Span.Start.Before(preamp.Span.Start):
+	case p.Span.Start.Before(preamp.Span.Start):
 		return true
 	default:
 		return false
@@ -59,23 +67,23 @@ func (g Preamp) Less(preamp Preamp) bool {
 }
 
 // Subsources returns a sorted slice of single byte defined components which allows unpacking multiple subsources.
-func (g Preamp) Subsources() []string {
+func (p Preamp) Subsources() []string {
 	var comps []string
-	for _, c := range g.Subsource {
+	for _, c := range p.Subsource {
 		comps = append(comps, string(c))
 	}
 	return comps
 }
 
 // Preamps returns a sorted slice of single Preamp entries by unpacking multiple subsources if present.
-func (g Preamp) Preamps() []Preamp {
+func (p Preamp) Preamps() []Preamp {
 	var preamps []Preamp
-	for _, c := range g.Subsources() {
+	for _, c := range p.Subsources() {
 		preamps = append(preamps, Preamp{
-			Span:        g.Span,
-			ScaleFactor: g.ScaleFactor,
-			Station:     g.Station,
-			Location:    g.Location,
+			Span:        p.Span,
+			ScaleFactor: p.ScaleFactor,
+			Station:     p.Station,
+			Location:    p.Location,
 			Subsource:   string(c),
 		})
 	}
@@ -89,28 +97,24 @@ func (g Preamp) Preamps() []Preamp {
 
 type PreampList []Preamp
 
-func (g PreampList) Len() int           { return len(g) }
-func (g PreampList) Swap(i, j int)      { g[i], g[j] = g[j], g[i] }
-func (g PreampList) Less(i, j int) bool { return g[i].Less(g[j]) }
+func (p PreampList) Len() int           { return len(p) }
+func (p PreampList) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
+func (p PreampList) Less(i, j int) bool { return p[i].Less(p[j]) }
 
-func (g PreampList) encode() [][]string {
-	data := [][]string{{
-		"Station",
-		"Location",
-		"Subsource",
-		"Scale Factor",
-		"Start Date",
-		"End Date",
-	}}
+func (p PreampList) encode() [][]string {
 
-	for _, v := range g {
+	var data [][]string
+
+	data = append(data, preampHeaders.Columns())
+
+	for _, row := range p {
 		data = append(data, []string{
-			strings.TrimSpace(v.Station),
-			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.Subsource),
-			v.factor,
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Station),
+			strings.TrimSpace(row.Location),
+			strings.TrimSpace(row.Subsource),
+			row.factor,
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
 
@@ -128,20 +132,18 @@ func (g *PreampList) toFloat64(str string, def float64) (float64, error) {
 	}
 }
 
-func (g *PreampList) decode(data [][]string) error {
-	var preamps []Preamp
-
-	// needs more than a comment line
+func (p *PreampList) decode(data [][]string) error {
 	if !(len(data) > 1) {
 		return nil
 	}
 
-	for _, d := range data[1:] {
-		if len(d) != preampLast {
-			return fmt.Errorf("incorrect number of installed preamp fields")
-		}
+	var preamps []Preamp
 
-		factor, err := g.toFloat64(d[preampScaleFactor], 1.0)
+	fields := preampHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
+
+		factor, err := p.toFloat64(d[preampScaleFactor], 1.0)
 		if err != nil {
 			return err
 		}
@@ -170,7 +172,7 @@ func (g *PreampList) decode(data [][]string) error {
 		})
 	}
 
-	*g = PreampList(preamps)
+	*p = PreampList(preamps)
 
 	return nil
 }

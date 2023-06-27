@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -25,6 +24,22 @@ const (
 	installedCameraLast
 )
 
+var installedCameraHeaders Header = map[string]int{
+	"Make":       installedCameraMake,
+	"Model":      installedCameraModel,
+	"Serial":     installedCameraSerial,
+	"Mount":      installedCameraMount,
+	"View":       installedCameraView,
+	"Dip":        installedCameraDip,
+	"Azimuth":    installedCameraAzimuth,
+	"Height":     installedCameraHeight,
+	"North":      installedCameraNorth,
+	"East":       installedCameraEast,
+	"Start Date": installedCameraStart,
+	"End Date":   installedCameraEnd,
+	"Notes":      installedCameraNotes,
+}
+
 type InstalledCamera struct {
 	Install
 	Orientation
@@ -37,129 +52,126 @@ type InstalledCamera struct {
 
 type InstalledCameraList []InstalledCamera
 
-func (a InstalledCameraList) Len() int           { return len(a) }
-func (a InstalledCameraList) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a InstalledCameraList) Less(i, j int) bool { return a[i].Install.Less(a[j].Install) }
+func (ic InstalledCameraList) Len() int           { return len(ic) }
+func (ic InstalledCameraList) Swap(i, j int)      { ic[i], ic[j] = ic[j], ic[i] }
+func (ic InstalledCameraList) Less(i, j int) bool { return ic[i].Install.Less(ic[j].Install) }
 
-func (a InstalledCameraList) encode() [][]string {
-	data := [][]string{{
-		"Make",
-		"Model",
-		"Serial",
-		"Mount",
-		"View",
-		"Dip",
-		"Azimuth",
-		"Height",
-		"North",
-		"East",
-		"Start Date",
-		"End Date",
-		"Notes",
-	}}
-	for _, v := range a {
+func (ic InstalledCameraList) encode() [][]string {
+	var data [][]string
+
+	data = append(data, installedCameraHeaders.Columns())
+
+	for _, row := range ic {
 		data = append(data, []string{
-			strings.TrimSpace(v.Make),
-			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.Mount),
-			strings.TrimSpace(v.View),
-			strings.TrimSpace(v.dip),
-			strings.TrimSpace(v.azimuth),
-			strings.TrimSpace(v.vertical),
-			strings.TrimSpace(v.north),
-			strings.TrimSpace(v.east),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
-			strings.TrimSpace(v.Notes),
+			strings.TrimSpace(row.Make),
+			strings.TrimSpace(row.Model),
+			strings.TrimSpace(row.Serial),
+			strings.TrimSpace(row.Mount),
+			strings.TrimSpace(row.View),
+			strings.TrimSpace(row.dip),
+			strings.TrimSpace(row.azimuth),
+			strings.TrimSpace(row.vertical),
+			strings.TrimSpace(row.north),
+			strings.TrimSpace(row.east),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Notes),
 		})
 	}
+
 	return data
 }
 
-func (a *InstalledCameraList) decode(data [][]string) error {
+func (ic *InstalledCameraList) decode(data [][]string) error {
+
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var cameras []InstalledCamera
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != installedCameraLast {
-				return fmt.Errorf("incorrect number of installed camera fields")
-			}
-			var err error
 
-			var dip, azimuth float64
-			if dip, err = strconv.ParseFloat(d[installedCameraDip], 64); err != nil {
-				return err
-			}
-			if azimuth, err = strconv.ParseFloat(d[installedCameraAzimuth], 64); err != nil {
-				return err
-			}
+	fields := installedCameraHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			var height, north, east float64
-			if height, err = strconv.ParseFloat(d[installedCameraHeight], 64); err != nil {
-				return err
-			}
-			if north, err = strconv.ParseFloat(d[installedCameraNorth], 64); err != nil {
-				return err
-			}
-			if east, err = strconv.ParseFloat(d[installedCameraEast], 64); err != nil {
-				return err
-			}
-
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[installedCameraStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, d[installedCameraEnd]); err != nil {
-				return err
-			}
-
-			cameras = append(cameras, InstalledCamera{
-				Install: Install{
-					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[installedCameraMake]),
-						Model:  strings.TrimSpace(d[installedCameraModel]),
-						Serial: strings.TrimSpace(d[installedCameraSerial]),
-					},
-					Span: Span{
-						Start: start,
-						End:   end,
-					},
-				},
-				Orientation: Orientation{
-					Dip:     dip,
-					Azimuth: azimuth,
-
-					dip:     strings.TrimSpace(d[installedCameraDip]),
-					azimuth: strings.TrimSpace(d[installedCameraAzimuth]),
-				},
-				Offset: Offset{
-					Vertical: height,
-					North:    north,
-					East:     east,
-
-					vertical: strings.TrimSpace(d[installedCameraHeight]),
-					north:    strings.TrimSpace(d[installedCameraNorth]),
-					east:     strings.TrimSpace(d[installedCameraEast]),
-				},
-				Mount: strings.TrimSpace(d[installedCameraMount]),
-				View:  strings.TrimSpace(d[installedCameraView]),
-				Notes: strings.TrimSpace(d[installedCameraNotes]),
-			})
+		dip, err := strconv.ParseFloat(d[installedCameraDip], 64)
+		if err != nil {
+			return err
+		}
+		azimuth, err := strconv.ParseFloat(d[installedCameraAzimuth], 64)
+		if err != nil {
+			return err
 		}
 
-		*a = InstalledCameraList(cameras)
+		height, err := strconv.ParseFloat(d[installedCameraHeight], 64)
+		if err != nil {
+			return err
+		}
+		north, err := strconv.ParseFloat(d[installedCameraNorth], 64)
+		if err != nil {
+			return err
+		}
+		east, err := strconv.ParseFloat(d[installedCameraEast], 64)
+		if err != nil {
+			return err
+		}
+
+		start, err := time.Parse(DateTimeFormat, d[installedCameraStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[installedCameraEnd])
+		if err != nil {
+			return err
+		}
+
+		cameras = append(cameras, InstalledCamera{
+			Install: Install{
+				Equipment: Equipment{
+					Make:   strings.TrimSpace(d[installedCameraMake]),
+					Model:  strings.TrimSpace(d[installedCameraModel]),
+					Serial: strings.TrimSpace(d[installedCameraSerial]),
+				},
+				Span: Span{
+					Start: start,
+					End:   end,
+				},
+			},
+			Orientation: Orientation{
+				Dip:     dip,
+				Azimuth: azimuth,
+
+				dip:     strings.TrimSpace(d[installedCameraDip]),
+				azimuth: strings.TrimSpace(d[installedCameraAzimuth]),
+			},
+			Offset: Offset{
+				Vertical: height,
+				North:    north,
+				East:     east,
+
+				vertical: strings.TrimSpace(d[installedCameraHeight]),
+				north:    strings.TrimSpace(d[installedCameraNorth]),
+				east:     strings.TrimSpace(d[installedCameraEast]),
+			},
+			Mount: strings.TrimSpace(d[installedCameraMount]),
+			View:  strings.TrimSpace(d[installedCameraView]),
+			Notes: strings.TrimSpace(d[installedCameraNotes]),
+		})
 	}
+
+	*ic = InstalledCameraList(cameras)
+
 	return nil
 }
 
 func LoadInstalledCameras(path string) ([]InstalledCamera, error) {
-	var a []InstalledCamera
+	var ic []InstalledCamera
 
-	if err := LoadList(path, (*InstalledCameraList)(&a)); err != nil {
+	if err := LoadList(path, (*InstalledCameraList)(&ic)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(InstalledCameraList(a))
+	sort.Sort(InstalledCameraList(ic))
 
-	return a, nil
+	return ic, nil
 }

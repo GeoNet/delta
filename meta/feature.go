@@ -99,16 +99,16 @@ func (f FeatureList) encode() [][]string {
 	var data [][]string
 
 	data = append(data, featureHeaders.Columns())
-	for _, v := range f {
+	for _, row := range f {
 		data = append(data, []string{
-			strings.TrimSpace(v.Station),
-			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.Sublocation),
-			strings.TrimSpace(v.Property),
-			strings.TrimSpace(v.Description),
-			strings.TrimSpace(v.Aspect),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Station),
+			strings.TrimSpace(row.Location),
+			strings.TrimSpace(row.Sublocation),
+			strings.TrimSpace(row.Property),
+			strings.TrimSpace(row.Description),
+			strings.TrimSpace(row.Aspect),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
 
@@ -123,8 +123,8 @@ func (f *FeatureList) decode(data [][]string) error {
 	var features []Feature
 
 	fields := featureHeaders.Fields(data[0])
-	for _, v := range data[1:] {
-		d := fields.Remap(v)
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
 		start, err := time.Parse(DateTimeFormat, d[featureStart])
 		if err != nil {
