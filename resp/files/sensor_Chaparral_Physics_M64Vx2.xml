@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.fdsn.org/xml/station/1">
+	<InstrumentSensitivity>
+		<Value>+2.75000E-02</Value>
+		<Frequency>1</Frequency>
+		<InputUnits>
+			<Name>Pa</Name>
+			<Description>Pascals</Description>
+		</InputUnits>
+		<OutputUnits>
+			<Name>V</Name>
+			<Description>Volts</Description>
+		</OutputUnits>
+	</InstrumentSensitivity>
+	<Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ2_NP6_PH111b4df_AN5.63962ep12_FN1::NRL:Gain_SG0.0275_FN1">
+		<PolesZeros>
+			<InputUnits>
+				<Name>Pa</Name>
+				<Description>Pascals</Description>
+			</InputUnits>
+			<OutputUnits>
+				<Name>V</Name>
+				<Description>Volts</Description>
+			</OutputUnits>
+			<PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+			<NormalizationFactor>5.63962e+12</NormalizationFactor>
+			<NormalizationFrequency>1</NormalizationFrequency>
+			<Zero number="0">
+				<Real>0</Real>
+				<Imaginary>0</Imaginary>
+			</Zero>
+			<Zero number="1">
+				<Real>0</Real>
+				<Imaginary>0</Imaginary>
+			</Zero>
+			<Pole number="0">
+				<Real>-0.0855</Real>
+				<Imaginary>0</Imaginary>
+			</Pole>
+			<Pole number="1">
+				<Real>-0.122</Real>
+				<Imaginary>0</Imaginary>
+			</Pole>
+			<Pole number="2">
+				<Real>-590.135</Real>
+				<Imaginary>-1423.56</Imaginary>
+			</Pole>
+			<Pole number="3">
+				<Real>-590.135</Real>
+				<Imaginary>1423.56</Imaginary>
+			</Pole>
+			<Pole number="4">
+				<Real>-1422.95</Real>
+				<Imaginary>-590.918</Imaginary>
+			</Pole>
+			<Pole number="5">
+				<Real>-1422.95</Real>
+				<Imaginary>590.918</Imaginary>
+			</Pole>
+		</PolesZeros>
+		<StageGain>
+			<Value>0.0275</Value>
+			<Frequency>1</Frequency>
+		</StageGain>
+	</Stage>
+</Response>
