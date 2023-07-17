@@ -12,7 +12,7 @@
 			<Description>Volts</Description>
 		</OutputUnits>
 	</InstrumentSensitivity>
-	<Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ2_NP6_PH111b4df_AN5.63962ep12_FN1::NRL:Gain_SG0.0275_FN1">
+	<Stage number="1">
 		<PolesZeros>
 			<InputUnits>
 				<Name>Pa</Name>
