@@ -1,498 +1,498 @@
 Station,Site Class,Vs30,Vs30 Quality,Tsite,Tsite Method,Tsite Quality,Basement Depth,Depth Quality,Link,Citations,Notes
-014A,E,150,Q2,1.25,I,Q3,110,Q3,,,McVerry 2011
-015A,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-016A,C,480,Q3,0.15,I,Q3,10,Q3,,,McVerry 2011
+014A,E,150,Q2,1.25,I,Q3,110,Q3,,McVerry2011,
+015A,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+016A,C,480,Q3,0.15,I,Q3,10,Q3,,McVerry2011,
 017A,D,138,Q2,1,Ms,Q1,40,Q3,GISS,,
 018A,D,138,Q2,1,Ms,Q2,40,Q3,GISS,,
-021A,D,210,Q3,2,I,Q3,200,Q3,,,Perrin et al. 2015
-024A,D,350,Q3,0.9,I,Q3,120,Q3,,,McVerry 2011 at 226B
-025A,C,210,Q2,0.6,Ms,Q2,12,Q2,,,Unpublished HVSR (C. Van Houtte)
-027A,E,150,Q3,1.7,I,Q3,200,Q3,,,McVerry 2011
-027C,E,150,Q3,1.7,I,Q3,200,Q3,,,McVerry 2011
-027F,C,268,Q3,0.4,I,Q3,20,Q3,,,McVerry 2011
-027G,C,268,Q3,0.4,I,Q3,20,Q3,,,McVerry 2011
-028A,D,210,Q3,1,I,Q3,75,Q3,,,Perrin et al. 2015
+021A,D,210,Q3,2,I,Q3,200,Q3,,Perrin2015,
+024A,D,350,Q3,0.9,I,Q3,120,Q3,,McVerry2011,at 226B
+025A,C,210,Q2,0.6,Ms,Q2,12,Q2,,VanHoutte2017,
+027A,E,150,Q3,1.7,I,Q3,200,Q3,,McVerry2011,
+027C,E,150,Q3,1.7,I,Q3,200,Q3,,McVerry2011,
+027F,C,268,Q3,0.4,I,Q3,20,Q3,,McVerry2011,
+027G,C,268,Q3,0.4,I,Q3,20,Q3,,McVerry2011,
+028A,D,210,Q3,1,I,Q3,75,Q3,,Perrin2015,
 029A,D,182,Q3,>2,I,Q3,1000,Q3,HCDS,,
-032A,C,495,Q3,0.13,I,Q3,10,Q3,,,McVerry 2011
-033A,C,367,Q3,0.33,I,Q3,30,Q3,,,McVerry 2011
-033C,C,403,Q3,0.22,I,Q3,20,Q3,,,McVerry 2011
+032A,C,495,Q3,0.13,I,Q3,10,Q3,,McVerry2011,
+033A,C,367,Q3,0.33,I,Q3,30,Q3,,McVerry2011,
+033C,C,403,Q3,0.22,I,Q3,20,Q3,,McVerry2011,
 034A,B,800,Q3,<0.1,I,Q3,3,Q3,WBFS,,
-039D,D,314,Q3,1,I,Q3,100,Q3,,,McVerry 2011
-039E,D,314,Q3,1,I,Q3,100,Q3,,,McVerry 2011
-040A,B,770,Q3,0.08,I,Q3,7,Q3,,,McVerry 2011
+039D,D,314,Q3,1,I,Q3,100,Q3,,McVerry2011,
+039E,D,314,Q3,1,I,Q3,100,Q3,,McVerry2011,
+040A,B,770,Q3,0.08,I,Q3,7,Q3,,McVerry2011,
 042A,D,280,Q3,0.9,Mw,Q2,85,Q3,HSES,,
 044A,D,140,Q2,0.8,I,Q3,25,Q3,SKFS,,
-046A,D,210,Q3,0.7,Mw,Q2,50,Q3,,,Perrin et al. 2015; Unpublished HVSR (A. Kaiser); McVerry 2011 (some conflicts) 
-048C,D,235,Q3,0.9,I,Q3,64,Q3,,,McVerry 2011
-048D,D,235,Q3,0.9,I,Q3,64,Q3,,,McVerry 2011
-050A,D,300,Q3,1.23,I,Q3,300,Q3,,,McVerry 2011
+046A,D,210,Q3,0.7,Mw,Q2,50,Q3,,McVerry2011 Perrin2015 VanHoutte2017,some conflicts
+048C,D,235,Q3,0.9,I,Q3,64,Q3,,McVerry2011,
+048D,D,235,Q3,0.9,I,Q3,64,Q3,,McVerry2011,
+050A,D,300,Q3,1.23,I,Q3,300,Q3,,McVerry2011,
 051B,D,300,Q3,1.2,Mw,Q2,105,Q3,WBCS,,
 051D,D,300,Q3,1.2,Mw,Q2,105,Q3,WBCS,,
-052A,C,333,Q3,0.3,I,Q3,30,Q3,,,McVerry 2011
-053A,C,391,Q3,0.27,I,Q3,20,Q3,,,McVerry 2011
-054A,D,210,Q3,0.87,Ms,Q2,100,Q3,,,Perrin et al. 2015; HVSR at station HDWS
+052A,C,333,Q3,0.3,I,Q3,30,Q3,,McVerry2011,
+053A,C,391,Q3,0.27,I,Q3,20,Q3,,McVerry2011,
+054A,D,210,Q3,0.87,Ms,Q2,100,Q3,,Perrin2015,HVSR at station HDWS
 055A,D,210,Q3,1,Mw,Q2,70,Q3,GMTS,,
-056A,B,450,Q3,0.07,I,Q3,5,Q3,,,McVerry 2011; Perrin et al. (2015) (some conflicts)
+056A,B,450,Q3,0.07,I,Q3,5,Q3,,McVerry2011 Perrin2015,some conflicts
 057A,D,278,Q3,1.1,I,Q3,100,Q3,HMCS,,
-059A,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
+059A,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
 060B,D,270,Q3,2.2,Mw,Q3,200,Q3,CECS,,
-070A,D,298,Q3,1.4,I,Q3,200,Q3,,,McVerry 2011
-075A,D,400,Q3,0.6,I,Q3,60,Q3,,,Cousins et al. 1996
+070A,D,298,Q3,1.4,I,Q3,200,Q3,,McVerry2011,
+075A,D,400,Q3,0.6,I,Q3,60,Q3,,Cousins1996,
 080B,C,210,Q3,0.57,I,Q3,30,Q3,,,
-081A,D,200,Q3,2.3,I,Q3,200,Q3,,,McVerry 2011
+081A,D,200,Q3,2.3,I,Q3,200,Q3,,McVerry2011,
 083A,B,1200,Q3,<0.1,I,Q3,0,Q2,,,
 085D,C,350,Q3,0.33,I,Q3,15,Q3,,,
 085M,C,350,Q3,0.33,I,Q3,15,Q3,,,
 085N,C,350,Q3,0.33,I,Q3,15,Q3,,,
-087A,B,1000,Q3,<0.1,I,Q3,0,Q2,,,Perrin et al. 2015
+087A,B,1000,Q3,<0.1,I,Q3,0,Q2,,Perrin2015,
 087B,B,1000,Q3,<0.1,I,Q3,0,Q3,,,
-087C,C,425,Q3,0.33,I,Q3,30,Q3,,,Perrin et al. 2015
-087D,B,1000,Q3,<0.1,I,Q3,0,Q2,,,Perrin et al. 2015
-089A,D,326,Q3,2.1,I,Q3,300,Q3,,,McVerry 2011
+087C,C,425,Q3,0.33,I,Q3,30,Q3,,Perrin2015,
+087D,B,1000,Q3,<0.1,I,Q3,0,Q2,,Perrin2015,
+089A,D,326,Q3,2.1,I,Q3,300,Q3,,McVerry2011,
 090A,C,270,Q3,0.33,Mw,Q3,40,Q3,INGS,,
-092A,D,270,Q3,0.8,I,Q3,80,Q3,,,Perrin et al. 2015; McVerry (some conflicts)
-096A,D,155,Q2,1.5,I,Q3,100,Q3,,,"Barker 1994, Cousins et al. 1996"
+092A,D,270,Q3,0.8,I,Q3,80,Q3,,McVerry2011 Perrin2015,some conflicts
+096A,D,155,Q2,1.5,I,Q3,100,Q3,,Barker1994 Cousins1996,
 099B,D,210,Q3,1.1,Mw,Q3,80,Q3,TBAS,,
-102A,C,555,Q3,0.15,I,Q3,12,Q3,,,Cousins et al. 1996
+102A,C,555,Q3,0.15,I,Q3,12,Q3,,Cousins1996,
 103A,C,465,Q3,0.23,I,Q3,20,Q3,SJFS,,
-110C,D,270,Q3,0.8,I,Q3,80,Q3,,,Perrin et al. 2015
-112A,C,667,Q3,0.36,I,Q3,60,Q3,,,McVerry 2011
-112B,C,667,Q3,0.36,I,Q3,60,Q3,,,McVerry 2011
-113A,C,522,Q3,0.15,I,Q3,10,Q3,,,McVerry 2011
-114A,D,387,Q3,1,I,Q3,100,Q3,,,McVerry 2011
-118A,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-118B,C,520,Q3,0.3,I,Q3,40,Q3,,,McVerry 2011
-120A,D,290,Q3,1.1,I,Q3,100,Q3,,,McVerry 2011
+110C,D,270,Q3,0.8,I,Q3,80,Q3,,Perrin2015,
+112A,C,667,Q3,0.36,I,Q3,60,Q3,,McVerry2011,
+112B,C,667,Q3,0.36,I,Q3,60,Q3,,McVerry2011,
+113A,C,522,Q3,0.15,I,Q3,10,Q3,,McVerry2011,
+114A,D,387,Q3,1,I,Q3,100,Q3,,McVerry2011,
+118A,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+118B,C,520,Q3,0.3,I,Q3,40,Q3,,McVerry2011,
+120A,D,290,Q3,1.1,I,Q3,100,Q3,,McVerry2011,
 122A,D,500,Q3,1.6,I,Q3,250,Q3,129A,,
-123A,C,616,Q3,0.13,I,Q3,10,Q3,,,McVerry 2011
+123A,C,616,Q3,0.13,I,Q3,10,Q3,,McVerry2011,
 129A,D,500,Q3,1.6,Mw,Q3,250,Q3,MCAS,,
-130B,D,367,Q3,0.85,I,Q3,100,Q3,,,McVerry 2011
+130B,D,367,Q3,0.85,I,Q3,100,Q3,,McVerry2011,
 131A,D,210,Q3,1.4,Mw,Q2,100,Q3,PAPS,,
-132A,C,245,Q2,0.47,I,Q2,27,Q2,,,McVerry 2011; Semmens et al. 2010
-214A,E,210,Q3,1,I,Q3,75,Q3,,,"Perrin et al. 2015, Cousins et al. 1996, see 028A"
+132A,C,245,Q2,0.47,I,Q2,27,Q2,,McVerry2011 Semmens2010,
+214A,E,210,Q3,1,I,Q3,75,Q3,,Cousins1996 Perrin2015,see 028A
 225B,D,155,Q3,1.5,I,Q3,100,Q3,096A,,
-240A,D,600,Q3,1.8,I,Q3,300,Q3,,," McVerry 2011, see HOCS "
+240A,D,600,Q3,1.8,I,Q3,300,Q3,,McVerry2011,see HOCS
 249A,C,350,Q2,0.35,Mu,Q2,60,Q3,642A,,
-257A,D,210,Q3,>2,I,Q3,300,Q3,,,"Perrin et al. 2015, Cousins et al. 1996"
+257A,D,210,Q3,>2,I,Q3,300,Q3,,Cousins1996 Perrin2015,
 259A,D,210,Q3,0.7,Mw,Q2,50,Q3,046A,,
-261A,D,330,Q3,0.6,I,Q3,60,Q3,,,Perrin et al. 2015
-262A,C,400,Q3,0.27,I,Q3,20,Q3,,,McVerry 2011 
-264A,D,390,Q3,1.3,I,Q3,200,Q3,,,McVerry 2011 (alternative bedrock models available)
-265A,D,280,Q3,2.3,I,Q3,250,Q3,,,McVerry 2011
+261A,D,330,Q3,0.6,I,Q3,60,Q3,,Perrin2015,
+262A,C,400,Q3,0.27,I,Q3,20,Q3,,McVerry2011,
+264A,D,390,Q3,1.3,I,Q3,200,Q3,,McVerry2011,alternative bedrock models available
+265A,D,280,Q3,2.3,I,Q3,250,Q3,,McVerry2011,
 266A,D,300,Q3,1.2,Mw,Q2,105,Q3,WBCS,,
 267A,C,333,Q3,0.3,I,Q3,30,Q3,052A,,
 268A,D,210,Q3,1,Mw,Q2,70,Q3,GMTS,,
-270A,C,500,Q3,0.15,I,Q3,10,Q3,,,McVerry 2011 
+270A,C,500,Q3,0.15,I,Q3,10,Q3,,McVerry2011,
 272A,D,278,Q3,1.1,I,Q3,100,Q3,057A,,
 274A,E,150,Q3,>2,I,Q3,500,Q3,,,
-275A,D,400,Q3,6,Ma,Q3,600,Q3,CACS,,McVerry 2011
-301A,D,341,Q3,0.75,I,Q3,60,Q3,,,McVerry 2011
-302A,D,250,Q2,0.8,I,Q3,80,Q3,,,"McVerry 2011; borehole data, nearby WCDS (some conflicts)"
-340A,D,283,Q3,0.96,I,Q3,90,Q3,,,McVerry 2011
-464A,D,210,Q3,1.2,I,Q3,170,Q3,,,Boon et al. 2010; Perrin et al. 2015
+275A,D,400,Q3,6,Ma,Q3,600,Q3,CACS,McVerry2011,
+301A,D,341,Q3,0.75,I,Q3,60,Q3,,McVerry2011,
+302A,D,250,Q2,0.8,I,Q3,80,Q3,,McVerry2011,borehole data nearby WCDS some conflicts
+340A,D,283,Q3,0.96,I,Q3,90,Q3,,McVerry2011,
+464A,D,210,Q3,1.2,I,Q3,170,Q3,,Boon2010 Perrin2015,
 465A,C,600,Q3,0.1,I,Q3,5,Q3,DAVS,,
 465B,C,600,Q3,0.1,I,Q3,5,Q3,DAVS,,
-467A,D,218,Q3,1.5,I,Q3,200,Q3,,,Boon et al. 2010; Perrin et al. 2015; McVerry 2011
+467A,D,218,Q3,1.5,I,Q3,200,Q3,,Boon2010 McVerry2011 Perrin2015,
 468A,D,190,Q1,0.9,I,Q3,50,Q3,NBSS,,
 469A,D,240,Q3,1.2,I,Q3,280,Q3,LHES,,
-504A,D,270,Q3,0.7,I,Q3,50,Q3,,,Perrin et al. 2015; nearby station 294A
+504A,D,270,Q3,0.7,I,Q3,50,Q3,,Perrin2015,nearby station 294A
 505A,C,300,Q2,0.4,Ms,Q2,30,Q2,APPS,,
 507A,C,312,Q3,0.38,I,Q3,30,Q3,OAMS,,
-601A,D,161,Q3,2.3,I,Q3,297,Q3,,,Boon et al. 2010; McVerry 2011
+601A,D,161,Q3,2.3,I,Q3,297,Q3,,Boon2010 McVerry2011,
 602C,B,1000,Q3,<0.1,I,Q3,0,Q3,,,
 603B,B,1000,Q3,<0.1,I,Q3,0,Q3,,,
-604A,D,263,Q3,1.2,I,Q3,170,Q3,,,Boon et al. 2010
+604A,D,263,Q3,1.2,I,Q3,170,Q3,,Boon2010,
 605B,B,760,Q3,0.27,Mw,Q3,0,Q3,FAIS,,
-606B,B,800,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-608A,D,200,Q2,2,I,Q2,250,Q3,,,McVerry 2011; see PGMS 
-640A,E,230,Q3,0.5,I,Q3,60,Q3,,,"Perrin et al. 2015, near 642A"
-641A,E,210,Q3,0.6,I,Q3,60,Q3,,,Boon et al. 2010; Perrin et al. 2015
-642A,C,350,Q1,0.35,Mu,Q2,50,Q3,,,"Cousins et al. 1996, Unpublished ReMi (Kaiser & Louie)"
+606B,B,800,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+608A,D,200,Q2,2,I,Q2,250,Q3,,McVerry2011,see PGMS
+640A,E,230,Q3,0.5,I,Q3,60,Q3,,Perrin2015,near 642A
+641A,E,210,Q3,0.6,I,Q3,60,Q3,,Boon2010 Perrin2015,
+642A,C,350,Q1,0.35,Mu,Q2,50,Q3,,Cousins1996 Kaiser2006b,
 642E,C,350,Q1,0.35,Mu,Q2,50,Q3,642A,,
 642G,C,350,Q1,0.35,Mu,Q2,50,Q3,642A,,
 642H,C,350,Q1,0.35,Mu,Q2,50,Q3,642A,,
-643B,B,1000,Q3,<0.1,I,Q3,1.5,Q3,,,Perrin et al. 2015
-644C,D,189,Q3,2,I,Q3,250,Q3,,,Boon et al. 2010; McVerry 2011
+643B,B,1000,Q3,<0.1,I,Q3,1.5,Q3,,Perrin2015,
+644C,D,189,Q3,2,I,Q3,250,Q3,,Boon2010 McVerry2011,
 646A,E,120,Q1,1.6,Mu,Q2,62,Q2,WDAS,,
 646B,E,120,Q1,1.6,Mu,Q2,62,Q2,WDAS,,
 646C,E,120,Q1,1.6,Mu,Q2,62,Q2,WDAS,,
-647A,C,474,Q2,0.12,I,Q2,5.7,Q2,,,McVerry 2011; Semmens et al. 2010
-647D,D,474,Q2,0.12,I,Q2,5.7,Q2,,,McVerry 2011; Semmens et al. 2010
-648A,C,330,Q3,0.5,I,Q3,38,Q3,,,"McVerry 2011; Semmens et al. 2010, Unpublished ReMi (Kaiser & Louie)"
-651A,D,330,Q2,1,I,Q3,120,Q3,,,"Perrin et al. 2015; Boon et al. 2010, Nearby Unpublished ReMi (Kaiser & Louie)"
-705B,C,570,Q3,0.15,I,Q3,10,Q3,,,McVerry 2011
-706A,C,210,Q3,0.5,Mu,Q2,30,Q3,,,"Perrin et al. 2015, Taber & Smith 1991"
+647A,C,474,Q2,0.12,I,Q2,5.7,Q2,,McVerry2011 Semmens2010,
+647D,D,474,Q2,0.12,I,Q2,5.7,Q2,,McVerry2011 Semmens2010,
+648A,C,330,Q3,0.5,I,Q3,38,Q3,,Kaiser2006b McVerry2011 Semmens2010,
+651A,D,330,Q2,1,I,Q3,120,Q3,,Boon2010 Perrin2015 Kaiser2006b,
+705B,C,570,Q3,0.15,I,Q3,10,Q3,,McVerry2011,
+706A,C,210,Q3,0.5,Mu,Q2,30,Q3,,Perrin2015 Taber1991,
 707A,C,570,Q3,0.15,I,Q3,10,Q3,705B,,
 708A,C,275,Q3,0.4,Ms,Q1,25,Q2,POLS,,
 709A,D,245,Q3,1.5,I,Q3,125,Q3,GWTS,,
-711A,D,234,Q3,1.4,I,Q3,175,Q3,,,Boon et al. 2010
+711A,D,234,Q3,1.4,I,Q3,175,Q3,,Boon2010,
 712A,D,210,Q3,0.71,Mw,Q2,100,Q3,WKHS,,
 713A,D,210,Q3,0.6,Mu,Q3,40,Q3,706A,,
-900B,D,267,Q2,0.84,I,Q2,96,Q2,,,McVerry 2011; Semmens et al. 2010
-900C,D,250,Q3,0.8,I,Q3,60,Q3,,,Semmens et al. 2010; McVerry 2011 (some conflicts)
-902A,D,275,Q2,1.25,I,Q2,131.5,Q2,,,McVerry 2011; Semmens et al. 2010
-907A,D,250,Q2,1.2,I,Q2,116,Q2,,,"McVerry 2011; Semmens et al. 2010, Unpublished ReMi (Kaiser & Louie)"
-911A,C,358,Q2,0.29,I,Q2,18.5,Q2,,,McVerry 2011; Semmens et al. 2010
+900B,D,267,Q2,0.84,I,Q2,96,Q2,,McVerry2011 Semmens2010,
+900C,D,250,Q3,0.8,I,Q3,60,Q3,,McVerry2011 Semmens2010,some conflicts
+902A,D,275,Q2,1.25,I,Q2,131.5,Q2,,McVerry2011 Semmens2010,
+907A,D,250,Q2,1.2,I,Q2,116,Q2,,Kaiser2006b McVerry2011 Semmens2010,
+911A,C,358,Q2,0.29,I,Q2,18.5,Q2,,McVerry2011 Semmens2010,
 912A,D,239,Q2,0.78,Mw,Q2,64,Q2,WNAS,,
-913A,B,1000,Q3,<0.1,I,Q3,2,Q2,,,Perrin et al. 2015; Semmens et al. 2010
-914A,D,282,Q2,0.61,I,Q2,46.5,Q2,,,McVerry 2011; Semmens et al. 2010
+913A,B,1000,Q3,<0.1,I,Q3,2,Q2,,Perrin2015 Semmens2010,
+914A,D,282,Q2,0.61,I,Q2,46.5,Q2,,McVerry2011 Semmens2010,
 914B,D,282,Q2,0.61,I,Q2,46.5,Q2,914A,,
-914C,D,270,Q2,0.65,I,Q2,50,Q2,,,Semmens et al. 2010
-916A,D,291,Q2,0.8,I,Q2,85.4,Q2,,,McVerry 2011; Semmens et al. 2010
+914C,D,270,Q2,0.65,I,Q2,50,Q2,,Semmens2010,
+916A,D,291,Q2,0.8,I,Q2,85.4,Q2,,McVerry2011 Semmens2010,
 918B,B,1000,Q3,0.3,Mw,Q1,0,Q2,WEL,,
 918C,B,1000,Q3,0.3,Mw,Q3,0,Q3,WEL,,
-919A,D,307,Q2,0.85,I,Q2,95.6,Q2,,,McVerry 2011; Semmens et al. 2010
-920A,C,210,Q3,0.25,Mu,Q1,10,Q3,,,Perrin et al. 2015; Semmens et al. 2010; Taber & Richardson 1992
+919A,D,307,Q2,0.85,I,Q2,95.6,Q2,,McVerry2011 Semmens2010,
+920A,C,210,Q3,0.25,Mu,Q1,10,Q3,,Perrin2015 Semmens2010 Taber1992,
 921A,C,330,Q3,0.5,I,Q3,38,Q3,648A,,
-925A,D,210,Q3,0.8,I,Q3,52,Q3,,,Perrin et al. 2015
-926A,C,651,Q3,0.07,I,Q3,5,Q3,,,McVerry 2011
+925A,D,210,Q3,0.8,I,Q3,52,Q3,,Perrin2015,
+926A,C,651,Q3,0.07,I,Q3,5,Q3,,McVerry2011,
 928B,D,425,Q3,0.8,Ms,Q3,300,Q3,HNPS,,
 930A,E,150,Q3,>2,I,Q3,300,Q3,,,
-931B,D,320,Q3,0.63,I,Q3,50,Q3,,,McVerry 2011
-933B,D,229,Q3,1.4,I,Q3,120,Q3,,,McVerry 2011
-934B,D,180,Q1,1.1,I,Q3,100,Q3,,,"Perrin et al. 2015; Boon et al. 2010, Unpublished ReMi (Kaiser & Louie)"
-935A,D,240,Q3,1.2,I,Q3,275,Q3,,,Boon et al. 2010
+931B,D,320,Q3,0.63,I,Q3,50,Q3,,McVerry2011,
+933B,D,229,Q3,1.4,I,Q3,120,Q3,,McVerry2011,
+934B,D,180,Q1,1.1,I,Q3,100,Q3,,Boon2010 Perrin2015 Kaiser2006b,
+935A,D,240,Q3,1.2,I,Q3,275,Q3,,Boon2010,
 935B,D,240,Q3,1.2,I,Q3,275,Q3,935A,,
 935C,D,240,Q3,1.2,I,Q3,275,Q3,935A,,
-940A,D,354,Q3,0.8,Mw,Q3,80,Q3,,,"McVerry 2011, see QTPS"
-941A,D,272,Q2,0.85,I,Q2,98.5,Q2,,,McVerry 2011; Semmens et al. 2010
-ADCS,D,270,Q3,>2,I,Q3,990,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-AICS,D,210,Q3,1,I,Q3,80,Q3,,,Perrin et al. 2015
-AKSS,C,435,Q1,0.3,Mw,Q1,10,Q2,,,Kaiser et al. 2013; Unpublished MASW (C. Van Houtte)
-AMBC,D,270,Q3,>2,I,Q3,300,Q3,,,Perrin et al. 2015
-APPS,C,300,Q2,0.4,Ms,Q1,30,Q2,,,Kaiser et al. 2013; McVerry 2011
-ARKS,C,270,Q3,0.33,Mw,Q1,20,Q2,,,Unpublished HVSR (C. Van Houtte & A. Kaiser); Perrin et al. 2015
-ARPS,D,333,Q3,1,Mw,Q2,120,Q3,,,Unpublished HVSR (C. Van Houtte)
-ASHS,D,270,Q3,>2,I,Q3,650,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-AVIS,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-BDCS,B,1000,Q3,0.17,Ms,Q2,5,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
+940A,D,354,Q3,0.8,Mw,Q3,80,Q3,,McVerry2011,see QTPS
+941A,D,272,Q2,0.85,I,Q2,98.5,Q2,,McVerry2011 Semmens2010,
+ADCS,D,270,Q3,>2,I,Q3,990,Q3,,Lee2015 Perrin2015,
+AICS,D,210,Q3,1,I,Q3,80,Q3,,Perrin2015,
+AKSS,C,435,Q1,0.3,Mw,Q1,10,Q2,,Kaiser2013 VanHoutte2017,
+AMBC,D,270,Q3,>2,I,Q3,300,Q3,,Perrin2015,
+APPS,C,300,Q2,0.4,Ms,Q1,30,Q2,,Kaiser2013 McVerry2011,
+ARKS,C,270,Q3,0.33,Mw,Q1,20,Q2,,Perrin2015 VanHoutte2017,
+ARPS,D,333,Q3,1,Mw,Q2,120,Q3,,VanHoutte2017,
+ASHS,D,270,Q3,>2,I,Q3,650,Q3,,Lee2015 Perrin2015,
+AVIS,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+BDCS,B,1000,Q3,0.17,Ms,Q2,5,Q3,,Perrin2015 VanHoutte2017,
 BENS,B,1000,Q3,<0.1,I,Q3,0,Q3,,,
-BFZ,B,1000,Q3,0.83,Mw,Q2,0,Q2,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-BKZ,B,1000,Q3,-1,Mn,Q2,0,Q1,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-BMTS,B,900,Q3,-1,Mn,Q2,0,Q2,,,Unpublished HVSR (A. Kaiser)
-BTWS,D,210,Q3,0.7,I,Q3,40,Q3,,,"Perrin et al. 2015, Unpublished HVSR (A. Kaiser) (some conflicts)"
-BWHS,D,210,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
-BWRS,B,760,Q3,0.2,Mw,Q1,5,Q3,,,Unpublished HVSR (A. Kaiser)
-CACS,D,435,Q1,6.3,Ma,Q2,610,Q3,,,"Wotherspoon et al. 2014, 2015, Lee et al. 2015"
-CBGS,D,197,Q1,>2,I,Q3,540,Q3,,,"Wotherspoon et al. 2014, 2015; Lee et al. 2015"
-CCCC,D,182,Q1,2.4,Ma,Q2,530,Q3,,,"Wotherspoon et al. 2014, 2015; Lee et al. 2015"
-CCPS,D,210,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
-CECS,D,270,Q3,2.2,Mw,Q3,200,Q3,,,Unpublished HVSR (C. Van Houtte); Kaiser et al. 2013; Perrin et al. 2015
-CHHC,D,196,Q1,>2,I,Q3,510,Q3,,,"Wotherspoon et al. 2014, 2015, Lee et al. 2015"
-CMHS,D,213,Q1,0.71,Mw,Q1,45,Q1,,,"Wotherspoon et al. 2014, 2015"
-CPFS,C,350,Q3,0.33,Mw,Q1,10,Q2,,,Unpublished HVSR (C. Van Houtte)
-CRLZ,B,900,Q2,0.9,Mw,Q1,0,Q1,,,Kaiser et al. 2013; Van Houtte et al. 2012
-CSBF,A,1500,Q3,-1,I,Q3,0,Q3,,,Perrin et al. 2015
-CSHS,D,270,Q3,0.7,Mw,Q2,70,Q3,,,"Perrin et al. 2015, Kaiser et al. 2013"
-CSTC,D,425,Q3,>2,I,Q3,330,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-CUBS,D,250,Q3,0.7,Mw,Q2,48,Q2,,,Semmens et al. 2010; Unpublished HVSR (A. Kaiser)
-CULC,D,270,Q3,1.2,I,Q3,100,Q3,,,Perrin et al. 2015
-CVZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-D07C,E,210,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
-D13C,B,1000,Q3,0.3,Mw,Q2,0,Q3,,,Van Houtte et al. 2012; Kaiser et al. 2013; Perrin et al. 2015
-D14C,B,1000,Q3,-1,Mn,Q1,0,Q3,,,Van Houtte et al. 2012; Kaiser et al. 2013; Perrin et al. 2015
-D15C,B,1000,Q3,-1,Mn,Q2,3,Q3,,,Van Houtte et al. 2012; Kaiser et al. 2013; Perrin et al. 2015
-DALS,E,210,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
+BFZ,B,1000,Q3,0.83,Mw,Q2,0,Q2,,Perrin2015 VanHoutte2017,
+BKZ,B,1000,Q3,-1,Mn,Q2,0,Q1,,Perrin2015 VanHoutte2017,
+BMTS,B,900,Q3,-1,Mn,Q2,0,Q2,,VanHoutte2017,
+BTWS,D,210,Q3,0.7,I,Q3,40,Q3,,Perrin2015 VanHoutte2017,some conflicts
+BWHS,D,210,Q3,>2,I,Q3,500,Q3,,Perrin2015,
+BWRS,B,760,Q3,0.2,Mw,Q1,5,Q3,,VanHoutte2017,
+CACS,D,435,Q1,6.3,Ma,Q2,610,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+CBGS,D,197,Q1,>2,I,Q3,540,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+CCCC,D,182,Q1,2.4,Ma,Q2,530,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+CCPS,D,210,Q3,>2,I,Q3,500,Q3,,Perrin2015,
+CECS,D,270,Q3,2.2,Mw,Q3,200,Q3,,Kaiser2013 Perrin2015 VanHoutte2017,
+CHHC,D,196,Q1,>2,I,Q3,510,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+CMHS,D,213,Q1,0.71,Mw,Q1,45,Q1,,Wotherspoon2014 Wotherspoon2015,
+CPFS,C,350,Q3,0.33,Mw,Q1,10,Q2,,VanHoutte2017,
+CRLZ,B,900,Q2,0.9,Mw,Q1,0,Q1,,Kaiser2013 VanHoutte2012,
+CSBF,A,1500,Q3,-1,I,Q3,0,Q3,,Perrin2015,
+CSHS,D,270,Q3,0.7,Mw,Q2,70,Q3,,Kaiser2013 Perrin2015,
+CSTC,D,425,Q3,>2,I,Q3,330,Q3,,Lee2015 Perrin2015,
+CUBS,D,250,Q3,0.7,Mw,Q2,48,Q2,,Semmens2010 VanHoutte2017,
+CULC,D,270,Q3,1.2,I,Q3,100,Q3,,Perrin2015,
+CVZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+D07C,E,210,Q3,>2,I,Q3,500,Q3,,Perrin2015,
+D13C,B,1000,Q3,0.3,Mw,Q2,0,Q3,,Kaiser2013 Perrin2015 VanHoutte2012,
+D14C,B,1000,Q3,-1,Mn,Q1,0,Q3,,Kaiser2013 Perrin2015 VanHoutte2012,
+D15C,B,1000,Q3,-1,Mn,Q2,3,Q3,,Kaiser2013 Perrin2015 VanHoutte2012,
+DALS,E,210,Q3,>2,I,Q3,500,Q3,,Perrin2015,
 DAVS,C,600,Q3,0.1,I,Q3,5,Q3,,,
-DCDS,C,600,Q3,0.1,I,Q3,8,Q3,,,Cousins et al. 1996
-DCZ,A,1500,Q3,-1,Mn,Q1,0,Q1,,,Unpublished HVSR (C. Van Houtte)
-DECF,A,1500,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-DFHS,D,270,Q3,0.9,Mw,Q3,400,Q3,,,"Kaiser et al. 2013; Perrin et al. 2015, Lee et al. 2015"
-DGNS,C,600,Q3,0.1,Mw,Q3,10,Q3,,,Unpublished HVSR (C. Van Houtte)
-DHSS,C,690,Q3,0.1,I,Q3,8,Q3,,,Perrin et al. 2015
-DKHS,D,210,Q3,0.63,Ms,Q1,40,Q3,,,"Unpublished HVSR (C. Van Houtte), Perrin et al. 2015, Stephenson & Barker 1999"
-DORC,D,270,Q3,>2,I,Q3,690,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-DSLC,D,270,Q3,>2,I,Q3,440,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-DSZ,C,450,Q3,0.33,Mw,Q2,40,Q2,,,Unpublished HVSR (C. Van Houtte)
-DUNS,C,500,Q2,0.17,Ms,Q1,9,Q2,,,Unpublished HVSR (C. Van Houtte)
+DCDS,C,600,Q3,0.1,I,Q3,8,Q3,,Cousins1996,
+DCZ,A,1500,Q3,-1,Mn,Q1,0,Q1,,VanHoutte2017,
+DECF,A,1500,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+DFHS,D,270,Q3,0.9,Mw,Q3,400,Q3,,Kaiser2013 Lee2015 Perrin2015,
+DGNS,C,600,Q3,0.1,Mw,Q3,10,Q3,,VanHoutte2017,
+DHSS,C,690,Q3,0.1,I,Q3,8,Q3,,Perrin2015,
+DKHS,D,210,Q3,0.63,Ms,Q1,40,Q3,,Perrin2015 VanHoutte2017 Stephenson1999,
+DORC,D,270,Q3,>2,I,Q3,690,Q3,,Lee2015 Perrin2015,
+DSLC,D,270,Q3,>2,I,Q3,440,Q3,,Lee2015 Perrin2015,
+DSZ,C,450,Q3,0.33,Mw,Q2,40,Q2,,VanHoutte2017,
+DUNS,C,500,Q2,0.17,Ms,Q1,9,Q2,,VanHoutte2017,
 DVHS,C,360,Q3,0.58,Mw,Q3,55,Q3,,,
-EAZ,B,1000,Q3,0.14,Mw,Q2,0,Q3,,,"Perrin et al. 2015, Unpublished HVSR (C. Van Houtte)"
-EBPS,C,540,Q2,0.38,Mw,Q3,7,Q2,,,"Unpublished ReMi data (GNS, A. Kaiser & J. Louie); Unpublished HVSR (C. Van Houtte)"
+EAZ,B,1000,Q3,0.14,Mw,Q2,0,Q3,,Perrin2015 VanHoutte2017,
+EBPS,C,540,Q2,0.38,Mw,Q3,7,Q2,,Kaiser2006b VanHoutte2017,
 EKS1,B,900,Q3,<0.1,I,Q3,2,Q3,,,
-EKS2,D,270,Q3,0.6,I,Q3,60,Q3,,,Perrin et al. 2015
-EKS3,D,270,Q3,0.8,I,Q3,80,Q3,,,Perrin et al. 2015
-EKTS,C,800,Q3,0.1,Mn,Q1,6,Q3,,,Unpublished HVSR (C. Van Houtte)
-EYRS,D,270,Q3,>2,I,Q3,490,Q3,,,"Kaiser et al. 2013; Perrin et al. 2015, Lee et al. 2015"
-FAHS,D,270,Q3,0.67,Mw,Q1,60,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-FAIS,B,760,Q3,0.27,Mw,Q1,0,Q2,,,Unpublished HVSR (A. Kaiser)
-FDCS,D,301,Q3,3,I,Q3,1000,Q3,,,"Unpublished HVSR (A. Kaiser & C. Van Houtte), Cousin et al. 1996"
-FGPS,D,270,Q3,0.91,Mw,Q3,80,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-FJDS,D,210,Q3,0.67,Mw,Q3,60,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-FKPS,D,250,Q3,0.9,Mw,Q2,60,Q2,,,Unpublished HVSR (A. Kaiser & C. Van Houtte); Semmens et al. 2010 (some conflicts)
-FOZ,B,1000,Q3,-1,Mw,Q1,0,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-FTPS,D,270,Q3,1,Mw,Q2,90,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-FXBS,D,210,Q3,1.5,Ms,Q3,500,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-GDLC,D,270,Q3,>2,I,Q3,640,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-GHHS,D,270,Q3,0.6,I,Q3,60,Q3,,,Perrin et al. 2015
-GISS,D,138,Q2,1,Ms,Q1,40,Q3,,,Unpublished HVSR (C. Van Houtte)
-GKBS,B,800,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-GLWS,D,270,Q3,1,Mw,Q1,100,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-GMTS,D,210,Q3,1,Mw,Q1,70,Q3,,,"McVerry 2011 at 055A, Unpublished HVSR (C. Van Houtte); Perrin et al. 2015"
-GODS,B,760,Q3,1.15,Ms,Q2,0,Q3,,,Van Houtte et al. 2012; Kaiser et al. 2013; Perrin et al. 2015
-GORS,D,400,Q3,1,Ms,Q1,100,Q3,,,Unpublished HVSR (C. Van Houtte)
-GOVS,C,690,Q3,0.28,Ms,Q1,10,Q3,,,Unpublished HVSR (A. Kaiser); Perrin et al. 2015
-GRZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-GVZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-GWTS,D,245,Q3,1.5,I,Q3,125,Q3,,,Unpublished HVSR (C. Van Houtte); McVerry 2011
-HAFS,D,210,Q3,1,Mw,Q1,80,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-HALS,E,210,Q3,0.7,Ms,Q2,100,Q3,,,"Stephenson et al. 2011; Perrin et al. 2015; Kaiser et al. 2013, Lee et al. 2015"
-HAVS,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-HAZ,C,600,Q3,0.1,I,Q3,5,Q3,,,"Perrin et al. 2015, Cousins et al. 1996"
-HCDS,D,182,Q2,>2,I,Q3,1000,Q3,,,Unpublished HVSR (C. Van Houtte)
-HDWS,D,210,Q3,0.87,Ms,Q1,100,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-HHSS,D,210,Q3,0.9,Ms,Q3,280,Q3,,,"Perrin et al. 2015; Kaiser et al. 2013, Lee et al. 2015"
-HIBS,D,210,Q3,1,I,Q3,90,Q3,,,Perrin et al. 2015
-HMCS,D,278,Q3,0.76,I,Q3,60,Q3,,,Unpublished HVSR (C. Van Houtte); McVerry 2011
-HNPS,D,425,Q3,0.8,Ms,Q3,300,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-HOCS,D,600,Q3,1.8,I,Q3,300,Q3,,,"Unpublished HVSR (C. Van Houtte); McVerry 2011 at 240A, Perrin et al. 2015 (some conflicts with 240A in McVerry 2011)"
-HORC,D,270,Q3,>2,I,Q3,860,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-HPSC,E,150,Q3,>2,I,Q3,640,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-HSES,D,280,Q3,0.9,Mw,Q1,85,Q3,,,Unpublished HVSR (C. Van Houtte)
-HSSS,C,650,Q3,0.22,Mw,Q3,5,Q3,,,Unpublished HVSR (C. Van Houtte)
-HUKS,D,350,Q3,0.7,Ms,Q1,60,Q3,,,Unpublished HVSR (C. Van Houtte)
-HUNS,B,1000,Q3,-1,Mn,Q2,0,Q3,,,Van Houtte et al. 2012; Perrin et al. 2015
-HVSC,C,348,Q1,0.27,Ms,Q1,19,Q1,,,"Wotherspoon et al. 2014, 2015; Kaiser et al. 2013; Van Houtte et al. 2012; Jeong et al. 2015"
-HWHS,C,210,Q2,0.6,Ms,Q2,12,Q2,,,Unpublished HVSR (C. Van Houtte)
-ICCS,D,210,Q3,0.77,Mw,Q2,50,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-IFPS,D,210,Q3,1.5,I,Q3,150,Q3,,,Perrin et al. 2015; Carpentier et al. 2013
-INGS,C,270,Q3,0.33,Mw,Q2,40,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-INHS,D,330,Q3,1.5,I,Q3,200,Q3,,,Perrin et al. 2015
-INSS,B,800,Q3,0.5,Mw,Q2,0,Q3,,,Unpublished HVSR (C. Van Houtte & A. Kaiser)
+EKS2,D,270,Q3,0.6,I,Q3,60,Q3,,Perrin2015,
+EKS3,D,270,Q3,0.8,I,Q3,80,Q3,,Perrin2015,
+EKTS,C,800,Q3,0.1,Mn,Q1,6,Q3,,VanHoutte2017,
+EYRS,D,270,Q3,>2,I,Q3,490,Q3,,Kaiser2013 Lee2015 Perrin2015,
+FAHS,D,270,Q3,0.67,Mw,Q1,60,Q3,,Perrin2015 VanHoutte2017,
+FAIS,B,760,Q3,0.27,Mw,Q1,0,Q2,,VanHoutte2017,
+FDCS,D,301,Q3,3,I,Q3,1000,Q3,,Cousins1996 VanHoutte2017,
+FGPS,D,270,Q3,0.91,Mw,Q3,80,Q3,,Perrin2015 VanHoutte2017,
+FJDS,D,210,Q3,0.67,Mw,Q3,60,Q3,,Perrin2015 VanHoutte2017,
+FKPS,D,250,Q3,0.9,Mw,Q2,60,Q2,,Semmens2010 VanHoutte2017,some conflicts
+FOZ,B,1000,Q3,-1,Mw,Q1,0,Q3,,Perrin2015 VanHoutte2017,
+FTPS,D,270,Q3,1,Mw,Q2,90,Q3,,Perrin2015 VanHoutte2017,
+FXBS,D,210,Q3,1.5,Ms,Q3,500,Q3,,Perrin2015 VanHoutte2017,
+GDLC,D,270,Q3,>2,I,Q3,640,Q3,,Lee2015 Perrin2015,
+GHHS,D,270,Q3,0.6,I,Q3,60,Q3,,Perrin2015,
+GISS,D,138,Q2,1,Ms,Q1,40,Q3,,VanHoutte2017,
+GKBS,B,800,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+GLWS,D,270,Q3,1,Mw,Q1,100,Q3,,Perrin2015 VanHoutte2017,
+GMTS,D,210,Q3,1,Mw,Q1,70,Q3,,McVerry2011 Perrin2015 VanHoutte2017,McVerry2011 at 055A
+GODS,B,760,Q3,1.15,Ms,Q2,0,Q3,,Kaiser2013 Perrin2015 VanHoutte2012,
+GORS,D,400,Q3,1,Ms,Q1,100,Q3,,VanHoutte2017,
+GOVS,C,690,Q3,0.28,Ms,Q1,10,Q3,,Perrin2015 VanHoutte2017,
+GRZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+GVZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+GWTS,D,245,Q3,1.5,I,Q3,125,Q3,,McVerry2011 VanHoutte2017,
+HAFS,D,210,Q3,1,Mw,Q1,80,Q3,,Perrin2015 VanHoutte2017,
+HALS,E,210,Q3,0.7,Ms,Q2,100,Q3,,Stephenson2011 Kaiser2013 Lee2015 Perrin2015,
+HAVS,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+HAZ,C,600,Q3,0.1,I,Q3,5,Q3,,Cousins1996 Perrin2015,
+HCDS,D,182,Q2,>2,I,Q3,1000,Q3,,VanHoutte2017,
+HDWS,D,210,Q3,0.87,Ms,Q1,100,Q3,,Perrin2015 VanHoutte2017,
+HHSS,D,210,Q3,0.9,Ms,Q3,280,Q3,,Kaiser2013 Lee2015 Perrin2015,
+HIBS,D,210,Q3,1,I,Q3,90,Q3,,Perrin2015,
+HMCS,D,278,Q3,0.76,I,Q3,60,Q3,,McVerry2011 VanHoutte2017,
+HNPS,D,425,Q3,0.8,Ms,Q3,300,Q3,,Perrin2015 VanHoutte2017,
+HOCS,D,600,Q3,1.8,I,Q3,300,Q3,,McVerry2011 Perrin2015 VanHoutte2017,some conflicts with 240A in McVerry2011
+HORC,D,270,Q3,>2,I,Q3,860,Q3,,Lee2015 Perrin2015,
+HPSC,E,150,Q3,>2,I,Q3,640,Q3,,Lee2015 Perrin2015,
+HSES,D,280,Q3,0.9,Mw,Q1,85,Q3,,VanHoutte2017,
+HSSS,C,650,Q3,0.22,Mw,Q3,5,Q3,,VanHoutte2017,
+HUKS,D,350,Q3,0.7,Ms,Q1,60,Q3,,VanHoutte2017,
+HUNS,B,1000,Q3,-1,Mn,Q2,0,Q3,,Perrin2015 VanHoutte2012,
+HVSC,C,348,Q1,0.27,Ms,Q1,19,Q1,,Jeong2015 Kaiser2013 VanHoutte2012 Wotherspoon2014 Wotherspoon2015,
+HWHS,C,210,Q2,0.6,Ms,Q2,12,Q2,,VanHoutte2017,
+ICCS,D,210,Q3,0.77,Mw,Q2,50,Q3,,Perrin2015 VanHoutte2017,
+IFPS,D,210,Q3,1.5,I,Q3,150,Q3,,Carpentier2013 Perrin2015,
+INGS,C,270,Q3,0.33,Mw,Q2,40,Q3,,Perrin2015 VanHoutte2017,
+INHS,D,330,Q3,1.5,I,Q3,200,Q3,,Perrin2015,
+INSS,B,800,Q3,0.5,Mw,Q2,0,Q3,,VanHoutte2017,
 INZ,B,1200,Q3,<0.1,I,Q3,0,Q3,,,
-JCWJ,B,1000,Q3,<0.1,I,Q3,2,Q3,,,Perrin et al. 2015
+JCWJ,B,1000,Q3,<0.1,I,Q3,2,Q3,,Perrin2015,
 JCZ,A,1500,Q3,<0.1,I,Q3,0,Q2,,,
-KAFS,D,220,Q2,1.25,Mw,Q1,80,Q3,,,Unpublished HVSR (C. Van Houtte)
-KARS,D,210,Q3,0.87,Ms,Q2,70,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-KEKS,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-KFHS,C,760,Q3,1.25,Mw,Q2,10,Q3,,,"Unpublished HVSR (C. Van Houtte), Cousins et al. 1996 "
+KAFS,D,220,Q2,1.25,Mw,Q1,80,Q3,,VanHoutte2017,
+KARS,D,210,Q3,0.87,Ms,Q2,70,Q3,,Perrin2015 VanHoutte2017,
+KEKS,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+KFHS,C,760,Q3,1.25,Mw,Q2,10,Q3,,Cousins1996 VanHoutte2017,
 KHLS,B,900,Q3,0.1,I,Q3,10,Q3,,,
-KHZ,C,600,Q3,0.1,Mn,Q2,5,Q3,,,"Perrin et al. 2015, Unpublished HVSR (A. Kaiser)"
-KIKS,B,1000,Q3,-1,Mn,Q2,0,Q3,,,Unpublished HVSR (A. Kaiser)
-KILS,E,210,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
-KIRS,C,430,Q3,0.43,Ms,Q1,20,Q3,,,Unpublished HVSR (C. Van Houtte)
-KLDS,D,330,Q3,>2,I,Q3,420,Q3,,,Perrin et al. 2015
-KNZ,B,1000,Q3,<0.1,I,Q3,0,Q2,,,Perrin et al. 2015
-KOKS,D,210,Q3,>2,I,Q3,200,Q3,,,Perrin et al. 2015
-KOWC,D,350,Q3,0.6,Ms,Q1,50,Q3,,,"Kaiser et al. 2013, Unpublished HVSR (C. Van Houtte)"
-KPOC,D,257,Q1,>2,I,Q3,700,Q3,,,"Wotherspoon et al. 2014, 2015, Lee et al. 2015"
-KUZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-LBZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
+KHZ,C,600,Q3,0.1,Mn,Q2,5,Q3,,Perrin2015 VanHoutte2017,
+KIKS,B,1000,Q3,-1,Mn,Q2,0,Q3,,VanHoutte2017,
+KILS,E,210,Q3,>2,I,Q3,500,Q3,,Perrin2015,
+KIRS,C,430,Q3,0.43,Ms,Q1,20,Q3,,VanHoutte2017,
+KLDS,D,330,Q3,>2,I,Q3,420,Q3,,Perrin2015,
+KNZ,B,1000,Q3,<0.1,I,Q3,0,Q2,,Perrin2015,
+KOKS,D,210,Q3,>2,I,Q3,200,Q3,,Perrin2015,
+KOWC,D,350,Q3,0.6,Ms,Q1,50,Q3,,Kaiser2013 VanHoutte2017,
+KPOC,D,257,Q1,>2,I,Q3,700,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+KUZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+LBZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
 LCQC,C,600,Q3,0.13,I,Q3,10,Q3,,,
-LHBS,B,700,Q3,0.6,Mw,Q2,0,Q3,,,Unpublished HVSR (A. Kaiser & C. Van Houtte)
-LHES,D,240,Q3,1.16,I,Q3,280,Q3,,,Boon et al. 2010
-LHRS,B,760,Q3,1.4,Mw,Q2,0,Q2,,,Unpublished HVSR (A. Kaiser & C. Van Houtte)
-LHUS,D,212,Q1,2,I,Q3,225,Q3,,,"Perrin et al. 2015, Unpublished ReMi (Kaiser & Louie), Boon et al. 2010"
-LINC,D,210,Q3,>2,I,Q3,330,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-LIRS,C,400,Q3,0.25,Mw,Q1,12,Q2,,,Unpublished HVSR (A. Kaiser)
-LNBS,D,330,Q2,0.8,I,Q3,100,Q3,,,Perrin et al. 2015; Boon et al. 2010; Nearby unpublished ReMi (Kaiser & Louie)
-LPCC,B,760,Q3,0.15,Mw,Q2,5,Q3,,,Kaiser et al. 2013; Van Houtte et al. 2012
-LPLS,D,400,Q3,0.71,Mw,Q1,70,Q3,,,Unpublished HVSR (C. Van Houtte)
-LPOC,D,210,Q3,1.2,I,Q3,100,Q3,,,Perrin et al. 2015
-LRSC,D,270,Q3,>2,I,Q3,950,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
+LHBS,B,700,Q3,0.6,Mw,Q2,0,Q3,,VanHoutte2017,
+LHES,D,240,Q3,1.16,I,Q3,280,Q3,,Boon2010,
+LHRS,B,760,Q3,1.4,Mw,Q2,0,Q2,,VanHoutte2017,
+LHUS,D,212,Q1,2,I,Q3,225,Q3,,Boon2010 Kaiser2006b Perrin2015,
+LINC,D,210,Q3,>2,I,Q3,330,Q3,,Lee2015 Perrin2015,
+LIRS,C,400,Q3,0.25,Mw,Q1,12,Q2,,VanHoutte2017,
+LNBS,D,330,Q2,0.8,I,Q3,100,Q3,,Boon2010 Perrin2015 Kaiser2006b,
+LPCC,B,760,Q3,0.15,Mw,Q2,5,Q3,,Kaiser2013 VanHoutte2012,
+LPLS,D,400,Q3,0.71,Mw,Q1,70,Q3,,VanHoutte2017,
+LPOC,D,210,Q3,1.2,I,Q3,100,Q3,,Perrin2015,
+LRSC,D,270,Q3,>2,I,Q3,950,Q3,,Lee2015 Perrin2015,
 LRSS,D,230,Q3,1.4,I,Q3,175,Q3,711A,,
-LSRC,D,270,Q3,1,Mw,Q3,80,Q3,,,Kaiser et al. 2013; Perrin et al. 2015
-LTZ,B,1000,Q3,0.6,Mw,Q3,0,Q2,,,Kaiser et al. 2013; Perrin et al. 2015
+LSRC,D,270,Q3,1,Mw,Q3,80,Q3,,Kaiser2013 Perrin2015,
+LTZ,B,1000,Q3,0.6,Mw,Q3,0,Q2,,Kaiser2013 Perrin2015,
 MANS,A,1500,Q3,-1,I,Q3,0,Q3,,,
-MAVS,D,390,Q3,1,Mw,Q3,450,Q3,,,"Perrin et al. 2015, Cousins et al. 1996, Unpublished HVSR (A. Kaiser)"
-MAYC,D,270,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
-MCAS,D,501,Q3,1.6,Mw,Q3,200,Q3,,,"Unpublished HVSR (C. Van Houtte), McVerry 2011 at 129A "
-MCNS,C,270,Q3,0.4,I,Q3,30,Q3,,,Perrin et al. 2015
-MCPS,D,270,Q3,0.6,Mw,Q3,330,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-MECS,C,270,Q3,0.4,I,Q3,30,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-MENS,C,690,Q3,<0.1,I,Q3,5,Q3,,,Perrin et al. 2015
-MGCS,D,210,Q3,1,Mw,Q3,70,Q3,,,Unpublished HVSR (A. Kaiser & C. Van Houtte); Perrin et al. 2015
-MISS,D,200,Q1,1,Mw,Q1,60,Q1,,,Unpublished HVSR (C. Van Houtte)
-MKBS,B,1000,Q3,0,Mn,Q2,0,Q3,,,"Perrin et al. 2015, Unpublished HVSR (A. Kaiser)"
-MKVS,C,480,Q3,0.17,Mw,Q3,12,Q3,,,"Perrin et al. 2015, Unpublished HVSR (A. Kaiser)"
-MLZ,B,1100,Q3,-1,Mn,Q1,0,Q1,,,Unpublished HVSR (C. Van Houtte)
-MMCS,D,210,Q3,>2,I,Q3,2000,Q3,,,"Perrin et al. 2015, Cousins et al. 1996"
-MNGS,D,270,Q3,0.8,Mw,Q2,80,Q3,,,"Perrin et al. 2015, Unpublished HVSR (C. Van Houtte)"
-MNZS,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-MOLS,C,700,Q3,0.2,Mw,Q2,5,Q3,,,"Unpublished HVSR (C. Van Houtte), Perrin et al. 2015"
-MORS,D,210,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
-MOSS,C,400,Q3,0.4,Mw,Q3,40,Q3,,,McVerry 2011; Unpublished HVSR (C. Van Houtte) 
-MOTS,D,300,Q3,1.27,I,Q3,300,Q3,,,McVerry 2011; Unpublished HVSR (C. Van Houtte)
-MPSS,D,210,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
-MQZ,B,1000,Q3,0.1,Mw,Q2,0,Q3,,,Kaiser et al. 2013; Van Houtte et al. 2012
-MRSS,D,210,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
-MRZ,B,800,Q3,0.33,Mw,Q2,0,Q1,,,Unpublished HVSR (C. Van Houtte)
-MSMC,D,270,Q3,0.8,I,Q3,80,Q3,,,Perrin et al. 2015
-MSZ,A,1500,Q3,-1,Mn,Q1,0,Q1,,,Unpublished HVSR (C. Van Houtte)
-MSZS,B,1100,Q3,0.33,Mw,Q2,3,Q2,,,Unpublished HVSR (C. Van Houtte) (conflicts exist)
-MTHS,D,210,Q3,>2,I,Q3,510,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-MTHZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
+MAVS,D,390,Q3,1,Mw,Q3,450,Q3,,Cousins1996 Perrin2015 VanHoutte2017,
+MAYC,D,270,Q3,>2,I,Q3,500,Q3,,Perrin2015,
+MCAS,D,501,Q3,1.6,Mw,Q3,200,Q3,,McVerry2011 VanHoutte2017,McVerry2011 at 129A
+MCNS,C,270,Q3,0.4,I,Q3,30,Q3,,Perrin2015,
+MCPS,D,270,Q3,0.6,Mw,Q3,330,Q3,,Perrin2015 VanHoutte2017,
+MECS,C,270,Q3,0.4,I,Q3,30,Q3,,Perrin2015 VanHoutte2017,
+MENS,C,690,Q3,<0.1,I,Q3,5,Q3,,Perrin2015,
+MGCS,D,210,Q3,1,Mw,Q3,70,Q3,,Perrin2015 VanHoutte2017,
+MISS,D,200,Q1,1,Mw,Q1,60,Q1,,VanHoutte2017,
+MKBS,B,1000,Q3,0,Mn,Q2,0,Q3,,Perrin2015 VanHoutte2017,
+MKVS,C,480,Q3,0.17,Mw,Q3,12,Q3,,Perrin2015 VanHoutte2017,
+MLZ,B,1100,Q3,-1,Mn,Q1,0,Q1,,VanHoutte2017,
+MMCS,D,210,Q3,>2,I,Q3,2000,Q3,,Cousins1996 Perrin2015,
+MNGS,D,270,Q3,0.8,Mw,Q2,80,Q3,,Perrin2015 VanHoutte2017,
+MNZS,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+MOLS,C,700,Q3,0.2,Mw,Q2,5,Q3,,Perrin2015 VanHoutte2017,
+MORS,D,210,Q3,>2,I,Q3,500,Q3,,Perrin2015,
+MOSS,C,400,Q3,0.4,Mw,Q3,40,Q3,,McVerry2011 VanHoutte2017,
+MOTS,D,300,Q3,1.27,I,Q3,300,Q3,,McVerry2011 VanHoutte2017,
+MPSS,D,210,Q3,>2,I,Q3,500,Q3,,Perrin2015,
+MQZ,B,1000,Q3,0.1,Mw,Q2,0,Q3,,Kaiser2013 VanHoutte2012,
+MRSS,D,210,Q3,>2,I,Q3,500,Q3,,Perrin2015,
+MRZ,B,800,Q3,0.33,Mw,Q2,0,Q1,,VanHoutte2017,
+MSMC,D,270,Q3,0.8,I,Q3,80,Q3,,Perrin2015,
+MSZ,A,1500,Q3,-1,Mn,Q1,0,Q1,,VanHoutte2017,
+MSZS,B,1100,Q3,0.33,Mw,Q2,3,Q2,,VanHoutte2017,conflicts exist
+MTHS,D,210,Q3,>2,I,Q3,510,Q3,,Lee2015 Perrin2015,
+MTHZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
 MTPS,B,1000,Q3,-1,Mn,Q2,3,Q3,D15C,,
-MWDS,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-MWFS,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015 (conflicts exist with Cousins et al. 1996)
-MWZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-MXZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-NAAS,E,150,Q3,2,I,Q3,200,Q3,,,Perrin et al. 2015
-NAMS,C,268,Q3,0.4,I,Q3,20,Q3,,,McVerry 2011; Unpublished HVSR (C. Van Houtte)
-NBLC,D,189,Q1,3.8,Ma,Q2,590,Q3,,,"Wotherspoon et al. 2014, 2015, Lee et al. 2015"
-NBSS,E,190,Q1,0.9,Ms,Q1,50,Q3,,,"Unpublished ReMi data (GNS, A. Kaiser & J. Louie); Unpublished HVSR (A. Kaiser)"
+MWDS,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+MWFS,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,conflicts exist with Cousins1996
+MWZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,Perrin2015 VanHoutte2017,
+MXZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,Perrin2015 VanHoutte2017,
+NAAS,E,150,Q3,2,I,Q3,200,Q3,,Perrin2015,
+NAMS,C,268,Q3,0.4,I,Q3,20,Q3,,McVerry2011 VanHoutte2017,
+NBLC,D,189,Q1,3.8,Ma,Q2,590,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+NBSS,E,190,Q1,0.9,Ms,Q1,50,Q3,,Kaiser2006b VanHoutte2017,
 NCBS,D,210,Q3,0.7,Mw,Q2,50,Q3,046A,,
-NCDS,E,162,Q3,1.25,I,Q2,110,Q3,,,Unpublished HVSR (C. Van Houtte)
-NCHS,E,200,Q3,2.2,Mw,Q3,200,Q3,,,Unpublished HVSR (C. Van Houtte)
-NELS,B,1000,Q3,0.8,Mw,Q2,3,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte % A. Kaiser)
-NEWS,B,1000,Q3,0,Mn,Q2,0,Q3,,,"Perrin et al. 2015 (conflicts exist with Cousins et al. 1996), Unpublished HVSR (A. Kaiser)"
-NGHS,B,800,Q3,0.23,Mw,Q3,7,Q3,,,Unpublished HVSR (C. Van Houtte)
-NLMS,C,460,Q3,0.22,Ms,Q1,20,Q3,,,Unpublished HVSR (C. Van Houtte & A. Kaiser)
-NMPS,B,900,Q3,-1,Mn,Q2,7,Q3,,,Unpublished HVSR (C. Van Houtte)
-NNBS,D,204,Q1,4.9,Ma,Q2,680,Q3,,,"Wotherspoon et al. 2014, 2015, Lee et al. 2015"
-NNZ,B,1100,Q3,-1,Mn,Q1,0,Q3,,,Unpublished HVSR (C. Van Houtte)
-NPCS,D,350,Q3,1.3,Mw,Q3,200,Q3,,,Unpublished HVSR (C. Van Houtte)
-NSBS,D,210,Q3,1,Mw,Q1,100,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-NSPS,B,900,Q3,1,Mw,Q2,2,Q3,,,"Unpublished HVSR (C. Van Houtte), Cousins et al. 1996 "
-NWFS,B,800,Q3,<0.1,I,Q3,7,Q3,,,Cousins et al. 1996
-NZAS,D,210,Q3,0.8,I,Q3,60,Q3,,,Perrin et al. 2015
-OAMS,C,312,Q3,0.38,I,Q3,30,Q3,,,McVerry 2011
-ODZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-OHSS,D,210,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
-OPCS,E,210,Q3,1,Mw,Q3,75,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-OPSS,C,270,Q3,0.4,I,Q3,40,Q3,,,Perrin et al. 2015 
-OPWS,D,210,Q3,0.7,I,Q3,50,Q3,,,Perrin et al. 2015
-OPZ,A,1500,Q3,-1,Mn,Q1,0,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-ORCS,D,350,Q3,1,Mw,Q1,100,Q3,,,Unpublished HVSR (C. Van Houtte)
-OTKS,D,210,Q3,2,Mw,Q1,180,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-OXZ,B,1000,Q3,0.9,Mw,Q1,0,Q3,,,Perrin et al. 2015; Kaiser et al. 2013
-PAPS,D,200,Q3,1.4,Mw,Q1,100,Q3,,,Unpublished HVSR (C. Van Houtte)
-PARS,B,760,Q3,0.8,Mw,Q1,0,Q3,,,Kaiser et al. 2013; Kaiser et al. 2014
-PEEC,D,425,Q3,0.6,I,Q3,60,Q3,,,Perrin et al. 2015 (some conflicts with Cousins et al. 1996)
-PFAS,B,900,Q3,0.13,Ms,Q1,0,Q2,,,Unpublished HVSR (C. Van Houtte)
-PGFS,D,210,Q3,0.67,Ms,Q1,50,Q3,,,Unpublished HVSR (C. Van Houtte); Perrin et al. 2015
-PGMS,D,200,Q2,2,Ms,Q2,250,Q3,,,"Unpublished ReMi data (GNS, A. Kaiser & J. Louie); Unpublished HVSR (C. Van Houtte), Boon et al. 2010"
-PHFS,B,1000,Q3,0.25,Mw,Q3,0,Q3,,,"Perrin et al. 2015, Unpublished HVSR (C. Van Houtte)"
-PHHS,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-PIPS,E,210,Q3,>2,I,Q3,250,Q3,,,"Perrin et al. 2015, Semmens et al. 2010"
-PKIS,D,330,Q3,0.8,I,Q3,100,Q3,,,Perrin et al. 2015 (conflicts exist with Cousins et al. 1996)
-PNBS,D,270,Q3,0.75,I,Q3,60,Q3,,,Perrin et al. 2015
-PNMS,D,210,Q3,1.2,I,Q3,100,Q3,,,Perrin et al. 2015
-PNRS,D,270,Q3,0.75,I,Q3,60,Q3,,,Perrin et al. 2015
-POKS,C,330,Q3,0.25,Ms,Q2,20,Q3,,,"Perrin et al. 2015, Unpublished HVSR (A. Kaiser)"
-POLS,C,275,Q3,0.4,Ms,Q1,25,Q2,,,"Unpublished HVSR (C. Van Houtte), McVerry 2011 at 708A"
-POTS,B,1000,Q3,-1,Mn,Q1,0,Q2,,,Unpublished HVSR (A. Kaiser)
-PPHS,E,180,Q1,5.9,Ma,Q2,670,Q3,,,"Wotherspoon et al. 2014, 2015, Lee et al. 2015"
-PRKS,D,190,Q2,0.9,Ms,Q1,70,Q2,,,Unpublished HVSR (A. Kaiser); Kaiser & Louie 2006
-PRPC,E,196,Q1,>2,Ma,Q3,470,Q3,,,"Wotherspoon et al. 2014, 2015, Lee et al. 2015"
-PTOS,C,450,Q3,0.2,I,Q3,10,Q3,,,Perrin et al. 2015 (some conflicts with Cousins et al. 1996)
-PUZ,B,1000,Q3,0.4,Mw,Q3,0,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-PVCS,D,190,Q2,2,I,Q3,280,Q3,,,"Boon et al. 2010; Perrin et al. 2015, Unpublished ReMi (Kaiser & Louie)"
-PWES,B,1000,Q3,<0.1,I,Q3,5,Q3,,,Perrin et al. 2015 (conflicts with Cousins et al.)
+NCDS,E,162,Q3,1.25,I,Q2,110,Q3,,VanHoutte2017,
+NCHS,E,200,Q3,2.2,Mw,Q3,200,Q3,,VanHoutte2017,
+NELS,B,1000,Q3,0.8,Mw,Q2,3,Q3,,Perrin2015 VanHoutte2017,
+NEWS,B,1000,Q3,0,Mn,Q2,0,Q3,,Perrin2015 VanHoutte2017,conflicts exist with Cousins1996
+NGHS,B,800,Q3,0.23,Mw,Q3,7,Q3,,VanHoutte2017,
+NLMS,C,460,Q3,0.22,Ms,Q1,20,Q3,,VanHoutte2017,
+NMPS,B,900,Q3,-1,Mn,Q2,7,Q3,,VanHoutte2017,
+NNBS,D,204,Q1,4.9,Ma,Q2,680,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+NNZ,B,1100,Q3,-1,Mn,Q1,0,Q3,,VanHoutte2017,
+NPCS,D,350,Q3,1.3,Mw,Q3,200,Q3,,VanHoutte2017,
+NSBS,D,210,Q3,1,Mw,Q1,100,Q3,,Perrin2015 VanHoutte2017,
+NSPS,B,900,Q3,1,Mw,Q2,2,Q3,,Cousins1996 VanHoutte2017,
+NWFS,B,800,Q3,<0.1,I,Q3,7,Q3,,Cousins1996,
+NZAS,D,210,Q3,0.8,I,Q3,60,Q3,,Perrin2015,
+OAMS,C,312,Q3,0.38,I,Q3,30,Q3,,McVerry2011,
+ODZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+OHSS,D,210,Q3,>2,I,Q3,500,Q3,,Perrin2015,
+OPCS,E,210,Q3,1,Mw,Q3,75,Q3,,Perrin2015 VanHoutte2017,
+OPSS,C,270,Q3,0.4,I,Q3,40,Q3,,Perrin2015,
+OPWS,D,210,Q3,0.7,I,Q3,50,Q3,,Perrin2015,
+OPZ,A,1500,Q3,-1,Mn,Q1,0,Q3,,Perrin2015 VanHoutte2017,
+ORCS,D,350,Q3,1,Mw,Q1,100,Q3,,VanHoutte2017,
+OTKS,D,210,Q3,2,Mw,Q1,180,Q3,,Perrin2015 VanHoutte2017,
+OXZ,B,1000,Q3,0.9,Mw,Q1,0,Q3,,Kaiser2013 Perrin2015,
+PAPS,D,200,Q3,1.4,Mw,Q1,100,Q3,,VanHoutte2017,
+PARS,B,760,Q3,0.8,Mw,Q1,0,Q3,,Kaiser2013 Kaiser2014,
+PEEC,D,425,Q3,0.6,I,Q3,60,Q3,,Perrin2015,some conflicts with Cousins1996
+PFAS,B,900,Q3,0.13,Ms,Q1,0,Q2,,VanHoutte2017,
+PGFS,D,210,Q3,0.67,Ms,Q1,50,Q3,,Perrin2015 VanHoutte2017,
+PGMS,D,200,Q2,2,Ms,Q2,250,Q3,,Boon2010 Kaiser2006b VanHoutte2017,
+PHFS,B,1000,Q3,0.25,Mw,Q3,0,Q3,,Perrin2015 VanHoutte2017,
+PHHS,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+PIPS,E,210,Q3,>2,I,Q3,250,Q3,,Perrin2015 Semmens2010,
+PKIS,D,330,Q3,0.8,I,Q3,100,Q3,,Perrin2015,conflicts exist with Cousins1996
+PNBS,D,270,Q3,0.75,I,Q3,60,Q3,,Perrin2015,
+PNMS,D,210,Q3,1.2,I,Q3,100,Q3,,Perrin2015,
+PNRS,D,270,Q3,0.75,I,Q3,60,Q3,,Perrin2015,
+POKS,C,330,Q3,0.25,Ms,Q2,20,Q3,,Perrin2015 VanHoutte2017,
+POLS,C,275,Q3,0.4,Ms,Q1,25,Q2,,McVerry2011 VanHoutte2017,McVerry2011 at 708A
+POTS,B,1000,Q3,-1,Mn,Q1,0,Q2,,VanHoutte2017,
+PPHS,E,180,Q1,5.9,Ma,Q2,670,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+PRKS,D,190,Q2,0.9,Ms,Q1,70,Q2,,Kaiser2006a VanHoutte2017,
+PRPC,E,196,Q1,>2,Ma,Q3,470,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+PTOS,C,450,Q3,0.2,I,Q3,10,Q3,,Perrin2015,some conflicts with Cousins1996
+PUZ,B,1000,Q3,0.4,Mw,Q3,0,Q3,,Perrin2015 VanHoutte2017,
+PVCS,D,190,Q2,2,I,Q3,280,Q3,,Boon2010 Kaiser2006b Perrin2015,
+PWES,B,1000,Q3,<0.1,I,Q3,5,Q3,,Perrin2015,conflicts with Cousins1996
 PWZ,B,1000,Q3,0.5,I,Q3,0,Q3,PXZ,,
-PXZ,B,1000,Q3,0.5,Ms,Q2,0,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-PYZ,B,1000,Q3,0.4,Mu,Q2,0,Q3,,,"Unpublished HVSR (C. Van Houtte), Perrin et al. 2015"
-QCCS,D,270,Q3,0.28,Ms,Q1,20,Q3,,,Perrin et al. 2015; Unpublished HVSR (A. Kaiser & C. Van Houtte)
-QRZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-QTPS,D,350,Q3,0.95,Mw,Q1,90,Q3,,,"Unpublished HVSR (C. Van Houtte), McVerry 2011 at 940A"
-RCBS,B,800,Q3,0.5,Mw,Q3,8,Q2,,,Massey et al. 2016; Kaiser et al. 2014
-RCS1,D,270,Q3,1.1,I,Q3,100,Q3,,,Perrin et al. 2015
-#RCS2,D,270,Q3,1,I,Q3,50,Q3,,,Perrin et al. 2015
-RDCS,C,270,Q3,0.22,Mw,Q2,20,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-REHS,E,155,Q1,>2,Ms,Q3,640,Q3,,,"Wotherspoon et al. 2014, 2015; Kaiser et al. 2013, Lee et al. 2015"
-RHBS,B,900,Q3,0.45,Mw,Q3,9,Q2,,,Massey et al. 2016; Kaiser et al. 2014
-RHSC,D,286,Q1,5.2,Ma,Q2,440,Q3,,,"Wotherspoon et al. 2014, 2015, Lee et al. 2015"
-RKAC,D,210,Q3,>2,I,Q3,810,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-ROLC,D,210,Q3,>2,I,Q3,400,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-ROPS,D,210,Q3,0.8,I,Q3,60,Q3,,,"Perrin et al. 2015, Cousin et al. 1996"
-RPCS,D,210,Q3,>2,I,Q3,300,Q3,,,(conflicts exist with Perrin et al. 2015)
-RPZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,,Unpublished HVSR (C. Van Houtte); Kaiser et al. 2013
-RQGS,D,246,Q1,0.6,Mu,Q1,46,Q1,,,Semmens et al. 2010; Taber & Richardson 1992; Unpublished ReMi (Kaiser & Louie)
-RRKS,D,270,Q3,0.9,Mw,Q2,80,Q3,,,"Perrin et al. 2015, Unpublished HVSR (C. Van Houtte)"
-RTZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-RUAS,C,270,Q3,0.5,Mw,Q3,40,Q3,,,"Perrin et al. 2015, Unpublished HVSR (C. Van Houtte)"
-SACS,E,210,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
-SBRC,D,210,Q3,>2,I,Q3,420,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-SCAC,D,270,Q3,0.9,Mw,Q2,70,Q3,,,"Perrin et al. 2015, Kaiser et al. 2013"
-SEAS,C,210,Q3,0.3,I,Q3,30,Q3,,,Perrin et al. 2015
-SECF,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
+PXZ,B,1000,Q3,0.5,Ms,Q2,0,Q3,,Perrin2015 VanHoutte2017,
+PYZ,B,1000,Q3,0.4,Mu,Q2,0,Q3,,Perrin2015 VanHoutte2017,
+QCCS,D,270,Q3,0.28,Ms,Q1,20,Q3,,Perrin2015 VanHoutte2017,
+QRZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,Perrin2015 VanHoutte2017,
+QTPS,D,350,Q3,0.95,Mw,Q1,90,Q3,,McVerry2011 VanHoutte2017,McVerry2011 at 940A
+RCBS,B,800,Q3,0.5,Mw,Q3,8,Q2,,Kaiser2014 Massey2016,
+RCS1,D,270,Q3,1.1,I,Q3,100,Q3,,Perrin2015,
+#RCS2,D,270,Q3,1,I,Q3,50,Q3,,Perrin2015,
+RDCS,C,270,Q3,0.22,Mw,Q2,20,Q3,,Perrin2015 VanHoutte2017,
+REHS,E,155,Q1,>2,Ms,Q3,640,Q3,,Kaiser2013 Lee2015 Wotherspoon2014 Wotherspoon2015,
+RHBS,B,900,Q3,0.45,Mw,Q3,9,Q2,,Kaiser2014 Massey2016,
+RHSC,D,286,Q1,5.2,Ma,Q2,440,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+RKAC,D,210,Q3,>2,I,Q3,810,Q3,,Lee2015 Perrin2015,
+ROLC,D,210,Q3,>2,I,Q3,400,Q3,,Lee2015 Perrin2015,
+ROPS,D,210,Q3,0.8,I,Q3,60,Q3,,Cousins1996 Perrin2015,
+RPCS,D,210,Q3,>2,I,Q3,300,Q3,,,conflicts exist with Perrin2015
+RPZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,Kaiser2013 VanHoutte2017,
+RQGS,D,246,Q1,0.6,Mu,Q1,46,Q1,,Kaiser2006b Taber1992 Semmens2010,
+RRKS,D,270,Q3,0.9,Mw,Q2,80,Q3,,Perrin2015 VanHoutte2017,
+RTZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+RUAS,C,270,Q3,0.5,Mw,Q3,40,Q3,,Perrin2015 VanHoutte2017,
+SACS,E,210,Q3,>2,I,Q3,500,Q3,,Perrin2015,
+SBRC,D,210,Q3,>2,I,Q3,420,Q3,,Lee2015 Perrin2015,
+SCAC,D,270,Q3,0.9,Mw,Q2,70,Q3,,Kaiser2013 Perrin2015,
+SEAS,C,210,Q3,0.3,I,Q3,30,Q3,,Perrin2015,
+SECF,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
 SEDS,D,270,Q3,1,I,Q3,50,Q3,RCS2,,
-SEVS,D,210,Q3,1.1,Ms,Q2,100,Q3,,,Unpublished HVSR (A. Kaiser); Boon et al. 2010
-SHFC,D,270,Q3,0.9,Mw,Q2,80,Q3,,,Kaiser et al. 2013; Dorn et al. 2010
-SHLC,D,201,Q1,>2,I,Q3,680,Q3,,,"Wotherspoon et al. 2014, 2015, Lee et al. 2015"
-SJFS,C,465,Q3,0.23,I,Q3,20,Q3,,,Perrin et al. 2015; McVerry 2011; Unpublished HVSR (C. Van Houtte) (conflicts exist)
-SKFS,D,140,Q2,0.8,I,Q3,25,Q3,,,Stephenson & Barker 1999; Barker 1996
-SLRC,D,210,Q3,>2,I,Q3,360,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-SMHS,D,270,Q3,1.5,I,Q3,150,Q3,,,Perrin et al. 2015
-SMTC,D,219,Q1,6.3,Ma,Q2,720,Q3,,,"Wotherspoon et al. 2014, 2015, Lee et al. 2015"
-SNZO,B,1000,Q3,-1,I,Q3,0,Q3,,,Perrin et al. 2015
-SOCS,D,300,Q3,1.2,I,Q3,140,Q3,,,Perrin et al. 2015; Boon et al. 2010
-SOMS,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-SPFS,D,270,Q3,0.7,Ms,Q1,50,Q3,,,Perrin et al. 2015; Kaiser et al. 2013
-SPRS,D,270,Q3,0.8,Ms,Q2,60,Q3,,,Perrin et al. 2015; Kaiser et al. 2013
-STAS,E,150,Q3,>2,I,Q3,500,Q3,,,Perrin et al. 2015
+SEVS,D,210,Q3,1.1,Ms,Q2,100,Q3,,Boon2010 VanHoutte2017,
+SHFC,D,270,Q3,0.9,Mw,Q2,80,Q3,,Dorn2010 Kaiser2013,
+SHLC,D,201,Q1,>2,I,Q3,680,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+SJFS,C,465,Q3,0.23,I,Q3,20,Q3,,McVerry2011 Perrin2015 VanHoutte2017,conflicts exist
+SKFS,D,140,Q2,0.8,I,Q3,25,Q3,,Barker1996 Stephenson1999,
+SLRC,D,210,Q3,>2,I,Q3,360,Q3,,Lee2015 Perrin2015,
+SMHS,D,270,Q3,1.5,I,Q3,150,Q3,,Perrin2015,
+SMTC,D,219,Q1,6.3,Ma,Q2,720,Q3,,Lee2015 Wotherspoon2014 Wotherspoon2015,
+SNZO,B,1000,Q3,-1,I,Q3,0,Q3,,Perrin2015,
+SOCS,D,300,Q3,1.2,I,Q3,140,Q3,,Boon2010 Perrin2015,
+SOMS,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+SPFS,D,270,Q3,0.7,Ms,Q1,50,Q3,,Kaiser2013 Perrin2015,
+SPRS,D,270,Q3,0.8,Ms,Q2,60,Q3,,Kaiser2013 Perrin2015,
+STAS,E,150,Q3,>2,I,Q3,500,Q3,,Perrin2015,
 STKS,B,1000,Q3,0.3,Mw,Q2,0,Q3,D13C,,
-SUMS,B,1000,Q3,0.11,Mw,Q2,6,Q3,,,Perrin et al. NZSEE; Unpublished HVSR (A. Kaiser)
-SWNC,D,270,Q3,>2,I,Q3,410,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-SYZ,C,400,Q3,0.2,I,Q3,15,Q3,,,Perrin et al. 2015 (conflicts exist with Cousins et al. 1996)
-TAFS,D,298,Q3,1.4,I,Q3,200,Q3,,,Perrin et al. 2015; McVerry 2011; Unpublished HVSR (C. Van Houtte)
-TAIS,D,250,Q3,0.6,Mw,Q2,70,Q3,,,"Boon et al. 2010, Unpublished HVSR (A. Kaiser)"
-TBAS,D,210,Q3,1.1,Mw,Q1,80,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-TBCS,D,230,Q3,1.4,I,Q3,120,Q3,933B,,(conflicts with Perrin et al. 2015)
-TCW,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-TDHS,D,210,Q3,0.8,I,Q3,50,Q3,,,Perrin et al. 2015
-TEPS,D,267,Q1,1.2,Ms,Q1,120,Q2,,,McVerry 2011; Semmens et al. 2010; Unpublished ReMi data (A. Kaiser & J. Louie); Unpublished HVSR (A. Kaiser & C. Van Houtte)
-TFSS,D,274,Q1,1.3,Mw,Q2,110,Q2,,,"McVerry 2011; Semmens et al. 2010; Unpublished ReMi data (A. Kaiser & J. Louie), Unpublished HVSR (C. Van Houtte)"
-THHS,D,425,Q3,0.6,I,Q3,60,Q3,,,Perrin et al. 2015 (conflicts with Cousins et al.)
-THPS,D,270,Q3,1,I,Q3,80,Q3,,,Perrin et al. 2015 (conflicts with Cousins et al.)
-THZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,,Unpublished HVSR (C. Van Houtte)
-TIRS,C,600,Q3,0.1,I,Q3,10,Q3,,,Cousins et al. 1996
-TKAS,D,210,Q3,0.6,I,Q3,60,Q3,,,Perrin et al. 2015 (some conflicts with Cousins et al. 1996)
-TKHS,C,210,Q3,0.6,I,Q3,40,Q3,,,Perrin et al. 2015 (some conflicts with Cousins et al. 1996)
-TMBS,C,330,Q3,0.1,I,Q3,5,Q3,,,Perrin et al. 2015
-TMDS,B,800,Q3,0.35,Mw,Q2,10,Q3,,,Unpublished HVSR (C. Van Houtte)
-TMHS,C,690,Q3,0.1,I,Q3,20,Q3,,,Perrin et al. 2015
-TOKS,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-TOTS,D,210,Q3,1,I,Q3,100,Q3,,,Perrin et al. 2015
+SUMS,B,1000,Q3,0.11,Mw,Q2,6,Q3,,Perrin2015 VanHoutte2017,
+SWNC,D,270,Q3,>2,I,Q3,410,Q3,,Lee2015 Perrin2015,
+SYZ,C,400,Q3,0.2,I,Q3,15,Q3,,Perrin2015,conflicts exist with Cousins1996
+TAFS,D,298,Q3,1.4,I,Q3,200,Q3,,McVerry2011 Perrin2015 VanHoutte2017,
+TAIS,D,250,Q3,0.6,Mw,Q2,70,Q3,,Boon2010 VanHoutte2017,
+TBAS,D,210,Q3,1.1,Mw,Q1,80,Q3,,Perrin2015 VanHoutte2017,
+TBCS,D,230,Q3,1.4,I,Q3,120,Q3,933B,,conflicts with Perrin2015
+TCW,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+TDHS,D,210,Q3,0.8,I,Q3,50,Q3,,Perrin2015,
+TEPS,D,267,Q1,1.2,Ms,Q1,120,Q2,,Kaiser2006b McVerry2011 Semmens2010 VanHoutte2017,
+TFSS,D,274,Q1,1.3,Mw,Q2,110,Q2,,Kaiser2006b McVerry2011 Semmens2010 VanHoutte2017,
+THHS,D,425,Q3,0.6,I,Q3,60,Q3,,Perrin2015,conflicts with Cousins1996
+THPS,D,270,Q3,1,I,Q3,80,Q3,,Perrin2015,conflicts with Cousins1996
+THZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,VanHoutte2017,
+TIRS,C,600,Q3,0.1,I,Q3,10,Q3,,Cousins1996,
+TKAS,D,210,Q3,0.6,I,Q3,60,Q3,,Perrin2015,some conflicts with Cousins1996
+TKHS,C,210,Q3,0.6,I,Q3,40,Q3,,Perrin2015,some conflicts with Cousins1996
+TMBS,C,330,Q3,0.1,I,Q3,5,Q3,,Perrin2015,
+TMDS,B,800,Q3,0.35,Mw,Q2,10,Q3,,VanHoutte2017,
+TMHS,C,690,Q3,0.1,I,Q3,20,Q3,,Perrin2015,
+TOKS,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+TOTS,D,210,Q3,1,I,Q3,100,Q3,,Perrin2015,
 TOZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,,
-TPLC,D,210,Q3,>2,I,Q3,440,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-TPPS,C,454,Q3,0.15,Mw,Q3,10,Q3,,,McVerry 2011; Unpublished HVSR (C. Van Houtte)
-TRCS,C,690,Q3,0.15,I,Q3,25,Q3,,,Perrin et al. 2015
+TPLC,D,210,Q3,>2,I,Q3,440,Q3,,Lee2015 Perrin2015,
+TPPS,C,454,Q3,0.15,Mw,Q3,10,Q3,,McVerry2011 VanHoutte2017,
+TRCS,C,690,Q3,0.15,I,Q3,25,Q3,,Perrin2015,
 TRMS,B,900,Q3,<0.1,I,Q3,2,Q3,EKS1,,
-TRTS,C,400,Q3,0.2,I,Q3,10,Q2,,,Semmens et al. 2010
-TSFS,B,1000,Q3,0.38,Ms,Q2,0,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-TSZ,B,800,Q3,0.4,Mw,Q1,0,Q3,,,"Cousins et al. 1996, Unpublished HVSR (C. Van Houtte) "
-TTHS,D,210,Q3,1,I,Q3,80,Q3,,,Perrin et al. 2015
-TUDS,C,600,Q3,0.1,I,Q3,7,Q3,,,"Perrin et al. 2015, Cousins et al. 1996 (some conflicts)"
-TUHS,B,1000,Q3,0.6,Ms,Q3,0,Q3,,,Unpublished HVSR (C. Van Houtte) (conflicts exist with Cousins et al. 1996)
-TUZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-TWAS,D,210,Q3,2,Mw,Q3,150,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-UHCS,D,210,Q3,2,Mw,Q2,120,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-UHSS,D,210,Q3,0.6,Mw,Q3,60,Q3,,,"Perrin et al. 2015, Unpublished HVSR (A. Kaiser)"
-URZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,,Unpublished HVSR (C. Van Houtte) (conflicts with Perrin et al. 2015)
-UTKS,C,270,Q3,0.6,I,Q3,60,Q3,,,Perrin et al. 2015 (conflicts with Cousins et al.)
-VRZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-VUWS,D,250,Q2,0.8,Mw,Q2,80,Q3,,,"Semmens et al. 2010; Unpublished HVSR (A. Kaiser), Unpublished ReMi (Kaiser & Louie)"
-WAIS,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015 (conflicts exist with Cousins et al. 1996)
-WAKC,D,270,Q3,0.8,Ms,Q3,70,Q3,,,"Kaiser et al. 2013, Perrin et al. 2015"
-WAKS,C,555,Q3,0.1,I,Q3,6,Q3,,,"Perrin et al. 2015, Cousins et al. 1996 (some conflicts)"
-WANS,B,1000,Q3,0.2,Ms,Q2,0,Q3,,,Perrin et al. 2015; Unpublished HVSR (A. Kaiser)
-WAZ,C,690,Q3,0.1,I,Q3,6,Q3,,,Perrin et al. 2015
-WBCS,D,300,Q3,1.2,Mw,Q2,105,Q3,,,McVerry 2011 at 051B; Unpublished HVSR (C. Van Houtte)
-WBFS,B,800,Q3,<0.1,I,Q3,3,Q3,,,"Perrin et al. 2015, Cousins et al. 1996 (conflicts exist)"
-WCDS,D,250,Q3,1,Mw,Q1,100,Q3,,,Unpublished HVSR (C. Van Houtte)
-WCSS,D,270,Q3,1,Mw,Q3,90,Q3,,,"Kaiser et al. 2013, Cousins et al. 1996 (some conflicts with Perrin et al. 2015)"
-WDAS,E,120,Q1,1.6,Mu,Q2,62,Q2,,,"Stephenson & Barker 1992, Unpublished ReMi (Kaiser & Louie)"
-WDFS,D,270,Q3,70,Mn,Q3,60,Q3,,,"Unpublished HVSR (A. Kaiser), Perrin et al. 2015 (some conflicts with Cousins et al. 1996)"
-WDPS,D,270,Q3,1,Mw,Q3,100,Q3,,,Perrin et al. 2015; see site 120A/B; Unpublished HVSR (C. Van Houtte)
-WEL,B,1000,Q3,0.3,Mw,Q1,0,Q2,,,Perrin et al. 2015; Unpublished HVSR (A. Kaiser & C. Van Houtte)
-WEMS,D,265,Q1,0.8,Mw,Q2,80,Q2,,,"Semmens et al. 2010; Unpublished HVSR (C. Van Houtte), Unpublished ReMi (Kaiser & Louie)"
+TRTS,C,400,Q3,0.2,I,Q3,10,Q2,,Semmens2010,
+TSFS,B,1000,Q3,0.38,Ms,Q2,0,Q3,,Perrin2015 VanHoutte2017,
+TSZ,B,800,Q3,0.4,Mw,Q1,0,Q3,,Cousins1996 VanHoutte2017,
+TTHS,D,210,Q3,1,I,Q3,80,Q3,,Perrin2015,
+TUDS,C,600,Q3,0.1,I,Q3,7,Q3,,Cousins1996 Perrin2015,some conflicts
+TUHS,B,1000,Q3,0.6,Ms,Q3,0,Q3,,VanHoutte2017,conflicts exist with Cousins1996
+TUZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,Perrin2015 VanHoutte2017,
+TWAS,D,210,Q3,2,Mw,Q3,150,Q3,,Perrin2015 VanHoutte2017,
+UHCS,D,210,Q3,2,Mw,Q2,120,Q3,,Perrin2015 VanHoutte2017,
+UHSS,D,210,Q3,0.6,Mw,Q3,60,Q3,,Perrin2015 VanHoutte2017,
+URZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,VanHoutte2017,conflicts with Perrin2015
+UTKS,C,270,Q3,0.6,I,Q3,60,Q3,,Perrin2015,conflicts with Cousins1996
+VRZ,B,1000,Q3,-1,Mn,Q1,0,Q3,,Perrin2015 VanHoutte2017,
+VUWS,D,250,Q2,0.8,Mw,Q2,80,Q3,,Kaiser2006b Semmens2010 VanHoutte2017,
+WAIS,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,conflicts exist with Cousins1996
+WAKC,D,270,Q3,0.8,Ms,Q3,70,Q3,,Kaiser2013 Perrin2015,
+WAKS,C,555,Q3,0.1,I,Q3,6,Q3,,Cousins1996 Perrin2015,some conflicts
+WANS,B,1000,Q3,0.2,Ms,Q2,0,Q3,,Perrin2015 VanHoutte2017,
+WAZ,C,690,Q3,0.1,I,Q3,6,Q3,,Perrin2015,
+WBCS,D,300,Q3,1.2,Mw,Q2,105,Q3,,McVerry2011 VanHoutte2017,McVerry2011 at 051B
+WBFS,B,800,Q3,<0.1,I,Q3,3,Q3,,Cousins1996 Perrin2015,conflicts exist
+WCDS,D,250,Q3,1,Mw,Q1,100,Q3,,VanHoutte2017,
+WCSS,D,270,Q3,1,Mw,Q3,90,Q3,,Cousins1996 Kaiser2013,some conflicts with Perrin2015
+WDAS,E,120,Q1,1.6,Mu,Q2,62,Q2,,Kaiser2006b Stephenson1992,
+WDFS,D,270,Q3,70,Mn,Q3,60,Q3,,Perrin2015 VanHoutte2017,some conflicts with Cousins1996
+WDPS,D,270,Q3,1,Mw,Q3,100,Q3,,Perrin2015 VanHoutte2017,see site 120A/B
+WEL,B,1000,Q3,0.3,Mw,Q1,0,Q2,,Perrin2015 VanHoutte2017,
+WEMS,D,265,Q1,0.8,Mw,Q2,80,Q2,,Kaiser2006b Semmens2010 VanHoutte2017,
 WFSS,D,155,Q3,1.5,I,Q3,100,Q3,096A,,
-WHAS,C,270,Q3,0.4,I,Q3,40,Q3,,,Perrin et al. 2015
-WHFS,D,210,Q3,0.6,I,Q3,60,Q3,,,Perrin et al. 2015
-WHZ,B,1000,Q3,0.13,Mw,Q1,0,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
+WHAS,C,270,Q3,0.4,I,Q3,40,Q3,,Perrin2015,
+WHFS,D,210,Q3,0.6,I,Q3,60,Q3,,Perrin2015,
+WHZ,B,1000,Q3,0.13,Mw,Q1,0,Q3,,Perrin2015 VanHoutte2017,
 WICS,D,155,Q3,1.5,I,Q3,100,Q3,096A,,
-WIGC,D,270,Q3,1.2,Mw,Q2,100,Q3,,,Perrin et al. 2015; Kaiser et al. 2013
-WKHS,D,210,Q3,0.71,Mw,Q2,100,Q3,,,Perrin et al. 2015; Unpublished HVSR (C. Van Houtte)
-WKZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
-WNAS,D,239,Q2,0.78,Mw,Q2,64,Q2,,,McVerry 2011; Unpublished HVSR (C. Van Houtte)
-WNHS,B,1000,Q3,<0.1,Mw,Q3,3,Q3,,,Perrin et al. 2015; Unpublished HVSR (A. Kaiser & C. Van Houtte)
-WNKS,C,270,Q3,0.38,Ms,Q1,50,Q3,,,Perrin et al. 2015; Unpublished HVSR (A. Kaiser & C. Van Houtte)
-WNPS,D,330,Q3,2.1,I,Q3,300,Q3,,,Perrin et al. 2015
-WPWS,C,270,Q3,0.4,I,Q3,20,Q3,,,McVerry 2011 at 032A (some conflicts with Perrin et al. 2015)
-WRCS,D,270,Q3,1,I,Q3,100,Q3,,,Perrin et al. 2015
-WSFC,D,270,Q3,>2,I,Q3,790,Q3,,,"Perrin et al. 2015, Lee et al. 2015"
-WTMC,D,210,Q3,0.6,I,Q3,60,Q3,,,Perrin et al. 2015 (some conflicts with Cousins et al. 1996)
-WVAS,D,270,Q3,0.6,I,Q3,60,Q3,,,Cousins et al. 1996 (some conflicts with Perrin et al. 2015)
-WVFS,D,270,Q3,0.7,Mw,Q2,100,Q3,,,"Perrin et al. 2015, Unpublished HVSR (A. Kaiser)"
-WVHS,C,330,Q3,0.3,I,Q3,12,Q3,,,Perrin et al. 2015
-WVZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,,Perrin et al. 2015
+WIGC,D,270,Q3,1.2,Mw,Q2,100,Q3,,Kaiser2013 Perrin2015,
+WKHS,D,210,Q3,0.71,Mw,Q2,100,Q3,,Perrin2015 VanHoutte2017,
+WKZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
+WNAS,D,239,Q2,0.78,Mw,Q2,64,Q2,,McVerry2011 VanHoutte2017,
+WNHS,B,1000,Q3,<0.1,Mw,Q3,3,Q3,,Perrin2015 VanHoutte2017,
+WNKS,C,270,Q3,0.38,Ms,Q1,50,Q3,,Perrin2015 VanHoutte2017,
+WNPS,D,330,Q3,2.1,I,Q3,300,Q3,,Perrin2015,
+WPWS,C,270,Q3,0.4,I,Q3,20,Q3,,McVerry2011,at 032A some conflicts with Perrin2015
+WRCS,D,270,Q3,1,I,Q3,100,Q3,,Perrin2015,
+WSFC,D,270,Q3,>2,I,Q3,790,Q3,,Lee2015 Perrin2015,
+WTMC,D,210,Q3,0.6,I,Q3,60,Q3,,Perrin2015,some conflicts with Cousins1996
+WVAS,D,270,Q3,0.6,I,Q3,60,Q3,,Cousins1996,some conflicts with Perrin2015
+WVFS,D,270,Q3,0.7,Mw,Q2,100,Q3,,Perrin2015 VanHoutte2017,
+WVHS,C,330,Q3,0.3,I,Q3,12,Q3,,Perrin2015,
+WVZ,B,1000,Q3,<0.1,I,Q3,0,Q3,,Perrin2015,
