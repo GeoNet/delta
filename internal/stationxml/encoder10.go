@@ -224,7 +224,15 @@ func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
 
 		// in v1.0 we don't used a base PolynomialType
 		if s.Polynomial != nil {
+
+			// assume gain is related to the second coefficient
+			value := 1.0
+			if len(s.Polynomial.Coefficients) > 1 {
+				value = 1.0 / s.Polynomial.Coefficients[1].Value
+			}
+
 			gain = stationxml.GainType{
+				Value:     value,
 				Frequency: response.frequency,
 			}
 		}
