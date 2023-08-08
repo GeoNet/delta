@@ -17,6 +17,15 @@ const (
 	channelLast
 )
 
+var channelHeaders Header = map[string]int{
+	"Make":         channelMake,
+	"Model":        channelModel,
+	"Type":         channelType,
+	"Number":       channelNumber,
+	"SamplingRate": channelSamplingRate,
+	"Response":     channelResponse,
+}
+
 // Channel is used to describe a generic recording from a Datalogger.
 type Channel struct {
 	Make         string
@@ -62,44 +71,39 @@ func (c Channel) Less(comp Channel) bool {
 
 type ChannelList []Channel
 
-func (s ChannelList) Len() int           { return len(s) }
-func (s ChannelList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s ChannelList) Less(i, j int) bool { return s[i].Less(s[j]) }
+func (c ChannelList) Len() int           { return len(c) }
+func (c ChannelList) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
+func (c ChannelList) Less(i, j int) bool { return c[i].Less(c[j]) }
 
-func (s ChannelList) encode() [][]string {
-	data := [][]string{{
-		"Make",
-		"Model",
-		"Type",
-		"Number",
-		"SamplingRate",
-		"Response",
-	}}
+func (c ChannelList) encode() [][]string {
+	var data [][]string
 
-	for _, v := range s {
+	data = append(data, channelHeaders.Columns())
+
+	for _, row := range c {
 		data = append(data, []string{
-			strings.TrimSpace(v.Make),
-			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.Type),
-			strings.TrimSpace(v.number),
-			strings.TrimSpace(v.samplingRate),
-			strings.TrimSpace(v.Response),
+			strings.TrimSpace(row.Make),
+			strings.TrimSpace(row.Model),
+			strings.TrimSpace(row.Type),
+			strings.TrimSpace(row.number),
+			strings.TrimSpace(row.samplingRate),
+			strings.TrimSpace(row.Response),
 		})
 	}
 
 	return data
 }
-func (s *ChannelList) decode(data [][]string) error {
-	var channels []Channel
 
+func (c *ChannelList) decode(data [][]string) error {
 	if !(len(data) > 1) {
 		return nil
 	}
 
-	for _, d := range data[1:] {
-		if len(d) != channelLast {
-			return fmt.Errorf("incorrect number of installed channel fields")
-		}
+	var channels []Channel
+
+	fields := channelHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
 		number, err := ParseInt(d[channelNumber])
 		if err != nil {
@@ -128,19 +132,19 @@ func (s *ChannelList) decode(data [][]string) error {
 		})
 	}
 
-	*s = ChannelList(channels)
+	*c = ChannelList(channels)
 
 	return nil
 }
 
 func LoadChannels(path string) ([]Channel, error) {
-	var s []Channel
+	var c []Channel
 
-	if err := LoadList(path, (*ChannelList)(&s)); err != nil {
+	if err := LoadList(path, (*ChannelList)(&c)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(ChannelList(s))
+	sort.Sort(ChannelList(c))
 
-	return s, nil
+	return c, nil
 }

@@ -1,22 +1,31 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strings"
 	"time"
 )
 
 const (
-	dataloggerMake int = iota
-	dataloggerModel
-	dataloggerSerial
-	dataloggerPlace
-	dataloggerRole
-	dataloggerStart
-	dataloggerEnd
-	dataloggerLast
+	deployedDataloggerMake int = iota
+	deployedDataloggerModel
+	deployedDataloggerSerial
+	deployedDataloggerPlace
+	deployedDataloggerRole
+	deployedDataloggerStart
+	deployedDataloggerEnd
+	deployedDataloggerLast
 )
+
+var deployedDataloggerHeaders Header = map[string]int{
+	"Make":       deployedDataloggerMake,
+	"Model":      deployedDataloggerModel,
+	"Serial":     deployedDataloggerSerial,
+	"Place":      deployedDataloggerPlace,
+	"Role":       deployedDataloggerRole,
+	"Start Date": deployedDataloggerStart,
+	"End Date":   deployedDataloggerEnd,
+}
 
 type DeployedDatalogger struct {
 	Install
@@ -27,70 +36,70 @@ type DeployedDatalogger struct {
 
 type DeployedDataloggerList []DeployedDatalogger
 
-func (d DeployedDataloggerList) Len() int           { return len(d) }
-func (d DeployedDataloggerList) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
-func (d DeployedDataloggerList) Less(i, j int) bool { return d[i].Install.Less(d[j].Install) }
+func (dd DeployedDataloggerList) Len() int           { return len(dd) }
+func (dd DeployedDataloggerList) Swap(i, j int)      { dd[i], dd[j] = dd[j], dd[i] }
+func (dd DeployedDataloggerList) Less(i, j int) bool { return dd[i].Install.Less(dd[j].Install) }
 
-func (d DeployedDataloggerList) encode() [][]string {
-	data := [][]string{{
-		"Make",
-		"Model",
-		"Serial",
-		"Place",
-		"Role",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range d {
+func (dd DeployedDataloggerList) encode() [][]string {
+
+	var data [][]string
+
+	data = append(data, deployedDataloggerHeaders.Columns())
+
+	for _, row := range dd {
 		data = append(data, []string{
-			strings.TrimSpace(v.Make),
-			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.Place),
-			strings.TrimSpace(v.Role),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Make),
+			strings.TrimSpace(row.Model),
+			strings.TrimSpace(row.Serial),
+			strings.TrimSpace(row.Place),
+			strings.TrimSpace(row.Role),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
-func (d *DeployedDataloggerList) decode(data [][]string) error {
-	var dataloggers []DeployedDatalogger
-	if len(data) > 1 {
-		for _, v := range data[1:] {
-			if len(v) != dataloggerLast {
-				return fmt.Errorf("incorrect number of installed datalogger fields")
-			}
-			var err error
+func (dd *DeployedDataloggerList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[dataloggerStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, v[dataloggerEnd]); err != nil {
-				return err
-			}
+	var deployedDataloggers []DeployedDatalogger
 
-			dataloggers = append(dataloggers, DeployedDatalogger{
-				Install: Install{
-					Equipment: Equipment{
-						Make:   strings.TrimSpace(v[dataloggerMake]),
-						Model:  strings.TrimSpace(v[dataloggerModel]),
-						Serial: strings.TrimSpace(v[dataloggerSerial]),
-					},
-					Span: Span{
-						Start: start,
-						End:   end,
-					},
-				},
-				Place: strings.TrimSpace(v[dataloggerPlace]),
-				Role:  strings.TrimSpace(v[dataloggerRole]),
-			})
+	fields := deployedDataloggerHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
+
+		start, err := time.Parse(DateTimeFormat, d[deployedDataloggerStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[deployedDataloggerEnd])
+		if err != nil {
+			return err
 		}
 
-		*d = DeployedDataloggerList(dataloggers)
+		deployedDataloggers = append(deployedDataloggers, DeployedDatalogger{
+			Install: Install{
+				Equipment: Equipment{
+					Make:   strings.TrimSpace(d[deployedDataloggerMake]),
+					Model:  strings.TrimSpace(d[deployedDataloggerModel]),
+					Serial: strings.TrimSpace(d[deployedDataloggerSerial]),
+				},
+				Span: Span{
+					Start: start,
+					End:   end,
+				},
+			},
+			Place: strings.TrimSpace(d[deployedDataloggerPlace]),
+			Role:  strings.TrimSpace(d[deployedDataloggerRole]),
+		})
 	}
+
+	*dd = DeployedDataloggerList(deployedDataloggers)
+
 	return nil
 }
 

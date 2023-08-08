@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -21,6 +20,19 @@ const (
 	polarityEnd
 	polarityLast
 )
+
+var polarityHeaders Header = map[string]int{
+	"Station":     polarityStation,
+	"Location":    polarityLocation,
+	"Sublocation": polaritySublocation,
+	"Subsource":   polaritySubsource,
+	"Primary":     polarityPrimary,
+	"Reversed":    polarityReversed,
+	"Method":      polarityMethod,
+	"Citation":    polarityCitation,
+	"Start Date":  polarityStart,
+	"End Date":    polarityEnd,
+}
 
 type Polarity struct {
 	Span
@@ -70,42 +82,35 @@ func (p PolarityList) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
 func (p PolarityList) Less(i, j int) bool { return p[i].Less(p[j]) }
 
 func (p PolarityList) encode() [][]string {
-	data := [][]string{{
-		"Station",
-		"Location",
-		"Sublocation",
-		"Subsource",
-		"Primary",
-		"Reversed",
-		"Method",
-		"Citation",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range p {
-		primary := strings.TrimSpace(v.primary)
-		if primary == "" && v.Primary {
-			primary = strconv.FormatBool(v.Primary)
+	var data [][]string
+
+	data = append(data, polarityHeaders.Columns())
+
+	for _, row := range p {
+		primary := strings.TrimSpace(row.primary)
+		if primary == "" && row.Primary {
+			primary = strconv.FormatBool(row.Primary)
 		}
 
-		reversed := strings.TrimSpace(v.reversed)
-		if reversed == "" && v.Reversed {
-			reversed = strconv.FormatBool(v.Reversed)
+		reversed := strings.TrimSpace(row.reversed)
+		if reversed == "" && row.Reversed {
+			reversed = strconv.FormatBool(row.Reversed)
 		}
 
 		data = append(data, []string{
-			strings.TrimSpace(v.Station),
-			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.Sublocation),
-			strings.TrimSpace(v.Subsource),
+			strings.TrimSpace(row.Station),
+			strings.TrimSpace(row.Location),
+			strings.TrimSpace(row.Sublocation),
+			strings.TrimSpace(row.Subsource),
 			primary,
 			reversed,
-			strings.TrimSpace(v.Method),
-			strings.TrimSpace(v.Citation),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Method),
+			strings.TrimSpace(row.Citation),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
@@ -115,23 +120,23 @@ func (p *PolarityList) decode(data [][]string) error {
 	}
 
 	var polarities []Polarity
-	for _, v := range data[1:] {
-		if len(v) != polarityLast {
-			return fmt.Errorf("incorrect number of installed polarity fields")
-		}
 
-		start, err := time.Parse(DateTimeFormat, v[polarityStart])
+	fields := polarityHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
+
+		start, err := time.Parse(DateTimeFormat, d[polarityStart])
 		if err != nil {
 			return err
 		}
 
-		end, err := time.Parse(DateTimeFormat, v[polarityEnd])
+		end, err := time.Parse(DateTimeFormat, d[polarityEnd])
 		if err != nil {
 			return err
 		}
 
 		var primary bool
-		if s := v[polarityPrimary]; s != "" {
+		if s := d[polarityPrimary]; s != "" {
 			v, err := strconv.ParseBool(s)
 			if err != nil {
 				return err
@@ -140,7 +145,7 @@ func (p *PolarityList) decode(data [][]string) error {
 		}
 
 		var reversed bool
-		if s := v[polarityReversed]; s != "" {
+		if s := d[polarityReversed]; s != "" {
 			v, err := strconv.ParseBool(s)
 			if err != nil {
 				return err
@@ -149,20 +154,20 @@ func (p *PolarityList) decode(data [][]string) error {
 		}
 
 		polarities = append(polarities, Polarity{
-			Station:     strings.TrimSpace(v[polarityStation]),
-			Location:    strings.TrimSpace(v[polarityLocation]),
-			Sublocation: strings.TrimSpace(v[polaritySublocation]),
-			Subsource:   strings.TrimSpace(v[polaritySubsource]),
+			Station:     strings.TrimSpace(d[polarityStation]),
+			Location:    strings.TrimSpace(d[polarityLocation]),
+			Sublocation: strings.TrimSpace(d[polaritySublocation]),
+			Subsource:   strings.TrimSpace(d[polaritySubsource]),
 			Reversed:    reversed,
 			Primary:     primary,
-			Method:      strings.TrimSpace(v[polarityMethod]),
-			Citation:    strings.TrimSpace(v[polarityCitation]),
+			Method:      strings.TrimSpace(d[polarityMethod]),
+			Citation:    strings.TrimSpace(d[polarityCitation]),
 			Span: Span{
 				Start: start,
 				End:   end,
 			},
-			primary:  strings.TrimSpace(v[polarityPrimary]),
-			reversed: strings.TrimSpace(v[polarityReversed]),
+			primary:  strings.TrimSpace(d[polarityPrimary]),
+			reversed: strings.TrimSpace(d[polarityReversed]),
 		})
 	}
 

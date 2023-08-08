@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strings"
 	"time"
@@ -21,6 +20,18 @@ const (
 	gainEnd
 	gainLast
 )
+
+var gainHeaders Header = map[string]int{
+	"Station":       gainStation,
+	"Location":      gainLocation,
+	"Sublocation":   gainSublocation,
+	"Subsource":     gainSubsource,
+	"Scale Factor":  gainScaleFactor,
+	"Scale Bias":    gainScaleBias,
+	"Absolute Bias": gainAbsoluteBias,
+	"Start Date":    gainStart,
+	"End Date":      gainEnd,
+}
 
 // Gain defines times where sensor installation scaling or offsets are needed, these will be applied to the
 // existing values, i.e. A * X + B => A * A' * X + B * A' + A * B' + C
@@ -106,29 +117,22 @@ func (g GainList) Swap(i, j int)      { g[i], g[j] = g[j], g[i] }
 func (g GainList) Less(i, j int) bool { return g[i].Less(g[j]) }
 
 func (g GainList) encode() [][]string {
-	data := [][]string{{
-		"Station",
-		"Location",
-		"Sublocation",
-		"Subsource",
-		"Scale Factor",
-		"Scale Bias",
-		"Absolute Bias",
-		"Start Date",
-		"End Date",
-	}}
 
-	for _, v := range g {
+	var data [][]string
+
+	data = append(data, gainHeaders.Columns())
+
+	for _, row := range g {
 		data = append(data, []string{
-			strings.TrimSpace(v.Station),
-			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.Sublocation),
-			strings.TrimSpace(v.Subsource),
-			strings.TrimSpace(v.Scale.factor),
-			strings.TrimSpace(v.Scale.bias),
-			strings.TrimSpace(v.absolute),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Station),
+			strings.TrimSpace(row.Location),
+			strings.TrimSpace(row.Sublocation),
+			strings.TrimSpace(row.Subsource),
+			strings.TrimSpace(row.Scale.factor),
+			strings.TrimSpace(row.Scale.bias),
+			strings.TrimSpace(row.absolute),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
 
@@ -145,15 +149,15 @@ func (g *GainList) toFloat64(str string, def float64) (float64, error) {
 }
 
 func (g *GainList) decode(data [][]string) error {
-	var gains []Gain
 	if !(len(data) > 1) {
 		return nil
 	}
 
-	for _, d := range data[1:] {
-		if len(d) != gainLast {
-			return fmt.Errorf("incorrect number of installed gain fields")
-		}
+	var gains []Gain
+
+	fields := gainHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
 		factor, err := g.toFloat64(d[gainScaleFactor], 1.0)
 		if err != nil {

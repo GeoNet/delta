@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -9,18 +8,31 @@ import (
 )
 
 const (
-	antennaMake int = iota
-	antennaModel
-	antennaSerial
-	antennaMark
-	antennaHeight
-	antennaNorth
-	antennaEast
-	antennaAzimuth
-	antennaStart
-	antennaEnd
-	antennaLast
+	installedAntennaMake int = iota
+	installedAntennaModel
+	installedAntennaSerial
+	installedAntennaMark
+	installedAntennaHeight
+	installedAntennaNorth
+	installedAntennaEast
+	installedAntennaAzimuth
+	installedAntennaStart
+	installedAntennaEnd
+	installedAntennaLast
 )
+
+var installedAntennaHeaders Header = map[string]int{
+	"Make":       installedAntennaMake,
+	"Model":      installedAntennaModel,
+	"Serial":     installedAntennaSerial,
+	"Mark":       installedAntennaMark,
+	"Height":     installedAntennaHeight,
+	"North":      installedAntennaNorth,
+	"East":       installedAntennaEast,
+	"Azimuth":    installedAntennaAzimuth,
+	"Start Date": installedAntennaStart,
+	"End Date":   installedAntennaEnd,
+}
 
 type InstalledAntenna struct {
 	Install
@@ -34,113 +46,110 @@ type InstalledAntenna struct {
 
 type InstalledAntennaList []InstalledAntenna
 
-func (a InstalledAntennaList) Len() int           { return len(a) }
-func (a InstalledAntennaList) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a InstalledAntennaList) Less(i, j int) bool { return a[i].Install.Less(a[j].Install) }
+func (ia InstalledAntennaList) Len() int           { return len(ia) }
+func (ia InstalledAntennaList) Swap(i, j int)      { ia[i], ia[j] = ia[j], ia[i] }
+func (ia InstalledAntennaList) Less(i, j int) bool { return ia[i].Install.Less(ia[j].Install) }
 
-func (a InstalledAntennaList) encode() [][]string {
-	data := [][]string{{
-		"Make",
-		"Model",
-		"Serial",
-		"Mark",
-		"Height",
-		"North",
-		"East",
-		"Azimuth",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range a {
+func (ia InstalledAntennaList) encode() [][]string {
+	var data [][]string
+
+	data = append(data, installedAntennaHeaders.Columns())
+
+	for _, row := range ia {
 		data = append(data, []string{
-			strings.TrimSpace(v.Make),
-			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.Mark),
-			strings.TrimSpace(v.vertical),
-			strings.TrimSpace(v.north),
-			strings.TrimSpace(v.east),
-			strings.TrimSpace(v.azimuth),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Make),
+			strings.TrimSpace(row.Model),
+			strings.TrimSpace(row.Serial),
+			strings.TrimSpace(row.Mark),
+			strings.TrimSpace(row.vertical),
+			strings.TrimSpace(row.north),
+			strings.TrimSpace(row.east),
+			strings.TrimSpace(row.azimuth),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
 	return data
 }
 
-func (a *InstalledAntennaList) decode(data [][]string) error {
-	var antennas []InstalledAntenna
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != antennaLast {
-				return fmt.Errorf("incorrect number of installed antenna fields")
-			}
-			var err error
+func (ia *InstalledAntennaList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
 
-			var height, north, east float64
-			if height, err = strconv.ParseFloat(d[antennaHeight], 64); err != nil {
-				return err
-			}
-			if north, err = strconv.ParseFloat(d[antennaNorth], 64); err != nil {
-				return err
-			}
-			if east, err = strconv.ParseFloat(d[antennaEast], 64); err != nil {
-				return err
-			}
+	var installedAntennas []InstalledAntenna
 
-			var azimuth float64
-			if azimuth, err = strconv.ParseFloat(d[antennaAzimuth], 64); err != nil {
-				return err
-			}
+	fields := installedAntennaHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[antennaStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, d[antennaEnd]); err != nil {
-				return err
-			}
-
-			antennas = append(antennas, InstalledAntenna{
-				Install: Install{
-					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[antennaMake]),
-						Model:  strings.TrimSpace(d[antennaModel]),
-						Serial: strings.TrimSpace(d[antennaSerial]),
-					},
-					Span: Span{
-						Start: start,
-						End:   end,
-					},
-				},
-				Offset: Offset{
-					Vertical: height,
-					North:    north,
-					East:     east,
-
-					vertical: strings.TrimSpace(d[antennaHeight]),
-					north:    strings.TrimSpace(d[antennaNorth]),
-					east:     strings.TrimSpace(d[antennaEast]),
-				},
-				Mark:    strings.TrimSpace(d[antennaMark]),
-				Azimuth: azimuth,
-				azimuth: strings.TrimSpace(d[antennaAzimuth]),
-			})
+		height, err := strconv.ParseFloat(d[installedAntennaHeight], 64)
+		if err != nil {
+			return err
+		}
+		north, err := strconv.ParseFloat(d[installedAntennaNorth], 64)
+		if err != nil {
+			return err
+		}
+		east, err := strconv.ParseFloat(d[installedAntennaEast], 64)
+		if err != nil {
+			return err
 		}
 
-		*a = InstalledAntennaList(antennas)
+		azimuth, err := strconv.ParseFloat(d[installedAntennaAzimuth], 64)
+		if err != nil {
+			return err
+		}
+
+		start, err := time.Parse(DateTimeFormat, d[installedAntennaStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[installedAntennaEnd])
+		if err != nil {
+			return err
+		}
+
+		installedAntennas = append(installedAntennas, InstalledAntenna{
+			Install: Install{
+				Equipment: Equipment{
+					Make:   strings.TrimSpace(d[installedAntennaMake]),
+					Model:  strings.TrimSpace(d[installedAntennaModel]),
+					Serial: strings.TrimSpace(d[installedAntennaSerial]),
+				},
+				Span: Span{
+					Start: start,
+					End:   end,
+				},
+			},
+			Offset: Offset{
+				Vertical: height,
+				North:    north,
+				East:     east,
+
+				vertical: strings.TrimSpace(d[installedAntennaHeight]),
+				north:    strings.TrimSpace(d[installedAntennaNorth]),
+				east:     strings.TrimSpace(d[installedAntennaEast]),
+			},
+			Mark:    strings.TrimSpace(d[installedAntennaMark]),
+			Azimuth: azimuth,
+			azimuth: strings.TrimSpace(d[installedAntennaAzimuth]),
+		})
 	}
+
+	*ia = InstalledAntennaList(installedAntennas)
+
 	return nil
 }
 
 func LoadInstalledAntennas(path string) ([]InstalledAntenna, error) {
-	var a []InstalledAntenna
+	var ia []InstalledAntenna
 
-	if err := LoadList(path, (*InstalledAntennaList)(&a)); err != nil {
+	if err := LoadList(path, (*InstalledAntennaList)(&ia)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(InstalledAntennaList(a))
+	sort.Sort(InstalledAntennaList(ia))
 
-	return a, nil
+	return ia, nil
 }

@@ -22,6 +22,13 @@ const (
 	placenameLast
 )
 
+var placenameHeaders Header = map[string]int{
+	"Name":      placenameName,
+	"Latitude":  placenameLatitude,
+	"Longitude": placenameLongitude,
+	"Level":     placenameLevel,
+}
+
 // Placename is used to describe distances and azimuths to known places.
 type Placename struct {
 	Name      string
@@ -173,60 +180,61 @@ func (p PlacenameList) Less(i, j int) bool {
 }
 
 func (p PlacenameList) encode() [][]string {
-	data := [][]string{{
-		"Name",
-		"Latitude",
-		"Longitude",
-		"Level",
-	}}
+	var data [][]string
 
-	for _, v := range p {
+	data = append(data, placenameHeaders.Columns())
+
+	for _, row := range p {
 		data = append(data, []string{
-			strings.TrimSpace(v.Name),
-			strings.TrimSpace(v.latitude),
-			strings.TrimSpace(v.longitude),
-			strconv.Itoa(v.Level),
+			strings.TrimSpace(row.Name),
+			strings.TrimSpace(row.latitude),
+			strings.TrimSpace(row.longitude),
+			strconv.Itoa(row.Level),
 		})
 	}
+
 	return data
 }
 
 func (p *PlacenameList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var placenames []Placename
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != placenameLast {
-				return fmt.Errorf("incorrect number of placename fields")
-			}
 
-			latitude, err := strconv.ParseFloat(d[placenameLatitude], 64)
-			if err != nil {
-				return err
-			}
+	fields := placenameHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			longitude, err := strconv.ParseFloat(d[placenameLongitude], 64)
-			if err != nil {
-				return err
-			}
-
-			level, err := ParseInt(d[placenameLevel])
-			if err != nil {
-				return err
-			}
-
-			placenames = append(placenames, Placename{
-				Name:      strings.TrimSpace(d[placenameName]),
-				Latitude:  latitude,
-				Longitude: longitude,
-				Level:     level,
-
-				latitude:  strings.TrimSpace(d[placenameLatitude]),
-				longitude: strings.TrimSpace(d[placenameLongitude]),
-			})
+		latitude, err := strconv.ParseFloat(d[placenameLatitude], 64)
+		if err != nil {
+			return err
 		}
 
-		*p = PlacenameList(placenames)
+		longitude, err := strconv.ParseFloat(d[placenameLongitude], 64)
+		if err != nil {
+			return err
+		}
+
+		level, err := ParseInt(d[placenameLevel])
+		if err != nil {
+			return err
+		}
+
+		placenames = append(placenames, Placename{
+			Name:      strings.TrimSpace(d[placenameName]),
+			Latitude:  latitude,
+			Longitude: longitude,
+			Level:     level,
+
+			latitude:  strings.TrimSpace(d[placenameLatitude]),
+			longitude: strings.TrimSpace(d[placenameLongitude]),
+		})
 	}
+
+	*p = PlacenameList(placenames)
+
 	return nil
 }
 
@@ -278,13 +286,13 @@ func (p PlacenameList) Description(lat, lon float64) string {
 }
 
 func LoadPlacenames(path string) ([]Placename, error) {
-	var s []Placename
+	var p []Placename
 
-	if err := LoadList(path, (*PlacenameList)(&s)); err != nil {
+	if err := LoadList(path, (*PlacenameList)(&p)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(PlacenameList(s))
+	sort.Sort(PlacenameList(p))
 
-	return s, nil
+	return p, nil
 }

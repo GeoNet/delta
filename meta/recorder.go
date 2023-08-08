@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -9,20 +8,35 @@ import (
 )
 
 const (
-	recorderMake int = iota
-	recorderSensorModel
-	recorderDataloggerModel
-	recorderSerial
-	recorderStation
-	recorderLocation
-	recorderAzimuth
-	recorderMethod
-	recorderDip
-	recorderDepth
-	recorderStart
-	recorderEnd
-	recorderLast
+	installedRecorderMake int = iota
+	installedRecorderSensorModel
+	installedRecorderDataloggerModel
+	installedRecorderSerial
+	installedRecorderStation
+	installedRecorderLocation
+	installedRecorderAzimuth
+	installedRecorderMethod
+	installedRecorderDip
+	installedRecorderDepth
+	installedRecorderStart
+	installedRecorderEnd
+	installedRecorderLast
 )
+
+var installedRecorderHeaders Header = map[string]int{
+	"Make":       installedRecorderMake,
+	"Sensor":     installedRecorderSensorModel,
+	"Datalogger": installedRecorderDataloggerModel,
+	"Serial":     installedRecorderSerial,
+	"Station":    installedRecorderStation,
+	"Location":   installedRecorderLocation,
+	"Azimuth":    installedRecorderAzimuth,
+	"Method":     installedRecorderMethod,
+	"Dip":        installedRecorderDip,
+	"Depth":      installedRecorderDepth,
+	"Start Date": installedRecorderStart,
+	"End Date":   installedRecorderEnd,
+}
 
 type InstalledRecorder struct {
 	InstalledSensor
@@ -32,118 +46,114 @@ type InstalledRecorder struct {
 
 type InstalledRecorderList []InstalledRecorder
 
-func (r InstalledRecorderList) Len() int           { return len(r) }
-func (r InstalledRecorderList) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
-func (r InstalledRecorderList) Less(i, j int) bool { return r[i].Install.Less(r[j].Install) }
+func (ir InstalledRecorderList) Len() int           { return len(ir) }
+func (ir InstalledRecorderList) Swap(i, j int)      { ir[i], ir[j] = ir[j], ir[i] }
+func (ir InstalledRecorderList) Less(i, j int) bool { return ir[i].Install.Less(ir[j].Install) }
 
-func (r InstalledRecorderList) encode() [][]string {
-	data := [][]string{{
-		"Make",
-		"Sensor",
-		"Datalogger",
-		"Serial",
-		"Station",
-		"Location",
-		"Azimuth",
-		"Method",
-		"Dip",
-		"Depth",
-		"Start Date",
-		"End Date",
-	}}
+func (ir InstalledRecorderList) encode() [][]string {
+	var data [][]string
 
-	for _, v := range r {
+	data = append(data, installedRecorderHeaders.Columns())
+
+	for _, row := range ir {
 		data = append(data, []string{
-			strings.TrimSpace(v.Make),
-			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.DataloggerModel),
-			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.Station),
-			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.azimuth),
-			strings.TrimSpace(v.Method),
-			strings.TrimSpace(v.dip),
-			strings.TrimSpace(v.vertical),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Make),
+			strings.TrimSpace(row.Model),
+			strings.TrimSpace(row.DataloggerModel),
+			strings.TrimSpace(row.Serial),
+			strings.TrimSpace(row.Station),
+			strings.TrimSpace(row.Location),
+			strings.TrimSpace(row.azimuth),
+			strings.TrimSpace(row.Method),
+			strings.TrimSpace(row.dip),
+			strings.TrimSpace(row.vertical),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
-func (r *InstalledRecorderList) decode(data [][]string) error {
-	var recorders []InstalledRecorder
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != recorderLast {
-				return fmt.Errorf("incorrect number of installed recorder fields")
-			}
-			var err error
 
-			var azimuth, dip, depth float64
-			if azimuth, err = strconv.ParseFloat(d[recorderAzimuth], 64); err != nil {
-				return err
-			}
-			if dip, err = strconv.ParseFloat(d[recorderDip], 64); err != nil {
-				return err
-			}
-			if depth, err = strconv.ParseFloat(d[recorderDepth], 64); err != nil {
-				return err
-			}
+func (ir *InstalledRecorderList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[recorderStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, d[recorderEnd]); err != nil {
-				return err
-			}
+	var installedRecorders []InstalledRecorder
 
-			recorders = append(recorders, InstalledRecorder{
-				InstalledSensor: InstalledSensor{
-					Install: Install{
-						Equipment: Equipment{
-							Make:   strings.TrimSpace(d[recorderMake]),
-							Model:  strings.TrimSpace(d[recorderSensorModel]),
-							Serial: strings.TrimSpace(d[recorderSerial]),
-						},
-						Span: Span{
-							Start: start,
-							End:   end,
-						},
-					},
-					Orientation: Orientation{
-						Azimuth: azimuth,
-						Dip:     dip,
-						Method:  strings.TrimSpace(d[recorderMethod]),
+	fields := installedRecorderHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-						azimuth: strings.TrimSpace(d[recorderAzimuth]),
-						dip:     strings.TrimSpace(d[recorderDip]),
-					},
-					Offset: Offset{
-						Vertical: -depth,
-
-						vertical: strings.TrimSpace(d[recorderDepth]),
-					},
-					Station:  strings.TrimSpace(d[recorderStation]),
-					Location: strings.TrimSpace(d[recorderLocation]),
-				},
-				DataloggerModel: strings.TrimSpace(d[recorderDataloggerModel]),
-			})
+		azimuth, err := strconv.ParseFloat(d[installedRecorderAzimuth], 64)
+		if err != nil {
+			return err
+		}
+		dip, err := strconv.ParseFloat(d[installedRecorderDip], 64)
+		if err != nil {
+			return err
+		}
+		depth, err := strconv.ParseFloat(d[installedRecorderDepth], 64)
+		if err != nil {
+			return err
 		}
 
-		*r = InstalledRecorderList(recorders)
+		start, err := time.Parse(DateTimeFormat, d[installedRecorderStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[installedRecorderEnd])
+		if err != nil {
+			return err
+		}
+
+		installedRecorders = append(installedRecorders, InstalledRecorder{
+			InstalledSensor: InstalledSensor{
+				Install: Install{
+					Equipment: Equipment{
+						Make:   strings.TrimSpace(d[installedRecorderMake]),
+						Model:  strings.TrimSpace(d[installedRecorderSensorModel]),
+						Serial: strings.TrimSpace(d[installedRecorderSerial]),
+					},
+					Span: Span{
+						Start: start,
+						End:   end,
+					},
+				},
+				Orientation: Orientation{
+					Azimuth: azimuth,
+					Dip:     dip,
+					Method:  strings.TrimSpace(d[installedRecorderMethod]),
+
+					azimuth: strings.TrimSpace(d[installedRecorderAzimuth]),
+					dip:     strings.TrimSpace(d[installedRecorderDip]),
+				},
+				Offset: Offset{
+					Vertical: -depth,
+
+					vertical: strings.TrimSpace(d[installedRecorderDepth]),
+				},
+				Station:  strings.TrimSpace(d[installedRecorderStation]),
+				Location: strings.TrimSpace(d[installedRecorderLocation]),
+			},
+			DataloggerModel: strings.TrimSpace(d[installedRecorderDataloggerModel]),
+		})
 	}
+
+	*ir = InstalledRecorderList(installedRecorders)
+
 	return nil
 }
 
 func LoadInstalledRecorders(path string) ([]InstalledRecorder, error) {
-	var r []InstalledRecorder
+	var ir []InstalledRecorder
 
-	if err := LoadList(path, (*InstalledRecorderList)(&r)); err != nil {
+	if err := LoadList(path, (*InstalledRecorderList)(&ir)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(InstalledRecorderList(r))
+	sort.Sort(InstalledRecorderList(ir))
 
-	return r, nil
+	return ir, nil
 }

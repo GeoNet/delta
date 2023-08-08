@@ -1,6 +1,6 @@
 # MiniSEED Metadata Conventions
 
-In this document we describe the metadata conventions used for GeoNet sensors that collect miniSEED waveform data. This includes different data domains such as seismic sensors, water level pressure sensors and geomagnetic sensors. The documentation covered in this file specifically describes the conventions used for seismic sensors, although these apply generally to the other sensors which collect miniSEED waveform data. When exceptions to this exist, a specific document describing these will be available in the same folder as this document.
+In this document we describe the metadata conventions used for GeoNet sensors that collect miniSEED waveform data. This includes different data domains such as seismic sensors, acoustic/infrasound instruments, water level pressure sensors and geomagnetic sensors. The documentation covered in this file is written with seismic sensors in mind, but these apply generally to the other sensors which collect miniSEED waveform data. When exceptions to this exist they are either noted in a distinct section (infrasound, strong motion) or in a separate document (tsunami gauge) in the same folder as this document.
 
 ## Overview
 
@@ -49,14 +49,24 @@ _Regional Seismograph Networks_ use a four letter code, again with the last lett
 
 For both national and regional network station codes, the first two letters try to give an indication of where the station is (i.e. they will be an abbreviation of a close town or farm station name).
 
+#### Infrasound Sites
+
+Infrasound sensors are installed at stations following the weak motion naming conventions.
+
 ### Strong Motion Station Code Conventions
 
 In the past, the National Strong Motion Network recording sites tended to have a numbering system with a three digit prefix and a trailing letter. The current National Strong Motion Network site code naming convention is to use four letter codes describing where the station is, e.g. LPLS is near Lake Paringa, PRNS is near Paringa.
 
 As with weak motion, strong motion stations end in a particular character: 'S'.
 
-Due to the utility of co-locating strong motion sensors with sensors of other types, many strong motion sites exist at weak motion stations. Such sites will have the weak motion station code but a location code in the strong motion range (`2?`)
+## Colocated Sites
 
+In some cases, weak motion, tsunami, strong motion, or infrasound sites will be colocated at the same station. In these cases the station code follows the convention of the first installed sensor or the sensor fulfilling the station's primary data acquisition purpose. As examples:
+
+- Strong motion and infrasound sites installed at weak motion seismic network stations have the weak motion station code, because the weak motion site was installed first.
+- Strong motion sites installed at coastal sea level stations have the tsunami gauge station code. This is because the tsunami sensing is the primary purpose of the station.
+
+In all cases, sensor sites of different types are distinguished by their location code.
 
 ## Location Codes
 
@@ -101,6 +111,18 @@ These conventions reflect GeoNet's understanding of the purpose of its seismic s
 
 Ultimately, these conventions are used at the discretion of the person(s) responsible for the metadata describing equipment changes. If, for example, a sensor moved less than 200 m but the geologic or local site conditions changed substantially, a new station may be established to reflect this change.
 
+#### Infrasound Sensors
+
+Infrasound sensor site code conventions change follow the same principles as for seismic sites. The only difference is that the location code only changes when a sensor is moved more than 5 m from its previous position.
+
+All sensor position changes in an infrasound array need to be recorded in detail, even if the location code does not change. This is because array data processing needs to know the specific geometry of the array. 
+
+#### Strong Motion Sites
+
+Strong motion site code conventions follow the same principles as for seismic sites. However, for sites in buildings the location code changes when the sensor moves within the building. This is because the site data is strongly influenced by the structural response, which is not uniform within complex structures.
+
+Sites in GeoNet infrastructure (cabinets, vaults, VSAT huts) follow the generic seismic site codes, as the influence of these structures' response is considered negligible. Instead, only changes in ground conditions and position which would warrant seismic site code changes apply to sensors in these installations.
+
 ### Naming Conventions When Moving or Installating Borehole Sensors
 
 Naming conventions for borehole sensors follow the same logic as for surface sensors, but with variations as follows:
@@ -108,6 +130,7 @@ Naming conventions for borehole sensors follow the same logic as for surface sen
 - Lateral position changes for borehole sensors due to depth changes and borehole tilt do not invoke name change conventions.
 - If a borehole sensor installation depth changes by more than 2 m from the depth of the previous sensor, the station code remains the same but the location code changes. Effectively, this convention defines possible location codes at 2, 6, 10, 14, etc. metre depths in boreholes covering 0-4 m, 4-8m, etc. installation depth ranges which - though not rigidly required - should be considered in location code assignment to support long-term order in the metadata.
 - Regardless of depth or depth changes, a borehole sensor retains the station code of the equivalent surface installation.
+- These conventions apply to both weak and strong motion sensors.
 
 
 ## Channel Codes

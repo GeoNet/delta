@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -22,6 +21,19 @@ const (
 	mountLast
 )
 
+var mountHeaders Header = map[string]int{
+	"Mount":       mountCode,
+	"Network":     mountNetwork,
+	"Name":        mountName,
+	"Latitude":    mountLatitude,
+	"Longitude":   mountLongitude,
+	"Elevation":   mountElevation,
+	"Datum":       mountDatum,
+	"Description": mountDescription,
+	"Start Date":  mountStart,
+	"End Date":    mountEnd,
+}
+
 type Mount struct {
 	Reference
 	Point
@@ -37,89 +49,88 @@ func (m MountList) Swap(i, j int)      { m[i], m[j] = m[j], m[i] }
 func (m MountList) Less(i, j int) bool { return m[i].Code < m[j].Code }
 
 func (m MountList) encode() [][]string {
-	data := [][]string{{
-		"Mount",
-		"Network",
-		"Name",
-		"Latitude",
-		"Longitude",
-		"Elevation",
-		"Datum",
-		"Description",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range m {
+
+	var data [][]string
+
+	data = append(data, mountHeaders.Columns())
+
+	for _, row := range m {
 		data = append(data, []string{
-			strings.TrimSpace(v.Code),
-			strings.TrimSpace(v.Network),
-			strings.TrimSpace(v.Name),
-			strings.TrimSpace(v.latitude),
-			strings.TrimSpace(v.longitude),
-			strings.TrimSpace(v.elevation),
-			strings.TrimSpace(v.Datum),
-			strings.TrimSpace(v.Description),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Code),
+			strings.TrimSpace(row.Network),
+			strings.TrimSpace(row.Name),
+			strings.TrimSpace(row.latitude),
+			strings.TrimSpace(row.longitude),
+			strings.TrimSpace(row.elevation),
+			strings.TrimSpace(row.Datum),
+			strings.TrimSpace(row.Description),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
 func (m *MountList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var mounts []Mount
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != mountLast {
-				return fmt.Errorf("incorrect number of installed mount fields")
-			}
-			var err error
 
-			var lat, lon, elev float64
-			if lat, err = strconv.ParseFloat(d[mountLatitude], 64); err != nil {
-				return err
-			}
-			if lon, err = strconv.ParseFloat(d[mountLongitude], 64); err != nil {
-				return err
-			}
-			if elev, err = strconv.ParseFloat(d[mountElevation], 64); err != nil {
-				return err
-			}
+	fields := mountHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[mountStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, d[mountEnd]); err != nil {
-				return err
-			}
-
-			mounts = append(mounts, Mount{
-				Reference: Reference{
-					Code:    strings.TrimSpace(d[mountCode]),
-					Network: strings.TrimSpace(d[mountNetwork]),
-					Name:    strings.TrimSpace(d[mountName]),
-				},
-				Point: Point{
-					Latitude:  lat,
-					Longitude: lon,
-					Elevation: elev,
-					Datum:     strings.TrimSpace(d[mountDatum]),
-
-					latitude:  strings.TrimSpace(d[mountLatitude]),
-					longitude: strings.TrimSpace(d[mountLongitude]),
-					elevation: strings.TrimSpace(d[mountElevation]),
-				},
-				Span: Span{
-					Start: start,
-					End:   end,
-				},
-				Description: strings.TrimSpace(d[mountDescription]),
-			})
+		lat, err := strconv.ParseFloat(d[mountLatitude], 64)
+		if err != nil {
+			return err
+		}
+		lon, err := strconv.ParseFloat(d[mountLongitude], 64)
+		if err != nil {
+			return err
+		}
+		elev, err := strconv.ParseFloat(d[mountElevation], 64)
+		if err != nil {
+			return err
 		}
 
-		*m = MountList(mounts)
+		start, err := time.Parse(DateTimeFormat, d[mountStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[mountEnd])
+		if err != nil {
+			return err
+		}
+
+		mounts = append(mounts, Mount{
+			Reference: Reference{
+				Code:    strings.TrimSpace(d[mountCode]),
+				Network: strings.TrimSpace(d[mountNetwork]),
+				Name:    strings.TrimSpace(d[mountName]),
+			},
+			Point: Point{
+				Latitude:  lat,
+				Longitude: lon,
+				Elevation: elev,
+				Datum:     strings.TrimSpace(d[mountDatum]),
+
+				latitude:  strings.TrimSpace(d[mountLatitude]),
+				longitude: strings.TrimSpace(d[mountLongitude]),
+				elevation: strings.TrimSpace(d[mountElevation]),
+			},
+			Span: Span{
+				Start: start,
+				End:   end,
+			},
+			Description: strings.TrimSpace(d[mountDescription]),
+		})
 	}
+
+	*m = MountList(mounts)
+
 	return nil
 }
 
