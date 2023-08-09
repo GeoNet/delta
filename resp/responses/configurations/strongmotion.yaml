@@ -229,6 +229,17 @@ response:
       - BASALT-50
       reversed: false
     - dataloggers:
+      - BASALT
+      type: CG
+      label: LF
+      samplerate: 1
+      frequency: 0.02
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - BASALT-1Hz
+      reversed: false
+    - dataloggers:
       - ETNA
       - K2
       type: TG
