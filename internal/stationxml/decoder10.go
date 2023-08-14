@@ -5,7 +5,7 @@ import (
 	"math"
 	"sort"
 
-	"github.com/GeoNet/delta/internal/stationxml/v1.0"
+	stationxml "github.com/GeoNet/delta/internal/stationxml/v1.0"
 )
 
 type Decoder10 struct{}

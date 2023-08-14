@@ -4,12 +4,13 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/GeoNet/delta/meta"
-	"github.com/GeoNet/kit/sit_delta_pb"
-	"github.com/golang/protobuf/proto"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/GeoNet/delta/meta"
+	"github.com/GeoNet/kit/sit_delta_pb"
+	"github.com/golang/protobuf/proto"
 )
 
 func markPtr(mark meta.Mark) *meta.Mark {
