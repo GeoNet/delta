@@ -9,7 +9,7 @@ import (
 
 	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/kit/sit_delta_pb"
-	"github.com/golang/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 )
 
 func markPtr(mark meta.Mark) *meta.Mark {

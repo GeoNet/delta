@@ -10,7 +10,7 @@ import (
 
 	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/kit/gloria_pb"
-	"github.com/golang/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 )
 
 var (
