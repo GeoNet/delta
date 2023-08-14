@@ -5,7 +5,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/GeoNet/delta/internal/stationxml/v1.0"
+	stationxml "github.com/GeoNet/delta/internal/stationxml/v1.0"
 )
 
 type Encoder10 struct{}

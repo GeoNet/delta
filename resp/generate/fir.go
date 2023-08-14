@@ -4,7 +4,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/GeoNet/delta/internal/stationxml/v1.1"
+	stationxml "github.com/GeoNet/delta/internal/stationxml/v1.1"
 )
 
 type FIR struct {
