@@ -218,6 +218,44 @@ func main() {
 		exts[n.External] = append(exts[n.External], n.Code)
 	}
 
+	// keep the external network operational times constant even if not all stations are used.
+	// however, only stations which sensor installations are taken into account.
+	installed := make(map[string]interface{})
+	for _, sensor := range set.InstalledSensors() {
+		installed[sensor.Station] = true
+	}
+
+	spans := make(map[string]meta.Span)
+	for _, ext := range set.Networks() {
+		if ext.Code != ext.External {
+			continue
+		}
+		var span meta.Span
+		for _, net := range set.Networks() {
+			if net.External != ext.Code {
+				continue
+			}
+			for _, stn := range set.Stations() {
+				if stn.Network != net.Code {
+					continue
+				}
+				if _, ok := installed[stn.Code]; !ok {
+					continue
+				}
+				if span.Start.IsZero() || stn.Span.Start.Before(span.Start) {
+					span.Start = stn.Span.Start
+				}
+				if span.End.IsZero() || stn.Span.End.After(span.End) {
+					span.End = stn.Span.End
+				}
+			}
+		}
+		if span.Start.IsZero() || span.End.IsZero() {
+			continue
+		}
+		spans[ext.Code] = span
+	}
+
 	// find a map of stations that match
 	stns := make(map[string]meta.Station)
 	for _, s := range set.Stations() {
@@ -411,11 +449,17 @@ func main() {
 			})
 		}
 
+		// lookup the external network time span
+		span := spans[ext.Code]
+
 		// build a stationxml shadow external structure
 		externals = append(externals, stationxml.External{
 			Code:        ext.Code,
 			Description: ext.Description,
 			Restricted:  ext.Restricted,
+
+			StartDate: span.Start,
+			EndDate:   span.End,
 
 			Networks: networks,
 		})
