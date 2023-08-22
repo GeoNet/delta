@@ -11,6 +11,7 @@ import (
 	"regexp"
 	"strings"
 	"text/template"
+	"time"
 
 	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
@@ -95,6 +96,12 @@ type Settings struct {
 
 	output  string // output xml file, use - for stdout
 	changed bool   // only update existing file if a change is detected
+
+	active      bool          // only output stations with active channels
+	installed   bool          // set station times based on installation dates
+	operational bool          // only output operational channels
+	offset      time.Duration // provide a recently closed window for operational only requests")
+
 }
 
 func main() {
@@ -144,6 +151,11 @@ func main() {
 	flag.StringVar(&settings.output, "output", "", "output xml file, use \"-\" for stdout")
 	flag.BoolVar(&settings.changed, "changed", false, "only update existing file if a change is detected")
 
+	flag.BoolVar(&settings.installed, "installed", false, "set station times based on installation dates")
+	flag.BoolVar(&settings.operational, "operational", false, "only output operational channels")
+	flag.BoolVar(&settings.active, "active", false, "only output stations with active channels")
+	flag.DurationVar(&settings.offset, "operational-offset", 0, "provide a recently closed window for operational only requests")
+
 	flag.Func("freq", "response frequency (e.g B:1.0)", func(s string) error {
 		freq, err := NewFrequency(s)
 		if err != nil {
@@ -175,6 +187,9 @@ func main() {
 			skip[v] = true
 		}
 	}
+
+	// build an offset time if an operational check is needed
+	operational := time.Now().UTC().Add(-settings.offset)
 
 	// builder is used to manage response files
 	builder := NewBuilder(settings.resp, settings.corrections, freqs)
@@ -329,6 +344,11 @@ func main() {
 							continue
 						}
 
+						// check the collection span if only operational sites are wanted
+						if settings.operational && collection.Span.End.Before(operational) {
+							continue
+						}
+
 						// a correction adjusts a collection for site or equipment specific settings
 						for _, correction := range set.Corrections(collection) {
 
@@ -395,6 +415,37 @@ func main() {
 
 						Streams: streams,
 					})
+				}
+
+				// only process sites with actual channels wanted
+				if settings.active && len(channels) == 0 {
+					continue
+				}
+
+				// adjust the station times to match the channel stream times
+				if settings.installed {
+					var start, end time.Time
+					for _, channel := range channels {
+						for _, stream := range channel.Streams {
+							if start.IsZero() || stream.StartDate.Before(start) {
+								start = stream.StartDate
+							}
+							if end.IsZero() || stream.EndDate.After(end) {
+								end = stream.EndDate
+							}
+						}
+					}
+					if !start.IsZero() {
+						stn.Start = start
+					}
+					if !end.IsZero() {
+						stn.End = end
+					}
+				}
+
+				// check the collection span if only operational sites are wanted
+				if settings.operational && stn.End.Before(operational) {
+					continue
 				}
 
 				// use the station name, otherwise the station code.
