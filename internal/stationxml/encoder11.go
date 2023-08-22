@@ -510,8 +510,8 @@ func (e Encoder11) Network(root Root, external External) stationxml.NetworkType 
 					return stationxml.OpenRestrictedStatus
 				}
 			}(),
-			StartDate: e.toDateTime(external.Start()),
-			EndDate:   e.toDateTime(external.End()),
+			StartDate: e.toDateTime(external.StartDate),
+			EndDate:   e.toDateTime(external.EndDate),
 		},
 		Station: stations,
 	}

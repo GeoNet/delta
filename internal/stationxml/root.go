@@ -80,57 +80,16 @@ type Network struct {
 	Stations []Station
 }
 
-// Start returns the earliest Station start time in a Network.
-func (n Network) Start() time.Time {
-	var start time.Time
-	for _, s := range n.Stations {
-		if start.IsZero() || s.StartDate.Before(start) {
-			start = s.StartDate
-		}
-	}
-	return start
-}
-
-// End returns the latest Station end time in a Network.
-func (n Network) End() time.Time {
-	var end time.Time
-	for _, s := range n.Stations {
-		if end.IsZero() || s.EndDate.After(end) {
-			end = s.EndDate
-		}
-	}
-	return end
-}
-
 // External maps between an External Network and individal Networks.
 type External struct {
 	Code        string
 	Description string
 	Restricted  bool
 
+	StartDate time.Time
+	EndDate   time.Time
+
 	Networks []Network
-}
-
-// Start returns the earliest Station start time in an External Network.
-func (e External) Start() time.Time {
-	var start time.Time
-	for _, n := range e.Networks {
-		if t := n.Start(); start.IsZero() || t.Before(start) {
-			start = t
-		}
-	}
-	return start
-}
-
-// End returns the latest Station end time in an External Network.
-func (e External) End() time.Time {
-	var end time.Time
-	for _, n := range e.Networks {
-		if t := n.End(); end.IsZero() || t.After(end) {
-			end = t
-		}
-	}
-	return end
 }
 
 // Root describes the standard StationXML layout which can be used as the barebones for building version specific encoders.
