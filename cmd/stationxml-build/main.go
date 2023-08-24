@@ -97,11 +97,11 @@ type Settings struct {
 	output  string // output xml file, use - for stdout
 	changed bool   // only update existing file if a change is detected
 
-	active      bool          // only output stations with active channels
-	installed   bool          // set station times based on installation dates
-	operational bool          // only output operational channels
-	offset      time.Duration // provide a recently closed window for operational only requests")
+	active       bool // only output stations with active channels
+	installation bool // set station times based on installation dates
+	operational  bool // only output operational channels
 
+	offset time.Duration // provide a recently closed window for operational only requests")
 }
 
 func main() {
@@ -151,7 +151,7 @@ func main() {
 	flag.StringVar(&settings.output, "output", "", "output xml file, use \"-\" for stdout")
 	flag.BoolVar(&settings.changed, "changed", false, "only update existing file if a change is detected")
 
-	flag.BoolVar(&settings.installed, "installed", false, "set station times based on installation dates")
+	flag.BoolVar(&settings.installation, "installation", false, "set station times based on installation dates")
 	flag.BoolVar(&settings.operational, "operational", false, "only output operational channels")
 	flag.BoolVar(&settings.active, "active", false, "only output stations with active channels")
 	flag.DurationVar(&settings.offset, "operational-offset", 0, "provide a recently closed window for operational only requests")
@@ -344,8 +344,12 @@ func main() {
 							continue
 						}
 
-						// check the collection span if only operational sites are wanted
-						if settings.operational && collection.Span.End.Before(operational) {
+						// possibly check the collection span for only sites with currently installed sensors
+						if settings.operational && collection.InstalledSensor.Span.End.Before(operational) {
+							continue
+						}
+						// possibly check the collection span for only sites with currently installed dataloggers
+						if settings.operational && collection.DeployedDatalogger.Span.End.Before(operational) {
 							continue
 						}
 
@@ -423,7 +427,7 @@ func main() {
 				}
 
 				// adjust the station times to match the channel stream times
-				if settings.installed {
+				if settings.installation {
 					var start, end time.Time
 					for _, channel := range channels {
 						for _, stream := range channel.Streams {
@@ -435,16 +439,11 @@ func main() {
 							}
 						}
 					}
-					if !start.IsZero() {
-						stn.Start = start
-					}
-					if !end.IsZero() {
-						stn.End = end
-					}
+					stn.Start, stn.End = start, end
 				}
 
-				// check the collection span if only operational sites are wanted
-				if settings.operational && stn.End.Before(operational) {
+				// check that the station has dates assigned
+				if stn.Start.IsZero() || stn.End.IsZero() {
 					continue
 				}
 
