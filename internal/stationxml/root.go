@@ -148,10 +148,14 @@ func (r Root) Single(code string) (Root, bool) {
 					Create: r.Create,
 
 					Externals: []External{{
-						Code: e.Code,
+						Code:        e.Code,
+						Description: e.Description,
+						StartDate:   e.StartDate,
+						EndDate:     e.EndDate,
 						Networks: []Network{{
-							Code:     n.Code,
-							Stations: []Station{s},
+							Code:        n.Code,
+							Description: n.Description,
+							Stations:    []Station{s},
 						}},
 					}},
 				}
