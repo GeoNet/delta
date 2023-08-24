@@ -59,6 +59,10 @@ func (e Encoder12) Response(response *resp.ResponseType) *stationxml.ResponseTyp
 
 	for _, s := range response.Stages {
 
+		// from the stationxml documentation examples the poles and zeros are numbered from zero,
+		// but the xsd derived code will remove the "optional" number if it is set to zero.
+		// to avoid this the poles and zeros are numbered from one. The alternative is not to
+		// add a number which may be a future option.
 		var pz *stationxml.PolesZerosType
 		if s.PolesZeros != nil {
 			var zeros []stationxml.PoleZeroType
@@ -105,6 +109,7 @@ func (e Encoder12) Response(response *resp.ResponseType) *stationxml.ResponseTyp
 			}
 		}
 
+		// from the stationxml documentation examples the numerator and denominator coefficients are not numbered
 		var coeffs *stationxml.CoefficientsType
 		if s.Coefficients != nil {
 			var nums []stationxml.Numerator
@@ -143,12 +148,12 @@ func (e Encoder12) Response(response *resp.ResponseType) *stationxml.ResponseTyp
 			}
 		}
 
+		// from the stationxml documentation examples the numerator coefficients are not numbered
 		var fir *stationxml.FIRType
 		if s.FIR != nil {
 			var coeffs []stationxml.NumeratorCoefficient
 			for _, c := range s.FIR.NumeratorCoefficients {
 				coeffs = append(coeffs, stationxml.NumeratorCoefficient{
-					I:     c.I,
 					Value: c.Value,
 				})
 			}
@@ -174,6 +179,7 @@ func (e Encoder12) Response(response *resp.ResponseType) *stationxml.ResponseTyp
 			}
 		}
 
+		// from the stationxml documentation examples the polynomial coefficients are not numbered
 		var poly *stationxml.PolynomialType
 		if s.Polynomial != nil {
 			approx := stationxml.ToApproximationType(s.Polynomial.ApproximationType)
@@ -181,7 +187,6 @@ func (e Encoder12) Response(response *resp.ResponseType) *stationxml.ResponseTyp
 			var coeffs []stationxml.Coefficient
 			for _, c := range s.Polynomial.Coefficients {
 				coeffs = append(coeffs, stationxml.Coefficient{
-					Number:          stationxml.CounterType(c.Number),
 					FloatNoUnitType: stationxml.FloatNoUnitType{Value: c.Value},
 				})
 			}
@@ -266,6 +271,7 @@ func (e Encoder12) Response(response *resp.ResponseType) *stationxml.ResponseTyp
 		}
 	}
 
+	// from the stationxml documentation examples the polynomial coefficients are not numbered
 	var polynomial *stationxml.PolynomialType
 	if response.InstrumentPolynomial != nil {
 		approx := stationxml.ToApproximationType(response.InstrumentPolynomial.ApproximationType)
@@ -273,7 +279,6 @@ func (e Encoder12) Response(response *resp.ResponseType) *stationxml.ResponseTyp
 		var coeffs []stationxml.Coefficient
 		for _, c := range response.InstrumentPolynomial.Coefficients {
 			coeffs = append(coeffs, stationxml.Coefficient{
-				Number:          stationxml.CounterType(c.Number),
 				FloatNoUnitType: stationxml.FloatNoUnitType{Value: c.Value},
 			})
 		}
