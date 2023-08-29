@@ -1,7 +1,7 @@
 Station,Location,Band,Source,Sampling Rate,Axial,Reversed,Triggered,Start Date,End Date
 A11,10,E,H,100,false,false,true,1993-02-01T01:23:00Z,1993-02-21T08:48:00Z
 ABAZ,10,E,H,100,false,false,false,2008-10-13T04:00:00Z,2023-07-28T01:08:24Z
-ABAZ,10,H,H,100,false,false,false,2023-07-28T01:09:36Z,9999-01-01T00:00:00Z
+ABAZ,11,H,H,100,false,false,false,2023-07-28T01:09:36Z,9999-01-01T00:00:00Z
 AC1A,10,H,H,100,false,false,false,2001-09-12T03:00:01Z,2002-01-22T22:00:00Z
 AC2A,10,H,H,100,false,false,false,2001-09-13T02:00:01Z,2002-01-22T22:00:00Z
 AC3A,10,H,H,100,false,false,false,2001-07-31T23:00:00Z,2002-01-22T23:00:00Z
