@@ -66,6 +66,13 @@ func (s Set) Constituents() []Constituent {
 	return constituents
 }
 
+// Darts is a helper function to return a slice copy of Dart values.
+func (s Set) Darts() []Dart {
+	darts := make([]Dart, len(s.darts))
+	copy(darts, s.darts)
+	return darts
+}
+
 // DeployedDataloggers is a helper function to return a slice copy of DeployedDatalogger values.
 func (s Set) DeployedDataloggers() []DeployedDatalogger {
 	deployedDataloggers := make([]DeployedDatalogger, len(s.deployedDataloggers))
@@ -299,6 +306,17 @@ func (s Set) Class(station string) (Class, bool) {
 		return v, true
 	}
 	return Class{}, false
+}
+
+// Dart is a helper function to return a Dart value and true if one exists.
+func (s Set) Dart(station string) (Dart, bool) {
+	for _, v := range s.darts {
+		if station != v.Station {
+			continue
+		}
+		return v, true
+	}
+	return Dart{}, false
 }
 
 // Mark is a helper function to return a Mark value and true if one exists.
