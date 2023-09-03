@@ -14,9 +14,6 @@ github.com/google/go-cmp/cmp/internal/diff
 github.com/google/go-cmp/cmp/internal/flags
 github.com/google/go-cmp/cmp/internal/function
 github.com/google/go-cmp/cmp/internal/value
-# github.com/ozym/fdsn v0.0.0-20171207084408-450013a4209e
-## explicit
-github.com/ozym/fdsn/stationxml
 # golang.org/x/net v0.14.0
 ## explicit; go 1.17
 golang.org/x/net/html
