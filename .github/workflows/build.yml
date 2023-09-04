@@ -22,11 +22,7 @@ permissions:
   checks: write
 
 jobs:
-  delta-apps:
-    uses: GeoNet/Actions/.github/workflows/reusable-go-apps.yml@main
-
   delta-test:
-    needs: delta-apps
     runs-on: ubuntu-latest
     steps:
       - name: Checkout delta repo
@@ -39,9 +35,13 @@ jobs:
       - name: Run local tests
         run: go test ./tests
 
+  delta-apps:
+    needs: delta-test
+    uses: GeoNet/Actions/.github/workflows/reusable-go-apps.yml@main
+
   delta-deploy:
     if: github.ref == 'refs/heads/main'
-    needs: delta-test
+    needs: delta-apps
     runs-on: ubuntu-latest
     steps:
       - name: Trigger build in ac-tools
