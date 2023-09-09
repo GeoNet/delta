@@ -22,28 +22,29 @@ type Caster struct {
 }
 
 // NewCaster returns a Caster pointer after reading all expected config files.
-func NewCaster(base string) (*Caster, error) {
-	aliases, err := ReadAliases(filepath.Join(base, AliasesFile))
+func NewCaster(common, input string) (*Caster, error) {
+
+	formats, err := ReadFormats(filepath.Join(common, FormatsFile))
 	if err != nil {
 		return nil, err
 	}
 
-	formats, err := ReadFormats(filepath.Join(base, FormatsFile))
+	models, err := ReadModels(filepath.Join(common, ModelsFile))
 	if err != nil {
 		return nil, err
 	}
 
-	models, err := ReadModels(filepath.Join(base, ModelsFile))
+	aliases, err := ReadAliases(filepath.Join(input, AliasesFile))
 	if err != nil {
 		return nil, err
 	}
 
-	mounts, err := ReadMounts(filepath.Join(base, MountsFile))
+	mounts, err := ReadMounts(filepath.Join(input, MountsFile))
 	if err != nil {
 		return nil, err
 	}
 
-	users, err := ReadUsers(filepath.Join(base, UsersFile))
+	users, err := ReadUsers(filepath.Join(input, UsersFile))
 	if err != nil {
 		return nil, err
 	}

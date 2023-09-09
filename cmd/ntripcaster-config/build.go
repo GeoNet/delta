@@ -10,8 +10,8 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
-// Config is a function that extracts information from delta meta data and local csv files.
-func Build(set *meta.Set, caster *ntrip.Caster) (*Config, error) {
+// NewConfig extracts information from delta meta data and local csv files.
+func NewConfig(set *meta.Set, caster *ntrip.Caster) (*Config, error) {
 
 	var config Config
 

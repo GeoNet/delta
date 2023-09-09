@@ -9,8 +9,6 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-// Store bnc configuration as requred for a heira yaml file
-
 // MountConfig represents a set if ntripcaster mount point configuration details.
 type MountConfig struct {
 	Mount     string `yaml:"mount"`
