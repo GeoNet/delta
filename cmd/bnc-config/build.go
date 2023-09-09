@@ -8,8 +8,8 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
-// Build is a function that extracts information from delta meta data and local csv files.
-func Build(set *meta.Set, caster *ntrip.Caster, extra bool) (*Config, error) {
+// NewConfig is a function that extracts information from delta meta data and local csv files.
+func NewConfig(set *meta.Set, caster *ntrip.Caster, extra bool) (*Config, error) {
 
 	var config Config
 

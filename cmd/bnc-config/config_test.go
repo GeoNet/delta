@@ -26,13 +26,13 @@ func TestFiles_Config(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	caster, err := ntrip.NewCaster("./testdata")
+	caster, err := ntrip.NewCaster("./testdata", "./testdata")
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	// build config from test files
-	config, err := Build(set, caster, true)
+	config, err := NewConfig(set, caster, true)
 	if err != nil {
 		t.Fatal(err)
 	}

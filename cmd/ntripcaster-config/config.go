@@ -9,8 +9,6 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-// Store ntripcaster configuration as requred for a heira yaml file
-
 // ClientMountConfig represents a set if ntripcaster user configuration details.
 type UserConfig struct {
 	Username string `yaml:"username"`

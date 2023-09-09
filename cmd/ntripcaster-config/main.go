@@ -10,7 +10,16 @@ import (
 	"github.com/GeoNet/delta/internal/ntrip"
 )
 
+type Settings struct {
+	base   string // delta base directory
+	common string // ntrip common files directory
+	input  string // ntrip input files directory
+	output string // optional output file
+}
+
 func main() {
+
+	var settings Settings
 
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "\n")
@@ -25,40 +34,36 @@ func main() {
 		flag.PrintDefaults()
 	}
 
-	var base string
-	flag.StringVar(&base, "base", "", "delta base for config files")
-
-	var input string
-	flag.StringVar(&input, "input", "", "input base for ntrip config csv files")
-
-	var output string
-	flag.StringVar(&output, "output", "", "output config file")
+	flag.StringVar(&settings.base, "base", "", "delta base directory for config files")
+	flag.StringVar(&settings.common, "common", "", "ntrip common csv file directory")
+	flag.StringVar(&settings.input, "input", "", "ntrip input csv config file directory")
+	flag.StringVar(&settings.output, "output", "", "optional output file")
 
 	flag.Parse()
 
-	set, err := delta.NewBase(base)
+	set, err := delta.NewBase(settings.base)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	caster, err := ntrip.NewCaster(input)
+	caster, err := ntrip.NewCaster(settings.common, settings.input)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	config, err := Build(set, caster)
+	config, err := NewConfig(set, caster)
 	if err != nil {
 		log.Fatalf("unable to build config: %v", err)
 	}
 
-	switch output {
-	case "":
-		if err := config.Write(os.Stdout); err != nil {
-			log.Fatalf("unable to write config: %v", err)
+	switch {
+	case settings.output != "":
+		if err := config.WriteFile(settings.output); err != nil {
+			log.Fatalf("unable to write config file %s: %v", settings.output, err)
 		}
 	default:
-		if err := config.WriteFile(output); err != nil {
-			log.Fatalf("unable to write config file %s: %v", output, err)
+		if err := config.Write(os.Stdout); err != nil {
+			log.Fatalf("unable to write config: %v", err)
 		}
 	}
 }
