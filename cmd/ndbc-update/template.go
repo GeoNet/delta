@@ -25,7 +25,7 @@ New Zealand DART Buoy Network
 {{printf "WMO Id            : %s" $v.Pid}}
 {{printf "Payload Ids       : %s" ($v.Payload $v.Buoy)}}
 {{printf "Platform Type     : %s" $v.Platform}}
-{{printf "Paroscientific SN : %s" ""}}
+{{printf "Paroscientific SN : %s" $v.Serial}}
 {{printf "Deployment Start  : %s" ($v.Start.Format "2006-01-02T15:04Z")}}
 {{printf "Water Depth       : %4.0f" $v.Depth}}
 {{printf "BPR Drop Position : %8.4f %9.4f" $v.Latitude $v.Longitude}}
