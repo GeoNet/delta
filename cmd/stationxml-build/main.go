@@ -527,6 +527,10 @@ func main() {
 			log.Fatalf("unable to parse single xml file template: %v", err)
 		}
 
+		if err := os.MkdirAll(settings.directory, 0700); err != nil {
+			log.Fatalf("unable to create dir %s: %v", settings.directory, err)
+		}
+
 		// keep track of files in the single directory, in case they need purging
 		files := make(map[string]string)
 		if err := filepath.Walk(settings.directory, func(path string, info os.FileInfo, err error) error {
@@ -563,7 +567,7 @@ func main() {
 				delete(files, name.String())
 
 				// has anything changed, other than the creation time?
-				if raw, err := os.ReadFile(path); err != nil {
+				if raw, err := os.ReadFile(path); err == nil {
 					if bytes.Equal(redacted(raw), redacted(res)) {
 						continue
 					}
