@@ -58,9 +58,13 @@ var featureChecks = map[string]func(*meta.Set) func(t *testing.T){
 	"check for duplicated feature sites": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			for _, f := range set.Features() {
-				if _, ok := set.Site(f.Station, f.Location); !ok {
-					t.Error("error: unable to find feature site: " + f.Id())
+				if _, ok := set.Site(f.Station, f.Location); ok {
+					continue
 				}
+				if _, ok := set.Point(f.Station, f.Location); ok {
+					continue
+				}
+				t.Error("error: unable to find feature site: " + f.Id())
 			}
 			for _, f := range set.Features() {
 				if s, ok := set.Site(f.Station, f.Location); ok {
@@ -69,6 +73,14 @@ var featureChecks = map[string]func(*meta.Set) func(t *testing.T){
 						t.Log("warning: feature start mismatch: " + f.Id() + " before " + s.Start.String())
 					case s.End.Before(time.Now()) && f.End.After(s.End):
 						t.Log("warning: feature end mismatch: " + f.Id() + " after " + s.End.String())
+					}
+				}
+				if p, ok := set.Point(f.Station, f.Location); ok {
+					switch {
+					case f.Start.Before(p.Start):
+						t.Log("warning: feature start mismatch: " + f.Id() + " before " + p.Start.String())
+					case p.End.Before(time.Now()) && f.End.After(p.End):
+						t.Log("warning: feature end mismatch: " + f.Id() + " after " + p.End.String())
 					}
 				}
 			}
