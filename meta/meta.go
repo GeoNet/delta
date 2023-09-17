@@ -34,8 +34,8 @@ type Reference struct {
 	Name string
 }
 
-// Point describes a measurement location geographically.
-type Point struct {
+// Position describes a measurement location geographically.
+type Position struct {
 	// Latitude represents the location latitude, with negative values representing southern latitudes.
 	Latitude float64
 	// Longitude represents the location longitude, with negative values representing western longitudes.
@@ -44,7 +44,7 @@ type Point struct {
 	Elevation float64
 	// Datum can be used to indicate the location measurement reference.
 	Datum string
-	// Depth measures the depth of water at the measurement point, if appropriate.
+	// Depth measures the depth of water at the measurement position, if appropriate.
 	Depth float64
 
 	latitude  string // shadow value used to retain formatting
@@ -54,7 +54,7 @@ type Point struct {
 }
 
 // ElevationOk returns the Elevation and whether it has been set.
-func (p Point) ElevationOk() (float64, bool) {
+func (p Position) ElevationOk() (float64, bool) {
 	if p.elevation != "" {
 		return p.Elevation, true
 	}
@@ -62,7 +62,7 @@ func (p Point) ElevationOk() (float64, bool) {
 }
 
 // DepthOk returns the Depth and whether it has been set.
-func (p Point) DepthOk() (float64, bool) {
+func (p Position) DepthOk() (float64, bool) {
 	if p.depth != "" {
 		return p.Depth, true
 	}
@@ -100,7 +100,7 @@ func (o Orientation) AzimuthOk() (float64, bool) {
 	return 0.0, false
 }
 
-// Offset can be used to adjust an equipment installation relative to a given Point.
+// Offset can be used to adjust an equipment installation relative to a given Position.
 type Offset struct {
 	// Vertical represents an adjustment up or down, the exact interpretation will depend on the use case,
 	// although it is assumed to have units of meters.
