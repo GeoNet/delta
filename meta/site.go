@@ -35,7 +35,7 @@ var siteHeaders Header = map[string]int{
 }
 
 type Site struct {
-	Point
+	Position
 	Span
 
 	Station  string
@@ -124,7 +124,7 @@ func (s *SiteList) decode(data [][]string) error {
 		}
 
 		sites = append(sites, Site{
-			Point: Point{
+			Position: Position{
 				// geographic details
 				Latitude:  lat,
 				Longitude: lon,

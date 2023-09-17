@@ -36,7 +36,7 @@ var stationHeaders Header = map[string]int{
 
 type Station struct {
 	Reference
-	Point
+	Position
 	Span
 }
 
@@ -129,7 +129,7 @@ func (s *StationList) decode(data [][]string) error {
 				Start: start,
 				End:   end,
 			},
-			Point: Point{
+			Position: Position{
 				Latitude:  lat,
 				Longitude: lon,
 				Elevation: elev,

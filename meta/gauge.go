@@ -35,7 +35,7 @@ var gaugeHeaders Header = map[string]int{
 type Gauge struct {
 	Span
 	Reference
-	Point
+	Position
 
 	Number   string
 	TimeZone float64
@@ -126,7 +126,7 @@ func (g *GaugeList) decode(data [][]string) error {
 				Network: strings.TrimSpace(d[gaugeNetwork]),
 			},
 			Number: strings.TrimSpace(d[gaugeNumber]),
-			Point: Point{
+			Position: Position{
 				Latitude:  lat,
 				Longitude: lon,
 				latitude:  strings.TrimSpace(d[gaugeAnalysisLatitude]),
