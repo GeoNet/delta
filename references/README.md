@@ -4,9 +4,10 @@ _Reference citations and external source information._
 
 ### FILES ###
 
-Reference information for the GeoNet sensor networks.
+Reference information for the GeoNet sensor networks and manual data collection systems.
  
 * `citations.csv` - Reference citations
+* `tilde_methods.csv` - Tilde  method descriptions
 
 #### _CITATIONS_ ####
 
@@ -26,10 +27,25 @@ All fields, other than Key, are optional and can be left blank.
 | _Link_ | A URL link to the reference if available
 | _Retrieved_ | The last time a valid URL was retrieved
 
-#### EXAMPLE #####
+##### EXAMPLE ######
 
     Key,Author,Year,Title,Published,Volume,Pages,DOI,Link,Retrieved
     Fry2020,"Fry, B., S.-J. McCurrach, K. Gledhill, W. Power, M. Williams, M. Angove, D. Arcas, and C. Moore",2020,Sensor network warns of stealth tsunamis,Eos,101,,https://doi.org/10.1029/2020EO144274,,
+
+#### _METHODS_ ####
+The range of methods used in the Tilde application is diverse. In some cases, the details of a method are well
+know only to those familiar with a data set or with a similar data set from another institution.
+This does not make it easy for non-specialists to use the data.
+
+A list of methods used to collect the data is provided that contains a brief description of the method, and where available, a URL
+link to publicly available resources that provide additional information.
+
+| Field | Description |
+| --- | --- |
+| _Domain_ | The data domain. This is a concept used by the Tilde data appication, and refers to the broad collection method or data discipline |
+| _Method_ | The data collection method. How the data are sampled, collected, processed, or analysed |
+| _Description_ | A brief description of the data collection method |
+| _Reference_ | A publicly available URL that provides additional information on the method |
 
 ### NOTES ###
 
