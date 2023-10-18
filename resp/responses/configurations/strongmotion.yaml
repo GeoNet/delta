@@ -148,9 +148,9 @@ response:
       channels: ENZ
       reversed: false
     - sensors:
-      - Kinemetrics SBEPI
+      - SBEPI
       filters:
-      - Kinemetrics SBEPI
+      - SBEPI
       channels: Z12
       reversed: false
     - sensors:
@@ -229,6 +229,17 @@ response:
       - BASALT-50
       reversed: false
     - dataloggers:
+      - BASALT
+      type: CG
+      label: LF
+      samplerate: 1
+      frequency: 0.02
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      - BASALT-1Hz
+      reversed: false
+    - dataloggers:
       - ETNA
       - K2
       type: TG
@@ -252,7 +263,7 @@ response:
       - ETNA-2-200
       reversed: false
 
-  CSI Strong Motion Recorders:
+  Canterbury Seismic Instruments Strong Motion Recorders:
     sensors:
     - sensors:
       - EQR120
@@ -268,6 +279,8 @@ response:
       reversed: false
     - sensors:
       - CUSP3C
+      - CUSPM
+      - CUSP-Me
       filters:
       - CUSP SENSOR
       channels: 21Z
@@ -307,6 +320,8 @@ response:
       - CUSP3D
       - CUSP3C
       - CUSP3C3
+      - CUSPM
+      - CUSP-Me
       type: TG
       label: HN
       samplerate: 200
@@ -320,6 +335,8 @@ response:
       - CUSP3D
       - CUSP3C
       - CUSP3C3
+      - CUSPM
+      - CUSP-Me
       type: CG
       label: BN
       samplerate: 50
@@ -356,6 +373,18 @@ response:
       filters:
       - Fortis-DC-100Hz-4g
       channels: ZNE
+      reversed: false
+    - sensors:
+      - Titan TACCL-N1
+      filters:
+      - TITAN-4G
+      channels: ZNE
+      reversed: false
+    - sensors:
+      - Titan TACCL-BH1
+      filters:
+      - TITAN-4G
+      channels: Z12
       reversed: false
     dataloggers:
     - dataloggers:

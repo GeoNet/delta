@@ -3,14 +3,14 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/GeoNet/delta/meta"
-	"github.com/GeoNet/kit/gloria_pb"
-	"github.com/golang/protobuf/proto"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/GeoNet/delta/meta"
+	"github.com/GeoNet/kit/gloria_pb"
+	"google.golang.org/protobuf/proto"
 )
 
 var (
@@ -260,7 +260,7 @@ contact information can be found at www.geonet.org.nz`
 			fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
 			os.Exit(-1)
 		}
-		if err := ioutil.WriteFile(pbfile, b, 0644); err != nil {
+		if err := os.WriteFile(pbfile, b, 0600); err != nil {
 			fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 			os.Exit(-1)
 		}
@@ -273,7 +273,7 @@ contact information can be found at www.geonet.org.nz`
 		fmt.Fprintf(os.Stderr, "error: unable to marshal marks index protobuf: %v\n", err)
 		os.Exit(-1)
 	}
-	if err := ioutil.WriteFile(filepath.Join(output, "mark-index.pb"), b, 0644); err != nil {
+	if err := os.WriteFile(filepath.Join(output, "mark-index.pb"), b, 0600); err != nil {
 		fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 		os.Exit(-1)
 	}

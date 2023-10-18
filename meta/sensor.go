@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -9,23 +8,41 @@ import (
 )
 
 const (
-	sensorMake = iota
-	sensorModel
-	sensorSerial
-	sensorStation
-	sensorLocation
-	sensorAzimuth
-	sensorMethod
-	sensorDip
-	sensorDepth
-	sensorNorth
-	sensorEast
-	sensorScaleFactor
-	sensorScaleBias
-	sensorStart
-	sensorEnd
-	sensorLast
+	installedSensorMake = iota
+	installedSensorModel
+	installedSensorSerial
+	installedSensorStation
+	installedSensorLocation
+	installedSensorAzimuth
+	installedSensorMethod
+	installedSensorDip
+	installedSensorDepth
+	installedSensorNorth
+	installedSensorEast
+	installedSensorScaleFactor
+	installedSensorScaleBias
+	installedSensorStart
+	installedSensorEnd
+	installedSensorLast
 )
+
+var installedSensorHeaders Header = map[string]int{
+	"Make":         installedSensorMake,
+	"Model":        installedSensorModel,
+	"Serial":       installedSensorSerial,
+	"Station":      installedSensorStation,
+	"Location":     installedSensorLocation,
+	"Azimuth":      installedSensorAzimuth,
+	"Method":       installedSensorMethod,
+	"Dip":          installedSensorDip,
+	"Depth":        installedSensorDepth,
+	"North":        installedSensorNorth,
+	"East":         installedSensorEast,
+	"Scale Factor": installedSensorScaleFactor,
+	"Scale Bias":   installedSensorScaleBias,
+	"Start Date":   installedSensorStart,
+	"End Date":     installedSensorEnd,
+}
 
 type InstalledSensor struct {
 	Install
@@ -39,148 +56,143 @@ type InstalledSensor struct {
 
 type InstalledSensorList []InstalledSensor
 
-func (s InstalledSensorList) Len() int           { return len(s) }
-func (s InstalledSensorList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s InstalledSensorList) Less(i, j int) bool { return s[i].Install.Less(s[j].Install) }
+func (is InstalledSensorList) Len() int           { return len(is) }
+func (is InstalledSensorList) Swap(i, j int)      { is[i], is[j] = is[j], is[i] }
+func (is InstalledSensorList) Less(i, j int) bool { return is[i].Install.Less(is[j].Install) }
 
-func (s InstalledSensorList) encode() [][]string {
-	data := [][]string{{
-		"Make",
-		"Model",
-		"Serial",
-		"Station",
-		"Location",
-		"Azimuth",
-		"Method",
-		"Dip",
-		"Depth",
-		"North",
-		"East",
-		"Scale Factor",
-		"Scale Bias",
-		"Start Date",
-		"End Date",
-	}}
+func (is InstalledSensorList) encode() [][]string {
+	var data [][]string
 
-	for _, v := range s {
+	data = append(data, installedSensorHeaders.Columns())
+
+	for _, row := range is {
 		data = append(data, []string{
-			strings.TrimSpace(v.Make),
-			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.Station),
-			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.azimuth),
-			strings.TrimSpace(v.Method),
-			strings.TrimSpace(v.dip),
-			strings.TrimSpace(v.vertical),
-			strings.TrimSpace(v.north),
-			strings.TrimSpace(v.east),
-			strings.TrimSpace(v.factor),
-			strings.TrimSpace(v.bias),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Make),
+			strings.TrimSpace(row.Model),
+			strings.TrimSpace(row.Serial),
+			strings.TrimSpace(row.Station),
+			strings.TrimSpace(row.Location),
+			strings.TrimSpace(row.azimuth),
+			strings.TrimSpace(row.Method),
+			strings.TrimSpace(row.dip),
+			strings.TrimSpace(row.vertical),
+			strings.TrimSpace(row.north),
+			strings.TrimSpace(row.east),
+			strings.TrimSpace(row.factor),
+			strings.TrimSpace(row.bias),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
-func (s *InstalledSensorList) decode(data [][]string) error {
-	var sensors []InstalledSensor
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != sensorLast {
-				return fmt.Errorf("incorrect number of installed sensor fields")
-			}
-			var err error
 
-			var azimuth, dip float64
-			if azimuth, err = strconv.ParseFloat(d[sensorAzimuth], 64); err != nil {
-				return err
-			}
-			if dip, err = strconv.ParseFloat(d[sensorDip], 64); err != nil {
-				return err
-			}
+func (is *InstalledSensorList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
 
-			var depth, north, east float64
-			if depth, err = strconv.ParseFloat(d[sensorDepth], 64); err != nil {
-				return err
-			}
-			if north, err = strconv.ParseFloat(d[sensorNorth], 64); err != nil {
-				return err
-			}
-			if east, err = strconv.ParseFloat(d[sensorEast], 64); err != nil {
-				return err
-			}
+	var installedSensors []InstalledSensor
 
-			var factor, bias float64
-			if factor, err = strconv.ParseFloat(d[sensorScaleFactor], 64); err != nil {
-				return err
-			}
-			if bias, err = strconv.ParseFloat(d[sensorScaleBias], 64); err != nil {
-				return err
-			}
+	fields := installedSensorHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[sensorStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, d[sensorEnd]); err != nil {
-				return err
-			}
-
-			sensors = append(sensors, InstalledSensor{
-				Install: Install{
-					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[sensorMake]),
-						Model:  strings.TrimSpace(d[sensorModel]),
-						Serial: strings.TrimSpace(d[sensorSerial]),
-					},
-					Span: Span{
-						Start: start,
-						End:   end,
-					},
-				},
-				Orientation: Orientation{
-					Azimuth: azimuth,
-					Dip:     dip,
-					Method:  strings.TrimSpace(d[sensorMethod]),
-
-					azimuth: strings.TrimSpace(d[sensorAzimuth]),
-					dip:     strings.TrimSpace(d[sensorDip]),
-				},
-				Offset: Offset{
-					Vertical: -depth,
-					North:    north,
-					East:     east,
-
-					vertical: strings.TrimSpace(d[sensorDepth]),
-					north:    strings.TrimSpace(d[sensorNorth]),
-					east:     strings.TrimSpace(d[sensorEast]),
-				},
-				Scale: Scale{
-					Factor: factor,
-					Bias:   bias,
-
-					factor: strings.TrimSpace(d[sensorScaleFactor]),
-					bias:   strings.TrimSpace(d[sensorScaleBias]),
-				},
-				Station:  strings.TrimSpace(d[sensorStation]),
-				Location: strings.TrimSpace(d[sensorLocation]),
-			})
+		azimuth, err := strconv.ParseFloat(d[installedSensorAzimuth], 64)
+		if err != nil {
+			return err
+		}
+		dip, err := strconv.ParseFloat(d[installedSensorDip], 64)
+		if err != nil {
+			return err
 		}
 
-		*s = InstalledSensorList(sensors)
+		depth, err := strconv.ParseFloat(d[installedSensorDepth], 64)
+		if err != nil {
+			return err
+		}
+		north, err := strconv.ParseFloat(d[installedSensorNorth], 64)
+		if err != nil {
+			return err
+		}
+		east, err := strconv.ParseFloat(d[installedSensorEast], 64)
+		if err != nil {
+			return err
+		}
+
+		factor, err := strconv.ParseFloat(d[installedSensorScaleFactor], 64)
+		if err != nil {
+			return err
+		}
+		bias, err := strconv.ParseFloat(d[installedSensorScaleBias], 64)
+		if err != nil {
+			return err
+		}
+
+		start, err := time.Parse(DateTimeFormat, d[installedSensorStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[installedSensorEnd])
+		if err != nil {
+			return err
+		}
+
+		installedSensors = append(installedSensors, InstalledSensor{
+			Install: Install{
+				Equipment: Equipment{
+					Make:   strings.TrimSpace(d[installedSensorMake]),
+					Model:  strings.TrimSpace(d[installedSensorModel]),
+					Serial: strings.TrimSpace(d[installedSensorSerial]),
+				},
+				Span: Span{
+					Start: start,
+					End:   end,
+				},
+			},
+			Orientation: Orientation{
+				Azimuth: azimuth,
+				Dip:     dip,
+				Method:  strings.TrimSpace(d[installedSensorMethod]),
+
+				azimuth: strings.TrimSpace(d[installedSensorAzimuth]),
+				dip:     strings.TrimSpace(d[installedSensorDip]),
+			},
+			Offset: Offset{
+				Vertical: -depth,
+				North:    north,
+				East:     east,
+
+				vertical: strings.TrimSpace(d[installedSensorDepth]),
+				north:    strings.TrimSpace(d[installedSensorNorth]),
+				east:     strings.TrimSpace(d[installedSensorEast]),
+			},
+			Scale: Scale{
+				Factor: factor,
+				Bias:   bias,
+
+				factor: strings.TrimSpace(d[installedSensorScaleFactor]),
+				bias:   strings.TrimSpace(d[installedSensorScaleBias]),
+			},
+			Station:  strings.TrimSpace(d[installedSensorStation]),
+			Location: strings.TrimSpace(d[installedSensorLocation]),
+		})
 	}
+
+	*is = InstalledSensorList(installedSensors)
+
 	return nil
 }
 
 func LoadInstalledSensors(path string) ([]InstalledSensor, error) {
-	var s []InstalledSensor
+	var is []InstalledSensor
 
-	if err := LoadList(path, (*InstalledSensorList)(&s)); err != nil {
+	if err := LoadList(path, (*InstalledSensorList)(&is)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(InstalledSensorList(s))
+	sort.Sort(InstalledSensorList(is))
 
-	return s, nil
+	return is, nil
 }

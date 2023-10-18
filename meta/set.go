@@ -11,39 +11,45 @@ import (
 const (
 	AssetFiles = "assets/*.csv"
 
+	DartsFile     = "network/darts.csv"
 	MarksFile     = "network/marks.csv"
 	MonumentsFile = "network/monuments.csv"
 	MountsFile    = "network/mounts.csv"
 	NetworksFile  = "network/networks.csv"
+	SamplesFile   = "network/samples.csv"
 	SitesFile     = "network/sites.csv"
 	StationsFile  = "network/stations.csv"
 	ViewsFile     = "network/views.csv"
 
 	AntennasFile     = "install/antennas.csv"
+	CalibrationsFile = "install/calibrations.csv"
 	CamerasFile      = "install/cameras.csv"
+	ChannelsFile     = "install/channels.csv"
+	ComponentsFile   = "install/components.csv"
 	ConnectionsFile  = "install/connections.csv"
 	DataloggersFile  = "install/dataloggers.csv"
 	DoasesFile       = "install/doases.csv"
 	FirmwareFile     = "install/firmware.csv"
 	GainsFile        = "install/gains.csv"
-	CalibrationsFile = "install/calibrations.csv"
 	MetsensorsFile   = "install/metsensors.csv"
+	PolaritiesFile   = "install/polarities.csv"
+	PreampsFile      = "install/preamps.csv"
 	RadomesFile      = "install/radomes.csv"
 	ReceiversFile    = "install/receivers.csv"
 	RecordersFile    = "install/recorders.csv"
 	SensorsFile      = "install/sensors.csv"
 	SessionsFile     = "install/sessions.csv"
 	StreamsFile      = "install/streams.csv"
+	TelemetriesFile  = "install/telemetries.csv"
 
+	ClassesFile      = "environment/classes.csv"
 	ConstituentsFile = "environment/constituents.csv"
 	FeaturesFile     = "environment/features.csv"
 	GaugesFile       = "environment/gauges.csv"
-	VisibilityFile   = "environment/visibility.csv"
 	PlacenamesFile   = "environment/placenames.csv"
+	VisibilityFile   = "environment/visibility.csv"
 
-	ChannelsFile   = "install/channels.csv"
-	ComponentsFile = "install/components.csv"
-	CodenamesFile  = "install/codenames.csv"
+	CitationsFile = "references/citations.csv"
 )
 
 // SetPathMap is used to manipulate the filepath inside the Set.
@@ -56,71 +62,90 @@ type SetPathMap func(s string) string
 type Set struct {
 	assets AssetList
 
+	darts     DartList
 	marks     MarkList
 	monuments MonumentList
 	mounts    MountList
 	networks  NetworkList
+	samples   SampleList
 	sites     SiteList
 	stations  StationList
 	views     ViewList
 
 	installedAntennas   InstalledAntennaList
+	calibrations        CalibrationList
 	installedCameras    InstalledCameraList
+	channels            ChannelList
+	components          ComponentList
 	connections         ConnectionList
 	deployedDataloggers DeployedDataloggerList
 	doases              InstalledDoasList
 	firmwareHistory     FirmwareHistoryList
 	gains               GainList
-	calibrations        CalibrationList
 	installedMetSensors InstalledMetSensorList
+	polarities          PolarityList
+	preamps             PreampList
 	installedRadomes    InstalledRadomeList
+	deployedReceivers   DeployedReceiverList
+	installedRecorders  InstalledRecorderList
+	installedSensors    InstalledSensorList
+	sessions            SessionList
+	streams             StreamList
+	telemetries         TelemetryList
 
-	installedSensors   InstalledSensorList
-	installedRecorders InstalledRecorderList
-	deployedReceivers  DeployedReceiverList
-	sessions           SessionList
-	streams            StreamList
-
+	classes      ClassList
 	constituents ConstituentList
 	features     FeatureList
 	gauges       GaugeList
-	visibilities VisibilityList
 	placenames   PlacenameList
+	visibilities VisibilityList
+
+	citations CitationList
 }
 
 func (s *Set) files() map[string]List {
 	return map[string]List{
 		AssetFiles: &s.assets,
 
+		DartsFile:     &s.darts,
 		MarksFile:     &s.marks,
 		MonumentsFile: &s.monuments,
 		MountsFile:    &s.mounts,
 		NetworksFile:  &s.networks,
+		SamplesFile:   &s.samples,
 		SitesFile:     &s.sites,
 		StationsFile:  &s.stations,
 		ViewsFile:     &s.views,
 
 		AntennasFile:     &s.installedAntennas,
+		CalibrationsFile: &s.calibrations,
 		CamerasFile:      &s.installedCameras,
+		ChannelsFile:     &s.channels,
+		ComponentsFile:   &s.components,
 		ConnectionsFile:  &s.connections,
 		DataloggersFile:  &s.deployedDataloggers,
 		DoasesFile:       &s.doases,
 		FirmwareFile:     &s.firmwareHistory,
 		GainsFile:        &s.gains,
-		CalibrationsFile: &s.calibrations,
 		MetsensorsFile:   &s.installedMetSensors,
+		PolaritiesFile:   &s.polarities,
+		PreampsFile:      &s.preamps,
 		RadomesFile:      &s.installedRadomes,
 		ReceiversFile:    &s.deployedReceivers,
 		RecordersFile:    &s.installedRecorders,
 		SensorsFile:      &s.installedSensors,
 		SessionsFile:     &s.sessions,
 		StreamsFile:      &s.streams,
+		TelemetriesFile:  &s.telemetries,
 
+		ClassesFile:      &s.classes,
 		ConstituentsFile: &s.constituents,
 		FeaturesFile:     &s.features,
 		GaugesFile:       &s.gauges,
-		VisibilityFile:   &s.visibilities,
 		PlacenamesFile:   &s.placenames,
+		VisibilityFile:   &s.visibilities,
+
+		CitationsFile: &s.citations,
 	}
 }
 

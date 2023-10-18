@@ -112,7 +112,7 @@ sensor-model:
   LE-3Dlite:
     type: Short Period Seismometer
     description: LE-3Dlite
-    manufacturer: "Lennartz"
+    manufacturer: "Lennartz Electronic"
     vendor: ""
     components:
     - azimuth: 0

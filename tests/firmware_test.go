@@ -4,19 +4,17 @@ import (
 	"testing"
 	"time"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testFirmwareHistory = map[string]func([]meta.FirmwareHistory) func(t *testing.T){
+var firmwareChecks = map[string]func(*meta.Set) func(t *testing.T){
 
-	"check for firmware history overlaps": func(firmwares []meta.FirmwareHistory) func(t *testing.T) {
+	"check for firmware history overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			installs := make(map[string]meta.FirmwareHistoryList)
-			for _, s := range firmwares {
-				if _, ok := installs[s.Model]; !ok {
-					installs[s.Model] = meta.FirmwareHistoryList{}
-				}
+			for _, s := range set.FirmwareHistory() {
 				installs[s.Model] = append(installs[s.Model], s)
 			}
 
@@ -47,9 +45,10 @@ var testFirmwareHistory = map[string]func([]meta.FirmwareHistory) func(t *testin
 		}
 	},
 
-	"check for firmware non-changes": func(firmwares []meta.FirmwareHistory) func(t *testing.T) {
+	"check for firmware non-changes": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
+			firmwares := set.FirmwareHistory()
 			for i := 0; i < len(firmwares)-1; i++ {
 				current, next := firmwares[i], firmwares[i+1]
 
@@ -65,14 +64,13 @@ var testFirmwareHistory = map[string]func([]meta.FirmwareHistory) func(t *testin
 			}
 		}
 	},
-}
 
-var testFirmwareHistoryAssets = map[string]func([]meta.FirmwareHistory, []meta.Asset) func(t *testing.T){
-	"check for firmware assets": func(firmwares []meta.FirmwareHistory, assets []meta.Asset) func(t *testing.T) {
+	"check for firmware assets": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
+			firmwares := set.FirmwareHistory()
 			for _, r := range firmwares {
 				var found bool
-				for _, a := range assets {
+				for _, a := range set.Assets() {
 					if a.Model != r.Model {
 						continue
 					}
@@ -88,20 +86,18 @@ var testFirmwareHistoryAssets = map[string]func([]meta.FirmwareHistory, []meta.A
 			}
 		}
 	},
-}
 
-var testFirmwareHistoryDeployedReceiver = map[string]func([]meta.FirmwareHistory, []meta.DeployedReceiver) func(t *testing.T){
-	"check for latest installed receiver firmware": func(firmwares []meta.FirmwareHistory, receivers []meta.DeployedReceiver) func(t *testing.T) {
+	"check for latest installed receiver firmware": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			installs := make(map[string]meta.FirmwareHistory)
-			for _, s := range firmwares {
+			for _, s := range set.FirmwareHistory() {
 				if s.End.Before(time.Now()) {
 					continue
 				}
 				installs[s.Model+"/"+s.Serial] = s
 			}
-			for _, r := range receivers {
+			for _, r := range set.DeployedReceivers() {
 				if r.End.Before(time.Now()) {
 					continue
 				}
@@ -116,51 +112,14 @@ var testFirmwareHistoryDeployedReceiver = map[string]func([]meta.FirmwareHistory
 	},
 }
 
-func TestFirmwareHistory(t *testing.T) {
+func TestFirmware(t *testing.T) {
 
-	var firmwares meta.FirmwareHistoryList
-	loadListFile(t, "../install/firmware.csv", &firmwares)
-
-	for k, fn := range testFirmwareHistory {
-		t.Run(k, fn(firmwares))
-	}
-}
-
-func TestFirmwareHistory_Assets(t *testing.T) {
-
-	var firmwares meta.FirmwareHistoryList
-	loadListFile(t, "../install/firmware.csv", &firmwares)
-
-	var assets meta.AssetList
-
-	files := map[string]string{
-		"cameras":     "../assets/cameras.csv",
-		"dataloggers": "../assets/dataloggers.csv",
-		"receivers":   "../assets/receivers.csv",
-		"recorders":   "../assets/recorders.csv",
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
 
-	for _, v := range files {
-		var a meta.AssetList
-		loadListFile(t, v, &a)
-
-		assets = append(assets, a...)
-	}
-
-	for k, fn := range testFirmwareHistoryAssets {
-		t.Run(k, fn(firmwares, assets))
-	}
-}
-
-func TestFirmwareHistory_DeployedReceiver(t *testing.T) {
-
-	var firmwares meta.FirmwareHistoryList
-	loadListFile(t, "../install/firmware.csv", &firmwares)
-
-	var receivers meta.DeployedReceiverList
-	loadListFile(t, "../install/receivers.csv", &receivers)
-
-	for k, fn := range testFirmwareHistoryDeployedReceiver {
-		t.Run(k, fn(firmwares, receivers))
+	for k, v := range firmwareChecks {
+		t.Run(k, v(set))
 	}
 }

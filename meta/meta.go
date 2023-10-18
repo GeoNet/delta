@@ -1,6 +1,7 @@
 package meta
 
 import (
+	"strconv"
 	"strings"
 	"time"
 )
@@ -9,6 +10,19 @@ import (
 // in the CSV files, it is assumed to have resolution of one second
 // and that times are in UTC.
 const DateTimeFormat = "2006-01-02T15:04:05Z"
+
+// Format outputs a Time using the DateTimeFormat format.
+func Format(t time.Time) string {
+	return t.Format(DateTimeFormat)
+}
+
+type Compare int
+
+const (
+	EqualTo Compare = iota
+	LessThan
+	GreaterThan
+)
 
 // Reference describes a location where measurements can be taken.
 type Reference struct {
@@ -20,8 +34,8 @@ type Reference struct {
 	Name string
 }
 
-// Point describes a measurement location geographically.
-type Point struct {
+// Position describes a measurement location geographically.
+type Position struct {
 	// Latitude represents the location latitude, with negative values representing southern latitudes.
 	Latitude float64
 	// Longitude represents the location longitude, with negative values representing western longitudes.
@@ -30,7 +44,7 @@ type Point struct {
 	Elevation float64
 	// Datum can be used to indicate the location measurement reference.
 	Datum string
-	// Depth measures the depth of water at the measurement point, if appropriate.
+	// Depth measures the depth of water at the measurement position, if appropriate.
 	Depth float64
 
 	latitude  string // shadow value used to retain formatting
@@ -40,7 +54,7 @@ type Point struct {
 }
 
 // ElevationOk returns the Elevation and whether it has been set.
-func (p Point) ElevationOk() (float64, bool) {
+func (p Position) ElevationOk() (float64, bool) {
 	if p.elevation != "" {
 		return p.Elevation, true
 	}
@@ -48,7 +62,7 @@ func (p Point) ElevationOk() (float64, bool) {
 }
 
 // DepthOk returns the Depth and whether it has been set.
-func (p Point) DepthOk() (float64, bool) {
+func (p Position) DepthOk() (float64, bool) {
 	if p.depth != "" {
 		return p.Depth, true
 	}
@@ -86,7 +100,7 @@ func (o Orientation) AzimuthOk() (float64, bool) {
 	return 0.0, false
 }
 
-// Offset can be used to adjust an equipment installation relative to a given Point.
+// Offset can be used to adjust an equipment installation relative to a given Position.
 type Offset struct {
 	// Vertical represents an adjustment up or down, the exact interpretation will depend on the use case,
 	// although it is assumed to have units of meters.
@@ -215,6 +229,53 @@ func (s Span) Extent(spans ...Span) (Span, bool) {
 	}
 
 	return clip, true
+}
+
+type Range struct {
+	Value   float64
+	Compare Compare
+}
+
+func NewRange(s string) (Range, error) {
+	switch {
+	case strings.HasPrefix(s, "<"):
+		v, err := strconv.ParseFloat(s[1:], 64)
+		if err != nil {
+			return Range{}, err
+		}
+		return Range{
+			Value:   v,
+			Compare: LessThan,
+		}, nil
+	case strings.HasPrefix(s, ">"):
+		v, err := strconv.ParseFloat(s[1:], 64)
+		if err != nil {
+			return Range{}, err
+		}
+		return Range{
+			Value:   v,
+			Compare: GreaterThan,
+		}, nil
+	default:
+		v, err := strconv.ParseFloat(s, 64)
+		if err != nil {
+			return Range{}, err
+		}
+		return Range{
+			Value: v,
+		}, nil
+	}
+}
+
+func (r Range) String() string {
+	switch r.Compare {
+	case LessThan:
+		return "<" + strconv.FormatFloat(r.Value, 'g', -1, 64)
+	case GreaterThan:
+		return ">" + strconv.FormatFloat(r.Value, 'g', -1, 64)
+	default:
+		return strconv.FormatFloat(r.Value, 'g', -1, 64)
+	}
 }
 
 // Equipment represents an indiviual piece of hardware.

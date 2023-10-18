@@ -206,6 +206,106 @@ filter:
     delay: 0
     inputunits: count
     outputunits: count
+  BASALT-1Hz:
+  - type: a2d
+    lookup: A2D
+    frequency: 0
+    samplerate: 30000
+    decimate: 1
+    gain: 1.6777216e+06
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: V
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50-S5C # 5
+    frequency: 0
+    samplerate: 6000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A3-50 # 3
+    frequency: 0
+    samplerate: 2000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_B2-80 # 2
+    frequency: 0
+    samplerate: 1000
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A4-50 # 4
+    frequency: 0
+    samplerate: 250
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50 # 5
+    frequency: 0
+    samplerate: 50
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50 # 5
+    frequency: 0
+    samplerate: 10
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_A5-50 # 5
+    frequency: 0
+    samplerate: 2
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
+  - type: fir
+    lookup: BASALT_B2-80 # 2
+    frequency: 0
+    samplerate: 1
+    decimate: 0
+    gain: 0
+    scale: 0
+    correction: 0
+    delay: 0
+    inputunits: count
+    outputunits: count
   ETNA-2-200:
   - type: a2d
     lookup: A2D

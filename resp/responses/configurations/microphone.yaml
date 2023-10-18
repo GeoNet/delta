@@ -14,7 +14,7 @@ response:
       type: CW
       label: HD
       samplerate: 100
-      frequency: 15
+      frequency: 1
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
@@ -25,7 +25,7 @@ response:
       type: CW
       label: HD
       samplerate: 100
-      frequency: 15
+      frequency: 1
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
@@ -59,7 +59,7 @@ response:
       type: CW
       label: HD
       samplerate: 100
-      frequency: 15
+      frequency: 1
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
@@ -92,7 +92,7 @@ response:
       type: CW
       label: HD
       samplerate: 100
-      frequency: 15
+      frequency: 1
       storageformat: Steim1
       clockdrift: 0.0001
       filters:

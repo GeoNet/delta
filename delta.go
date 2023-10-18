@@ -13,6 +13,7 @@ import (
 //go:embed install/*.csv
 //go:embed network/*.csv
 //go:embed environment/*.csv
+//go:embed references/*.csv
 var files embed.FS
 
 // there can be but one

@@ -6,13 +6,15 @@ import (
 	"testing"
 	"time"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testConnections = map[string]func([]meta.Connection) func(t *testing.T){
+var connectionChecks = map[string]func(*meta.Set) func(t *testing.T){
 
-	"check for connection overlaps": func(connections []meta.Connection) func(t *testing.T) {
+	"check for connection overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
+			connections := set.Connections()
 			for i := 0; i < len(connections); i++ {
 				for j := i + 1; j < len(connections); j++ {
 					if connections[i].Station != connections[j].Station {
@@ -41,9 +43,10 @@ var testConnections = map[string]func([]meta.Connection) func(t *testing.T){
 			}
 		}
 	},
-	"check for connection span mismatch": func(connections []meta.Connection) func(t *testing.T) {
+
+	"check for connection span mismatch": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, c := range connections {
+			for _, c := range set.Connections() {
 				if c.Start.After(c.End) {
 					t.Error("connection span mismatch: " + strings.Join([]string{
 						c.Station,
@@ -57,57 +60,54 @@ var testConnections = map[string]func([]meta.Connection) func(t *testing.T){
 			}
 		}
 	},
-}
 
-var testConnectionsStations = map[string]func([]meta.Connection, []meta.Station) func(t *testing.T){
-	"check for missing connection stations": func(connections []meta.Connection, list []meta.Station) func(t *testing.T) {
+	"check for missing connection stations": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			stas := make(map[string]meta.Station)
-			for _, s := range list {
+			for _, s := range set.Stations() {
 				stas[s.Code] = s
 			}
-			for _, c := range connections {
+			for _, c := range set.Connections() {
 				if _, ok := stas[c.Station]; !ok {
 					t.Error("unknown connection station: " + c.Station)
 				}
 			}
 		}
 	},
-}
 
-var testConnectionsSites = map[string]func([]meta.Connection, []meta.Site) func(t *testing.T){
-	"check for missing connection stations": func(connections []meta.Connection, list []meta.Site) func(t *testing.T) {
+	"check for missing connection sites": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			stations := make(map[string]meta.Site)
-			for _, s := range list {
+			for _, s := range set.Sites() {
 				stations[s.Station] = s
 			}
 
-			for _, c := range connections {
+			for _, c := range set.Connections() {
 				if _, ok := stations[c.Station]; !ok {
 					t.Error("unknown connection station: " + c.Station)
 				}
 			}
 		}
 	},
-	"check for missing connection site locations": func(connections []meta.Connection, list []meta.Site) func(t *testing.T) {
+
+	"check for missing connection site locations": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			sites := make(map[string]map[string]meta.Site)
-			for _, s := range list {
+			for _, s := range set.Sites() {
 				if _, ok := sites[s.Station]; !ok {
 					sites[s.Station] = make(map[string]meta.Site)
 				}
 				sites[s.Station][s.Location] = s
 			}
 
-			for _, c := range connections {
+			for _, c := range set.Connections() {
 				if _, ok := sites[c.Station]; !ok {
 					t.Error("unknown connection station: " + c.Station)
 				}
 			}
-			for _, c := range connections {
+			for _, c := range set.Connections() {
 				if _, ok := sites[c.Station]; !ok {
 					continue
 				}
@@ -118,14 +118,11 @@ var testConnectionsSites = map[string]func([]meta.Connection, []meta.Site) func(
 			}
 		}
 	},
-}
 
-var testConnectionsDeployedDataloggers = map[string]func([]meta.Connection, []meta.DeployedDatalogger) func(t *testing.T){
-	"check for missing datalogger places": func(connections []meta.Connection, list []meta.DeployedDatalogger) func(t *testing.T) {
+	"check for missing datalogger places": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-
 			places := make(map[string]string)
-			for _, d := range list {
+			for _, d := range set.DeployedDataloggers() {
 				switch d.Role {
 				case "":
 					places[d.Place] = d.Place
@@ -133,7 +130,10 @@ var testConnectionsDeployedDataloggers = map[string]func([]meta.Connection, []me
 					places[d.Place+"/"+d.Role] = d.Place
 				}
 			}
-			for _, c := range connections {
+			for _, r := range set.InstalledRecorders() {
+				places[r.Station+"/"+r.Location] = r.Station
+			}
+			for _, c := range set.Connections() {
 				switch c.Role {
 				case "":
 					if _, ok := places[c.Place]; !ok {
@@ -147,24 +147,21 @@ var testConnectionsDeployedDataloggers = map[string]func([]meta.Connection, []me
 			}
 		}
 	},
-}
 
-var testConnectionsInstalledSensorAssets = map[string]func([]meta.Connection, []meta.InstalledSensor, []meta.Asset) func(t *testing.T){
-	"check for missing sensor connections": func(connections []meta.Connection, sensors []meta.InstalledSensor, list []meta.Asset) func(t *testing.T) {
+	"check for missing sensor connections": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-
 			assets := make(map[struct {
 				m string
 				s string
 			}]meta.Asset)
-			for _, a := range list {
+			for _, a := range set.Assets() {
 				assets[struct {
 					m string
 					s string
 				}{m: a.Model, s: a.Serial}] = a
 			}
 
-			for _, s := range sensors {
+			for _, s := range set.InstalledSensors() {
 				if a, ok := assets[struct {
 					m string
 					s string
@@ -175,7 +172,7 @@ var testConnectionsInstalledSensorAssets = map[string]func([]meta.Connection, []
 					continue
 				}
 				var handled bool
-				for _, c := range connections {
+				for _, c := range set.Connections() {
 					if c.Station != s.Station || c.Location != s.Location {
 						continue
 					}
@@ -193,24 +190,22 @@ var testConnectionsInstalledSensorAssets = map[string]func([]meta.Connection, []
 			}
 		}
 	},
-}
 
-var testConnectionsDeployedDataloggersAssets = map[string]func([]meta.Connection, []meta.DeployedDatalogger, []meta.Asset) func(t *testing.T){
-	"check for missing datalogger connections": func(connections []meta.Connection, dataloggers []meta.DeployedDatalogger, list []meta.Asset) func(t *testing.T) {
+	"check for missing datalogger connections": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			assets := make(map[struct {
 				m string
 				s string
 			}]meta.Asset)
-			for _, a := range list {
+			for _, a := range set.Assets() {
 				assets[struct {
 					m string
 					s string
 				}{m: a.Model, s: a.Serial}] = a
 			}
 
-			for _, d := range dataloggers {
+			for _, d := range set.DeployedDataloggers() {
 
 				if a, ok := assets[struct {
 					m string
@@ -223,7 +218,7 @@ var testConnectionsDeployedDataloggersAssets = map[string]func([]meta.Connection
 					continue
 				}
 				var handled bool
-				for _, c := range connections {
+				for _, c := range set.Connections() {
 					if c.Place != d.Place || c.Role != d.Role {
 						continue
 					}
@@ -245,78 +240,12 @@ var testConnectionsDeployedDataloggersAssets = map[string]func([]meta.Connection
 
 func TestConnections(t *testing.T) {
 
-	var connections meta.ConnectionList
-	loadListFile(t, "../install/connections.csv", &connections)
-
-	for k, fn := range testConnections {
-		t.Run(k, fn(connections))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
-}
 
-func TestConnections_Stations(t *testing.T) {
-
-	var connections meta.ConnectionList
-	loadListFile(t, "../install/connections.csv", &connections)
-
-	var stations meta.StationList
-	loadListFile(t, "../network/stations.csv", &stations)
-
-	for k, fn := range testConnectionsStations {
-		t.Run(k, fn(connections, stations))
-	}
-}
-
-func TestConnections_Sites(t *testing.T) {
-
-	var connections meta.ConnectionList
-	loadListFile(t, "../install/connections.csv", &connections)
-
-	var sites meta.SiteList
-	loadListFile(t, "../network/sites.csv", &sites)
-
-	for k, fn := range testConnectionsSites {
-		t.Run(k, fn(connections, sites))
-	}
-}
-
-func TestConnections_DeployedDataloggers(t *testing.T) {
-	var connections meta.ConnectionList
-	loadListFile(t, "../install/connections.csv", &connections)
-
-	var dataloggers meta.DeployedDataloggerList
-	loadListFile(t, "../install/dataloggers.csv", &dataloggers)
-
-	for k, fn := range testConnectionsDeployedDataloggers {
-		t.Run(k, fn(connections, dataloggers))
-	}
-}
-
-func TestConnections_DeployedDataloggersAssets(t *testing.T) {
-	var connections meta.ConnectionList
-	loadListFile(t, "../install/connections.csv", &connections)
-
-	var dataloggers meta.DeployedDataloggerList
-	loadListFile(t, "../install/dataloggers.csv", &dataloggers)
-
-	var assets meta.AssetList
-	loadListFile(t, "../assets/dataloggers.csv", &assets)
-
-	for k, fn := range testConnectionsDeployedDataloggersAssets {
-		t.Run(k, fn(connections, dataloggers, assets))
-	}
-}
-
-func TestConnections_InstalledSensorAssets(t *testing.T) {
-	var connections meta.ConnectionList
-	loadListFile(t, "../install/connections.csv", &connections)
-
-	var sensors meta.InstalledSensorList
-	loadListFile(t, "../install/sensors.csv", &sensors)
-
-	var assets meta.AssetList
-	loadListFile(t, "../assets/sensors.csv", &assets)
-
-	for k, fn := range testConnectionsInstalledSensorAssets {
-		t.Run(k, fn(connections, sensors, assets))
+	for k, v := range connectionChecks {
+		t.Run(k, v(set))
 	}
 }

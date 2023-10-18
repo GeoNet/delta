@@ -4,13 +4,24 @@ _Lists the geographical and physical characteristics of collection points._
 
 ### FILES ###
 
+* `dart.csv` - Dart Buoys WMO persistent identifiers
 * `marks.csv` - GNSS Observation Points.
 * `monuments.csv` - GNSS Observation Monuments.
 * `mounts.csv` - Network Camera Mount Points.
 * `networks.csv` - Grouping of GNSS Marks & Recording Stations.
+* `points.csv` - Specific Observation Points where Samples are manually collected.
+* `samples.csv` - Location for a Group of Manually Collected Samples.
 * `sites.csv` - Specific Observation Points at a Specific Recording Station.
 * `stations.csv` - Location for a Group of Recording Sites.
 * `views.csv` - Network Camera View codes.
+
+#### _DARTS_ ####
+
+* _Station_ - Code used to uniquely identify a Dart Buoy.
+* _Pid_ - DART station persistent identifier.
+* _WMO Identifier_ - World Metereological Organization Bulletins persistent identifier.
+* _Start Date_ - General date and time at which the _Pid_ and _WMO Identifier_ are valid for a DART station.
+* _End Date_ - General date and time at which the _Pid_ and _WMO Identifier_ are no longer valid.
 
 #### _MARKS_ ####
 
@@ -67,6 +78,32 @@ Valid Monument Types are:
 * _Description_ - Information about the _Network_.
 * _Restricted_ - Whether the _Network_ has restrictions, a Boolean value [`true` or `false`].
 
+
+#### _POINTS_ ####
+
+* _Sample_ - Code used to uniquely identify the area where _Samples_ are manually collected.
+* _Location_ - Code used to uniquely identify the exact _Point_ where the _Sample_ is collected.
+* _Latitude_ - Geographical latitude of the _Point_ for the given _Datum_.
+* _Longitude_ - Geographical longitude of the _Point_ for the given _Datum_.
+* _Elevation_ - Height in meters of the _Point_ above the free surface for the given _Datum_.
+* _Depth_ - Depth of water in meters above the _Point_ if installed underwater.
+* _Datum_ - Geographical reference system used for the latitude, longitude & elevation.
+* _Start Date_ - General date and time at which samples might be manually collected at the _Point_.
+* _End Date_ - General date and time at which samples could not further be manually collected at the _Point_.
+
+#### _SAMPLES_ ####
+
+* _Sample_ - Code used to uniquely identify the area where _Samples_ are manually collected.
+* _Network_ - Code used to group manually collected _Samples_ together.
+* _Name_ - Used to describe the general geographical location of the _Station_.
+* _Latitude_ - Geographical latitude of the _Station_ for the given _Datum_.
+* _Longitude_ - Geographical longitude of the _Station_ for the given _Datum_.
+* _Elevation_ - Height in meters of the _Station_ above the free surface for the given _Datum_.
+* _Depth_ - Depth of water in meters above the _Station_ if installed underwater.
+* _Datum_ - Geographical reference system used for the latitude, longitude & elevation.
+* _Start Date_ - General date and time at which samples might be manually collected at the _Station_.
+* _End Date_ - General date and time at which samples could not further be manually collected at the _Station_.
+
 #### _SITES_ ####
 
 * _Station_ - Code used to uniquely identify Recording _Station_.
@@ -76,6 +113,7 @@ Valid Monument Types are:
 * _Elevation_ - Height in meters of the _Site_ above the free surface for the given _Datum_.
 * _Depth_ - Depth of water in meters above the _Site_ if installed underwater.
 * _Datum_ - Geographical reference system used for the latitude, longitude & elevation.
+* _Survey_ - Method used to determine Geographical coordinates.
 * _Start Date_ - General date and time at which the _Site_ was operational.
 * _End Date_ - General date and time at which the _Site_ was no longer operational.
 
@@ -94,7 +132,7 @@ Valid Monument Types are:
 
 #### _VIEWS_ ####
 
-*  _Mount_ - Code used to uniquely identify a Camera _Mount_.
+* _Mount_ - Code used to uniquely identify a Camera _Mount_.
 * _View_ - Code used to uniquely identify a Camera _View_.
 * _Label_ - Feature the Camera is pointing to.
 * _Azimuth_ - Camera _View_ azimuth, measured in _degrees_ clockwise from north.

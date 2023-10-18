@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -14,6 +13,13 @@ const (
 	networkRestricted
 	networkLast
 )
+
+var networkHeaders Header = map[string]int{
+	"Network":     networkCode,
+	"External":    networkExternal,
+	"Description": networkDescription,
+	"Restricted":  networkRestricted,
+}
 
 type Network struct {
 	Code        string
@@ -29,47 +35,47 @@ func (n NetworkList) Swap(i, j int)      { n[i], n[j] = n[j], n[i] }
 func (n NetworkList) Less(i, j int) bool { return n[i].Code < n[j].Code }
 
 func (n NetworkList) encode() [][]string {
-	data := [][]string{{
-		"Network",
-		"External",
-		"Description",
-		"Restricted",
-	}}
-	for _, v := range n {
+	var data [][]string
+
+	data = append(data, networkHeaders.Columns())
+	for _, row := range n {
 		data = append(data, []string{
-			strings.TrimSpace(v.Code),
-			strings.TrimSpace(v.External),
-			strings.TrimSpace(v.Description),
-			strconv.FormatBool(v.Restricted),
+			strings.TrimSpace(row.Code),
+			strings.TrimSpace(row.External),
+			strings.TrimSpace(row.Description),
+			strconv.FormatBool(row.Restricted),
 		})
 	}
+
 	return data
 }
 
 func (n *NetworkList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var networks []Network
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != networkLast {
-				return fmt.Errorf("incorrect number of installed network fields")
-			}
-			var err error
 
-			var restricted bool
-			if restricted, err = strconv.ParseBool(d[networkRestricted]); err != nil {
-				return err
-			}
+	fields := networkHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			networks = append(networks, Network{
-				Code:        strings.TrimSpace(d[networkCode]),
-				External:    strings.TrimSpace(d[networkExternal]),
-				Description: strings.TrimSpace(d[networkDescription]),
-				Restricted:  restricted,
-			})
+		restricted, err := strconv.ParseBool(d[networkRestricted])
+		if err != nil {
+			return err
 		}
 
-		*n = NetworkList(networks)
+		networks = append(networks, Network{
+			Code:        strings.TrimSpace(d[networkCode]),
+			External:    strings.TrimSpace(d[networkExternal]),
+			Description: strings.TrimSpace(d[networkDescription]),
+			Restricted:  restricted,
+		})
 	}
+
+	*n = NetworkList(networks)
+
 	return nil
 }
 

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"strings"
 	"text/template"
@@ -18,6 +19,10 @@ type SensorModel struct {
 	Vendor       string `yaml:"vendor"`
 
 	Components []SensorComponent `yaml:"components"`
+}
+
+func (s SensorModel) Desc(name string) string {
+	return fmt.Sprintf("%s %s %s", s.Manufacturer, strings.Split(strings.Fields(name)[0], "/")[0], s.Type)
 }
 
 func (s SensorModel) Make() string {
@@ -39,7 +44,7 @@ var SensorModels map[string]SensorModel = map[string]SensorModel{
 {{ range $k, $v := . }}	"{{ $k}}": SensorModel{
 		Name: "{{$k}}",
 		Type: "{{$v.Type}}",
-		Description: "{{$v.Description}}",
+		Description: "{{$v.Desc $k}}",
 		Manufacturer: "{{$v.Manufacturer}}",
 		Vendor: "{{$v.Vendor}}",
 		Components: []SensorComponent{{"{"}}{{ range $z := $v.Components}}SensorComponent{Azimuth: {{ $z.Azimuth }}, Dip: {{ $z.Dip }}{{"}"}},{{end}}{{"}"}},

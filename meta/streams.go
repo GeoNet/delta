@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -21,6 +20,19 @@ const (
 	streamEnd
 	streamLast
 )
+
+var streamHeaders Header = map[string]int{
+	"Station":       streamStation,
+	"Location":      streamLocation,
+	"Band":          streamBand,
+	"Source":        streamSource,
+	"Sampling Rate": streamSamplingRate,
+	"Axial":         streamAxial,
+	"Reversed":      streamReversed,
+	"Triggered":     streamTriggered,
+	"Start Date":    streamStart,
+	"End Date":      streamEnd,
+}
 
 type Stream struct {
 	Span
@@ -47,6 +59,10 @@ func (s Stream) Less(stream Stream) bool {
 		return true
 	case s.Location > stream.Location:
 		return false
+	case s.Source < stream.Source:
+		return true
+	case s.Source > stream.Source:
+		return false
 	case s.SamplingRate < stream.SamplingRate:
 		return true
 	case s.SamplingRate > stream.SamplingRate:
@@ -67,87 +83,84 @@ func (s StreamList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
 func (s StreamList) Less(i, j int) bool { return s[i].Less(s[j]) }
 
 func (s StreamList) encode() [][]string {
-	data := [][]string{{
-		"Station",
-		"Location",
-		"Band",
-		"Source",
-		"Sampling Rate",
-		"Axial",
-		"Reversed",
-		"Triggered",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range s {
+	var data [][]string
+
+	data = append(data, streamHeaders.Columns())
+
+	for _, row := range s {
 		data = append(data, []string{
-			strings.TrimSpace(v.Station),
-			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.Band),
-			strings.TrimSpace(v.Source),
-			strings.TrimSpace(v.samplingRate),
-			strings.TrimSpace(v.Axial),
-			strings.TrimSpace(strconv.FormatBool(v.Reversed)),
-			strings.TrimSpace(strconv.FormatBool(v.Triggered)),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Station),
+			strings.TrimSpace(row.Location),
+			strings.TrimSpace(row.Band),
+			strings.TrimSpace(row.Source),
+			strings.TrimSpace(row.samplingRate),
+			strings.TrimSpace(row.Axial),
+			strings.TrimSpace(strconv.FormatBool(row.Reversed)),
+			strings.TrimSpace(strconv.FormatBool(row.Triggered)),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
-func (c *StreamList) decode(data [][]string) error {
+func (s *StreamList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var streams []Stream
-	if len(data) > 1 {
-		for _, v := range data[1:] {
-			if len(v) != streamLast {
-				return fmt.Errorf("incorrect number of installed stream fields")
-			}
-			var err error
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, v[streamStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, v[streamEnd]); err != nil {
-				return err
-			}
+	fields := streamHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			var rate float64
-			if rate, err = strconv.ParseFloat(v[streamSamplingRate], 64); err != nil {
-				return err
-			}
-			if rate < 0 {
-				rate = -1.0 / rate
-			}
-
-			var reversed, triggered bool
-			if reversed, err = strconv.ParseBool(v[streamReversed]); err != nil {
-				return err
-			}
-			if triggered, err = strconv.ParseBool(v[streamTriggered]); err != nil {
-				return err
-			}
-
-			streams = append(streams, Stream{
-				Station:      strings.TrimSpace(v[streamStation]),
-				Location:     strings.TrimSpace(v[streamLocation]),
-				Band:         strings.TrimSpace(v[streamBand]),
-				Source:       strings.TrimSpace(v[streamSource]),
-				SamplingRate: rate,
-				samplingRate: strings.TrimSpace(v[streamSamplingRate]),
-				Axial:        strings.TrimSpace(v[streamAxial]),
-				Reversed:     reversed,
-				Triggered:    triggered,
-				Span: Span{
-					Start: start,
-					End:   end,
-				},
-			})
+		start, err := time.Parse(DateTimeFormat, d[streamStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[streamEnd])
+		if err != nil {
+			return err
 		}
 
-		*c = StreamList(streams)
+		rate, err := strconv.ParseFloat(d[streamSamplingRate], 64)
+		if err != nil {
+			return err
+		}
+		if rate < 0 {
+			rate = -1.0 / rate
+		}
+
+		reversed, err := strconv.ParseBool(d[streamReversed])
+		if err != nil {
+			return err
+		}
+		triggered, err := strconv.ParseBool(d[streamTriggered])
+		if err != nil {
+			return err
+		}
+
+		streams = append(streams, Stream{
+			Station:      strings.TrimSpace(d[streamStation]),
+			Location:     strings.TrimSpace(d[streamLocation]),
+			Band:         strings.TrimSpace(d[streamBand]),
+			Source:       strings.TrimSpace(d[streamSource]),
+			SamplingRate: rate,
+			samplingRate: strings.TrimSpace(d[streamSamplingRate]),
+			Axial:        strings.TrimSpace(d[streamAxial]),
+			Reversed:     reversed,
+			Triggered:    triggered,
+			Span: Span{
+				Start: start,
+				End:   end,
+			},
+		})
 	}
+
+	*s = StreamList(streams)
+
 	return nil
 }
 

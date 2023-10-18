@@ -1,17 +1,28 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/GeoNet/delta/meta"
-	"github.com/GeoNet/kit/sit_delta_pb"
-	"github.com/golang/protobuf/proto"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/GeoNet/delta/meta"
+	"github.com/GeoNet/kit/sit_delta_pb"
+	"google.golang.org/protobuf/proto"
 )
+
+func markPtr(mark meta.Mark) *meta.Mark {
+	return &mark
+}
+
+func mountPtr(mount meta.Mount) *meta.Mount {
+	return &mount
+}
+
+func stationPtr(station meta.Station) *meta.Station {
+	return &station
+}
 
 func main() {
 
@@ -382,20 +393,20 @@ func main() {
 			},
 		}
 
-		markMap[m.Code] = &m
+		markMap[m.Code] = markPtr(m)
 		siteCodeList = append(siteCodeList, m.Code)
 		sitMarkList[m.Code] = &mark
 	}
 
 	stationMap := make(map[string]*meta.Station)
 	for _, m := range stationList {
-		stationMap[m.Code] = &m
+		stationMap[m.Code] = stationPtr(m)
 		siteCodeList = append(siteCodeList, m.Code)
 	}
 
 	mountMap := make(map[string]*meta.Mount)
 	for _, m := range mountList {
-		mountMap[m.Code] = &m
+		mountMap[m.Code] = mountPtr(m)
 		siteCodeList = append(siteCodeList, m.Code)
 	}
 
@@ -436,16 +447,9 @@ func main() {
 			fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
 			os.Exit(-1)
 		}
-		if err := ioutil.WriteFile(pbfile, b, 0644); err != nil {
+		if err := os.WriteFile(pbfile, b, 0600); err != nil {
 			fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 			os.Exit(-1)
-		}
-		if verbose {
-			out_json, _ := json.MarshalIndent(site_pb, "", "  ")
-			err = ioutil.WriteFile(filepath.Join(output, strings.ToUpper(s)+".json"), []byte(out_json), 0644)
-			if err != nil {
-				fmt.Fprintf(os.Stderr, "error: unable to write debug json: %v\n", err)
-			}
 		}
 
 	}

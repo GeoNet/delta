@@ -1,18 +1,18 @@
 package delta_test
 
 import (
-	"sort"
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testAssets = map[string]func([]meta.Asset) func(t *testing.T){
+var assetChecks = map[string]func(*meta.Set) func(t *testing.T){
 
-	"check for duplicate asset numbers": func(assets []meta.Asset) func(t *testing.T) {
+	"check for duplicate asset numbers": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			reference := make(map[string]string)
-			for _, a := range assets {
+			for _, a := range set.Assets() {
 				if a.Number == "" {
 					continue
 				}
@@ -24,8 +24,9 @@ var testAssets = map[string]func([]meta.Asset) func(t *testing.T){
 		}
 	},
 
-	"check for duplicate equipment": func(assets []meta.Asset) func(t *testing.T) {
+	"check for duplicate equipment": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
+			assets := set.Assets()
 			for i := 0; i < len(assets); i++ {
 				for j := i + 1; j < len(assets); j++ {
 					switch {
@@ -42,30 +43,12 @@ var testAssets = map[string]func([]meta.Asset) func(t *testing.T){
 
 func TestAssets(t *testing.T) {
 
-	var assets meta.AssetList
-
-	files := map[string]string{
-		"antennas":    "../assets/antennas.csv",
-		"cameras":     "../assets/cameras.csv",
-		"dataloggers": "../assets/dataloggers.csv",
-		"metsensors":  "../assets/metsensors.csv",
-		"radomes":     "../assets/radomes.csv",
-		"receivers":   "../assets/receivers.csv",
-		"recorders":   "../assets/recorders.csv",
-		"sensors":     "../assets/sensors.csv",
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
 
-	for k, v := range files {
-		t.Run("load asset files: "+k, func(t *testing.T) {
-			var a meta.AssetList
-			loadListFile(t, v, &a)
-			assets = append(assets, a...)
-		})
-	}
-
-	sort.Sort(assets)
-
-	for k, fn := range testAssets {
-		t.Run(k, fn(assets))
+	for k, v := range assetChecks {
+		t.Run(k, v(set))
 	}
 }

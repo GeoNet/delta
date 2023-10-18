@@ -1,2 +1,2 @@
-Station,Location,Sublocation,Subsource,Scale Factor,Scale Bias,Start Date,End Date
-SBAM,50,01,XZ,1298.169,11865.556,2021-07-01T00:00:00Z,9999-01-01T00:00:00Z
+Station,Location,Sublocation,Subsource,Scale Factor,Scale Bias,Absolute Bias,Start Date,End Date
+SBAM,50,01,XZ,1298.169,11865.556,,2021-07-01T00:00:00Z,9999-01-01T00:00:00Z
