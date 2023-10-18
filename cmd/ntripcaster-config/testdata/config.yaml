@@ -1,0 +1,37 @@
+gns_ntripcaster::users:
+- username: number1
+  password: password1
+- username: number2
+  password: password2
+- username: number3
+  password: password3
+gns_ntripcaster::groups:
+- group: autogroup
+  users:
+  - number1
+- group: usergroup
+  users:
+  - number1
+  - number2
+  - number3
+gns_ntripcaster::clientmounts:
+- mount: AVLN00NZL0
+  groups:
+  - autogroup
+  - usergroup
+gns_ntripcaster::mounts:
+- mount: AVLN00NZL0
+  mark: AVLN
+  name: Avalon Sound Stage
+  latitude: "-41.20"
+  longitude: "174.93"
+  country: NZL
+  format: RTCM 3.2
+  details: 1004(1),1012(1),1006(10),1008(10),1013(10),1033(10),1074(1),1084(1),1094(1),1114(1),1124(1)
+  navigation: GPS+GLO+GAL+BDS+QZS
+  model: Trimble NetR9
+  user: username:password
+  address: avln.gps.wan.geonet.org.nz:8857
+gns_ntripcaster::aliases:
+- alias: MOUNT
+  mount: AVLN00NZL0

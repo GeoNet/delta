@@ -1,0 +1,4 @@
+#Username,Groups,Password
+number1,autogroup:usergroup,password1
+number2,usergroup,password2
+number3,usergroup,password3

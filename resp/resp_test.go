@@ -18,6 +18,7 @@ func TestAuto(t *testing.T) {
 	}
 
 	for _, name := range names {
+		name := name
 		t.Run("check resp file: "+name, func(t *testing.T) {
 			t.Parallel()
 
@@ -26,18 +27,28 @@ func TestAuto(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			snippet, err := stationxml.NewResponseType(raw)
+			first, err := stationxml.NewResponseType(raw)
 			if err != nil {
 				t.Fatal(err)
 			}
 
-			data, err := snippet.Marshal()
+			data, err := first.Marshal()
 			if err != nil {
 				t.Fatal(err)
 			}
 
-			if !cmp.Equal(raw, data) {
-				t.Error(cmp.Diff(raw, data))
+			second, err := stationxml.NewResponseType(data)
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			check, err := second.Marshal()
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			if !cmp.Equal(data, check) {
+				t.Error(cmp.Diff(data, check))
 			}
 		})
 	}

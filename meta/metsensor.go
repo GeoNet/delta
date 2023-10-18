@@ -54,7 +54,7 @@ type MetSensorAccuracy struct {
 
 type InstalledMetSensor struct {
 	Install
-	Point
+	Position
 
 	Mark       string
 	IMSComment string
@@ -152,7 +152,7 @@ func (ims *InstalledMetSensorList) decode(data [][]string) error {
 					End:   end,
 				},
 			},
-			Point: Point{
+			Position: Position{
 				Latitude:  lat,
 				Longitude: lon,
 				Elevation: elev,

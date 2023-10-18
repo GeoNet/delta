@@ -36,7 +36,7 @@ var mountHeaders Header = map[string]int{
 
 type Mount struct {
 	Reference
-	Point
+	Position
 	Span
 
 	Description string
@@ -111,7 +111,7 @@ func (m *MountList) decode(data [][]string) error {
 				Network: strings.TrimSpace(d[mountNetwork]),
 				Name:    strings.TrimSpace(d[mountName]),
 			},
-			Point: Point{
+			Position: Position{
 				Latitude:  lat,
 				Longitude: lon,
 				Elevation: elev,

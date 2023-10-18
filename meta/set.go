@@ -11,6 +11,7 @@ import (
 const (
 	AssetFiles = "assets/*.csv"
 
+	DartsFile     = "network/darts.csv"
 	MarksFile     = "network/marks.csv"
 	MonumentsFile = "network/monuments.csv"
 	MountsFile    = "network/mounts.csv"
@@ -62,6 +63,7 @@ type SetPathMap func(s string) string
 type Set struct {
 	assets AssetList
 
+	darts     DartList
 	marks     MarkList
 	monuments MonumentList
 	mounts    MountList
@@ -107,6 +109,7 @@ func (s *Set) files() map[string]List {
 	return map[string]List{
 		AssetFiles: &s.assets,
 
+		DartsFile:     &s.darts,
 		MarksFile:     &s.marks,
 		MonumentsFile: &s.monuments,
 		MountsFile:    &s.mounts,

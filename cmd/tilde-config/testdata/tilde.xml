@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TildeXML>
+  <Domain name="dart">
+    <Station code="NZA">
+      <Latitude>aaaa</Latitude>
+      <Longitude>bbbb</Longitude>
+      <Elevation>0</Elevation>
+      <Sensor code="40" startDate="2019-12-22T00:00:00Z" endDate="9999-01-01T00:00:00Z">
+        <Latitude>aaaa</Latitude>
+        <Longitude>bbbb</Longitude>
+        <Elevation>0</Elevation>
+        <RelativeHeight>zzzz</RelativeHeight>
+      </Sensor>
+      <Sensor code="41" startDate="2019-12-22T00:00:00Z" endDate="9999-01-01T00:00:00Z">
+        <Latitude>aaaa</Latitude>
+        <Longitude>bbbb</Longitude>
+        <RelativeHeight>zzzz</RelativeHeight>
+      </Sensor>
+    </Station>
+    <Station code="NZB">
+      <Latitude>cccc</Latitude>
+      <Longitude>dddd</Longitude>
+      <Elevation>0</Elevation>
+      <Sensor code="40" startDate="2019-12-22T00:00:00Z" endDate="9999-01-01T00:00:00Z">
+        <Latitude>cccc</Latitude>
+        <Longitude>dddd</Longitude>
+        <Elevation>0</Elevation>
+        <RelativeHeight>yyyy</RelativeHeight>
+      </Sensor>
+      <Sensor code="41" startDate="2019-12-22T00:00:00Z" endDate="9999-01-01T00:00:00Z">
+        <Latitude>cccc</Latitude>
+        <Longitude>dddd</Longitude>
+        <RelativeHeight>yyyy</RelativeHeight>
+      </Sensor>
+    </Station>
+  </Domain>
+  <Domain name="fits"></Domain>
+</TildeXML>

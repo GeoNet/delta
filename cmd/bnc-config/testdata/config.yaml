@@ -1,0 +1,15 @@
+gns_bnc::mounts:
+- mount: AVLN00NZL0
+  mark: AVLN
+  name: Avalon Sound Stage
+  latitude: "-41.20"
+  longitude: "174.93"
+  country: NZL
+  format: RTCM_3.2
+- mount: MOUNT
+  mark: AVLN
+  name: Avalon Sound Stage
+  latitude: "-41.20"
+  longitude: "174.93"
+  country: NZL
+  format: RTCM_3.2

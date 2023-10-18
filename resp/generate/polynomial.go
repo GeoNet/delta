@@ -3,7 +3,7 @@ package main
 import (
 	"sort"
 
-	"github.com/GeoNet/delta/internal/stationxml/v1.1"
+	stationxml "github.com/GeoNet/delta/internal/stationxml/v1.1"
 )
 
 type Polynomial struct {

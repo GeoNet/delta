@@ -41,7 +41,7 @@ func TestHeaderList(t *testing.T) {
 				Network: "MC",
 				Name:    "Ngauruhoe Volcano",
 			},
-			Point: Point{
+			Position: Position{
 				Latitude:  -39.156798,
 				Longitude: 175.631871,
 				Elevation: 2197.0,
@@ -64,7 +64,7 @@ func TestHeaderList(t *testing.T) {
 				Network: "MC",
 				Name:    "Ngauruhoe crater inner rim north-west fumarole field",
 			},
-			Point: Point{
+			Position: Position{
 				Latitude:  -39.1562653309,
 				Longitude: 175.631464065,
 				Elevation: 2280.0,
@@ -90,7 +90,7 @@ func TestHeaderList(t *testing.T) {
 				Network: "MC",
 				Name:    "Ngauruhoe Volcano",
 			},
-			Point: Point{
+			Position: Position{
 				Latitude:  -39.156798,
 				Longitude: 175.631871,
 				Elevation: 2197.0,
@@ -113,7 +113,7 @@ func TestHeaderList(t *testing.T) {
 				Network: "MC",
 				Name:    "Ngauruhoe crater inner rim north-west fumarole field",
 			},
-			Point: Point{
+			Position: Position{
 				Latitude:  -39.1562653309,
 				Longitude: 175.631464065,
 				Elevation: 2280.0,

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/GeoNet/delta/internal/stationxml/v1.1"
+	stationxml "github.com/GeoNet/delta/internal/stationxml/v1.1"
 )
 
 func A2D(filter string, stage ResponseStage, count int, freq, rate float64) stationxml.ResponseStageType {

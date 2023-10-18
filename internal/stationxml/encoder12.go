@@ -5,7 +5,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/GeoNet/delta/internal/stationxml/v1.2"
+	stationxml "github.com/GeoNet/delta/internal/stationxml/v1.2"
 )
 
 type Encoder12 struct{}
@@ -510,8 +510,8 @@ func (e Encoder12) Network(root Root, external External) stationxml.NetworkType 
 					return stationxml.OpenRestrictedStatus
 				}
 			}(),
-			StartDate: e.toDateTime(external.Start()),
-			EndDate:   e.toDateTime(external.End()),
+			StartDate: e.toDateTime(external.StartDate),
+			EndDate:   e.toDateTime(external.EndDate),
 		},
 		Station: stations,
 	}

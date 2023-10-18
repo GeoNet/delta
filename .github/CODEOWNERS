@@ -1,0 +1,16 @@
+# Codeowners of delta metadata repository
+# GitHub dmc team is representing Science Operations and Data Team
+# GitHub platform-team is representing Data Science Platform Team
+# GitHub ssd-team-developer is representing developers in the Science Systems Developement Team
+
+# All delta repository content. Default owners for everything in the repo
+*    @ozym @GeoNet/dmc
+
+# Codes and tests for downstream applications
+/cmd/    @GeoNet/platform-team @GeoNet/ssd-team-developer
+/internal/    @GeoNet/platform-team @GeoNet/ssd-team-developer
+/meta/    @GeoNet/platform-team @GeoNet/ssd-team-developer
+/tests/    @GeoNet/platform-team @GeoNet/ssd-team-developer
+/tools/    @GeoNet/platform-team @GeoNet/ssd-team-developer
+/vendor/    @GeoNet/platform-team @GeoNet/ssd-team-developer
+

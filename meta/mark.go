@@ -36,7 +36,7 @@ var markHeaders Header = map[string]int{
 
 type Mark struct {
 	Reference
-	Point
+	Position
 	Span
 
 	Igs bool
@@ -130,7 +130,7 @@ func (m *MarkList) decode(data [][]string) error {
 				Start: start,
 				End:   end,
 			},
-			Point: Point{
+			Position: Position{
 				Latitude:  lat,
 				Longitude: lon,
 				Elevation: elev,

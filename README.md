@@ -2,6 +2,8 @@
 
 Meta information for the GeoNet sensor network, please cite as https://doi.org/10.21420/0VY2-C144.
 
+[![Build Status](https://github.com/GeoNet/delta/actions/workflows/build.yml/badge.svg)](https://github.com/GeoNet/delta/actions/workflows/build.yml)
+
 ## network
 
 Geographical and equipment grouping meta data.
