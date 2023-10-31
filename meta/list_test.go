@@ -83,7 +83,7 @@ func TestList(t *testing.T) {
 						Network: "TR",
 						Name:    "Dawson Falls",
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -39.325743417,
 						Longitude: 174.103863732,
 						Elevation: 880.0,
@@ -106,7 +106,7 @@ func TestList(t *testing.T) {
 						Network: "SM",
 						Name:    "Tolaga Bay Area School",
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -38.372803703,
 						Longitude: 178.300778623,
 						Elevation: 8.0,
@@ -134,7 +134,7 @@ func TestList(t *testing.T) {
 						Code: "MTSR",
 						Name: "Ruapehu South",
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -39.384607843,
 						Longitude: 175.470410324,
 						Elevation: 840,
@@ -155,7 +155,7 @@ func TestList(t *testing.T) {
 						Code: "RIMM",
 						Name: "Raoul Island",
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -29.267332,
 						Longitude: -177.907235,
 						Elevation: 490,
@@ -218,7 +218,7 @@ func TestList(t *testing.T) {
 			"testdata/sites.csv",
 			&SiteList{
 				Site{
-					Point: Point{
+					Position: Position{
 						Latitude:  -39.198244208,
 						Longitude: 175.547981982,
 						Elevation: 1116.0,
@@ -238,7 +238,7 @@ func TestList(t *testing.T) {
 					Location: "12",
 				},
 				Site{
-					Point: Point{
+					Position: Position{
 						Latitude:  -45.091369824,
 						Longitude: 169.411775594,
 						Elevation: 701.0,
@@ -298,7 +298,7 @@ func TestList(t *testing.T) {
 						Name:    "Ahititi",
 					},
 					Igs: false,
-					Point: Point{
+					Position: Position{
 						Latitude:  -38.411447554,
 						Longitude: 178.046002897,
 						Elevation: 563.221,
@@ -320,7 +320,7 @@ func TestList(t *testing.T) {
 						Name:    "Dunedin",
 					},
 					Igs: true,
-					Point: Point{
+					Position: Position{
 						Latitude:  -45.88366604,
 						Longitude: 170.5971706,
 						Elevation: 386.964,
@@ -522,7 +522,7 @@ func TestList(t *testing.T) {
 							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 						},
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -41.2351,
 						Longitude: 174.917,
 						Elevation: 26,
@@ -555,7 +555,7 @@ func TestList(t *testing.T) {
 							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 						},
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -43.9857,
 						Longitude: 170.4649,
 						Elevation: 1044,
@@ -947,7 +947,7 @@ func TestList(t *testing.T) {
 					Number:   "363",
 					TimeZone: 180.0,
 					timeZone: "180",
-					Point: Point{
+					Position: Position{
 						Latitude:  36.5,
 						Longitude: 174.47,
 
@@ -968,7 +968,7 @@ func TestList(t *testing.T) {
 					Number:   "313",
 					TimeZone: 180.0,
 					timeZone: "180",
-					Point: Point{
+					Position: Position{
 						Latitude:  40.55,
 						Longitude: 176.13,
 
@@ -1068,6 +1068,42 @@ func TestList(t *testing.T) {
 					},
 					Mount: "TOD02",
 					View:  "01",
+				},
+			},
+		},
+		{
+			"testdata/classes.csv",
+			&ClassList{
+				Class{
+					Station:     "WHAS",
+					SiteClass:   "C",
+					Vs30:        270,
+					Vs30Quality: "Q3",
+					Tsite: Range{
+						Value: 0.4,
+					},
+					TsiteMethod:   "I",
+					TsiteQuality:  "Q3",
+					BasementDepth: 40,
+					DepthQuality:  "Q3",
+					Citations:     []string{"Perrin2015a"},
+					Notes:         "Perrin et al. 2015",
+				},
+				Class{
+					Station:     "WKZ",
+					SiteClass:   "B",
+					Vs30:        1000,
+					Vs30Quality: "Q3",
+					Tsite: Range{
+						Compare: LessThan,
+						Value:   0.1,
+					},
+					TsiteMethod:   "I",
+					TsiteQuality:  "Q3",
+					BasementDepth: 0,
+					DepthQuality:  "Q3",
+					Citations:     []string{"Kaiser2017", "Perrin2015a"},
+					Notes:         "Perrin et al. 2015",
 				},
 			},
 		},

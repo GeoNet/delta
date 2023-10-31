@@ -37,7 +37,7 @@ var sampleHeaders Header = map[string]int{
 // Sample represents the location and time span of where data was manually collected.
 type Sample struct {
 	Reference
-	Point
+	Position
 	Span
 }
 
@@ -158,7 +158,7 @@ func (s *SampleList) decode(data [][]string) error {
 				Start: start,
 				End:   end,
 			},
-			Point: Point{
+			Position: Position{
 				Latitude:  lat,
 				Longitude: lon,
 				Elevation: elev,

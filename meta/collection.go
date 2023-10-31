@@ -301,6 +301,9 @@ func (s *Set) Collections(site Site) []Collection {
 					if stream.Location != site.Location {
 						continue
 					}
+					if stream.Location == recorder.Location {
+						continue
+					}
 
 					span, ok := span.Extent(stream.Span)
 					if !ok {

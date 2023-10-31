@@ -1,0 +1,2 @@
+#Mount,Mark,Country,Format,Details,Navigation,Groups,User,Address
+AVLN00NZL0,AVLN,NZL,RTCM 3.2,RTCM-MEM,GPS+GLO+GAL+BDS+QZS,autogroup:usergroup,username:password,avln.gps.wan.geonet.org.nz:8857

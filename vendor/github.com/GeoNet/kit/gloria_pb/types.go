@@ -2,7 +2,7 @@ package gloria_pb
 
 // Additional types for working with Gloria protobufs.  This file is not automatically generated.
 
-type MarksPriority []Mark
+type MarksPriority []*Mark
 
 func (m MarksPriority) Len() int {
 	return len(m)

@@ -5,7 +5,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/GeoNet/delta/internal/stationxml/v1.0"
+	stationxml "github.com/GeoNet/delta/internal/stationxml/v1.0"
 )
 
 type Encoder10 struct{}
@@ -224,7 +224,15 @@ func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
 
 		// in v1.0 we don't used a base PolynomialType
 		if s.Polynomial != nil {
+
+			// assume gain is related to the second coefficient
+			value := 1.0
+			if len(s.Polynomial.Coefficients) > 1 {
+				value = 1.0 / s.Polynomial.Coefficients[1].Value
+			}
+
 			gain = stationxml.GainType{
+				Value:     value,
 				Frequency: response.frequency,
 			}
 		}
@@ -513,8 +521,8 @@ func (e Encoder10) Network(root Root, external External) stationxml.NetworkType 
 					return stationxml.OpenRestrictedStatus
 				}
 			}(),
-			StartDate: e.toDateTime(external.Start()),
-			EndDate:   e.toDateTime(external.End()),
+			StartDate: e.toDateTime(external.StartDate),
+			EndDate:   e.toDateTime(external.EndDate),
 		},
 		Station: stations,
 	}

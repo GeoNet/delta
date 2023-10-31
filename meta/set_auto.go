@@ -38,6 +38,13 @@ func (s Set) Citations() []Citation {
 	return citations
 }
 
+// Classes is a helper function to return a slice copy of Class values.
+func (s Set) Classes() []Class {
+	classes := make([]Class, len(s.classes))
+	copy(classes, s.classes)
+	return classes
+}
+
 // Components is a helper function to return a slice copy of Component values.
 func (s Set) Components() []Component {
 	components := make([]Component, len(s.components))
@@ -57,6 +64,13 @@ func (s Set) Constituents() []Constituent {
 	constituents := make([]Constituent, len(s.constituents))
 	copy(constituents, s.constituents)
 	return constituents
+}
+
+// Darts is a helper function to return a slice copy of Dart values.
+func (s Set) Darts() []Dart {
+	darts := make([]Dart, len(s.darts))
+	copy(darts, s.darts)
+	return darts
 }
 
 // DeployedDataloggers is a helper function to return a slice copy of DeployedDatalogger values.
@@ -270,6 +284,39 @@ func (s Set) Asset(make, model, serial string) (Asset, bool) {
 		return v, true
 	}
 	return Asset{}, false
+}
+
+// Citation is a helper function to return a Citation value and true if one exists.
+func (s Set) Citation(key string) (Citation, bool) {
+	for _, v := range s.citations {
+		if key != v.Key {
+			continue
+		}
+		return v, true
+	}
+	return Citation{}, false
+}
+
+// Class is a helper function to return a Class value and true if one exists.
+func (s Set) Class(station string) (Class, bool) {
+	for _, v := range s.classes {
+		if station != v.Station {
+			continue
+		}
+		return v, true
+	}
+	return Class{}, false
+}
+
+// Dart is a helper function to return a Dart value and true if one exists.
+func (s Set) Dart(station string) (Dart, bool) {
+	for _, v := range s.darts {
+		if station != v.Station {
+			continue
+		}
+		return v, true
+	}
+	return Dart{}, false
 }
 
 // Mark is a helper function to return a Mark value and true if one exists.

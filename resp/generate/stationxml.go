@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/GeoNet/delta/internal/stationxml/v1.1"
+	stationxml "github.com/GeoNet/delta/internal/stationxml/v1.1"
 )
 
 // ResponseType mimics stationxml.ResponseType but adds an XMLName tag to correctly marshal the type name.
