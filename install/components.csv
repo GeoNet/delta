@@ -95,6 +95,9 @@ Kinemetrics,FBA-ES-T-ISO,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-
 Kinemetrics,SBEPI,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_SBEPI
 Kinemetrics,SBEPI,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_SBEPI
 Kinemetrics,SBEPI,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_SBEPI
+Lennartz Electronic,LE-3D-BH-MkIII,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3D-BH-MkIII
+Lennartz Electronic,LE-3D-BH-MkIII,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3D-BH-MkIII
+Lennartz Electronic,LE-3D-BH-MkIII,Short Period Seismometer,2,,E,90,0,G,,sensor_Lennartz_LE-3D-BH-MkIII
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3Dlite
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3Dlite
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3Dlite
