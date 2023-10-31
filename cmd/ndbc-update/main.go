@@ -9,7 +9,6 @@ import (
 	"strings"
 
 	"github.com/GeoNet/delta"
-	"github.com/GeoNet/delta/meta"
 )
 
 type Settings struct {
@@ -58,62 +57,38 @@ func main() {
 		}
 	}
 
-	network, ok := set.Network(settings.network)
-	if !ok {
-		log.Fatalf("unable to find DART network %s", settings.network)
-	}
-
-	darts := make(map[string]meta.Dart)
-	for _, d := range set.Darts() {
-		darts[d.Station] = d
-	}
-
-	stations := make(map[string]meta.Station)
-	for _, s := range set.Stations() {
-		if s.Network != network.Code {
-			continue
-		}
-		stations[s.Code] = s
-	}
-
-	sites := make(map[string][]meta.Site)
-	for _, s := range set.Sites() {
-		if _, ok := stations[s.Station]; !ok {
-			continue
-		}
-		sites[s.Station] = append(sites[s.Station], s)
-	}
-
-	sensors := make(map[string][]meta.InstalledSensor)
-	for _, s := range set.InstalledSensors() {
-		if _, ok := sites[s.Station]; !ok {
-			continue
-		}
-		sensors[s.Station] = append(sensors[s.Station], s)
-	}
-
 	var deployments []Deployment
-	for k, v := range sites {
-		dart, ok := darts[k]
+	for _, dart := range set.Darts() {
+		station, ok := set.Station(dart.Station)
 		if !ok {
 			continue
 		}
-		for _, s := range v {
-			deployments = append(deployments, Deployment{
-				Buoy:       k,
-				Deployment: s.Location,
-				Name:       stations[k].Name,
-				Pid:        dart.Pid,
-				Region:     dart.WmoIdentifier,
-				Banks:      banks,
-				Platform:   settings.platform,
-				Latitude:   s.Latitude,
-				Longitude:  s.Longitude,
-				Serial:     "",
-				Depth:      s.Depth,
-				Start:      s.Start,
-				End:        s.End,
-			})
+		if station.Network != settings.network {
+			continue
+		}
+
+		for _, site := range set.Sites() {
+			if site.Station != station.Code {
+				continue
+			}
+
+			for _, collection := range set.Collections(site) {
+				deployments = append(deployments, Deployment{
+					Buoy:       dart.Station,
+					Deployment: site.Location,
+					Name:       station.Name,
+					Pid:        dart.Pid,
+					Region:     dart.WmoIdentifier,
+					Banks:      banks,
+					Platform:   settings.platform,
+					Latitude:   site.Latitude,
+					Longitude:  site.Longitude,
+					Serial:     collection.InstalledSensor.Serial,
+					Depth:      site.Depth,
+					Start:      collection.Start,
+					End:        collection.End,
+				})
+			}
 		}
 	}
 
