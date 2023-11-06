@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>800</Value>
+    <Frequency>5</Frequency>
+    <InputUnits>
+      <Name>m/s</Name>
+      <Description>Velocity in Meters Per Second</Description>
+    </InputUnits>
+    <OutputUnits>
+      <Name>V</Name>
+      <Description>Volts</Description>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <PolesZeros resourceId="PolesZeros#LE-3D-BH-MkIII">
+      <InputUnits>
+        <Name>m/s</Name>
+        <Description>Velocity in Meters Per Second</Description>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+        <Description>Volts</Description>
+      </OutputUnits>
+      <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+      <NormalizationFactor>1</NormalizationFactor>
+      <NormalizationFrequency>5</NormalizationFrequency>
+      <Zero number="0">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="1">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="2">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Pole number="0">
+        <Real>-1.083</Real>
+        <Imaginary>0</Imaginary>
+      </Pole>
+      <Pole number="1">
+        <Real>-4.444</Real>
+        <Imaginary>-4.444</Imaginary>
+      </Pole>
+      <Pole number="2">
+        <Real>-4.444</Real>
+        <Imaginary>4.444</Imaginary>
+      </Pole>
+    </PolesZeros>
+    <StageGain>
+      <Value>800</Value>
+      <Frequency>5</Frequency>
+    </StageGain>
+  </Stage>
+</Response>

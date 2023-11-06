@@ -36,6 +36,17 @@ sensor-model:
       dip: 0
     - azimuth: 90
       dip: 0
+  LE-3D-BH-MkIII:
+    type: Short Period Seismometer
+    description: LE-3D-BH-MkIII
+    manufacturer: "Lennartz Electronic"
+    vendor: ""
+    components:
+    - azimuth: 0
+      dip: -90
+    - azimuth: 0
+      dip: 0
+    - azimuth: 90
 
 paz:
   LE-3Dlite:
@@ -88,5 +99,16 @@ filter:
     delay: 0
     inputunits: m/s
     outputunits: V
+  LE-3D-BH-MkIII:
+  - type: paz
+    lookup: LE-3Dlite
+    frequency: 15
+    samplerate: 0
+    decimate: 0
+    gain: 800
+    scale: 1
+    correction: 0
+    delay: 0
+    inputunits: m/s
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
