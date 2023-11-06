@@ -4407,13 +4407,13 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, {
-				SensorList: []string{"LE-3D-BH-MkIII"},
-				FilterList: []string{"LE-3D-BH-MkIII"},
+				SensorList: []string{"LE-3DliteMkIII"},
+				FilterList: []string{"LE-3DliteMkIII"},
 				Stages: []ResponseStage{
 					{
 						Type:   "paz",
 						Lookup: "LE-3Dlite",
-						Filter: "LE-3D-BH-MkIII",
+						Filter: "LE-3DliteMkIII",
 						StageSet: PAZ{
 							Name:  "LE-3Dlite",
 							Code:  PZFunctionLaplaceRadiansPerSecond,
@@ -4430,7 +4430,7 @@ var Responses []Response = []Response{
 						Correction:  0,
 						Delay:       0,
 						InputUnits:  "m/s",
-						OutputUnits: "",
+						OutputUnits: "V",
 					},
 				},
 				Channels: "ZNE",
@@ -10703,7 +10703,7 @@ var Responses []Response = []Response{
 				Channels: "ZNE",
 				Reversed: false,
 			}, {
-				SensorList: []string{"LE-3DliteMkIII"},
+				SensorList: []string{"LE-3D-BH-MkIII"},
 				FilterList: []string{"LE-3DliteMkIII"},
 				Stages: []ResponseStage{
 					{
