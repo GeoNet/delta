@@ -12,6 +12,18 @@ sensor-model:
       dip: 0
     - azimuth: 0
       dip: -90
+  CUSP-M4 SENSOR:
+    type: Building Array Sensor
+    description: CUSP M4
+    manufacturer: "Canterbury Seismic Instruments"
+    vendor: ""
+    components:
+    - azimuth: 90
+      dip: 0
+    - azimuth: 0
+      dip: 0
+    - azimuth: 0
+      dip: -90
   CUSP3A:
     type: Strong Motion Sensor
     description: CUSP 3A
