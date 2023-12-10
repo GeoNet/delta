@@ -6,7 +6,6 @@ aqwari.net/xml/xsd
 # github.com/GeoNet/kit v0.0.0-20230815043857-8f23eb4013a5
 ## explicit; go 1.16
 github.com/GeoNet/kit/gloria_pb
-github.com/GeoNet/kit/sit_delta_pb
 # github.com/google/go-cmp v0.5.9
 ## explicit; go 1.13
 github.com/google/go-cmp/cmp
