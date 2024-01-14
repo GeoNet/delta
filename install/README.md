@@ -25,6 +25,7 @@ Meta information for the GeoNet equipment network.
 * `channels.csv` - Individual datalogger recording elements including digitiser position, sampling rate, and responses.
 * [`preamps.csv`](#preamps) - site specific settings applied to individual datalogger pre-amplification that may impact overall sensitivities.
 * [`telemetries.csv`](#telemetries) - site specific settings applied to datalogger and sensor connections that may use analogue telemetry.
+* [`timings.csv`](#timings) - site specific settings to indicate time corrections that may need to be applied to archived raw data.
 
 * `cameras.csv` - Installed field cameras.
 * `doases.csv` - Installed field DOAS (Differential Optical Absorption Spectrometer) equipment.
@@ -420,6 +421,34 @@ A list of _doas_ installations, these include values for:
 |  _East_ | Installed DOAS offset east | _metres_
 |  _Start_ | Installed DOAS start time | 
 |  _Stop_ | Installed DOAS stop time | 
+
+#### _TIMINGS_ ####
+
+There are some data sources which may have timing issues and the type of recording format means
+that the archived raw data will include the bad timing and a correction will need to applied.
+
+Likewise, some sites may have a timing issue that cannot easily be corrected, this table allows
+this correction to be stored for use with processing systems or otherwise.
+
+The correction should be "added" to the sensor sample times, for when the clock is fast this value
+should be negative. The format can follow a standard _go_ convention: 
+
+    A duration string is a possibly signed sequence of decimal numbers, each with optional fraction and a unit suffix,
+    such as "300ms", "-1.5h" or "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h", "d", "w", "y".
+
+
+| Field | Description | Units |
+| --- | --- | --- |
+| _Station_ | Recording _Station_|
+| _Location_ | Recording location _Site_|
+| _Correction_ | Recorded data required time correction |
+| _Start_ | Time window start time|
+| _Stop_ | Time window stop time|
+
+Example:
+
+    Station,Location,Correction,Start Date,End Date
+    NZB,42,-24h,2023-12-07T14:15:00Z,9999-01-01T00:00:00Z
 
 ### NOTES ###
 
