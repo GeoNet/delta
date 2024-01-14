@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"time"
 
 	"github.com/GeoNet/delta"
 )
@@ -73,19 +74,25 @@ func main() {
 		}
 
 		for _, c := range set.Collections(s) {
-
-			// will be sorted as per delta
-			deployments = append(deployments, Deployment{
-				Network:   e,
-				Buoy:      s.Station,
-				Location:  s.Location,
-				Latitude:  s.Latitude,
-				Longitude: s.Longitude,
-				Detide:    NewDetide(set, s),
-				Depth:     s.Depth,
-				Start:     c.Start,
-				End:       c.End,
-			})
+			for _, x := range set.Corrections(c) {
+				var correction time.Duration
+				if x.Timing != nil {
+					correction = x.Timing.Correction
+				}
+				// will be sorted as per delta
+				deployments = append(deployments, Deployment{
+					Network:    e,
+					Buoy:       s.Station,
+					Location:   s.Location,
+					Latitude:   s.Latitude,
+					Longitude:  s.Longitude,
+					Detide:     NewDetide(set, s),
+					Depth:      s.Depth,
+					Correction: correction,
+					Start:      c.Start,
+					End:        c.End,
+				})
+			}
 		}
 	}
 
