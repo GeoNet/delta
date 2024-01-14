@@ -11,12 +11,12 @@ func TestTimings(t *testing.T) {
 		Timing{
 			Station:    "NZB",
 			Location:   "42",
-			Correction: -24 * time.Hour,
+			Correction: -12 * time.Hour,
 			Span: Span{
 				Start: time.Date(2023, 12, 7, 14, 15, 0, 0, time.UTC),
 				End:   time.Date(9999, 1, 1, 0, 0, 0, 0, time.UTC),
 			},
-			correction: "-24h",
+			correction: "-12h",
 		},
 	}))
 }
