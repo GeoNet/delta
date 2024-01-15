@@ -115,11 +115,11 @@ func (s *Set) TimingCorrections(coll Collection) []Correction {
 	var res []Correction
 
 	// check prior to the first timing
-	if v := timings[0]; v.Start.After(coll.Span.Start) {
+	if first := timings[0]; first.Start.After(coll.Span.Start) {
 		res = append(res, Correction{
 			Span: Span{
 				Start: coll.Span.Start,
-				End:   v.Start,
+				End:   first.Start,
 			},
 		})
 	}
@@ -147,10 +147,10 @@ func (s *Set) TimingCorrections(coll Collection) []Correction {
 	}
 
 	// check after the last timing
-	if v := timings[len(timings)-1]; v.End.Before(coll.Span.End) {
+	if last := timings[len(timings)-1]; last.End.Before(coll.Span.End) {
 		res = append(res, Correction{
 			Span: Span{
-				Start: v.End,
+				Start: last.End,
 				End:   coll.Span.End,
 			},
 		})

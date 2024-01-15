@@ -425,7 +425,7 @@ A list of _doas_ installations, these include values for:
 #### _TIMINGS_ ####
 
 There are some data sources which may have timing issues and the type of recording format means
-that the archived raw data will include the bad timing and a correction will need to applied.
+that the archived raw data will include the bad timing and a correction will need to be applied.
 
 Likewise, some sites may have a timing issue that cannot easily be corrected, this table allows
 this correction to be stored for use with processing systems or otherwise.
