@@ -81,16 +81,16 @@ func main() {
 				}
 				// will be sorted as per delta
 				deployments = append(deployments, Deployment{
-					Network:    e,
-					Buoy:       s.Station,
-					Location:   s.Location,
-					Latitude:   s.Latitude,
-					Longitude:  s.Longitude,
-					Detide:     NewDetide(set, s),
-					Depth:      s.Depth,
-					Correction: correction,
-					Start:      c.Start,
-					End:        c.End,
+					Network:          e,
+					Buoy:             s.Station,
+					Location:         s.Location,
+					Latitude:         s.Latitude,
+					Longitude:        s.Longitude,
+					Detide:           NewDetide(set, s),
+					Depth:            s.Depth,
+					TimingCorrection: correction,
+					Start:            c.Start,
+					End:              c.End,
 				})
 			}
 		}

@@ -85,36 +85,37 @@ func (t *TimingList) decode(data [][]string) error {
 
 	fields := timingHeaders.Fields(data[0])
 	for _, row := range data[1:] {
-		d := fields.Remap(row)
+		// reorder the entries based on field labels
+		entries := fields.Remap(row)
 
-		start, err := time.Parse(DateTimeFormat, d[timingStart])
+		start, err := time.Parse(DateTimeFormat, entries[timingStart])
 		if err != nil {
 			return err
 		}
 
-		end, err := time.Parse(DateTimeFormat, d[timingEnd])
+		end, err := time.Parse(DateTimeFormat, entries[timingEnd])
 		if err != nil {
 			return err
 		}
 
 		var correction time.Duration
-		if s := d[timingCorrection]; s != "" {
-			v, err := time.ParseDuration(s)
+		if str := entries[timingCorrection]; str != "" {
+			corr, err := time.ParseDuration(str)
 			if err != nil {
 				return err
 			}
-			correction = v
+			correction = corr
 		}
 
 		timings = append(timings, Timing{
-			Station:    strings.TrimSpace(d[timingStation]),
-			Location:   strings.TrimSpace(d[timingLocation]),
+			Station:    strings.TrimSpace(entries[timingStation]),
+			Location:   strings.TrimSpace(entries[timingLocation]),
 			Correction: correction,
 			Span: Span{
 				Start: start,
 				End:   end,
 			},
-			correction: strings.TrimSpace(d[timingCorrection]),
+			correction: strings.TrimSpace(entries[timingCorrection]),
 		})
 	}
 
@@ -124,13 +125,13 @@ func (t *TimingList) decode(data [][]string) error {
 }
 
 func LoadTimings(path string) ([]Timing, error) {
-	var s []Timing
+	var timings []Timing
 
-	if err := LoadList(path, (*TimingList)(&s)); err != nil {
+	if err := LoadList(path, (*TimingList)(&timings)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(TimingList(s))
+	sort.Sort(TimingList(timings))
 
-	return s, nil
+	return timings, nil
 }
