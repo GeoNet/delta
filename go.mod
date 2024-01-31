@@ -1,6 +1,6 @@
 module github.com/GeoNet/delta
 
-go 1.20
+go 1.21
 
 require (
 	aqwari.net/xml v0.0.0-20210331023308-d9421b293817
