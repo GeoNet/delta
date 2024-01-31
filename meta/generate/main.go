@@ -13,7 +13,9 @@ func main() {
 		}{
 			"assets":              {"Asset"},
 			"calibrations":        {"Calibration"},
+			"channels":            {"Channel"},
 			"classes":             {"Class"},
+			"components":          {"Component"},
 			"connections":         {"Connection"},
 			"citations":           {"Citation"},
 			"constituents":        {"Constituent"},
@@ -44,10 +46,9 @@ func main() {
 			"stations":            {"Station"},
 			"streams":             {"Stream"},
 			"telemetries":         {"Telemetry"},
+			"timings":             {"Timing"},
 			"views":               {"View"},
 			"visibilities":        {"Visibility"},
-			"channels":            {"Channel"},
-			"components":          {"Component"},
 		},
 		Lookup: map[string]struct {
 			Key    string
