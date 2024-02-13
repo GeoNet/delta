@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<seiscomp xmlns="http://geofon.gfz-potsdam.de/ns/seiscomp3-schema/0.11" version="0.11">
+  <Config>
+    <parameterSet publicID="ParameterSet/trunk/Station/NZ/AUCT/default" created="2020-07-27T00:10:55.014699Z">
+      <moduleID>Config/trunk</moduleID>
+      <parameter publicID="Parameter/20200727001055.014792.4500">
+        <name>detecLocid</name>
+        <value>40</value>
+      </parameter>
+      <parameter publicID="Parameter/20200727001055.014751.4499">
+        <name>detecStream</name>
+        <value>LTZ</value>
+      </parameter>
+    </parameterSet>
+    <parameterSet publicID="ParameterSet/trunk/Station/NZ/CHST/default" created="2020-07-27T01:55:20.198097Z">
+      <moduleID>Config/trunk</moduleID>
+      <parameter publicID="Parameter/20200727015520.198197.621">
+        <name>detecLocid</name>
+        <value>40</value>
+      </parameter>
+      <parameter publicID="Parameter/20200727015520.198151.620">
+        <name>detecStream</name>
+        <value>LTZ</value>
+      </parameter>
+    </parameterSet>
+    <module publicID="Config/trunk" name="trunk" enabled="true">
+      <station publicID="Config/trunk/NZ/AUCT" networkCode="NZ" stationCode="AUCT" enabled="true">
+        <creationInfo>
+          <agencyID>WEL(GNS_Test)</agencyID>
+          <author>trunk</author>
+          <creationTime>2020-07-27T00:10:55.014503Z</creationTime>
+        </creationInfo>
+        <setup name="default" enabled="true">
+          <parameterSetID>ParameterSet/trunk/Station/NZ/AUCT/default</parameterSetID>
+        </setup>
+      </station>
+      <station publicID="Config/trunk/NZ/CHST" networkCode="NZ" stationCode="CHST" enabled="true">
+        <creationInfo>
+          <agencyID>WEL(GNS_Test)</agencyID>
+          <author>trunk</author>
+          <creationTime>2020-07-27T01:55:20.19791Z</creationTime>
+        </creationInfo>
+        <setup name="default" enabled="true">
+          <parameterSetID>ParameterSet/trunk/Station/NZ/CHST/default</parameterSetID>
+        </setup>
+      </station>
+    </module>
+  </Config>
+</seiscomp>
