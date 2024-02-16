@@ -255,6 +255,13 @@ func (s Set) Telemetries() []Telemetry {
 	return telemetries
 }
 
+// Timings is a helper function to return a slice copy of Timing values.
+func (s Set) Timings() []Timing {
+	timings := make([]Timing, len(s.timings))
+	copy(timings, s.timings)
+	return timings
+}
+
 // Views is a helper function to return a slice copy of View values.
 func (s Set) Views() []View {
 	views := make([]View, len(s.views))
