@@ -1,0 +1,1 @@
+[{"srcname":"NZ_CAW_10_EHZ","network-code":"NZ","station-code":"CAW","location-code":"10","channel-code":"EHZ","station-name":"Cannon Point","internal-network":"WL","network-description":"Wellington regional seismic network","latitude":-41.107194232,"longitude":175.066438523,"sampling-period":10000000,"sensitivity":167772160,"gain":1,"input_units":"m/s","output_units":"count"}]
