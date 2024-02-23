@@ -2,12 +2,12 @@
 <Response>
   <InstrumentSensitivity>
     <Value>149253.73134328358</Value>
-    <Frequency>0.016666666666666666</Frequency>
+    <Frequency>0.0002777777777777778</Frequency>
     <InputUnits>
       <Name>m</Name>
     </InputUnits>
     <OutputUnits>
-      <Name>count</Name>
+      <Name></Name>
     </OutputUnits>
   </InstrumentSensitivity>
   <Stage number="1">
@@ -16,12 +16,12 @@
         <Name>m</Name>
       </InputUnits>
       <OutputUnits>
-        <Name>count</Name>
+        <Name></Name>
       </OutputUnits>
       <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
     </Coefficients>
     <Decimation>
-      <InputSampleRate>0.00111111111111111</InputSampleRate>
+      <InputSampleRate>0.0011111111111111111</InputSampleRate>
       <Factor>1</Factor>
       <Offset>0</Offset>
       <Delay>0</Delay>
@@ -29,7 +29,7 @@
     </Decimation>
     <StageGain>
       <Value>149253.73134328358</Value>
-      <Frequency>0.016666666666666666</Frequency>
+      <Frequency>0.0002777777777777778</Frequency>
     </StageGain>
   </Stage>
 </Response>
