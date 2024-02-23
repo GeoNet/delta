@@ -7,7 +7,7 @@
       <Name>m</Name>
     </InputUnits>
     <OutputUnits>
-      <Name></Name>
+      <Name>count</Name>
     </OutputUnits>
   </InstrumentSensitivity>
   <Stage number="1">
@@ -16,7 +16,7 @@
         <Name>m</Name>
       </InputUnits>
       <OutputUnits>
-        <Name></Name>
+        <Name>count</Name>
       </OutputUnits>
       <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
     </Coefficients>
