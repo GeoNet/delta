@@ -1156,7 +1156,7 @@ var Responses []Response = []Response{
 						Gain:       149253.73134328358,
 						//Scale: 0,
 						InputUnits:  "m",
-						OutputUnits: "",
+						OutputUnits: "count",
 					},
 				},
 				Reversed: false,
