@@ -57,7 +57,7 @@ func main() {
 		log.Fatalf("unable to build dart configuration: %v", err)
 	}
 
-	// update enviroment sensor domain
+	// update environment sensor domain
 	if err := tilde.EnviroSensor(set, settings.enviro); err != nil {
 		log.Fatalf("unable to build envirosensor configuration: %v", err)
 	}
