@@ -24,6 +24,9 @@ Canterbury Seismic Instruments,CUSPM,Strong Motion Sensor,2,,E,0,90,G,,sensor_Ca
 Canterbury Seismic Instruments,CUSP-Me,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
 Canterbury Seismic Instruments,CUSP-Me,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
 Canterbury Seismic Instruments,CUSP-Me,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
+Canterbury Seismic Instruments,CUSP-M4,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
+Canterbury Seismic Instruments,CUSP-M4,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
+Canterbury Seismic Instruments,CUSP-M4,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
 Canterbury Seismic Instruments,EQR120,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_EQR120
 Canterbury Seismic Instruments,EQR120,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_EQR120
 Canterbury Seismic Instruments,EQR120,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_EQR120
@@ -96,6 +99,9 @@ Kinemetrics,FBA-ES-T-ISO,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-
 Kinemetrics,SBEPI,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_SBEPI
 Kinemetrics,SBEPI,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_SBEPI
 Kinemetrics,SBEPI,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_SBEPI
+Lennartz Electronic,LE-3D-BH-MkIII,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3D-BH-MkIII
+Lennartz Electronic,LE-3D-BH-MkIII,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3D-BH-MkIII
+Lennartz Electronic,LE-3D-BH-MkIII,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3D-BH-MkIII
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3Dlite
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3Dlite
 Lennartz Electronic,LE-3Dlite,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3Dlite
