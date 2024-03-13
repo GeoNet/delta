@@ -47,6 +47,7 @@ const (
 	ConstituentsFile = "environment/constituents.csv"
 	FeaturesFile     = "environment/features.csv"
 	GaugesFile       = "environment/gauges.csv"
+	NotesFile        = "environment/notes.csv"
 	PlacenamesFile   = "environment/placenames.csv"
 	VisibilityFile   = "environment/visibility.csv"
 
@@ -99,6 +100,7 @@ type Set struct {
 	constituents ConstituentList
 	features     FeatureList
 	gauges       GaugeList
+	notes        NoteList
 	placenames   PlacenameList
 	visibilities VisibilityList
 
@@ -145,6 +147,7 @@ func (s *Set) files() map[string]List {
 		ConstituentsFile: &s.constituents,
 		FeaturesFile:     &s.features,
 		GaugesFile:       &s.gauges,
+		NotesFile:        &s.notes,
 		PlacenamesFile:   &s.placenames,
 		VisibilityFile:   &s.visibilities,
 
