@@ -66,6 +66,13 @@ func (s Set) Constituents() []Constituent {
 	return constituents
 }
 
+// Darts is a helper function to return a slice copy of Dart values.
+func (s Set) Darts() []Dart {
+	darts := make([]Dart, len(s.darts))
+	copy(darts, s.darts)
+	return darts
+}
+
 // DeployedDataloggers is a helper function to return a slice copy of DeployedDatalogger values.
 func (s Set) DeployedDataloggers() []DeployedDatalogger {
 	deployedDataloggers := make([]DeployedDatalogger, len(s.deployedDataloggers))
@@ -192,6 +199,13 @@ func (s Set) Placenames() []Placename {
 	return placenames
 }
 
+// Points is a helper function to return a slice copy of Point values.
+func (s Set) Points() []Point {
+	points := make([]Point, len(s.points))
+	copy(points, s.points)
+	return points
+}
+
 // Polarities is a helper function to return a slice copy of Polarity values.
 func (s Set) Polarities() []Polarity {
 	polarities := make([]Polarity, len(s.polarities))
@@ -248,6 +262,13 @@ func (s Set) Telemetries() []Telemetry {
 	return telemetries
 }
 
+// Timings is a helper function to return a slice copy of Timing values.
+func (s Set) Timings() []Timing {
+	timings := make([]Timing, len(s.timings))
+	copy(timings, s.timings)
+	return timings
+}
+
 // Views is a helper function to return a slice copy of View values.
 func (s Set) Views() []View {
 	views := make([]View, len(s.views))
@@ -299,6 +320,17 @@ func (s Set) Class(station string) (Class, bool) {
 		return v, true
 	}
 	return Class{}, false
+}
+
+// Dart is a helper function to return a Dart value and true if one exists.
+func (s Set) Dart(station string) (Dart, bool) {
+	for _, v := range s.darts {
+		if station != v.Station {
+			continue
+		}
+		return v, true
+	}
+	return Dart{}, false
 }
 
 // Mark is a helper function to return a Mark value and true if one exists.
@@ -354,6 +386,20 @@ func (s Set) Placename(name string) (Placename, bool) {
 		return v, true
 	}
 	return Placename{}, false
+}
+
+// Point is a helper function to return a Point value and true if one exists.
+func (s Set) Point(sample, location string) (Point, bool) {
+	for _, v := range s.points {
+		if sample != v.Sample {
+			continue
+		}
+		if location != v.Location {
+			continue
+		}
+		return v, true
+	}
+	return Point{}, false
 }
 
 // Sample is a helper function to return a Sample value and true if one exists.

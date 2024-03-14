@@ -6,7 +6,6 @@ aqwari.net/xml/xsd
 # github.com/GeoNet/kit v0.0.0-20230815043857-8f23eb4013a5
 ## explicit; go 1.16
 github.com/GeoNet/kit/gloria_pb
-github.com/GeoNet/kit/sit_delta_pb
 # github.com/google/go-cmp v0.5.9
 ## explicit; go 1.13
 github.com/google/go-cmp/cmp
@@ -14,9 +13,6 @@ github.com/google/go-cmp/cmp/internal/diff
 github.com/google/go-cmp/cmp/internal/flags
 github.com/google/go-cmp/cmp/internal/function
 github.com/google/go-cmp/cmp/internal/value
-# github.com/ozym/fdsn v0.0.0-20171207084408-450013a4209e
-## explicit
-github.com/ozym/fdsn/stationxml
 # golang.org/x/net v0.14.0
 ## explicit; go 1.17
 golang.org/x/net/html
