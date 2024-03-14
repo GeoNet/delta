@@ -1614,8 +1614,8 @@ Servotech,T16 Type K thermocouple probe 100mm,003,RU001,02,0,,0,0,0,0,0,0,2019-0
 Servotech,T16 Type K thermocouple probe 100mm,004,TO006,02,0,,0,0,0,0,0,0,2019-04-16T22:50:00Z,9999-01-01T00:00:00Z
 Servotech,T16 Type K thermocouple probe 100mm,005,TO006,03,0,,0,0,0,0,0,0,2019-04-16T22:50:00Z,9999-01-01T00:00:00Z
 Servotech,T16 Type K thermocouple probe 100mm,006,TO015,02,0,,0,0,0,0,0,0,2018-08-10T00:00:00Z,9999-01-01T00:00:00Z
-Servotech,T16 Type K thermocouple probe 100mm,007,WI227,02,0,,0,0,0,0,0,0,2019-04-10T01:40:00Z,9999-01-01T00:00:00Z
-Servotech,T16 Type K thermocouple probe 100mm,008,WI227,03,0,,0,0,0,0,0,0,2019-06-17T23:40:00Z,9999-01-01T00:00:00Z
+Servotech,T16 Type K thermocouple probe 100mm,007,WI227,02,0,,0,0,0,0,0,0,2019-04-10T01:40:00Z,2023-12-01T00:00:00Z
+Servotech,T16 Type K thermocouple probe 100mm,008,WI227,03,0,,0,0,0,0,0,0,2019-06-17T23:40:00Z,2023-12-01T00:00:00Z
 Servotech,T16 Type K thermocouple probe 100mm,J343357A,OT013,01,0,,0,0,0,0,0,0,2021-03-17T22:20:00Z,9999-01-01T00:00:00Z
 Servotech,T16 Type K thermocouple probe 100mm,J343696A,NA002,01,0,,0,0,0,0,0,0,2021-05-06T04:00:00Z,9999-01-01T00:00:00Z
 Servotech,T16 Type K thermocouple probe 100mm,J343696B,TO015,01,0,,0,0,0,0,0,0,2021-11-19T00:30:00Z,9999-01-01T00:00:00Z
