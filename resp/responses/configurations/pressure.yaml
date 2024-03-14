@@ -384,5 +384,16 @@ response:
       filters:
       - "DART-15s"
       reversed: false
+    - dataloggers:
+      - "BPR Subsystem"
+      type: CG
+      label: WT
+      samplerate: -900
+      frequency: 1
+      storageformat: Int32
+      clockdrift: 0.0001
+      filters:
+      - "DART-900s"
+      reversed: false
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
