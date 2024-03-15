@@ -130,7 +130,7 @@ func main() {
 		switch {
 		case settings.json:
 			if err := network.EncodeJSON(file); err != nil {
-				log.Fatalf("unable to marshal output: %v", err)
+				log.Fatalf("unable to marshal output file %q: %v", settings.output, err)
 			}
 		default:
 			if err := network.EncodeXML(file, "", "  "); err != nil {
