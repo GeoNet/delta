@@ -4,7 +4,7 @@ Build a sensor description file
 
 ## output
 
-The output XML or JSON file provides a description of all sensor installations and manual collection points.
+The output XML (default) or JSON file provides a description of all sensor installations and manual collection points.
 This is aimed at a mapping or site discovery service.
 
 ## usage
