@@ -29,6 +29,7 @@ type Settings struct {
 	geomag   regexp.Regexp // geomag location codes
 
 	output string // optional output file
+	json   bool   // use json for output format
 }
 
 func main() {
@@ -64,6 +65,7 @@ func main() {
 	flag.TextVar(&settings.geomag, "geomag", regexp.MustCompile("^5"), "geomag sensor codes")
 
 	flag.StringVar(&settings.output, "output", "", "output sensor description file")
+	flag.BoolVar(&settings.json, "json", false, "use JSON for output format")
 
 	flag.Parse()
 
@@ -125,12 +127,26 @@ func main() {
 		}
 		defer file.Close()
 
-		if err := network.MarshalIndent(file, "", "  "); err != nil {
-			log.Fatalf("unable to marshal output file %q: %v", settings.output, err)
+		switch {
+		case settings.json:
+			if err := network.EncodeJSON(file); err != nil {
+				log.Fatalf("unable to marshal output file %q: %v", settings.output, err)
+			}
+		default:
+			if err := network.EncodeXML(file, "", "  "); err != nil {
+				log.Fatalf("unable to marshal output file %q: %v", settings.output, err)
+			}
 		}
 	default:
-		if err := network.MarshalIndent(os.Stdout, "", "  "); err != nil {
-			log.Fatalf("unable to marshal output: %v", err)
+		switch {
+		case settings.json:
+			if err := network.EncodeJSON(os.Stdout); err != nil {
+				log.Fatalf("unable to marshal output: %v", err)
+			}
+		default:
+			if err := network.EncodeXML(os.Stdout, "", "  "); err != nil {
+				log.Fatalf("unable to marshal output: %v", err)
+			}
 		}
 	}
 }

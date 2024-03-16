@@ -19,8 +19,8 @@ func (n *Network) ManualCollection(set *meta.Set, network, label string) error {
 		}
 
 		var sites []Site
-		for _, site := range set.Sites() {
-			if site.Station != sample.Code {
+		for _, point := range set.Points() {
+			if point.Sample != sample.Code {
 				continue
 			}
 
@@ -29,7 +29,7 @@ func (n *Network) ManualCollection(set *meta.Set, network, label string) error {
 				if feature.Station != sample.Code {
 					continue
 				}
-				if feature.Location != site.Location {
+				if feature.Location != point.Location {
 					continue
 				}
 
@@ -50,17 +50,17 @@ func (n *Network) ManualCollection(set *meta.Set, network, label string) error {
 			})
 
 			sites = append(sites, Site{
-				Code: site.Location,
+				Code: point.Location,
 
-				Latitude:  site.Latitude,
-				Longitude: site.Longitude,
-				Elevation: site.Elevation,
-				Depth:     site.Depth,
-				Datum:     site.Datum,
-				Survey:    site.Survey,
+				Latitude:  point.Latitude,
+				Longitude: point.Longitude,
+				Elevation: point.Elevation,
+				Depth:     point.Depth,
+				Datum:     point.Datum,
+				Survey:    point.Survey,
 
-				StartDate: site.Start,
-				EndDate:   site.End,
+				StartDate: point.Start,
+				EndDate:   point.End,
 
 				Sensors: sensors,
 			})

@@ -11,25 +11,8 @@ func (t *Tilde) ManualCollection(set *meta.Set, network string) error {
 	var stns []Station
 	for _, s := range set.Samples() {
 		var sens []Sensor
-		for _, c := range set.Sites() {
-			if c.Station != s.Code {
-				continue
-			}
-
-			// find list of installed sensors
-			var installs []meta.InstalledSensor
-			for _, v := range set.InstalledSensors() {
-				if v.Station != c.Station {
-					continue
-				}
-				if v.Location != c.Location {
-					continue
-				}
-				installs = append(installs, v)
-			}
-
-			// skip if there are installed sensors (these are meant to be manual)
-			if len(installs) > 0 {
+		for _, c := range set.Points() {
+			if c.Sample != s.Code {
 				continue
 			}
 
