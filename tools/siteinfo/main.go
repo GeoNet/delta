@@ -13,6 +13,29 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
+// handle the case where a session is wrapped around an earlier one,
+// this usually happens when the intervals are different.
+func squash(sessions []meta.Session) []meta.Session {
+
+	if !(len(sessions) > 1) {
+		return sessions
+	}
+
+	sort.Slice(sessions, func(i, j int) bool {
+		return sessions[i].Start.Before(sessions[j].Start)
+	})
+
+	res, last := []meta.Session{sessions[0]}, sessions[0]
+	for _, s := range sessions {
+		if s.Start.After(last.Start) && s.End.Before(last.End) {
+			continue
+		}
+		res, last = append(res, s), s
+	}
+
+	return res
+}
+
 func main() {
 
 	flag.Usage = func() {
@@ -138,7 +161,7 @@ func main() {
 			continue
 		}
 
-		for _, s := range sessions[m.Code] {
+		for _, s := range squash(sessions[m.Code]) {
 			for _, r := range deployedReceivers[m.Code] {
 				if r.Start.After(s.End) || r.End.Before(s.Start) {
 					continue
