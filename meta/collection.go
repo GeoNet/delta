@@ -51,12 +51,21 @@ func (c Collection) Less(collection Collection) bool {
 // Subsource returns the Subsource code based on the Stream and Component values.
 func (c Collection) Subsource() string {
 	switch strings.ToLower(c.Stream.Axial) {
-	case "true", "yes":
+	case "true", "yes", "z12":
 		switch strings.ToUpper(c.Component.Subsource) {
 		case "N":
 			return "1"
 		case "E":
 			return "2"
+		default:
+			return c.Component.Subsource
+		}
+	case "xyz":
+		switch strings.ToUpper(c.Component.Subsource) {
+		case "N":
+			return "Y"
+		case "E":
+			return "X"
 		default:
 			return c.Component.Subsource
 		}
