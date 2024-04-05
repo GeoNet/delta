@@ -10,10 +10,25 @@
       <Name>count</Name>
     </OutputUnits>
   </InstrumentSensitivity>
-  <Stage number="1">
-    <Coefficients resourceId="Coefficients#DART-900s">
+   <Stage number="1">
+    <Coefficients resourceId="Coefficients1#DART-900s">
       <InputUnits>
         <Name>m</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
+    </Coefficients>
+    <StageGain>
+      <Value>1</Value>
+      <Frequency>1</Frequency>
+    </StageGain>
+  </Stage>
+  <Stage number="2">
+    <Coefficients resourceId="Coefficients2#DART-900s">
+      <InputUnits>
+        <Name>V</Name>
       </InputUnits>
       <OutputUnits>
         <Name>count</Name>
