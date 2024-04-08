@@ -12,6 +12,7 @@ type Correction struct {
 	Gain                  *Gain
 	Preamp                *Preamp
 	Telemetry             *Telemetry
+	Timing                *Timing
 	SensorCalibration     *Calibration
 	DataloggerCalibration *Calibration
 }
@@ -56,15 +57,23 @@ func (set *Set) Corrections(coll Collection) []Correction {
 								continue
 							}
 
-							corrections = append(corrections, Correction{
-								Span:                  span,
-								Polarity:              polarity.Polarity,
-								Gain:                  gain.Gain,
-								Preamp:                preamp.Preamp,
-								Telemetry:             telemetry.Telemetry,
-								SensorCalibration:     sensor.SensorCalibration,
-								DataloggerCalibration: datalogger.DataloggerCalibration,
-							})
+							for _, timing := range set.TimingCorrections(coll) {
+								span, ok := span.Extent(timing.Span)
+								if !ok {
+									continue
+								}
+
+								corrections = append(corrections, Correction{
+									Span:                  span,
+									Polarity:              polarity.Polarity,
+									Gain:                  gain.Gain,
+									Preamp:                preamp.Preamp,
+									Telemetry:             telemetry.Telemetry,
+									Timing:                timing.Timing,
+									SensorCalibration:     sensor.SensorCalibration,
+									DataloggerCalibration: datalogger.DataloggerCalibration,
+								})
+							}
 						}
 					}
 				}
@@ -73,6 +82,81 @@ func (set *Set) Corrections(coll Collection) []Correction {
 	}
 
 	return corrections
+}
+
+// TimingCorrections returns a slice of Correction values to account for any changes in Timing.
+func (s *Set) TimingCorrections(coll Collection) []Correction {
+	var timings []Timing
+
+	// build a slice of associated timings
+	for _, t := range s.Timings() {
+		if t.Station != coll.Stream.Station {
+			continue
+		}
+		if t.Location != coll.Stream.Location {
+			continue
+		}
+		if !t.Span.Overlaps(coll.Span) {
+			continue
+		}
+
+		timings = append(timings, t)
+	}
+
+	sort.Slice(timings, func(i, j int) bool {
+		return timings[i].Span.Start.Before(timings[j].Span.Start)
+	})
+
+	// no timings found process an empty timings correction
+	if !(len(timings) > 0) {
+		return []Correction{{Span: coll.Span}}
+	}
+
+	var res []Correction
+
+	// check prior to the first timing
+	if first := timings[0]; first.Start.After(coll.Span.Start) {
+		res = append(res, Correction{
+			Span: Span{
+				Start: coll.Span.Start,
+				End:   first.Start,
+			},
+		})
+	}
+
+	// first timing
+	res = append(res, Correction{
+		Span:   timings[0].Span,
+		Timing: &timings[0],
+	})
+
+	// subsequent timings, checking for gaps
+	for i := 1; i < len(timings); i++ {
+		if timings[i].Start.After(timings[i-1].End) {
+			res = append(res, Correction{
+				Span: Span{
+					Start: timings[i-1].End,
+					End:   timings[i].Start,
+				},
+			})
+		}
+		res = append(res, Correction{
+			Span:   timings[i].Span,
+			Timing: &timings[i],
+		})
+	}
+
+	// check after the last timing
+	if last := timings[len(timings)-1]; last.End.Before(coll.Span.End) {
+		res = append(res, Correction{
+			Span: Span{
+				Start: last.End,
+				End:   coll.Span.End,
+			},
+		})
+	}
+
+	return res
 }
 
 // PolarityCorrections returns a slice of Correction values to account for any changes in Polarity.
@@ -246,6 +330,10 @@ func (s *Set) SensorCalibrationCorrections(coll Collection) []Correction {
 		if c.Serial != coll.InstalledSensor.Serial {
 			continue
 		}
+		if c.Number != coll.Component.Number {
+			continue
+		}
+
 		if !coll.Span.Overlaps(c.Span) {
 			continue
 		}
@@ -321,6 +409,9 @@ func (s *Set) DataloggerCalibrationCorrections(coll Collection) []Correction {
 			continue
 		}
 		if c.Serial != coll.DeployedDatalogger.Serial {
+			continue
+		}
+		if c.Number != coll.Channel.Number {
 			continue
 		}
 		if !coll.Span.Overlaps(c.Span) {

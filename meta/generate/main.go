@@ -13,7 +13,9 @@ func main() {
 		}{
 			"assets":              {"Asset"},
 			"calibrations":        {"Calibration"},
+			"channels":            {"Channel"},
 			"classes":             {"Class"},
+			"components":          {"Component"},
 			"connections":         {"Connection"},
 			"citations":           {"Citation"},
 			"constituents":        {"Constituent"},
@@ -36,6 +38,7 @@ func main() {
 			"mounts":              {"Mount"},
 			"networks":            {"Network"},
 			"placenames":          {"Placename"},
+			"points":              {"Point"},
 			"polarities":          {"Polarity"},
 			"preamps":             {"Preamp"},
 			"samples":             {"Sample"},
@@ -44,10 +47,9 @@ func main() {
 			"stations":            {"Station"},
 			"streams":             {"Stream"},
 			"telemetries":         {"Telemetry"},
+			"timings":             {"Timing"},
 			"views":               {"View"},
 			"visibilities":        {"Visibility"},
-			"channels":            {"Channel"},
-			"components":          {"Component"},
 		},
 		Lookup: map[string]struct {
 			Key    string
@@ -62,6 +64,7 @@ func main() {
 			"mounts":     {"Mount", []string{"code"}},
 			"networks":   {"Network", []string{"code"}},
 			"placenames": {"Placename", []string{"name"}},
+			"points":     {"Point", []string{"sample", "location"}},
 			"samples":    {"Sample", []string{"code"}},
 			"sites":      {"Site", []string{"station", "location"}},
 			"stations":   {"Station", []string{"code"}},

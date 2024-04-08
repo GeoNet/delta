@@ -13,6 +13,8 @@ Canterbury Seismic Instruments,CUSPM,Strong Motion Recorder,,50,datalogger_Cante
 Canterbury Seismic Instruments,CUSPM,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_200sps
 Canterbury Seismic Instruments,CUSP-Me,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_50sps
 Canterbury Seismic Instruments,CUSP-Me,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_200sps
+Canterbury Seismic Instruments,CUSP-M4,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_50sps
+Canterbury Seismic Instruments,CUSP-M4,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_200sps
 Canterbury Seismic Instruments,EQR120,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_EQR120_25bits_200sps
 GEM Systems,GSM-19,Proton Magnetometer,,1,
 GEM Systems,GSM-90,Proton Magnetometer,,1,
@@ -83,4 +85,5 @@ Quanterra,Q730/4,Datalogger,,-10,datalogger_Quanterra_Q730_24bits_10s
 Quanterra,Q730/4,Datalogger,,1,datalogger_Quanterra_Q730_24bits_1s
 Quanterra,Q730/4,Datalogger,,40,datalogger_Quanterra_Q730_24bits_40sps
 Quanterra,Q730/4,Datalogger,,100,datalogger_Quanterra_Q730_24bits_100sps
+SAIC,BPR Subsystem,Bottom Pressure Recorder,,-900,
 SAIC,BPR Subsystem,Bottom Pressure Recorder,,-15,

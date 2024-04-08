@@ -16,6 +16,7 @@ const (
 	MonumentsFile = "network/monuments.csv"
 	MountsFile    = "network/mounts.csv"
 	NetworksFile  = "network/networks.csv"
+	PointsFile    = "network/points.csv"
 	SamplesFile   = "network/samples.csv"
 	SitesFile     = "network/sites.csv"
 	StationsFile  = "network/stations.csv"
@@ -41,6 +42,7 @@ const (
 	SessionsFile     = "install/sessions.csv"
 	StreamsFile      = "install/streams.csv"
 	TelemetriesFile  = "install/telemetries.csv"
+	TimingsFile      = "install/timings.csv"
 
 	ClassesFile      = "environment/classes.csv"
 	ConstituentsFile = "environment/constituents.csv"
@@ -67,6 +69,7 @@ type Set struct {
 	monuments MonumentList
 	mounts    MountList
 	networks  NetworkList
+	points    PointList
 	samples   SampleList
 	sites     SiteList
 	stations  StationList
@@ -92,6 +95,7 @@ type Set struct {
 	sessions            SessionList
 	streams             StreamList
 	telemetries         TelemetryList
+	timings             TimingList
 
 	classes      ClassList
 	constituents ConstituentList
@@ -112,6 +116,7 @@ func (s *Set) files() map[string]List {
 		MonumentsFile: &s.monuments,
 		MountsFile:    &s.mounts,
 		NetworksFile:  &s.networks,
+		PointsFile:    &s.points,
 		SamplesFile:   &s.samples,
 		SitesFile:     &s.sites,
 		StationsFile:  &s.stations,
@@ -137,6 +142,7 @@ func (s *Set) files() map[string]List {
 		SessionsFile:     &s.sessions,
 		StreamsFile:      &s.streams,
 		TelemetriesFile:  &s.telemetries,
+		TimingsFile:      &s.timings,
 
 		ClassesFile:      &s.classes,
 		ConstituentsFile: &s.constituents,

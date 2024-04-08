@@ -199,6 +199,13 @@ func (s Set) Placenames() []Placename {
 	return placenames
 }
 
+// Points is a helper function to return a slice copy of Point values.
+func (s Set) Points() []Point {
+	points := make([]Point, len(s.points))
+	copy(points, s.points)
+	return points
+}
+
 // Polarities is a helper function to return a slice copy of Polarity values.
 func (s Set) Polarities() []Polarity {
 	polarities := make([]Polarity, len(s.polarities))
@@ -253,6 +260,13 @@ func (s Set) Telemetries() []Telemetry {
 	telemetries := make([]Telemetry, len(s.telemetries))
 	copy(telemetries, s.telemetries)
 	return telemetries
+}
+
+// Timings is a helper function to return a slice copy of Timing values.
+func (s Set) Timings() []Timing {
+	timings := make([]Timing, len(s.timings))
+	copy(timings, s.timings)
+	return timings
 }
 
 // Views is a helper function to return a slice copy of View values.
@@ -372,6 +386,20 @@ func (s Set) Placename(name string) (Placename, bool) {
 		return v, true
 	}
 	return Placename{}, false
+}
+
+// Point is a helper function to return a Point value and true if one exists.
+func (s Set) Point(sample, location string) (Point, bool) {
+	for _, v := range s.points {
+		if sample != v.Sample {
+			continue
+		}
+		if location != v.Location {
+			continue
+		}
+		return v, true
+	}
+	return Point{}, false
 }
 
 // Sample is a helper function to return a Sample value and true if one exists.
