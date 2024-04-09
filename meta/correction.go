@@ -330,6 +330,10 @@ func (s *Set) SensorCalibrationCorrections(coll Collection) []Correction {
 		if c.Serial != coll.InstalledSensor.Serial {
 			continue
 		}
+		if c.Number != coll.Component.Number {
+			continue
+		}
+
 		if !coll.Span.Overlaps(c.Span) {
 			continue
 		}
@@ -405,6 +409,9 @@ func (s *Set) DataloggerCalibrationCorrections(coll Collection) []Correction {
 			continue
 		}
 		if c.Serial != coll.DeployedDatalogger.Serial {
+			continue
+		}
+		if c.Number != coll.Channel.Number {
 			continue
 		}
 		if !coll.Span.Overlaps(c.Span) {
