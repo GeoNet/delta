@@ -85,4 +85,5 @@ Quanterra,Q730/4,Datalogger,,-10,datalogger_Quanterra_Q730_24bits_10s
 Quanterra,Q730/4,Datalogger,,1,datalogger_Quanterra_Q730_24bits_1s
 Quanterra,Q730/4,Datalogger,,40,datalogger_Quanterra_Q730_24bits_40sps
 Quanterra,Q730/4,Datalogger,,100,datalogger_Quanterra_Q730_24bits_100sps
+SAIC,BPR Subsystem,Bottom Pressure Recorder,,-900,
 SAIC,BPR Subsystem,Bottom Pressure Recorder,,-15,
