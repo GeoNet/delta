@@ -18,6 +18,12 @@ var featureChecks = map[string]func(*meta.Set) func(t *testing.T){
 					if !features[i].Overlaps(features[j]) {
 						continue
 					}
+					if features[i].Sublocation != features[j].Sublocation {
+						continue
+					}
+					if features[i].Aspect != features[j].Aspect {
+						continue
+					}
 					t.Error("error: site feature overlaps: " + features[i].Id())
 				}
 			}
@@ -27,6 +33,9 @@ var featureChecks = map[string]func(*meta.Set) func(t *testing.T){
 		return func(t *testing.T) {
 			for _, f := range set.Features() {
 				if _, ok := set.Station(f.Station); ok {
+					continue
+				}
+				if _, ok := set.Mount(f.Station); ok {
 					continue
 				}
 				if _, ok := set.Sample(f.Station); ok {
@@ -59,6 +68,9 @@ var featureChecks = map[string]func(*meta.Set) func(t *testing.T){
 		return func(t *testing.T) {
 			for _, f := range set.Features() {
 				if _, ok := set.Site(f.Station, f.Location); ok {
+					continue
+				}
+				if _, ok := set.View(f.Station, f.Location); ok {
 					continue
 				}
 				if _, ok := set.Point(f.Station, f.Location); ok {
