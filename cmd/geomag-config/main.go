@@ -16,10 +16,12 @@ import (
 
 // Settings holds the application configuration.
 type Settings struct {
-	base    string // optional delta base directory
-	resp    string // optional delta response directory
-	network string // geomag network code
-	output  string // optional output file
+	base      string // optional delta base directory
+	resp      string // optional delta response directory
+	network   string // geomag network code
+	stations  string // geomag station code override
+	locations string // geomag location codes
+	output    string // optional output file
 }
 
 func main() {
@@ -43,9 +45,25 @@ func main() {
 	flag.StringVar(&settings.base, "base", "", "delta base files")
 	flag.StringVar(&settings.resp, "resp", "", "delta base files")
 	flag.StringVar(&settings.network, "network", "GM", "geomag network code")
+	flag.StringVar(&settings.stations, "stations", "SMHS", "geomag station code override")
+	flag.StringVar(&settings.locations, "locations", "50,51", "geomag location codes")
 	flag.StringVar(&settings.output, "output", "", "output geomag configuration file")
 
 	flag.Parse()
+
+	stations := make(map[string]interface{})
+	for _, s := range strings.Split(settings.stations, ",") {
+		if s = strings.TrimSpace(s); s != "" {
+			stations[s] = true
+		}
+	}
+
+	locations := make(map[string]interface{})
+	for _, s := range strings.Split(settings.locations, ",") {
+		if s = strings.TrimSpace(s); s != "" {
+			locations[s] = true
+		}
+	}
 
 	set, err := delta.NewBase(settings.base)
 	if err != nil {
@@ -69,9 +87,19 @@ func main() {
 
 	// check each site, skip any that don't match the network
 	for _, site := range set.Sites() {
+
+		// must match the location code
+		if _, ok := locations[site.Location]; !ok {
+			continue
+		}
 		// must have a network code
 		n, ok := codes[site.Station]
-		if !ok || n != settings.network {
+		if !ok {
+			continue
+		}
+
+		// must match expected network or station codes
+		if _, ok := stations[site.Station]; !ok && n != settings.network {
 			continue
 		}
 
@@ -109,13 +137,13 @@ func main() {
 
 					derived, err := resp.LookupBase(settings.resp, collection.Component.Response)
 					if err != nil {
-						log.Fatal(err)
+						log.Fatalf("unable to find response %q: %v", collection.Component.Response, err)
 					}
 
 					// generate the derived response
 					r, err := pair.Derived(derived)
 					if err != nil {
-						log.Fatal(err)
+						log.Fatalf("unable to find derived response %q: %v", collection.Component.Response, err)
 					}
 					if r.InstrumentSensitivity != nil {
 						configs = append(configs, Config{
@@ -136,23 +164,39 @@ func main() {
 				default:
 					sensor, err := resp.LookupBase(settings.resp, collection.Component.Response)
 					if err != nil {
-						log.Fatal(err)
+						log.Fatalf("unable to find response %q: %v", collection.Component.Response, err)
 					}
 					if err := pair.SetSensor(sensor); err != nil {
-						log.Fatal(err)
+						log.Fatalf("unable to set sensor response %q: %v", collection.Component.Response, err)
 					}
 
 					datalogger, err := resp.LookupBase(settings.resp, collection.Channel.Response)
 					if err != nil {
-						log.Fatal(err)
+						log.Fatalf("unable to find response %q: %v", collection.Channel.Response, err)
 					}
 					if err := pair.SetDatalogger(datalogger); err != nil {
-						log.Fatal(err)
+						log.Fatalf("unable to set datalogger response %q: %v", collection.Component.Response, err)
 					}
 
 					r, err := pair.ResponseType()
 					if err != nil {
-						log.Fatal(err)
+						log.Fatalf("unable to find response type: %v", err)
+					}
+
+					if r.InstrumentSensitivity != nil {
+						configs = append(configs, Config{
+							Srcname:     strings.Join([]string{external, site.Station, site.Location, collection.Code()}, "_"),
+							Network:     external,
+							Station:     site.Station,
+							Location:    site.Location,
+							Channel:     collection.Code(),
+							ScaleFactor: 1.0 / r.InstrumentSensitivity.Value,
+							ScaleBias:   0.0,
+							InputUnits:  r.InstrumentSensitivity.InputUnits.Name,
+							OutputUnits: r.InstrumentSensitivity.OutputUnits.Name,
+							Start:       correction.Start,
+							End:         correction.End,
+						})
 					}
 
 					if r.InstrumentPolynomial != nil {
