@@ -156,6 +156,10 @@ func (s *Set) Collections(site Site) []Collection {
 					continue
 				}
 
+				if component.SamplingRate != stream.SamplingRate && component.SamplingRate != 0.0 {
+					continue
+				}
+
 				for _, channel := range s.Channels() {
 					if recorder.Make != channel.Make {
 						continue

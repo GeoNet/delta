@@ -5,17 +5,21 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 
 	"github.com/GeoNet/delta"
 )
 
 type Settings struct {
-	base    string // options delta base file directory
-	dart    string // DART network code
-	coastal string // coastal network code
-	enviro  string // envirosensor network code
-	manual  string // manualcollect network code
-	output  string // optional output file
+	base     string // options delta base file directory
+	dart     string // DART network code
+	coastal  string // coastal network code
+	geomag   string // geomag network code
+	enviro   string // envirosensor network code
+	manual   string // manualcollect network code
+	scandoas string // ScanDOAS network code
+	output   string // optional output file
+	extra    string // add extra stations
 }
 
 func main() {
@@ -41,9 +45,23 @@ func main() {
 	flag.StringVar(&settings.coastal, "coastal", "TG,LG", "coast tsunami gauge network code")
 	flag.StringVar(&settings.enviro, "enviro", "EN", "envirosensor network code")
 	flag.StringVar(&settings.manual, "manual", "MC", "manualcollect network code")
+	flag.StringVar(&settings.geomag, "geomag", "GM", "geomagnetic network code")
+	flag.StringVar(&settings.scandoas, "scandoas", "EN", "scandoas network code")
+	flag.StringVar(&settings.extra, "extra", "GM=SM_SMHS_50", "attach extra stations and locations to a network, e.g. GM=SM_SMHS_50")
 	flag.StringVar(&settings.output, "output", "", "output dart configuration file")
 
 	flag.Parse()
+
+	extra := make(map[string][]string)
+	for _, s := range strings.Split(settings.extra, ",") {
+		if s = strings.TrimSpace(s); s != "" {
+			keys := strings.Split(s, "=")
+			if len(keys) != 2 {
+				log.Fatalf("invalid extra entry %q: should be of the form \"GM=SM_SMHS_50\" with \"GM\" being network to extend", s)
+			}
+			extra[keys[0]] = append(extra[keys[0]], keys[1])
+		}
+	}
 
 	set, err := delta.NewBase(settings.base)
 	if err != nil {
@@ -57,7 +75,7 @@ func main() {
 		log.Fatalf("unable to build dart configuration: %v", err)
 	}
 
-	// update enviroment sensor domain
+	// update environment sensor domain
 	if err := tilde.EnviroSensor(set, settings.enviro); err != nil {
 		log.Fatalf("unable to build envirosensor configuration: %v", err)
 	}
@@ -70,6 +88,16 @@ func main() {
 	// update coastal domain
 	if err := tilde.Coastal(set, settings.coastal); err != nil {
 		log.Fatalf("unable to build coastal configuration: %v", err)
+	}
+
+	// update geomag domain
+	if err := tilde.Geomag(set, settings.geomag, extra[settings.geomag]...); err != nil {
+		log.Fatalf("unable to build geomag configuration: %v", err)
+	}
+
+	// update scandoas domain
+	if err := tilde.ScanDOAS(set, settings.scandoas); err != nil {
+		log.Fatalf("unable to build scandoas configuration: %v", err)
 	}
 
 	switch {
