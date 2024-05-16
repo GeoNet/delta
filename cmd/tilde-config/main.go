@@ -11,14 +11,15 @@ import (
 )
 
 type Settings struct {
-	base    string // options delta base file directory
-	dart    string // DART network code
-	coastal string // coastal network code
-	geomag  string // geomag network code
-	enviro  string // envirosensor network code
-	manual  string // manualcollect network code
-	output  string // optional output file
-	extra   string // add extra stations
+	base     string // options delta base file directory
+	dart     string // DART network code
+	coastal  string // coastal network code
+	geomag   string // geomag network code
+	enviro   string // envirosensor network code
+	manual   string // manualcollect network code
+	scandoas string // ScanDOAS network code
+	output   string // optional output file
+	extra    string // add extra stations
 }
 
 func main() {
@@ -45,6 +46,7 @@ func main() {
 	flag.StringVar(&settings.enviro, "enviro", "EN", "envirosensor network code")
 	flag.StringVar(&settings.manual, "manual", "MC", "manualcollect network code")
 	flag.StringVar(&settings.geomag, "geomag", "GM", "geomagnetic network code")
+	flag.StringVar(&settings.scandoas, "scandoas", "EN", "scandoas network code")
 	flag.StringVar(&settings.extra, "extra", "GM=SM_SMHS_50", "attach extra stations and locations to a network, e.g. GM=SM_SMHS_50")
 	flag.StringVar(&settings.output, "output", "", "output dart configuration file")
 
@@ -91,6 +93,11 @@ func main() {
 	// update geomag domain
 	if err := tilde.Geomag(set, settings.geomag, extra[settings.geomag]...); err != nil {
 		log.Fatalf("unable to build geomag configuration: %v", err)
+	}
+
+	// update scandoas domain
+	if err := tilde.ScanDOAS(set, settings.scandoas); err != nil {
+		log.Fatalf("unable to build scandoas configuration: %v", err)
 	}
 
 	switch {
