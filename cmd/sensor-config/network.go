@@ -186,8 +186,19 @@ func (m Mount) Less(mount Mount) bool {
 	return m.Code < mount.Code
 }
 
+type Group struct {
+	Name string `xml:"name,omitempty,attr" json:"name,omitempty"`
+
+	Marks    []Mark    `xml:"Mark,omitempty" json:"marks,omitempty"`
+	Mounts   []Mount   `xml:"Mount,omitempty" json:"mounts,omitempty"`
+	Samples  []Station `xml:"Sample,omitempty" json:"samples,omitempty"`
+	Stations []Station `xml:"Station,omitempty" json:"stations,omitempty"`
+}
+
 type Network struct {
 	XMLName xml.Name `xml:"SensorXML"`
+
+	Groups []Group `xml:"Group,omitempty" json:"group,omitempty"`
 
 	Stations []Station `xml:"Station,omitempty" json:"station,omitempty"`
 	Marks    []Mark    `xml:"Mark,omitempty" json:"mark,omitempty"`
