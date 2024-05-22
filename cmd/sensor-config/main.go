@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 	"regexp"
-	"strings"
 
 	"github.com/GeoNet/delta"
 )
@@ -15,21 +14,27 @@ type Settings struct {
 	base string // options delta base file directory
 
 	networks string // overall installed sensor network code
+	gnss     string // GNSS network codes
 	dart     string // DART network code
-	lentic   string // coastal network code
+	lentic   string // lake network code
 	coastal  string // coastal network code
+	magnetic string // magnetic network code
 	enviro   string // envirosensor network code
 	manual   string // manualcollect network code
 	volcano  string // volcano camera network code
 	building string // building camera network code
 	doas     string // doas network code
 
+	seismic  regexp.Regexp // seismic location codes
+	strong   regexp.Regexp // seismic location codes
+	acoustic regexp.Regexp // seismic location codes
 	combined regexp.Regexp // installed location codes
 	water    regexp.Regexp // water location codes
 	geomag   regexp.Regexp // geomag location codes
 
 	output string // optional output file
-	json   bool   // use json for output format
+	groups bool   // use groups output format
+	json   bool   // use JSON output format
 }
 
 func main() {
@@ -59,11 +64,17 @@ func main() {
 	flag.StringVar(&settings.manual, "manual", "MC", "manualcollect network code")
 	flag.StringVar(&settings.volcano, "volcano", "VC", "volcano camera network code")
 	flag.StringVar(&settings.building, "building", "BC", "building camera network code")
+	flag.StringVar(&settings.magnetic, "magnetic", "GM,SM", "geomagnetic network code")
 	flag.StringVar(&settings.doas, "doas", "EN", "doas network code")
 	flag.TextVar(&settings.combined, "combined", regexp.MustCompile("^[123]"), "combined sensor location codes")
+	flag.StringVar(&settings.gnss, "gnss", "CG,GN,IG,LI,SA", "GNSS network codes")
+	flag.TextVar(&settings.seismic, "seismic", regexp.MustCompile("^1"), "combined sensor location codes")
+	flag.TextVar(&settings.strong, "strong", regexp.MustCompile("^2"), "combined sensor location codes")
+	flag.TextVar(&settings.acoustic, "acoustic", regexp.MustCompile("^3"), "combined sensor location codes")
 	flag.TextVar(&settings.water, "water", regexp.MustCompile("^4"), "water pressue sensor codes")
 	flag.TextVar(&settings.geomag, "geomag", regexp.MustCompile("^5"), "geomag sensor codes")
 
+	flag.BoolVar(&settings.groups, "groups", false, "use groups in output XML format")
 	flag.StringVar(&settings.output, "output", "", "output sensor description file")
 	flag.BoolVar(&settings.json, "json", false, "use JSON for output format")
 
@@ -75,47 +86,14 @@ func main() {
 	}
 
 	var network Network
-
-	for _, n := range strings.Split(settings.networks, ",") {
-		if err := network.InstalledSensors(set, &settings.combined, strings.TrimSpace(n), ""); err != nil {
-			log.Fatalf("unable to build seismic details (%s): %v", n, err)
+	switch {
+	case settings.groups:
+		network = settings.Groups(set)
+	default:
+		network, err = settings.Network(set)
+		if err != nil {
+			log.Fatalf("unable to build network: %v", err)
 		}
-	}
-
-	if err := network.InstalledSensors(set, &settings.water, settings.coastal, "Coastal"); err != nil {
-		log.Fatalf("unable to build water details: %v", err)
-	}
-
-	if err := network.InstalledSensors(set, &settings.water, settings.lentic, "Lake"); err != nil {
-		log.Fatalf("unable to build water details: %v", err)
-	}
-
-	if err := network.EnviroSensor(set, settings.enviro, "Environmental Sensor"); err != nil {
-		log.Fatalf("unable to build envirosensor configuration: %v", err)
-	}
-
-	if err := network.Dart(set, settings.dart, "DART Bottom Pressure Recorder"); err != nil {
-		log.Fatalf("unable to build dart configuration: %v", err)
-	}
-
-	if err := network.Gnss(set, "GNSS Antenna", "GNSS Receiver"); err != nil {
-		log.Fatalf("unable to build gnss configuration: %v", err)
-	}
-
-	if err := network.Camera(set, settings.volcano, "Camera"); err != nil {
-		log.Fatalf("unable to build camera configuration: %v", err)
-	}
-
-	if err := network.Camera(set, settings.building, "Camera"); err != nil {
-		log.Fatalf("unable to build camera configuration: %v", err)
-	}
-
-	if err := network.Doas(set, settings.doas, "DOAS"); err != nil {
-		log.Fatalf("unable to build camera configuration: %v", err)
-	}
-
-	if err := network.ManualCollection(set, settings.manual, "Manual Collection"); err != nil {
-		log.Fatalf("unable to build camera configuration: %v", err)
 	}
 
 	switch {
