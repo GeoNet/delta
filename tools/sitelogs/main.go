@@ -591,10 +591,19 @@ func main() {
 					var graphs []string
 					models := make(map[string]interface{})
 					for _, a := range antennas {
-						if _, ok := models[a.AntennaType]; ok {
+						antennaType := a.AntennaType
+						// check for any graph which may include radome
+						if a.AntennaRadomeType != "NONE" {
+							withRadome := a.AntennaType + " " + a.AntennaRadomeType
+							if _, ok := antennaGraphs[withRadome]; ok {
+								antennaType = withRadome
+							}
+						}
+
+						if _, ok := models[antennaType]; ok {
 							continue
 						}
-						switch g, ok := antennaGraphs[a.AntennaType]; {
+						switch g, ok := antennaGraphs[antennaType]; {
 						case ok:
 							b, err := hex.DecodeString(g)
 							if err != nil {
@@ -603,9 +612,9 @@ func main() {
 							}
 							graphs = append(graphs, strings.Join([]string{a.AntennaType, string(b)}, "\n"))
 						default:
-							log.Printf("warning: missing antenna graph for: \"%s\"", a.AntennaType)
+							log.Printf("warning: missing antenna graph for: \"%s\"", antennaType)
 						}
-						models[a.AntennaType] = true
+						models[antennaType] = true
 					}
 					return "\n" + strings.Join(graphs, "\n")
 				}(),
