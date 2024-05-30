@@ -594,7 +594,7 @@ func main() {
 						antennaType := a.AntennaType
 						// check for any graph which may include radome
 						if a.AntennaRadomeType != "NONE" {
-							withRadome := a.AntennaType + " " + a.AntennaRadomeType
+							withRadome := a.AntennaType + "   " + a.AntennaRadomeType
 							if _, ok := antennaGraphs[withRadome]; ok {
 								antennaType = withRadome
 							}
@@ -610,7 +610,7 @@ func main() {
 								log.Printf("error: unable to decode antenna graph for: \"%s\"", a.AntennaType)
 								continue
 							}
-							graphs = append(graphs, strings.Join([]string{a.AntennaType, string(b)}, "\n"))
+							graphs = append(graphs, strings.Join([]string{antennaType, string(b)}, "\n"))
 						default:
 							log.Printf("warning: missing antenna graph for: \"%s\"", antennaType)
 						}
