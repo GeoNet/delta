@@ -1,0 +1,20 @@
+{{"{{if gt (len (with_models (with_codes devices"}}{{ range $k, $v := . }} "{{ $k }}"{{ end }}{{") \"Quanterra Q330\" \"Quanterra Q330+\" \"Nanometrics Centaur\")) 0 -}}"}}
+{{"{{ range $r, $v := routes -}}"}}
+{{"{{  if gt (len $v) 0}}{{$r}}:"}}
+  gns_datalink::detide::services:
+{{"{{   range $t := with_models (with_codes devices"}}{{ range $k, $v := . }} "{{ $k }}"{{ end }}{{") \"Quanterra Q330\" \"Quanterra Q330+\" \"Nanometrics Centaur\" }}"}}{{ range $k, $v := . }}{{"{{if eq $t.Code \""}}{{upper $k}}{{"\"}}"}}    {{lower $k}}:
+      ensure: {{"{{if $t.Inactive}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}"}}
+      alpha: -48543.689320388352
+      beta: {{"{{if eq $t.Model \"Nanometrics Centaur\"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}"}}
+      latitude: {{printf "%.4f" $v.Gauge.Latitude}}
+      orient: T
+      selectors: ?TZ
+      streams: NZ_{{upper $k}}
+      tide:
+{{range $c := $v.Constituents }}      - {{$c.Name}}/{{printf "%.3f" (mult $c.Amplitude 10.0)}}/{{printf "%.2f" $c.Lag}}
+{{end}}      zone: {{printf "%.1f" (div (sub $v.Gauge.TimeZone 360.0) 15)}}
+{{"{{    end}}"}}{{end}}
+{{"{{   end -}}"}}
+{{"{{  end -}}"}}
+{{"{{ end -}}"}}
+{{"{{end -}}"}}
