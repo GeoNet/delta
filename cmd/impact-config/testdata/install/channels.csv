@@ -1,0 +1,6 @@
+Make,Model,Type,Number,SamplingRate,Response
+Canterbury Seismic Instruments,CUSP3D,Strong Motion Recorder,,50,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_50sps
+Canterbury Seismic Instruments,CUSP3D,Strong Motion Recorder,,200,datalogger_Canterbury-Seismic-Instruments_CUSP3D_25bits_200sps
+Kinemetrics,ETNA,Strong Motion Recorder,,200,datalogger_Kinemetrics_Etna_27bits_200sps
+Kinemetrics,Q330/3,Datalogger,,100,datalogger_Kinemetrics_Q330_24bits_100sps
+Kinemetrics,Q330/6,Datalogger,,100,datalogger_Kinemetrics_Q330_24bits_100sps
