@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
+	"log"
 	"os"
 	"text/template"
 
-	"github.com/GeoNet/delta/internal/metadb"
+	delta "github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
@@ -79,33 +80,30 @@ func main() {
 	flag.Parse()
 
 	// load delta meta helper
-	db := metadb.NewMetaDB(base)
+	set, err := delta.NewBase(base)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	constituents := set.Constituents()
 
 	// build the set of known tidal
 	tides := make(map[string]Tide)
 
-	// recover linz tide gauge sites
-	gauges, err := db.Gauges()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "problem loading gauges from db %s: %v\n", base, err)
-		os.Exit(1)
-	}
-
-	// for each linz gauge site
-	for _, gauge := range gauges {
-
-		// and the associated linz tidal constituents
-		constituents, err := db.GaugeConstituents(gauge.Code)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "problem loading constituents from db %s [%s]: %v\n", base, gauge.Code, err)
-			os.Exit(1)
+	// for each gauge site
+	for _, gauge := range set.Gauges() {
+		var list []meta.Constituent
+		for _, c := range constituents {
+			if c.Gauge != gauge.Code {
+				continue
+			}
+			list = append(list, c)
 		}
 
 		// remember this tide
 		tides[gauge.Code] = Tide{
-			Gauge: gauge,
-			//Station:      *station,
-			Constituents: constituents,
+			Gauge:        gauge,
+			Constituents: list,
 		}
 	}
 

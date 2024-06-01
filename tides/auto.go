@@ -1581,11 +1581,11 @@ var _tides = map[string]Tide{
 	"NZA": {
 		Code:      "NZA",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5501002",
 		TimeZone:  0,
-		Latitude:  -42.3717,
-		Longitude: 176.9093,
-		Crex:      "",
+		Latitude:  -42.369,
+		Longitude: 176.912,
+		Crex:      "NZ41",
 		Constituents: []Constituent{
 
 			{
@@ -1911,11 +1911,11 @@ var _tides = map[string]Tide{
 	"NZB": {
 		Code:      "NZB",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5501003",
 		TimeZone:  0,
-		Latitude:  -40.5992,
-		Longitude: 179.0962,
-		Crex:      "",
+		Latitude:  -40.5979,
+		Longitude: 179.1005,
+		Crex:      "NZ42",
 		Constituents: []Constituent{
 
 			{
@@ -2139,11 +2139,11 @@ var _tides = map[string]Tide{
 	"NZC": {
 		Code:      "NZC",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5401000",
 		TimeZone:  0,
-		Latitude:  -38.2004,
-		Longitude: -179.7978,
-		Crex:      "",
+		Latitude:  -38.1969,
+		Longitude: -179.7968,
+		Crex:      "NZ43",
 		Constituents: []Constituent{
 
 			{
@@ -2475,11 +2475,11 @@ var _tides = map[string]Tide{
 	"NZD": {
 		Code:      "NZD",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5501004",
 		TimeZone:  0,
-		Latitude:  -36.0998,
-		Longitude: 178.6037,
-		Crex:      "",
+		Latitude:  -36.1,
+		Longitude: 178.6009,
+		Crex:      "NZ44",
 		Constituents: []Constituent{
 
 			{
@@ -2625,11 +2625,11 @@ var _tides = map[string]Tide{
 	"NZE": {
 		Code:      "NZE",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5401001",
 		TimeZone:  0,
-		Latitude:  -36.0499,
-		Longitude: -177.6974,
-		Crex:      "",
+		Latitude:  -36.05,
+		Longitude: -177.6986,
+		Crex:      "NZ45",
 		Constituents: []Constituent{
 
 			{
@@ -2943,11 +2943,11 @@ var _tides = map[string]Tide{
 	"NZF": {
 		Code:      "NZF",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5401002",
 		TimeZone:  0,
 		Latitude:  -29.6826,
 		Longitude: -175.0125,
-		Crex:      "",
+		Crex:      "NZ46",
 		Constituents: []Constituent{
 
 			{
@@ -3087,11 +3087,11 @@ var _tides = map[string]Tide{
 	"NZG": {
 		Code:      "NZG",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5401003",
 		TimeZone:  0,
 		Latitude:  -23.3517,
 		Longitude: -173.4018,
-		Crex:      "",
+		Crex:      "PA47",
 		Constituents: []Constituent{
 
 			{
@@ -3267,11 +3267,11 @@ var _tides = map[string]Tide{
 	"NZH": {
 		Code:      "NZH",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5401004",
 		TimeZone:  0,
 		Latitude:  -20.0885,
 		Longitude: -171.863,
-		Crex:      "",
+		Crex:      "PA48",
 		Constituents: []Constituent{
 
 			{
@@ -3399,11 +3399,11 @@ var _tides = map[string]Tide{
 	"NZI": {
 		Code:      "NZI",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5401005",
 		TimeZone:  0,
 		Latitude:  -16.889,
 		Longitude: -171.1905,
-		Crex:      "",
+		Crex:      "PA49",
 		Constituents: []Constituent{
 
 			{
@@ -3567,11 +3567,11 @@ var _tides = map[string]Tide{
 	"NZJ": {
 		Code:      "NZJ",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5501005",
 		TimeZone:  0,
-		Latitude:  -26.6672,
-		Longitude: 163.9549,
-		Crex:      "",
+		Latitude:  -26.6685,
+		Longitude: 163.9536,
+		Crex:      "PA50",
 		Constituents: []Constituent{
 
 			{
@@ -3705,11 +3705,11 @@ var _tides = map[string]Tide{
 	"NZK": {
 		Code:      "NZK",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5501006",
 		TimeZone:  0,
-		Latitude:  -24.3093,
-		Longitude: 169.4988,
-		Crex:      "",
+		Latitude:  -24.3086,
+		Longitude: 169.5001,
+		Crex:      "PA51",
 		Constituents: []Constituent{
 
 			{
@@ -3831,11 +3831,11 @@ var _tides = map[string]Tide{
 	"NZL": {
 		Code:      "NZL",
 		Network:   "TD",
-		Number:    "",
+		Number:    "5501007",
 		TimeZone:  0,
-		Latitude:  -19.3096,
-		Longitude: 166.782,
-		Crex:      "",
+		Latitude:  -19.2876,
+		Longitude: 166.811,
+		Crex:      "PA52",
 		Constituents: []Constituent{
 
 			{
