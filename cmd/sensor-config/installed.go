@@ -56,6 +56,7 @@ func (n *Network) InstalledSensors(set *meta.Set, match *regexp.Regexp, network,
 
 			var list []Sensor
 			for sensor, chans := range sensors {
+
 				dedupe := make(map[string]interface{})
 				for _, c := range chans {
 					dedupe[c] = true
@@ -228,8 +229,11 @@ func (s Settings) InstalledSensors(set *meta.Set, name string, match *regexp.Reg
 		})
 
 		stations = append(stations, Station{
-			Code: stn.Code,
-			Name: stn.Name,
+			Code:        stn.Code,
+			Name:        stn.Name,
+			Network:     stn.Network,
+			External:    net.External,
+			Description: net.Description,
 
 			Latitude:  stn.Latitude,
 			Longitude: stn.Longitude,

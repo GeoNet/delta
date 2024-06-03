@@ -107,7 +107,8 @@ func (n *Network) EnviroSensor(set *meta.Set, enviro string, label string) error
 
 func (s Settings) EnviroSensor(set *meta.Set, name, enviro string) (Group, bool) {
 
-	if _, ok := set.Network(enviro); !ok {
+	net, ok := set.Network(enviro)
+	if !ok {
 		return Group{}, false
 	}
 
@@ -190,8 +191,11 @@ func (s Settings) EnviroSensor(set *meta.Set, name, enviro string) (Group, bool)
 		})
 
 		stations = append(stations, Station{
-			Code: stn.Code,
-			Name: stn.Name,
+			Code:        stn.Code,
+			Name:        stn.Name,
+			Network:     stn.Network,
+			External:    net.External,
+			Description: net.Description,
 
 			Latitude:  stn.Latitude,
 			Longitude: stn.Longitude,

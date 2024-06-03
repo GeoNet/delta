@@ -74,7 +74,8 @@ type Site struct {
 	StartDate time.Time `xml:"startDate,attr,omitempty" json:"start-date,omitempty"`
 	EndDate   time.Time `xml:"endDate,attr,omitempty" json:"end-date,omitempty"`
 
-	Sensors []Sensor `xml:"Sensor,omitempty" json:"sensor,omitempty"`
+	Features []Sensor `xml:"Feature,omitempty" json:"feature,omitempty"`
+	Sensors  []Sensor `xml:"Sensor,omitempty" json:"sensor,omitempty"`
 }
 
 func (s Site) Less(site Site) bool {
@@ -82,8 +83,9 @@ func (s Site) Less(site Site) bool {
 }
 
 type Station struct {
-	Code    string `xml:"code,attr" json:"code,omitempty"`
-	Network string `xml:"network,attr,omitempty" json:"network,omitempty"`
+	Code     string `xml:"code,attr" json:"code,omitempty"`
+	Network  string `xml:"network,attr,omitempty" json:"network,omitempty"`
+	External string `xml:"external,attr,omitempty" json:"external,omitempty"`
 
 	Name        string    `xml:"name,attr,omitempty" json:"name,omitempty"`
 	Description string    `xml:"description,attr,omitempty" json:"description,omitempty"`
@@ -164,8 +166,9 @@ func (v View) Less(view View) bool {
 }
 
 type Mount struct {
-	Code    string `xml:"code,attr" json:"code,omitempty"`
-	Network string `xml:"network,attr,omitempty" json:"network,omitempty"`
+	Code     string `xml:"code,attr" json:"code,omitempty"`
+	Network  string `xml:"network,attr,omitempty" json:"network,omitempty"`
+	External string `xml:"external,attr,omitempty" json:"external,omitempty"`
 
 	Name        string `xml:"name,attr,omitempty" json:"name,omitempty"`
 	Description string `xml:"description,attr,omitempty" json:"description,omitempty"`
