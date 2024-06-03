@@ -259,9 +259,12 @@ func (s Settings) Cameras(set *meta.Set, name, network string) (Group, bool) {
 		})
 
 		mounts = append(mounts, Mount{
-			Code:  mount.Code,
-			Name:  mount.Name,
-			Mount: mount.Description,
+			Code:        mount.Code,
+			Name:        mount.Name,
+			Mount:       mount.Description,
+			Network:     mount.Network,
+			External:    net.External,
+			Description: net.Description,
 
 			Latitude:  mount.Latitude,
 			Longitude: mount.Longitude,
@@ -351,9 +354,12 @@ func (s Settings) Doases(set *meta.Set, name, network string) (Group, bool) {
 		})
 
 		mounts = append(mounts, Mount{
-			Code:  mount.Code,
-			Name:  mount.Name,
-			Mount: mount.Description,
+			Code:        mount.Code,
+			Name:        mount.Name,
+			Mount:       mount.Description,
+			Network:     mount.Network,
+			External:    net.External,
+			Description: net.Description,
 
 			Latitude:  mount.Latitude,
 			Longitude: mount.Longitude,
