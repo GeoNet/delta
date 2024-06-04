@@ -130,6 +130,7 @@ func (s Settings) Gnss(set *meta.Set, name, networks string) (Group, bool) {
 			receivers = append(receivers, Sensor{
 				Make:  r.Make,
 				Model: r.Model,
+				Type:  "GNSS Receiver",
 
 				StartDate: r.Start,
 				EndDate:   r.End,
@@ -153,6 +154,7 @@ func (s Settings) Gnss(set *meta.Set, name, networks string) (Group, bool) {
 			antennas = append(antennas, Sensor{
 				Make:  a.Make,
 				Model: a.Model,
+				Type:  "GNSS Antenna",
 
 				Vertical: a.Vertical,
 				North:    a.North,

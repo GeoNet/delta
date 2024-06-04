@@ -217,6 +217,7 @@ func (s Settings) Cameras(set *meta.Set, name, network string) (Group, bool) {
 				cameras = append(cameras, Sensor{
 					Make:  camera.Make,
 					Model: camera.Model,
+					Type:  name,
 
 					Dip:     camera.Dip,
 					Azimuth: camera.Azimuth,
@@ -312,6 +313,7 @@ func (s Settings) Doases(set *meta.Set, name, network string) (Group, bool) {
 				doases = append(doases, Sensor{
 					Make:  doas.Make,
 					Model: doas.Model,
+					Type:  name,
 
 					Dip:     doas.Dip,
 					Azimuth: doas.Azimuth,
