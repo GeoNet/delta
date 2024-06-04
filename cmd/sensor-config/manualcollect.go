@@ -152,7 +152,7 @@ func (s Settings) ManualCollection(set *meta.Set, name, network string) (Group, 
 				StartDate: point.Start,
 				EndDate:   point.End,
 
-				Sensors: sensors,
+				Features: sensors,
 			})
 		}
 
@@ -165,8 +165,11 @@ func (s Settings) ManualCollection(set *meta.Set, name, network string) (Group, 
 		})
 
 		samples = append(samples, Station{
-			Code: sample.Code,
-			Name: sample.Name,
+			Code:        sample.Code,
+			Name:        sample.Name,
+			Network:     sample.Network,
+			External:    net.External,
+			Description: net.Description,
 
 			Latitude:  sample.Latitude,
 			Longitude: sample.Longitude,

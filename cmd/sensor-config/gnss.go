@@ -176,6 +176,8 @@ func (s Settings) Gnss(set *meta.Set, name, networks string) (Group, bool) {
 			Code:        mark.Code,
 			Name:        mark.Name,
 			DomesNumber: monument.DomesNumber,
+			Network:     net.Code,
+			Description: net.Description,
 
 			Latitude:  mark.Latitude,
 			Longitude: mark.Longitude,
