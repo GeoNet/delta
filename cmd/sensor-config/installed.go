@@ -117,7 +117,7 @@ func (n *Network) InstalledSensors(set *meta.Set, match *regexp.Regexp, network,
 	return nil
 }
 
-func (s Settings) InstalledSensors(set *meta.Set, name string, match *regexp.Regexp, networks string, sensors ...string) (Group, bool) {
+func (s Settings) InstalledSensors(set *meta.Set, name string, match *regexp.Regexp, networks string, list ...string) (Group, bool) {
 
 	nets := make(map[string]interface{})
 	for _, n := range strings.Split(networks, ",") {
@@ -127,7 +127,7 @@ func (s Settings) InstalledSensors(set *meta.Set, name string, match *regexp.Reg
 	}
 
 	types := make(map[string]interface{})
-	for _, t := range sensors {
+	for _, t := range list {
 		types[strings.TrimSpace(t)] = true
 	}
 
@@ -162,6 +162,7 @@ func (s Settings) InstalledSensors(set *meta.Set, name string, match *regexp.Reg
 				sensor := Sensor{
 					Make:  c.InstalledSensor.Make,
 					Model: c.InstalledSensor.Model,
+					Type:  c.Component.Type,
 
 					Azimuth: c.InstalledSensor.Azimuth,
 					Method:  c.InstalledSensor.Method,
