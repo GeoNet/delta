@@ -72,7 +72,7 @@ type DecimationType struct {
 }
 
 type FirType struct {
-	ResourceId  string `xml:"resourceId,attr"`
+	ResourceId  string `xml:"resourceId,attr,omitempty"`
 	Name        string `xml:"name,attr,omitempty"`
 	Description string `xml:"description,attr,omitempty"`
 
@@ -84,7 +84,7 @@ type FirType struct {
 }
 
 type PolesZerosType struct {
-	ResourceId  string `xml:"resourceId,attr"`
+	ResourceId  string `xml:"resourceId,attr,omitempty"`
 	Name        string `xml:"name,attr,omitempty"`
 	Description string `xml:"description,attr,omitempty"`
 
@@ -155,7 +155,8 @@ type StageGain struct {
 }
 
 type ResponseStageType struct {
-	Number int `xml:"number,attr"`
+	Number     int    `xml:"number,attr"`
+	ResourceId string `xml:"resourceId,attr,omitempty"`
 
 	Coefficients *CoefficientsType `xml:"Coefficients,omitempty"`
 	Decimation   *DecimationType   `xml:"Decimation,omitempty"`
