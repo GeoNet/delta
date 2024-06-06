@@ -23,7 +23,7 @@ var generateTemplate = `
 package meta
 
 {{range $k, $v := .Fields -}}
-// {{title $k}} is a helper function to return a slice copy of {{$v.Key}} values.
+// {{title $k}} is a helper function to return a slice of {{$v.Key}} values.
 func (s Set) {{title $k}}() []{{$v.Key}} {
         return s.{{$k}}
 }
