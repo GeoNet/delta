@@ -12,7 +12,7 @@ var ErrInvalidResponse = errors.New("attempt to correct the wrong type of respon
 type InstrumentResponseOpt func(*InstrumentResponse)
 
 // InstrumentResponse is used for building an instrument response based on sensor and datalogger pairs. It makes no assumption about
-// the StationXML version, ideally it should encompass all required elements. The conversion from a bas Response to a
+// the StationXML version, ideally it should encompass all required elements. The conversion from a base Response to a
 // particular version is done via encoding interfaces.
 type InstrumentResponse struct {
 	Prefix        string
@@ -86,7 +86,7 @@ func Preamp(preamp float64) InstrumentResponseOpt {
 	}
 }
 
-// NewResponse builds a Response with the given options.
+// NewInstrumentResponse builds a Response with the given options.
 func NewInstrumentResponse(opts ...InstrumentResponseOpt) *InstrumentResponse {
 	r := InstrumentResponse{
 		ScaleFactor: 1.0,
