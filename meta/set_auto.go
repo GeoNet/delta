@@ -12,275 +12,197 @@ package meta
 
 // Assets is a helper function to return a slice copy of Asset values.
 func (s Set) Assets() []Asset {
-	assets := make([]Asset, len(s.assets))
-	copy(assets, s.assets)
-	return assets
+	return s.assets
 }
 
 // Calibrations is a helper function to return a slice copy of Calibration values.
 func (s Set) Calibrations() []Calibration {
-	calibrations := make([]Calibration, len(s.calibrations))
-	copy(calibrations, s.calibrations)
-	return calibrations
+	return s.calibrations
 }
 
 // Channels is a helper function to return a slice copy of Channel values.
 func (s Set) Channels() []Channel {
-	channels := make([]Channel, len(s.channels))
-	copy(channels, s.channels)
-	return channels
+	return s.channels
 }
 
 // Citations is a helper function to return a slice copy of Citation values.
 func (s Set) Citations() []Citation {
-	citations := make([]Citation, len(s.citations))
-	copy(citations, s.citations)
-	return citations
+	return s.citations
 }
 
 // Classes is a helper function to return a slice copy of Class values.
 func (s Set) Classes() []Class {
-	classes := make([]Class, len(s.classes))
-	copy(classes, s.classes)
-	return classes
+	return s.classes
 }
 
 // Components is a helper function to return a slice copy of Component values.
 func (s Set) Components() []Component {
-	components := make([]Component, len(s.components))
-	copy(components, s.components)
-	return components
+	return s.components
 }
 
 // Connections is a helper function to return a slice copy of Connection values.
 func (s Set) Connections() []Connection {
-	connections := make([]Connection, len(s.connections))
-	copy(connections, s.connections)
-	return connections
+	return s.connections
 }
 
 // Constituents is a helper function to return a slice copy of Constituent values.
 func (s Set) Constituents() []Constituent {
-	constituents := make([]Constituent, len(s.constituents))
-	copy(constituents, s.constituents)
-	return constituents
+	return s.constituents
 }
 
 // Darts is a helper function to return a slice copy of Dart values.
 func (s Set) Darts() []Dart {
-	darts := make([]Dart, len(s.darts))
-	copy(darts, s.darts)
-	return darts
+	return s.darts
 }
 
 // DeployedDataloggers is a helper function to return a slice copy of DeployedDatalogger values.
 func (s Set) DeployedDataloggers() []DeployedDatalogger {
-	deployedDataloggers := make([]DeployedDatalogger, len(s.deployedDataloggers))
-	copy(deployedDataloggers, s.deployedDataloggers)
-	return deployedDataloggers
+	return s.deployedDataloggers
 }
 
 // DeployedReceivers is a helper function to return a slice copy of DeployedReceiver values.
 func (s Set) DeployedReceivers() []DeployedReceiver {
-	deployedReceivers := make([]DeployedReceiver, len(s.deployedReceivers))
-	copy(deployedReceivers, s.deployedReceivers)
-	return deployedReceivers
+	return s.deployedReceivers
 }
 
 // Doases is a helper function to return a slice copy of InstalledDoas values.
 func (s Set) Doases() []InstalledDoas {
-	doases := make([]InstalledDoas, len(s.doases))
-	copy(doases, s.doases)
-	return doases
+	return s.doases
 }
 
 // Features is a helper function to return a slice copy of Feature values.
 func (s Set) Features() []Feature {
-	features := make([]Feature, len(s.features))
-	copy(features, s.features)
-	return features
+	return s.features
 }
 
 // FirmwareHistory is a helper function to return a slice copy of FirmwareHistory values.
 func (s Set) FirmwareHistory() []FirmwareHistory {
-	firmwareHistory := make([]FirmwareHistory, len(s.firmwareHistory))
-	copy(firmwareHistory, s.firmwareHistory)
-	return firmwareHistory
+	return s.firmwareHistory
 }
 
 // Gains is a helper function to return a slice copy of Gain values.
 func (s Set) Gains() []Gain {
-	gains := make([]Gain, len(s.gains))
-	copy(gains, s.gains)
-	return gains
+	return s.gains
 }
 
 // Gauges is a helper function to return a slice copy of Gauge values.
 func (s Set) Gauges() []Gauge {
-	gauges := make([]Gauge, len(s.gauges))
-	copy(gauges, s.gauges)
-	return gauges
+	return s.gauges
 }
 
 // InstalledAntennas is a helper function to return a slice copy of InstalledAntenna values.
 func (s Set) InstalledAntennas() []InstalledAntenna {
-	installedAntennas := make([]InstalledAntenna, len(s.installedAntennas))
-	copy(installedAntennas, s.installedAntennas)
-	return installedAntennas
+	return s.installedAntennas
 }
 
 // InstalledCameras is a helper function to return a slice copy of InstalledCamera values.
 func (s Set) InstalledCameras() []InstalledCamera {
-	installedCameras := make([]InstalledCamera, len(s.installedCameras))
-	copy(installedCameras, s.installedCameras)
-	return installedCameras
+	return s.installedCameras
 }
 
 // InstalledMetSensors is a helper function to return a slice copy of InstalledMetSensor values.
 func (s Set) InstalledMetSensors() []InstalledMetSensor {
-	installedMetSensors := make([]InstalledMetSensor, len(s.installedMetSensors))
-	copy(installedMetSensors, s.installedMetSensors)
-	return installedMetSensors
+	return s.installedMetSensors
 }
 
 // InstalledRadomes is a helper function to return a slice copy of InstalledRadome values.
 func (s Set) InstalledRadomes() []InstalledRadome {
-	installedRadomes := make([]InstalledRadome, len(s.installedRadomes))
-	copy(installedRadomes, s.installedRadomes)
-	return installedRadomes
+	return s.installedRadomes
 }
 
 // InstalledRecorders is a helper function to return a slice copy of InstalledRecorder values.
 func (s Set) InstalledRecorders() []InstalledRecorder {
-	installedRecorders := make([]InstalledRecorder, len(s.installedRecorders))
-	copy(installedRecorders, s.installedRecorders)
-	return installedRecorders
+	return s.installedRecorders
 }
 
 // InstalledSensors is a helper function to return a slice copy of InstalledSensor values.
 func (s Set) InstalledSensors() []InstalledSensor {
-	installedSensors := make([]InstalledSensor, len(s.installedSensors))
-	copy(installedSensors, s.installedSensors)
-	return installedSensors
+	return s.installedSensors
 }
 
 // Marks is a helper function to return a slice copy of Mark values.
 func (s Set) Marks() []Mark {
-	marks := make([]Mark, len(s.marks))
-	copy(marks, s.marks)
-	return marks
+	return s.marks
 }
 
 // Monuments is a helper function to return a slice copy of Monument values.
 func (s Set) Monuments() []Monument {
-	monuments := make([]Monument, len(s.monuments))
-	copy(monuments, s.monuments)
-	return monuments
+	return s.monuments
 }
 
 // Mounts is a helper function to return a slice copy of Mount values.
 func (s Set) Mounts() []Mount {
-	mounts := make([]Mount, len(s.mounts))
-	copy(mounts, s.mounts)
-	return mounts
+	return s.mounts
 }
 
 // Networks is a helper function to return a slice copy of Network values.
 func (s Set) Networks() []Network {
-	networks := make([]Network, len(s.networks))
-	copy(networks, s.networks)
-	return networks
+	return s.networks
 }
 
 // Placenames is a helper function to return a slice copy of Placename values.
 func (s Set) Placenames() []Placename {
-	placenames := make([]Placename, len(s.placenames))
-	copy(placenames, s.placenames)
-	return placenames
+	return s.placenames
 }
 
 // Points is a helper function to return a slice copy of Point values.
 func (s Set) Points() []Point {
-	points := make([]Point, len(s.points))
-	copy(points, s.points)
-	return points
+	return s.points
 }
 
 // Polarities is a helper function to return a slice copy of Polarity values.
 func (s Set) Polarities() []Polarity {
-	polarities := make([]Polarity, len(s.polarities))
-	copy(polarities, s.polarities)
-	return polarities
+	return s.polarities
 }
 
 // Preamps is a helper function to return a slice copy of Preamp values.
 func (s Set) Preamps() []Preamp {
-	preamps := make([]Preamp, len(s.preamps))
-	copy(preamps, s.preamps)
-	return preamps
+	return s.preamps
 }
 
 // Samples is a helper function to return a slice copy of Sample values.
 func (s Set) Samples() []Sample {
-	samples := make([]Sample, len(s.samples))
-	copy(samples, s.samples)
-	return samples
+	return s.samples
 }
 
 // Sessions is a helper function to return a slice copy of Session values.
 func (s Set) Sessions() []Session {
-	sessions := make([]Session, len(s.sessions))
-	copy(sessions, s.sessions)
-	return sessions
+	return s.sessions
 }
 
 // Sites is a helper function to return a slice copy of Site values.
 func (s Set) Sites() []Site {
-	sites := make([]Site, len(s.sites))
-	copy(sites, s.sites)
-	return sites
+	return s.sites
 }
 
 // Stations is a helper function to return a slice copy of Station values.
 func (s Set) Stations() []Station {
-	stations := make([]Station, len(s.stations))
-	copy(stations, s.stations)
-	return stations
+	return s.stations
 }
 
 // Streams is a helper function to return a slice copy of Stream values.
 func (s Set) Streams() []Stream {
-	streams := make([]Stream, len(s.streams))
-	copy(streams, s.streams)
-	return streams
+	return s.streams
 }
 
 // Telemetries is a helper function to return a slice copy of Telemetry values.
 func (s Set) Telemetries() []Telemetry {
-	telemetries := make([]Telemetry, len(s.telemetries))
-	copy(telemetries, s.telemetries)
-	return telemetries
+	return s.telemetries
 }
 
 // Timings is a helper function to return a slice copy of Timing values.
 func (s Set) Timings() []Timing {
-	timings := make([]Timing, len(s.timings))
-	copy(timings, s.timings)
-	return timings
+	return s.timings
 }
 
 // Views is a helper function to return a slice copy of View values.
 func (s Set) Views() []View {
-	views := make([]View, len(s.views))
-	copy(views, s.views)
-	return views
+	return s.views
 }
 
 // Visibilities is a helper function to return a slice copy of Visibility values.
 func (s Set) Visibilities() []Visibility {
-	visibilities := make([]Visibility, len(s.visibilities))
-	copy(visibilities, s.visibilities)
-	return visibilities
+	return s.visibilities
 }
 
 // Asset is a helper function to return a Asset value and true if one exists.
