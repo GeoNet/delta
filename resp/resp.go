@@ -10,10 +10,11 @@ import (
 )
 
 // TODO: add embed when populated
-var locations = []string{"files", "auto"}
+var locations = []string{"files", "auto", "nrl"}
 
 //go:embed files/*.xml
 //go:embed auto/*.xml
+//go:embed nrl/*.xml
 var files embed.FS
 
 // LookupFS returns a byte slice representation of a generic stationxml Response if present in the given file system.
