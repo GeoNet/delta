@@ -165,7 +165,7 @@ func main() {
 					continue
 				}
 
-				// run through each collection of componet, channel and streams.
+				// run through each collection of component, channel and streams.
 				for _, collection := range set.Collections(site) {
 
 					// must be current for chart configuration
