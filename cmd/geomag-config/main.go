@@ -9,7 +9,6 @@ import (
 	"strings"
 
 	"github.com/GeoNet/delta"
-	"github.com/GeoNet/delta/internal/stationxml"
 	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/delta/resp"
 )
@@ -141,7 +140,7 @@ func main() {
 			// find any corrections that might be needed, e.g. gain or calibration
 			for _, correction := range set.Corrections(collection) {
 
-				pair := stationxml.NewResponse()
+				pair := resp.NewInstrumentResponse()
 
 				// adjust for corrections
 				if cal := correction.SensorCalibration; cal != nil {
