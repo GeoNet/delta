@@ -231,6 +231,14 @@ func NewResponseType(data []byte) (*ResponseType, error) {
 	return &s, nil
 }
 
+func (r *ResponseType) Frequency() float64 {
+	return r.frequency
+}
+
+func (r *ResponseType) SetFrequency(freq float64) {
+	r.frequency = freq
+}
+
 func (r *ResponseType) Scale() float64 {
 	scale := 1.0
 	for _, s := range r.Stages {

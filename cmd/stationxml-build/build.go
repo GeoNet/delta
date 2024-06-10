@@ -5,8 +5,6 @@ import (
 
 	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/delta/resp"
-
-	"github.com/GeoNet/delta/internal/stationxml"
 )
 
 // Builder is a cache of response files.
@@ -51,7 +49,7 @@ func (b *Builder) Frequency(code string) float64 {
 }
 
 // Response returns a stationxml ResponseType based on whether the Component has a sampling rate or not.
-func (b *Builder) Response(collection meta.Collection, correction meta.Correction) (*stationxml.ResponseType, error) {
+func (b *Builder) Response(collection meta.Collection, correction meta.Correction) (*resp.ResponseType, error) {
 	switch {
 	case collection.Component.SamplingRate != 0:
 		return b.DerivedResponseType(collection)
@@ -70,11 +68,11 @@ func (b *Builder) Prefix(c meta.Collection) string {
 }
 
 // DerivedResponseType return a ResponseType pointer for the derived type.
-func (b *Builder) DerivedResponseType(c meta.Collection) (*stationxml.ResponseType, error) {
-	pair := stationxml.NewResponse(
-		stationxml.Prefix(b.Prefix(c)),
-		stationxml.Serial(c.InstalledSensor.Serial),
-		stationxml.Frequency(b.Frequency(c.Code())),
+func (b *Builder) DerivedResponseType(c meta.Collection) (*resp.ResponseType, error) {
+	pair := resp.NewInstrumentResponse(
+		resp.Prefix(b.Prefix(c)),
+		resp.Serial(c.InstalledSensor.Serial),
+		resp.Frequency(b.Frequency(c.Code())),
 	)
 
 	// find the derived response
@@ -104,11 +102,11 @@ func (b *Builder) DerivedResponseType(c meta.Collection) (*stationxml.ResponseTy
 }
 
 // PairedResponseType return a ResponseType pointer where both a datalogger and sensor will be described.
-func (b *Builder) PairedResponseType(c meta.Collection, v meta.Correction) (*stationxml.ResponseType, error) {
-	pair := stationxml.NewResponse(
-		stationxml.Prefix(b.Prefix(c)),
-		stationxml.Serial(c.InstalledSensor.Serial),
-		stationxml.Frequency(b.Frequency(c.Code())),
+func (b *Builder) PairedResponseType(c meta.Collection, v meta.Correction) (*resp.ResponseType, error) {
+	pair := resp.NewInstrumentResponse(
+		resp.Prefix(b.Prefix(c)),
+		resp.Serial(c.InstalledSensor.Serial),
+		resp.Frequency(b.Frequency(c.Code())),
 	)
 
 	// adjust for corrections

@@ -5,6 +5,8 @@ import (
 	"sort"
 	"time"
 
+	"github.com/GeoNet/delta/resp"
+
 	stationxml "github.com/GeoNet/delta/internal/stationxml/v1.1"
 )
 
@@ -52,7 +54,7 @@ func (e Encoder11) toSampleRateRatio(f float64) *stationxml.SampleRateRatioType 
 	}
 }
 
-func (e Encoder11) Response(response *ResponseType) *stationxml.ResponseType {
+func (e Encoder11) Response(response *resp.ResponseType) *stationxml.ResponseType {
 	var stages []stationxml.ResponseStageType
 
 	for _, s := range response.Stages {
