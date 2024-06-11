@@ -83,14 +83,6 @@ func buildStreams(base, channels string) (map[string]Stream, error) {
 					continue
 				}
 
-				if !isBlessedDatalogger(installation.Datalogger.Model) {
-					continue
-				}
-
-				if !isBlessedSensor(installation.Sensor.Model) {
-					continue
-				}
-
 				stream, err := db.StationLocationSamplingRateStartStream(
 					station.Code,
 					installation.Location,
