@@ -18,7 +18,4 @@ The related fields are:
 
 ## Configuration
 
-Each desired sample rate requires a filter _Q_ value given in the _build.go_ file. 
-
-Each stream requires its Datalogger and Sensor models to be listed as _blessed_ models. This list is
-maintained and can be updated in the _blessed.go_ file.
+Each desired sample rate requires a filter _Q_ value given in the _impact.go_ file. 

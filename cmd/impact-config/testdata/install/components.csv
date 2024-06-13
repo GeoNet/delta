@@ -1,0 +1,10 @@
+Make,Model,Type,Number,Source,Subsource,Dip,Azimuth,Types,Sampling Rate,Response
+Canterbury Seismic Instruments,CUSP3D,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3D
+Canterbury Seismic Instruments,CUSP3D,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3D
+Canterbury Seismic Instruments,CUSP3D,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3D
+Kinemetrics,FBA-ES-T-DECK,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-DECK
+Kinemetrics,FBA-ES-T-DECK,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-DECK
+Kinemetrics,FBA-ES-T-DECK,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-DECK
+Sercel,L4C-3D,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Sercel_L4C-3D
+Sercel,L4C-3D,Short Period Seismometer,1,,N,0,0,G,,sensor_Sercel_L4C-3D
+Sercel,L4C-3D,Short Period Seismometer,2,,E,0,90,G,,sensor_Sercel_L4C-3D
