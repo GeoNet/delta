@@ -82,3 +82,24 @@ func TestFiles(t *testing.T) {
 		})
 	}
 }
+
+func TestNRL(t *testing.T) {
+	names, err := fs.Glob(os.DirFS("nrl"), "*.xml")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for _, name := range names {
+		t.Run("check nrl resp file: "+name, func(t *testing.T) {
+
+			raw, err := fs.ReadFile(files, filepath.Join("nrl", name))
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			if _, err := NewResponseType(raw); err != nil {
+				t.Fatal(err)
+			}
+		})
+	}
+}

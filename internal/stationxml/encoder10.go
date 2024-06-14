@@ -5,6 +5,8 @@ import (
 	"sort"
 	"time"
 
+	"github.com/GeoNet/delta/resp"
+
 	stationxml "github.com/GeoNet/delta/internal/stationxml/v1.0"
 )
 
@@ -52,7 +54,7 @@ func (e Encoder10) toSampleRateRatio(f float64) *stationxml.SampleRateRatioType 
 	}
 }
 
-func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
+func (e Encoder10) Response(response *resp.ResponseType) *stationxml.ResponseType {
 	var stages []stationxml.ResponseStageType
 
 	for _, s := range response.Stages {
@@ -233,7 +235,7 @@ func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
 
 			gain = stationxml.GainType{
 				Value:     value,
-				Frequency: response.frequency,
+				Frequency: response.Frequency(),
 			}
 		}
 
@@ -301,7 +303,7 @@ func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
 		sensitivity = &stationxml.SensitivityType{
 			GainType: stationxml.GainType{
 				Value:     value,
-				Frequency: response.frequency,
+				Frequency: response.Frequency(),
 			},
 			InputUnits: stationxml.UnitsType{
 				Name:        response.InstrumentPolynomial.InputUnits.Name,
