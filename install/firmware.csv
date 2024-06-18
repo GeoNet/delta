@@ -233,7 +233,7 @@ Canterbury Seismic Instruments,CUSP3D,42257,Cusp3D+r 400.74.1 (GPS18X4.40),2021-
 Canterbury Seismic Instruments,CUSP3D,42258,Cusp3D+r 400.74.1,2019-08-30T00:00:00Z,2021-03-24T22:29:59Z,Fix GPS timing 1 sec
 Canterbury Seismic Instruments,CUSP3D,42258,Cusp3D+r 400.74.1 (GPS18X4.40),2021-03-24T22:30:00Z,9999-01-01T00:00:00Z,Fix GPS week number rollover
 Canterbury Seismic Instruments,CUSP3D,42259,Cusp3D+r 400.74.1,2019-08-30T00:00:00Z,9999-01-01T00:00:00Z,Fix GPS timing 1 sec
-Canterbury Seismic Instruments,CUSP3D,42260,Cusp3D+r 400.74.1,2019-08-30T00:00:00Z,9999-01-01T00:00:00Z,Fix GPS timing 1 sec
+Canterbury Seismic Instruments,CUSP3D,42260,Cusp3D+r 400.74.1,2019-08-30T00:00:00Z,2024-06-12T22:25:00Z,Fix GPS timing 1 sec
 Canterbury Seismic Instruments,CUSP3D,42261,Cusp3D+r 400.74.1,2019-08-30T00:00:00Z,2021-10-06T23:59:59Z,Fix GPS timing 1 sec
 Canterbury Seismic Instruments,CUSP3D,42261,Cusp3D+r 400.74.1 (GPS18X4.40),2021-10-07T00:00:00Z,9999-01-01T00:00:00Z,Fix GPS week number rollover
 Canterbury Seismic Instruments,CUSP3D,42262,Cusp3D+r 400.74.1,2019-08-16T00:00:00Z,9999-01-01T00:00:00Z,Fix GPS timing 1 sec
@@ -413,6 +413,7 @@ Canterbury Seismic Instruments,EQR120,46664,2.3.2,2023-10-19T22:03:00Z,9999-01-0
 Canterbury Seismic Instruments,EQR120,46668,2.3.2,2023-10-19T06:12:00Z,9999-01-01T00:00:00Z,
 Canterbury Seismic Instruments,EQR120,46669,2.3.2,2023-10-19T02:10:00Z,9999-01-01T00:00:00Z,
 Canterbury Seismic Instruments,EQR120,46675,2.3.2,2024-05-02T21:08:00Z,9999-01-01T00:00:00Z,
+Canterbury Seismic Instruments,EQR120,46699,2.3.2,2024-06-13T00:53:00Z,9999-01-01T00:00:00Z,
 Canterbury Seismic Instruments,EQR120,46701,2.3.2,2023-12-13T20:03:00Z,9999-01-01T00:00:00Z,
 Canterbury Seismic Instruments,EQR120,46702,2.3.2,2023-12-13T20:03:00Z,9999-01-01T00:00:00Z,
 Canterbury Seismic Instruments,EQR120,46703,2.3.2,2023-12-13T20:03:00Z,9999-01-01T00:00:00Z,
