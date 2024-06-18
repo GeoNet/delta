@@ -23,6 +23,7 @@ type Settings struct {
 	manual   string // manualcollect network code
 	volcano  string // volcano camera network code
 	building string // building camera network code
+	camera   string // camera network codes
 	doas     string // doas network code
 
 	seismic  regexp.Regexp // seismic location codes
@@ -62,6 +63,7 @@ func main() {
 	flag.StringVar(&settings.dart, "dart", "TD", "dart buoy network code")
 	flag.StringVar(&settings.enviro, "enviro", "EN", "envirosensor network code")
 	flag.StringVar(&settings.manual, "manual", "MC", "manualcollect network code")
+	flag.StringVar(&settings.camera, "camera", "VC,BC", "volcano camera network codes")
 	flag.StringVar(&settings.volcano, "volcano", "VC", "volcano camera network code")
 	flag.StringVar(&settings.building, "building", "BC", "building camera network code")
 	flag.StringVar(&settings.magnetic, "magnetic", "GM,SM", "geomagnetic network code")
