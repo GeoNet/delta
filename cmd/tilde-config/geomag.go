@@ -36,8 +36,8 @@ func (t *Tilde) Geomag(set *meta.Set, geomag string, extra ...string) error {
 
 			sens = append(sens, Sensor{
 				Code:  x.Location,
-				Start: toTimePtr(s.Start),
-				End:   toTimePtr(s.End),
+				Start: toTimePtr(x.Start),
+				End:   toTimePtr(x.End),
 
 				Latitude:       toFloat(fmt.Sprintf("%.4f", x.Latitude)),
 				Longitude:      toFloat(fmt.Sprintf("%.4f", x.Longitude)),

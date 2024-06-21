@@ -58,8 +58,8 @@ func (t *Tilde) Coastal(set *meta.Set, network string) error {
 
 			sens = append(sens, Sensor{
 				Code:  c.Location,
-				Start: toTimePtr(s.Start),
-				End:   toTimePtr(s.End),
+				Start: toTimePtr(c.Start),
+				End:   toTimePtr(c.End),
 
 				Latitude:       toFloat(fmt.Sprintf("%.4f", c.Latitude)),
 				Longitude:      toFloat(fmt.Sprintf("%.4f", c.Longitude)),
