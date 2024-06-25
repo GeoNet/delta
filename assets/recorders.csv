@@ -1480,7 +1480,6 @@ Physics and Engineering Laboratory DSIR,MO2A,0572,,
 Physics and Engineering Laboratory DSIR,MO2A,0573,,
 Physics and Engineering Laboratory DSIR,MO2A,0594,,
 Physics and Engineering Laboratory DSIR,MO2A,DUMMY_503A,,
-SAIC,BPR Subsystem,56951,,DART 4G
 SAIC,BPR Subsystem,141002,,DART 4G
 SAIC,BPR Subsystem,141012,,DART 4G
 SAIC,BPR Subsystem,141016,,DART 4G
@@ -1505,6 +1504,7 @@ SAIC,BPR Subsystem,201005,,DART 4G
 SAIC,BPR Subsystem,210325,,DART 4G
 SAIC,BPR Subsystem,220112,,DART 4G
 SAIC,BPR Subsystem,220113,,DART 4G
+SAIC,BPR Subsystem,56951,,DART 4G
 Terra Tech,DCA-333,333,,
 Terra Tech,DCA-333,334,,
 Terra Tech,DCA-333,336,,
