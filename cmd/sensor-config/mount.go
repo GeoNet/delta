@@ -2,6 +2,7 @@ package main
 
 import (
 	"sort"
+	"strings"
 
 	"github.com/GeoNet/delta/meta"
 )
@@ -186,16 +187,22 @@ func (n *Network) Doas(set *meta.Set, network, label string) error {
 	return nil
 }
 
-func (s Settings) Cameras(set *meta.Set, name, network string) (Group, bool) {
+func (s Settings) Cameras(set *meta.Set, name, networks string) (Group, bool) {
 
-	net, ok := set.Network(network)
-	if !ok {
-		return Group{}, false
+	nets := make(map[string]interface{})
+	for _, n := range strings.Split(networks, ",") {
+		if n = strings.TrimSpace(n); n != "" {
+			nets[n] = true
+		}
 	}
 
 	var mounts []Mount
 	for _, mount := range set.Mounts() {
-		if mount.Network != net.Code {
+		net, ok := set.Network(mount.Network)
+		if !ok {
+			continue
+		}
+		if _, ok := nets[net.Code]; !ok {
 			continue
 		}
 

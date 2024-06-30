@@ -109,7 +109,7 @@ func (s Settings) Groups(set *meta.Set) Network {
 		network.Groups = append(network.Groups, group)
 	}
 
-	if group, ok := s.Cameras(set, "Volcano camera", s.volcano); ok {
+	if group, ok := s.Cameras(set, "Camera", s.camera); ok {
 		network.Groups = append(network.Groups, group)
 	}
 

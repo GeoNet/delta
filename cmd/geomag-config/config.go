@@ -18,6 +18,12 @@ type Config struct {
 	Location string `json:"location"`
 	// Channel is the expected channel code as stored.
 	Channel string `json:"channel"`
+	// Latitude is the expected sensor installed latitude in decimal degrees.
+	Latitude float64 `json:"latitude"`
+	// Longitude is the expected sensor installed longitude in decimal degrees.
+	Longitude float64 `json:"longitude"`
+	// Elevation is the expected sensor installed elevation in meters.
+	Elevation float64 `json:"elevation"`
 	// ScaleBias is the offset that needs to be added to each data sample.
 	ScaleBias float64 `json:"scale_bias"`
 	// ScaleFactor is the value that needs to be multiplied to each data sample.
