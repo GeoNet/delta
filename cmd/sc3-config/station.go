@@ -15,6 +15,10 @@ func ToKey(network, station string) string {
 	return fmt.Sprintf("%s_%s", network, station)
 }
 
+func ToStream(network, station, location string) string {
+	return fmt.Sprintf("%s_%s_%s", network, station, location)
+}
+
 type Station struct {
 	Global   Global
 	AutoPick AutoPick
