@@ -19,6 +19,7 @@ type Settings struct {
 	configured string // configured networks
 	exclude    string // list of stations to exclude
 	include    string // list of stations to include
+	skip       string // list of streams to skip
 	purge      bool   // remove unknown station files
 }
 
@@ -45,6 +46,7 @@ func main() {
 	flag.StringVar(&settings.configured, "networks", "AK,CB,CH,EC,FI,HB,KI,NM,NZ,OT,RA,RT,SC,SI,SM,SP,TP,TR,WL,TG", "comma separated list of networks to use")
 	flag.StringVar(&settings.exclude, "exclude", "", "comma separated list of stations to skip (either NN_SSSS, or simply SSSS)")
 	flag.StringVar(&settings.include, "include", "", "comma separated list of external stations to add (requires NN_SSSS)")
+	flag.StringVar(&settings.skip, "skip", "", "comma separated list of streams to skip (requires NN_SSSS_LL)")
 	flag.BoolVar(&settings.purge, "purge", false, "remove unknown single xml files")
 
 	flag.Parse()
@@ -86,6 +88,11 @@ func main() {
 	extra := make(map[string]interface{})
 	for _, s := range strings.Split(settings.include, ",") {
 		extra[strings.TrimSpace(strings.ToUpper(s))] = true
+	}
+
+	skip := make(map[string]interface{})
+	for _, s := range strings.Split(settings.skip, ",") {
+		skip[strings.TrimSpace(strings.ToUpper(s))] = true
 	}
 
 	var unmatch []string
@@ -131,6 +138,11 @@ func main() {
 
 		for _, site := range set.Sites() {
 			if site.Station != station.Code {
+				continue
+			}
+
+			stream := ToStream(network.External, station.Code, site.Location)
+			if _, ok := skip[stream]; ok {
 				continue
 			}
 
