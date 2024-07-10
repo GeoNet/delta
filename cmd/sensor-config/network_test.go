@@ -311,7 +311,7 @@ func TestSensor(t *testing.T) {
 
 	var buf bytes.Buffer
 
-	if err := example.MarshalIndent(&buf, "", "  "); err != nil {
+	if err := example.EncodeXML(&buf, "", "  "); err != nil {
 		t.Fatal(err)
 	}
 

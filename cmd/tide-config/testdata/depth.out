@@ -1,0 +1,257 @@
+{{if gt (len (with_models (with_codes devices "AUCT" "CHIT" "CHST" "CPIT" "GBIT" "GIST" "KAIT" "LOTT" "MNKT" "NAPT" "NBRT" "NCPT" "NZA" "NZB" "NZC" "NZD" "NZE" "NZF" "NZG" "NZH" "NZI" "NZJ" "NZK" "NZL" "OTAT" "PUYT" "RBCT" "RFRT" "SUMT" "TAUT" "WLGT") "Quanterra Q330" "Quanterra Q330+" "Nanometrics Centaur" )) 0 -}}
+{{ range $r, $v := routes -}}
+{{  if gt (len $v) 0}}{{$r}}:
+  gns_datalink::depth::services:
+{{   range $t := with_models (with_codes devices "AUCT" "CHIT" "CHST" "CPIT" "GBIT" "GIST" "KAIT" "LOTT" "MNKT" "NAPT" "NBRT" "NCPT" "NZA" "NZB" "NZC" "NZD" "NZE" "NZF" "NZG" "NZH" "NZI" "NZJ" "NZK" "NZL" "OTAT" "PUYT" "RBCT" "RFRT" "SUMT" "TAUT" "WLGT") "Quanterra Q330" "Quanterra Q330+" "Nanometrics Centaur" }}{{if eq $t.Code "AUCT"}}    auct:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_AUCT
+{{    end}}{{if eq $t.Code "CHIT"}}    chit:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_CHIT
+{{    end}}{{if eq $t.Code "CHST"}}    chst:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_CHST
+{{    end}}{{if eq $t.Code "CPIT"}}    cpit:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_CPIT
+{{    end}}{{if eq $t.Code "GBIT"}}    gbit:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_GBIT
+{{    end}}{{if eq $t.Code "GIST"}}    gist:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_GIST
+{{    end}}{{if eq $t.Code "KAIT"}}    kait:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_KAIT
+{{    end}}{{if eq $t.Code "LOTT"}}    lott:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_LOTT
+{{    end}}{{if eq $t.Code "MNKT"}}    mnkt:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_MNKT
+{{    end}}{{if eq $t.Code "NAPT"}}    napt:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NAPT
+{{    end}}{{if eq $t.Code "NBRT"}}    nbrt:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NBRT
+{{    end}}{{if eq $t.Code "NCPT"}}    ncpt:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NCPT
+{{    end}}{{if eq $t.Code "NZA"}}    nza:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZA
+{{    end}}{{if eq $t.Code "NZB"}}    nzb:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZB
+{{    end}}{{if eq $t.Code "NZC"}}    nzc:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZC
+{{    end}}{{if eq $t.Code "NZD"}}    nzd:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZD
+{{    end}}{{if eq $t.Code "NZE"}}    nze:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZE
+{{    end}}{{if eq $t.Code "NZF"}}    nzf:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZF
+{{    end}}{{if eq $t.Code "NZG"}}    nzg:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZG
+{{    end}}{{if eq $t.Code "NZH"}}    nzh:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZH
+{{    end}}{{if eq $t.Code "NZI"}}    nzi:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZI
+{{    end}}{{if eq $t.Code "NZJ"}}    nzj:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZJ
+{{    end}}{{if eq $t.Code "NZK"}}    nzk:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZK
+{{    end}}{{if eq $t.Code "NZL"}}    nzl:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_NZL
+{{    end}}{{if eq $t.Code "OTAT"}}    otat:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_OTAT
+{{    end}}{{if eq $t.Code "PUYT"}}    puyt:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_PUYT
+{{    end}}{{if eq $t.Code "RBCT"}}    rbct:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_RBCT
+{{    end}}{{if eq $t.Code "RFRT"}}    rfrt:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_RFRT
+{{    end}}{{if eq $t.Code "SUMT"}}    sumt:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_SUMT
+{{    end}}{{if eq $t.Code "TAUT"}}    taut:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_TAUT
+{{    end}}{{if eq $t.Code "WLGT"}}    wlgt:
+      ensure: {{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{if eq $t.Model "Nanometrics Centaur"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_WLGT
+{{    end}}
+{{   end -}}
+{{  end -}}
+{{ end -}}
+{{end -}}

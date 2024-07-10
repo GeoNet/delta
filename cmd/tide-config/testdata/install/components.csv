@@ -1,0 +1,12 @@
+Make,Model,Type,Number,Source,Subsource,Dip,Azimuth,Types,Sampling Rate,Response
+General Electric,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,-10,derived_Water-Depth-10s
+General Electric,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,1,derived_Water-Depth-1s
+General Electric,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,10,derived_Water-Depth-10sps
+General Electric,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,-10,derived_Water-Depth-10s
+General Electric,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,1,derived_Water-Depth-1s
+General Electric,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,10,derived_Water-Depth-10sps
+General Electric,Druck PTX-1830,Pressure Sensor,0,,Z,0,0,G,,sensor_General-Electric_Druck-PTX-1830
+General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,-10,derived_Water-Depth-10s
+General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,1,derived_Water-Depth-1s
+General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,10,derived_Water-Depth-10sps
+General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,Z,0,0,G,,sensor_General-Electric_Druck-PTX-1830-LAND

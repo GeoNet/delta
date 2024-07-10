@@ -1,3 +1,0 @@
-Station,Location,Band,Source,Sampling Rate,Axial,Reversed,Triggered,Start Date,End Date
-ADCS,20,H,N,200,true,false,true,2002-06-26T21:00:00Z,9999-01-01T00:00:00Z
-WTMC,20,H,N,200,true,false,true,2005-11-15T01:00:00Z,9999-01-01T00:00:00Z

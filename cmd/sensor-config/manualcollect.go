@@ -6,8 +6,9 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
-func (n *Network) ManualCollection(set *meta.Set, network, label string) error {
+func (s Settings) ManualCollection(set *meta.Set, name, network string) (Group, bool) {
 
+	var samples []Station
 	for _, sample := range set.Samples() {
 
 		net, ok := set.Network(sample.Network)
@@ -19,8 +20,8 @@ func (n *Network) ManualCollection(set *meta.Set, network, label string) error {
 		}
 
 		var sites []Site
-		for _, site := range set.Sites() {
-			if site.Station != sample.Code {
+		for _, point := range set.Points() {
+			if point.Sample != sample.Code {
 				continue
 			}
 
@@ -29,7 +30,7 @@ func (n *Network) ManualCollection(set *meta.Set, network, label string) error {
 				if feature.Station != sample.Code {
 					continue
 				}
-				if feature.Location != site.Location {
+				if feature.Location != point.Location {
 					continue
 				}
 
@@ -37,7 +38,6 @@ func (n *Network) ManualCollection(set *meta.Set, network, label string) error {
 					Code:        feature.Sublocation,
 					Property:    feature.Property,
 					Aspect:      feature.Aspect,
-					Type:        label,
 					Description: feature.Description,
 
 					StartDate: feature.Start,
@@ -45,35 +45,44 @@ func (n *Network) ManualCollection(set *meta.Set, network, label string) error {
 				})
 			}
 
+			if !(len(sensors) > 0) {
+				continue
+			}
+
 			sort.Slice(sensors, func(i, j int) bool {
 				return sensors[i].Less(sensors[j])
 			})
 
 			sites = append(sites, Site{
-				Code: site.Location,
+				Code: point.Location,
 
-				Latitude:  site.Latitude,
-				Longitude: site.Longitude,
-				Elevation: site.Elevation,
-				Depth:     site.Depth,
-				Datum:     site.Datum,
-				Survey:    site.Survey,
+				Latitude:  point.Latitude,
+				Longitude: point.Longitude,
+				Elevation: point.Elevation,
+				Depth:     point.Depth,
+				Datum:     point.Datum,
+				Survey:    point.Survey,
 
-				StartDate: site.Start,
-				EndDate:   site.End,
+				StartDate: point.Start,
+				EndDate:   point.End,
 
-				Sensors: sensors,
+				Features: sensors,
 			})
+		}
+
+		if !(len(sites) > 0) {
+			continue
 		}
 
 		sort.Slice(sites, func(i, j int) bool {
 			return sites[i].Less(sites[j])
 		})
 
-		n.Samples = append(n.Samples, Station{
+		samples = append(samples, Station{
 			Code:        sample.Code,
-			Network:     net.External,
 			Name:        sample.Name,
+			Network:     sample.Network,
+			External:    net.External,
 			Description: net.Description,
 
 			Latitude:  sample.Latitude,
@@ -89,5 +98,5 @@ func (n *Network) ManualCollection(set *meta.Set, network, label string) error {
 		})
 	}
 
-	return nil
+	return Group{Name: name, Samples: samples}, true
 }
