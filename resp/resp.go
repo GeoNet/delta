@@ -2,16 +2,19 @@ package resp
 
 import (
 	"embed"
+	"encoding/xml"
 	"fmt"
 	"io/fs"
 	"os"
+	"sync"
 )
 
 // TODO: add embed when populated
-var locations = []string{"files", "auto"}
+var locations = []string{"files", "auto", "nrl"}
 
 //go:embed files/*.xml
 //go:embed auto/*.xml
+//go:embed nrl/*.xml
 var files embed.FS
 
 // LookupFS returns a byte slice representation of a generic stationxml Response if present in the given file system.
@@ -24,7 +27,7 @@ func LookupFS(fsys fs.FS, response string) ([]byte, error) {
 
 		// return the first one found
 		for _, name := range names {
-			data, err := fs.ReadFile(files, name)
+			data, err := fs.ReadFile(fsys, name)
 			if err != nil {
 				return nil, err
 			}
@@ -52,4 +55,52 @@ func LookupBase(base string, response string) ([]byte, error) {
 		return LookupDir(base, response)
 	}
 	return Lookup(response)
+}
+
+type Resp struct {
+	mu sync.Mutex
+
+	base  string
+	cache map[string][]byte
+}
+
+func NewResp(base string) *Resp {
+	return &Resp{
+		base:  base,
+		cache: make(map[string][]byte),
+	}
+}
+
+func (r *Resp) Lookup(response string) ([]byte, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+
+	if v, ok := r.cache[response]; ok {
+		return v, nil
+	}
+
+	v, err := LookupBase(r.base, response)
+	if err != nil {
+		return nil, err
+	}
+
+	r.cache[response] = v
+
+	return v, nil
+}
+
+func (r *Resp) Type(response string) (*ResponseType, error) {
+
+	data, err := r.Lookup(response)
+	if err != nil {
+		return nil, err
+	}
+
+	// decode the response into a simple form.
+	var res ResponseType
+	if err := xml.Unmarshal(data, &res); err != nil {
+		return nil, err
+	}
+
+	return &res, nil
 }

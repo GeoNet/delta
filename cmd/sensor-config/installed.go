@@ -8,14 +8,27 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
-func (n *Network) InstalledSensors(set *meta.Set, match *regexp.Regexp, network, prefix string) error {
+func (s Settings) InstalledSensors(set *meta.Set, name string, match *regexp.Regexp, networks string, list ...string) (Group, bool) {
 
+	nets := make(map[string]interface{})
+	for _, n := range strings.Split(networks, ",") {
+		if n = strings.TrimSpace(n); n != "" {
+			nets[n] = true
+		}
+	}
+
+	types := make(map[string]interface{})
+	for _, t := range list {
+		types[strings.TrimSpace(t)] = true
+	}
+
+	var stations []Station
 	for _, stn := range set.Stations() {
 		net, ok := set.Network(stn.Network)
 		if !ok {
 			continue
 		}
-		if net.Code != network {
+		if _, ok := nets[net.Code]; !ok {
 			continue
 		}
 
@@ -32,12 +45,15 @@ func (n *Network) InstalledSensors(set *meta.Set, match *regexp.Regexp, network,
 			sensors := make(map[Sensor][]string)
 
 			for _, c := range set.Collections(site) {
-				label := strings.TrimSpace(prefix + " " + c.Component.Type)
+
+				if _, ok := types[c.Component.Type]; !ok && len(types) > 0 {
+					continue
+				}
 
 				sensor := Sensor{
-					Type:  label,
 					Make:  c.InstalledSensor.Make,
 					Model: c.InstalledSensor.Model,
+					Type:  c.Component.Type,
 
 					Azimuth: c.InstalledSensor.Azimuth,
 					Method:  c.InstalledSensor.Method,
@@ -69,6 +85,11 @@ func (n *Network) InstalledSensors(set *meta.Set, match *regexp.Regexp, network,
 				list = append(list, sensor)
 			}
 
+			// need at least one sensor
+			if !(len(list) > 0) {
+				continue
+			}
+
 			sort.Slice(list, func(i, j int) bool {
 				return list[i].Less(list[j])
 			})
@@ -90,14 +111,20 @@ func (n *Network) InstalledSensors(set *meta.Set, match *regexp.Regexp, network,
 			})
 		}
 
+		// need at least one site
+		if !(len(sites) > 0) {
+			continue
+		}
+
 		sort.Slice(sites, func(i, j int) bool {
 			return sites[i].Less(sites[j])
 		})
 
-		n.Stations = append(n.Stations, Station{
+		stations = append(stations, Station{
 			Code:        stn.Code,
-			Network:     net.External,
 			Name:        stn.Name,
+			Network:     stn.Network,
+			External:    net.External,
 			Description: net.Description,
 
 			Latitude:  stn.Latitude,
@@ -113,5 +140,5 @@ func (n *Network) InstalledSensors(set *meta.Set, match *regexp.Regexp, network,
 		})
 	}
 
-	return nil
+	return Group{Name: name, Stations: stations}, true
 }

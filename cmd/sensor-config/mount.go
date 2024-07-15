@@ -2,19 +2,27 @@ package main
 
 import (
 	"sort"
+	"strings"
 
 	"github.com/GeoNet/delta/meta"
 )
 
-func (n *Network) Camera(set *meta.Set, network, label string) error {
+func (s Settings) Cameras(set *meta.Set, name, networks string) (Group, bool) {
 
-	net, ok := set.Network(network)
-	if !ok {
-		return nil
+	nets := make(map[string]interface{})
+	for _, n := range strings.Split(networks, ",") {
+		if n = strings.TrimSpace(n); n != "" {
+			nets[n] = true
+		}
 	}
 
+	var mounts []Mount
 	for _, mount := range set.Mounts() {
-		if mount.Network != net.Code {
+		net, ok := set.Network(mount.Network)
+		if !ok {
+			continue
+		}
+		if _, ok := nets[net.Code]; !ok {
 			continue
 		}
 
@@ -36,7 +44,7 @@ func (n *Network) Camera(set *meta.Set, network, label string) error {
 				cameras = append(cameras, Sensor{
 					Make:  camera.Make,
 					Model: camera.Model,
-					Type:  label,
+					Type:  name,
 
 					Dip:     camera.Dip,
 					Azimuth: camera.Azimuth,
@@ -70,16 +78,21 @@ func (n *Network) Camera(set *meta.Set, network, label string) error {
 			})
 		}
 
+		if !(len(views) > 0) {
+			continue
+		}
+
 		sort.Slice(views, func(i, j int) bool {
 			return views[i].Less(views[j])
 		})
 
-		n.Mounts = append(n.Mounts, Mount{
+		mounts = append(mounts, Mount{
 			Code:        mount.Code,
-			Network:     net.External,
 			Name:        mount.Name,
-			Description: net.Description,
 			Mount:       mount.Description,
+			Network:     mount.Network,
+			External:    net.External,
+			Description: net.Description,
 
 			Latitude:  mount.Latitude,
 			Longitude: mount.Longitude,
@@ -93,16 +106,17 @@ func (n *Network) Camera(set *meta.Set, network, label string) error {
 		})
 	}
 
-	return nil
+	return Group{Name: name, Mounts: mounts}, true
 }
 
-func (n *Network) Doas(set *meta.Set, network, label string) error {
+func (s Settings) Doases(set *meta.Set, name, network string) (Group, bool) {
 
 	net, ok := set.Network(network)
 	if !ok {
-		return nil
+		return Group{}, false
 	}
 
+	var mounts []Mount
 	for _, mount := range set.Mounts() {
 		if mount.Network != net.Code {
 			continue
@@ -126,7 +140,7 @@ func (n *Network) Doas(set *meta.Set, network, label string) error {
 				doases = append(doases, Sensor{
 					Make:  doas.Make,
 					Model: doas.Model,
-					Type:  label,
+					Type:  name,
 
 					Dip:     doas.Dip,
 					Azimuth: doas.Azimuth,
@@ -160,16 +174,21 @@ func (n *Network) Doas(set *meta.Set, network, label string) error {
 			})
 		}
 
+		if !(len(views) > 0) {
+			continue
+		}
+
 		sort.Slice(views, func(i, j int) bool {
 			return views[i].Less(views[j])
 		})
 
-		n.Mounts = append(n.Mounts, Mount{
+		mounts = append(mounts, Mount{
 			Code:        mount.Code,
-			Network:     net.External,
 			Name:        mount.Name,
-			Description: net.Description,
 			Mount:       mount.Description,
+			Network:     mount.Network,
+			External:    net.External,
+			Description: net.Description,
 
 			Latitude:  mount.Latitude,
 			Longitude: mount.Longitude,
@@ -183,5 +202,5 @@ func (n *Network) Doas(set *meta.Set, network, label string) error {
 		})
 	}
 
-	return nil
+	return Group{Name: name, Mounts: mounts}, true
 }

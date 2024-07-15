@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/xml"
 
-	"github.com/GeoNet/delta/internal/stationxml"
 	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/delta/resp"
 )
@@ -40,7 +39,7 @@ func Response(base string, collection meta.Collection) (*ResponseInfo, error) {
 		}
 
 		// decode the response into a simple form.
-		var res stationxml.ResponseType
+		var res resp.ResponseType
 		if err := xml.Unmarshal(data, &res); err != nil {
 			return nil, err
 		}

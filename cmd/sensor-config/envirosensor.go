@@ -6,11 +6,11 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
-func (n *Network) EnviroSensor(set *meta.Set, enviro string, label string) error {
+func (s Settings) EnviroSensor(set *meta.Set, name, enviro string) (Group, bool) {
 
 	net, ok := set.Network(enviro)
 	if !ok {
-		return nil
+		return Group{}, false
 	}
 
 	valid := make(map[string]interface{})
@@ -18,6 +18,7 @@ func (n *Network) EnviroSensor(set *meta.Set, enviro string, label string) error
 		valid[f.Station] = true
 	}
 
+	var stations []Station
 	for _, stn := range set.Stations() {
 		if _, ok := valid[stn.Code]; !ok {
 			continue
@@ -43,9 +44,9 @@ func (n *Network) EnviroSensor(set *meta.Set, enviro string, label string) error
 				}
 
 				sensors = append(sensors, Sensor{
-					Type:  label,
 					Make:  v.Make,
 					Model: v.Model,
+					Type:  name,
 
 					Azimuth:  v.Azimuth,
 					Method:   v.Method,
@@ -57,6 +58,10 @@ func (n *Network) EnviroSensor(set *meta.Set, enviro string, label string) error
 					StartDate: v.Start,
 					EndDate:   v.End,
 				})
+			}
+
+			if !(len(sensors) > 0) {
+				continue
 			}
 
 			sort.Slice(sensors, func(i, j int) bool {
@@ -79,14 +84,19 @@ func (n *Network) EnviroSensor(set *meta.Set, enviro string, label string) error
 			})
 		}
 
+		if !(len(sites) > 0) {
+			continue
+		}
+
 		sort.Slice(sites, func(i, j int) bool {
 			return sites[i].Less(sites[j])
 		})
 
-		n.Stations = append(n.Stations, Station{
+		stations = append(stations, Station{
 			Code:        stn.Code,
-			Network:     net.External,
 			Name:        stn.Name,
+			Network:     stn.Network,
+			External:    net.External,
 			Description: net.Description,
 
 			Latitude:  stn.Latitude,
@@ -102,5 +112,5 @@ func (n *Network) EnviroSensor(set *meta.Set, enviro string, label string) error
 		})
 	}
 
-	return nil
+	return Group{Name: name, Stations: stations}, true
 }

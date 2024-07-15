@@ -74,7 +74,8 @@ type Site struct {
 	StartDate time.Time `xml:"startDate,attr,omitempty" json:"start-date,omitempty"`
 	EndDate   time.Time `xml:"endDate,attr,omitempty" json:"end-date,omitempty"`
 
-	Sensors []Sensor `xml:"Sensor,omitempty" json:"sensor,omitempty"`
+	Features []Sensor `xml:"Feature,omitempty" json:"feature,omitempty"`
+	Sensors  []Sensor `xml:"Sensor,omitempty" json:"sensor,omitempty"`
 }
 
 func (s Site) Less(site Site) bool {
@@ -82,8 +83,9 @@ func (s Site) Less(site Site) bool {
 }
 
 type Station struct {
-	Code    string `xml:"code,attr" json:"code,omitempty"`
-	Network string `xml:"network,attr,omitempty" json:"network,omitempty"`
+	Code     string `xml:"code,attr" json:"code,omitempty"`
+	Network  string `xml:"network,attr,omitempty" json:"network,omitempty"`
+	External string `xml:"external,attr,omitempty" json:"external,omitempty"`
 
 	Name        string    `xml:"name,attr,omitempty" json:"name,omitempty"`
 	Description string    `xml:"description,attr,omitempty" json:"description,omitempty"`
@@ -164,8 +166,9 @@ func (v View) Less(view View) bool {
 }
 
 type Mount struct {
-	Code    string `xml:"code,attr" json:"code,omitempty"`
-	Network string `xml:"network,attr,omitempty" json:"network,omitempty"`
+	Code     string `xml:"code,attr" json:"code,omitempty"`
+	Network  string `xml:"network,attr,omitempty" json:"network,omitempty"`
+	External string `xml:"external,attr,omitempty" json:"external,omitempty"`
 
 	Name        string `xml:"name,attr,omitempty" json:"name,omitempty"`
 	Description string `xml:"description,attr,omitempty" json:"description,omitempty"`
@@ -186,8 +189,19 @@ func (m Mount) Less(mount Mount) bool {
 	return m.Code < mount.Code
 }
 
+type Group struct {
+	Name string `xml:"name,omitempty,attr" json:"name,omitempty"`
+
+	Marks    []Mark    `xml:"Mark,omitempty" json:"marks,omitempty"`
+	Mounts   []Mount   `xml:"Mount,omitempty" json:"mounts,omitempty"`
+	Samples  []Station `xml:"Sample,omitempty" json:"samples,omitempty"`
+	Stations []Station `xml:"Station,omitempty" json:"stations,omitempty"`
+}
+
 type Network struct {
 	XMLName xml.Name `xml:"SensorXML"`
+
+	Groups []Group `xml:"Group,omitempty" json:"group,omitempty"`
 
 	Stations []Station `xml:"Station,omitempty" json:"station,omitempty"`
 	Marks    []Mark    `xml:"Mark,omitempty" json:"mark,omitempty"`
@@ -212,5 +226,22 @@ func (n *Network) EncodeXML(wr io.Writer, prefix, indent string) error {
 }
 
 func (n *Network) EncodeJSON(wr io.Writer) error {
-	return json.NewEncoder(wr).Encode(n)
+	// remap network to avoid xml specific details
+	remap := struct {
+		Groups   []Group   `json:"group,omitempty"`
+		Stations []Station `json:"station,omitempty"`
+		Marks    []Mark    `json:"mark,omitempty"`
+		Buoys    []Station `json:"buoy,omitempty"`
+		Mounts   []Mount   `json:"mount,omitempty"`
+		Samples  []Station `json:"sample,omitempty"`
+	}{
+		Groups:   n.Groups,
+		Stations: n.Stations,
+		Marks:    n.Marks,
+		Buoys:    n.Buoys,
+		Mounts:   n.Mounts,
+		Samples:  n.Samples,
+	}
+
+	return json.NewEncoder(wr).Encode(remap)
 }

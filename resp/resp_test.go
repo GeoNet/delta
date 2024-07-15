@@ -6,8 +6,6 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/GeoNet/delta/internal/stationxml"
-
 	"github.com/google/go-cmp/cmp"
 )
 
@@ -27,7 +25,7 @@ func TestAuto(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			first, err := stationxml.NewResponseType(raw)
+			first, err := NewResponseType(raw)
 			if err != nil {
 				t.Fatal(err)
 			}
@@ -37,7 +35,7 @@ func TestAuto(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			second, err := stationxml.NewResponseType(data)
+			second, err := NewResponseType(data)
 			if err != nil {
 				t.Fatal(err)
 			}
@@ -68,7 +66,7 @@ func TestFiles(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			snippet, err := stationxml.NewResponseType(raw)
+			snippet, err := NewResponseType(raw)
 			if err != nil {
 				t.Fatal(err)
 			}
@@ -80,6 +78,27 @@ func TestFiles(t *testing.T) {
 
 			if !cmp.Equal(raw, data) {
 				t.Error(cmp.Diff(raw, data))
+			}
+		})
+	}
+}
+
+func TestNRL(t *testing.T) {
+	names, err := fs.Glob(os.DirFS("nrl"), "*.xml")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for _, name := range names {
+		t.Run("check nrl resp file: "+name, func(t *testing.T) {
+
+			raw, err := fs.ReadFile(files, filepath.Join("nrl", name))
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			if _, err := NewResponseType(raw); err != nil {
+				t.Fatal(err)
 			}
 		})
 	}
