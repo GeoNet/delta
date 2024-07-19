@@ -13,7 +13,6 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 
 	"github.com/GeoNet/delta/internal/stationxml"
@@ -175,7 +174,7 @@ func main() {
 	}
 
 	// set recovers the delta tables
-	set, err := delta.NewBase(settings.base)
+	set, err := meta.NewBase(settings.base)
 	if err != nil {
 		log.Fatal(err)
 	}

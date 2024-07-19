@@ -5,6 +5,7 @@ package meta
 import (
 	"fmt"
 	"io/fs"
+	"os"
 	"sort"
 )
 
@@ -204,4 +205,9 @@ func NewSet(fsys fs.FS, maps ...SetPathMap) (*Set, error) {
 	}
 
 	return &set, nil
+}
+
+// NewBase returns a Set pointer based on a default base path.
+func NewBase(base string) (*Set, error) {
+	return NewSet(os.DirFS(base))
 }

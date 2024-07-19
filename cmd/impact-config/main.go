@@ -8,7 +8,7 @@ import (
 	"os"
 	"regexp"
 
-	"github.com/GeoNet/delta"
+	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/delta/resp"
 )
 
@@ -46,7 +46,7 @@ func main() {
 
 	flag.Parse()
 
-	set, err := delta.NewBase(settings.base)
+	set, err := meta.NewBase(settings.base)
 	if err != nil {
 		log.Fatal(err)
 	}

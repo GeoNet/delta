@@ -9,7 +9,7 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/GeoNet/delta"
+	"github.com/GeoNet/delta/meta"
 )
 
 // will form the id and title for each camera
@@ -63,7 +63,7 @@ func main() {
 
 	flag.Parse()
 
-	set, err := delta.NewBase(settings.base)
+	set, err := meta.NewBase(settings.base)
 	if err != nil {
 		log.Fatal(err)
 	}

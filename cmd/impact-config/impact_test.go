@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/GeoNet/delta"
+	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/delta/resp"
 
 	"github.com/google/go-cmp/cmp"
@@ -19,7 +19,7 @@ func TestBuild_Network(t *testing.T) {
 		channels: *regexp.MustCompile("^[EBH][NH]Z$"),
 	}
 
-	set, err := delta.NewBase("./testdata")
+	set, err := meta.NewBase("./testdata")
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -6,7 +6,7 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/GeoNet/delta"
+	"github.com/GeoNet/delta/meta"
 )
 
 func TestTide(t *testing.T) {
@@ -16,7 +16,7 @@ func TestTide(t *testing.T) {
 		"./testdata/detide.tmpl": "./testdata/detide.out",
 	}
 
-	set, err := delta.NewBase("./testdata")
+	set, err := meta.NewBase("./testdata")
 	if err != nil {
 		t.Fatal(err)
 	}

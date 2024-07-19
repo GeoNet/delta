@@ -8,7 +8,6 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 	"github.com/GeoNet/delta/resp"
 )
@@ -67,7 +66,7 @@ func main() {
 	}
 
 	// delta details
-	set, err := delta.NewBase(settings.base)
+	set, err := meta.NewBase(settings.base)
 	if err != nil {
 		log.Fatalf("unable to create delta set: %v", err)
 	}

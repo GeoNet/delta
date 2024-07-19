@@ -8,8 +8,8 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/internal/ntrip"
+	"github.com/GeoNet/delta/meta"
 )
 
 func TestFiles_Config(t *testing.T) {
@@ -21,7 +21,7 @@ func TestFiles_Config(t *testing.T) {
 	}
 
 	// set recovers the delta tables
-	set, err := delta.NewBase("./testdata")
+	set, err := meta.NewBase("./testdata")
 	if err != nil {
 		t.Fatal(err)
 	}

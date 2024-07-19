@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/GeoNet/delta"
+	"github.com/GeoNet/delta/meta"
 )
 
 type Settings struct {
@@ -37,7 +37,7 @@ func main() {
 
 	flag.Parse()
 
-	set, err := delta.NewBase(settings.base)
+	set, err := meta.NewBase(settings.base)
 	if err != nil {
 		log.Fatalf("unable to read delta set: %v", err)
 	}
