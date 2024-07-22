@@ -111,7 +111,7 @@ The level should be from 0 to 3, with 3 used for the smallest places.
 
 | Field | Description |
 | --- | --- |
-| _Code_ | Code to uniquely identify GNSS _Mark_ (or recording _Station_)
+| _Mark_ | Code to uniquely identify GNSS _Mark_
 | _Sky Visibility_ | Free form description of the site sky visibility and obstructions
 | _Start Date_ | General date and time at which the visibility was accurate
 | _End Date_ | General date and time at which the visibility was no longer accurate
