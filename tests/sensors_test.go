@@ -47,6 +47,17 @@ var installedSensorChecks = map[string]func(*meta.Set) func(t *testing.T){
 		}
 	},
 
+	"check for invalid installation dates": func(set *meta.Set) func(t *testing.T) {
+		return func(t *testing.T) {
+			for _, i := range set.InstalledSensors() {
+				if i.End.After(i.Start) {
+					continue
+				}
+				t.Errorf("installed sensor is removed before it has been installed: %s", i.String())
+			}
+		}
+	},
+
 	"check for invalid sensor azimuth": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
