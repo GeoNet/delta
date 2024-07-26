@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	visibilityCode = iota
+	visibilityMark = iota
 	visibilitySkyVisibility
 	visibilityStartTime
 	visibilityEndTime
@@ -15,7 +15,7 @@ const (
 )
 
 var visibilityHeaders Header = map[string]int{
-	"Code":           visibilityCode,
+	"Mark":           visibilityMark,
 	"Sky Visibility": visibilitySkyVisibility,
 	"Start Date":     visibilityStartTime,
 	"End Date":       visibilityEndTime,
@@ -23,7 +23,7 @@ var visibilityHeaders Header = map[string]int{
 
 type Visibility struct {
 	Span
-	Code          string
+	Mark          string
 	SkyVisibility string
 }
 
@@ -33,9 +33,9 @@ func (v VisibilityList) Len() int      { return len(v) }
 func (v VisibilityList) Swap(i, j int) { v[i], v[j] = v[j], v[i] }
 func (v VisibilityList) Less(i, j int) bool {
 	switch {
-	case v[i].Code < v[j].Code:
+	case v[i].Mark < v[j].Mark:
 		return true
-	case v[i].Code > v[j].Code:
+	case v[i].Mark > v[j].Mark:
 		return false
 	default:
 		return v[i].Start.Before(v[j].Start)
@@ -49,7 +49,7 @@ func (v VisibilityList) encode() [][]string {
 
 	for _, row := range v {
 		data = append(data, []string{
-			strings.TrimSpace(row.Code),
+			strings.TrimSpace(row.Mark),
 			strings.TrimSpace(row.SkyVisibility),
 			row.Start.Format(DateTimeFormat),
 			row.End.Format(DateTimeFormat),
@@ -79,7 +79,7 @@ func (v *VisibilityList) decode(data [][]string) error {
 			return err
 		}
 		visibilities = append(visibilities, Visibility{
-			Code:          strings.TrimSpace(d[visibilityCode]),
+			Mark:          strings.TrimSpace(d[visibilityMark]),
 			SkyVisibility: strings.TrimSpace(d[visibilitySkyVisibility]),
 			Span: Span{
 				Start: start,
