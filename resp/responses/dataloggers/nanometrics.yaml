@@ -286,7 +286,7 @@ filter:
     inputunits: count
     outputunits: count
 
-CENTAUR-100-LP-GAIN4:
+  CENTAUR-100-LP-GAIN4:
   - type: paz
     lookup: CENTAUR-GAIN
     frequency: 15
