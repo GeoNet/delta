@@ -1,0 +1,17 @@
+{{"{{if gt (len (with_models (with_codes devices"}}{{ range $k, $v := . }} "{{ $k }}"{{ end }}{{") \"Quanterra Q330\" \"Quanterra Q330+\" \"Nanometrics Centaur\" )) 0 -}}"}}
+{{"{{ range $r, $v := routes -}}"}}
+{{"{{  if gt (len $v) 0}}{{$r}}:"}}
+  gns_datalink::depth::services:
+{{"{{   range $t := with_models (with_codes devices"}}{{ range $k, $v := . }} "{{ $k }}"{{ end }}{{") \"Quanterra Q330\" \"Quanterra Q330+\" \"Nanometrics Centaur\" }}"}}{{ range $k, $v := . }}{{"{{if eq $t.Code \""}}{{upper $k}}{{"\"}}"}}    {{lower $k}}:
+      ensure: {{"{{if not (is_active $t)}}absent{{else if route $r (address $t)}}running{{else}}absent{{end}}"}}
+      interval: 300
+      alpha: -48543.689320388352
+      beta: {{"{{if eq $t.Model \"Nanometrics Centaur\"}}0.12135922330097087378 #centaur{{else}}0.11573728469682271 #quanterra{{end}}"}}
+      orient: H
+      selectors: ?TZ
+      streams: NZ_{{upper $k}}
+{{"{{    end}}"}}{{end}}
+{{"{{   end -}}"}}
+{{"{{  end -}}"}}
+{{"{{ end -}}"}}
+{{"{{end -}}"}}

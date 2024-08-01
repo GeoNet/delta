@@ -1,0 +1,19 @@
+Make,Model,Type,Number,SamplingRate,Response
+Kinemetrics,Q330/3,Datalogger,,1,datalogger_Kinemetrics_Q330_24bits_1s
+Kinemetrics,Q330/3,Datalogger,,10,datalogger_Kinemetrics_Q330_24bits_10sps
+Kinemetrics,Q330/3,Datalogger,,50,datalogger_Kinemetrics_Q330_24bits_50sps
+Kinemetrics,Q330/6,Datalogger,,1,datalogger_Kinemetrics_Q330_24bits_1s
+Kinemetrics,Q330/6,Datalogger,,10,datalogger_Kinemetrics_Q330_24bits_10sps
+Kinemetrics,Q330/6,Datalogger,,50,datalogger_Kinemetrics_Q330_24bits_50sps
+Kinemetrics,Q330HR/6,Datalogger,0,1,datalogger_Kinemetrics_Q330HR_26bits_1s
+Kinemetrics,Q330HR/6,Datalogger,3,1,datalogger_Kinemetrics_Q330HR_24bits_1s
+Kinemetrics,Q330HR/6,Datalogger,3,50,datalogger_Kinemetrics_Q330HR_24bits_50sps
+Kinemetrics,Q330HRS/6,Datalogger,0,1,datalogger_Kinemetrics_Q330HRS_26bits_1s
+Kinemetrics,Q330S/3,Datalogger,,1,datalogger_Kinemetrics_Q330S_24bits_1s
+Kinemetrics,Q330S/3,Datalogger,,10,datalogger_Kinemetrics_Q330S_24bits_10sps
+Kinemetrics,Q330S/3,Datalogger,,50,datalogger_Kinemetrics_Q330S_24bits_50sps
+Kinemetrics,Q330S/6,Datalogger,,1,datalogger_Kinemetrics_Q330S_24bits_1s
+Kinemetrics,Q330S/6,Datalogger,,10,datalogger_Kinemetrics_Q330S_24bits_10sps
+Kinemetrics,Q330S/6,Datalogger,,50,datalogger_Kinemetrics_Q330S_24bits_50sps
+Nanometrics,Centaur CTR4-6S,Datalogger,,1,datalogger_Nanometrics_CentaurCTR4_24bits_1s
+Nanometrics,Centaur CTR4-6S,Datalogger,,10,datalogger_Nanometrics_CentaurCTR4_24bits_10sps

@@ -3,7 +3,7 @@ package delta_test
 import (
 	"bytes"
 	"encoding/csv"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"sort"
 	"testing"
@@ -13,19 +13,12 @@ import (
 	"github.com/GeoNet/delta/meta"
 )
 
-func loadListFile(t *testing.T, path string, list meta.List) {
-	if err := meta.LoadList(path, list); err != nil {
-		t.Fatalf("unable to load list file %s: %v", path, err)
-	}
-	sort.Sort(list)
-}
-
 var testConsistency = map[string]func(path string, list meta.List) func(t *testing.T){
 
 	"check file consistency": func(path string, list meta.List) func(t *testing.T) {
 		return func(t *testing.T) {
 
-			raw, err := ioutil.ReadFile(path)
+			raw, err := os.ReadFile(path)
 			if err != nil {
 				t.Fatalf("unable to read %s file: %v", path, err)
 			}
@@ -69,11 +62,17 @@ func TestConsistency(t *testing.T) {
 		"gauges":       {f: "../environment/gauges.csv", l: &meta.GaugeList{}},
 		"constituents": {f: "../environment/constituents.csv", l: &meta.ConstituentList{}},
 		"features":     {f: "../environment/features.csv", l: &meta.FeatureList{}},
+		"visibility":   {f: "../environment/visibility.csv", l: &meta.VisibilityList{}},
+		"citations":    {f: "../references/citations.csv", l: &meta.CitationList{}},
 	}
 
 	for f, v := range files {
 
-		loadListFile(t, v.f, v.l)
+		if err := meta.LoadList(v.f, v.l); err != nil {
+			t.Fatalf("unable to load list file %s: %v", v.f, err)
+		}
+
+		sort.Sort(v.l)
 
 		for k, fn := range testConsistency {
 			t.Run(k+": "+f, fn(v.f, v.l))

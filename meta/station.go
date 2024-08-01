@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -22,110 +21,131 @@ const (
 	stationLast
 )
 
+var stationHeaders Header = map[string]int{
+	"Station":    stationCode,
+	"Network":    stationNetwork,
+	"Name":       stationName,
+	"Latitude":   stationLatitude,
+	"Longitude":  stationLongitude,
+	"Elevation":  stationElevation,
+	"Depth":      stationDepth,
+	"Datum":      stationDatum,
+	"Start Date": stationStart,
+	"End Date":   stationEnd,
+}
+
 type Station struct {
 	Reference
-	Point
+	Position
 	Span
 }
 
 type StationList []Station
 
-func (s StationList) Len() int           { return len(s) }
-func (s StationList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
-func (s StationList) Less(i, j int) bool { return s[i].Code < s[j].Code }
+func (s StationList) Len() int      { return len(s) }
+func (s StationList) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
+func (s StationList) Less(i, j int) bool {
+	switch {
+	case s[i].Code < s[j].Code:
+		return true
+	case s[i].Code > s[j].Code:
+		return false
+	case s[i].Network < s[j].Network:
+		return true
+	default:
+		return false
+	}
+}
 
 func (s StationList) encode() [][]string {
-	data := [][]string{{
-		"Station",
-		"Network",
-		"Name",
-		"Latitude",
-		"Longitude",
-		"Elevation",
-		"Depth",
-		"Datum",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range s {
+	var data [][]string
+
+	data = append(data, stationHeaders.Columns())
+	for _, row := range s {
 		data = append(data, []string{
-			strings.TrimSpace(v.Code),
-			strings.TrimSpace(v.Network),
-			strings.TrimSpace(v.Name),
-			strings.TrimSpace(v.latitude),
-			strings.TrimSpace(v.longitude),
-			strings.TrimSpace(v.elevation),
-			strings.TrimSpace(v.depth),
-			strings.TrimSpace(v.Datum),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Code),
+			strings.TrimSpace(row.Network),
+			strings.TrimSpace(row.Name),
+			strings.TrimSpace(row.latitude),
+			strings.TrimSpace(row.longitude),
+			strings.TrimSpace(row.elevation),
+			strings.TrimSpace(row.depth),
+			strings.TrimSpace(row.Datum),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
 func (s *StationList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var stations []Station
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != stationLast {
-				return fmt.Errorf("incorrect number of installed station fields")
-			}
-			var err error
 
-			var lat, lon, elev, depth float64
-			if lat, err = strconv.ParseFloat(d[stationLatitude], 64); err != nil {
-				return err
-			}
-			if lon, err = strconv.ParseFloat(d[stationLongitude], 64); err != nil {
-				return err
-			}
-			if d[stationElevation] != "" {
-				if elev, err = strconv.ParseFloat(d[stationElevation], 64); err != nil {
-					return err
-				}
-			}
-			if d[stationDepth] != "" {
-				if depth, err = strconv.ParseFloat(d[stationDepth], 64); err != nil {
-					return err
-				}
-			}
+	fields := stationHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[stationStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, d[stationEnd]); err != nil {
-				return err
-			}
-
-			stations = append(stations, Station{
-				Reference: Reference{
-					Code:    strings.TrimSpace(d[stationCode]),
-					Network: strings.TrimSpace(d[stationNetwork]),
-					Name:    strings.TrimSpace(d[stationName]),
-				},
-				Span: Span{
-					Start: start,
-					End:   end,
-				},
-				Point: Point{
-					Latitude:  lat,
-					Longitude: lon,
-					Elevation: elev,
-					Datum:     strings.TrimSpace(d[stationDatum]),
-					Depth:     depth,
-
-					latitude:  strings.TrimSpace(d[stationLatitude]),
-					longitude: strings.TrimSpace(d[stationLongitude]),
-					elevation: strings.TrimSpace(d[stationElevation]),
-					depth:     strings.TrimSpace(d[stationDepth]),
-				},
-			})
+		lat, err := strconv.ParseFloat(d[stationLatitude], 64)
+		if err != nil {
+			return err
 		}
 
-		*s = StationList(stations)
+		lon, err := strconv.ParseFloat(d[stationLongitude], 64)
+		if err != nil {
+			return err
+		}
+
+		elev, err := ParseFloat64(d[stationElevation])
+		if err != nil {
+			return err
+		}
+
+		depth, err := ParseFloat64(d[stationDepth])
+		if err != nil {
+			return err
+		}
+
+		start, err := time.Parse(DateTimeFormat, d[stationStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[stationEnd])
+		if err != nil {
+			return err
+		}
+
+		stations = append(stations, Station{
+			Reference: Reference{
+				Code:    strings.TrimSpace(d[stationCode]),
+				Network: strings.TrimSpace(d[stationNetwork]),
+				Name:    strings.TrimSpace(d[stationName]),
+			},
+			Span: Span{
+				Start: start,
+				End:   end,
+			},
+			Position: Position{
+				Latitude:  lat,
+				Longitude: lon,
+				Elevation: elev,
+				Datum:     strings.TrimSpace(d[stationDatum]),
+				Depth:     depth,
+
+				latitude:  strings.TrimSpace(d[stationLatitude]),
+				longitude: strings.TrimSpace(d[stationLongitude]),
+				elevation: strings.TrimSpace(d[stationElevation]),
+				depth:     strings.TrimSpace(d[stationDepth]),
+			},
+		})
 	}
+
+	*s = StationList(stations)
+
 	return nil
 }
 

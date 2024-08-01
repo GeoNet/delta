@@ -1,0 +1,53 @@
+---
+
+name: Delta configuration management
+
+on:
+  push: {}
+  pull_request: {}
+  schedule:
+    - cron: "0 0 * * *"
+  release:
+    types: [published]
+  workflow_dispatch: {}
+
+permissions:
+  actions: write
+  packages: write
+  contents: write
+  pull-requests: write
+  id-token: write
+  security-events: write
+  statuses: write
+  checks: write
+
+jobs:
+  delta-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout delta repo
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+      - name: Set up go
+        uses: actions/setup-go@fac708d6674e30b6ba41289acaab6d4b75aa0753 # v4.0.1
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+      - name: Run local tests
+        run: go test ./tests
+
+  delta-apps:
+    needs: delta-test
+    uses: GeoNet/Actions/.github/workflows/reusable-go-apps.yml@main
+
+  delta-deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: delta-apps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger build in ac-tools
+        env:
+          GH_TOKEN: ${{ secrets.GH_CI_USER_TOKEN }}
+        run: |
+          gh workflow run --repo GeoNet/ac-tools --ref main delta.yml
+
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2

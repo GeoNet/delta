@@ -183,6 +183,7 @@ response:
       reversed: false
     - sensors:
       - Trillium Horizon TH120-1
+      - Trillium Horizon TH120-2
       filters:
       - TRILLIUM-HORIZON-TH120-1
       channels: ZNE
@@ -447,6 +448,12 @@ response:
       channels: ZNE
       reversed: false
     - sensors:
+      - Trillium Compact 20PH-2
+      filters:
+      - TRILLIUM-COMPACT-20PH-2
+      channels: ZNE
+      reversed: false
+    - sensors:
       - Trillium Compact 120PH-2
       filters:
       - TRILLIUM-COMPACT-120PH-2
@@ -460,6 +467,7 @@ response:
       reversed: false
     - sensors:
       - Trillium Horizon TH120-1
+      - Trillium Horizon TH120-2
       filters:
       - TRILLIUM-HORIZON-TH120-1
       channels: ZNE

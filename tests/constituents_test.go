@@ -4,12 +4,14 @@ import (
 	"strconv"
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testConstituents = map[string]func([]meta.Constituent) func(t *testing.T){
-	"check for gauge duplication": func(constituents []meta.Constituent) func(t *testing.T) {
+var constituentChecks = map[string]func(*meta.Set) func(t *testing.T){
+	"check for gauge duplication": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
+			constituents := set.Constituents()
 			for i := 0; i < len(constituents); i++ {
 				for j := i + 1; j < len(constituents); j++ {
 					if constituents[i].Gauge != constituents[j].Gauge {
@@ -27,16 +29,13 @@ var testConstituents = map[string]func([]meta.Constituent) func(t *testing.T){
 			}
 		}
 	},
-}
-
-var testConstituentsGauges = map[string]func([]meta.Constituent, []meta.Gauge) func(t *testing.T){
-	"check for missing constituent gauges": func(constituents []meta.Constituent, list []meta.Gauge) func(t *testing.T) {
+	"check for missing constituent gauges": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			gauges := make(map[string]meta.Gauge)
-			for _, g := range list {
+			for _, g := range set.Gauges() {
 				gauges[g.Code] = g
 			}
-			for _, c := range constituents {
+			for _, c := range set.Constituents() {
 				if _, ok := gauges[c.Gauge]; !ok {
 					t.Error("unknown gauge: " + c.Gauge)
 				}
@@ -46,23 +45,13 @@ var testConstituentsGauges = map[string]func([]meta.Constituent, []meta.Gauge) f
 }
 
 func TestConstituents(t *testing.T) {
-	var constituents meta.ConstituentList
-	loadListFile(t, "../environment/constituents.csv", &constituents)
 
-	for k, fn := range testConstituents {
-		t.Run(k, fn(constituents))
-	}
-}
-
-func TestConstituents_Gauges(t *testing.T) {
-	var constituents meta.ConstituentList
-	loadListFile(t, "../environment/constituents.csv", &constituents)
-
-	var gauges meta.GaugeList
-	loadListFile(t, "../environment/gauges.csv", &gauges)
-
-	for k, fn := range testConstituentsGauges {
-		t.Run(k, fn(constituents, gauges))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
 
+	for k, v := range constituentChecks {
+		t.Run(k, v(set))
+	}
 }

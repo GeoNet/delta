@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>1e+06</Value>
+    <Frequency>1</Frequency>
+    <InputUnits>
+      <Name>V</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>count</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <Coefficients resourceId="Coefficients#CUSP-200">
+      <InputUnits>
+        <Name>V</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>count</Name>
+      </OutputUnits>
+      <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
+    </Coefficients>
+    <Decimation>
+      <InputSampleRate>200</InputSampleRate>
+      <Factor>1</Factor>
+      <Offset>0</Offset>
+      <Delay>0</Delay>
+      <Correction>0</Correction>
+    </Decimation>
+    <StageGain>
+      <Value>1e+06</Value>
+      <Frequency>1</Frequency>
+    </StageGain>
+  </Stage>
+</Response>

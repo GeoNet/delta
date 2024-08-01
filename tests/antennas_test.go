@@ -3,20 +3,18 @@ package delta_test
 import (
 	"testing"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testInstalledAntennas = map[string]func([]meta.InstalledAntenna) func(t *testing.T){
+var antennaChecks = map[string]func(*meta.Set) func(t *testing.T){
 
 	// check for session overlaps, there can't be two sessions running at the same mark for the same sampling interval.
-	"check antenna installation overlap": func(installedAntennas []meta.InstalledAntenna) func(t *testing.T) {
+	"check antenna installation overlap": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 
 			installs := make(map[string]meta.InstalledAntennaList)
-			for _, s := range installedAntennas {
-				if _, ok := installs[s.Model]; !ok {
-					installs[s.Model] = meta.InstalledAntennaList{}
-				}
+			for _, s := range set.InstalledAntennas() {
 				installs[s.Model] = append(installs[s.Model], s)
 			}
 
@@ -48,13 +46,10 @@ var testInstalledAntennas = map[string]func([]meta.InstalledAntenna) func(t *tes
 		}
 	},
 
-	"check for antenna installation mark overlaps": func(installedAntennas []meta.InstalledAntenna) func(t *testing.T) {
+	"check for antenna installation mark overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			installs := make(map[string]meta.InstalledAntennaList)
-			for _, s := range installedAntennas {
-				if _, ok := installs[s.Mark]; !ok {
-					installs[s.Mark] = meta.InstalledAntennaList{}
-				}
+			for _, s := range set.InstalledAntennas() {
 				installs[s.Mark] = append(installs[s.Mark], s)
 			}
 
@@ -81,32 +76,27 @@ var testInstalledAntennas = map[string]func([]meta.InstalledAntenna) func(t *tes
 			}
 		}
 	},
-}
 
-var testInstalledAntennasMarks = map[string]func([]meta.InstalledAntenna, []meta.Mark) func(t *testing.T){
-	"check for missing antenna marks": func(installedAntennas []meta.InstalledAntenna, marks []meta.Mark) func(t *testing.T) {
+	"check for missing antenna marks": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-
 			keys := make(map[string]interface{})
-			for _, m := range marks {
+			for _, m := range set.Marks() {
 				keys[m.Code] = true
 			}
 
-			for _, c := range installedAntennas {
+			for _, c := range set.InstalledAntennas() {
 				if _, ok := keys[c.Mark]; !ok {
 					t.Errorf("unable to find antenna mark %-5s", c.Mark)
 				}
 			}
 		}
 	},
-}
 
-var testInstalledAntennasAssets = map[string]func([]meta.InstalledAntenna, []meta.Asset) func(t *testing.T){
-	"check for missing antenna assets": func(installedAntennas []meta.InstalledAntenna, assets []meta.Asset) func(t *testing.T) {
+	"check for missing antenna assets": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			for _, r := range installedAntennas {
+			for _, r := range set.InstalledAntennas() {
 				var found bool
-				for _, a := range assets {
+				for _, a := range set.Assets() {
 					if a.Model != r.Model {
 						continue
 					}
@@ -122,15 +112,12 @@ var testInstalledAntennasAssets = map[string]func([]meta.InstalledAntenna, []met
 			}
 		}
 	},
-}
 
-var testInstalledAntennasSessions = map[string]func([]meta.InstalledAntenna, []meta.Session) func(t *testing.T){
-	"check for missing antenna sessions": func(installedAntennas []meta.InstalledAntenna, sessions []meta.Session) func(t *testing.T) {
+	"check for missing antenna sessions": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-
-			for _, r := range installedAntennas {
+			for _, r := range set.InstalledAntennas() {
 				var found bool
-				for _, s := range sessions {
+				for _, s := range set.Sessions() {
 					if s.End.Before(r.Start) {
 						continue
 					}
@@ -148,52 +135,14 @@ var testInstalledAntennasSessions = map[string]func([]meta.InstalledAntenna, []m
 	},
 }
 
-func TestInstalledAntennas(t *testing.T) {
+func TestAntennas(t *testing.T) {
 
-	var installedAntennas meta.InstalledAntennaList
-	loadListFile(t, "../install/antennas.csv", &installedAntennas)
-
-	for k, fn := range testInstalledAntennas {
-		t.Run(k, fn(installedAntennas))
-	}
-}
-
-func TestInstalledAntennas_Marks(t *testing.T) {
-
-	var installedAntennas meta.InstalledAntennaList
-	loadListFile(t, "../install/antennas.csv", &installedAntennas)
-
-	var marks meta.MarkList
-	loadListFile(t, "../network/marks.csv", &marks)
-
-	for k, fn := range testInstalledAntennasMarks {
-		t.Run(k, fn(installedAntennas, marks))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
 
-}
-
-func TestInstalledAntennas_Assets(t *testing.T) {
-
-	var installedAntennas meta.InstalledAntennaList
-	loadListFile(t, "../install/antennas.csv", &installedAntennas)
-
-	var assets meta.AssetList
-	loadListFile(t, "../assets/antennas.csv", &assets)
-
-	for k, fn := range testInstalledAntennasAssets {
-		t.Run(k, fn(installedAntennas, assets))
-	}
-}
-
-func TestInstalledAntennas_Sessions(t *testing.T) {
-
-	var installedAntennas meta.InstalledAntennaList
-	loadListFile(t, "../install/antennas.csv", &installedAntennas)
-
-	var sessions meta.SessionList
-	loadListFile(t, "../install/sessions.csv", &sessions)
-
-	for k, fn := range testInstalledAntennasSessions {
-		t.Run(k, fn(installedAntennas, sessions))
+	for k, v := range antennaChecks {
+		t.Run(k, v(set))
 	}
 }

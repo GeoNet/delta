@@ -1,9 +1,8 @@
 package main
 
 import (
-	//	"bytes"
 	"encoding/xml"
-	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -12,7 +11,7 @@ import (
 func TestSitelog_Read(t *testing.T) {
 
 	// read in a raw file
-	raw, err := ioutil.ReadFile("testdata/yald_20200929.xml")
+	raw, err := os.ReadFile("testdata/yald_20200929.xml")
 	if err != nil {
 		t.Fatal(err)
 	}

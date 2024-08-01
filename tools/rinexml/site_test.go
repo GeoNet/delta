@@ -2,11 +2,10 @@ package main
 
 import (
 	"encoding/xml"
-	"io/ioutil"
-	"os"
-	"os/exec"
 	"strings"
 	"testing"
+
+	"github.com/google/go-cmp/cmp"
 )
 
 func TestSiteXML_Marshal(t *testing.T) {
@@ -39,7 +38,7 @@ func TestSiteXML_Marshal(t *testing.T) {
 				"    </operator>",
 				"    <rinex>",
 				"      <header-comment-name>geonet</header-comment-name>",
-				"      <header-comment-text>Data supplied by the GeoNet project. GeoNet is core funded by EQC and is operated by GNS on behalf of EQC and all New Zealanders. Contact: www.geonet.org.nz  email: info@geonet.org.nz.</header-comment-text>",
+				"      <header-comment-text>Data supplied by the GeoNet project. GeoNet is core funded by NHC and is operated by GNS on behalf of NHC and all New Zealanders. Contact: www.geonet.org.nz  email: info@geonet.org.nz.</header-comment-text>",
 				"    </rinex>",
 				"    <data-format>trimble_netr9</data-format>",
 				`    <download-name-format type="long">`,
@@ -110,7 +109,7 @@ func TestSiteXML_Marshal(t *testing.T) {
 						},
 						Rinex: RinexXML{
 							HeaderCommentName: "geonet",
-							HeaderCommentText: "Data supplied by the GeoNet project. GeoNet is core funded by EQC and is operated by GNS on behalf of EQC and all New Zealanders. Contact: www.geonet.org.nz  email: info@geonet.org.nz.",
+							HeaderCommentText: "Data supplied by the GeoNet project. GeoNet is core funded by NHC and is operated by GNS on behalf of NHC and all New Zealanders. Contact: www.geonet.org.nz  email: info@geonet.org.nz.",
 						},
 						DataFormat: "trimble_netr9",
 						DownloadNameFormat: DownloadNameFormatXML{
@@ -167,44 +166,7 @@ func TestSiteXML_Marshal(t *testing.T) {
 
 		// compare stored with computed
 		if string(s) != test.s {
-			t.Error("**** rinexml mismatch ****")
-
-			f1, err := ioutil.TempFile(os.TempDir(), "tmp")
-			if err != nil {
-				t.Fatal(err)
-			}
-			defer os.Remove(f1.Name())
-			if _, err := f1.Write(s); err != nil {
-				t.Fatal(err)
-			}
-
-			f2, err := ioutil.TempFile(os.TempDir(), "tmp")
-			if err != nil {
-				t.Fatal(err)
-			}
-			defer os.Remove(f2.Name())
-			if _, err := f2.Write([]byte(test.s)); err != nil {
-				t.Fatal(err)
-			}
-
-			cmd := exec.Command("diff", "-c", f1.Name(), f2.Name())
-			stdout, err := cmd.StdoutPipe()
-			if err != nil {
-				t.Fatal(err)
-			}
-			err = cmd.Start()
-			if err != nil {
-				t.Fatal(err)
-			}
-			diff, err := ioutil.ReadAll(stdout)
-			if err != nil {
-				t.Fatal(err)
-			}
-			t.Error(string(diff))
-
-			if err := cmd.Wait(); err != nil {
-				t.Fatal(err)
-			}
+			t.Errorf("unexpected content -got/+exp\n%s", cmp.Diff(string(s), test.s))
 		}
 
 	}

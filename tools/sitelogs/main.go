@@ -5,7 +5,6 @@ import (
 	"encoding/hex"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"math"
 	"os"
@@ -592,21 +591,30 @@ func main() {
 					var graphs []string
 					models := make(map[string]interface{})
 					for _, a := range antennas {
-						if _, ok := models[a.AntennaType]; ok {
+						antennaType := a.AntennaType
+						// check for any graph which may include radome
+						if a.AntennaRadomeType != "NONE" {
+							withRadome := a.AntennaType + "   " + a.AntennaRadomeType
+							if _, ok := antennaGraphs[withRadome]; ok {
+								antennaType = withRadome
+							}
+						}
+
+						if _, ok := models[antennaType]; ok {
 							continue
 						}
-						switch g, ok := antennaGraphs[a.AntennaType]; {
+						switch g, ok := antennaGraphs[antennaType]; {
 						case ok:
 							b, err := hex.DecodeString(g)
 							if err != nil {
 								log.Printf("error: unable to decode antenna graph for: \"%s\"", a.AntennaType)
 								continue
 							}
-							graphs = append(graphs, strings.Join([]string{a.AntennaType, string(b)}, "\n"))
+							graphs = append(graphs, strings.Join([]string{antennaType, string(b)}, "\n"))
 						default:
-							log.Printf("warning: missing antenna graph for: \"%s\"", a.AntennaType)
+							log.Printf("warning: missing antenna graph for: \"%s\"", antennaType)
 						}
-						models[a.AntennaType] = true
+						models[antennaType] = true
 					}
 					return "\n" + strings.Join(graphs, "\n")
 				}(),
@@ -647,7 +655,7 @@ func main() {
 		if err := os.MkdirAll(filepath.Dir(xmlfile), 0755); err != nil {
 			log.Fatalf("error: unable to create dir: %v", err)
 		}
-		if err := ioutil.WriteFile(xmlfile, current, 0644); err != nil {
+		if err := os.WriteFile(xmlfile, current, 0600); err != nil {
 			log.Fatalf("error: unable to write file: %v", err)
 		}
 

@@ -1,11 +1,15 @@
-Code,Sky Visibility,Start Date,End Date
+Mark,Sky Visibility,Start Date,End Date
+2004,"Good conditions, Tree in 10 meters to the SE",2000-06-19T00:00:00Z,2024-07-05T00:00:00Z
 2406,good,2012-02-13T00:00:00Z,9999-01-01T00:00:00Z
 AHTI,dec. inc. 142 7 169 10,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
 AKTO,"Good to north, some fully grown trees to north east.",2006-04-27T00:00:00Z,9999-01-01T00:00:00Z
+ALS1,"Not great, trees to NE and SW, site on northern side of road.",2023-02-24T01:08:38Z,9999-01-01T00:00:00Z
+ALS2,Good,2023-02-23T01:17:02Z,9999-01-01T00:00:00Z
 ANAU,excellent,2010-10-18T00:00:00Z,9999-01-01T00:00:00Z
 ARTA,Good,2008-11-05T00:00:00Z,9999-01-01T00:00:00Z
 ATIA,Good,2006-10-12T00:00:00Z,2006-11-08T00:00:00Z
-AUCK,"Three MetService masts at distances of 13 metres to > 50 metres, with elevations up to 21 degrees above horizon.",1995-09-18T00:00:00Z,9999-01-01T00:00:00Z
+AUCK,"Three MetService masts at distances of 13 metres to > 50 metres, with elevations up to 21 degrees above horizon.",1995-09-18T00:00:00Z,2021-03-23T23:59:59Z
+AUCK,"vegetation growing around antenna, was cleared. Three MetService masts at distances of 13 metres to > 50 metres, with elevations up to 21 degrees above horizon.",2021-03-24T00:00:00Z,9999-01-01T00:00:00Z
 AUKT,Fair,2009-09-22T00:00:00Z,9999-01-01T00:00:00Z
 AVLN,"Excellent, antenna mounted on top of sound stage.",2006-02-24T00:00:00Z,9999-01-01T00:00:00Z
 BHST,GPS site is on the shoulder of a broad hill. The hilltop obstructs the skyview up to 8 deg at a bearing of 008 true North. This location was chosen to allow for a combined site build.,2008-06-12T00:00:00Z,9999-01-01T00:00:00Z
@@ -91,6 +95,7 @@ METH,"Cloud cover made it impossible to see mountains to the west, calculations 
 MING,Excellent,2010-04-28T00:00:00Z,9999-01-01T00:00:00Z
 MKNO,Obstructions to East up to 12 degrees formed by Mokai Patea Range.,2011-05-11T00:00:00Z,9999-01-01T00:00:00Z
 MNHR,excellent,2011-02-16T00:00:00Z,9999-01-01T00:00:00Z
+MNMW,No obstruction above 5 degrees elevation,2023-09-21T00:00:00Z,9999-01-01T00:00:00Z
 MQZG,No obstructions above 10 degrees elevation. Tree/gorse cutting may be required in future,1999-09-27T00:00:00Z,2020-01-29T23:59:00Z
 MQZG,forestry pines growing to the north and almost mature and likely to be removed in a few years,2020-01-30T00:00:00Z,9999-01-01T00:00:00Z
 MRBL,Excellent,2014-06-01T00:00:00Z,9999-01-01T00:00:00Z
@@ -127,6 +132,7 @@ PGKH,.,2014-10-14T00:00:00Z,9999-01-01T00:00:00Z
 PGNE,.,2014-05-08T00:00:00Z,9999-01-01T00:00:00Z
 PILK,Excellent,2000-11-03T00:00:00Z,9999-01-01T00:00:00Z
 PKNO,"Excellent, all obstructions less than 4 degrees.",2011-02-04T00:00:00Z,9999-01-01T00:00:00Z
+PKTP,"Good conditions, Tree in 10 meters to the SE, Solar panel in 3 meters to the W",2024-05-03T00:00:00Z,9999-01-01T00:00:00Z
 PNUI,"Good skyview above 6 degrees to W, NW and SW, elsewhere above less than 5 degrees.",2006-06-29T00:00:00Z,9999-01-01T00:00:00Z
 PORA,No obstructions above 4 degrees.,2006-01-31T00:00:00Z,9999-01-01T00:00:00Z
 PRTU,Good. All less than 5 degrees.,2009-08-17T00:00:00Z,9999-01-01T00:00:00Z
@@ -145,8 +151,8 @@ RCHD,good,2019-08-27T00:00:00Z,9999-01-01T00:00:00Z
 RDLV,Wind break trees about 6 degrees to the south (195-222) and trees/mountains at 4 degrees to the west (263-334). Otherwise unobstructed above 1-2 degrees,2009-01-13T00:00:00Z,9999-01-01T00:00:00Z
 RGAR,"Max obstruction 5deg to north, 3deg to east, 0deg to west, 7deg to south.",2007-11-07T00:00:00Z,9999-01-01T00:00:00Z
 RGAW,Good,2009-03-24T00:00:00Z,9999-01-01T00:00:00Z
-RGCR,"No restrictions in any direction",2007-02-12T00:00:00Z,2011-08-29T00:00:00Z
-RGCR,"Site has been abandoned due to the planting of trees in the immediate and surrounding area.DBM and fence remain in place but access may become impossible.",2011-08-30T00:00:00Z,9999-01-01T00:00:00Z
+RGCR,No restrictions in any direction,2007-02-12T00:00:00Z,2011-08-29T00:00:00Z
+RGCR,Site has been abandoned due to the planting of trees in the immediate and surrounding area.DBM and fence remain in place but access may become impossible.,2011-08-30T00:00:00Z,9999-01-01T00:00:00Z
 RGHD,horizon to the East is 10 degrees.,2012-02-01T00:00:00Z,9999-01-01T00:00:00Z
 RGHL,<5 deg all round.,2008-12-03T00:00:00Z,9999-01-01T00:00:00Z
 RGHR,"clear to north, east and south. Horizon at 9deg to west.",2007-02-07T00:00:00Z,9999-01-01T00:00:00Z
@@ -165,9 +171,9 @@ RGWC,"The crater rim is 250m to the north, 60m high. Not ideal but this is the b
 RGWI,make some notes here.,2011-09-27T00:00:00Z,9999-01-01T00:00:00Z
 RGWV,great,2009-09-04T00:00:00Z,9999-01-01T00:00:00Z
 RIPA,No obstruction above 10 degrees elevation except for VSAT hut (less than 15 degrees),2004-02-20T00:00:00Z,9999-01-01T00:00:00Z
-RLTN,obstructions to 330-340az up to 5deg and mast up to 20deg,2020-06-22TT00:00:00Z,9999-01-01T00:00:00Z
+RLTN,obstructions to 330-340az up to 5deg and mast up to 20deg,2020-06-22T00:00:00Z,9999-01-01T00:00:00Z
 SCTB,No obstruction above 08 degrees,2004-10-28T00:00:00Z,9999-01-01T00:00:00Z
-SCTY,obstructions to 135-145az up to 7deg and mast up to 30deg,2020-06-23TT00:00:00Z,9999-01-01T00:00:00Z
+SCTY,obstructions to 135-145az up to 7deg and mast up to 30deg,2020-06-23T00:00:00Z,9999-01-01T00:00:00Z
 SEDD,"Clear skyview 000 360 from 2? elevation - except row of trees at 074 to 097 block view from 3? to 5?. Couldn't see hilltops at ~256 because of low cloud, unlikely to be > 5? elevation",2014-06-01T00:00:00Z,9999-01-01T00:00:00Z
 SNST,good. 5 degree obstruction to the north,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
 SUTT,good,2016-05-26T00:00:00Z,9999-01-01T00:00:00Z
@@ -178,11 +184,14 @@ TAUW,good,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
 TEMA,Excellent,2007-02-12T00:00:00Z,9999-01-01T00:00:00Z
 TEN2,good,2016-11-16T00:00:00Z,9999-01-01T00:00:00Z
 TENN,excellent,2017-03-10T00:00:00Z,9999-01-01T00:00:00Z
-TGHO,"2m pole ~ 1m to south of mark, otherwise no obstructions.",2008-12-22T00:00:00Z,9999-01-01T00:00:00Z
+TGHM,2m mast (navigation light) ~ 2m to the west,2023-05-25T00:00:00Z,9999-01-01T00:00:00Z
+TGHO,2m pole ~ 1m to south of mark otherwise no obstructions,2008-12-22T00:00:00Z,2023-05-25T00:00:00Z
 TGHR,No obstructions.,2006-04-11T00:00:00Z,9999-01-01T00:00:00Z
-TGOH,clear all round except 7 deg hill at SE. Masts to 5m at 070mag,2006-04-01T00:00:00Z,9999-01-01T00:00:00Z
-TGOH,vegetation growing around the antenna imapcting time series,2014-11-01T00:00:00Z,2015-03-31T23:59:59Z
-TGOH,clear all round except 7 deg hill at SE. Masts to 5m at 070mag,2015-04-01T00:00:00Z,9999-01-01T00:00:00Z
+TGK1,Good no obstructions,2022-12-19T00:00:00Z,9999-01-01T00:00:00Z
+TGOH,vegetation growing around antenna. Obstructions remain up to 7deg elevation in SE direction and 5m high mast at 070mag,2006-04-01T00:00:00Z,9999-01-01T00:00:00Z
+TGOH,vegetation growing around the antenna impacting time series,2014-11-01T00:00:00Z,2015-03-31T23:59:59Z
+TGOH,"vegetation growing around antenna, was cleared. Obstructions remain up to 7deg elevation in SE direction and 5m high mast at 070mag",2015-04-01T00:00:00Z,2022-05-15T23:59:59Z
+TGOH,"vegetation growing around antenna, was cleared. Obstructions remain up to 7deg elevation in SE direction and 5m high mast at 070mag",2022-05-16T00:00:00Z,9999-01-01T00:00:00Z
 TGRA,"Clear to the N, E and W. obstructed to the Sth by hill to 18deg.",2006-04-03T00:00:00Z,9999-01-01T00:00:00Z
 TGRI,no obstructions.,2011-04-04T00:00:00Z,9999-01-01T00:00:00Z
 TGTK,Unobstructed in all directions,2006-04-01T00:00:00Z,9999-01-01T00:00:00Z

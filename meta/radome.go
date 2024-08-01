@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strings"
 	"time"
@@ -17,6 +16,15 @@ const (
 	installedRadomeLast
 )
 
+var installedRadomeHeaders Header = map[string]int{
+	"Make":       installedRadomeMake,
+	"Model":      installedRadomeModel,
+	"Serial":     installedRadomeSerial,
+	"Mark":       installedRadomeMark,
+	"Start Date": installedRadomeStart,
+	"End Date":   installedRadomeEnd,
+}
+
 type InstalledRadome struct {
 	Install
 
@@ -25,78 +33,78 @@ type InstalledRadome struct {
 
 type InstalledRadomeList []InstalledRadome
 
-func (r InstalledRadomeList) Len() int           { return len(r) }
-func (r InstalledRadomeList) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
-func (r InstalledRadomeList) Less(i, j int) bool { return r[i].Install.Less(r[j].Install) }
+func (ir InstalledRadomeList) Len() int           { return len(ir) }
+func (ir InstalledRadomeList) Swap(i, j int)      { ir[i], ir[j] = ir[j], ir[i] }
+func (ir InstalledRadomeList) Less(i, j int) bool { return ir[i].Install.Less(ir[j].Install) }
 
-func (r InstalledRadomeList) encode() [][]string {
-	data := [][]string{{
-		"Make",
-		"Model",
-		"Serial",
-		"Mark",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range r {
+func (ir InstalledRadomeList) encode() [][]string {
+	var data [][]string
+
+	data = append(data, installedRadomeHeaders.Columns())
+
+	for _, row := range ir {
 		data = append(data, []string{
-			strings.TrimSpace(v.Make),
-			strings.TrimSpace(v.Model),
-			strings.TrimSpace(v.Serial),
-			strings.TrimSpace(v.Mark),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Make),
+			strings.TrimSpace(row.Model),
+			strings.TrimSpace(row.Serial),
+			strings.TrimSpace(row.Mark),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
-func (r *InstalledRadomeList) decode(data [][]string) error {
+func (ir *InstalledRadomeList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var radomes []InstalledRadome
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != installedRadomeLast {
-				return fmt.Errorf("incorrect number of installed radome fields")
-			}
-			var err error
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[installedRadomeStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, d[installedRadomeEnd]); err != nil {
-				return err
-			}
+	fields := installedRadomeHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			radomes = append(radomes, InstalledRadome{
-				Install: Install{
-					Equipment: Equipment{
-						Make:   strings.TrimSpace(d[installedRadomeMake]),
-						Model:  strings.TrimSpace(d[installedRadomeModel]),
-						Serial: strings.TrimSpace(d[installedRadomeSerial]),
-					},
-					Span: Span{
-						Start: start,
-						End:   end,
-					},
-				},
-				Mark: strings.TrimSpace(d[installedRadomeMark]),
-			})
+		start, err := time.Parse(DateTimeFormat, d[installedRadomeStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[installedRadomeEnd])
+		if err != nil {
+			return err
 		}
 
-		*r = InstalledRadomeList(radomes)
+		radomes = append(radomes, InstalledRadome{
+			Install: Install{
+				Equipment: Equipment{
+					Make:   strings.TrimSpace(d[installedRadomeMake]),
+					Model:  strings.TrimSpace(d[installedRadomeModel]),
+					Serial: strings.TrimSpace(d[installedRadomeSerial]),
+				},
+				Span: Span{
+					Start: start,
+					End:   end,
+				},
+			},
+			Mark: strings.TrimSpace(d[installedRadomeMark]),
+		})
 	}
+
+	*ir = InstalledRadomeList(radomes)
+
 	return nil
 }
 
 func LoadInstalledRadomes(path string) ([]InstalledRadome, error) {
-	var r []InstalledRadome
+	var ir []InstalledRadome
 
-	if err := LoadList(path, (*InstalledRadomeList)(&r)); err != nil {
+	if err := LoadList(path, (*InstalledRadomeList)(&ir)); err != nil {
 		return nil, err
 	}
 
-	sort.Sort(InstalledRadomeList(r))
+	sort.Sort(InstalledRadomeList(ir))
 
-	return r, nil
+	return ir, nil
 }

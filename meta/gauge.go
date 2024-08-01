@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -21,10 +20,22 @@ const (
 	gaugeLast
 )
 
+var gaugeHeaders Header = map[string]int{
+	"Gauge":                 gaugeCode,
+	"Network":               gaugeNetwork,
+	"Identification Number": gaugeNumber,
+	"Analysis Time Zone":    gaugeAnalysisTimeZone,
+	"Analysis Latitude":     gaugeAnalysisLatitude,
+	"Analysis Longitude":    gaugeAnalysisLongitude,
+	"Crex Tag":              gaugeCrex,
+	"Start Date":            gaugeStart,
+	"End Date":              gaugeEnd,
+}
+
 type Gauge struct {
 	Span
 	Reference
-	Point
+	Position
 
 	Number   string
 	TimeZone float64
@@ -51,86 +62,84 @@ func (g GaugeList) Less(i, j int) bool {
 }
 
 func (g GaugeList) encode() [][]string {
-	data := [][]string{{
-		"Gauge",
-		"Network",
-		"LINZ Number",
-		"Analysis Time Zone",
-		"Analysis Latitude",
-		"Analysis Longitude",
-		"Crex Tag",
-		"Start Date",
-		"End Date",
-	}}
-	for _, v := range g {
+	var data [][]string
+
+	data = append(data, gaugeHeaders.Columns())
+
+	for _, row := range g {
 		data = append(data, []string{
-			strings.TrimSpace(v.Code),
-			strings.TrimSpace(v.Network),
-			strings.TrimSpace(v.Number),
-			strings.TrimSpace(v.timeZone),
-			strings.TrimSpace(v.latitude),
-			strings.TrimSpace(v.longitude),
-			strings.TrimSpace(v.Crex),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Code),
+			strings.TrimSpace(row.Network),
+			strings.TrimSpace(row.Number),
+			strings.TrimSpace(row.timeZone),
+			strings.TrimSpace(row.latitude),
+			strings.TrimSpace(row.longitude),
+			strings.TrimSpace(row.Crex),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
+
 	return data
 }
 
 func (g *GaugeList) decode(data [][]string) error {
+	if !(len(data) > 1) {
+		return nil
+	}
+
 	var gauges []Gauge
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != gaugeLast {
-				return fmt.Errorf("incorrect number of installed gauge fields")
-			}
-			var err error
 
-			var lat, lon, zone float64
-			if zone, err = strconv.ParseFloat(d[gaugeAnalysisTimeZone], 64); err != nil {
-				return err
-			}
-			if lat, err = strconv.ParseFloat(d[gaugeAnalysisLatitude], 64); err != nil {
-				return err
-			}
-			if lon, err = strconv.ParseFloat(d[gaugeAnalysisLongitude], 64); err != nil {
-				return err
-			}
+	fields := gaugeHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			start, err := time.Parse(DateTimeFormat, d[gaugeStart])
-			if err != nil {
-				return err
-			}
-			end, err := time.Parse(DateTimeFormat, d[gaugeEnd])
-			if err != nil {
-				return err
-			}
-
-			gauges = append(gauges, Gauge{
-				Span: Span{
-					Start: start,
-					End:   end,
-				},
-				Reference: Reference{
-					Code:    strings.TrimSpace(d[gaugeCode]),
-					Network: strings.TrimSpace(d[gaugeNetwork]),
-				},
-				Number: strings.TrimSpace(d[gaugeNumber]),
-				Point: Point{
-					Latitude:  lat,
-					Longitude: lon,
-					latitude:  strings.TrimSpace(d[gaugeAnalysisLatitude]),
-					longitude: strings.TrimSpace(d[gaugeAnalysisLongitude]),
-				},
-				Crex:     strings.TrimSpace(d[gaugeCrex]),
-				TimeZone: zone,
-				timeZone: strings.TrimSpace(d[gaugeAnalysisTimeZone]),
-			})
+		zone, err := strconv.ParseFloat(d[gaugeAnalysisTimeZone], 64)
+		if err != nil {
+			return err
+		}
+		lat, err := strconv.ParseFloat(d[gaugeAnalysisLatitude], 64)
+		if err != nil {
+			return err
+		}
+		lon, err := strconv.ParseFloat(d[gaugeAnalysisLongitude], 64)
+		if err != nil {
+			return err
 		}
 
-		*g = GaugeList(gauges)
+		start, err := time.Parse(DateTimeFormat, d[gaugeStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[gaugeEnd])
+		if err != nil {
+			return err
+		}
+
+		gauges = append(gauges, Gauge{
+			Span: Span{
+				Start: start,
+				End:   end,
+			},
+			Reference: Reference{
+				Code:    strings.TrimSpace(d[gaugeCode]),
+				Network: strings.TrimSpace(d[gaugeNetwork]),
+			},
+			Number: strings.TrimSpace(d[gaugeNumber]),
+			Position: Position{
+				Latitude:  lat,
+				Longitude: lon,
+				latitude:  strings.TrimSpace(d[gaugeAnalysisLatitude]),
+				longitude: strings.TrimSpace(d[gaugeAnalysisLongitude]),
+			},
+			Crex:     strings.TrimSpace(d[gaugeCrex]),
+			TimeZone: zone,
+			timeZone: strings.TrimSpace(d[gaugeAnalysisTimeZone]),
+		})
 	}
+
+	*g = GaugeList(gauges)
+
 	return nil
 }
 

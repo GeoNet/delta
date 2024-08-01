@@ -1,12 +1,55 @@
 package meta
 
 import (
-	"io/ioutil"
+	"os"
 	"testing"
 	"time"
 
 	"github.com/google/go-cmp/cmp"
 )
+
+func testListFunc(path string, list List) func(t *testing.T) {
+	return func(t *testing.T) {
+		res, err := MarshalList(list)
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		t.Run("compare raw list file: "+path, func(t *testing.T) {
+			check, err := os.ReadFile(path)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if string(res) != string(check) {
+				t.Errorf("unexpected %s content -got/+exp\n%s", path, cmp.Diff(res, check))
+			}
+		})
+		t.Run("check encode/decode list file: "+path, func(t *testing.T) {
+			if err := UnmarshalList(res, list); err != nil {
+				t.Fatal(err)
+			}
+			check, err := MarshalList(list)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if string(res) != string(check) {
+				t.Errorf("unexpected %s content -got/+exp\n%s", path, cmp.Diff(res, check))
+			}
+		})
+		t.Run("check list file: "+path, func(t *testing.T) {
+			if err := LoadList(path, list); err != nil {
+				t.Fatal(err)
+			}
+			check, err := MarshalList(list)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if string(res) != string(check) {
+				t.Errorf("unexpected %s content -got/+exp\n%s", path, cmp.Diff(res, check))
+			}
+		})
+	}
+}
 
 func TestList(t *testing.T) {
 
@@ -40,7 +83,7 @@ func TestList(t *testing.T) {
 						Network: "TR",
 						Name:    "Dawson Falls",
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -39.325743417,
 						Longitude: 174.103863732,
 						Elevation: 880.0,
@@ -63,7 +106,7 @@ func TestList(t *testing.T) {
 						Network: "SM",
 						Name:    "Tolaga Bay Area School",
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -38.372803703,
 						Longitude: 178.300778623,
 						Elevation: 8.0,
@@ -91,7 +134,7 @@ func TestList(t *testing.T) {
 						Code: "MTSR",
 						Name: "Ruapehu South",
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -39.384607843,
 						Longitude: 175.470410324,
 						Elevation: 840,
@@ -112,7 +155,7 @@ func TestList(t *testing.T) {
 						Code: "RIMM",
 						Name: "Raoul Island",
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -29.267332,
 						Longitude: -177.907235,
 						Elevation: 490,
@@ -175,7 +218,7 @@ func TestList(t *testing.T) {
 			"testdata/sites.csv",
 			&SiteList{
 				Site{
-					Point: Point{
+					Position: Position{
 						Latitude:  -39.198244208,
 						Longitude: 175.547981982,
 						Elevation: 1116.0,
@@ -195,7 +238,7 @@ func TestList(t *testing.T) {
 					Location: "12",
 				},
 				Site{
-					Point: Point{
+					Position: Position{
 						Latitude:  -45.091369824,
 						Longitude: 169.411775594,
 						Elevation: 701.0,
@@ -226,7 +269,7 @@ func TestList(t *testing.T) {
 					},
 					Station:     "CNZ",
 					Location:    "12",
-					SubLocation: "01",
+					Sublocation: "01",
 					Property:    "Toto",
 					Description: "Over the rainbow",
 					Aspect:      "oklahoma",
@@ -238,7 +281,7 @@ func TestList(t *testing.T) {
 					},
 					Station:     "MSCZ",
 					Location:    "10",
-					SubLocation: "02",
+					Sublocation: "02",
 					Property:    "Tin",
 					Description: "Somewhere up on high",
 					Aspect:      "tulsa",
@@ -255,7 +298,7 @@ func TestList(t *testing.T) {
 						Name:    "Ahititi",
 					},
 					Igs: false,
-					Point: Point{
+					Position: Position{
 						Latitude:  -38.411447554,
 						Longitude: 178.046002897,
 						Elevation: 563.221,
@@ -277,7 +320,7 @@ func TestList(t *testing.T) {
 						Name:    "Dunedin",
 					},
 					Igs: true,
-					Point: Point{
+					Position: Position{
 						Latitude:  -45.88366604,
 						Longitude: 170.5971706,
 						Elevation: 386.964,
@@ -337,7 +380,7 @@ func TestList(t *testing.T) {
 			"testdata/visibility.csv",
 			&VisibilityList{
 				Visibility{
-					Code:          "AHTI",
+					Mark:          "AHTI",
 					SkyVisibility: "good",
 					Span: Span{
 						Start: time.Date(2009, time.January, 1, 0, 0, 0, 0, time.UTC),
@@ -345,7 +388,7 @@ func TestList(t *testing.T) {
 					},
 				},
 				Visibility{
-					Code:          "DUND",
+					Mark:          "DUND",
 					SkyVisibility: "clear to NW",
 					Span: Span{
 						Start: time.Date(2005, time.August, 10, 0, 0, 0, 0, time.UTC),
@@ -436,7 +479,7 @@ func TestList(t *testing.T) {
 				DeployedDatalogger{
 					Install: Install{
 						Equipment: Equipment{
-							Make:   "GNSScience",
+							Make:   "GNS Science",
 							Model:  "EARSS/3",
 							Serial: "152",
 						},
@@ -479,7 +522,7 @@ func TestList(t *testing.T) {
 							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 						},
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -41.2351,
 						Longitude: 174.917,
 						Elevation: 26,
@@ -512,7 +555,7 @@ func TestList(t *testing.T) {
 							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 						},
 					},
-					Point: Point{
+					Position: Position{
 						Latitude:  -43.9857,
 						Longitude: 170.4649,
 						Elevation: 1044,
@@ -750,7 +793,7 @@ func TestList(t *testing.T) {
 					InstalledSensor: InstalledSensor{
 						Install: Install{
 							Equipment: Equipment{
-								Make:   "CSI",
+								Make:   "Canterbury Seismic Instruments",
 								Model:  "CUSP3A",
 								Serial: "3A-040001",
 							},
@@ -815,19 +858,17 @@ func TestList(t *testing.T) {
 					Station:  "APZ",
 					Location: "10",
 					Place:    "The Paps",
-					//PreAmp:       false,
-					//Gain:         0,
+					Number:   3,
 					Span: Span{
 						Start: time.Date(2006, time.May, 7, 3, 23, 54, 0, time.UTC),
 						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
+					number: "3",
 				},
 				Connection{
 					Station:  "BSWZ",
 					Location: "10",
 					Place:    "Blackbirch Station",
-					//PreAmp:       true,
-					//Gain:         1,
 					Span: Span{
 						Start: time.Date(2003, time.December, 9, 0, 0, 0, 0, time.UTC),
 						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
@@ -862,6 +903,8 @@ func TestList(t *testing.T) {
 				Stream{
 					Station:      "AKSS",
 					Location:     "20",
+					Band:         "B",
+					Source:       "N",
 					SamplingRate: 50.0,
 					samplingRate: "50",
 					Axial:        "true",
@@ -875,6 +918,8 @@ func TestList(t *testing.T) {
 				Stream{
 					Station:      "APZ",
 					Location:     "20",
+					Band:         "H",
+					Source:       "N",
 					SamplingRate: 200.0,
 					samplingRate: "200",
 					Axial:        "false",
@@ -902,7 +947,7 @@ func TestList(t *testing.T) {
 					Number:   "363",
 					TimeZone: 180.0,
 					timeZone: "180",
-					Point: Point{
+					Position: Position{
 						Latitude:  36.5,
 						Longitude: 174.47,
 
@@ -923,7 +968,7 @@ func TestList(t *testing.T) {
 					Number:   "313",
 					TimeZone: 180.0,
 					timeZone: "180",
-					Point: Point{
+					Position: Position{
 						Latitude:  40.55,
 						Longitude: 176.13,
 
@@ -1027,51 +1072,38 @@ func TestList(t *testing.T) {
 			},
 		},
 		{
-			"testdata/calibrations.csv",
-			&CalibrationList{
-				Calibration{
-					Install: Install{
-						Equipment: Equipment{
-							Make:   "Acme",
-							Model:  "ACME01",
-							Serial: "257",
-						},
-						Span: Span{
-							Start: time.Date(2021, time.July, 1, 0, 0, 0, 0, time.UTC),
-							End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
-						},
+			"testdata/classes.csv",
+			&ClassList{
+				Class{
+					Station:     "WHAS",
+					SiteClass:   "C",
+					Vs30:        270,
+					Vs30Quality: "Q3",
+					Tsite: Range{
+						Value: 0.4,
 					},
-					ScaleFactor: 2000.169 / 2.0,
-					ScaleBias:   1.0,
-					Frequency:   10.0,
-					Component:   0,
-
-					component: "0",
-					factor:    "2000.169/2.0",
-					bias:      "1.0",
-					frequency: "10.0",
+					TsiteMethod:   "I",
+					TsiteQuality:  "Q3",
+					BasementDepth: 40,
+					DepthQuality:  "Q3",
+					Citations:     []string{"Perrin2015a"},
+					Notes:         "Perrin et al. 2015",
 				},
-			},
-		},
-		{
-			"testdata/gains.csv",
-			&GainList{
-				Gain{
-					Span: Span{
-						Start: time.Date(2021, time.July, 1, 0, 0, 0, 0, time.UTC),
-						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+				Class{
+					Station:     "WKZ",
+					SiteClass:   "B",
+					Vs30:        1000,
+					Vs30Quality: "Q3",
+					Tsite: Range{
+						Compare: LessThan,
+						Value:   0.1,
 					},
-					Scale: Scale{
-						Factor: 1298.169,
-						Bias:   11865.556,
-
-						factor: "1298.169",
-						bias:   "11865.556",
-					},
-					Station:     "SBAM",
-					Location:    "50",
-					SubLocation: "01",
-					Channel:     "XZ",
+					TsiteMethod:   "I",
+					TsiteQuality:  "Q3",
+					BasementDepth: 0,
+					DepthQuality:  "Q3",
+					Citations:     []string{"Kaiser2017", "Perrin2015a"},
+					Notes:         "Perrin et al. 2015",
 				},
 			},
 		},
@@ -1085,7 +1117,7 @@ func TestList(t *testing.T) {
 
 		t.Log("Compare raw list file: " + tt.f)
 		{
-			b, err := ioutil.ReadFile(tt.f)
+			b, err := os.ReadFile(tt.f)
 			if err != nil {
 				t.Fatal(err)
 			}

@@ -1,107 +1,98 @@
 package delta_test
 
 import (
-	"strings"
 	"testing"
 	"time"
 
+	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
 )
 
-var testFeatures = map[string]func([]meta.Feature) func(t *testing.T){
-	"check for duplicated site features": func(features []meta.Feature) func(t *testing.T) {
+var featureChecks = map[string]func(*meta.Set) func(t *testing.T){
+	"check for duplicated site features": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
+			features := set.Features()
 
 			for i := 0; i < len(features); i++ {
 				for j := i + 1; j < len(features); j++ {
-					if features[i].Station != features[j].Station {
+					if !features[i].Overlaps(features[j]) {
 						continue
 					}
-					if features[i].Location != features[j].Location {
+					if features[i].Sublocation != features[j].Sublocation {
 						continue
 					}
-					if features[i].SubLocation != features[j].SubLocation {
+					if features[i].Aspect != features[j].Aspect {
 						continue
 					}
-					if features[i].End.Before(features[j].Start) {
-						continue
-					}
-					t.Errorf("site feature overlap: " + features[i].Station + "/" + features[i].Location + "/" + features[i].SubLocation)
+					t.Error("error: site feature overlaps: " + features[i].Id())
 				}
 			}
 		}
 	},
-}
-
-var testFeatures_Stations = map[string]func([]meta.Feature, []meta.Station) func(t *testing.T){
-	"check for duplicated features": func(features []meta.Feature, stations []meta.Station) func(t *testing.T) {
+	"check for duplicated features": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			stas := make(map[string]meta.Station)
-			for _, s := range stations {
-				stas[s.Code] = s
-			}
-			for _, c := range features {
-				if _, ok := stas[c.Station]; !ok {
-					t.Error("error: unable to find feature station: " + c.Station)
+			for _, f := range set.Features() {
+				if _, ok := set.Station(f.Station); ok {
+					continue
 				}
+				if _, ok := set.Mount(f.Station); ok {
+					continue
+				}
+				if _, ok := set.Sample(f.Station); ok {
+					continue
+				}
+
+				t.Error("error: unable to find feature station: " + f.Id())
 			}
-			for _, c := range features {
-				if s, ok := stas[c.Station]; ok {
+			for _, f := range set.Features() {
+				if s, ok := set.Station(f.Station); ok {
 					switch {
-					case c.Start.Before(s.Start):
-						t.Log("warning: feature start mismatch: " + strings.Join([]string{
-							c.Station,
-							c.Location,
-							c.Start.String(),
-							"before",
-							s.Start.String(),
-						}, " "))
-					case s.End.Before(time.Now()) && c.End.After(s.End):
-						t.Log("warning: feature end mismatch: " + strings.Join([]string{
-							c.Station,
-							c.Location,
-							c.End.String(),
-							"after",
-							s.End.String(),
-						}, " "))
+					case f.Start.Before(s.Start):
+						t.Log("warning: feature start mismatch: " + f.Id() + " before " + s.Start.String())
+					case f.End.Before(time.Now()) && f.End.After(s.End):
+						t.Log("warning: feature end mismatch: " + f.Id() + " after " + s.End.String())
+					}
+				}
+				if s, ok := set.Sample(f.Station); ok {
+					switch {
+					case f.Start.Before(s.Start):
+						t.Log("warning: feature start mismatch: " + f.Id() + " before " + s.Start.String())
+					case f.End.Before(time.Now()) && f.End.After(s.End):
+						t.Log("warning: feature end mismatch: " + f.Id() + " after " + s.End.String())
 					}
 				}
 			}
 		}
 	},
-}
-
-var testFeatures_Sites = map[string]func([]meta.Feature, []meta.Site) func(t *testing.T){
-	"check for duplicated feature sites": func(features []meta.Feature, sites []meta.Site) func(t *testing.T) {
+	"check for duplicated feature sites": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
-			list := make(map[string]meta.Site)
-			for _, s := range sites {
-				list[s.Station+"/"+s.Location] = s
-			}
-			for _, c := range features {
-				if _, ok := list[c.Station+"/"+c.Location]; !ok {
-					t.Error("error: unable to find feature site: " + c.Station + "/" + c.Location)
+			for _, f := range set.Features() {
+				if _, ok := set.Site(f.Station, f.Location); ok {
+					continue
 				}
+				if _, ok := set.View(f.Station, f.Location); ok {
+					continue
+				}
+				if _, ok := set.Point(f.Station, f.Location); ok {
+					continue
+				}
+				t.Error("error: unable to find feature site: " + f.Id())
 			}
-			for _, c := range features {
-				if s, ok := list[c.Station+"/"+c.Location]; ok {
+			for _, f := range set.Features() {
+				if s, ok := set.Site(f.Station, f.Location); ok {
 					switch {
-					case c.Start.Before(s.Start):
-						t.Log("warning: feature start mismatch: " + strings.Join([]string{
-							c.Station,
-							c.Location,
-							c.Start.String(),
-							"before",
-							s.Start.String(),
-						}, " "))
-					case s.End.Before(time.Now()) && c.End.After(s.End):
-						t.Log("warning: feature end mismatch: " + strings.Join([]string{
-							c.Station,
-							c.Location,
-							c.End.String(),
-							"after",
-							s.End.String(),
-						}, " "))
+					case f.Start.Before(s.Start):
+						t.Log("warning: feature start mismatch: " + f.Id() + " before " + s.Start.String())
+					case s.End.Before(time.Now()) && f.End.After(s.End):
+						t.Log("warning: feature end mismatch: " + f.Id() + " after " + s.End.String())
+					}
+				}
+				if p, ok := set.Point(f.Station, f.Location); ok {
+					switch {
+					case f.Start.Before(p.Start):
+						t.Log("warning: feature start mismatch: " + f.Id() + " before " + p.Start.String())
+					case p.End.Before(time.Now()) && f.End.After(p.End):
+						t.Log("warning: feature end mismatch: " + f.Id() + " after " + p.End.String())
 					}
 				}
 			}
@@ -111,36 +102,12 @@ var testFeatures_Sites = map[string]func([]meta.Feature, []meta.Site) func(t *te
 
 func TestFeatures(t *testing.T) {
 
-	var features meta.FeatureList
-	loadListFile(t, "../environment/features.csv", &features)
-
-	for k, fn := range testFeatures {
-		t.Run(k, fn(features))
+	set, err := delta.New()
+	if err != nil {
+		t.Fatal(err)
 	}
-}
 
-func TestFeatures_Stations(t *testing.T) {
-
-	var features meta.FeatureList
-	loadListFile(t, "../environment/features.csv", &features)
-
-	var stations meta.StationList
-	loadListFile(t, "../network/stations.csv", &stations)
-
-	for k, fn := range testFeatures_Stations {
-		t.Run(k, fn(features, stations))
-	}
-}
-
-func TestFeatures_Sites(t *testing.T) {
-
-	var features meta.FeatureList
-	loadListFile(t, "../environment/features.csv", &features)
-
-	var sites meta.SiteList
-	loadListFile(t, "../network/sites.csv", &sites)
-
-	for k, fn := range testFeatures_Sites {
-		t.Run(k, fn(features, sites))
+	for k, v := range featureChecks {
+		t.Run(k, v(set))
 	}
 }

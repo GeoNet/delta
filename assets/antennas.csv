@@ -5,6 +5,7 @@ Leica Geosystems,LEIAT504,324,,
 Leica Geosystems,LEIAT504,332,,
 Leica Geosystems,LEIAT504,333,,
 Leica Geosystems,LEIAT504,405,,
+Septentrio,SEPCHOKE_B3E6,5885,,
 Thales,ASH700936B_M,11753,,
 Thales,ASH700936C_M,12413,,
 Thales,ASH700936C_M,12477,,
@@ -19,14 +20,14 @@ Thales,ASH701945B_M,CR519993905,,
 Thales,ASH701945E_M,CR620022305,,
 Trimble Navigation Ltd.,TRM115000.00,1431179267,8435,
 Trimble Navigation Ltd.,TRM115000.00,1431180093,8498,
-Trimble Navigation Ltd.,TRM115000.00,1431180094,8500,
+Trimble Navigation Ltd.,TRM115000.00,1431180094,8500,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1431180098,8499,
-Trimble Navigation Ltd.,TRM115000.00,1431180104,8492,
-Trimble Navigation Ltd.,TRM115000.00,1431180105,8438,
+Trimble Navigation Ltd.,TRM115000.00,1431180104,8492,calibrated
+Trimble Navigation Ltd.,TRM115000.00,1431180105,8438,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1431180107,8493,
 Trimble Navigation Ltd.,TRM115000.00,1431180119,8494,
 Trimble Navigation Ltd.,TRM115000.00,1431180121,8490,
-Trimble Navigation Ltd.,TRM115000.00,1431180124,8491,
+Trimble Navigation Ltd.,TRM115000.00,1431180124,8491,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1440905656,16841,
 Trimble Navigation Ltd.,TRM115000.00,1440905661,16842,
 Trimble Navigation Ltd.,TRM115000.00,1441025870,17024,
@@ -47,31 +48,31 @@ Trimble Navigation Ltd.,TRM115000.00,1441025911,16995,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441025913,16984,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441025918,16986,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441025921,17018,calibrated
-Trimble Navigation Ltd.,TRM115000.00,1441025923,8459,
+Trimble Navigation Ltd.,TRM115000.00,1441025923,8459,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441025925,16991,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441025926,17006,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441025891,17026,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441052883,17003,calibrated
-Trimble Navigation Ltd.,TRM115000.00,1441052884,8458,
+Trimble Navigation Ltd.,TRM115000.00,1441052884,8458,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441052886,17012,calibrated
-Trimble Navigation Ltd.,TRM115000.00,1441052888,17023,
+Trimble Navigation Ltd.,TRM115000.00,1441052888,17023,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441052890,17010,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441052891,17013,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441052892,17016,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1441052893,17020,
 Trimble Navigation Ltd.,TRM115000.00,1441052895,17007,calibrated
-Trimble Navigation Ltd.,TRM115000.00,1551016643,8457,
+Trimble Navigation Ltd.,TRM115000.00,1551016643,8457,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1551016647,16990,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1551016648,16994,calibrated
-Trimble Navigation Ltd.,TRM115000.00,1551016652,8455,
+Trimble Navigation Ltd.,TRM115000.00,1551016652,8455,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1551016653,16982,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1551016654,16983,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1551016656,16997,calibrated
-Trimble Navigation Ltd.,TRM115000.00,1551016658,17025,
-Trimble Navigation Ltd.,TRM115000.00,1551016662,8456,
+Trimble Navigation Ltd.,TRM115000.00,1551016658,17025,calibrated
+Trimble Navigation Ltd.,TRM115000.00,1551016662,8456,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1551016666,16985,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1551016679,16993,calibrated
-Trimble Navigation Ltd.,TRM115000.00,1551016684,17027,
+Trimble Navigation Ltd.,TRM115000.00,1551016684,17027,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1551016690,16981,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1551016695,17000,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1551016696,17019,calibrated
@@ -86,14 +87,20 @@ Trimble Navigation Ltd.,TRM115000.00,1551016811,17004,calibrated
 Trimble Navigation Ltd.,TRM115000.00,1551017047,16987,calibrated
 Trimble Navigation Ltd.,TRM115000.00,2612758627,8475,
 Trimble Navigation Ltd.,TRM115000.00,2612758639,8474,
-Trimble Navigation Ltd.,TRM115000.00,2612758649,8466,
-Trimble Navigation Ltd.,TRM115000.00,2612758651,8471,
+Trimble Navigation Ltd.,TRM115000.00,2612758649,8466,calibrated
+Trimble Navigation Ltd.,TRM115000.00,2612758651,8471,calibrated
 Trimble Navigation Ltd.,TRM115000.00,2612758665,8470,
-Trimble Navigation Ltd.,TRM115000.00,2612758673,8467,
+Trimble Navigation Ltd.,TRM115000.00,2612758673,8467,calibrated
 Trimble Navigation Ltd.,TRM115000.00,2612758712,8468,
 Trimble Navigation Ltd.,TRM115000.00,2612758717,8469,
 Trimble Navigation Ltd.,TRM115000.00,2612758740,8473,
-Trimble Navigation Ltd.,TRM115000.00,2612758741,8472,
+Trimble Navigation Ltd.,TRM115000.00,2612758741,8472,calibrated
+Trimble Navigation Ltd.,TRM115000.00,62143G0027,,calibrated
+Trimble Navigation Ltd.,TRM115000.00,62143G0056,,calibrated
+Trimble Navigation Ltd.,TRM115000.00,62143G0063,,calibrated
+Trimble Navigation Ltd.,TRM115000.00,62143G0068,,calibrated
+Trimble Navigation Ltd.,TRM115000.00,62143G0083,,calibrated
+Trimble Navigation Ltd.,TRM115000.00,64043G0090,,calibrated
 Trimble Navigation Ltd.,TRM22020.00+GP,1061,,
 Trimble Navigation Ltd.,TRM29659.00,0220063995,,
 Trimble Navigation Ltd.,TRM29659.00,0220066912,,obsolete
@@ -239,7 +246,7 @@ Trimble Navigation Ltd.,TRM55971.00,30213984,10786a,
 Trimble Navigation Ltd.,TRM55971.00,30260173,10787a,
 Trimble Navigation Ltd.,TRM55971.00,30260375,10788a,
 Trimble Navigation Ltd.,TRM55971.00,30260401,10789a,calibrated
-Trimble Navigation Ltd.,TRM55971.00,30260402,10790a,
+Trimble Navigation Ltd.,TRM55971.00,30260402,10790a,calibrated
 Trimble Navigation Ltd.,TRM55971.00,30260412,10791a,
 Trimble Navigation Ltd.,TRM55971.00,30260436,10792a,
 Trimble Navigation Ltd.,TRM55971.00,30260439,10793a,
@@ -263,7 +270,7 @@ Trimble Navigation Ltd.,TRM55971.00,30477057,12969a,
 Trimble Navigation Ltd.,TRM55971.00,30477064,12970a,
 Trimble Navigation Ltd.,TRM55971.00,30477068,12971a,
 Trimble Navigation Ltd.,TRM55971.00,30477110,12972a,
-Trimble Navigation Ltd.,TRM55971.00,30477149,12973a,
+Trimble Navigation Ltd.,TRM55971.00,30477149,12973a,calibrated
 Trimble Navigation Ltd.,TRM55971.00,30477150,12974a,
 Trimble Navigation Ltd.,TRM55971.00,30477195,12975a,
 Trimble Navigation Ltd.,TRM57971.00,1112118070,16339,
@@ -276,6 +283,7 @@ Trimble Navigation Ltd.,TRM57971.00,1212118965,15048,
 Trimble Navigation Ltd.,TRM57971.00,1312118079,15039,
 Trimble Navigation Ltd.,TRM57971.00,1312118142,15040,
 Trimble Navigation Ltd.,TRM57971.00,1312118317,15041,
+Trimble Navigation Ltd.,TRM57971.00,1312118470,,
 Trimble Navigation Ltd.,TRM57971.00,1312118843,15046,
 Trimble Navigation Ltd.,TRM57971.00,1312118872,15047,
 Trimble Navigation Ltd.,TRM57971.00,1412118351,16338,
@@ -303,7 +311,7 @@ Trimble Navigation Ltd.,TRM57971.00,1441027338,14208,
 Trimble Navigation Ltd.,TRM57971.00,1441027455,14092,malfunctioning
 Trimble Navigation Ltd.,TRM57971.00,1441027597,14094,
 Trimble Navigation Ltd.,TRM57971.00,1441027609,14091,
-Trimble Navigation Ltd.,TRM57971.00,1441027701,14095,
+Trimble Navigation Ltd.,TRM57971.00,1441027701,14095,calibrated
 Trimble Navigation Ltd.,TRM57971.00,1441027757,14206,
 Trimble Navigation Ltd.,TRM57971.00,1441027758,14203,
 Trimble Navigation Ltd.,TRM57971.00,1441027806,14098,
@@ -313,10 +321,10 @@ Trimble Navigation Ltd.,TRM57971.00,1441031099,14222,
 Trimble Navigation Ltd.,TRM57971.00,1441031121,14213,
 Trimble Navigation Ltd.,TRM57971.00,1441031129,14215,calibrated
 Trimble Navigation Ltd.,TRM57971.00,1441031131,14085,
-Trimble Navigation Ltd.,TRM57971.00,1441031138,14209,
+Trimble Navigation Ltd.,TRM57971.00,1441031138,14209,calibrated
 Trimble Navigation Ltd.,TRM57971.00,1441031160,14224,
-Trimble Navigation Ltd.,TRM57971.00,1441031186,14219,
-Trimble Navigation Ltd.,TRM57971.00,1441031192,14088,
+Trimble Navigation Ltd.,TRM57971.00,1441031186,14219,calibrated
+Trimble Navigation Ltd.,TRM57971.00,1441031192,14088,calibrated
 Trimble Navigation Ltd.,TRM57971.00,1441031200,14097,calibrated
 Trimble Navigation Ltd.,TRM57971.00,1441031205,14210,
 Trimble Navigation Ltd.,TRM57971.00,1441031206,14205,
@@ -348,7 +356,7 @@ Trimble Navigation Ltd.,TRM57971.00,1441040527,14279,
 Trimble Navigation Ltd.,TRM57971.00,1441040531,14280,
 Trimble Navigation Ltd.,TRM57971.00,1441040547,14426,
 Trimble Navigation Ltd.,TRM57971.00,1441044187,14285,
-Trimble Navigation Ltd.,TRM57971.00,1441047132,14286,
+Trimble Navigation Ltd.,TRM57971.00,1441047132,14286,calibrated
 Trimble Navigation Ltd.,TRM57971.00,1441047151,14287,
 Trimble Navigation Ltd.,TRM57971.00,1441047157,14288,
 Trimble Navigation Ltd.,TRM57971.00,1441047182,14289,
@@ -424,7 +432,7 @@ Trimble Navigation Ltd.,TRM57971.00,4127561948,16372,
 Trimble Navigation Ltd.,TRM57971.00,4127561952,16364,
 Trimble Navigation Ltd.,TRM57971.00,4127561953,16379,
 Trimble Navigation Ltd.,TRM57971.00,4127561954,16326,
-Trimble Navigation Ltd.,TRM57971.00,4127561961,16356,
+Trimble Navigation Ltd.,TRM57971.00,4127561961,16356,calibrated
 Trimble Navigation Ltd.,TRM57971.00,4127561972,16325,
 Trimble Navigation Ltd.,TRM57971.00,4127561981,16332,
 Trimble Navigation Ltd.,TRM57971.00,4127561982,16350,

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"strings"
 	"text/template"
@@ -20,13 +21,30 @@ type SensorModel struct {
 	Components []SensorComponent `yaml:"components"`
 }
 
+func (s SensorModel) Desc(name string) string {
+	return fmt.Sprintf("%s %s %s", s.Manufacturer, strings.Split(strings.Fields(name)[0], "/")[0], s.Type)
+}
+
+func (s SensorModel) Make() string {
+	switch parts := strings.Fields(s.Manufacturer); {
+	case len(parts) > 0:
+		label := strings.Join(parts, " ")
+		for _, s := range []string{"/", ".", "+", " "} {
+			label = strings.ReplaceAll(label, s, "-")
+		}
+		return strings.TrimRight(label, "-")
+	default:
+		return "Unknown"
+	}
+}
+
 var sensorModelTemplate = `
 
 var SensorModels map[string]SensorModel = map[string]SensorModel{
 {{ range $k, $v := . }}	"{{ $k}}": SensorModel{
 		Name: "{{$k}}",
 		Type: "{{$v.Type}}",
-		Description: "{{$v.Description}}",
+		Description: "{{$v.Desc $k}}",
 		Manufacturer: "{{$v.Manufacturer}}",
 		Vendor: "{{$v.Vendor}}",
 		Components: []SensorComponent{{"{"}}{{ range $z := $v.Components}}SensorComponent{Azimuth: {{ $z.Azimuth }}, Dip: {{ $z.Dip }}{{"}"}},{{end}}{{"}"}},

@@ -1,6 +1,8 @@
 # DELTA
 
-Meta information for the GeoNet sensor network.
+Meta information for the GeoNet sensor network, please cite as https://doi.org/10.21420/0VY2-C144.
+
+[![Build Status](https://github.com/GeoNet/delta/actions/workflows/build.yml/badge.svg)](https://github.com/GeoNet/delta/actions/workflows/build.yml)
 
 ## network
 
@@ -43,10 +45,6 @@ Golang module to load the meta data csv files.
 ## resp
 
 Golang module to configure and describe instrument responses.
-
-## tides
-
-Golang module to configure and describe tsunami gauge tidal parameters.
 
 ## tools
 

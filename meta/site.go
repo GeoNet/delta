@@ -1,7 +1,6 @@
 package meta
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -22,24 +21,27 @@ const (
 	siteLast
 )
 
+var siteHeaders Header = map[string]int{
+	"Station":    siteStation,
+	"Location":   siteLocation,
+	"Latitude":   siteLatitude,
+	"Longitude":  siteLongitude,
+	"Elevation":  siteElevation,
+	"Depth":      siteDepth,
+	"Datum":      siteDatum,
+	"Survey":     siteSurvey,
+	"Start Date": siteStart,
+	"End Date":   siteEnd,
+}
+
 type Site struct {
-	Point
+	Position
 	Span
 
 	Station  string
 	Location string
 	Survey   string
 }
-
-/*
-func (s Site) Elevation() (float64, bool) {
-	return 0, false
-}
-
-func (s Site) Depth() (float64, bool) {
-	return 0, false
-}
-*/
 
 func (s Site) Less(site Site) bool {
 	switch {
@@ -63,31 +65,21 @@ func (s SiteList) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
 func (s SiteList) Less(i, j int) bool { return s[i].Less(s[j]) }
 
 func (s SiteList) encode() [][]string {
-	data := [][]string{{
-		"Station",
-		"Location",
-		"Latitude",
-		"Longitude",
-		"Elevation",
-		"Depth",
-		"Datum",
-		"Survey",
-		"Start Date",
-		"End Date",
-	}}
+	var data [][]string
 
-	for _, v := range s {
+	data = append(data, siteHeaders.Columns())
+	for _, row := range s {
 		data = append(data, []string{
-			strings.TrimSpace(v.Station),
-			strings.TrimSpace(v.Location),
-			strings.TrimSpace(v.latitude),
-			strings.TrimSpace(v.longitude),
-			strings.TrimSpace(v.elevation),
-			strings.TrimSpace(v.depth),
-			strings.TrimSpace(v.Datum),
-			strings.TrimSpace(v.Survey),
-			v.Start.Format(DateTimeFormat),
-			v.End.Format(DateTimeFormat),
+			strings.TrimSpace(row.Station),
+			strings.TrimSpace(row.Location),
+			strings.TrimSpace(row.latitude),
+			strings.TrimSpace(row.longitude),
+			strings.TrimSpace(row.elevation),
+			strings.TrimSpace(row.depth),
+			strings.TrimSpace(row.Datum),
+			strings.TrimSpace(row.Survey),
+			row.Start.Format(DateTimeFormat),
+			row.End.Format(DateTimeFormat),
 		})
 	}
 
@@ -96,66 +88,67 @@ func (s SiteList) encode() [][]string {
 
 func (s *SiteList) decode(data [][]string) error {
 	var sites []Site
-	if len(data) > 1 {
-		for _, d := range data[1:] {
-			if len(d) != siteLast {
-				return fmt.Errorf("incorrect number of installed site fields")
-			}
-			var err error
 
-			var lat, lon, elev, depth float64
-			if lat, err = strconv.ParseFloat(d[siteLatitude], 64); err != nil {
-				return err
-			}
-			if lon, err = strconv.ParseFloat(d[siteLongitude], 64); err != nil {
-				return err
-			}
-			if d[siteElevation] != "" {
-				if elev, err = strconv.ParseFloat(d[siteElevation], 64); err != nil {
-					return err
-				}
-			}
-			if d[siteDepth] != "" {
-				if depth, err = strconv.ParseFloat(d[siteDepth], 64); err != nil {
-					return err
-				}
-			}
+	if !(len(data) > 1) {
+		return nil
+	}
 
-			var start, end time.Time
-			if start, err = time.Parse(DateTimeFormat, d[siteStart]); err != nil {
-				return err
-			}
-			if end, err = time.Parse(DateTimeFormat, d[siteEnd]); err != nil {
-				return err
-			}
+	fields := siteHeaders.Fields(data[0])
+	for _, row := range data[1:] {
+		d := fields.Remap(row)
 
-			sites = append(sites, Site{
-				Point: Point{
-					// geographic details
-					Latitude:  lat,
-					Longitude: lon,
-					Elevation: elev,
-					Depth:     depth,
-					Datum:     strings.TrimSpace(d[siteDatum]),
-
-					// shadow variables
-					latitude:  d[siteLatitude],
-					longitude: d[siteLongitude],
-					elevation: d[siteElevation],
-					depth:     d[siteDepth],
-				},
-				Span: Span{
-					Start: start,
-					End:   end,
-				},
-				Station:  strings.TrimSpace(d[siteStation]),
-				Location: strings.TrimSpace(d[siteLocation]),
-				Survey:   strings.TrimSpace(d[siteSurvey]),
-			})
+		lat, err := strconv.ParseFloat(d[siteLatitude], 64)
+		if err != nil {
+			return err
+		}
+		lon, err := strconv.ParseFloat(d[siteLongitude], 64)
+		if err != nil {
+			return err
+		}
+		elev, err := ParseFloat64(d[siteElevation])
+		if err != nil {
+			return err
+		}
+		depth, err := ParseFloat64(d[siteDepth])
+		if err != nil {
+			return err
 		}
 
-		*s = SiteList(sites)
+		start, err := time.Parse(DateTimeFormat, d[siteStart])
+		if err != nil {
+			return err
+		}
+		end, err := time.Parse(DateTimeFormat, d[siteEnd])
+		if err != nil {
+			return err
+		}
+
+		sites = append(sites, Site{
+			Position: Position{
+				// geographic details
+				Latitude:  lat,
+				Longitude: lon,
+				Elevation: elev,
+				Depth:     depth,
+				Datum:     strings.TrimSpace(d[siteDatum]),
+
+				// shadow variables
+				latitude:  d[siteLatitude],
+				longitude: d[siteLongitude],
+				elevation: d[siteElevation],
+				depth:     d[siteDepth],
+			},
+			Span: Span{
+				Start: start,
+				End:   end,
+			},
+			Station:  strings.TrimSpace(d[siteStation]),
+			Location: strings.TrimSpace(d[siteLocation]),
+			Survey:   strings.TrimSpace(d[siteSurvey]),
+		})
 	}
+
+	*s = SiteList(sites)
 
 	return nil
 }

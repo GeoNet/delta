@@ -10,18 +10,9 @@ error_handler () {
 trap error_handler ERR
 
 go test ./meta
-go test ./tides
 go test ./tests
-go test ./tools/stationxml
-go test ./tools/altus
-go test ./tools/cusp
-go test ./tools/amplitude
-go test ./tools/spectra
-go test ./tools/chart
-go test ./tools/impact
-go test ./tools/rinexml
-go test ./tools/sc3
-go test ./tools/caps
+go test ./tools/...
+go test ./cmd/...
 
 exit $errcount
 

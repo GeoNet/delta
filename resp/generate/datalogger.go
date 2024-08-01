@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"strings"
 	"text/template"
@@ -13,13 +14,30 @@ type DataloggerModel struct {
 	Vendor       string `yaml:"vendor"`
 }
 
+func (d DataloggerModel) Desc(name string) string {
+	return fmt.Sprintf("%s %s %s", d.Manufacturer, strings.Split(strings.Fields(name)[0], "/")[0], d.Type)
+}
+
+func (d DataloggerModel) Make() string {
+	switch parts := strings.Fields(d.Manufacturer); {
+	case len(parts) > 0:
+		label := strings.Join(parts, " ")
+		for _, s := range []string{"/", ".", "+", " "} {
+			label = strings.ReplaceAll(label, s, "-")
+		}
+		return strings.TrimRight(label, "-")
+	default:
+		return "Unknown"
+	}
+}
+
 var dataloggerModelTemplate = `
 
 var DataloggerModels map[string]DataloggerModel = map[string]DataloggerModel{
 {{ range $k, $v := . }}	"{{ $k}}": DataloggerModel{
 	        Name: "{{$k}}",
 		Type: "{{$v.Type}}",
-		Description: "{{$v.Description}}",
+		Description: "{{$v.Desc $k}}",
 		Manufacturer: "{{$v.Manufacturer}}",
 		Vendor: "{{$v.Vendor}}",
 	},

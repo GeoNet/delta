@@ -14,18 +14,18 @@ response:
       type: CW
       label: HD
       samplerate: 100
-      frequency: 15
+      frequency: 1
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Q330S+_FLbelow100-100-PREAMP32
+      - Q330S+_FLbelow100-100-GAIN32
       reversed: false
     - dataloggers:
       - Q330S/6
       type: CW
       label: HD
       samplerate: 100
-      frequency: 15
+      frequency: 1
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
@@ -40,7 +40,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Q330S+_FLbelow100-1-PREAMP32
+      - Q330S+_FLbelow100-1-GAIN32
       reversed: false
     - dataloggers:
       - Q330S/6
@@ -59,11 +59,11 @@ response:
       type: CW
       label: HD
       samplerate: 100
-      frequency: 15
+      frequency: 1
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Q330_FLbelow100-100-PREAMP
+      - Q330_FLbelow100-100-GAIN30
       reversed: false
     - dataloggers:
       - Q330/3
@@ -75,7 +75,7 @@ response:
       storageformat: Steim2
       clockdrift: 0.0001
       filters:
-      - Q330_FLbelow100-1-PREAMP
+      - Q330_FLbelow100-1-GAIN30
       reversed: false
 
   Nanometrics Dataloggers Connected to Microphones:
@@ -92,7 +92,7 @@ response:
       type: CW
       label: HD
       samplerate: 100
-      frequency: 15
+      frequency: 1
       storageformat: Steim1
       clockdrift: 0.0001
       filters:

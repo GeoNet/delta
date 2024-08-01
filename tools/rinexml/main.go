@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sort"
@@ -22,28 +21,28 @@ const (
 var HeaderComments map[string]string = map[string]string{
 	"linz": `
 			Data supplied by the GeoNet project.
-			GeoNet is core funded by EQC, with support from LINZ, and is operated by GNS on behalf of EQC and all New Zealanders.
+			GeoNet is core funded by NHC, with support from LINZ, and is operated by GNS on behalf of NHC and all New Zealanders.
 			Contact: www.geonet.org.nz  email: info@geonet.org.nz.
 		`,
 	"geonet": `
 			Data supplied by the GeoNet project.
-			GeoNet is core funded by EQC and is operated by GNS on behalf of EQC and all New Zealanders.
+			GeoNet is core funded by NHC and is operated by GNS on behalf of NHC and all New Zealanders.
 			Contact: www.geonet.org.nz  email: info@geonet.org.nz.
 		`,
 	"gsi": `
 			Data supplied by the GeoNet project and GSI (Tsukuba, Japan).
-			GeoNet is core funded by EQC and is operated by GNS on behalf of EQC and all New Zealanders.
+			GeoNet is core funded by NHC and is operated by GNS on behalf of NHC and all New Zealanders.
 			Contact: www.geonet.org.nz  email: info@geonet.org.nz.
 		`,
 	"sagenz": `
 			Data supplied by the GeoNet project as part of the SAGENZ project.
-			GeoNet is core funded by EQC and is operated by GNS on behalf of EQC and all New Zealanders.
+			GeoNet is core funded by NHC and is operated by GNS on behalf of NHC and all New Zealanders.
 			Contact: www.geonet.org.nz  email: info@geonet.org.nz.
 		`,
 	"swpacific": `
 			Data supplied by the GeoNet project as part of a joint project involving GNS, Ohio State Univ.,
 			Pacific GPS Facility at Univ. Hawaii, and the governments of a number of SW Pacific states.
-			GeoNet is core funded by EQC and is operated by GNS on behalf of EQC and all New Zealanders.
+			GeoNet is core funded by NHC and is operated by GNS on behalf of NHC and all New Zealanders.
 			Contact: www.geonet.org.nz  email: info@geonet.org.nz.
 		`,
 }
@@ -488,7 +487,7 @@ func main() {
 			fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
 			os.Exit(-1)
 		}
-		if err := ioutil.WriteFile(xmlfile, s, 0644); err != nil {
+		if err := os.WriteFile(xmlfile, s, 0600); err != nil {
 			fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 			os.Exit(-1)
 		}
@@ -505,7 +504,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
 		os.Exit(-1)
 	}
-	if err := ioutil.WriteFile(xmlfile, s, 0644); err != nil {
+	if err := os.WriteFile(xmlfile, s, 0600); err != nil {
 		fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 		os.Exit(-1)
 	}
@@ -521,7 +520,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
 		os.Exit(-1)
 	}
-	if err := ioutil.WriteFile(xmlfile, s, 0644); err != nil {
+	if err := os.WriteFile(xmlfile, s, 0600); err != nil {
 		fmt.Fprintf(os.Stderr, "error: unable to write file: %v\n", err)
 		os.Exit(-1)
 	}

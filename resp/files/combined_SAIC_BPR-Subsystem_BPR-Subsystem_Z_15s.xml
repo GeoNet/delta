@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <InstrumentSensitivity>
+    <Value>149253.73134328358</Value>
+    <Frequency>1</Frequency>
+    <InputUnits>
+      <Name>m</Name>
+    </InputUnits>
+    <OutputUnits>
+      <Name>count</Name>
+    </OutputUnits>
+  </InstrumentSensitivity>
+  <Stage number="1">
+    <Coefficients resourceId="Coefficients#DART-15s">
+      <InputUnits>
+        <Name>m</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>V</Name>
+      </OutputUnits>
+      <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
+    </Coefficients>
+    <Decimation>
+      <InputSampleRate>0.06666666666666667</InputSampleRate>
+      <Factor>1</Factor>
+      <Offset>0</Offset>
+      <Delay>0</Delay>
+      <Correction>0</Correction>
+    </Decimation>
+    <StageGain>
+      <Value>149253.73134328358</Value>
+      <Frequency>1</Frequency>
+    </StageGain>
+  </Stage>
+  <Stage number="2">
+    <Coefficients resourceId="Coefficients#GAIN-1">
+      <InputUnits>
+        <Name>V</Name>
+      </InputUnits>
+      <OutputUnits>
+        <Name>count</Name>
+      </OutputUnits>
+      <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
+    </Coefficients>
+    <Decimation>
+      <InputSampleRate>1</InputSampleRate>
+      <Factor>1</Factor>
+      <Offset>0</Offset>
+      <Delay>0</Delay>
+      <Correction>0</Correction>
+    </Decimation>
+    <StageGain>
+      <Value>1</Value>
+      <Frequency>1</Frequency>
+    </StageGain>
+  </Stage>
+</Response>

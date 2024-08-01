@@ -20,5 +20,16 @@ response:
       filters:
       - Q330_FLbelow100-200
       reversed: false
+    - dataloggers:
+      - Q330S/6
+      type: CG
+      label: HD
+      samplerate: 200
+      frequency: 15
+      storageformat: Steim2
+      clockdrift: 0.0001
+      filters:
+      -  Q330S+_FLbelow100-200
+      reversed: false
 
 # vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2
