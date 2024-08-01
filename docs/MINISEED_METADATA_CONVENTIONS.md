@@ -37,7 +37,8 @@ The full set of network codes can be found in the `networks/network.csv` file. W
 
 Station codes are assigned at the first installation of a seismic sensor at a location and do not change.
 
-Station codes are unique within a given reference set. Weak motion station codes are unique for the global set of station codes managed by the ISC and are registered with the ISC to safeguard this uniqueness. Strong motion station codes are unique only within the set of such codes used by GeoNet.     
+Station codes are unique within a given reference set. Weak motion station codes are unique for the global set of station codes managed by the ISC and are registered with the ISC to safeguard this uniqueness. Strong motion station codes are unique only within the set of such codes used by GeoNet.
+
 
 ### Weak Motion Station Code Conventions
 
@@ -61,10 +62,11 @@ As with weak motion, strong motion stations end in a particular character: 'S'.
 
 ## Colocated Sites
 
-In some cases, weak motion, tsunami, strong motion, or infrasound sites will be colocated at the same station. In these cases the station code follows the convention of the first installed sensor or the sensor fulfilling the station's primary data acquisition purpose. As examples:
+In some cases, weak motion, tsunami, strong motion, or infrasound sites will be colocated at the same station.
 
-- Strong motion and infrasound sites installed at weak motion seismic network stations have the weak motion station code, because the weak motion site was installed first.
-- Strong motion sites installed at coastal sea level stations have the tsunami gauge station code. This is because the tsunami sensing is the primary purpose of the station.
+When installed at the same time as weak motion or tsunami sites, station codes for strong motion and infrasound instruments will have either the weak motion or tsunami station code convention with the different sensor type sites denoted by the location code. Weak motion or tsunami capability added long after station establishment (for any kind of station) may be allocated its own station code or incorporated under the existing code. There is no established convention for these cases.
+
+When strong motion and infrasound sensors are installed at existing weak motion or tsunami stations, the station code will be that of the existing station and the location code will reflect the sensor type.
 
 In all cases, sensor sites of different types are distinguished by their location code.
 
@@ -125,12 +127,11 @@ Sites in GeoNet infrastructure (cabinets, vaults, VSAT huts) follow the generic 
 
 ### Naming Conventions When Moving or Installating Borehole Sensors
 
-Naming conventions for borehole sensors follow the same logic as for surface sensors, but with variations as follows:
-- Station codes describe the surface region of the borehole, meaning, as in the case of WHSZ, that a surface sensor can exist with station code WHSZ and location code 10, and a borehole sensor can exist with the same station code but location code 11 (and ~400 m depth).
-- Lateral position changes for borehole sensors due to depth changes and borehole tilt do not invoke name change conventions.
-- If a borehole sensor installation depth changes by more than 2 m from the depth of the previous sensor, the station code remains the same but the location code changes. Effectively, this convention defines possible location codes at 2, 6, 10, 14, etc. metre depths in boreholes covering 0-4 m, 4-8m, etc. installation depth ranges which - though not rigidly required - should be considered in location code assignment to support long-term order in the metadata.
-- Regardless of depth or depth changes, a borehole sensor retains the station code of the equivalent surface installation.
-- These conventions apply to both weak and strong motion sensors.
+For boreholes, there is one station code and many location codes. At the surface, the surface naming conventions apply (see above). In the borehole, changes in sensor depth and lateral position (due to borehole tilt) do not invoke name change conventions. Instead, one location code exists for each simultaneous sensor installation in the borehole. If a borehole only ever has one sensor installed at a time, there will only ever be one location code for the borehole sensor installations. If many simultaneous borehole installations occur, each additional installation will have its own location code. If the number of simultaneous borehole sensor installations decreases and new such installations were made, these reoccupy the previous location codes rather than creating new ones. If the number of simultaneous borehole seismic installations were to then exceed the number of defined location codes, new location codes are made.
+
+Records of borehole sensor depth are available in the Depth column of `install/sensors.csv`.
+
+These conventions apply to both weak and strong motion sensors.
 
 
 ## Channel Codes
