@@ -380,7 +380,7 @@ func TestList(t *testing.T) {
 			"testdata/visibility.csv",
 			&VisibilityList{
 				Visibility{
-					Code:          "AHTI",
+					Mark:          "AHTI",
 					SkyVisibility: "good",
 					Span: Span{
 						Start: time.Date(2009, time.January, 1, 0, 0, 0, 0, time.UTC),
@@ -388,7 +388,7 @@ func TestList(t *testing.T) {
 					},
 				},
 				Visibility{
-					Code:          "DUND",
+					Mark:          "DUND",
 					SkyVisibility: "clear to NW",
 					Span: Span{
 						Start: time.Date(2005, time.August, 10, 0, 0, 0, 0, time.UTC),
