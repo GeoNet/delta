@@ -39,7 +39,6 @@ Station codes are assigned at the first installation of a seismic sensor at a lo
 
 Station codes are unique within a given reference set. Weak motion station codes are unique for the global set of station codes managed by the ISC and are registered with the ISC to safeguard this uniqueness. Strong motion station codes are unique only within the set of such codes used by GeoNet.
 
-
 ### Weak Motion Station Code Conventions
 
 Station codes are found in the `networks/stations.csv` file.
