@@ -5,17 +5,20 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
+	"time"
 
 	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/internal/ntrip"
 )
 
 type Settings struct {
-	base   string // delta base directory
-	common string // ntrip common files directory
-	input  string // ntrip input files directory
-	extra  bool   // add aliases to mounts list
-	output string // optional output file
+	base    string // delta base directory
+	common  string // ntrip common files directory
+	input   string // ntrip input files directory
+	extra   bool   // add aliases to mounts list
+	output  string // optional output file
+	sklPath string // optional path to write skeleton files
 }
 
 func main() {
@@ -40,6 +43,7 @@ func main() {
 	flag.StringVar(&settings.input, "input", "", "ntrip input csv config file directory")
 	flag.BoolVar(&settings.extra, "extra", false, "add aliases to mounts list")
 	flag.StringVar(&settings.output, "output", "", "optional output file")
+	flag.StringVar(&settings.sklPath, "skl", "", "optional path to write skeleton files")
 
 	flag.Parse()
 
@@ -73,5 +77,34 @@ func main() {
 		if err := config.Write(os.Stdout); err != nil {
 			log.Fatalf("unable to write config: %v", err)
 		}
+	}
+
+	// generate skeleton file for each mount
+	if settings.sklPath != "" {
+		func() {
+			if _, err := os.Stat(settings.sklPath); err != nil {
+				if os.IsNotExist(err) {
+					if err = os.MkdirAll(settings.sklPath, 0744); err != nil {
+						log.Printf("# couldn't create skeleton directory: %s", err)
+						return
+					}
+				} else {
+					log.Printf("# couldn't stat skeleton path: %s", err)
+					return
+				}
+			}
+			t := time.Now().UTC().Unix() // skeleton need a reference time to for the installations
+			for _, m := range config.Mounts {
+				// we move on next after error occured, only print the error on the output console (yaml file)
+				if s, err := skeleton(m.Mark, set, t); err == nil {
+					err = os.WriteFile(filepath.Join(settings.sklPath, fmt.Sprintf("%s00NZL.SKL", m.Mark)), []byte(s), 0644) // nolint: gosec
+					if err != nil {
+						log.Printf("# couldn't write skeleton file: %s", err)
+					}
+				} else {
+					log.Printf("# couldn't create skeleton: %s", err)
+				}
+			}
+		}()
 	}
 }

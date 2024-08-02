@@ -1,5 +1,7 @@
 aqwari.net/xml v0.0.0-20210331023308-d9421b293817 h1:+3Rh5EaTzNLnzWx3/uy/mAaH/dGI7svJ6e0oOIDcPuE=
 aqwari.net/xml v0.0.0-20210331023308-d9421b293817/go.mod h1:c7kkWzc7HS/t8Q2DcVY8P2d1dyWNEhEVT5pL0ZHO11c=
+github.com/GeoNet/Golang-Ellipsoid v0.0.0-20150223084230-5a1ed895422f h1:tRCEmA+r2wU2heEirDXfculZRSTyhTJXxaTEMrYtSJI=
+github.com/GeoNet/Golang-Ellipsoid v0.0.0-20150223084230-5a1ed895422f/go.mod h1:kjNbDcM40uUBNVelOQCqQ6BVaxKUTH2fLlHMVsU/N3k=
 github.com/GeoNet/kit v0.0.0-20230815043857-8f23eb4013a5 h1:00hCgOim7i7c5mtWbNiSQ86H37jerccy2P+oy5ozjto=
 github.com/GeoNet/kit v0.0.0-20230815043857-8f23eb4013a5/go.mod h1:yc5CLny5lcAiZeNmJvIKbTwQrLHriKvcMX1suqsilhc=
 github.com/aws/aws-sdk-go-v2 v1.16.2/go.mod h1:ytwTPBG6fXTZLxxeeCCWj2/EMYp/xDUgX+OET6TLNNU=
