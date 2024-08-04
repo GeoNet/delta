@@ -13,15 +13,13 @@ var geo = ellipsoid.Init("WGS84", ellipsoid.Degrees, ellipsoid.Meter, ellipsoid.
 // based on the receiver, firmware, and antenna metadata at a given time (e.g. now)
 func skeleton(code string, set *meta.Set, ts int64) (string, error) {
 	var mark meta.Mark
-	for _, m := range set.Marks() {
-		if m.Code == code && inWindow(ts, m.Span) {
-			mark = m
-		}
-	}
-	if mark.Span.Start.IsZero() {
+	mark, ok := set.Mark(code)
+	if !ok {
 		return "", fmt.Errorf("no mark found for %s", code)
 	}
-
+	if !inWindow(ts, mark.Span) {
+		return "", nil // it's fine if there's no valid mark for the reference time
+	}
 	receivers := set.DeployedReceivers()
 	var dr meta.DeployedReceiver
 	for _, r := range receivers {
@@ -118,19 +116,19 @@ const skeletonFormat = `                    OBSERVATION DATA    M (Mixed)       
 %-20.4f%-20.4f%-20.4fANTENNA: DELTA H/E/N
 GEODETIC                                                    MARKER TYPE
 GeoNet              GNS                                     OBSERVER / AGENCY
-G   15 C1C C1X C2W C2X C5X L1C L1X L2W L2X L5X S1C S1X S2W  SYS / # / OBS TYPES 
-       S2X S5X                                              SYS / # / OBS TYPES 
-E   15 C1X C5X C6X C7X C8I L1X L5X L6X L7X L8I S1X S5X S6X  SYS / # / OBS TYPES 
+G   15 C1C C1X C2W C2X C5X L1C L1X L2W L2X L5X S1C S1X S2W  SYS / # / OBS TYPES
+       S2X S5X                                              SYS / # / OBS TYPES
+E   15 C1X C5X C6X C7X C8I L1X L5X L6X L7X L8I S1X S5X S6X  SYS / # / OBS TYPES
        S7X S8I                                              SYS / # / OBS TYPES
-R   15 C1C C1P C2C C2P C3X L1C L1P L2C L2P L3X S1C S1P S2C  SYS / # / OBS TYPES 
+R   15 C1C C1P C2C C2P C3X L1C L1P L2C L2P L3X S1C S1P S2C  SYS / # / OBS TYPES
        S2P S3X                                              SYS / # / OBS TYPES
-C   15 C1X C2I C5X C6I C7I L1X L2I L5X L6I L7I S1X S2I S5X  SYS / # / OBS TYPES 
+C   15 C1X C2I C5X C6I C7I L1X L2I L5X L6I L7I S1X S2I S5X  SYS / # / OBS TYPES
        S6I S7I                                              SYS / # / OBS TYPES
-J   18 C1C C1X C1Z C2X C5X C6L L1C L1X L1Z L2X L5X L6L S1C  SYS / # / OBS TYPES 
+J   18 C1C C1X C1Z C2X C5X C6L L1C L1X L1Z L2X L5X L6L S1C  SYS / # / OBS TYPES
        S1X S1Z S2X S5X S6L                                  SYS / # / OBS TYPES
-G L2X -0.25000                                              SYS / PHASE SHIFT   
-R L1P  0.25000                                              SYS / PHASE SHIFT   
-R L2C -0.25000                                              SYS / PHASE SHIFT   
+G L2X -0.25000                                              SYS / PHASE SHIFT
+R L1P  0.25000                                              SYS / PHASE SHIFT
+R L2C -0.25000                                              SYS / PHASE SHIFT
 J L2X  0.25000                                              SYS / PHASE SHIFT
 `
 
