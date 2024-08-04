@@ -28,6 +28,6 @@ func TestSkeleton(t *testing.T) {
 	}
 
 	if !bytes.Equal([]byte(b), f) {
-		t.Errorf("generated skeleton file does not match:\n\n%s", b)
+		t.Errorf("generated skeleton file does not match(%d vs %d):\n%s", len(b), len(f), b)
 	}
 }

@@ -6,6 +6,8 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"slices"
+	"strings"
 	"time"
 
 	"github.com/GeoNet/delta"
@@ -13,12 +15,13 @@ import (
 )
 
 type Settings struct {
-	base    string // delta base directory
-	common  string // ntrip common files directory
-	input   string // ntrip input files directory
-	extra   bool   // add aliases to mounts list
-	output  string // optional output file
-	sklPath string // optional path to write skeleton files
+	base        string   // delta base directory
+	common      string   // ntrip common files directory
+	input       string   // ntrip input files directory
+	extra       bool     // add aliases to mounts list
+	output      string   // optional output file
+	sklPath     string   // optional path to write skeleton files
+	skippingSkl []string // optional list of marks to skip skeleton file generation
 }
 
 func main() {
@@ -44,8 +47,14 @@ func main() {
 	flag.BoolVar(&settings.extra, "extra", false, "add aliases to mounts list")
 	flag.StringVar(&settings.output, "output", "", "optional output file")
 	flag.StringVar(&settings.sklPath, "skl", "", "optional path to write skeleton files")
+	var skippingSkl string
+	flag.StringVar(&skippingSkl, "skip-skl", "", "optional comma separated list of marks to skip skeleton file generation")
 
 	flag.Parse()
+
+	if skippingSkl != "" {
+		settings.skippingSkl = strings.Split(skippingSkl, ",")
+	}
 
 	// set recovers the delta tables
 	set, err := delta.NewBase(settings.base)
@@ -81,30 +90,20 @@ func main() {
 
 	// generate skeleton file for each mount
 	if settings.sklPath != "" {
-		func() {
-			if _, err := os.Stat(settings.sklPath); err != nil {
-				if os.IsNotExist(err) {
-					if err = os.MkdirAll(settings.sklPath, 0744); err != nil {
-						log.Printf("# couldn't create skeleton directory: %s", err)
-						return
-					}
-				} else {
-					log.Printf("# couldn't stat skeleton path: %s", err)
-					return
-				}
-			}
-			t := time.Now().UTC().Unix() // skeleton need a reference time to for the installations
-			for _, m := range config.Mounts {
-				// we move on next after error occured, only print the error on the output console (yaml file)
+		t := time.Now().UTC().Unix() // skeleton needs a reference time for the installations
+		for _, m := range config.Mounts {
+			if !slices.Contains(settings.skippingSkl, m.Mark) {
 				if s, err := skeleton(m.Mark, set, t); err == nil {
-					err = os.WriteFile(filepath.Join(settings.sklPath, fmt.Sprintf("%s00NZL.SKL", m.Mark)), []byte(s), 0644) // nolint: gosec
-					if err != nil {
-						log.Printf("# couldn't write skeleton file: %s", err)
+					if len(s) > 0 { // empty means no valid mark during the reference time, simply skip without error
+						err = os.WriteFile(filepath.Join(settings.sklPath, fmt.Sprintf("%s00NZL.SKL", m.Mark)), []byte(s), 0600)
+						if err != nil {
+							log.Fatalf("couldn't write skeleton file: %s", err)
+						}
 					}
 				} else {
-					log.Printf("# couldn't create skeleton: %s", err)
+					log.Fatalf("couldn't create skeleton: %s", err)
 				}
 			}
-		}()
+		}
 	}
 }
