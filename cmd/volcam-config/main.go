@@ -7,7 +7,6 @@ import (
 	"os"
 	"strings"
 	"time"
-	"unicode"
 
 	"github.com/GeoNet/delta"
 )
@@ -32,8 +31,17 @@ var keywords = map[string][]string{
 	"tongariro":       {"Tongariro"},
 }
 
-var letters = func(c rune) bool {
-	return !unicode.IsLetter(c)
+var ids = map[string]string{
+	"Ruapehu from North":                   "ruapehunorth",
+	"Ngauruhoe from West":                  "ngauruhoe",
+	"Tongariro from North":                 "tongariro",
+	"Ruapehu & Ngauruhoe from East":        "ruapehungauruhoe",
+	"Ruapehu from South":                   "ruapehusouth",
+	"Raoul Island":                         "raoulisland",
+	"Taranaki from New Plymouth":           "taranaki",
+	"Whakaari/White Island from Te Kaha":   "tekaha",
+	"Tongariro Te Maari Crater":            "tongarirotemaaricrater",
+	"Whakaari/White Island from Whakatāne": "whakatane",
 }
 
 type Settings struct {
@@ -121,8 +129,13 @@ func main() {
 					})
 				}
 
+				id, ok := ids[view.Label]
+				if !ok {
+					continue
+				}
+
 				volcs = append(volcs, Volcam{
-					Id:        strings.Join(strings.FieldsFunc(strings.ToLower(view.Label), letters), ""),
+					Id:        id,
 					Mount:     camera.Mount,
 					View:      camera.View,
 					Title:     view.Label,
