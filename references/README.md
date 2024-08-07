@@ -7,6 +7,7 @@ _Reference citations and external source information._
 Reference information for the GeoNet sensor networks and manual data collection systems.
  
 * `citations.csv` - Reference citations
+* `datasets.csv` - Datasets Digital Object Identifiers
 * `tilde_methods.csv` - Tilde  method descriptions
 
 #### _CITATIONS_ ####
@@ -32,6 +33,16 @@ All fields, other than Key, are optional and can be left blank.
     Key,Author,Year,Title,Published,Volume,Pages,DOI,Link,Retrieved
     Fry2020,"Fry, B., S.-J. McCurrach, K. Gledhill, W. Power, M. Williams, M. Angove, D. Arcas, and C. Moore",2020,Sensor network warns of stealth tsunamis,Eos,101,,https://doi.org/10.1029/2020EO144274,,
 
+#### _DATASETS_ ####
+List of GeoNet datasets DOIs (Digital Object Identifier).
+GeoNet hosts a number of datasets that have a DOI assigned. Datasets DOIs are assigned based on data domain and data processing level (i.e. raw , derived, etc).
+
+| _Network_ | Code used to group stations together by project or operator
+| _External_ | Alternative code used to externally represent this _Network_
+| _DOI_ | Digital Object Identifier
+| _Dataset_ | name of the dataset associated with the _DOI_
+
+
 #### _METHODS_ ####
 The range of methods used in the Tilde application is diverse. In some cases, the details of a method are well
 know only to those familiar with a data set or with a similar data set from another institution.
@@ -51,3 +62,4 @@ link to publicly available resources that provide additional information.
 
 - Dates should be given as in _ISO 8601_ (i.e. `2016-09-18T02:24:26Z`)
 - Any field entries with commas should be enclosed within double quotes. (e.g. "Last, F., Name ...")
+
