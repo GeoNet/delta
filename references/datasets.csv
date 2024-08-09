@@ -1,8 +1,47 @@
-Network,External,DOI,Dataset
-CG,CG,https://doi.org/10.21420/RXKE-AZ44,GeoNet Aotearoa New Zealand Continuous GNSS Network - RINEX Files
-IU,IU,https://doi.org/10.7914/SN/IU,Global Seismograph Network (GSN - IRIS/USGS)
-LG,NZ,https://doi.org/10.21420/EJ6W-RC96,GeoNet Aotearoa New Zealand Coastal Tsunami Gauge Digital Waveform Dataset
-LI,LI,https://doi.org/10.21420/RXKE-AZ44,GeoNet Aotearoa New Zealand Continuous GNSS Network - RINEX Files
-NZ,NZ,https://doi.org/10.21420/G19Y-9D40,GeoNet Aotearoa New Zealand Seismic Digital Waveform Dataset
-TD,NZ,https://doi.org/10.21420/8TCZ-TV02,GeoNet Aotearoa New Zealand Deep-ocean Assessment and Reporting of Tsunami (DART) Dataset
-TG,NZ,https://doi.org/10.21420/EJ6W-RC96,GeoNet Aotearoa New Zealand Coastal Tsunami Gauge Digital Waveform Dataset
+Domain,Network,External,Citations,Tilde
+acoustic,HA,NZ,gns2022a,false
+camera,VC,VC,,false
+coastal,LG,NZ,gns2007a,true
+coastal,TG,NZ,gns2007a,true
+dart,TD,NZ,gns2020a,true
+envirosensor,EN,NZ,gns2018a,true
+geomag,GM,NZ,,true
+gnss,CG,CG,gns1995a,false
+gnss,CG,CG,gns1995b,true
+gnss,GN,GN,gns1995a,false
+gnss,GN,GN,gns1995b,true
+gnss,IG,LI,gns1995a,false
+gnss,IG,LI,gns1995b,true
+gnss,LI,LI,gns1995a,false
+gnss,LI,LI,gns1995b,true
+gnss,SA,SA,gns1995a,false
+gnss,SA,SA,gns1995b,true
+manualcollect,MC,MC,gns1954,true
+seismic,AK,NZ,gns2021a,false
+seismic,CB,NZ,gns2021a,false
+seismic,CH,NZ,gns2021a,false
+seismic,CY,NZ,gns2021a,false
+seismic,EC,NZ,gns2021a,false
+seismic,FI,NZ,gns2021a,false
+seismic,HB,NZ,gns2021a,false
+seismic,IU,IU,usgs2014,false
+seismic,KI,NZ,gns2021a,false
+seismic,MN,NZ,gns2021a,false
+seismic,NX,NZ,gns2021a,false
+seismic,NZ,NZ,gns2021a,false
+seismic,OT,NZ,gns2021a,false
+seismic,PK,NZ,gns2021a,false
+seismic,RA,NZ,gns2021a,false
+seismic,RT,NZ,gns2021a,false
+seismic,SB,NZ,gns2007b,false
+seismic,SC,NZ,gns2021a,false
+seismic,SI,NZ,gns2021a,false
+seismic,SM,NZ,gns2021a,false
+seismic,SM,NZ,gns2021b,false
+seismic,SP,NZ,gns2021a,false
+seismic,SX,NZ,gns2021a,false
+seismic,SX,NZ,gns2021b,false
+seismic,TP,NZ,gns2021b,false
+seismic,TR,NZ,gns2021b,false
+seismic,WL,NZ,gns2021b,false
+seismic,XX,NZ,gns2021b,false

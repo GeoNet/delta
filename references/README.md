@@ -12,8 +12,9 @@ Reference information for the GeoNet sensor networks and manual data collection 
 
 #### _CITATIONS_ ####
 
-A list of _reference_ citations to published or otherwise information.
+A list of _reference_ citations to datasets, publications or otherwise published information.
 All fields, other than Key, are optional and can be left blank.
+GeoNet hosts a number of datasets that have a DOI assigned. Datasets DOIs are assigned based on data domain and processing level (i.e. raw , derived, etc).
 
 | Field | Description |
 | --- | --- |
@@ -33,14 +34,15 @@ All fields, other than Key, are optional and can be left blank.
     Key,Author,Year,Title,Published,Volume,Pages,DOI,Link,Retrieved
     Fry2020,"Fry, B., S.-J. McCurrach, K. Gledhill, W. Power, M. Williams, M. Angove, D. Arcas, and C. Moore",2020,Sensor network warns of stealth tsunamis,Eos,101,,https://doi.org/10.1029/2020EO144274,,
 
-#### _DATASETS_ ####
-List of GeoNet datasets DOIs (Digital Object Identifier).
-GeoNet hosts a number of datasets that have a DOI assigned. Datasets DOIs are assigned based on data domain and data processing level (i.e. raw , derived, etc).
 
+#### _DATASETS_ ####
+List of domains in relation to sensor network codes and associated datasets citations. 
+
+| _Domain_ | The data domain. This is a concept used by the Tilde data appication, and refers to the broad collection method or data discipline
 | _Network_ | Code used to group stations together by project or operator
 | _External_ | Alternative code used to externally represent this _Network_
-| _DOI_ | Digital Object Identifier
-| _Dataset_ | name of the dataset associated with the _DOI_
+| _Key_ | The citation key used where appropriate
+| _Tilde_ | Wheter the dataset is available via Tilde data application in a derived form. A Boolean value [`true` or `false`].
 
 
 #### _METHODS_ ####
