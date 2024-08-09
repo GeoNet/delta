@@ -39,10 +39,15 @@ GeoNet hosts a number of datasets that have a DOI assigned. Datasets DOIs are as
 List of domains in relation to sensor network codes and associated datasets citations. 
 
 | _Domain_ | The data domain. This is a concept used by the Tilde data appication, and refers to the broad collection method or data discipline
-| _Network_ | Code used to group stations together by project or operator
-| _External_ | Alternative code used to externally represent this _Network_
+| _Network_ | Code used to group stations together by sensor domain and project or operator
 | _Key_ | The citation key used where appropriate
 | _Tilde_ | Wheter the dataset is available via Tilde data application in a derived form. A Boolean value [`true` or `false`].
+
+#### _DOMAINS_ ####
+List of data domains
+
+| _Domain_ | The data domain. This is a concept used by the Tilde data appication, and refers to the broad collection method or data discipline
+| _Description_ | Short description of the domain.
 
 
 #### _METHODS_ ####
