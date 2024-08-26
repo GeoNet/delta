@@ -63,9 +63,11 @@ As with weak motion, strong motion stations end in a particular character: 'S'.
 
 In some cases, weak motion, tsunami, strong motion, or infrasound sites will be colocated at the same station.
 
-When installed at the same time as weak motion or tsunami sites, station codes for strong motion and infrasound instruments will have either the weak motion or tsunami station code convention with the different sensor type sites denoted by the location code. Weak motion or tsunami capability added long after station establishment (for any kind of station) may be allocated its own station code or incorporated under the existing code. There is no established convention for these cases.
+Historically dataloggers allowed different station codes to be used for different site types connected to the same datalogger. The current datalogger (2024: Nanometrics Centaur) does not allow this. The current colocated site code conventions are partly designed around this limitation, although some (like strong motion and infrasound sites taking the station code of weak motion sites) have older origins and will be present for sites with older dataloggers.
 
-When strong motion and infrasound sensors are installed at existing weak motion or tsunami stations, the station code will be that of the existing station and the location code will reflect the sensor type.
+When installed at the same time or after weak motion or tsunami sites, station codes for strong motion and infrasound instruments will have either the weak motion or tsunami station code convention with the different sensor type sites denoted by the location code.
+
+Weak motion or tsunami capability added long after station establishment (for any kind of station) may be allocated its own station code or incorporated under the existing code. There is no established convention for these cases. Practically whether the new site is connected to an existing datalogger or a new one will determine whether a different station code can be used. 
 
 In all cases, sensor sites of different types are distinguished by their location code.
 
