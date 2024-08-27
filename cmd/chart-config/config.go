@@ -22,7 +22,7 @@ type Stream struct {
 	ChannelCode string `json:"channel-code"`
 	// StationName is the long name of the Stream station.
 	StationName string `json:"station-name"`
-	// InternalNetwok is the shore code of the Stream network lookup.
+	// InternalNetwork is the shore code of the Stream network lookup.
 	InternalNetwork string `json:"internal-network"`
 	// NetworkDescription is the long name of the Stream internal network.
 	NetworkDescription string `json:"network-description,omitempty"`

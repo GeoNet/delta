@@ -1,9 +1,0 @@
-Station,Location,Band,Source,Sampling Rate,Axial,Reversed,Triggered,Start Date,End Date
-OTAT,40,L,T,1,false,false,false,2010-02-25T00:00:00Z,9999-01-01T00:00:00Z
-OTAT,40,B,T,10,false,false,false,2010-02-25T00:00:00Z,9999-01-01T00:00:00Z
-OTAT,41,L,T,1,false,false,false,2010-02-25T00:00:00Z,9999-01-01T00:00:00Z
-OTAT,41,B,T,10,false,false,false,2010-02-25T00:00:00Z,9999-01-01T00:00:00Z
-SUMT,40,L,T,1,false,false,false,2010-08-11T00:00:00Z,9999-01-01T00:00:00Z
-SUMT,40,B,T,10,false,false,false,2010-08-11T00:00:00Z,9999-01-01T00:00:00Z
-SUMT,41,L,T,1,false,false,false,2010-08-11T00:00:00Z,9999-01-01T00:00:00Z
-SUMT,41,B,T,10,false,false,false,2010-08-11T00:00:00Z,9999-01-01T00:00:00Z

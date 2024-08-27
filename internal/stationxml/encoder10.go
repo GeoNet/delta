@@ -5,6 +5,8 @@ import (
 	"sort"
 	"time"
 
+	"github.com/GeoNet/delta/resp"
+
 	stationxml "github.com/GeoNet/delta/internal/stationxml/v1.0"
 )
 
@@ -52,11 +54,15 @@ func (e Encoder10) toSampleRateRatio(f float64) *stationxml.SampleRateRatioType 
 	}
 }
 
-func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
+func (e Encoder10) Response(response *resp.ResponseType) *stationxml.ResponseType {
 	var stages []stationxml.ResponseStageType
 
 	for _, s := range response.Stages {
 
+		// from the stationxml documentation examples the poles and zeros are numbered from zero,
+		// but the xsd derived code will remove the "optional" number if it is set to zero.
+		// to avoid this the poles and zeros are numbered from one. The alternative is not to
+		// add a number which may be a future option.
 		var pz *stationxml.PolesZerosType
 		if s.PolesZeros != nil {
 			var zeros []stationxml.PoleZeroType
@@ -103,6 +109,7 @@ func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
 			}
 		}
 
+		// from the stationxml documentation examples the numerator and denominator coefficients are not numbered
 		var coeffs *stationxml.CoefficientsType
 		if s.Coefficients != nil {
 			var nums []stationxml.FloatType
@@ -135,12 +142,12 @@ func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
 			}
 		}
 
+		// from the stationxml documentation examples the numerator coefficients are not numbered
 		var fir *stationxml.FIRType
 		if s.FIR != nil {
 			var coeffs []stationxml.NumeratorCoefficient
 			for _, c := range s.FIR.NumeratorCoefficients {
 				coeffs = append(coeffs, stationxml.NumeratorCoefficient{
-					I:     c.I,
 					Value: c.Value,
 				})
 			}
@@ -166,6 +173,7 @@ func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
 			}
 		}
 
+		// from the stationxml documentation examples the polynomial coefficients are not numbered
 		var poly *stationxml.PolynomialType
 		if s.Polynomial != nil {
 			approx := stationxml.ToApproximationType(s.Polynomial.ApproximationType)
@@ -173,7 +181,6 @@ func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
 			var coeffs []stationxml.Coefficient
 			for _, c := range s.Polynomial.Coefficients {
 				coeffs = append(coeffs, stationxml.Coefficient{
-					Number:          stationxml.CounterType(c.Number),
 					FloatNoUnitType: stationxml.FloatNoUnitType{Value: c.Value},
 				})
 			}
@@ -233,7 +240,7 @@ func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
 
 			gain = stationxml.GainType{
 				Value:     value,
-				Frequency: response.frequency,
+				Frequency: response.Frequency(),
 			}
 		}
 
@@ -301,7 +308,7 @@ func (e Encoder10) Response(response *ResponseType) *stationxml.ResponseType {
 		sensitivity = &stationxml.SensitivityType{
 			GainType: stationxml.GainType{
 				Value:     value,
-				Frequency: response.frequency,
+				Frequency: response.Frequency(),
 			},
 			InputUnits: stationxml.UnitsType{
 				Name:        response.InstrumentPolynomial.InputUnits.Name,

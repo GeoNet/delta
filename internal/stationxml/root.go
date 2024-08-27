@@ -2,6 +2,8 @@ package stationxml
 
 import (
 	"time"
+
+	"github.com/GeoNet/delta/resp"
 )
 
 // Equipment describes a StationXML Equipment element
@@ -34,7 +36,7 @@ type Stream struct {
 	StartDate time.Time
 	EndDate   time.Time
 
-	Response *ResponseType
+	Response *resp.ResponseType
 }
 
 // Channel forms the main part of a set of StationXML Channel elements

@@ -2,15 +2,27 @@ package main
 
 import (
 	"sort"
+	"strings"
 
 	"github.com/GeoNet/delta/meta"
 )
 
-func (n *Network) Gnss(set *meta.Set, antenna, receiver string) error {
+func (s Settings) Gnss(set *meta.Set, name, networks string) (Group, bool) {
 
+	nets := make(map[string]interface{})
+	for _, n := range strings.Split(networks, ",") {
+		if n = strings.TrimSpace(n); n != "" {
+			nets[n] = true
+		}
+	}
+
+	var marks []Mark
 	for _, mark := range set.Marks() {
 		net, ok := set.Network(mark.Network)
 		if !ok {
+			continue
+		}
+		if _, ok := nets[net.Code]; !ok {
 			continue
 		}
 
@@ -28,11 +40,15 @@ func (n *Network) Gnss(set *meta.Set, antenna, receiver string) error {
 			receivers = append(receivers, Sensor{
 				Make:  r.Make,
 				Model: r.Model,
-				Type:  receiver,
+				Type:  "GNSS Receiver",
 
 				StartDate: r.Start,
 				EndDate:   r.End,
 			})
+		}
+
+		if !(len(receivers) > 0) {
+			continue
 		}
 
 		sort.Slice(receivers, func(i, j int) bool {
@@ -48,7 +64,7 @@ func (n *Network) Gnss(set *meta.Set, antenna, receiver string) error {
 			antennas = append(antennas, Sensor{
 				Make:  a.Make,
 				Model: a.Model,
-				Type:  antenna,
+				Type:  "GNSS Antenna",
 
 				Vertical: a.Vertical,
 				North:    a.North,
@@ -60,15 +76,19 @@ func (n *Network) Gnss(set *meta.Set, antenna, receiver string) error {
 			})
 		}
 
+		if !(len(antennas) > 0) {
+			continue
+		}
+
 		sort.Slice(antennas, func(i, j int) bool {
 			return antennas[i].Less(antennas[j])
 		})
 
-		n.Marks = append(n.Marks, Mark{
+		marks = append(marks, Mark{
 			Code:        mark.Code,
-			Network:     net.External,
 			Name:        mark.Name,
 			DomesNumber: monument.DomesNumber,
+			Network:     net.Code,
 			Description: net.Description,
 
 			Latitude:  mark.Latitude,
@@ -93,5 +113,5 @@ func (n *Network) Gnss(set *meta.Set, antenna, receiver string) error {
 		})
 	}
 
-	return nil
+	return Group{Name: name, Marks: marks}, true
 }

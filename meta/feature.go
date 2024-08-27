@@ -64,6 +64,14 @@ func (f Feature) Less(feature Feature) bool {
 		return true
 	case f.Property > feature.Property:
 		return false
+	case f.Description < feature.Description:
+		return true
+	case f.Description > feature.Description:
+		return false
+	case f.Aspect < feature.Aspect:
+		return true
+	case f.Aspect > feature.Aspect:
+		return false
 	case f.Start.Before(feature.Start):
 		return true
 	default:
