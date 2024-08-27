@@ -21,21 +21,17 @@ type Settings struct {
 	magnetic string // magnetic network code
 	enviro   string // envirosensor network code
 	manual   string // manualcollect network code
-	volcano  string // volcano camera network code
-	building string // building camera network code
 	camera   string // camera network codes
 	doas     string // doas network code
 
 	seismic  regexp.Regexp // seismic location codes
 	strong   regexp.Regexp // seismic location codes
 	acoustic regexp.Regexp // seismic location codes
-	combined regexp.Regexp // installed location codes
 	water    regexp.Regexp // water location codes
 	geomag   regexp.Regexp // geomag location codes
 
 	output string // optional output file
-	groups bool   // use groups output format
-	json   bool   // use JSON output format
+	groups bool   // legacy setting to use groups output format
 }
 
 func main() {
@@ -64,21 +60,16 @@ func main() {
 	flag.StringVar(&settings.enviro, "enviro", "EN", "envirosensor network code")
 	flag.StringVar(&settings.manual, "manual", "MC", "manualcollect network code")
 	flag.StringVar(&settings.camera, "camera", "VC,BC", "volcano camera network codes")
-	flag.StringVar(&settings.volcano, "volcano", "VC", "volcano camera network code")
-	flag.StringVar(&settings.building, "building", "BC", "building camera network code")
 	flag.StringVar(&settings.magnetic, "magnetic", "GM,SM", "geomagnetic network code")
 	flag.StringVar(&settings.doas, "doas", "EN", "doas network code")
-	flag.TextVar(&settings.combined, "combined", regexp.MustCompile("^[123]"), "combined sensor location codes")
 	flag.StringVar(&settings.gnss, "gnss", "CG,GN,IG,LI,SA", "GNSS network codes")
 	flag.TextVar(&settings.seismic, "seismic", regexp.MustCompile("^1"), "combined sensor location codes")
 	flag.TextVar(&settings.strong, "strong", regexp.MustCompile("^2"), "combined sensor location codes")
 	flag.TextVar(&settings.acoustic, "acoustic", regexp.MustCompile("^3"), "combined sensor location codes")
 	flag.TextVar(&settings.water, "water", regexp.MustCompile("^4"), "water pressue sensor codes")
 	flag.TextVar(&settings.geomag, "geomag", regexp.MustCompile("^5"), "geomag sensor codes")
-
-	flag.BoolVar(&settings.groups, "groups", false, "use groups in output XML format")
+	flag.BoolVar(&settings.groups, "groups", true, "use groups in output XML format")
 	flag.StringVar(&settings.output, "output", "", "output sensor description file")
-	flag.BoolVar(&settings.json, "json", false, "use JSON for output format")
 
 	flag.Parse()
 
@@ -87,46 +78,20 @@ func main() {
 		log.Fatalf("unable to load delta base files: %v", err)
 	}
 
-	var network Network
-	switch {
-	case settings.groups:
-		network = settings.Groups(set)
-	default:
-		network, err = settings.Network(set)
-		if err != nil {
-			log.Fatalf("unable to build network: %v", err)
-		}
-	}
-
-	switch {
+	switch network := settings.Groups(set); {
 	case settings.output != "":
-		// output file has been given
 		file, err := os.Create(settings.output)
 		if err != nil {
 			log.Fatalf("unable to create output file %q: %v", settings.output, err)
 		}
 		defer file.Close()
 
-		switch {
-		case settings.json:
-			if err := network.EncodeJSON(file); err != nil {
-				log.Fatalf("unable to marshal output file %q: %v", settings.output, err)
-			}
-		default:
-			if err := network.EncodeXML(file, "", "  "); err != nil {
-				log.Fatalf("unable to marshal output file %q: %v", settings.output, err)
-			}
+		if err := network.EncodeXML(file, "", "  "); err != nil {
+			log.Fatalf("unable to marshal output file %q: %v", settings.output, err)
 		}
 	default:
-		switch {
-		case settings.json:
-			if err := network.EncodeJSON(os.Stdout); err != nil {
-				log.Fatalf("unable to marshal output: %v", err)
-			}
-		default:
-			if err := network.EncodeXML(os.Stdout, "", "  "); err != nil {
-				log.Fatalf("unable to marshal output: %v", err)
-			}
+		if err := network.EncodeXML(os.Stdout, "", "  "); err != nil {
+			log.Fatalf("unable to marshal output: %v", err)
 		}
 	}
 }
