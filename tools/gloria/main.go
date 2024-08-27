@@ -14,7 +14,7 @@ import (
 )
 
 var (
-	thirdPartySites = []string{"DUNT", "FALE", "LDRZ", "LYTT", "NIUM", "OUSD"}
+	thirdPartySites = []string{"FALE", "LDRZ", "LYTT", "NIUM", "OUSD"}
 )
 
 func main() {
@@ -180,7 +180,7 @@ to https://www.linz.govt.nz/linz-copyright`
 
 		} else {
 			mark_pb.Comment = `These data are supplied by GeoNet. GeoNet is core
-funded by EQC, LINZ and MBIE and is operated by
+funded by NHC, LINZ and MBIE and is operated by
 GNS Science on behalf of stakeholders and all New
 Zealanders. The data policy, disclaimer, licence and
 contact information can be found at www.geonet.org.nz`

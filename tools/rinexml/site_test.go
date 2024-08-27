@@ -38,7 +38,7 @@ func TestSiteXML_Marshal(t *testing.T) {
 				"    </operator>",
 				"    <rinex>",
 				"      <header-comment-name>geonet</header-comment-name>",
-				"      <header-comment-text>Data supplied by the GeoNet project. GeoNet is core funded by EQC and is operated by GNS on behalf of EQC and all New Zealanders. Contact: www.geonet.org.nz  email: info@geonet.org.nz.</header-comment-text>",
+				"      <header-comment-text>Data supplied by the GeoNet project. GeoNet is core funded by NHC and is operated by GNS on behalf of NHC and all New Zealanders. Contact: www.geonet.org.nz  email: info@geonet.org.nz.</header-comment-text>",
 				"    </rinex>",
 				"    <data-format>trimble_netr9</data-format>",
 				`    <download-name-format type="long">`,
@@ -109,7 +109,7 @@ func TestSiteXML_Marshal(t *testing.T) {
 						},
 						Rinex: RinexXML{
 							HeaderCommentName: "geonet",
-							HeaderCommentText: "Data supplied by the GeoNet project. GeoNet is core funded by EQC and is operated by GNS on behalf of EQC and all New Zealanders. Contact: www.geonet.org.nz  email: info@geonet.org.nz.",
+							HeaderCommentText: "Data supplied by the GeoNet project. GeoNet is core funded by NHC and is operated by GNS on behalf of NHC and all New Zealanders. Contact: www.geonet.org.nz  email: info@geonet.org.nz.",
 						},
 						DataFormat: "trimble_netr9",
 						DownloadNameFormat: DownloadNameFormatXML{
