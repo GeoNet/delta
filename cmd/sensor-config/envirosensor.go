@@ -44,9 +44,10 @@ func (s Settings) EnviroSensor(set *meta.Set, name, enviro string) (Group, bool)
 				}
 
 				sensors = append(sensors, Sensor{
-					Make:  v.Make,
-					Model: v.Model,
-					Type:  name,
+					Make:   v.Make,
+					Model:  v.Model,
+					Type:   name,
+					Serial: v.Serial,
 
 					Azimuth:  v.Azimuth,
 					Method:   v.Method,
