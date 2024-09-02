@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
   <InstrumentSensitivity>
-    <Value>1.98474e+09</Value>
+    <Value>1183</Value>
     <Frequency>0.02</Frequency>
     <InputUnits>
       <Name>m/s</Name>
       <Description>Velocity in Meters Per Second</Description>
     </InputUnits>
     <OutputUnits>
-      <Name>counts</Name>
-      <Description>Digital Counts</Description>
+      <Name>V</Name>
+      <Description>Volts</Description>
     </OutputUnits>
   </InstrumentSensitivity>
   <Stage number="1">
-    <Decimation>
-      <InputSampleRate>100</InputSampleRate>
-      <Factor>1</Factor>
-      <Offset>0</Offset>
-      <Delay>0</Delay>
-      <Correction>0</Correction>
-    </Decimation>
     <PolesZeros>
       <InputUnits>
         <Name>m/s</Name>
