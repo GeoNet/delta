@@ -101,8 +101,8 @@ func main() {
 		if settings.summary != "" {
 			// output a summary info of skeleton generating
 			var output strings.Builder
-			output.WriteString("successes: " + fmt.Sprintln(successes))
-			output.WriteString("generic headers: " + fmt.Sprintln(fallbacks))
+			output.WriteString("successes: " + strings.Join(successes, ", "))
+			output.WriteString("generic headers: " + strings.Join(fallbacks, ", "))
 			if err = os.WriteFile(settings.summary, []byte(output.String()), 0600); err != nil {
 				log.Fatalf("couldn't write fallback summary file: %s", err)
 			}

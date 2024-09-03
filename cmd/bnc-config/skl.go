@@ -18,7 +18,7 @@ func skeleton(code string, set *meta.Set, ts int64) (content string, err error) 
 		if err != nil {
 			// if any error occurs, compose generic header + distribution comment as the result
 			// however, still keep the error
-			content = generic_header
+			content = genericHeader
 			if mark.Network == "LI" {
 				content += linzComment
 			} else {
@@ -151,7 +151,7 @@ R L1P  0.25000                                              SYS / PHASE SHIFT
 R L2C -0.25000                                              SYS / PHASE SHIFT
 J L2X  0.25000                                              SYS / PHASE SHIFT
 `
-const generic_header = `                    OBSERVATION DATA    M (Mixed)           RINEX VERSION / TYPE
+const genericHeader = `                    OBSERVATION DATA    M (Mixed)           RINEX VERSION / TYPE
 GEODETIC                                                    MARKER TYPE
 GeoNet              GNS                                     OBSERVER / AGENCY
 G   15 C1C C1X C2W C2X C5X L1C L1X L2W L2X L5X S1C S1X S2W  SYS / # / OBS TYPES
