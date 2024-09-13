@@ -12,6 +12,7 @@ type Sensor struct {
 	Code        string `xml:"code,attr,omitempty" json:"code,omitempty"`
 	Model       string `xml:"model,attr,omitempty" json:"model,omitempty"`
 	Make        string `xml:"make,attr,omitempty" json:"make,omitempty"`
+	Serial      string `xml:"serial,attr,omitempty" json:"serial,omitempty"`
 	Type        string `xml:"type,attr,omitempty" json:"type,omitempty"`
 	Channels    string `xml:"channels,attr,omitempty" json:"channels,omitempty"`
 	Description string `xml:"description,attr,omitempty" json:"description,omitempty"`
@@ -47,6 +48,10 @@ func (s Sensor) Less(sensor Sensor) bool {
 	case s.Model < sensor.Model:
 		return true
 	case s.Model > sensor.Model:
+		return false
+	case s.Serial < sensor.Serial:
+		return true
+	case s.Serial > sensor.Serial:
 		return false
 	case s.Property < sensor.Property:
 		return true
