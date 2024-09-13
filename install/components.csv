@@ -40,6 +40,9 @@ Duke University,2 Hz Duke Malin Seismometer,Short Period Borehole Seismometer,2,
 Streckeisen,STS-2,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Streckeisen_STS-2
 Streckeisen,STS-2,Broadband Seismometer,1,,N,0,0,G,,sensor_Streckeisen_STS-2
 Streckeisen,STS-2,Broadband Seismometer,2,,E,0,90,G,,sensor_Streckeisen_STS-2
+Streckeisen,STS-6A VBB,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Streckeisen_STS-6A
+Streckeisen,STS-6A VBB,Broadband Seismometer,1,,N,0,0,G,,sensor_Streckeisen_STS-6A
+Streckeisen,STS-6A VBB,Broadband Seismometer,2,,E,0,90,G,,sensor_Streckeisen_STS-6A
 GEM Systems,GSM-19,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-19-1s
 GEM Systems,GSM-90,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-90-1s
 GEM Systems,GSM-90F1,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-90F1-1s

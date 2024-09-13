@@ -53,7 +53,7 @@ func main() {
 	}
 
 	flag.StringVar(&settings.base, "base", "", "delta base files")
-	flag.StringVar(&settings.networks, "networks", "AK,CB,CH,EC,FI,HB,KI,NM,NZ,OT,RA,RT,SC,SI,SM,SP,TP,TR,WL", "installed network codes")
+	flag.StringVar(&settings.networks, "networks", "AK,CB,CH,EC,FI,HB,IU,KI,NM,NZ,OT,RA,RT,SC,SI,SM,SP,TP,TR,WL", "installed network codes")
 	flag.StringVar(&settings.coastal, "coastal", "TG", "coastal tsunami gauge network code")
 	flag.StringVar(&settings.lentic, "lentic", "LG", "lentic tsunami gauge network code")
 	flag.StringVar(&settings.dart, "dart", "TD", "dart buoy network code")
@@ -63,7 +63,7 @@ func main() {
 	flag.StringVar(&settings.magnetic, "magnetic", "GM,SM", "geomagnetic network code")
 	flag.StringVar(&settings.doas, "doas", "EN", "doas network code")
 	flag.StringVar(&settings.gnss, "gnss", "CG,GN,IG,LI,SA", "GNSS network codes")
-	flag.TextVar(&settings.seismic, "seismic", regexp.MustCompile("^1"), "combined sensor location codes")
+	flag.TextVar(&settings.seismic, "seismic", regexp.MustCompile("^(1[0-9A-Z]|00)$"), "combined sensor location codes")
 	flag.TextVar(&settings.strong, "strong", regexp.MustCompile("^2"), "combined sensor location codes")
 	flag.TextVar(&settings.acoustic, "acoustic", regexp.MustCompile("^3"), "combined sensor location codes")
 	flag.TextVar(&settings.water, "water", regexp.MustCompile("^4"), "water pressue sensor codes")

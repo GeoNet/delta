@@ -14,7 +14,7 @@ import (
 )
 
 var (
-	thirdPartySites = []string{"DUNT", "FALE", "LDRZ", "LYTT", "NIUM", "OUSD"}
+	thirdPartySites = []string{"FALE", "LDRZ", "LYTT", "NIUM", "OUSD"}
 )
 
 func main() {

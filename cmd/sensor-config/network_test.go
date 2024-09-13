@@ -259,6 +259,7 @@ func TestSensor(t *testing.T) {
 								Model:     "Avaspec-Mini2048CL",
 								Make:      "Avaspec CompactLine",
 								Type:      "DOAS",
+								Serial:    "XXXX",
 								Azimuth:   266,
 								Dip:       -60,
 								StartDate: mustParse("2022-05-05T05:13:00Z"),

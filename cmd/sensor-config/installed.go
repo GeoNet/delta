@@ -51,9 +51,10 @@ func (s Settings) InstalledSensors(set *meta.Set, name string, match *regexp.Reg
 				}
 
 				sensor := Sensor{
-					Make:  c.InstalledSensor.Make,
-					Model: c.InstalledSensor.Model,
-					Type:  c.Component.Type,
+					Make:   c.InstalledSensor.Make,
+					Model:  c.InstalledSensor.Model,
+					Serial: c.InstalledSensor.Serial,
+					Type:   c.Component.Type,
 
 					Azimuth: c.InstalledSensor.Azimuth,
 					Method:  c.InstalledSensor.Method,
