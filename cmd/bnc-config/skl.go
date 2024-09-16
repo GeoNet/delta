@@ -11,7 +11,7 @@ var geo = ellipsoid.Init("WGS84", ellipsoid.Degrees, ellipsoid.Meter, ellipsoid.
 
 // genetrate skeleton file for a site,
 // based on the receiver, firmware, and antenna metadata at a given time (e.g. now)
-func skeleton(code string, set *meta.Set, ts int64) (content string, err error) {
+func skeleton(code string, country string, set *meta.Set, ts int64) (content string, err error) {
 	var mark meta.Mark
 
 	defer func() {
@@ -112,9 +112,9 @@ func skeleton(code string, set *meta.Set, ts int64) (content string, err error) 
 	}
 
 	content = fmt.Sprintf(skeletonFormat,
-		fmt.Sprintf("%s00NZL", code),       // MARKER NAME
-		domesNumber,                        // MARKER NUMBER
-		dr.Serial, dr.Model, ifirm.Version, // REC # / TYPE / VERS
+		fmt.Sprintf("%s00%s", code, country), // MARKER NAME
+		domesNumber,                          // MARKER NUMBER
+		dr.Serial, dr.Model, ifirm.Version,   // REC # / TYPE / VERS
 		ia.Serial, ia.Model, radome, //ANT # / TYPE
 		x, y, z, //APPROX POSITION XYZ
 		ia.Offset.Vertical, ia.Offset.East, ia.Offset.North) // ANTENNA: DELTA H/E/N
