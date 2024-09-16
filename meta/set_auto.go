@@ -125,6 +125,11 @@ func (s Set) Marks() []Mark {
 	return s.marks
 }
 
+// Methods is a helper function to return a slice of Method values.
+func (s Set) Methods() []Method {
+	return s.methods
+}
+
 // Monuments is a helper function to return a slice of Monument values.
 func (s Set) Monuments() []Monument {
 	return s.monuments
@@ -264,6 +269,20 @@ func (s Set) Mark(code string) (Mark, bool) {
 		return v, true
 	}
 	return Mark{}, false
+}
+
+// Method is a helper function to return a Method value and true if one exists.
+func (s Set) Method(domain, name string) (Method, bool) {
+	for _, v := range s.methods {
+		if domain != v.Domain {
+			continue
+		}
+		if name != v.Name {
+			continue
+		}
+		return v, true
+	}
+	return Method{}, false
 }
 
 // Monument is a helper function to return a Monument value and true if one exists.

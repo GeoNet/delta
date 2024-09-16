@@ -1,0 +1,3 @@
+Domain,Method,Description,Reference
+envirosensor,max,The maximum value of the observation over the output interval,https://help.campbellsci.com/crbasic/cr1000x/Content/Instructions/maximum.htm
+manualcollect,accumulation-chamber,An upside down bucket-shaped collection device is placed on the ground surface. A sensor in the chamber measures the concentration of gas coming from the ground beneath the chamber,https://www.geonet.org.nz/volcano/how
