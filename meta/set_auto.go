@@ -75,6 +75,11 @@ func (s Set) Doases() []InstalledDoas {
 	return s.doases
 }
 
+// Domains is a helper function to return a slice of Domain values.
+func (s Set) Domains() []Domain {
+	return s.domains
+}
+
 // Features is a helper function to return a slice of Feature values.
 func (s Set) Features() []Feature {
 	return s.features
@@ -286,6 +291,17 @@ func (s Set) Dataset(domain, network string) (Dataset, bool) {
 		return v, true
 	}
 	return Dataset{}, false
+}
+
+// Domain is a helper function to return a Domain value and true if one exists.
+func (s Set) Domain(name string) (Domain, bool) {
+	for _, v := range s.domains {
+		if name != v.Name {
+			continue
+		}
+		return v, true
+	}
+	return Domain{}, false
 }
 
 // Mark is a helper function to return a Mark value and true if one exists.
