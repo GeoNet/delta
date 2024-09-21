@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"strconv"
 	"strings"
 	"time"
 
@@ -18,7 +17,7 @@ type Settings struct {
 	base     string  // optional delta base directory
 	level    float64 // default rsam level
 	output   string  // output caps key directory
-	stations string  // list of stations to exclude
+	stations string  // list of stations to configure
 	channels string  // list of stations to include
 	purge    bool    // remove unknown station files
 }
@@ -44,7 +43,7 @@ func main() {
 	flag.StringVar(&settings.base, "base", "", "optional delta base directory")
 	flag.Float64Var(&settings.level, "level", 100, "provide a default trigger level")
 	flag.StringVar(&settings.output, "output", "key", "output rsamtrig configuration directory")
-	flag.StringVar(&settings.stations, "stations", "MAVZ:330,TRVZ:130,WHVZ:140,WSRZ:2780", "comma separated list of stations to configure")
+	flag.StringVar(&settings.stations, "stations", "MAVZ/11:330,TRVZ:130,WHVZ:140,WSRZ:2780", "comma separated list of stations to configure")
 	flag.StringVar(&settings.channels, "channels", "HHZ,EHZ", "comma separated list of channels to configure")
 	flag.BoolVar(&settings.purge, "purge", false, "remove unknown single xml files")
 
@@ -81,28 +80,18 @@ func main() {
 		log.Fatalf("unable to walk dir %s: %v", settings.output, err)
 	}
 
-	// process each station, expected label as "STN:LEVEL", if the level is
+	// process each station, expected label as "STN[/LOC][:LEVEL]", if the level is
 	// missing then a default value will be used.
-	check := make(map[string]float64)
+	check := make(map[string]Config)
 	for _, s := range strings.Split(settings.stations, ",") {
 		if s = strings.TrimSpace(strings.ToUpper(s)); s == "" {
 			continue
 		}
-		switch {
-		case strings.Contains(s, ":"):
-			parts := strings.Fields(strings.ReplaceAll(s, ":", " "))
-			if len(parts) < 2 {
-				continue
-			}
-			level, err := strconv.ParseFloat(parts[1], 64)
-			if err != nil {
-				log.Fatalf("unable to decode station: %q", s)
-			}
-			check[parts[0]] = level
-
-		default:
-			check[s] = settings.level
+		config, err := NewConfig(s)
+		if err != nil {
+			log.Fatalf("unable to decode station %q: %v", s, err)
 		}
+		check[config.Station] = config
 	}
 
 	// only process the given set of channels
@@ -124,10 +113,16 @@ func main() {
 
 	// run through each station and its configuration
 	for _, station := range set.Stations() {
-		level, ok := check[station.Code]
+		config, ok := check[station.Code]
 		if !ok {
 			continue
 		}
+
+		level := settings.level
+		if config.Level > 0.0 {
+			level = config.Level
+		}
+
 		network, ok := lookup[station.Network]
 		if !ok {
 			continue
@@ -135,6 +130,10 @@ func main() {
 
 		for _, site := range set.Sites() {
 			if site.Station != station.Code {
+				continue
+			}
+
+			if config.Location != "" && site.Location != config.Location {
 				continue
 			}
 
