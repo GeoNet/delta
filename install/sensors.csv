@@ -1749,6 +1749,7 @@ Thompson Sintra Pacific,Scout Hydrophone,H1,GBIH,41,0,,0,75.5,0,0,0,0,2007-06-12
 Thompson Sintra Pacific,Scout Hydrophone,H2,GBIH,42,0,,0,75.5,0,0,0,0,2007-06-12T00:00:00Z,9999-01-01T00:00:00Z
 Thompson Sintra Pacific,Scout Hydrophone,H3,GBIH,43,0,,0,75.5,0,0,0,0,2007-06-12T00:00:00Z,9999-01-01T00:00:00Z
 Unidata,Unidata 6541 Shaft Encoder - SDI,UENC 1008,INFR,42,0,,0,0,0,0,0,0,2013-05-21T00:00:00Z,9999-01-01T00:00:00Z
+Unknown-sensor-make,Platinum Resistance Thermometer,Unknown,RU001,01,0,,0,0,0,0,0,0,1993-12-11T00:00:00Z,1995-04-25T19:55:12Z
 Vaisala,Weather Transmitter WXT536,001,FOXKP,03,0,0,0,0,0,0,0,0,2021-08-04T00:00:00Z,2023-12-25T03:51:00Z
 Vaisala,Weather Transmitter WXT536,R2840106,FOXRB,03,0,0,0,0,0,0,0,0,2021-08-03T03:50:00Z,2022-07-08T13:00:00Z
 Vaisala,Weather Transmitter WXT536,S5310242,FOXVV,03,0,0,0,0,0,0,0,0,2021-08-03T00:00:00Z,9999-01-01T00:00:00Z
