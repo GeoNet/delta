@@ -170,13 +170,13 @@ func main() {
 			}
 		}
 
-		if m.Network == "LI" {
-			mark_pb.Comment = `This station is part of the LINZ PositioNZ and GeoNet
-cGNSS networks and is jointly funded by Land Information
-New Zealand and GNS Science. This data is licenced for
-re-use under the Creative Commons Attribution 4.0
-International licence. For more detail please refer
-to https://www.linz.govt.nz/linz-copyright`
+		if m.Network == "LI" || m.Network == "GT" {
+			mark_pb.Comment = `This station is part of the LINZ and GeoNet cGNSS networks.
+These networks are operated in partnership between Toitū
+Te Whenua Land Information New Zealand and GNS Science.
+This data is licensed for re-use under the Creative Commons
+Attribution 4.0 International licence. For more detail
+please refer to https://www.linz.govt.nz/linz-copyright`
 
 		} else {
 			mark_pb.Comment = `These data are supplied by GeoNet. GeoNet is core
