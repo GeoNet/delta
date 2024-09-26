@@ -52,6 +52,7 @@ const (
 	VisibilityFile   = "environment/visibility.csv"
 
 	CitationsFile = "references/citations.csv"
+	DatasetsFile  = "references/datasets.csv"
 )
 
 // SetPathMap is used to manipulate the filepath inside the Set.
@@ -105,6 +106,7 @@ type Set struct {
 	visibilities VisibilityList
 
 	citations CitationList
+	datasets  DatasetList
 }
 
 func (s *Set) files() map[string]List {
@@ -152,6 +154,7 @@ func (s *Set) files() map[string]List {
 		VisibilityFile:   &s.visibilities,
 
 		CitationsFile: &s.citations,
+		DatasetsFile:  &s.datasets,
 	}
 }
 
