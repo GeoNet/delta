@@ -1,3 +1,4 @@
+Station,Location,Calibration,Magnitude Type,Start Date,End Date,Citations,Notes 
 ABAZ,10,-0.164217929,MLnz20,2020-12-22T00:00:00,9999-01-01T00:00:00,Rhoades2020,Original correction
 ABAZ,11,-0.164217929,MLnz20,2020-12-22T00:00:00,9999-01-01T00:00:00,Rhoades2020,Original correction
 AKCZ,10,0.138367301,MLnz20,2020-12-22T00:00:00,9999-01-01T00:00:00,Rhoades2020,Original correction
