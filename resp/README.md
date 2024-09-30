@@ -14,7 +14,7 @@ The location of the base XML files can be found in:
 
 - `auto` -- where the original response files have been converted into an XML equivalent.
 - `files` -- where response files have been handcrafted as needed.
-- `nrl` -- where responses derived from the NRL (notional response library) can be stored.
+- `nrl` -- where responses derived from the NRL (Nominal Response Library) can be stored.
 
 Files found in any of the locations can be used in the channel and component configurations by removing
 the `.xml` suffix.
