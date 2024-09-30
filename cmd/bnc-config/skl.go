@@ -175,8 +175,8 @@ contact information can be found at www.geonet.org.nz       COMMENT
 `
 
 const linzComment = `This station is part of the LINZ and GeoNet cGNSS networks. COMMENT
-These networks are operated in partnership between Toitū    COMMENT
-Te Whenua Land Information New Zealand and GNS Science.     COMMENT
+These networks are operated in partnership between Land     COMMENT
+Information New Zealand and GNS Science.                    COMMENT
 This data is licensed for re-use under the Creative Commons COMMENT
 Attribution 4.0 International licence. For more detail      COMMENT
 please refer to https://www.linz.govt.nz/linz-copyright     COMMENT
