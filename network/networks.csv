@@ -10,9 +10,11 @@ EN,NZ,GeoNet environmental data using low rate data collection platform network,
 FI,NZ,Fiordland regional seismic network,false
 GM,NZ,New Zealand geomagnetic observatories network,false
 GN,GN,The GNS CGPS network,false
+GT,LI,LINZ GNSS at tide gauge network,false
 HA,NZ,Hydrophone Array,false
 HB,NZ,Hawke's Bay regional seismic network,false
 IG,LI,LINZ IGS CGPS Network,false
+IU,IU,Global Seismograph Network,false
 KI,NZ,Kermadec Islands volcano seismic network,false
 LG,NZ,Lake tsunami gauge network,false
 LI,LI,The LINZ national CGPS network,false
