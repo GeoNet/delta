@@ -31,7 +31,7 @@
   </Mount>
   <Mount code="RUD01" network="NZ" name="Tukino Skifield" description="GeoNet environmental data using low rate data collection platform network" latitude="-39.2775" longitude="175.6087" elevation="1748" datum="WGS84" startDate="2021-05-05T05:13:00Z" endDate="9999-01-01T00:00:00Z">
     <View code="01" label="Tukino Skifield" description="SO2 from Ruapehu from Tukino Skifield" azimuth="266" dip="-60" startDate="2022-05-05T05:13:00Z" endDate="9999-01-01T00:00:00Z">
-      <Sensor model="Avaspec-Mini2048CL" make="Avaspec CompactLine" type="DOAS" azimuth="266" dip="-60" startDate="2022-05-05T05:13:00Z" endDate="9999-01-01T00:00:00Z"></Sensor>
+      <Sensor model="Avaspec-Mini2048CL" make="Avaspec CompactLine" serial="XXXX" type="DOAS" azimuth="266" dip="-60" startDate="2022-05-05T05:13:00Z" endDate="9999-01-01T00:00:00Z"></Sensor>
     </View>
   </Mount>
   <Sample code="WI228" network="MC" name="White Island Yellow Duck Stream" description="Manually collected volcano monitoring data" startDate="2017-06-29T00:00:00Z" endDate="2017-06-29T00:00:00Z" latitude="-37.520946" longitude="177.186671" elevation="24" datum="WGS84">
