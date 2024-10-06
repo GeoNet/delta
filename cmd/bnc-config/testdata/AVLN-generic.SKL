@@ -1,4 +1,5 @@
                     OBSERVATION DATA    M (Mixed)           RINEX VERSION / TYPE
+AVLN00NZL                                                   MARKER NAME
 GEODETIC                                                    MARKER TYPE
 GeoNet              GNS                                     OBSERVER / AGENCY
 G    9 C1C C2W C5X L1C L2W L5X S1C S2W S5X                  SYS / # / OBS TYPES
@@ -13,7 +14,7 @@ E                                                           SYS / PHASE SHIFT
 C                                                           SYS / PHASE SHIFT
 J                                                           SYS / PHASE SHIFT
 These data are supplied by GeoNet. GeoNet is core           COMMENT
-funded by EQC, LINZ and MBIE and is operated by             COMMENT
+funded by NHC, LINZ and MBIE and is operated by             COMMENT
 GNS Science on behalf of stakeholders and all New           COMMENT
 Zealanders. The data policy, disclaimer, licence and        COMMENT
 contact information can be found at www.geonet.org.nz       COMMENT

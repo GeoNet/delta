@@ -18,8 +18,10 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 		if err != nil {
 			// if any error occurs, compose generic header + distribution comment as the result
 			// however, still keep the error
-			content = genericHeader
-			if mark.Network == "LI" {
+			content = fmt.Sprintf(genericHeader,
+				fmt.Sprintf("%s00%s", code, country), // MARKER NAME
+			)
+			if mark.Network == "LI" || mark.Network == "GT" {
 				content += linzComment
 			} else {
 				content += geonetComment
@@ -118,7 +120,7 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 		ia.Serial, ia.Model, radome, //ANT # / TYPE
 		x, y, z, //APPROX POSITION XYZ
 		ia.Offset.Vertical, ia.Offset.East, ia.Offset.North) // ANTENNA: DELTA H/E/N
-	if mark.Network == "LI" {
+	if mark.Network == "LI" || mark.Network == "GT" {
 		content += linzComment
 	} else {
 		content += geonetComment
@@ -149,6 +151,7 @@ C                                                           SYS / PHASE SHIFT
 J                                                           SYS / PHASE SHIFT
 `
 const genericHeader = `                    OBSERVATION DATA    M (Mixed)           RINEX VERSION / TYPE
+%-60sMARKER NAME
 GEODETIC                                                    MARKER TYPE
 GeoNet              GNS                                     OBSERVER / AGENCY
 G    9 C1C C2W C5X L1C L2W L5X S1C S2W S5X                  SYS / # / OBS TYPES
@@ -165,18 +168,18 @@ J                                                           SYS / PHASE SHIFT
 `
 
 const geonetComment = `These data are supplied by GeoNet. GeoNet is core           COMMENT
-funded by EQC, LINZ and MBIE and is operated by             COMMENT
+funded by NHC, LINZ and MBIE and is operated by             COMMENT
 GNS Science on behalf of stakeholders and all New           COMMENT
 Zealanders. The data policy, disclaimer, licence and        COMMENT
 contact information can be found at www.geonet.org.nz       COMMENT
 `
 
-const linzComment = `This station is part of the LINZ PositioNZ and GeoNet       COMMENT
-cGNSS networks and is jointly funded by Land Information    COMMENT
-New Zealand and GNS Science. This data is licenced for      COMMENT
-re-use under the Creative Commons Attribution 4.0           COMMENT
-International licence. For more detail please refer         COMMENT
-to https://www.linz.govt.nz/linz-copyright                  COMMENT
+const linzComment = `This station is part of the LINZ and GeoNet cGNSS networks. COMMENT
+These networks are operated in partnership between Land     COMMENT
+Information New Zealand and GNS Science.                    COMMENT
+This data is licensed for re-use under the Creative Commons COMMENT
+Attribution 4.0 International licence. For more detail      COMMENT
+please refer to https://www.linz.govt.nz/linz-copyright     COMMENT
 `
 
 func inWindow(t int64, s meta.Span) bool {
