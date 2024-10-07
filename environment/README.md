@@ -4,6 +4,8 @@ _Lists the geological and physical environment details of collection points._
 
 ### FILES ###
 
+* `calibrations.csv` - Station Magnitude calibrations.
+
 * `classes.csv` - Site Class Descriptions.
 
 * `constituents.csv` - Constituents Descriptions.
@@ -15,6 +17,19 @@ _Lists the geological and physical environment details of collection points._
 * `placenames.csv` - Placename Descriptions.
 
 * `visibility.csv` - Sky View Descriptions.
+
+#### _CALIBRATIONS_ ####
+
+| Field | Description |
+| --- | --- |
+| _Station_ | Station Code Name  
+| _Location_ | Sensor Location (e.g. Borehole or surface sensor) 
+| _Calibration_ |  Station correction  
+| _Magnitude Type_ | Magnitude Type to be calibrated
+| _Start Date_ | Calibration reference date 
+| _End Date_ | Calibration is obsolete 
+| _Citations_ | References 
+| _Notes_ | Comments 
 
 #### _CLASSES_ ####
 
