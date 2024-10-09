@@ -21,7 +21,7 @@ SNZO streams (NZ settings) are used as any continuous real-time station from the
 
 As used by Geonet (2024):
   - Broadband Borehole Velocimeter
-  - Broadband Borehole Accelerometer
+  - Broadband Surface Accelerometer
   
 Other instruments are not described in Delta. (e.g. BB, VBB and barometers) 
 
