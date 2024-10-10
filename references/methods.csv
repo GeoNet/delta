@@ -1,4 +1,8 @@
 Domain,Method,Description,Reference
+coastal,15s,,
+dart,15m,,
+dart,15s,,
+dart,raw,,
 envirosensor,max,"The maximum value of the observation over the output interval","https://help.campbellsci.com/crbasic/cr1000x/Content/Instructions/maximum.htm"
 envirosensor,min,"The minimum value of the observation over the output interval","https://help.campbellsci.com/crbasic/cr1000x/Content/Instructions/minimum.htm"
 envirosensor,snapshot,"The value of the observation at the measurement time",
