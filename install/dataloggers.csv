@@ -24,7 +24,7 @@ Campbell Scientific,CR6,17444,Tongariro Upper Emerald,,2023-11-29T22:20:00Z,9999
 Campbell Scientific,CR6,17445,Raoul Island Green Lake,Envirosensor,2023-01-30T02:59:59Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,20464,Fox Glacier Alpine Gardens,,2023-02-08T19:29:59Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,20467,Tongariro Upper Emerald,,2023-03-08T00:29:59Z,2023-11-29T22:19:59Z
-Campbell Scientific,CR6,20468,Rotoma Soda Spring,,2023-03-09T00:09:59Z,2024-07-05T14:50:01Z
+Campbell Scientific,CR6,20468,Rotoma Soda Spring,,2023-03-09T00:09:59Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,20469,Auckland Scenic Drive Waiatarua,,2023-02-24T01:09:00Z,2024-02-25T13:50:01Z
 Campbell Scientific,CR6,20470,Tongariro Lower Emerald Spring,,2023-03-14T01:00:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,CR6,20474,Upper Te Maari Fumarole 3,,2024-03-01T00:20:00Z,9999-01-01T00:00:00Z
@@ -910,10 +910,12 @@ Nanometrics,Centaur CTR4-6S,10961,Port of Tauranga,,2024-03-20T23:16:00Z,9999-01
 Nanometrics,Centaur CTR4-6S,10962,Wether Hill Road,,2024-09-24T23:49:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,10963,Matarangi,,2024-05-17T00:05:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,10970,Matarangi,Surface,2024-06-21T03:55:00Z,9999-01-01T00:00:00Z
+Nanometrics,Centaur CTR4-6S,10971,Chateau Observatory,,2024-09-25T02:17:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,10972,McNeill Hill,,2024-09-10T02:05:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,10978,Omahuta,,2024-05-29T03:49:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,11443,North Egmont Visitor Centre,,2024-07-31T03:44:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,11444,Milford Sound,,2024-09-24T23:48:00Z,9999-01-01T00:00:00Z
+Nanometrics,Centaur CTR4-6S,11447,Centreport,,2024-09-23T00:00:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,11462,Kapiti Island,,2024-07-23T02:52:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,11466,Oturere,,2024-08-15T00:35:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,7810,Mount Tarawera,,2023-03-06T23:19:00Z,9999-01-01T00:00:00Z
@@ -969,7 +971,7 @@ Nanometrics,Centaur CTR4-6S,9287,Pukeiti Hill,,2023-10-29T22:16:00Z,9999-01-01T0
 Nanometrics,Centaur CTR4-6S,9289,Waiatarua,,2022-05-25T22:54:00Z,2023-06-19T23:27:00Z
 Nanometrics,Centaur CTR4-6S,9290,Kahui Hut,,2022-07-01T00:00:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9291,Mangatainoka River,,2022-08-12T00:51:00Z,9999-01-01T00:00:00Z
-Nanometrics,Centaur CTR4-6S,9292,Chateau Observatory,,2022-08-03T22:47:00Z,9999-01-01T00:00:00Z
+Nanometrics,Centaur CTR4-6S,9292,Chateau Observatory,,2022-08-03T22:47:00Z,2024-09-23T21:29:00Z
 Nanometrics,Centaur CTR4-6S,9293,Lathrope Road,,2022-05-30T02:59:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9294,Matakaoa Point,,2022-08-10T03:31:00Z,9999-01-01T00:00:00Z
 Nanometrics,Centaur CTR4-6S,9295,Durham Road,,2022-06-29T00:04:00Z,9999-01-01T00:00:00Z
