@@ -117,6 +117,9 @@ Lennartz Electronic,LE-3DliteMkIII,Short Period Seismometer,2,,E,0,90,G,,sensor_
 Nanometrics,Titan,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
+Nanometrics,Cascadia Titan TACCL-BH1,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan
+Nanometrics,Cascadia Titan TACCL-BH1,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan
+Nanometrics,Cascadia Titan TACCL-BH1,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan TACCL-BH1,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan TACCL-BH1,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan TACCL-BH1,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
@@ -138,6 +141,9 @@ Nanometrics,Trillium Borehole T120-BH1,Broadband Seismometer,2,,E,0,90,G,,sensor
 Nanometrics,Trillium Borehole T120-BH2,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Trillium-Borehole-T120-BH1
 Nanometrics,Trillium Borehole T120-BH2,Broadband Seismometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Trillium-Borehole-T120-BH1
 Nanometrics,Trillium Borehole T120-BH2,Broadband Seismometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Trillium-Borehole-T120-BH1
+Nanometrics,Cascadia Trillium TC120PH-1,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Trillium-Compact-120PH-2
+Nanometrics,Cascadia Trillium TC120PH-1,Broadband Seismometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Trillium-Compact-120PH-2
+Nanometrics,Cascadia Trillium TC120PH-1,Broadband Seismometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Trillium-Compact-120PH-2
 Nanometrics,Trillium Compact 120,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Trillium-Compact-120
 Nanometrics,Trillium Compact 120,Broadband Seismometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Trillium-Compact-120
 Nanometrics,Trillium Compact 120,Broadband Seismometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Trillium-Compact-120
