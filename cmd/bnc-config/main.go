@@ -87,13 +87,13 @@ func main() {
 		t := time.Now().UTC().Unix() // skeleton needs a reference time for the installations
 		for _, m := range config.Mounts {
 			// note: skeleton() will return with generic header content when error occured
-			s, err := skeleton(m.Mark, set, t)
+			s, err := skeleton(m.Mark, m.Country, set, t)
 			if err != nil {
 				fallbacks = append(fallbacks, m.Mark)
 			} else {
 				successes = append(successes, m.Mark)
 			}
-			err = os.WriteFile(filepath.Join(settings.sklPath, fmt.Sprintf("%s00NZL.SKL", m.Mark)), []byte(s), 0600)
+			err = os.WriteFile(filepath.Join(settings.sklPath, fmt.Sprintf("%s00%s.SKL", m.Mark, m.Country)), []byte(s), 0600)
 			if err != nil {
 				log.Fatalf("couldn't write skeleton file: %s", err)
 			}

@@ -17,7 +17,7 @@ func TestSkeleton(t *testing.T) {
 	}
 
 	tm := time.Date(2024, 1, 1, 0, 0, 0, 0, time.UTC)
-	b, err := skeleton("AVLN", set, tm.UTC().Unix())
+	b, err := skeleton("AVLN", "NZL", set, tm.UTC().Unix())
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -42,7 +42,7 @@ func TestGenericSkeleton(t *testing.T) {
 
 	// set the reference time to before the mark's install time
 	tm := time.Date(2005, 1, 1, 0, 0, 0, 0, time.UTC)
-	b, err := skeleton("AVLN", set, tm.UTC().Unix())
+	b, err := skeleton("AVLN", "NZL", set, tm.UTC().Unix())
 	if err == nil {
 		t.Fatalf("expected to get error but got nil")
 	}
