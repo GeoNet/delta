@@ -100,6 +100,11 @@ func main() {
 		log.Fatalf("unable to build scandoas configuration: %v", err)
 	}
 
+	// update gnss gomain
+	if err := tilde.Gnss(set); err != nil {
+		log.Fatalf("unable to build gnss configuration: %v", err)
+	}
+
 	switch {
 	case settings.output != "":
 		// output file has been given
