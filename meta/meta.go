@@ -27,25 +27,25 @@ const (
 // Reference describes a location where measurements can be taken.
 type Reference struct {
 	// Code is used to identify the measurement location.
-	Code string
+	Code string `json:"code"`
 	// Network can be used to group multiple measurement locations.
-	Network string
+	Network string `json:"network"`
 	// Name is used to label the measurement location.
-	Name string
+	Name string `json:"name"`
 }
 
 // Position describes a measurement location geographically.
 type Position struct {
 	// Latitude represents the location latitude, with negative values representing southern latitudes.
-	Latitude float64
+	Latitude float64 `json:"latitude"`
 	// Longitude represents the location longitude, with negative values representing western longitudes.
-	Longitude float64
+	Longitude float64 `json:"longitude"`
 	// Elevation represents the location height relative to the given datum.
-	Elevation float64
+	Elevation float64 `json:"elevation"`
 	// Datum can be used to indicate the location measurement reference.
-	Datum string
+	Datum string `json:"datum,omitempty"`
 	// Depth measures the depth of water at the measurement position, if appropriate.
-	Depth float64
+	Depth float64 `json:"depth"`
 
 	latitude  string // shadow value used to retain formatting
 	longitude string // shadow value used to retain formatting
@@ -74,11 +74,11 @@ type Orientation struct {
 	// Dip represents the vertical deployment, with a zero value representing a horizontal installation,
 	// a positive value indicating a installation downwards, whereas a negative value indicates an upward
 	// facing installation.
-	Dip float64
+	Dip float64 `json:"dip"`
 	// Azimuth represents an equipment installation bearing, ideally with reference to true north.
-	Azimuth float64
+	Azimuth float64 `json:"azimuth"`
 	// Method can be used to indicate the method or measuring the azimuth.
-	Method string
+	Method string `json:"method,omitempty"`
 
 	dip     string // shadow value used to retain formatting
 	azimuth string // shadow value used to retain formatting
@@ -104,11 +104,11 @@ func (o Orientation) AzimuthOk() (float64, bool) {
 type Offset struct {
 	// Vertical represents an adjustment up or down, the exact interpretation will depend on the use case,
 	// although it is assumed to have units of meters.
-	Vertical float64
+	Vertical float64 `json:"vertical,omitempty"`
 	// North can be used to offset the installation to northwards, it is asusmed to have units of meters.
-	North float64
+	North float64 `json:"north,omitempty"`
 	// East can be used to offset the installation to eastwards, it is asusmed to have units of meters.
-	East float64
+	East float64 `json:"east,omitempty"`
 
 	vertical string // shadow value used to retain formatting
 	north    string // shadow value used to retain formatting
@@ -143,9 +143,9 @@ func (o Offset) EastOk() (float64, bool) {
 // rather than fresh water.
 type Scale struct {
 	// Factor can be used to represent a change of scale of the recorded value.
-	Factor float64
+	Factor float64 `json:"factor"`
 	// Bias can be used to represent an offset to the recorded value.
-	Bias float64
+	Bias float64 `json:"bias,omitempty"`
 
 	factor string // shadow value used to retain formatting
 	bias   string // shadow value used to retain formatting
@@ -170,9 +170,10 @@ func (s Scale) BiasOk() (float64, bool) {
 // Span represents a time window.
 type Span struct {
 	// Start represents the beginning of the time window.
-	Start time.Time
+	Start time.Time `json:"start"`
+
 	// End represents the stop time of the window.
-	End time.Time
+	End time.Time `json:"end"`
 }
 
 // Overlaps returns whether the time range of the Span overlaps the given Span.
@@ -281,11 +282,11 @@ func (r Range) String() string {
 // Equipment represents an indiviual piece of hardware.
 type Equipment struct {
 	// Make describes the manufacturer or equipment maker.
-	Make string
+	Make string `json:"make"`
 	// Model describes the manufacturer's model name.
-	Model string
+	Model string `json:"model"`
 	// Serial describes the manufacturer's identification of the device.
-	Serial string
+	Serial string `json:"serial"`
 }
 
 func (e Equipment) String() string {

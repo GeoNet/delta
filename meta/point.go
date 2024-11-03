@@ -34,13 +34,29 @@ var pointHeaders Header = map[string]int{
 	"End Date":   pointEnd,
 }
 
+var PointTable Table = Table{
+	name:    "Point",
+	headers: pointHeaders,
+	primary: []string{"Sample", "Location", "Start Date"},
+	native:  []string{"Latitude", "Longitude", "Elevation", "Depth"},
+	foreign: map[string][]string{
+		"Sample": {"Sample"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Point struct {
 	Position
 	Span
 
-	Sample   string
-	Location string
-	Survey   string
+	Sample   string `json:"sample"`
+	Location string `json:"location"`
+	Survey   string `json:"survey,omitempty"`
 }
 
 func (s Point) Less(point Point) bool {

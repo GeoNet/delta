@@ -34,17 +34,34 @@ var streamHeaders Header = map[string]int{
 	"End Date":      streamEnd,
 }
 
+var StreamTable Table = Table{
+	name:    "Stream",
+	headers: streamHeaders,
+	primary: []string{"Station", "Location", "Source", "Sampling Rate", "Start Date"},
+	native:  []string{"Sampling Rate"},
+	foreign: map[string][]string{
+		"Site": {"Station", "Location"},
+	},
+	remap: map[string]string{
+		"Sampling Rate": "SamplingRate",
+		"Start Date":    "Start",
+		"End Date":      "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Stream struct {
 	Span
 
-	Station      string
-	Location     string
-	Band         string
-	Source       string
-	SamplingRate float64
-	Axial        string
-	Reversed     bool
-	Triggered    bool
+	Station      string  `json:"station"`
+	Location     string  `json:"location"`
+	Band         string  `json:"band"`
+	Source       string  `json:"source"`
+	SamplingRate float64 `json:"sampling-rate"`
+	Axial        string  `json:"axial,omitempty"`
+	Reversed     bool    `json:"reversed,omitempty"`
+	Triggered    bool    `json:"triggered,omitempty"`
 
 	samplingRate string
 }

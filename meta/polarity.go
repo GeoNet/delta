@@ -34,6 +34,25 @@ var polarityHeaders Header = map[string]int{
 	"End Date":    polarityEnd,
 }
 
+var PolarityTable Table = Table{
+	name:    "Polarity",
+	headers: polarityHeaders,
+	primary: []string{"Station", "Location", "Sublocation", "Subsource", "Start Date"},
+	//native:  []string{"Primary", "Reversed"},
+	native: []string{},
+	foreign: map[string][]string{
+		"Site": {"Station", "Location"},
+	},
+	remap: map[string]string{
+		"Primary":    "IsPrimary",
+		"Reversed":   "IsReversed",
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Polarity struct {
 	Span
 

@@ -32,6 +32,29 @@ var gaugeHeaders Header = map[string]int{
 	"End Date":              gaugeEnd,
 }
 
+var GaugeTable Table = Table{
+	name:    "Gauge",
+	headers: gaugeHeaders,
+	//TODO: the Analysis Latitude is a used to avoid an overlap clash on NZC
+	primary: []string{"Gauge", "Identification Number", "Analysis Latitude", "Start Date"},
+	native:  []string{"Analysis Time Zone", "Analysis Latitude", "Analysis Longitude"},
+	foreign: map[string][]string{
+		"Network": {"Network"},
+	},
+	remap: map[string]string{
+		"Gauge":                 "Code",
+		"Identification Number": "Number",
+		"Analysis Time Zone":    "TimeZone",
+		"Analysis Latitude":     "Latitude",
+		"Analysis Longitude":    "Longitude",
+		"Crex Tag":              "Crex",
+		"Start Date":            "Start",
+		"End Date":              "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Gauge struct {
 	Span
 	Reference

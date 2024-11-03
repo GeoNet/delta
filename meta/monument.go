@@ -36,18 +36,39 @@ var monumentHeaders Header = map[string]int{
 	"Geology":             monumentGeology,
 }
 
+var MonumentTable Table = Table{
+	name:    "Monument",
+	headers: monumentHeaders,
+	primary: []string{"Mark"},
+	native:  []string{"Ground Relationship", "Foundation Depth"},
+	foreign: map[string][]string{
+		"Mark": {"Mark"},
+	},
+	remap: map[string]string{
+		"Domes Number":        "DomesNumber",
+		"Mark Type":           "MarkType",
+		"Ground Relationship": "GroundRelationship",
+		"Foundation Type":     "FoundationType",
+		"Foundation Depth":    "FoundationDepth",
+		"Start Date":          "Start",
+		"End Date":            "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Monument struct {
 	Span
 
-	Mark               string
-	DomesNumber        string
-	MarkType           string
-	Type               string
-	GroundRelationship float64
-	FoundationType     string
-	FoundationDepth    float64
-	Bedrock            string
-	Geology            string
+	Mark               string  `json:"mark"`
+	DomesNumber        string  `json:"domes-number"`
+	MarkType           string  `json:"mark-type"`
+	Type               string  `json:"type"`
+	GroundRelationship float64 `json:"ground-relationship"`
+	FoundationType     string  `json:"foundation-type"`
+	FoundationDepth    float64 `json:"foundation-depth"`
+	Bedrock            string  `json:"bedrock"`
+	Geology            string  `json:"geology"`
 
 	groundRelationship string // shadow value to maintain formatting
 	foundationDepth    string // shadow value to maintain formatting
