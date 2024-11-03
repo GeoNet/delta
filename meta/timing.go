@@ -23,6 +23,22 @@ var timingHeaders Header = map[string]int{
 	"End Date":   timingEnd,
 }
 
+var TimingTable Table = Table{
+	name:    "Timing",
+	headers: timingHeaders,
+	primary: []string{"Station", "Location", "Start Date"},
+	native:  []string{},
+	foreign: map[string][]string{
+		"Site": {"Station", "Location"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Timing struct {
 	Span
 

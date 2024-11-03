@@ -34,6 +34,23 @@ var sampleHeaders Header = map[string]int{
 	"End Date":   sampleEnd,
 }
 
+var SampleTable Table = Table{
+	name:    "Sample",
+	headers: sampleHeaders,
+	primary: []string{"Station", "Start Date"},
+	native:  []string{"Latitude", "Longitude", "Elevation", "Depth"},
+	foreign: map[string][]string{
+		"Network": {"Network"},
+	},
+	remap: map[string]string{
+		"Station":    "Code",
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 // Sample represents the location and time span of where data was manually collected.
 type Sample struct {
 	Reference

@@ -44,14 +44,33 @@ var installedSensorHeaders Header = map[string]int{
 	"End Date":     installedSensorEnd,
 }
 
+var InstalledSensorTable Table = Table{
+	name:    "Sensor",
+	headers: installedSensorHeaders,
+	primary: []string{"Make", "Model", "Serial", "Station", "Location", "Start Date"},
+	native:  []string{"Azimuth", "Dip", "Depth", "North", "East", "Scale Factor", "Scale Bias"},
+	foreign: map[string][]string{
+		//            "Asset": {"Make", "Model", "Serial"},
+		"Site": {"Station", "Location"},
+	},
+	remap: map[string]string{
+		"Scale Factor": "Factor",
+		"Scale Bias":   "Bias",
+		"Start Date":   "Start",
+		"End Date":     "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type InstalledSensor struct {
 	Install
 	Orientation
 	Offset
 	Scale
 
-	Station  string
-	Location string
+	Station  string `json:"station"`
+	Location string `json:"location"`
 }
 
 type InstalledSensorList []InstalledSensor

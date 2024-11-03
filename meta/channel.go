@@ -26,6 +26,16 @@ var channelHeaders Header = map[string]int{
 	"Response":     channelResponse,
 }
 
+var ChannelTable Table = Table{
+	name:    "Channel",
+	headers: channelHeaders,
+	primary: []string{"Make", "Model", "Number", "SamplingRate"},
+	native:  []string{"Number", "SamplingRate"},
+	foreign: map[string][]string{
+		"Network": {"Network"},
+	},
+}
+
 // Channel is used to describe a generic recording from a Datalogger.
 type Channel struct {
 	Make         string

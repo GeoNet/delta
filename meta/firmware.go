@@ -34,6 +34,22 @@ type FirmwareHistory struct {
 	Notes   string
 }
 
+var FirmwareHistoryTable Table = Table{
+	name:    "Firmware",
+	headers: firmwareHistoryHeaders,
+	primary: []string{"Make", "Model", "Serial", "Start Date"},
+	native:  []string{},
+	foreign: map[string][]string{
+		"Asset": {"Make", "Model", "Serial"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type FirmwareHistoryList []FirmwareHistory
 
 func (fh FirmwareHistoryList) Len() int           { return len(fh) }
