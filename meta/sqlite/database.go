@@ -104,7 +104,7 @@ func (d Database) Create(table meta.Table) []string {
 			}
 			fmt.Fprintf(&trigger, "\n\t\tAND ")
 		}
-		fmt.Fprintf(&trigger, "\"%s\" < NEW.\"%s\"\n\t\tAND ", table.Remap(start), table.Remap(end))
+		fmt.Fprintf(&trigger, "\"%s\" <= NEW.\"%s\"\n\t\tAND ", table.Remap(start), table.Remap(end))
 		fmt.Fprintf(&trigger, "\"%s\" >  NEW.\"%s\"\n)\n", table.Remap(end), table.Remap(start))
 		fmt.Fprintf(&trigger, "\nBEGIN\n")
 		fmt.Fprintf(&trigger, "SELECT RAISE(FAIL, \"Overlapping Intervals on %s%s\");\n", d.Schema(), table.Name())
