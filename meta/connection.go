@@ -30,7 +30,7 @@ var connectionHeaders Header = map[string]int{
 var ConnectionTable Table = Table{
 	name:    "Connection",
 	headers: connectionHeaders,
-	primary: []string{"Station", "Location", "Place", "Start Date"},
+	primary: []string{"Station", "Location", "Place", "Number", "Start Date"},
 	foreign: map[string][]string{
 		"Site": {"Station", "Location"},
 	},
