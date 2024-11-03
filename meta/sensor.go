@@ -50,8 +50,8 @@ var InstalledSensorTable Table = Table{
 	primary: []string{"Make", "Model", "Serial", "Station", "Location", "Start Date"},
 	native:  []string{"Azimuth", "Dip", "Depth", "North", "East", "Scale Factor", "Scale Bias"},
 	foreign: map[string][]string{
-		//            "Asset": {"Make", "Model", "Serial"},
-		"Site": {"Station", "Location"},
+		"Asset": {"Make", "Model", "Serial"},
+		"Site":  {"Station", "Location"},
 	},
 	remap: map[string]string{
 		"Scale Factor": "Factor",
