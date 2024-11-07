@@ -61,9 +61,9 @@ func Sample(v any) QueryOpt {
 
 func ParseBool(str string) (bool, bool) {
 	switch strings.ToLower(str) {
-	case "y", "yes", "true":
+	case "1", "t", "y", "yes", "true":
 		return true, true
-	case "n", "no", "false":
+	case "0", "f", "n", "no", "false":
 		return false, true
 	default:
 		return false, false
