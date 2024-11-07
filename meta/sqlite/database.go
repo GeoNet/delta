@@ -52,7 +52,7 @@ func (d Database) Create(table meta.Table) []string {
 		case table.IsNative(n):
 			fmt.Fprintf(&create, "  %s REAL", table.Remap(x))
 		case table.IsDateTime(n):
-			fmt.Fprintf(&create, "  %s DATETIME", table.Remap(x))
+			fmt.Fprintf(&create, "  %s DATETIME CHECK (%s IS strftime('%%Y-%%m-%%dT%%H:%%M:%%SZ', %s))", table.Remap(x), table.Remap(x), table.Remap(x))
 		default:
 			fmt.Fprintf(&create, "  %s TEXT", table.Remap(x))
 		}
