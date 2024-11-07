@@ -1,9 +1,10 @@
                     OBSERVATION DATA    M                   RINEX VERSION / TYPE
                                                             PGM / RUN BY / DATE
-AVLN00NZL                                                   MARKER NAME
-5921R40175          TRIMBLE ALLOY       5.45                REC # / TYPE / VERS
-1441047151          TRM57971.00     NONE                    ANT # / TYPE
- -4787496.5711   424505.1612 -4178889.3498                  APPROX POSITION XYZ
+WGTN00NZL                                                   MARKER NAME
+50208M003                                                   MARKER NUMBER
+5921R40132          TRIMBLE ALLOY       5.45                REC # / TYPE / VERS
+1551016811          TRM115000.00    NONE                    ANT # / TYPE
+ -4777269.4080   434270.0582 -4189484.5465                  APPROX POSITION XYZ
         0.0550        0.0000        0.0000                  ANTENNA: DELTA H/E/N
 GEODETIC                                                    MARKER TYPE
 GeoNet              GNS                                     OBSERVER / AGENCY
@@ -18,9 +19,10 @@ R                                                           SYS / PHASE SHIFT
 E                                                           SYS / PHASE SHIFT
 C                                                           SYS / PHASE SHIFT
 J                                                           SYS / PHASE SHIFT
-These data are supplied by GeoNet. GeoNet is core           COMMENT
-funded by NHC, LINZ and MBIE and is operated by             COMMENT
-GNS Science on behalf of stakeholders and all New           COMMENT
-Zealanders. The data policy, disclaimer, licence and        COMMENT
-contact information can be found at www.geonet.org.nz       COMMENT
+This station is part of the LINZ and GeoNet cGNSS networks. COMMENT
+These networks are operated in partnership between Land     COMMENT
+Information New Zealand and GNS Science.                    COMMENT
+This data is licensed for re-use under the Creative Commons COMMENT
+Attribution 4.0 International licence. For more detail      COMMENT
+please refer to https://www.linz.govt.nz/linz-copyright     COMMENT
                                                             END OF HEADER
