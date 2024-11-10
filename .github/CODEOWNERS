@@ -12,7 +12,7 @@ go.sum    @GeoNet/platform-team @GeoNet/ssd-team-developer
 /cmd/    @GeoNet/platform-team @GeoNet/ssd-team-developer
 /internal/    @GeoNet/platform-team @GeoNet/ssd-team-developer
 /meta/    @GeoNet/platform-team @GeoNet/ssd-team-developer
-/resp/    @GeoNet/platform-team @GeoNet/ssd-team-developer
+/resp/    @GeoNet/platform-team @GeoNet/ssd-team-developer @GeoNet/dmc
 /tests/    @GeoNet/platform-team @GeoNet/ssd-team-developer
 /tools/    @GeoNet/platform-team @GeoNet/ssd-team-developer
 /vendor/    @GeoNet/platform-team @GeoNet/ssd-team-developer
