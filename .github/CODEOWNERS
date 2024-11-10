@@ -7,9 +7,12 @@
 *    @ozym @GeoNet/dmc
 
 # Codes and tests for downstream applications
+go.mod    @GeoNet/platform-team @GeoNet/ssd-team-developer
+go.sum    @GeoNet/platform-team @GeoNet/ssd-team-developer
 /cmd/    @GeoNet/platform-team @GeoNet/ssd-team-developer
 /internal/    @GeoNet/platform-team @GeoNet/ssd-team-developer
 /meta/    @GeoNet/platform-team @GeoNet/ssd-team-developer
+/resp/    @GeoNet/platform-team @GeoNet/ssd-team-developer
 /tests/    @GeoNet/platform-team @GeoNet/ssd-team-developer
 /tools/    @GeoNet/platform-team @GeoNet/ssd-team-developer
 /vendor/    @GeoNet/platform-team @GeoNet/ssd-team-developer
