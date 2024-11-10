@@ -40,6 +40,23 @@ type Station struct {
 	Span
 }
 
+var StationTable = Table{
+	name:    "Station",
+	headers: stationHeaders,
+	primary: []string{"Station", "Start Date"},
+	native:  []string{"Latitude", "Longitude", "Elevation", "Depth"},
+	foreign: map[string][]string{
+		"Network": {"Network"},
+	},
+	remap: map[string]string{
+		"Station":    "Code",
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type StationList []Station
 
 func (s StationList) Len() int      { return len(s) }

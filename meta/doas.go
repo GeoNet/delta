@@ -38,6 +38,23 @@ var installedDoasHeaders Header = map[string]int{
 	"End Date":   installedDoasEnd,
 }
 
+var InstalledDoasTable Table = Table{
+	name:    "Doas",
+	headers: installedDoasHeaders,
+	primary: []string{"Make", "Model", "Serial", "Start Date"},
+	native:  []string{"Azimuth", "Dip", "Height", "North", "East"},
+	foreign: map[string][]string{
+		"Asset": {"Make", "Model", "Serial"},
+		"Mount": {"Mount"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type InstalledDoas struct {
 	Install
 	Orientation

@@ -35,6 +35,19 @@ var componentHeaders Header = map[string]int{
 	"Response":      componentResponse,
 }
 
+var ComponentTable Table = Table{
+	name:    "Component",
+	headers: componentHeaders,
+	primary: []string{"Make", "Model", "Number", "Source", "Subsource", "Sampling Rate"},
+	native:  []string{"Number", "Dip", "Azimuth", "Sampling Rate"},
+	foreign: map[string][]string{
+		"Asset": {"Make", "Model"},
+	},
+	remap: map[string]string{
+		"Sampling Rate": "SamplingRate",
+	},
+}
+
 type Component struct {
 	Make         string
 	Model        string
