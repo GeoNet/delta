@@ -9,7 +9,7 @@ conversion of the core c-code to go to build a version that doesn't require the 
 ### options
 
 ```
-Build a DELTA Sqlite DB and optional service
+Build a DELTA Sqlite DB and optional REST API service
 
 Usage:
 
@@ -29,7 +29,10 @@ Options:
         initialise the database if a file on disk
   -listen
         should a web service be enabled
-
+  -resp string
+        base directory of resp files on disk
+  -response string
+        optional database response table name to use (default "Response")
 ```
 
 ### example
