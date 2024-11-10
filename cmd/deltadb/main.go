@@ -105,7 +105,7 @@ func main() {
 
 	if settings.db == "" || settings.init {
 
-		extra := set.KeyValue("Response", "Name", "Response", values)
+		extra := set.KeyValue(settings.response, "Name", "Response", values)
 
 		log.Println("initialise database")
 		start := time.Now()
