@@ -10,21 +10,13 @@ import (
 )
 
 type Database struct {
-	db     *sql.DB
-	schema string
+	db *sql.DB
 }
 
-func New(db *sql.DB, schema string) Database {
+func New(db *sql.DB) Database {
 	return Database{
-		db:     db,
-		schema: schema,
+		db: db,
 	}
-}
-func (d Database) Schema() string {
-	if d.schema != "" {
-		return d.schema + "."
-	}
-	return ""
 }
 
 func (d Database) exec(ctx context.Context, tx *sql.Tx, cmds ...string) error {
@@ -89,7 +81,7 @@ func (d Database) Init(ctx context.Context, tables []meta.TableList) error {
 
 func (d Database) create(table meta.Table) []string {
 	var drop strings.Builder
-	fmt.Fprintf(&drop, "DROP TABLE IF EXISTS %s%s;\n", d.Schema(), table.Name())
+	fmt.Fprintf(&drop, "DROP TABLE IF EXISTS %s;\n", table.Name())
 
 	var create strings.Builder
 
@@ -101,7 +93,7 @@ func (d Database) create(table meta.Table) []string {
 		primary = append(primary, table.Remap(x))
 	}
 
-	fmt.Fprintf(&create, "CREATE TABLE IF NOT EXISTS %s%s(\n", d.Schema(), table.Name())
+	fmt.Fprintf(&create, "CREATE TABLE IF NOT EXISTS %s(\n", table.Name())
 	for n, x := range table.Columns() {
 		if n > 0 {
 			fmt.Fprintf(&create, ",\n")
@@ -153,8 +145,8 @@ func (d Database) create(table meta.Table) []string {
 			primary = append(primary, table.Remap(x))
 		}
 		fmt.Fprintf(&trigger, "CREATE TRIGGER IF NOT EXISTS NoOverlapOn%s", table.Name())
-		fmt.Fprintf(&trigger, " BEFORE INSERT ON %s%s", d.Schema(), table.Name())
-		fmt.Fprintf(&trigger, " WHEN EXISTS (\n  SELECT * FROM %s%s\n    WHERE ", d.Schema(), table.Name())
+		fmt.Fprintf(&trigger, " BEFORE INSERT ON %s", table.Name())
+		fmt.Fprintf(&trigger, " WHEN EXISTS (\n  SELECT * FROM %s\n    WHERE ", table.Name())
 		if len(primary) > 0 {
 			for n, v := range primary {
 				if n > 0 {
@@ -167,7 +159,7 @@ func (d Database) create(table meta.Table) []string {
 		fmt.Fprintf(&trigger, "datetime(%s) <= datetime(NEW.%s)\n    AND ", table.Remap(start), table.Remap(end))
 		fmt.Fprintf(&trigger, "datetime(%s) >  datetime(NEW.%s)\n)\n", table.Remap(end), table.Remap(start))
 		fmt.Fprintf(&trigger, "\nBEGIN\n")
-		fmt.Fprintf(&trigger, "SELECT RAISE(FAIL, \"Overlapping Intervals on %s%s\");\n", d.Schema(), table.Name())
+		fmt.Fprintf(&trigger, "SELECT RAISE(FAIL, \"Overlapping Intervals on %s\");\n", table.Name())
 		fmt.Fprintf(&trigger, "END;\n")
 	}
 
@@ -192,7 +184,7 @@ func (d Database) insert(table meta.Table, list meta.ListEncoder) (string, [][]a
 
 	var sb strings.Builder
 
-	fmt.Fprintf(&sb, "INSERT INTO %s%s (%s) VALUES (%s);\n", d.Schema(), table.Name(), strings.Join(header, ","), strings.Join(parts, ","))
+	fmt.Fprintf(&sb, "INSERT INTO %s (%s) VALUES (%s);\n", table.Name(), strings.Join(header, ","), strings.Join(parts, ","))
 
 	var values [][]any
 	for _, line := range lines[1:] {
