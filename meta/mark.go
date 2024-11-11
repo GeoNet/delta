@@ -34,12 +34,29 @@ var markHeaders Header = map[string]int{
 	"End Date":   markEndTime,
 }
 
+var MarkTable Table = Table{
+	name:    "Mark",
+	headers: markHeaders,
+	primary: []string{"Mark", "Start Date"},
+	native:  []string{"Latitude", "Longitude", "Elevation"},
+	foreign: map[string][]string{
+		"Network": {"Network"},
+	},
+	remap: map[string]string{
+		"Mark":       "Code",
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Mark struct {
 	Reference
 	Position
 	Span
 
-	Igs bool
+	Igs bool `json:"igs,omitempty"`
 }
 
 type MarkList []Mark

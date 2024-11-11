@@ -29,6 +29,21 @@ var featureHeaders Header = map[string]int{
 	"End Date":    featureEnd,
 }
 
+var FeatureTable Table = Table{
+	name:    "Feature",
+	headers: featureHeaders,
+	primary: []string{"Station", "Location", "Sublocation", "Property", "Description", "Aspect", "Start Date"},
+	foreign: map[string][]string{
+		"Site": {"Station", "Location"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Feature struct {
 	Span
 

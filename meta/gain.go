@@ -33,6 +33,26 @@ var gainHeaders Header = map[string]int{
 	"End Date":      gainEnd,
 }
 
+var GainTable Table = Table{
+	name:    "Gain",
+	headers: gainHeaders,
+	primary: []string{"Station", "Location", "Sublocation", "Subsource", "Start Date"},
+	native:  []string{"Scale Factor", "Scale Bias", "Absolute Bias"},
+	foreign: map[string][]string{
+		"Site":    {"Station", "Location"},
+		"Feature": {"Station", "Location", "Sublocation"},
+	},
+	remap: map[string]string{
+		"Scale Factor":  "Factor",
+		"Scale Bias":    "Bias",
+		"Absolute Bias": "Absolute",
+		"Start Date":    "Start",
+		"End Date":      "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 // Gain defines times where sensor installation scaling or offsets are needed, these will be applied to the
 // existing values, i.e. A * X + B => A * A' * X + B * A' + A * B' + C
 // where A' and B' are the gain scale factor and bias and C is the absolute bias.

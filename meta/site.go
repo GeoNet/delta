@@ -34,13 +34,29 @@ var siteHeaders Header = map[string]int{
 	"End Date":   siteEnd,
 }
 
+var SiteTable Table = Table{
+	name:    "Site",
+	headers: siteHeaders,
+	primary: []string{"Station", "Location", "Start Date"},
+	native:  []string{"Latitude", "Longitude", "Elevation", "Depth"},
+	foreign: map[string][]string{
+		"Station": {"Station"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Site struct {
 	Position
 	Span
 
-	Station  string
-	Location string
-	Survey   string
+	Station  string `json:"station"`
+	Location string `json:"location,omitempty"`
+	Survey   string `json:"survey,omitempty"`
 }
 
 func (s Site) Less(site Site) bool {
