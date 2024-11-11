@@ -57,7 +57,7 @@ func main() {
 	flag.StringVar(&settings.base, "base", "", "base directory of delta files on disk")
 	flag.StringVar(&settings.resp, "resp", "", "base directory of resp files on disk")
 	flag.StringVar(&settings.db, "db", "", "name of the database file on disk")
-	flag.StringVar(&settings.response, "response", "response", "optional database response table name to use")
+	flag.StringVar(&settings.response, "response", "Response", "optional database response table name to use")
 	flag.StringVar(&settings.hostport, "hostport", ":8080", "base directory of delta files on disk")
 
 	flag.Parse()
@@ -70,7 +70,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// set recovers the delta tables
+	// resp recovers the response files
 	files, err := resp.ListBase(settings.resp)
 	if err != nil {
 		log.Fatal(err)
@@ -105,6 +105,7 @@ func main() {
 
 	if settings.db == "" || settings.init {
 
+		// insert extra response files
 		extra := set.KeyValue(settings.response, "Name", "Response", values)
 
 		log.Println("initialise database")
