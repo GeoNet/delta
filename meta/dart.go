@@ -23,12 +23,27 @@ var dartHeaders Header = map[string]int{
 	"End Date":       dartEndTime,
 }
 
+var DartTable Table = Table{
+	name:    "Dart",
+	headers: dartHeaders,
+	primary: []string{"Station", "Start Date"},
+	native:  []string{},
+	foreign: map[string][]string{},
+	remap: map[string]string{
+		"WMO Identifier": "WmoIdentifier",
+		"Start Date":     "Start",
+		"End Date":       "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Dart struct {
 	Span
 
-	Station       string
-	Pid           string
-	WmoIdentifier string
+	Station       string `json:"station"`
+	Pid           string `json:"pid"`
+	WmoIdentifier string `json:"wmo-identifier"`
 }
 
 type DartList []Dart

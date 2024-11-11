@@ -27,11 +27,28 @@ var deployedDataloggerHeaders Header = map[string]int{
 	"End Date":   deployedDataloggerEnd,
 }
 
+var DeployedDataloggerTable Table = Table{
+	name:    "Datalogger",
+	headers: deployedDataloggerHeaders,
+	primary: []string{"Make", "Model", "Serial", "Place", "Role", "Start Date"},
+	native:  []string{},
+	foreign: map[string][]string{
+		"Asset":      {"Make", "Model", "Serial"},
+		"Connection": {"Place", "Role"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type DeployedDatalogger struct {
 	Install
 
-	Place string
-	Role  string
+	Place string `json:"place"`
+	Role  string `json:"role,omitempty"`
 }
 
 type DeployedDataloggerList []DeployedDatalogger

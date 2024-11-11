@@ -21,11 +21,22 @@ var networkHeaders Header = map[string]int{
 	"Restricted":  networkRestricted,
 }
 
+var NetworkTable Table = Table{
+	name:    "Network",
+	headers: networkHeaders,
+	primary: []string{"Network"},
+	native:  []string{},
+	foreign: map[string][]string{},
+	remap: map[string]string{
+		"Network": "Code",
+	},
+}
+
 type Network struct {
-	Code        string
-	External    string
-	Description string
-	Restricted  bool
+	Code        string `json:"network"`
+	External    string `json:"external"`
+	Description string `json:"description"`
+	Restricted  bool   `json:"restricted,omitempty"`
 }
 
 type NetworkList []Network
