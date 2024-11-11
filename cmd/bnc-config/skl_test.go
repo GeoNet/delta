@@ -45,6 +45,19 @@ func TestSkeleton(t *testing.T) {
 		t.Errorf("generated skeleton file does not match(%d vs %d):\n%s\n\n%s\n", len(b), len(string(f)), b, string(f))
 	}
 
+	b, err = skeleton("VGWT", "NZL", set, tm.UTC().Unix())
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	f, err = os.ReadFile("./testdata/VGWT00NZL.SKL")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if !bytes.Equal([]byte(b), f) {
+		t.Errorf("generated skeleton file does not match(%d vs %d):\n%s\n\n%s\n", len(b), len(string(f)), b, string(f))
+	}
 }
 
 // tests the case where we unable to generate a skeleton file by given metadata,

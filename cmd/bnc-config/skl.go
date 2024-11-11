@@ -21,7 +21,7 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 			content = fmt.Sprintf(genericHeaderFormat,
 				fmt.Sprintf("%s00%s", code, country), // MARKER NAME
 			)
-			content += obsTypesBody
+			content += obsTypesFour // generic headers use full obsTypesBody
 			if mark.Network == "LI" || mark.Network == "GT" {
 				content += linzComment
 			} else {
@@ -107,6 +107,19 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 		}
 	}
 
+	var session meta.Session
+	for _, s := range set.Sessions() {
+		if s.Mark == code && inWindow(ts, s.Span) {
+			session = s
+			break
+		}
+	}
+
+	if session.Span.Start.IsZero() {
+		err = fmt.Errorf("no effective session found for this time for %s", mark.Code)
+		return
+	}
+
 	if !monument.Span.Start.IsZero() && monument.DomesNumber != "" {
 		content = fmt.Sprintf(headerFormat,
 			fmt.Sprintf("%s00%s", code, country), // MARKER NAME
@@ -123,7 +136,16 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 			x, y, z, //APPROX POSITION XYZ
 			ia.Offset.Vertical, ia.Offset.East, ia.Offset.North) // ANTENNA: DELTA H/E/N
 	}
-	content += obsTypesBody
+
+	switch session.SatelliteSystem {
+	case "GPS+GLO":
+		content += obsTypesTwo
+	case "GPS+GLO+GAL+BDS+QZSS":
+		content += obsTypesFour
+	default:
+		err = fmt.Errorf("not valid a SatelliteSystem (%s) for %s", session.SatelliteSystem, mark.Code)
+		return
+	}
 
 	if mark.Network == "LI" || mark.Network == "GT" {
 		content += linzComment
@@ -162,7 +184,14 @@ const genericHeaderFormat = `                    OBSERVATION DATA    M          
                                                             PGM / RUN BY / DATE
 %-60sMARKER NAME
 `
-const obsTypesBody = `GEODETIC                                                    MARKER TYPE
+const obsTypesTwo = `GEODETIC                                                    MARKER TYPE
+GeoNet              GNS                                     OBSERVER / AGENCY
+G    9 C1C C2W C5X L1C L2W L5X S1C S2W S5X                  SYS / # / OBS TYPES
+R   12 C1C C1P C2C C2P L1C L1P L2C L2P S1C S1P S2C S2P      SYS / # / OBS TYPES
+G                                                           SYS / PHASE SHIFT
+R                                                           SYS / PHASE SHIFT
+`
+const obsTypesFour = `GEODETIC                                                    MARKER TYPE
 GeoNet              GNS                                     OBSERVER / AGENCY
 G    9 C1C C2W C5X L1C L2W L5X S1C S2W S5X                  SYS / # / OBS TYPES
 R   12 C1C C1P C2C C2P L1C L1P L2C L2P S1C S1P S2C S2P      SYS / # / OBS TYPES

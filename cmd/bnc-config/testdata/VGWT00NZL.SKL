@@ -1,0 +1,19 @@
+                    OBSERVATION DATA    M                   RINEX VERSION / TYPE
+                                                            PGM / RUN BY / DATE
+VGWT00NZL                                                   MARKER NAME
+5946R40014          TRIMBLE ALLOY       6.14                REC # / TYPE / VERS
+1441040511          TRM57971.00     NONE                    ANT # / TYPE
+ -4941520.4710   381123.2792 -4002993.4485                  APPROX POSITION XYZ
+        0.0550        0.0000        0.0000                  ANTENNA: DELTA H/E/N
+GEODETIC                                                    MARKER TYPE
+GeoNet              GNS                                     OBSERVER / AGENCY
+G    9 C1C C2W C5X L1C L2W L5X S1C S2W S5X                  SYS / # / OBS TYPES
+R   12 C1C C1P C2C C2P L1C L1P L2C L2P S1C S1P S2C S2P      SYS / # / OBS TYPES
+G                                                           SYS / PHASE SHIFT
+R                                                           SYS / PHASE SHIFT
+These data are supplied by GeoNet. GeoNet is core           COMMENT
+funded by NHC, LINZ and MBIE and is operated by             COMMENT
+GNS Science on behalf of stakeholders and all New           COMMENT
+Zealanders. The data policy, disclaimer, licence and        COMMENT
+contact information can be found at www.geonet.org.nz       COMMENT
+                                                            END OF HEADER
