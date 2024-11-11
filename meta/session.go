@@ -36,6 +36,25 @@ var sessionHeaders Header = map[string]int{
 	"End Date":         sessionEnd,
 }
 
+var SessionTable Table = Table{
+	name:    "Session",
+	headers: sessionHeaders,
+	primary: []string{"Mark", "Interval", "Start Date"},
+	native:  []string{"Elevation Mask"},
+	foreign: map[string][]string{
+		"Mark": {"Mark"},
+	},
+	remap: map[string]string{
+		"Satellite System": "SatelliteSystem",
+		"Elevation Mask":   "ElevationMask",
+		"Header Comment":   "HeaderComment",
+		"Start Date":       "Start",
+		"End Date":         "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Session struct {
 	Span
 

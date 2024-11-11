@@ -34,6 +34,23 @@ var installedAntennaHeaders Header = map[string]int{
 	"End Date":   installedAntennaEnd,
 }
 
+var InstalledAntennaTable Table = Table{
+	name:    "Antenna",
+	headers: installedAntennaHeaders,
+	primary: []string{"Make", "Model", "Serial", "Mark", "Start Date"},
+	native:  []string{"Height", "North", "East", "Azimuth"},
+	foreign: map[string][]string{
+		"Asset": {"Make", "Model", "Serial"},
+		"Mark":  {"Mark"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type InstalledAntenna struct {
 	Install
 	Offset

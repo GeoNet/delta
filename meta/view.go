@@ -32,14 +32,30 @@ var viewHeaders Header = map[string]int{
 	"End Date":    viewEnd,
 }
 
+var ViewTable Table = Table{
+	name:    "View",
+	headers: viewHeaders,
+	primary: []string{"Mount", "View", "Start Date"},
+	native:  []string{"Azimuth", "Dip"},
+	foreign: map[string][]string{
+		"Mount": {"Mount"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type View struct {
 	Orientation
 	Span
 
-	Mount       string
-	Code        string
-	Label       string
-	Description string
+	Mount       string `json:"mount"`
+	Code        string `json:"code"`
+	Label       string `json:"label"`
+	Description string `json:"description"`
 }
 
 type ViewList []View

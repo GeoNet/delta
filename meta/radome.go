@@ -25,6 +25,22 @@ var installedRadomeHeaders Header = map[string]int{
 	"End Date":   installedRadomeEnd,
 }
 
+var InstalledRadomeTable Table = Table{
+	name:    "Radome",
+	headers: installedRadomeHeaders,
+	primary: []string{"Make", "Model", "Serial", "Start Date"},
+	native:  []string{},
+	foreign: map[string][]string{
+		"Mark": {"Mark"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type InstalledRadome struct {
 	Install
 
