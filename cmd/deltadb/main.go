@@ -22,8 +22,7 @@ type Settings struct {
 
 	base string // base directory of delta files on disk
 
-	db     string // name of the database file
-	schema string // name of the database schema
+	db string // name of the database file
 
 	init     bool   // should the database be updated
 	listen   bool   // should a web service be enabled
@@ -54,7 +53,6 @@ func main() {
 
 	flag.StringVar(&settings.base, "base", "", "base directory of delta files on disk")
 	flag.StringVar(&settings.db, "db", "", "name of the database file on disk")
-	flag.StringVar(&settings.schema, "schema", "", "optional database schema to use")
 	flag.StringVar(&settings.hostport, "hostport", ":8080", "base directory of delta files on disk")
 
 	flag.Parse()
@@ -88,7 +86,7 @@ func main() {
 	if settings.db == "" || settings.init {
 		log.Println("initialise database")
 		start := time.Now()
-		if err := sqlite.New(db, settings.schema).Init(ctx, set.TableList()); err != nil {
+		if err := sqlite.New(db).Init(ctx, set.TableList()); err != nil {
 			log.Fatalf("unable to run database exec: %v", err)
 		}
 		log.Printf("database initialised in %s", time.Since(start).String())
