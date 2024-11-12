@@ -40,6 +40,23 @@ var installedCameraHeaders Header = map[string]int{
 	"Notes":      installedCameraNotes,
 }
 
+var InstalledCameraTable Table = Table{
+	name:    "Camera",
+	headers: installedCameraHeaders,
+	primary: []string{"Make", "Model", "Serial", "Start Date"},
+	native:  []string{"Azimuth", "Dip", "Height", "North", "East"},
+	foreign: map[string][]string{
+		"Asset": {"Make", "Model", "Serial"},
+		"Mount": {"Mount"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type InstalledCamera struct {
 	Install
 	Orientation

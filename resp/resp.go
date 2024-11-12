@@ -6,6 +6,9 @@ import (
 	"fmt"
 	"io/fs"
 	"os"
+	"path/filepath"
+	"sort"
+	"strings"
 	"sync"
 )
 
@@ -55,6 +58,54 @@ func LookupBase(base string, response string) ([]byte, error) {
 		return LookupDir(base, response)
 	}
 	return Lookup(response)
+}
+
+// List returns a slice representation of generic embeded stationxml responses.
+func List() ([]string, error) {
+	return ListFS(files)
+}
+
+// ListFS returns a slice representation of generic stationxml responses in the given file system.
+func ListFS(fsys fs.FS) ([]string, error) {
+	files := make(map[string]interface{})
+
+	for _, l := range locations {
+		names, err := fs.Glob(fsys, fmt.Sprintf("%s/*.xml", l))
+		if err != nil {
+			return nil, err
+		}
+
+		// return the first one found
+		for _, name := range names {
+			name = filepath.Base(strings.TrimSuffix(name, filepath.Ext(name)))
+			if _, ok := files[name]; ok {
+				continue
+			}
+			files[name] = true
+		}
+	}
+
+	var list []string
+	for k := range files {
+		list = append(list, k)
+	}
+
+	sort.Strings(list)
+
+	return list, nil
+}
+
+// ListDir returns a slice of generic stationxml responses stored in the given directory.
+func ListDir(path string) ([]string, error) {
+	return ListFS(os.DirFS(path))
+}
+
+// ListBase returns a list of generic stationxml responses in the embedded files if no base directory given.
+func ListBase(base string) ([]string, error) {
+	if base != "" {
+		return ListDir(base)
+	}
+	return List()
 }
 
 type Resp struct {
