@@ -1,36 +1,88 @@
 package sqlite
 
 import (
+	"context"
+	"database/sql"
 	"fmt"
-	"strconv"
 	"strings"
 
 	"github.com/GeoNet/delta/meta"
 )
 
 type Database struct {
-	schema string
+	db *sql.DB
 }
 
-func New(schema string) Database {
+func New(db *sql.DB) Database {
 	return Database{
-		schema: schema,
+		db: db,
 	}
-}
-func (d Database) Schema() string {
-	if d.schema != "" {
-		return d.schema + "."
-	}
-	return ""
 }
 
-func (d Database) Drop(table meta.Table) []string {
+func (d Database) exec(ctx context.Context, tx *sql.Tx, cmds ...string) error {
+	for _, cmd := range cmds {
+		if _, err := tx.ExecContext(ctx, cmd); err != nil {
+			return fmt.Errorf("cmd %q: %w", cmd, err)
+		}
+	}
+	return nil
+}
+
+func (d Database) prepare(ctx context.Context, tx *sql.Tx, cmd string, values ...[]any) error {
+
+	stmt, err := tx.PrepareContext(ctx, cmd)
+	if err != nil {
+		return err
+	}
+	defer stmt.Close()
+
+	for _, v := range values {
+		if _, err := stmt.ExecContext(ctx, v...); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (d Database) Init(ctx context.Context, tables []meta.TableList) error {
+
+	// Get a Tx for making transaction requests.
+	tx, err := d.db.BeginTx(ctx, nil)
+	if err != nil {
+		return err
+	}
+	// Defer a rollback in case anything fails, not actually
+	// worried about any rollback error.
+	defer func() { _ = tx.Rollback() }()
+
+	for _, t := range tables {
+		if err := d.exec(ctx, tx, d.create(t.Table)...); err != nil {
+			return err
+		}
+
+		cmd, values, ok := d.insert(t.Table, t.List)
+		if !ok {
+			continue
+		}
+
+		if err := d.prepare(ctx, tx, cmd, values...); err != nil {
+			return err
+		}
+	}
+
+	// Commit the transaction.
+	if err = tx.Commit(); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d Database) create(table meta.Table) []string {
 	var drop strings.Builder
-	fmt.Fprintf(&drop, "DROP TABLE IF EXISTS %s%s;\n", d.Schema(), table.Name())
-	return []string{drop.String()}
-}
+	fmt.Fprintf(&drop, "DROP TABLE IF EXISTS %s;\n", table.Name())
 
-func (d Database) Create(table meta.Table) []string {
 	var create strings.Builder
 
 	var primary []string
@@ -41,7 +93,7 @@ func (d Database) Create(table meta.Table) []string {
 		primary = append(primary, table.Remap(x))
 	}
 
-	fmt.Fprintf(&create, "CREATE TABLE IF NOT EXISTS %s%s(\n", d.Schema(), table.Name())
+	fmt.Fprintf(&create, "CREATE TABLE IF NOT EXISTS %s(\n", table.Name())
 	for n, x := range table.Columns() {
 		if n > 0 {
 			fmt.Fprintf(&create, ",\n")
@@ -93,8 +145,8 @@ func (d Database) Create(table meta.Table) []string {
 			primary = append(primary, table.Remap(x))
 		}
 		fmt.Fprintf(&trigger, "CREATE TRIGGER IF NOT EXISTS NoOverlapOn%s", table.Name())
-		fmt.Fprintf(&trigger, " BEFORE INSERT ON %s%s", d.Schema(), table.Name())
-		fmt.Fprintf(&trigger, " WHEN EXISTS (\n  SELECT * FROM %s%s\n    WHERE ", d.Schema(), table.Name())
+		fmt.Fprintf(&trigger, " BEFORE INSERT ON %s", table.Name())
+		fmt.Fprintf(&trigger, " WHEN EXISTS (\n  SELECT * FROM %s\n    WHERE ", table.Name())
 		if len(primary) > 0 {
 			for n, v := range primary {
 				if n > 0 {
@@ -107,40 +159,46 @@ func (d Database) Create(table meta.Table) []string {
 		fmt.Fprintf(&trigger, "datetime(%s) <= datetime(NEW.%s)\n    AND ", table.Remap(start), table.Remap(end))
 		fmt.Fprintf(&trigger, "datetime(%s) >  datetime(NEW.%s)\n)\n", table.Remap(end), table.Remap(start))
 		fmt.Fprintf(&trigger, "\nBEGIN\n")
-		fmt.Fprintf(&trigger, "SELECT RAISE(FAIL, \"Overlapping Intervals on %s%s\");\n", d.Schema(), table.Name())
+		fmt.Fprintf(&trigger, "SELECT RAISE(FAIL, \"Overlapping Intervals on %s\");\n", table.Name())
 		fmt.Fprintf(&trigger, "END;\n")
 	}
 
-	return []string{create.String(), trigger.String()}
+	return []string{drop.String(), create.String(), trigger.String()}
 }
 
-func (d Database) Insert(table meta.Table, list meta.ListEncoder) []string {
-	var sb strings.Builder
+func (d Database) insert(table meta.Table, list meta.ListEncoder) (string, [][]any, bool) {
 
 	lines := table.Encode(list)
 	if !(len(lines) > 0) {
-		return nil
+		return "", nil, false
 	}
 
 	var header []string
 	for _, x := range lines[0] {
 		header = append(header, table.Remap(x))
 	}
+	var parts []string
+	for n := range header {
+		parts = append(parts, fmt.Sprintf("$%d", n+1))
+	}
 
+	var sb strings.Builder
+
+	fmt.Fprintf(&sb, "INSERT INTO %s (%s) VALUES (%s);\n", table.Name(), strings.Join(header, ","), strings.Join(parts, ","))
+
+	var values [][]any
 	for _, line := range lines[1:] {
-		var parts []string
+		var parts []any
 		for n, p := range line {
 			switch {
 			case table.IsNative(n) && p == "":
 				parts = append(parts, "0")
-			case table.IsNative(n):
-				parts = append(parts, p)
 			default:
-				parts = append(parts, strconv.Quote(p))
+				parts = append(parts, p)
 			}
 		}
-		fmt.Fprintf(&sb, "INSERT INTO %s%s (%s) VALUES (%s);\n", d.Schema(), table.Name(), strings.Join(header, ","), strings.Join(parts, ","))
+		values = append(values, parts)
 	}
 
-	return []string{sb.String()}
+	return sb.String(), values, true
 }

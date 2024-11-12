@@ -1,5 +1,9 @@
 package meta
 
+import (
+	"sort"
+)
+
 // Table holds internal settings suitable for automatic code generation.
 type Table struct {
 	name    string
@@ -118,78 +122,97 @@ func (t Table) Encode(list ListEncoder) [][]string {
 	return list.encode()
 }
 
-type Database interface {
-	Drop(Table) []string
-	Create(Table) []string
-	Insert(Table, ListEncoder) []string
+// TableList pairs together a Table and a ListEncoder.
+type TableList struct {
+	Table Table
+	List  ListEncoder
 }
 
-func Init(d Database, table Table, list ListEncoder) []string {
-	var res []string
-	for _, v := range d.Drop(table) {
-		if v == "" {
-			continue
-		}
-		res = append(res, v)
-	}
-	for _, v := range d.Create(table) {
-		if v == "" {
-			continue
-		}
-		res = append(res, v)
-	}
-	for _, v := range d.Insert(table, list) {
-		if v == "" {
-			continue
-		}
-		res = append(res, v)
-	}
-
-	return res
+// KeyValue contains key value pairs and their labels.
+type KeyValue struct {
+	label   string
+	desc    string
+	entries map[string]string
 }
 
-// Init builds the set of commands needed to initialise a given database.
-func (s *Set) Init(d Database) []string {
-	var cmds []string
-	cmds = append(cmds, Init(d, NetworkTable, NetworkList(s.Networks()))...)
-	cmds = append(cmds, Init(d, StationTable, StationList(s.Stations()))...)
-	cmds = append(cmds, Init(d, SiteTable, SiteList(s.Sites()))...)
-	cmds = append(cmds, Init(d, MarkTable, MarkList(s.Marks()))...)
-	cmds = append(cmds, Init(d, MonumentTable, MonumentList(s.Monuments()))...)
-	cmds = append(cmds, Init(d, MountTable, MountList(s.Mounts()))...)
-	cmds = append(cmds, Init(d, ViewTable, ViewList(s.Views()))...)
-	cmds = append(cmds, Init(d, SampleTable, SampleList(s.Samples()))...)
-	cmds = append(cmds, Init(d, PointTable, PointList(s.Points()))...)
-	cmds = append(cmds, Init(d, InstalledSensorTable, InstalledSensorList(s.InstalledSensors()))...)
-	cmds = append(cmds, Init(d, InstalledAntennaTable, InstalledAntennaList(s.InstalledAntennas()))...)
-	cmds = append(cmds, Init(d, AssetTable, AssetList(s.Assets()))...)
-	cmds = append(cmds, Init(d, CalibrationTable, CalibrationList(s.Calibrations()))...)
-	cmds = append(cmds, Init(d, InstalledCameraTable, InstalledCameraList(s.InstalledCameras()))...)
-	cmds = append(cmds, Init(d, ChannelTable, ChannelList(s.Channels()))...)
-	cmds = append(cmds, Init(d, CitationTable, CitationList(s.Citations()))...)
-	cmds = append(cmds, Init(d, ClassTable, ClassList(s.Classes()))...)
-	cmds = append(cmds, Init(d, ComponentTable, ComponentList(s.Components()))...)
-	cmds = append(cmds, Init(d, ConnectionTable, ConnectionList(s.Connections()))...)
-	cmds = append(cmds, Init(d, ConstituentTable, ConstituentList(s.Constituents()))...)
-	cmds = append(cmds, Init(d, DartTable, DartList(s.Darts()))...)
-	cmds = append(cmds, Init(d, DeployedDataloggerTable, DeployedDataloggerList(s.DeployedDataloggers()))...)
-	cmds = append(cmds, Init(d, InstalledDoasTable, InstalledDoasList(s.Doases()))...)
-	cmds = append(cmds, Init(d, FeatureTable, FeatureList(s.Features()))...)
-	cmds = append(cmds, Init(d, FirmwareHistoryTable, FirmwareHistoryList(s.FirmwareHistory()))...)
-	cmds = append(cmds, Init(d, GainTable, GainList(s.Gains()))...)
-	cmds = append(cmds, Init(d, GaugeTable, GaugeList(s.Gauges()))...)
-	cmds = append(cmds, Init(d, InstalledMetSensorTable, InstalledMetSensorList(s.InstalledMetSensors()))...)
-	cmds = append(cmds, Init(d, PlacenameTable, PlacenameList(s.Placenames()))...)
-	cmds = append(cmds, Init(d, PolarityTable, PolarityList(s.Polarities()))...)
-	cmds = append(cmds, Init(d, PreampTable, PreampList(s.Preamps()))...)
-	cmds = append(cmds, Init(d, InstalledRadomeTable, InstalledRadomeList(s.InstalledRadomes()))...)
-	cmds = append(cmds, Init(d, DeployedReceiverTable, DeployedReceiverList(s.DeployedReceivers()))...)
-	cmds = append(cmds, Init(d, InstalledRecorderTable, InstalledRecorderList(s.InstalledRecorders()))...)
-	cmds = append(cmds, Init(d, SessionTable, SessionList(s.Sessions()))...)
-	cmds = append(cmds, Init(d, StreamTable, StreamList(s.Streams()))...)
-	cmds = append(cmds, Init(d, TelemetryTable, TelemetryList(s.Telemetries()))...)
-	cmds = append(cmds, Init(d, TimingTable, TimingList(s.Timings()))...)
-	cmds = append(cmds, Init(d, VisibilityTable, VisibilityList(s.Visibilities()))...)
+// encode implements the ListEncoder interface.
+func (kv KeyValue) encode() [][]string {
+	var keys []string
+	for k := range kv.entries {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	list := [][]string{{kv.label, kv.desc}}
+	for _, k := range keys {
+		v, ok := kv.entries[k]
+		if !ok {
+			continue
+		}
+		list = append(list, []string{k, v})
+	}
+	return list
+}
 
-	return cmds
+// KeyValue returns a bespoke TableList for a key value style dataset.
+func (s *Set) KeyValue(name, label, desc string, entries map[string]string) TableList {
+	return TableList{
+		Table: Table{
+			name: name,
+			headers: Header{
+				label: 0,
+				desc:  1,
+			},
+			primary: []string{label},
+		},
+		List: KeyValue{
+			label:   label,
+			desc:    desc,
+			entries: entries,
+		},
+	}
+}
+
+// TableList returns a pre-built set of Tables and associated Lists.
+func (s *Set) TableList(extra ...TableList) []TableList {
+	return append([]TableList{
+		{Table: NetworkTable, List: NetworkList(s.Networks())},
+		{Table: StationTable, List: StationList(s.Stations())},
+		{Table: SiteTable, List: SiteList(s.Sites())},
+		{Table: MarkTable, List: MarkList(s.Marks())},
+		{Table: MonumentTable, List: MonumentList(s.Monuments())},
+		{Table: MountTable, List: MountList(s.Mounts())},
+		{Table: ViewTable, List: ViewList(s.Views())},
+		{Table: SampleTable, List: SampleList(s.Samples())},
+		{Table: PointTable, List: PointList(s.Points())},
+		{Table: InstalledSensorTable, List: InstalledSensorList(s.InstalledSensors())},
+		{Table: InstalledAntennaTable, List: InstalledAntennaList(s.InstalledAntennas())},
+		{Table: AssetTable, List: AssetList(s.Assets())},
+		{Table: CalibrationTable, List: CalibrationList(s.Calibrations())},
+		{Table: InstalledCameraTable, List: InstalledCameraList(s.InstalledCameras())},
+		{Table: ChannelTable, List: ChannelList(s.Channels())},
+		{Table: CitationTable, List: CitationList(s.Citations())},
+		{Table: ClassTable, List: ClassList(s.Classes())},
+		{Table: ComponentTable, List: ComponentList(s.Components())},
+		{Table: ConnectionTable, List: ConnectionList(s.Connections())},
+		{Table: ConstituentTable, List: ConstituentList(s.Constituents())},
+		{Table: DartTable, List: DartList(s.Darts())},
+		{Table: DeployedDataloggerTable, List: DeployedDataloggerList(s.DeployedDataloggers())},
+		{Table: InstalledDoasTable, List: InstalledDoasList(s.Doases())},
+		{Table: FeatureTable, List: FeatureList(s.Features())},
+		{Table: FirmwareHistoryTable, List: FirmwareHistoryList(s.FirmwareHistory())},
+		{Table: GainTable, List: GainList(s.Gains())},
+		{Table: GaugeTable, List: GaugeList(s.Gauges())},
+		{Table: InstalledMetSensorTable, List: InstalledMetSensorList(s.InstalledMetSensors())},
+		{Table: PlacenameTable, List: PlacenameList(s.Placenames())},
+		{Table: PolarityTable, List: PolarityList(s.Polarities())},
+		{Table: PreampTable, List: PreampList(s.Preamps())},
+		{Table: InstalledRadomeTable, List: InstalledRadomeList(s.InstalledRadomes())},
+		{Table: DeployedReceiverTable, List: DeployedReceiverList(s.DeployedReceivers())},
+		{Table: InstalledRecorderTable, List: InstalledRecorderList(s.InstalledRecorders())},
+		{Table: SessionTable, List: SessionList(s.Sessions())},
+		{Table: StreamTable, List: StreamList(s.Streams())},
+		{Table: TelemetryTable, List: TelemetryList(s.Telemetries())},
+		{Table: TimingTable, List: TimingList(s.Timings())},
+		{Table: VisibilityTable, List: VisibilityList(s.Visibilities())},
+	}, extra...)
 }
