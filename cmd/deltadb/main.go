@@ -22,38 +22,11 @@ type Settings struct {
 
 	base string // base directory of delta files on disk
 
-	db     string // name of the database file
-	schema string // name of the database schema
+	db string // name of the database file
 
 	init     bool   // should the database be updated
 	listen   bool   // should a web service be enabled
 	hostport string // hostport to listen on for the web service
-}
-
-func exec(ctx context.Context, db *sql.DB, cmds ...string) error {
-
-	// Get a Tx for making transaction requests.
-	tx, err := db.BeginTx(ctx, nil)
-	if err != nil {
-		return err
-	}
-	// Defer a rollback in case anything fails, not actually
-	// worried about any rollback error.
-	defer func() { _ = tx.Rollback() }()
-
-	// Execute each command within the transaction.
-	for _, cmd := range cmds {
-		if _, err := tx.Exec(cmd); err != nil {
-			return err
-		}
-	}
-
-	// Commit the transaction.
-	if err = tx.Commit(); err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func main() {
@@ -62,7 +35,7 @@ func main() {
 
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "\n")
-		fmt.Fprintf(os.Stderr, "Build a DELTA Sqlite DB and optional service\n")
+		fmt.Fprintf(os.Stderr, "Build a DELTA Sqlite DB and optional REST API service\n")
 		fmt.Fprintf(os.Stderr, "\n")
 		fmt.Fprintf(os.Stderr, "Usage:\n")
 		fmt.Fprintf(os.Stderr, "\n")
@@ -80,7 +53,6 @@ func main() {
 
 	flag.StringVar(&settings.base, "base", "", "base directory of delta files on disk")
 	flag.StringVar(&settings.db, "db", "", "name of the database file on disk")
-	flag.StringVar(&settings.schema, "schema", "", "optional database schema to use")
 	flag.StringVar(&settings.hostport, "hostport", ":8080", "base directory of delta files on disk")
 
 	flag.Parse()
@@ -114,7 +86,7 @@ func main() {
 	if settings.db == "" || settings.init {
 		log.Println("initialise database")
 		start := time.Now()
-		if err := exec(ctx, db, set.Init(sqlite.New(settings.schema))...); err != nil {
+		if err := sqlite.New(db).Init(ctx, set.TableList()); err != nil {
 			log.Fatalf("unable to run database exec: %v", err)
 		}
 		log.Printf("database initialised in %s", time.Since(start).String())

@@ -29,8 +29,6 @@ Options:
         initialise the database if a file on disk
   -listen
         should a web service be enabled
-  -schema string
-        optional database schema to use
 
 ```
 
