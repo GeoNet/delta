@@ -103,3 +103,6 @@ curl -s localhost:8080/station/WEL/site/20/sensor/|jq . | head
     "factor": 0,
   ...
 ```
+
+![Alt text](./delta.svg)
+<img src="./delta.svg">
