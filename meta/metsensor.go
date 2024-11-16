@@ -47,10 +47,11 @@ var InstalledMetSensorTable Table = Table{
 	headers: installedMetSensorHeaders,
 	primary: []string{"Make", "Model", "Serial", "Start Date"},
 	native:  []string{"Latitude", "Longitude", "Elevation", "Humidity", "Pressure", "Temperature"},
-	foreign: map[string][]string{
-		"Asset": {"Make", "Model", "Serial"},
-		"Mark":  {"Mark"},
+	foreign: map[string]map[string]string{
+		"Asset": {"Make": "Make", "Model": "Model", "Serial": "Serial"},
+		"Mark":  {"Mark": "Mark"},
 	},
+	nullable: []string{"IMS Comment"},
 	remap: map[string]string{
 		"IMS Comment": "IMSComment",
 		"Start Date":  "Start",

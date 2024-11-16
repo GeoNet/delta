@@ -39,8 +39,8 @@ var MountTable Table = Table{
 	headers: mountHeaders,
 	primary: []string{"Mount", "Start Date"},
 	native:  []string{"Latitude", "Longitude", "Elevation"},
-	foreign: map[string][]string{
-		"Network": {"Network"},
+	foreign: map[string]map[string]string{
+		"Network": {"Network": "Network"},
 	},
 	remap: map[string]string{
 		"Mount":      "Code",

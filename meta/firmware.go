@@ -39,9 +39,10 @@ var FirmwareHistoryTable Table = Table{
 	headers: firmwareHistoryHeaders,
 	primary: []string{"Make", "Model", "Serial", "Start Date"},
 	native:  []string{},
-	foreign: map[string][]string{
-		"Asset": {"Make", "Model", "Serial"},
+	foreign: map[string]map[string]string{
+		"Asset": {"Make": "Make", "Model": "Model", "Serial": "Serial"},
 	},
+	nullable: []string{"Notes"},
 	remap: map[string]string{
 		"Start Date": "Start",
 		"End Date":   "End",

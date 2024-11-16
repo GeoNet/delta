@@ -34,14 +34,12 @@ var gainHeaders Header = map[string]int{
 }
 
 var GainTable Table = Table{
-	name:    "Gain",
-	headers: gainHeaders,
-	primary: []string{"Station", "Location", "Sublocation", "Subsource", "Start Date"},
-	native:  []string{"Scale Factor", "Scale Bias", "Absolute Bias"},
-	foreign: map[string][]string{
-		"Site":    {"Station", "Location"},
-		"Feature": {"Station", "Location", "Sublocation"},
-	},
+	name:     "Gain",
+	headers:  gainHeaders,
+	primary:  []string{"Station", "Location", "Sublocation", "Subsource", "Start Date"},
+	native:   []string{"Scale Factor", "Scale Bias", "Absolute Bias"},
+	foreign:  map[string]map[string]string{},
+	nullable: []string{"Absolute Bias", "Scale Bias", "Scale Factor", "Sublocation", "Subsource"},
 	remap: map[string]string{
 		"Scale Factor":  "Factor",
 		"Scale Bias":    "Bias",

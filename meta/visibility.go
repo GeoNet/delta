@@ -27,8 +27,8 @@ var VisibilityTable Table = Table{
 	//TODO: needs a column for describing feature
 	primary: []string{"Mark", "Start Date"},
 	native:  []string{},
-	foreign: map[string][]string{
-		"Mark": {"Mark"},
+	foreign: map[string]map[string]string{
+		"Mark": {"Mark": "Mark"},
 	},
 	remap: map[string]string{
 		"Sky Visibility": "SkyVisibility",

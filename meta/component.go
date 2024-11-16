@@ -36,13 +36,12 @@ var componentHeaders Header = map[string]int{
 }
 
 var ComponentTable Table = Table{
-	name:    "Component",
-	headers: componentHeaders,
-	primary: []string{"Make", "Model", "Number", "Source", "Subsource", "Sampling Rate"},
-	native:  []string{"Number", "Dip", "Azimuth", "Sampling Rate"},
-	foreign: map[string][]string{
-		"Asset": {"Make", "Model"},
-	},
+	name:     "Component",
+	headers:  componentHeaders,
+	primary:  []string{"Make", "Model", "Number", "Source", "Subsource", "Sampling Rate"},
+	native:   []string{"Number", "Dip", "Azimuth", "Sampling Rate"},
+	foreign:  map[string]map[string]string{},
+	nullable: []string{"Sampling Rate", "Source", "Type"},
 	remap: map[string]string{
 		"Sampling Rate": "SamplingRate",
 	},

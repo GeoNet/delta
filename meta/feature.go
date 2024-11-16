@@ -33,9 +33,10 @@ var FeatureTable Table = Table{
 	name:    "Feature",
 	headers: featureHeaders,
 	primary: []string{"Station", "Location", "Sublocation", "Property", "Description", "Aspect", "Start Date"},
-	foreign: map[string][]string{
-		"Site": {"Station", "Location"},
+	foreign: map[string]map[string]string{
+		"Site": {"Station": "Station", "Location": "Location"},
 	},
+	nullable: []string{"Aspect", "Description", "Location", "Sublocation"},
 	remap: map[string]string{
 		"Start Date": "Start",
 		"End Date":   "End",

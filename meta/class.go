@@ -38,13 +38,12 @@ var classHeaders Header = map[string]int{
 }
 
 var ClassTable Table = Table{
-	name:    "Class",
-	headers: classHeaders,
-	primary: []string{"Station"},
-	native:  []string{"Vs30", "Basement Depth"},
-	foreign: map[string][]string{
-		"Citations": {"Citation"},
-	},
+	name:     "Class",
+	headers:  classHeaders,
+	primary:  []string{"Station"},
+	native:   []string{"Vs30", "Basement Depth"},
+	foreign:  map[string]map[string]string{},
+	nullable: []string{"Citations", "Link", "Notes"},
 	remap: map[string]string{
 		"Site Class":     "SiteClass",
 		"Vs30 Quality":   "Vs30Quality",

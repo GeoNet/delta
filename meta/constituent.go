@@ -33,8 +33,8 @@ var ConstituentTable Table = Table{
 	headers: constituentHeaders,
 	primary: []string{"Gauge", "Number", "Start Date"},
 	native:  []string{"Amplitude", "Lage"},
-	foreign: map[string][]string{
-		"Gauge": {"Gauge"},
+	foreign: map[string]map[string]string{
+		"Gauge": {"Gauge": "Gauge"},
 	},
 	remap: map[string]string{
 		"Start Date": "Start",

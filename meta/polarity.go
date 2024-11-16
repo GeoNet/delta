@@ -40,9 +40,10 @@ var PolarityTable Table = Table{
 	primary: []string{"Station", "Location", "Sublocation", "Subsource", "Start Date"},
 	//native:  []string{"Primary", "Reversed"},
 	native: []string{},
-	foreign: map[string][]string{
-		"Site": {"Station", "Location"},
+	foreign: map[string]map[string]string{
+		"Site": {"Station": "Station", "Location": "Location"},
 	},
+	nullable: []string{"Citation", "Method", "Sublocation", "Subsource"},
 	remap: map[string]string{
 		"Primary":    "IsPrimary",
 		"Reversed":   "IsReversed",

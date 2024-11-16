@@ -28,7 +28,7 @@ var DartTable Table = Table{
 	headers: dartHeaders,
 	primary: []string{"Station", "Start Date"},
 	native:  []string{},
-	foreign: map[string][]string{},
+	foreign: map[string]map[string]string{},
 	remap: map[string]string{
 		"WMO Identifier": "WmoIdentifier",
 		"Start Date":     "Start",

@@ -37,9 +37,10 @@ var ViewTable Table = Table{
 	headers: viewHeaders,
 	primary: []string{"Mount", "View", "Start Date"},
 	native:  []string{"Azimuth", "Dip"},
-	foreign: map[string][]string{
-		"Mount": {"Mount"},
+	foreign: map[string]map[string]string{
+		"Mount": {"Mount": "Mount"},
 	},
+	nullable: []string{"Label", "Method"},
 	remap: map[string]string{
 		"Start Date": "Start",
 		"End Date":   "End",

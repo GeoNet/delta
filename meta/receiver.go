@@ -30,9 +30,9 @@ var DeployedReceiverTable Table = Table{
 	headers: deployedReceiverHeaders,
 	primary: []string{"Make", "Model", "Serial", "Start Date"},
 	native:  []string{},
-	foreign: map[string][]string{
-		"Asset": {"Make", "Model", "Serial"},
-		"Mark":  {"Mark"},
+	foreign: map[string]map[string]string{
+		"Asset": {"Make": "Make", "Model": "Model", "Serial": "Serial"},
+		"Mark":  {"Mark": "Mark"},
 	},
 	remap: map[string]string{
 		"Start Date": "Start",

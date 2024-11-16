@@ -29,10 +29,11 @@ var assetHeaders Header = map[string]int{
 }
 
 var AssetTable Table = Table{
-	name:    "Asset",
-	headers: assetHeaders,
-	primary: []string{"Make", "Model", "Serial"},
-	foreign: map[string][]string{},
+	name:     "Asset",
+	headers:  assetHeaders,
+	primary:  []string{"Make", "Model", "Serial"},
+	foreign:  map[string]map[string]string{},
+	nullable: []string{"Notes", "Number"},
 }
 
 type AssetList []Asset

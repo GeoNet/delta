@@ -43,9 +43,9 @@ var InstalledDoasTable Table = Table{
 	headers: installedDoasHeaders,
 	primary: []string{"Make", "Model", "Serial", "Start Date"},
 	native:  []string{"Azimuth", "Dip", "Height", "North", "East"},
-	foreign: map[string][]string{
-		"Asset": {"Make", "Model", "Serial"},
-		"Mount": {"Mount"},
+	foreign: map[string]map[string]string{
+		"Asset": {"Make": "Make", "Model": "Model", "Serial": "Serial"},
+		"Mount": {"Mount": "Mount"},
 	},
 	remap: map[string]string{
 		"Start Date": "Start",

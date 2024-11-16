@@ -39,9 +39,10 @@ var SiteTable Table = Table{
 	headers: siteHeaders,
 	primary: []string{"Station", "Location", "Start Date"},
 	native:  []string{"Latitude", "Longitude", "Elevation", "Depth"},
-	foreign: map[string][]string{
-		"Station": {"Station"},
+	foreign: map[string]map[string]string{
+		"Station": {"Station": "Station"},
 	},
+	nullable: []string{"Depth", "Location"}, //TODO: the Location shouldn't be empty
 	remap: map[string]string{
 		"Start Date": "Start",
 		"End Date":   "End",

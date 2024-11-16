@@ -39,9 +39,10 @@ var StreamTable Table = Table{
 	headers: streamHeaders,
 	primary: []string{"Station", "Location", "Source", "Sampling Rate", "Start Date"},
 	native:  []string{"Sampling Rate"},
-	foreign: map[string][]string{
-		"Site": {"Station", "Location"},
+	foreign: map[string]map[string]string{
+		"Site": {"Station": "Station", "Location": "Location"},
 	},
+	nullable: []string{"Band", "Source"},
 	remap: map[string]string{
 		"Sampling Rate": "SamplingRate",
 		"Start Date":    "Start",

@@ -30,11 +30,11 @@ var placenameHeaders Header = map[string]int{
 }
 
 var PlacenameTable Table = Table{
-	name:    "Name",
+	name:    "Placename",
 	headers: placenameHeaders,
 	primary: []string{"Name"},
 	native:  []string{"Latitude", "Longitude", "Level"},
-	foreign: map[string][]string{},
+	foreign: map[string]map[string]string{},
 }
 
 // Placename is used to describe distances and azimuths to known places.

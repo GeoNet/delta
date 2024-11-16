@@ -41,8 +41,14 @@ var CalibrationTable Table = Table{
 	headers: calibrationHeaders,
 	primary: []string{"Make", "Model", "Serial", "Number", "Start Date"},
 	native:  []string{"Scale Factor", "Scale Bias", "Scale Absolute", "Frequency"},
-	foreign: map[string][]string{
-		"Asset": {"Make", "Model", "Serial"},
+	foreign: map[string]map[string]string{
+		"Asset": {"Make": "Make", "Model": "Model", "Serial": "Serial"},
+	},
+	nullable: []string{"Frequency"},
+	defaults: map[string]string{
+		"Scale Factor":   "1.0",
+		"Scale Absolute": "0.0",
+		"Scale Bias":     "0.0",
 	},
 	remap: map[string]string{
 		"Scale Factor":   "ScaleFactor",

@@ -26,7 +26,7 @@ var NetworkTable Table = Table{
 	headers: networkHeaders,
 	primary: []string{"Network"},
 	native:  []string{},
-	foreign: map[string][]string{},
+	foreign: map[string]map[string]string{},
 	remap: map[string]string{
 		"Network": "Code",
 	},

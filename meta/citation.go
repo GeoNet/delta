@@ -34,11 +34,12 @@ var citationHeaders Header = map[string]int{
 }
 
 var CitationTable Table = Table{
-	name:    "Citation",
-	headers: citationHeaders,
-	primary: []string{"Key"},
-	native:  []string{"Year"},
-	foreign: map[string][]string{},
+	name:     "Citation",
+	headers:  citationHeaders,
+	primary:  []string{"Key"},
+	native:   []string{"Year"},
+	foreign:  map[string]map[string]string{},
+	nullable: []string{"DOI", "Link", "Pages", "Published", "Retrieved", "Volume"},
 }
 
 type Citation struct {

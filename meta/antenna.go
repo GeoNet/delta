@@ -39,9 +39,9 @@ var InstalledAntennaTable Table = Table{
 	headers: installedAntennaHeaders,
 	primary: []string{"Make", "Model", "Serial", "Mark", "Start Date"},
 	native:  []string{"Height", "North", "East", "Azimuth"},
-	foreign: map[string][]string{
-		"Asset": {"Make", "Model", "Serial"},
-		"Mark":  {"Mark"},
+	foreign: map[string]map[string]string{
+		"Asset": {"Make": "Make", "Model": "Model", "Serial": "Serial"},
+		"Mark":  {"Mark": "Mark"},
 	},
 	remap: map[string]string{
 		"Start Date": "Start",

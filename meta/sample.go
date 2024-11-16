@@ -39,9 +39,10 @@ var SampleTable Table = Table{
 	headers: sampleHeaders,
 	primary: []string{"Station", "Start Date"},
 	native:  []string{"Latitude", "Longitude", "Elevation", "Depth"},
-	foreign: map[string][]string{
-		"Network": {"Network"},
+	foreign: map[string]map[string]string{
+		"Network": {"Network": "Network"},
 	},
+	nullable: []string{"Depth"},
 	remap: map[string]string{
 		"Station":    "Code",
 		"Start Date": "Start",

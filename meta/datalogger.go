@@ -32,10 +32,11 @@ var DeployedDataloggerTable Table = Table{
 	headers: deployedDataloggerHeaders,
 	primary: []string{"Make", "Model", "Serial", "Place", "Role", "Start Date"},
 	native:  []string{},
-	foreign: map[string][]string{
-		"Asset":      {"Make", "Model", "Serial"},
-		"Connection": {"Place", "Role"},
+	foreign: map[string]map[string]string{
+		"Asset":      {"Make": "Make", "Model": "Model", "Serial": "Serial"},
+		"Connection": {"Place": "Place", "Role": "Role"},
 	},
+	nullable: []string{"Role"},
 	remap: map[string]string{
 		"Start Date": "Start",
 		"End Date":   "End",

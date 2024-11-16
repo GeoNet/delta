@@ -6,15 +6,17 @@ import (
 
 // Table holds internal settings suitable for automatic code generation.
 type Table struct {
-	name    string
-	headers Header
-	primary []string
-	native  []string
-	foreign map[string][]string
-	remap   map[string]string
-	ignore  bool
-	start   string
-	end     string
+	name     string
+	headers  Header
+	primary  []string
+	native   []string
+	foreign  map[string]map[string]string
+	nullable []string
+	defaults map[string]string
+	remap    map[string]string
+	ignore   bool
+	start    string
+	end      string
 }
 
 // Name returns the table name.
@@ -75,6 +77,28 @@ func (t Table) IsNative(col int) bool {
 		return true
 	}
 	return false
+}
+
+// IsNullable returns whether the column can be set to NULL.
+func (t Table) IsNullable(col int) bool {
+	for _, s := range t.nullable {
+		if n, ok := t.headers[s]; !ok || n != col {
+			continue
+		}
+		return true
+	}
+	return false
+}
+
+// HasDefault returns whether the column has a default value.
+func (t Table) HasDefault(col int) (string, bool) {
+	for s, v := range t.defaults {
+		if n, ok := t.headers[s]; !ok || n != col {
+			continue
+		}
+		return v, true
+	}
+	return "", false
 }
 
 // IsDateTime returns whether the column is a date and may need extra formatting.

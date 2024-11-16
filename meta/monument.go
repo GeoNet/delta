@@ -41,9 +41,10 @@ var MonumentTable Table = Table{
 	headers: monumentHeaders,
 	primary: []string{"Mark"},
 	native:  []string{"Ground Relationship", "Foundation Depth"},
-	foreign: map[string][]string{
-		"Mark": {"Mark"},
+	foreign: map[string]map[string]string{
+		"Mark": {"Mark": "Mark"},
 	},
+	nullable: []string{"Domes Number", "Geology", "Bedrock"},
 	remap: map[string]string{
 		"Domes Number":        "DomesNumber",
 		"Mark Type":           "MarkType",

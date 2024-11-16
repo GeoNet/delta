@@ -30,8 +30,8 @@ var InstalledRadomeTable Table = Table{
 	headers: installedRadomeHeaders,
 	primary: []string{"Make", "Model", "Serial", "Start Date"},
 	native:  []string{},
-	foreign: map[string][]string{
-		"Mark": {"Mark"},
+	foreign: map[string]map[string]string{
+		"Mark": {"Mark": "Mark"},
 	},
 	remap: map[string]string{
 		"Start Date": "Start",

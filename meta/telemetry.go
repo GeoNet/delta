@@ -30,8 +30,11 @@ var TelemetryTable Table = Table{
 	headers: telemetryHeaders,
 	primary: []string{"Station", "Location", "Start Date"},
 	native:  []string{"Scale Factor"},
-	foreign: map[string][]string{
-		"Site": {"Station", "Location"},
+	foreign: map[string]map[string]string{
+		"Site": {"Station": "Station", "Location": "Location"},
+	},
+	defaults: map[string]string{
+		"Scale Factor": "1.0",
 	},
 	remap: map[string]string{
 		"Scale Factor": "ScaleFactor",

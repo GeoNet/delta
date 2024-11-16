@@ -27,13 +27,12 @@ var channelHeaders Header = map[string]int{
 }
 
 var ChannelTable Table = Table{
-	name:    "Channel",
-	headers: channelHeaders,
-	primary: []string{"Make", "Model", "Number", "SamplingRate"},
-	native:  []string{"Number", "SamplingRate"},
-	foreign: map[string][]string{
-		"Network": {"Network"},
-	},
+	name:     "Channel",
+	headers:  channelHeaders,
+	primary:  []string{"Make", "Model", "Number", "SamplingRate"},
+	native:   []string{"Number", "SamplingRate"},
+	foreign:  map[string]map[string]string{},
+	nullable: []string{"Number", "Response"},
 }
 
 // Channel is used to describe a generic recording from a Datalogger.

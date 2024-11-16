@@ -28,8 +28,8 @@ var TimingTable Table = Table{
 	headers: timingHeaders,
 	primary: []string{"Station", "Location", "Start Date"},
 	native:  []string{},
-	foreign: map[string][]string{
-		"Site": {"Station", "Location"},
+	foreign: map[string]map[string]string{
+		"Site": {"Station": "Station", "Location": "Location"},
 	},
 	remap: map[string]string{
 		"Start Date": "Start",

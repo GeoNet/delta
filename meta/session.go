@@ -41,8 +41,8 @@ var SessionTable Table = Table{
 	headers: sessionHeaders,
 	primary: []string{"Mark", "Interval", "Start Date"},
 	native:  []string{"Elevation Mask"},
-	foreign: map[string][]string{
-		"Mark": {"Mark"},
+	foreign: map[string]map[string]string{
+		"Mark": {"Mark": "Mark"},
 	},
 	remap: map[string]string{
 		"Satellite System": "SatelliteSystem",

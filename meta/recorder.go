@@ -43,9 +43,10 @@ var InstalledRecorderTable Table = Table{
 	headers: installedRecorderHeaders,
 	primary: []string{"Make", "Sensor", "Datalogger", "Serial", "Start Date"},
 	native:  []string{"Azimuth", "Dip", "Depth"},
-	foreign: map[string][]string{
-		"Asset": {"Make", "Model", "Serial"},
+	foreign: map[string]map[string]string{
+		"Asset": {"Make": "Make", "Model": "Sensor", "Serial": "Serial"},
 	},
+	nullable: []string{"Method"},
 	remap: map[string]string{
 		"Start Date": "Start",
 		"End Date":   "End",

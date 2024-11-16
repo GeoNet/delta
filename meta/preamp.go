@@ -32,9 +32,10 @@ var PreampTable Table = Table{
 	headers: preampHeaders,
 	primary: []string{"Station", "Location", "Subsource", "Start Date"},
 	native:  []string{"Scale Factor"},
-	foreign: map[string][]string{
-		"Site": {"Station", "Location"},
+	foreign: map[string]map[string]string{
+		"Site": {"Station": "Station", "Location": "Location"},
 	},
+	nullable: []string{"Subsource"},
 	remap: map[string]string{
 		"Scale Factor": "ScaleFactor",
 		"Start Date":   "Start",

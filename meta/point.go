@@ -39,9 +39,10 @@ var PointTable Table = Table{
 	headers: pointHeaders,
 	primary: []string{"Sample", "Location", "Start Date"},
 	native:  []string{"Latitude", "Longitude", "Elevation", "Depth"},
-	foreign: map[string][]string{
-		"Sample": {"Sample"},
+	foreign: map[string]map[string]string{
+		"Sample": {"Code": "Sample"},
 	},
+	nullable: []string{"Depth"},
 	remap: map[string]string{
 		"Start Date": "Start",
 		"End Date":   "End",

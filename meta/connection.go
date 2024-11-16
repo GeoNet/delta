@@ -31,9 +31,10 @@ var ConnectionTable Table = Table{
 	name:    "Connection",
 	headers: connectionHeaders,
 	primary: []string{"Station", "Location", "Place", "Number", "Start Date"},
-	foreign: map[string][]string{
-		"Site": {"Station", "Location"},
+	foreign: map[string]map[string]string{
+		"Site": {"Station": "Station", "Location": "Location"},
 	},
+	nullable: []string{"Role", "Number", "Location"},
 	remap: map[string]string{
 		"Start Date": "Start",
 		"End Date":   "End",

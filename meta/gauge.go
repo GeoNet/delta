@@ -38,8 +38,8 @@ var GaugeTable Table = Table{
 	//TODO: the Analysis Latitude is a used to avoid an overlap clash on NZC
 	primary: []string{"Gauge", "Identification Number", "Analysis Latitude", "Start Date"},
 	native:  []string{"Analysis Time Zone", "Analysis Latitude", "Analysis Longitude"},
-	foreign: map[string][]string{
-		"Network": {"Network"},
+	foreign: map[string]map[string]string{
+		"Network": {"Network": "Network"},
 	},
 	remap: map[string]string{
 		"Gauge":                 "Code",
