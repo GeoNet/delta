@@ -1,8 +1,12 @@
 Make,Model,Type,Number,Source,Subsource,Dip,Azimuth,Types,Sampling Rate,Response
-GNS Science,LM35,,0,,O,0,0,W,,sensor_GNS-Science_LM35
-Thompson Sintra Pacific,Scout Hydrophone,Hydrophone,0,,H,0,0,G,,sensor_Unknown_Scout-Hydrophone
 Bartington,Mag670 L-100,Fluxgate Magnetometer,0,,Z,0,0,G,,sensor_Bartington_Mag670
 Boise State University,InfraBSU microphone,Microphone,0,,F,0,0,W,,sensor_Boise-State-University_InfraBSU-microphone
+Canterbury Seismic Instruments,CUSP-M4,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
+Canterbury Seismic Instruments,CUSP-M4,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
+Canterbury Seismic Instruments,CUSP-M4,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
+Canterbury Seismic Instruments,CUSP-Me,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
+Canterbury Seismic Instruments,CUSP-Me,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
+Canterbury Seismic Instruments,CUSP-Me,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
 Canterbury Seismic Instruments,CUSP3A,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3A
 Canterbury Seismic Instruments,CUSP3A,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3A
 Canterbury Seismic Instruments,CUSP3A,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3A
@@ -21,12 +25,6 @@ Canterbury Seismic Instruments,CUSP3D,Strong Motion Sensor,2,,E,0,90,G,,sensor_C
 Canterbury Seismic Instruments,CUSPM,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
 Canterbury Seismic Instruments,CUSPM,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
 Canterbury Seismic Instruments,CUSPM,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
-Canterbury Seismic Instruments,CUSP-Me,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
-Canterbury Seismic Instruments,CUSP-Me,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
-Canterbury Seismic Instruments,CUSP-Me,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
-Canterbury Seismic Instruments,CUSP-M4,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
-Canterbury Seismic Instruments,CUSP-M4,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
-Canterbury Seismic Instruments,CUSP-M4,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_CUSP3C
 Canterbury Seismic Instruments,EQR120,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_Canterbury-Seismic-Instruments_EQR120
 Canterbury Seismic Instruments,EQR120,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_EQR120
 Canterbury Seismic Instruments,EQR120,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_EQR120
@@ -37,26 +35,21 @@ Danish Meteorological Institute,FGE,Fluxgate Magnetometer,2,,Z,-90,0,G,,sensor_D
 Duke University,2 Hz Duke Malin Seismometer,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Duke-University_2-Hz-Duke-Malin-Seismometer
 Duke University,2 Hz Duke Malin Seismometer,Short Period Seismometer,1,,N,0,0,G,,sensor_Duke-University_2-Hz-Duke-Malin-Seismometer
 Duke University,2 Hz Duke Malin Seismometer,Short Period Seismometer,2,,E,0,90,G,,sensor_Duke-University_2-Hz-Duke-Malin-Seismometer
-Streckeisen,STS-2,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Streckeisen_STS-2
-Streckeisen,STS-2,Broadband Seismometer,1,,N,0,0,G,,sensor_Streckeisen_STS-2
-Streckeisen,STS-2,Broadband Seismometer,2,,E,0,90,G,,sensor_Streckeisen_STS-2
-Streckeisen,STS-6A VBB,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Streckeisen_STS-6A
-Streckeisen,STS-6A VBB,Broadband Seismometer,1,,N,0,0,G,,sensor_Streckeisen_STS-6A
-Streckeisen,STS-6A VBB,Broadband Seismometer,2,,E,0,90,G,,sensor_Streckeisen_STS-6A
 GEM Systems,GSM-19,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-19-1s
 GEM Systems,GSM-90,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-90-1s
 GEM Systems,GSM-90F1,Proton Magnetometer,0,,F,0,0,G,1,combined_GEM_Systems_GSM-90F1-1s
+General Electric,Druck PTX-1830,Pressure Sensor,0,,Z,0,0,G,,sensor_General-Electric_Druck-PTX-1830
 General Electric,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,-10,derived_Water-Depth-10s
-General Electric,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,1,derived_Water-Depth-1s
-General Electric,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,10,derived_Water-Depth-10sps
 General Electric,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,-10,derived_Water-Depth-10s
+General Electric,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,1,derived_Water-Depth-1s
 General Electric,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,1,derived_Water-Depth-1s
 General Electric,Druck PTX-1830,Pressure Sensor,0,,T,0,0,G,10,derived_Water-Depth-10sps
-General Electric,Druck PTX-1830,Pressure Sensor,0,,Z,0,0,G,,sensor_General-Electric_Druck-PTX-1830
+General Electric,Druck PTX-1830,Pressure Sensor,0,,H,0,0,G,10,derived_Water-Depth-10sps
+General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,Z,0,0,G,,sensor_General-Electric_Druck-PTX-1830-LAND
 General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,-10,derived_Water-Depth-10s
 General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,1,derived_Water-Depth-1s
 General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,H,0,0,G,10,derived_Water-Depth-10sps
-General Electric,Druck PTX-1830-LAND,Pressure Sensor,0,,Z,0,0,G,,sensor_General-Electric_Druck-PTX-1830-LAND
+GNS Science,LM35,,0,,O,0,0,W,,sensor_GNS-Science_LM35
 Guralp,CMG-3ESP,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-3ESP
 Guralp,CMG-3ESP,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-3ESP
 Guralp,CMG-3ESP,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3ESP
@@ -81,6 +74,9 @@ Guralp,Fortis,Accelerometer,2,,E,0,90,G,,sensor_Guralp_Fortis
 Kinemetrics,FBA-23-DECK,Accelerometer,0,,Z,90,0,G,,sensor_Kinemetrics_FBA-23-DECK
 Kinemetrics,FBA-23-DECK,Accelerometer,1,,N,0,180,G,,sensor_Kinemetrics_FBA-23-DECK
 Kinemetrics,FBA-23-DECK,Accelerometer,2,,E,0,270,G,,sensor_Kinemetrics_FBA-23-DECK
+Kinemetrics,FBA-ES-T,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T
+Kinemetrics,FBA-ES-T,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T
+Kinemetrics,FBA-ES-T,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T
 Kinemetrics,FBA-ES-T-BASALT,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-BASALT
 Kinemetrics,FBA-ES-T-BASALT,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-BASALT
 Kinemetrics,FBA-ES-T-BASALT,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-BASALT
@@ -90,15 +86,12 @@ Kinemetrics,FBA-ES-T-DECK,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T
 Kinemetrics,FBA-ES-T-ETNA-2,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-ETNA-2
 Kinemetrics,FBA-ES-T-ETNA-2,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-ETNA-2
 Kinemetrics,FBA-ES-T-ETNA-2,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-ETNA-2
-Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
-Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
-Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
-Kinemetrics,FBA-ES-T,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T
-Kinemetrics,FBA-ES-T,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T
-Kinemetrics,FBA-ES-T,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T
 Kinemetrics,FBA-ES-T-ISO,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-ISO
 Kinemetrics,FBA-ES-T-ISO,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-ISO
 Kinemetrics,FBA-ES-T-ISO,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-ISO
+Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
+Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
+Kinemetrics,FBA-ES-T-OBSIDIAN,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_FBA-ES-T-OBSIDIAN
 Kinemetrics,SBEPI,Accelerometer,0,,Z,-90,0,G,,sensor_Kinemetrics_SBEPI
 Kinemetrics,SBEPI,Accelerometer,1,,N,0,0,G,,sensor_Kinemetrics_SBEPI
 Kinemetrics,SBEPI,Accelerometer,2,,E,0,90,G,,sensor_Kinemetrics_SBEPI
@@ -114,12 +107,15 @@ Lennartz Electronic,LE-3DliteMkII,Short Period Seismometer,2,,E,0,90,G,,sensor_L
 Lennartz Electronic,LE-3DliteMkIII,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Lennartz_LE-3DliteMkIII
 Lennartz Electronic,LE-3DliteMkIII,Short Period Seismometer,1,,N,0,0,G,,sensor_Lennartz_LE-3DliteMkIII
 Lennartz Electronic,LE-3DliteMkIII,Short Period Seismometer,2,,E,0,90,G,,sensor_Lennartz_LE-3DliteMkIII
-Nanometrics,Titan,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan
-Nanometrics,Titan,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan
-Nanometrics,Titan,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Cascadia Titan TACCL-BH1,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Cascadia Titan TACCL-BH1,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Cascadia Titan TACCL-BH1,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
+Nanometrics,Cascadia Trillium TC120PH-1,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Trillium-Compact-120PH-2
+Nanometrics,Cascadia Trillium TC120PH-1,Broadband Seismometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Trillium-Compact-120PH-2
+Nanometrics,Cascadia Trillium TC120PH-1,Broadband Seismometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Trillium-Compact-120PH-2
+Nanometrics,Titan,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan
+Nanometrics,Titan,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan
+Nanometrics,Titan,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan TACCL-BH1,Accelerometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan TACCL-BH1,Accelerometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Titan
 Nanometrics,Titan TACCL-BH1,Accelerometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Titan
@@ -141,9 +137,6 @@ Nanometrics,Trillium Borehole T120-BH1,Broadband Seismometer,2,,E,0,90,G,,sensor
 Nanometrics,Trillium Borehole T120-BH2,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Trillium-Borehole-T120-BH1
 Nanometrics,Trillium Borehole T120-BH2,Broadband Seismometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Trillium-Borehole-T120-BH1
 Nanometrics,Trillium Borehole T120-BH2,Broadband Seismometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Trillium-Borehole-T120-BH1
-Nanometrics,Cascadia Trillium TC120PH-1,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Trillium-Compact-120PH-2
-Nanometrics,Cascadia Trillium TC120PH-1,Broadband Seismometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Trillium-Compact-120PH-2
-Nanometrics,Cascadia Trillium TC120PH-1,Broadband Seismometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Trillium-Compact-120PH-2
 Nanometrics,Trillium Compact 120,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Trillium-Compact-120
 Nanometrics,Trillium Compact 120,Broadband Seismometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Trillium-Compact-120
 Nanometrics,Trillium Compact 120,Broadband Seismometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Trillium-Compact-120
@@ -168,3 +161,10 @@ Sercel,L4C-3D,Short Period Seismometer,2,,E,0,90,G,,sensor_Sercel_L4C-3D
 Setra,270-600/12V,Barometer,0,,F,0,0,W,,sensor_Setra_270-600-12V
 Setra,270-600/24V,Barometer,0,,F,0,0,W,,sensor_Setra_270-600-24V
 Setra,270-800/12V,Barometer,0,,F,0,0,W,,sensor_Setra_270-800-12V
+Streckeisen,STS-2,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Streckeisen_STS-2
+Streckeisen,STS-2,Broadband Seismometer,1,,N,0,0,G,,sensor_Streckeisen_STS-2
+Streckeisen,STS-2,Broadband Seismometer,2,,E,0,90,G,,sensor_Streckeisen_STS-2
+Streckeisen,STS-6A VBB,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Streckeisen_STS-6A
+Streckeisen,STS-6A VBB,Broadband Seismometer,1,,N,0,0,G,,sensor_Streckeisen_STS-6A
+Streckeisen,STS-6A VBB,Broadband Seismometer,2,,E,0,90,G,,sensor_Streckeisen_STS-6A
+Thompson Sintra Pacific,Scout Hydrophone,Hydrophone,0,,H,0,0,G,,sensor_Unknown_Scout-Hydrophone
