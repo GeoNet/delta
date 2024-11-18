@@ -41,16 +41,16 @@ func TestConsistency(t *testing.T) {
 		f string
 		l meta.List
 	}{
-		"darts": {f: "../network/darts.csv", l: &meta.DartList{}},
-		"marks": {f: "../network/marks.csv", l: &meta.MarkList{}},
-		//"monuments": {f: "../network/monuments.csv", l: &meta.MonumentList{}},
-		"mounts":   {f: "../network/mounts.csv", l: &meta.MountList{}},
-		"networks": {f: "../network/networks.csv", l: &meta.NetworkList{}},
-		"points":   {f: "../network/points.csv", l: &meta.PointList{}},
-		"samples":  {f: "../network/samples.csv", l: &meta.SampleList{}},
-		"sites":    {f: "../network/sites.csv", l: &meta.SiteList{}},
-		"stations": {f: "../network/stations.csv", l: &meta.StationList{}},
-		"views":    {f: "../network/views.csv", l: &meta.ViewList{}},
+		"darts":     {f: "../network/darts.csv", l: &meta.DartList{}},
+		"marks":     {f: "../network/marks.csv", l: &meta.MarkList{}},
+		"monuments": {f: "../network/monuments.csv", l: &meta.MonumentList{}},
+		"mounts":    {f: "../network/mounts.csv", l: &meta.MountList{}},
+		"networks":  {f: "../network/networks.csv", l: &meta.NetworkList{}},
+		"points":    {f: "../network/points.csv", l: &meta.PointList{}},
+		"samples":   {f: "../network/samples.csv", l: &meta.SampleList{}},
+		"sites":     {f: "../network/sites.csv", l: &meta.SiteList{}},
+		"stations":  {f: "../network/stations.csv", l: &meta.StationList{}},
+		"views":     {f: "../network/views.csv", l: &meta.ViewList{}},
 
 		//"antennas":     {f: "../install/antennas.csv", l: &meta.InstalledAntennaList{}},
 		"calibrations": {f: "../install/calibrations.csv", l: &meta.CalibrationList{}},
