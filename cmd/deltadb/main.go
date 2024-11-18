@@ -13,6 +13,7 @@ import (
 
 	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta/sqlite"
+	"github.com/GeoNet/delta/resp"
 
 	_ "modernc.org/sqlite"
 )
@@ -21,8 +22,10 @@ type Settings struct {
 	debug bool // output more operational info
 
 	base string // base directory of delta files on disk
+	resp string // base directory of resp files on disk
 
-	db string // name of the database file
+	db       string // name of the database file
+	response string // name of the database response table
 
 	init     bool   // should the database be updated
 	listen   bool   // should a web service be enabled
@@ -52,7 +55,9 @@ func main() {
 	flag.BoolVar(&settings.listen, "listen", false, "should a web service be enabled")
 
 	flag.StringVar(&settings.base, "base", "", "base directory of delta files on disk")
+	flag.StringVar(&settings.resp, "resp", "", "base directory of resp files on disk")
 	flag.StringVar(&settings.db, "db", "", "name of the database file on disk")
+	flag.StringVar(&settings.response, "response", "Response", "optional database response table name to use")
 	flag.StringVar(&settings.hostport, "hostport", ":8080", "base directory of delta files on disk")
 
 	flag.Parse()
@@ -63,6 +68,21 @@ func main() {
 	set, err := delta.NewBase(settings.base)
 	if err != nil {
 		log.Fatal(err)
+	}
+
+	// resp recovers the response files
+	files, err := resp.ListBase(settings.resp)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	values := make(map[string]string)
+	for _, f := range files {
+		lookup, err := resp.LookupBase(settings.resp, f)
+		if err != nil {
+			log.Fatal(err)
+		}
+		values[f] = string(lookup)
 	}
 
 	path := ":memory:"
@@ -84,9 +104,13 @@ func main() {
 	defer db.Close()
 
 	if settings.db == "" || settings.init {
+
+		// insert extra response files
+		extra := set.KeyValue(settings.response, "Name", "Response", values)
+
 		log.Println("initialise database")
 		start := time.Now()
-		if err := sqlite.New(db).Init(ctx, set.TableList()); err != nil {
+		if err := sqlite.New(db).Init(ctx, set.TableList(extra)); err != nil {
 			log.Fatalf("unable to run database exec: %v", err)
 		}
 		log.Printf("database initialised in %s", time.Since(start).String())
