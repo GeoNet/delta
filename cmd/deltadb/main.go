@@ -6,7 +6,6 @@ import (
 	"flag"
 	"fmt"
 	"log"
-	"net/http"
 	"net/url"
 	"os"
 	"time"
@@ -27,9 +26,7 @@ type Settings struct {
 	db       string // name of the database file
 	response string // name of the database response table
 
-	init     bool   // should the database be updated
-	listen   bool   // should a web service be enabled
-	hostport string // hostport to listen on for the web service
+	init bool // should the database be updated
 }
 
 func main() {
@@ -38,7 +35,7 @@ func main() {
 
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "\n")
-		fmt.Fprintf(os.Stderr, "Build a DELTA Sqlite DB and optional REST API service\n")
+		fmt.Fprintf(os.Stderr, "Build a DELTA Sqlite DB file\n")
 		fmt.Fprintf(os.Stderr, "\n")
 		fmt.Fprintf(os.Stderr, "Usage:\n")
 		fmt.Fprintf(os.Stderr, "\n")
@@ -52,13 +49,10 @@ func main() {
 
 	flag.BoolVar(&settings.debug, "debug", false, "add extra operational info")
 	flag.BoolVar(&settings.init, "init", false, "initialise the database if a file on disk")
-	flag.BoolVar(&settings.listen, "listen", false, "should a web service be enabled")
-
 	flag.StringVar(&settings.base, "base", "", "base directory of delta files on disk")
 	flag.StringVar(&settings.resp, "resp", "", "base directory of resp files on disk")
 	flag.StringVar(&settings.db, "db", "", "name of the database file on disk")
 	flag.StringVar(&settings.response, "response", "Response", "optional database response table name to use")
-	flag.StringVar(&settings.hostport, "hostport", ":8080", "base directory of delta files on disk")
 
 	flag.Parse()
 
@@ -106,7 +100,7 @@ func main() {
 	if settings.db == "" || settings.init {
 
 		// insert extra response files
-		extra := set.KeyValue(settings.response, "Name", "Response", values)
+		extra := set.KeyValue(settings.response, "Response", "XML", values)
 
 		log.Println("initialise database")
 		start := time.Now()
@@ -114,20 +108,5 @@ func main() {
 			log.Fatalf("unable to run database exec: %v", err)
 		}
 		log.Printf("database initialised in %s", time.Since(start).String())
-	}
-
-	if !settings.listen {
-		return
-	}
-
-	log.Printf("handling requests on %s", settings.hostport)
-	server := &http.Server{
-		Addr:              settings.hostport,
-		Handler:           newHandler(db),
-		ReadHeaderTimeout: 3 * time.Second,
-	}
-
-	if err := server.ListenAndServe(); err != nil {
-		panic(err)
 	}
 }

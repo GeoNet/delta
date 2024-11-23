@@ -1,6 +1,7 @@
 package meta
 
 import (
+	"slices"
 	"sort"
 )
 
@@ -174,7 +175,8 @@ func (s *Set) KeyValue(name, label, desc string, entries map[string]string) Tabl
 
 // TableList returns a pre-built set of Tables and associated Lists.
 func (s *Set) TableList(extra ...TableList) []TableList {
-	return append([]TableList{
+	return append(slices.Clone(extra), []TableList{
+		{Table: AssetTable, List: AssetList(s.Assets())},
 		{Table: NetworkTable, List: NetworkList(s.Networks())},
 		{Table: StationTable, List: StationList(s.Stations())},
 		{Table: SiteTable, List: SiteList(s.Sites())},
@@ -186,7 +188,6 @@ func (s *Set) TableList(extra ...TableList) []TableList {
 		{Table: PointTable, List: PointList(s.Points())},
 		{Table: InstalledSensorTable, List: InstalledSensorList(s.InstalledSensors())},
 		{Table: InstalledAntennaTable, List: InstalledAntennaList(s.InstalledAntennas())},
-		{Table: AssetTable, List: AssetList(s.Assets())},
 		{Table: CalibrationTable, List: CalibrationList(s.Calibrations())},
 		{Table: InstalledCameraTable, List: InstalledCameraList(s.InstalledCameras())},
 		{Table: ChannelTable, List: ChannelList(s.Channels())},
@@ -214,5 +215,5 @@ func (s *Set) TableList(extra ...TableList) []TableList {
 		{Table: TelemetryTable, List: TelemetryList(s.Telemetries())},
 		{Table: TimingTable, List: TimingList(s.Timings())},
 		{Table: VisibilityTable, List: VisibilityList(s.Visibilities())},
-	}, extra...)
+	}...)
 }

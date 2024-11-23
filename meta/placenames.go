@@ -30,7 +30,7 @@ var placenameHeaders Header = map[string]int{
 }
 
 var PlacenameTable Table = Table{
-	name:    "Name",
+	name:    "Placename",
 	headers: placenameHeaders,
 	primary: []string{"Name"},
 	native:  []string{"Latitude", "Longitude", "Level"},
