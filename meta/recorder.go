@@ -38,6 +38,22 @@ var installedRecorderHeaders Header = map[string]int{
 	"End Date":   installedRecorderEnd,
 }
 
+var InstalledRecorderTable Table = Table{
+	name:    "Recorder",
+	headers: installedRecorderHeaders,
+	primary: []string{"Make", "Sensor", "Datalogger", "Serial", "Start Date"},
+	native:  []string{"Azimuth", "Dip", "Depth"},
+	foreign: map[string][]string{
+		"Asset": {"Make", "Model", "Serial"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type InstalledRecorder struct {
 	InstalledSensor
 

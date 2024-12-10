@@ -36,16 +36,35 @@ var calibrationHeaders Header = map[string]int{
 	"End Date":       calibrationEnd,
 }
 
+var CalibrationTable Table = Table{
+	name:    "Calibration",
+	headers: calibrationHeaders,
+	primary: []string{"Make", "Model", "Serial", "Number", "Start Date"},
+	native:  []string{"Scale Factor", "Scale Bias", "Scale Absolute", "Frequency"},
+	foreign: map[string][]string{
+		"Asset": {"Make", "Model", "Serial"},
+	},
+	remap: map[string]string{
+		"Scale Factor":   "ScaleFactor",
+		"Scale Bias":     "ScaleBias",
+		"Scale Absolute": "ScaleAbsolute",
+		"Start Date":     "Start",
+		"End Date":       "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 // Calibration defines times where sensor scaling or offsets are needed, these will be overwrite the
 // existing values, i.e. A + BX => A' + B' X, where A' and B' are the given bias and scaling factors.
 type Calibration struct {
 	Install
 
-	ScaleFactor   float64
-	ScaleBias     float64
-	ScaleAbsolute float64
-	Frequency     float64
-	Number        int
+	ScaleFactor   float64 `json:"scale-factor"`
+	ScaleBias     float64 `json:"scale-bias"`
+	ScaleAbsolute float64 `json:"scale-absolute"`
+	Frequency     float64 `json:"scale-frequency"`
+	Number        int     `json:"number"`
 
 	factor    string
 	bias      string

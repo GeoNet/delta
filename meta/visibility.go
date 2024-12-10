@@ -21,6 +21,26 @@ var visibilityHeaders Header = map[string]int{
 	"End Date":       visibilityEndTime,
 }
 
+var VisibilityTable Table = Table{
+	name:    "Visibility",
+	headers: visibilityHeaders,
+	//TODO: needs a column for describing feature
+	primary: []string{"Mark", "Start Date"},
+	native:  []string{},
+	foreign: map[string][]string{
+		"Mark": {"Mark"},
+	},
+	remap: map[string]string{
+		"Sky Visibility": "SkyVisibility",
+		"Start Date":     "Start",
+		"End Date":       "End",
+	},
+	//TODO: a work around to avoid overlap checking
+	ignore: true,
+	start:  "Start Date",
+	end:    "End Date",
+}
+
 type Visibility struct {
 	Span
 	Mark          string

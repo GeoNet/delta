@@ -25,6 +25,23 @@ var deployedReceiverHeaders Header = map[string]int{
 	"End Date":   deployedReceiverEnd,
 }
 
+var DeployedReceiverTable Table = Table{
+	name:    "Receiver",
+	headers: deployedReceiverHeaders,
+	primary: []string{"Make", "Model", "Serial", "Start Date"},
+	native:  []string{},
+	foreign: map[string][]string{
+		"Asset": {"Make", "Model", "Serial"},
+		"Mark":  {"Mark"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type DeployedReceiver struct {
 	Install
 

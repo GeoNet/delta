@@ -1,2 +1,4 @@
 Mark,Domes Number,Mark Type,Type,Ground Relationship,Foundation Type,Foundation Depth,Start Date,End Date,Bedrock,Geology
 AVLN,,Forced Centering,Steel Mast,-14.16,Stainless Steel Rod,0,2006-02-24T00:00:00Z,9999-01-01T00:00:00Z,,
+WGTN,50208M003,Forced Centering,Pillar,-0.609,Reinforced Concrete,2,1996-05-17T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
+VGWT,,Forced Centering,Pillar,-1.345,Reinforced Concrete,2,2004-03-19T00:00:00Z,9999-01-01T00:00:00Z,,

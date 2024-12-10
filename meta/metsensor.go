@@ -42,6 +42,24 @@ var installedMetSensorHeaders Header = map[string]int{
 	"End Date":    installedMetSensorStop,
 }
 
+var InstalledMetSensorTable Table = Table{
+	name:    "MetSensor",
+	headers: installedMetSensorHeaders,
+	primary: []string{"Make", "Model", "Serial", "Start Date"},
+	native:  []string{"Latitude", "Longitude", "Elevation", "Humidity", "Pressure", "Temperature"},
+	foreign: map[string][]string{
+		"Asset": {"Make", "Model", "Serial"},
+		"Mark":  {"Mark"},
+	},
+	remap: map[string]string{
+		"IMS Comment": "IMSComment",
+		"Start Date":  "Start",
+		"End Date":    "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type MetSensorAccuracy struct {
 	Humidity    float64
 	Pressure    float64

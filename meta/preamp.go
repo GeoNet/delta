@@ -27,6 +27,23 @@ var preampHeaders Header = map[string]int{
 	"End Date":     preampEnd,
 }
 
+var PreampTable Table = Table{
+	name:    "Preamp",
+	headers: preampHeaders,
+	primary: []string{"Station", "Location", "Subsource", "Start Date"},
+	native:  []string{"Scale Factor"},
+	foreign: map[string][]string{
+		"Site": {"Station", "Location"},
+	},
+	remap: map[string]string{
+		"Scale Factor": "ScaleFactor",
+		"Start Date":   "Start",
+		"End Date":     "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 // Preamp describes when a datalogger is using an analogue pre-amplification gain setting to boost the input signal.
 type Preamp struct {
 	Span
