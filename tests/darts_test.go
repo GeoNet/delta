@@ -18,7 +18,7 @@ var dartChecks = map[string]func(*meta.Set) func(t *testing.T){
 					if darts[i].Station != darts[j].Station {
 						continue
 					}
-					t.Errorf("dart duplication: " + darts[i].Station)
+					t.Errorf("dart duplication: %s", darts[i].Station)
 				}
 			}
 		}
