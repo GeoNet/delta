@@ -8,14 +8,14 @@ import (
 
 // Collection describes the period where a sensor and a datalogger are co-located at a site with the associated streams.
 type Collection struct {
-	Span
+	Span `json:"span"`
 
-	Stream
-	Channel
-	Component
+	Stream    `json:"stream"`
+	Channel   `json:"channel"`
+	Component `json:"component"`
 
-	InstalledSensor
-	DeployedDatalogger
+	InstalledSensor    `json:"installed-sensor"`
+	DeployedDatalogger `json:"deployed-datalogger"`
 }
 
 // Less compares whether one Collection will sort before another.

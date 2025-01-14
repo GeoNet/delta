@@ -32,7 +32,7 @@ func TestFiles_Config(t *testing.T) {
 	}
 
 	// build config from test files
-	config, err := NewConfig(set, caster, true)
+	config, err := NewConfig(set, caster)
 	if err != nil {
 		t.Fatal(err)
 	}

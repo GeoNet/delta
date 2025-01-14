@@ -25,6 +25,23 @@ var telemetryHeaders Header = map[string]int{
 	"End Date":     telemetryEnd,
 }
 
+var TelemetryTable Table = Table{
+	name:    "Telemetry",
+	headers: telemetryHeaders,
+	primary: []string{"Station", "Location", "Start Date"},
+	native:  []string{"Scale Factor"},
+	foreign: map[string][]string{
+		"Site": {"Station", "Location"},
+	},
+	remap: map[string]string{
+		"Scale Factor": "ScaleFactor",
+		"Start Date":   "Start",
+		"End Date":     "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 // Telemetry describes when a datalogger is connected to a sensor via analogue telemetry (e.g. FM radio).
 type Telemetry struct {
 	Span

@@ -28,6 +28,22 @@ var constituentHeaders Header = map[string]int{
 	"End Date":    constituentEnd,
 }
 
+var ConstituentTable Table = Table{
+	name:    "Constituent",
+	headers: constituentHeaders,
+	primary: []string{"Gauge", "Number", "Start Date"},
+	native:  []string{"Amplitude", "Lage"},
+	foreign: map[string][]string{
+		"Gauge": {"Gauge"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Constituent struct {
 	Span
 
