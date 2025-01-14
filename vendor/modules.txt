@@ -70,7 +70,7 @@ golang.org/x/text/language
 golang.org/x/text/runes
 golang.org/x/text/transform
 golang.org/x/text/unicode/norm
-# google.golang.org/protobuf v1.36.2
+# google.golang.org/protobuf v1.36.3
 ## explicit; go 1.21
 google.golang.org/protobuf/encoding/prototext
 google.golang.org/protobuf/encoding/protowire
@@ -105,7 +105,7 @@ gopkg.in/yaml.v2
 # modernc.org/gc/v3 v3.0.0-20250105121824-520be1a3aee6
 ## explicit; go 1.22.0
 modernc.org/gc/v3
-# modernc.org/libc v1.61.7
+# modernc.org/libc v1.61.8
 ## explicit; go 1.21
 modernc.org/libc
 modernc.org/libc/errno
@@ -136,7 +136,7 @@ modernc.org/libc/wctype
 # modernc.org/mathutil v1.7.1
 ## explicit; go 1.21
 modernc.org/mathutil
-# modernc.org/memory v1.8.1
+# modernc.org/memory v1.8.2
 ## explicit; go 1.21
 modernc.org/memory
 # modernc.org/sqlite v1.34.4

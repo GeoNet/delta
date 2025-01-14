@@ -27,7 +27,7 @@ var streamChecks = map[string]func(*meta.Set) func(t *testing.T){
 		return func(t *testing.T) {
 			for _, c := range set.Streams() {
 				if c.Start.After(c.End) {
-					t.Error("stream span mismatch: " + strings.Join([]string{
+					t.Errorf("stream span mismatch: %s", strings.Join([]string{
 						c.Station,
 						c.Location,
 						c.Source,
@@ -64,7 +64,7 @@ var streamChecks = map[string]func(*meta.Set) func(t *testing.T){
 						continue
 					}
 
-					t.Errorf("stream overlap: " + strings.Join([]string{
+					t.Errorf("stream overlap: %s", strings.Join([]string{
 						streams[i].Station,
 						streams[i].Location,
 						streams[i].Source,
@@ -81,7 +81,7 @@ var streamChecks = map[string]func(*meta.Set) func(t *testing.T){
 		return func(t *testing.T) {
 			for _, s := range set.Streams() {
 				if s.SamplingRate == 0 {
-					t.Errorf("invalid stream sample rate: " + strings.Join([]string{
+					t.Errorf("invalid stream sample rate: %s", strings.Join([]string{
 						s.Station,
 						s.Location,
 						s.Source,
@@ -102,7 +102,7 @@ var streamChecks = map[string]func(*meta.Set) func(t *testing.T){
 
 			for _, c := range set.Streams() {
 				if _, ok := stas[c.Station]; !ok {
-					t.Error("unknown stream station: " + c.Station)
+					t.Errorf("unknown stream station: %s", c.Station)
 				}
 			}
 		}
@@ -151,7 +151,7 @@ var streamChecks = map[string]func(*meta.Set) func(t *testing.T){
 
 			for _, c := range set.Streams() {
 				if _, ok := sites[c.Station]; !ok {
-					t.Error("unknown stream station: " + c.Station)
+					t.Errorf("unknown stream station: %s", c.Station)
 				}
 			}
 		}
@@ -175,7 +175,7 @@ var streamChecks = map[string]func(*meta.Set) func(t *testing.T){
 					s string
 					l string
 				}{s: c.Station, l: c.Location}]; !ok {
-					t.Error("unknown stream station/location: " + c.Station + "/" + c.Location)
+					t.Errorf("unknown stream station/location: %s/%s", c.Station, c.Location)
 				}
 			}
 		}

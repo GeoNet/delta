@@ -32,7 +32,7 @@ var connectionChecks = map[string]func(*meta.Set) func(t *testing.T){
 					if connections[i].End.Before(connections[j].Start) {
 						continue
 					}
-					t.Errorf("connection overlap: " + strings.Join([]string{
+					t.Errorf("connection overlap: %s", strings.Join([]string{
 						connections[i].Station,
 						connections[i].Location,
 						strconv.Itoa(connections[i].Number),
@@ -48,7 +48,7 @@ var connectionChecks = map[string]func(*meta.Set) func(t *testing.T){
 		return func(t *testing.T) {
 			for _, c := range set.Connections() {
 				if c.Start.After(c.End) {
-					t.Error("connection span mismatch: " + strings.Join([]string{
+					t.Errorf("connection span mismatch: %s", strings.Join([]string{
 						c.Station,
 						c.Location,
 						strconv.Itoa(c.Number),
@@ -69,7 +69,7 @@ var connectionChecks = map[string]func(*meta.Set) func(t *testing.T){
 			}
 			for _, c := range set.Connections() {
 				if _, ok := stas[c.Station]; !ok {
-					t.Error("unknown connection station: " + c.Station)
+					t.Errorf("unknown connection station: %s", c.Station)
 				}
 			}
 		}
@@ -85,7 +85,7 @@ var connectionChecks = map[string]func(*meta.Set) func(t *testing.T){
 
 			for _, c := range set.Connections() {
 				if _, ok := stations[c.Station]; !ok {
-					t.Error("unknown connection station: " + c.Station)
+					t.Errorf("unknown connection station: %s", c.Station)
 				}
 			}
 		}
@@ -104,7 +104,7 @@ var connectionChecks = map[string]func(*meta.Set) func(t *testing.T){
 
 			for _, c := range set.Connections() {
 				if _, ok := sites[c.Station]; !ok {
-					t.Error("unknown connection station: " + c.Station)
+					t.Errorf("unknown connection station: %s", c.Station)
 				}
 			}
 			for _, c := range set.Connections() {
@@ -113,7 +113,7 @@ var connectionChecks = map[string]func(*meta.Set) func(t *testing.T){
 				}
 
 				if _, ok := sites[c.Station][c.Location]; !ok {
-					t.Error("unknown connection station/location: " + c.Station + "/" + c.Location)
+					t.Errorf("unknown connection station/location: %s/%s", c.Station, c.Location)
 				}
 			}
 		}
@@ -137,11 +137,11 @@ var connectionChecks = map[string]func(*meta.Set) func(t *testing.T){
 				switch c.Role {
 				case "":
 					if _, ok := places[c.Place]; !ok {
-						t.Error("error: unknown datalogger place: " + c.Place)
+						t.Errorf("error: unknown datalogger place: %s", c.Place)
 					}
 				default:
 					if _, ok := places[c.Place+"/"+c.Role]; !ok {
-						t.Error("error: unknown datalogger place/role: " + c.Place + "/" + c.Role)
+						t.Errorf("error: unknown datalogger place/role: %s/%s", c.Place, c.Role)
 					}
 				}
 			}

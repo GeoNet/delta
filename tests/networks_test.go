@@ -16,7 +16,7 @@ var networkChecks = map[string]func(*meta.Set) func(t *testing.T){
 			for i := 0; i < len(networks); i++ {
 				for j := i + 1; j < len(networks); j++ {
 					if networks[i].Code == networks[j].Code {
-						t.Errorf("network duplication: " + networks[i].Code)
+						t.Errorf("network duplication: %s", networks[i].Code)
 					}
 				}
 			}
