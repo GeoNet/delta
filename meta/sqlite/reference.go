@@ -47,4 +47,5 @@ var citation = Table{
 		return "INSERT INTO citation (key, author, year, title, published, volume, pages, doi, link, retrieved) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
 	},
 	Fields: []string{"Key", "Author", "Year", "Title", "Published", "Volume", "Pages", "DOI", "Link", "Retrieved"},
+	Nulls:  []string{"Published", "Volume", "Pages", "DOI", "Link", "Retrieved"},
 }
