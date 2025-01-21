@@ -16,7 +16,7 @@ var monumentChecks = map[string]func(*meta.Set) func(t *testing.T){
 			for i := 0; i < len(monuments); i++ {
 				for j := i + 1; j < len(monuments); j++ {
 					if monuments[i].Mark == monuments[j].Mark {
-						t.Errorf("monument duplication: " + monuments[i].Mark)
+						t.Errorf("monument duplication: %s", monuments[i].Mark)
 					}
 				}
 			}

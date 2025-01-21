@@ -19,7 +19,7 @@ var gaugeChecks = map[string]func(*meta.Set) func(t *testing.T){
 					if !gauges[i].Start.Equal(gauges[j].Start) {
 						continue
 					}
-					t.Errorf("gauge code duplication: " + gauges[i].Code)
+					t.Errorf("gauge code duplication: %s", gauges[i].Code)
 				}
 			}
 			for i := 0; i < len(gauges); i++ {
@@ -33,7 +33,7 @@ var gaugeChecks = map[string]func(*meta.Set) func(t *testing.T){
 					if !gauges[i].Start.Equal(gauges[j].Start) {
 						continue
 					}
-					t.Errorf("gauge number duplication: " + gauges[i].Code)
+					t.Errorf("gauge number duplication: %s", gauges[i].Code)
 				}
 			}
 		}
@@ -47,7 +47,7 @@ var gaugeChecks = map[string]func(*meta.Set) func(t *testing.T){
 
 			for _, g := range set.Gauges() {
 				if _, ok := stas[g.Code]; !ok {
-					t.Error("unknown gauge station: " + g.Code)
+					t.Errorf("unknown gauge station: %s", g.Code)
 				}
 
 			}

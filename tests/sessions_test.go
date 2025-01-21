@@ -23,7 +23,7 @@ var sessionChecks = map[string]func(*meta.Set) func(t *testing.T){
 						continue
 					}
 					if sessions[i].End.Equal(sessions[j].Start) {
-						t.Errorf("session start matches end: " + strings.Join([]string{
+						t.Errorf("session start matches end: %s", strings.Join([]string{
 							sessions[i].Mark,
 							sessions[i].Interval.String(),
 							sessions[i].Start.String(),

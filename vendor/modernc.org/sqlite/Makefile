@@ -37,8 +37,8 @@ build_all_targets:
 	GOOS=linux GOARCH=riscv64 go build -v ./...
 	GOOS=linux GOARCH=s390x go test -c -o /dev/null
 	GOOS=linux GOARCH=s390x go build -v ./...
-	GOOS=netbsd GOARCH=amd64 go test -c -o /dev/null
-	GOOS=netbsd GOARCH=amd64 go build -v ./...
+	# GOOS=netbsd GOARCH=amd64 go test -c -o /dev/null
+	# GOOS=netbsd GOARCH=amd64 go build -v ./...
 	GOOS=openbsd GOARCH=amd64 go test -c -o /dev/null
 	GOOS=openbsd GOARCH=amd64 go build -v ./...
 	GOOS=openbsd GOARCH=arm64 go test -c -o /dev/null
@@ -57,7 +57,7 @@ clean:
 
 edit:
 	@touch log
-	@if [ -f "Session.vim" ]; then novim -S & else novim -p Makefile go.mod builder.json all_test.go vendor_libsqlite3.go & fi
+	@if [ -f "Session.vim" ]; then gvim -S & else gvim -p Makefile go.mod builder.json all_test.go vendor_libsqlite3.go & fi
 
 editor:
 	gofmt -l -s -w . 2>&1 | tee log-editor
