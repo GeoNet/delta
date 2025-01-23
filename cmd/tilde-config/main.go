@@ -48,7 +48,7 @@ func main() {
 	flag.StringVar(&settings.geomag, "geomag", "GM", "geomagnetic network code")
 	flag.StringVar(&settings.scandoas, "scandoas", "EN", "scandoas network code")
 	flag.StringVar(&settings.extra, "extra", "GM=SM_SMHS_50", "attach extra stations and locations to a network, e.g. GM=SM_SMHS_50")
-	flag.StringVar(&settings.output, "output", "", "output dart configuration file")
+	flag.StringVar(&settings.output, "output", "", "output tilde configuration file")
 
 	flag.Parse()
 
@@ -98,6 +98,11 @@ func main() {
 	// update scandoas domain
 	if err := tilde.ScanDOAS(set, settings.scandoas); err != nil {
 		log.Fatalf("unable to build scandoas configuration: %v", err)
+	}
+
+	// update gnss gomain
+	if err := tilde.Gnss(set); err != nil {
+		log.Fatalf("unable to build gnss configuration: %v", err)
 	}
 
 	switch {
