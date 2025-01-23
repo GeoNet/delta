@@ -26,7 +26,7 @@ func (t *Tilde) Gnss(set *meta.Set) error {
 	// update domains
 	t.Domains = append(t.Domains, Domain{
 		Name:        "gnss",
-		Description: "Global Navigation Satellite System Sensors",
+		Description: "Global Navigation Satellite System",
 		Stations:    stns,
 	})
 
