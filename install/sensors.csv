@@ -29,7 +29,7 @@ Campbell Scientific,107 temperature probe,412427,NA002,01,0,,0,0,0,0,0,0,2024-03
 Campbell Scientific,107 temperature probe,412861,TO006,01,0,,0,0,0,0,0,0,2024-06-04T03:59:59Z,9999-01-01T00:00:00Z
 Campbell Scientific,LevelVUE B10,1048,OT001,03,0,,0,0,0,0,0,0,2022-07-28T01:59:00Z,2023-04-10T23:01:00Z
 Campbell Scientific,LevelVUE B10,1064,OT001,03,0,,0,0,0,0,0,0,2023-04-10T23:29:00Z,9999-01-01T00:00:00Z
-Campbell Scientific,Pulse radar water-level sensor CS475A,43460111,OT001,04,0,,0,0,0,0,0,0,2019-10-11T00:50:00Z,2022-01-20T00:00:00Z
+Campbell Scientific,Pulse radar water-level sensor CS475A,43460111,OT001,04,0,,0,0,0,0,0,0,2019-10-10T22:00:00Z,2022-01-20T00:00:00Z
 Campbell Scientific,Pulse radar water-level sensor CS475A,50586359,OT001,04,0,,0,0,0,0,0,0,2022-04-05T00:20:00Z,9999-01-01T00:00:00Z
 Campbell Scientific,Titanium pressure transducer CS456,14010301,RLGLK,04,0,,0,0,0,0,0,0,2023-01-30T02:59:59Z,9999-01-01T00:00:00Z
 Campbell Scientific,Titanium pressure transducer CS456,70010135,TOUTL,01,0,,0,0,0,0,0,0,2019-03-12T03:30:00Z,9999-01-01T00:00:00Z
@@ -510,7 +510,7 @@ IESE Institute of Earth Science & Engineering,IESE HS-1-LT Mini 4.5Hz,197,WMSZ,1
 IESE Institute of Earth Science & Engineering,IESE HS-1-LT Mini 4.5Hz,198,WPSZ,10,0,,0,29,0,0,0,0,2014-06-23T00:00:05Z,9999-01-01T00:00:00Z
 IESE Institute of Earth Science & Engineering,IESE HS-1-LT Mini 4.5Hz,200,WTSZ,10,0,,0,29,0,0,0,0,2014-06-23T00:00:05Z,9999-01-01T00:00:00Z
 IESE Institute of Earth Science & Engineering,IESE HS-1-LT Mini 4.5Hz,208,WDSZ,10,0,,0,29,0,0,0,0,2014-06-23T00:00:05Z,9999-01-01T00:00:00Z
-Intech,Platinum resistance thermometer,001,OT001,01,0,,0,0,0,0,0,0,2017-12-06T00:30:00Z,2019-06-30T19:50:00Z
+Intech,Platinum resistance thermometer,001,OT001,01,0,,0,0,0,0,0,0,2017-11-07T00:10:00Z,2019-06-30T19:50:00Z
 Intech,Platinum resistance thermometer,002,TO006,03,0,,0,0,0,0,0,0,2018-08-28T00:30:00Z,2019-03-31T20:30:00Z
 Intech,Platinum resistance thermometer,003,TO006,02,0,,0,0,0,0,0,0,2018-10-08T23:50:00Z,2019-03-31T20:30:00Z
 Intech,Platinum resistance thermometer,004,TOUTL,02,0,,0,0,0,0,0,0,2019-03-12T03:30:00Z,9999-01-01T00:00:00Z
@@ -976,7 +976,7 @@ Nanometrics,Trillium Horizon TH120-2,3354,WRRZ,10,0,,0,0,0,0,0,0,2024-05-09T23:2
 Nanometrics,Trillium Horizon TH120-2,3355,KNZ,10,0,,0,0,0,0,0,0,2024-12-15T21:37:00Z,9999-01-01T00:00:00Z
 Nanometrics,Trillium Horizon TH120-2,3356,GVZ,10,0,,0,0,0,0,0,0,2024-04-02T03:10:00Z,9999-01-01T00:00:00Z
 OTT Hydromet,Compact Bubbler Sensor USGS model,407895,OT013,02,0,,0,0,0,0,0,0,2021-03-17T22:20:00Z,2024-07-05T14:50:01Z
-OTT Hydromet,Compact Bubbler Sensor USGS model,422837,OT001,03,0,,0,0,0,0,0,0,2017-12-06T00:30:00Z,2021-10-12T23:50:00Z
+OTT Hydromet,Compact Bubbler Sensor USGS model,422837,OT001,03,0,,0,0,0,0,0,0,2017-11-07T00:00:00Z,2021-10-12T23:50:00Z
 OTT Hydromet,Compact Bubbler Sensor USGS model,452193,OT001,03,0,,0,0,0,0,0,0,2021-10-13T01:10:00Z,2022-07-28T01:41:00Z
 OTT Hydromet,Compact Bubbler Sensor USGS model,452193,OT013,02,0,,0,0,0,0,0,0,2024-08-07T23:29:59Z,9999-01-01T00:00:00Z
 Phoenix,PE5 SP Electrode,55862,TO003,,0,,0,0,0,0,0,0,2022-06-21T23:10:00Z,9999-01-01T00:00:00Z
@@ -1682,7 +1682,7 @@ Sercel,L4C-3D,ZIHA_124,ZIHA,10,0,,0,0,0,0,0,0,2001-12-11T08:10:00Z,2001-12-26T17
 Sercel,L4C-3D,ZIHA_125,ZIHA,10,0,,0,0,0,0,0,0,2005-05-04T21:39:00Z,2005-05-20T12:47:00Z
 Servotech,T16 Type K thermocouple probe,009,RU001,04,0,,0,0,0,0,0,0,2019-05-21T04:30:00Z,9999-01-01T00:00:00Z
 Servotech,T16 Type K thermocouple probe 100mm,001,OT001,01,0,,0,0,0,0,0,0,2019-07-10T00:00:00Z,9999-01-01T00:00:00Z
-Servotech,T16 Type K thermocouple probe 100mm,002,OT001,02,0,,0,0,0,0,0,0,2019-10-11T00:50:00Z,9999-01-01T00:00:00Z
+Servotech,T16 Type K thermocouple probe 100mm,002,OT001,02,0,,0,0,0,0,0,0,2019-10-10T22:00:00Z,9999-01-01T00:00:00Z
 Servotech,T16 Type K thermocouple probe 100mm,004,TO006,02,0,,0,0,0,0,0,0,2019-04-16T22:50:00Z,9999-01-01T00:00:00Z
 Servotech,T16 Type K thermocouple probe 100mm,005,TO006,03,0,,0,0,0,0,0,0,2019-04-16T22:50:00Z,2024-06-03T23:50:01Z
 Servotech,T16 Type K thermocouple probe 100mm,006,TO015,02,0,,0,0,0,0,0,0,2018-08-10T00:00:00Z,9999-01-01T00:00:00Z
@@ -1777,7 +1777,11 @@ Thompson Sintra Pacific,Scout Hydrophone,H1,GBIH,41,0,,0,75.5,0,0,0,0,2007-06-12
 Thompson Sintra Pacific,Scout Hydrophone,H2,GBIH,42,0,,0,75.5,0,0,0,0,2007-06-12T00:00:00Z,9999-01-01T00:00:00Z
 Thompson Sintra Pacific,Scout Hydrophone,H3,GBIH,43,0,,0,75.5,0,0,0,0,2007-06-12T00:00:00Z,9999-01-01T00:00:00Z
 Unidata,Unidata 6541 Shaft Encoder - SDI,UENC 1008,INFR,42,0,,0,0,0,0,0,0,2013-05-21T00:00:00Z,9999-01-01T00:00:00Z
+Unknown-sensor-make,Bubbler,Unknown,OT001,03,0,,0,0,0,0,0,0,2012-06-22T03:45:00Z,2017-11-07T00:00:00Z
+Unknown-sensor-make,Float Operated Shaft Encoder,Unknown,OT001,04,0,,0,0,0,0,0,0,2012-06-22T03:45:00Z,2018-08-31T23:45:00Z
 Unknown-sensor-make,Platinum Resistance Thermometer,Unknown,RU001,01,0,,0,0,0,0,0,0,1993-12-11T00:00:00Z,1995-04-25T19:55:12Z
+Unknown-sensor-make,Thermocouple,Unknown-1,OT001,01,0,,0,0,0,0,0,0,2012-06-22T03:45:00Z,2017-11-07T00:00:00Z
+Unknown-sensor-make,Thermocouple,Unknown-2,OT001,02,0,,0,0,0,0,0,0,2012-06-22T03:45:00Z,2019-05-31T23:45:00Z
 Vaisala,Weather Transmitter WXT536,001,FOXKP,03,0,0,0,0,0,0,0,0,2021-08-04T00:00:00Z,2023-12-25T03:51:00Z
 Vaisala,Weather Transmitter WXT536,R2840106,FOXRB,03,0,0,0,0,0,0,0,0,2021-08-03T03:50:00Z,2022-07-08T13:00:00Z
 Vaisala,Weather Transmitter WXT536,S5310242,FOXVV,03,0,0,0,0,0,0,0,0,2021-08-03T00:00:00Z,9999-01-01T00:00:00Z
