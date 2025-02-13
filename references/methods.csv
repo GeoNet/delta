@@ -7,7 +7,8 @@ envirosensor,avg,,
 envirosensor,max,"The maximum value of the observation over the output interval","https://help.campbellsci.com/crbasic/cr1000x/Content/Instructions/maximum.htm"
 envirosensor,min,"The minimum value of the observation over the output interval","https://help.campbellsci.com/crbasic/cr1000x/Content/Instructions/minimum.htm"
 envirosensor,snapshot,"The value of the observation at the measurement time",
-envirosensor,tot,,
+envirosensor,tot, "Total during the sampling interval. Usually used for rainfall", "https://en.wikipedia.org/wiki/Rain_gauge"
+envirosensor,avg, "Average (mean) during the sampling interval. ",
 geomag,60s,,
 gnss,1d,,
 manualcollect,accumulation-chamber,"An upside down bucket-shaped collection device is placed on the ground surface. A sensor in the chamber measures the concentration of gas coming from the ground beneath the chamber","https://www.geonet.org.nz/volcano/how"
@@ -27,4 +28,4 @@ manualcollect,thermocouple,"A thermoelectrical thermometer","https://en.wikipedi
 manualcollect,thermometer,"A mercury thermometer","https://en.wikipedia.org/wiki/Thermometer"
 manualcollect,vertical-angle-rangefinder,"A measurement of vertical angle and distance using a laser rangefinder","https://en.wikipedia.org/wiki/Laser_rangefinder"
 manualcollect,water-analysis-lab,"A physical sample is analysed in a laboratory. For water samples, this is typically the New Zealand Geothermal Analytical Laboratory (NZGAL)","https://www.gns.cri.nz/partner-with-us/labs-and-facilities/new-zealand-geothermal-analytical-laboratory/"
-scandoas,reviewed,,
+scandoas,reviewed,"Differential Optical Absorption Spectrometer (DOAS) technology used for SO2 flux measurement using a ground-based instrument. The technique relies on UV light from the Sun so only works in daylight hours and when the sky is bright enough","https://www.geonet.org.nz/volcano/how"
