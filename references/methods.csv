@@ -3,12 +3,11 @@ coastal,15s,water height or pressure measured by coastal shores sensors,
 dart,15m,water height and water height detided measured by ocean floor sensors every 15 minutes,
 dart,15s,"water pressure, temperature or height measured by ocean floor sensors every 15 seconds",
 dart,raw,"original recordings of water pressure, temperature or height measured by ocean floor sensors",
-envirosensor,avg,,
+envirosensor,avg,"Average (mean) during the sampling interval.",
 envirosensor,max,"The maximum value of the observation over the output interval","https://help.campbellsci.com/crbasic/cr1000x/Content/Instructions/maximum.htm"
 envirosensor,min,"The minimum value of the observation over the output interval","https://help.campbellsci.com/crbasic/cr1000x/Content/Instructions/minimum.htm"
 envirosensor,snapshot,"The value of the observation at the measurement time",
 envirosensor,tot, "Total during the sampling interval. Usually used for rainfall", "https://en.wikipedia.org/wiki/Rain_gauge"
-envirosensor,avg, "Average (mean) during the sampling interval. ",
 geomag,60s,,
 gnss,1d,,
 manualcollect,accumulation-chamber,"An upside down bucket-shaped collection device is placed on the ground surface. A sensor in the chamber measures the concentration of gas coming from the ground beneath the chamber","https://www.geonet.org.nz/volcano/how"
