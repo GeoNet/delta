@@ -3,13 +3,13 @@ coastal,15s,water height or pressure measured by coastal shores sensors,
 dart,15m,water height and water height detided measured by ocean floor sensors every 15 minutes,
 dart,15s,"water pressure, temperature or height measured by ocean floor sensors every 15 seconds",
 dart,raw,"original recordings of water pressure, temperature or height measured by ocean floor sensors",
-envirosensor,avg,"Average (mean) during the sampling interval.",
+envirosensor,avg,"Average (mean) during the sampling interval",
 envirosensor,max,"The maximum value of the observation over the output interval","https://help.campbellsci.com/crbasic/cr1000x/Content/Instructions/maximum.htm"
 envirosensor,min,"The minimum value of the observation over the output interval","https://help.campbellsci.com/crbasic/cr1000x/Content/Instructions/minimum.htm"
 envirosensor,snapshot,"The value of the observation at the measurement time",
-envirosensor,tot, "Total during the sampling interval. Usually used for rainfall", "https://en.wikipedia.org/wiki/Rain_gauge"
-geomag,60s,,
-gnss,1d,,
+envirosensor,tot,"Total during the sampling interval. Usually used for rainfall", "https://en.wikipedia.org/wiki/Rain_gauge"
+geomag,60s,Geomagnetic field observations measured by digital magnetometers,"https://doi.org/10.21420/5q60-k348"
+gnss,1d,daily ground displacement measured by continuous GNSS sensors,"https://doi.org/10.21420/30F4-1A55"
 manualcollect,accumulation-chamber,"An upside down bucket-shaped collection device is placed on the ground surface. A sensor in the chamber measures the concentration of gas coming from the ground beneath the chamber","https://www.geonet.org.nz/volcano/how"
 manualcollect,contouring,"While an aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration","https://www.geonet.org.nz/volcano/how"
 manualcollect,cospec,"A correlation spectrometer that measures absorption of ultraviolet light by SO2 from beneath a volcanic plume","https://www.geonet.org.nz/volcano/how"
