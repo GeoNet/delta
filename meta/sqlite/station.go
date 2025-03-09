@@ -264,7 +264,7 @@ var point = Table{
 		return fmt.Sprintf("INSERT INTO point (sample_id, datum_id, location, latitude, longitude, elevation, depth, survey, start_date, end_date) VALUES ((%s), (%s), ?, ?, ?, ?, ?, ?, ?, ?);",
 			sample.Select(), datum.Select())
 	},
-	Fields: []string{"Point", "Datum", "Location", "Latitude", "Longitude", "Elevation", "Depth", "Survey", "Start Date", "End Date"},
+	Fields: []string{"Sample", "Datum", "Location", "Latitude", "Longitude", "Elevation", "Depth", "Survey", "Start Date", "End Date"},
 }
 
 const featureCreate = `
@@ -337,6 +337,8 @@ var class = Table{
 		return fmt.Sprintf("INSERT OR IGNORE INTO class (station_id, site_class, vs30, vs30_quality, tsite, tsite_method, tsite_quality, basement_depth, depth_quality, link, notes) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", station.Select())
 	},
 	Fields: []string{"Station", "Site Class", "Vs30", "Vs30 Quality", "Tsite", "Tsite Method", "Tsite Quality", "Basement Depth", "Depth Quality", "Link", "Notes"},
+	Nulls:  []string{"Link", "Notes"},
+	Unwrap: "Citations",
 }
 
 const classCitationCreate = `
@@ -358,10 +360,10 @@ var classCitation = Table{
 		)
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO class_citation (class_id, citation_id) VALUES ((%s), (%s));",
+		// not all stations are in the stations file, ignore any conflicts for now
+		return fmt.Sprintf("INSERT OR IGNORE INTO class_citation (class_id, citation_id) VALUES ((%s), (%s));",
 			class.Select(), citation.Select(),
 		)
 	},
 	Fields: []string{"Station", "Citations"},
-	Unwrap: "Citations",
 }
