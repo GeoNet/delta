@@ -25,7 +25,7 @@ type Table struct {
 }
 
 // Links returns the rows to insert into a Linking table for the given unwrapping column.
-func (t Table) Links(list meta.TableList) [][]any {
+func (t Table) Links(list meta.TableList, keys ...string) [][]any {
 
 	lines := list.Table.Encode(list.List)
 	if !(len(lines) > 0) {
@@ -49,7 +49,8 @@ func (t Table) Links(list meta.TableList) [][]any {
 		}
 		for _, c := range strings.Fields(strings.TrimSpace(line[w])) {
 			var parts []any
-			for _, f := range t.Fields {
+
+			for _, f := range keys {
 				n, ok := lookup[f]
 				if !ok {
 					return nil
@@ -57,13 +58,11 @@ func (t Table) Links(list meta.TableList) [][]any {
 				if !(n < len(line)) {
 					return nil
 				}
-				switch {
-				case n == w:
-					parts = append(parts, c)
-				default:
-					parts = append(parts, line[n])
-				}
+
+				parts = append(parts, line[n])
 			}
+
+			parts = append(parts, c)
 			res = append(res, parts)
 		}
 	}
