@@ -131,7 +131,7 @@ Canterbury Seismic Instruments,CUSP3D,42105,Cusp3D+r 400.74.1 (GPS18X4.40),2021-
 Canterbury Seismic Instruments,CUSP3D,42106,Cusp3D+r 400.74.1,2019-08-16T00:00:00Z,2025-02-27T22:52:00Z,Fix GPS timing 1 sec
 Canterbury Seismic Instruments,CUSP3D,42107,Cusp3D+r 400.74.1,2019-08-16T00:00:00Z,2021-06-01T23:29:59Z,Fix GPS timing 1 sec
 Canterbury Seismic Instruments,CUSP3D,42107,Cusp3D+r 400.74.1 (GPS18X4.40),2021-06-01T23:30:00Z,2023-10-13T05:30:00Z,Fix GPS week number rollover
-Canterbury Seismic Instruments,CUSP3D,42108,Cusp3D+r 400.74.1,2019-08-16T00:00:00Z,9999-01-01T00:00:00Z,Fix GPS timing 1 sec
+Canterbury Seismic Instruments,CUSP3D,42108,Cusp3D+r 400.74.1,2019-08-16T00:00:00Z,2025-03-04T00:36:00Z,Fix GPS timing 1 sec
 Canterbury Seismic Instruments,CUSP3D,42109,Cusp3D+r 400.74.1,2019-08-16T00:00:00Z,9999-01-01T00:00:00Z,Fix GPS timing 1 sec
 Canterbury Seismic Instruments,CUSP3D,42114,Cusp3D+r 400.74.1,2019-08-16T00:00:00Z,2020-12-17T00:10:00Z,Fix GPS timing 1 sec
 Canterbury Seismic Instruments,CUSP3D,42116,unknown,2013-10-23T22:20:00Z,2019-03-05T20:30:00Z,Timing error
@@ -488,6 +488,7 @@ Canterbury Seismic Instruments,EQR120,46901,2.4.5,2025-02-27T05:02:00Z,9999-01-0
 Canterbury Seismic Instruments,EQR120,46902,2.4.5,2025-02-28T00:13:00Z,9999-01-01T00:00:00Z,
 Canterbury Seismic Instruments,EQR120,46909,2.4.5,2025-02-26T00:58:00Z,9999-01-01T00:00:00Z,
 Canterbury Seismic Instruments,EQR120,46911,2.4.5,2025-02-25T20:04:00Z,9999-01-01T00:00:00Z,
+Canterbury Seismic Instruments,EQR120,46919,2.4.5,2025-03-04T03:01:00Z,9999-01-01T00:00:00Z,
 Leica Geosystems,LEICA CRS1000,23181,unknown,1999-09-23T00:00:00Z,9999-01-01T00:00:00Z,
 Leica Geosystems,LEICA CRS1000,23183,8.02,1999-12-01T00:00:00Z,2000-08-18T00:00:00Z,
 Leica Geosystems,LEICA CRS1000,23183,8.03,2000-08-18T00:00:01Z,2002-07-29T00:00:00Z,
