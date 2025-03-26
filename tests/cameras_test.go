@@ -46,6 +46,17 @@ var cameraChecks = map[string]func(*meta.Set) func(t *testing.T){
 		}
 	},
 
+	"check for invalid installation dates": func(set *meta.Set) func(t *testing.T) {
+		return func(t *testing.T) {
+			for _, i := range set.InstalledCameras() {
+				if i.End.After(i.Start) {
+					continue
+				}
+				t.Errorf("installed camera is removed before it has been installed: %s", i.String())
+			}
+		}
+	},
+
 	"check for cameras installation mount overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			keys := make(map[string]interface{})
