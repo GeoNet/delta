@@ -9,7 +9,7 @@ N.B.: The network "OE" was removed from network/networks.csv since
 #### Station Recordings and Instrumentation ####
 Most likely used in the paper seismograms and pre-miniseed digital recordings (pre 80's) . 
 
-####  Station  from Countries Australia, U.S.A., Japan  ####
+####  Stations from Countries Australia, U.S.A., Japan  ####
 Delta reference as for "historical overseas stations": 
 ```
 station,Network	Name,Latitude,Longitude,Elevation,Depth,Datum,Start Date,End Date
