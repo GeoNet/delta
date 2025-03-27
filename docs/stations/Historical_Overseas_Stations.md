@@ -33,5 +33,5 @@ TOO,OE,Toolangi,-37.5713,145.4905,604,,NZGD49,1962-01-01T00:00:00Z,9999-01-01
     No information on these
     No additional metadata
     No information about data being used in events
-    Station rae still deemed opened/acrive (9999-01-01) 
+    Station are still deemed opened/active ( as in end date 9999-01-01) 
     Will be completed over time and change in delta
