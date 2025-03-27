@@ -19,7 +19,7 @@ var stationChecks = map[string]func(*meta.Set) func(t *testing.T){
 					if stations[i].Network != stations[j].Network {
 						continue
 					}
-					t.Errorf("station duplication: " + stations[i].Code)
+					t.Errorf("station duplication: %s", stations[i].Code)
 				}
 			}
 		}

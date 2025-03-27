@@ -33,6 +33,7 @@ CMBL,,Forced Centering,Pillar,-1.445,Reinforced Concrete,2,2003-12-03T00:00:00Z,
 CNCL,,Forced Centering,Pillar,-0.4,Reinforced Concrete,2,2000-02-05T00:00:00Z,9999-01-01T00:00:00Z,Schist,
 CNST,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.6,Stainless Steel Rods,10,2007-02-22T00:00:00Z,9999-01-01T00:00:00Z,Limestone,
 CORM,50226M001,Forced Centering,Pillar,-1.2,Reinforced Concrete,2,2003-05-09T00:00:00Z,9999-01-01T00:00:00Z,Rhyolite,
+DBHI,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.57,Stainless Steel Rods,10,2024-11-06T00:00:00Z,9999-01-01T00:00:00Z,,
 DNVK,50224M001,Forced Centering,Pillar,-1.15,Reinforced Concrete,2,2002-06-05T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 DUND,50212M003,Forced Centering,Shallow Rod / Braced Antenna Mount,-1.25,Stainless Steel Rods,2.5,2005-08-10T00:00:00Z,9999-01-01T00:00:00Z,Basalt,
 DUNT,50212S001,Forced Centering,Steel Mast,-4.5,Stainless Steel Rod,0,1999-09-23T00:00:00Z,9999-01-01T00:00:00Z,Basalt,
@@ -47,7 +48,7 @@ GLOK,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.56,Stainless Steel Rods,10,
 GNBK,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.43,Stainless Steel Rods,10,2008-03-27T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,"Mapped As Qt, Quaternary Marine Deposits On Coastal Benches.  Forms Flat Terrace Tops Which Are Incised By Waterways."
 GRAC,,Forced Centering,Steel Mast,-9.99,Stainless Steel Rod,0,2002-03-22T00:00:00Z,2006-08-28T00:00:00Z,,
 GRNG,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.613,Stainless Steel Rods,10,2007-06-14T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
-GUNR,,Forced Centering,Shallow Rod / Braced Antenna Mount,-1.195,Stainless Steel Rods,2.5,2010-01-27T00:00:00Z,9999-01-01T00:00:00Z,,site closed in 2018 because on a landslide 
+GUNR,,Forced Centering,Shallow Rod / Braced Antenna Mount,-1.195,Stainless Steel Rods,2.5,2010-01-27T00:00:00Z,9999-01-01T00:00:00Z,,site closed in 2018 because on a landslide
 HAAS,50237M001,Forced Centering,Pillar,-1.2,Reinforced Concrete,2,2004-06-22T00:00:00Z,9999-01-01T00:00:00Z,Schist,
 HAMT,50222M001,Forced Centering,Pillar,-1.38,Reinforced Concrete,2,2003-05-13T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 HANA,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.57,Stainless Steel Rods,10,2007-02-26T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
@@ -57,6 +58,8 @@ HIKB,50225M001,Forced Centering,Pillar,-1.2,Reinforced Concrete,2,2003-05-01T00:
 HOKI,50211M001,Forced Centering,Pillar,-2,Reinforced Concrete,2,1998-06-01T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 HOLD,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.15,Stainless Steel Rods,10,2007-02-12T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 HORN,,Forced Centering,Pillar,-0.4,Reinforced Concrete,2,2002-11-01T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
+IFMA,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2025-03-12T00:00:00Z,9999-01-01T00:00:00Z,Semischist,"Planar-foliated, low-grade psammitic/pelitic semischist, minor low-grade metatuff and metachert, TZIIB."
+JTGT,,Forced Centering,Steel Mast,-2.6,Wooden Pier,0,2025-02-20T00:00:00Z,9999-01-01T00:00:00Z,,
 KAHU,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2006-04-19T00:00:00Z,9999-01-01T00:00:00Z,Limestone,
 KAIK,50231M001,Forced Centering,Pillar,-1.27,Reinforced Concrete,2,2004-01-30T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 KAPT,,Forced Centering,Pillar,-1.275,Reinforced Concrete,2,2004-06-10T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
@@ -75,6 +78,7 @@ LKTA,50233M001,Forced Centering,Pillar,-1.289,Reinforced Concrete,2,2004-02-01T0
 LOK1,,Unmarked Mark,Unknown,-0.899,Unknown,0,2016-11-15T00:00:00Z,2017-11-02T00:00:00Z,,
 LOOK,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.592,Stainless Steel Rods,10,2017-03-28T00:00:00Z,9999-01-01T00:00:00Z,Basalt,Lookout Formation - Trachy-Basalt And Andesite Lava Flows With Soil Cover
 LRR1,,Forced Centering,Steel Mast,0,Stainless Steel Rod,0,2016-11-15T00:00:00Z,9999-01-01T00:00:00Z,,
+LY2T,,Forced Centering,Steel Mast,-2.1,Reinforced Concrete,0,2024-08-22T00:00:00Z,9999-01-01T00:00:00Z,Siltstone,
 LYTT,50214S001,Forced Centering,Steel Mast,-3.5,Stainless Steel Rod,0,1999-11-01T00:00:00Z,9999-01-01T00:00:00Z,Siltstone,
 MAHA,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.44,Stainless Steel Rods,10,2009-11-16T00:00:00Z,9999-01-01T00:00:00Z,Schist,
 MAHI,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2007-02-20T00:00:00Z,9999-01-01T00:00:00Z,Limestone,
@@ -88,6 +92,7 @@ MCNL,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.507,Stainless Steel Rods,10
 METH,50251M001,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.56,Stainless Steel Rods,6,2010-08-01T00:00:00Z,9999-01-01T00:00:00Z,,
 MING,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.54,Stainless Steel Rods,10,2010-04-28T00:00:00Z,9999-01-01T00:00:00Z,,
 MKNO,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.551,Stainless Steel Rods,10,2011-05-11T00:00:00Z,9999-01-01T00:00:00Z,,
+MKTR,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.70,Stainless Steel Rods,10,2025-03-04T00:00:00Z,9999-01-01T00:00:00Z,,
 MNHR,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.58,Stainless Steel Rods,10,2011-02-16T00:00:00Z,9999-01-01T00:00:00Z,,
 MNMW,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.635,Stainless Steel Rods,10,2023-09-21T00:00:00Z,9999-01-01T00:00:00Z,,
 MQZG,50214M001,Forced Centering,Pillar,-0.95,Reinforced Concrete,2,1999-09-27T00:00:00Z,9999-01-01T00:00:00Z,Rhyolite,
@@ -97,6 +102,7 @@ MTJO,50204M001,Forced Centering,Pillar,-2.4,Reinforced Concrete,2,2000-07-31T00:
 MTPR,,Forced Centering,Shallow Rod / Braced Antenna Mount,-1.262,Stainless Steel Rods,2.5,2010-01-27T00:00:00Z,9999-01-01T00:00:00Z,,
 MTQN,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.51,Stainless Steel Rods,10,2008-06-30T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,Mt Quoin In South Tararuas
 MUL1,,Unmarked Mark,Unknown,-0.797,Unknown,0,2016-11-16T00:00:00Z,2018-01-15T00:00:00Z,,
+MWOR,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.50,Stainless Steel Rods,10,2024-12-04T00:00:00Z,9999-01-01T00:00:00Z,Breccia,"Laharic breccia of andesite cobbles in a muddy matrix, and conglomerate and sand with interbedded peat."
 NETT,,Forced Centering,Pillar,-0.4,Reinforced Concrete,2,2002-02-17T00:00:00Z,9999-01-01T00:00:00Z,,Bedrock Info For This Area Not Available On Geological Map
 NIUC,,Forced Centering,Pillar,-9.99,Reinforced Concrete,2,1996-11-13T00:00:00Z,2003-12-31T00:00:00Z,,
 NIUM,50210M001,Forced Centering,Shallow Rod / Braced Antenna Mount,-1.5,Stainless Steel Rods,2.5,2005-09-14T00:00:00Z,9999-01-01T00:00:00Z,Limestone,
@@ -109,10 +115,13 @@ NMAI,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.43,Stainless Steel Rods,10,
 NPLY,50227M001,Forced Centering,Pillar,-1.53,Reinforced Concrete,2,2003-03-20T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 NRRD,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.516,Stainless Steel Rods,10,2008-03-27T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,Greywacke
 NRSW,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.585,Stainless Steel Rods,10,2011-01-18T00:00:00Z,9999-01-01T00:00:00Z,,
+NSFT,,Forced Centering,Steel Mast,-3.65,Reinforced Concrete,0,2024-09-23T00:00:00Z,9999-01-01T00:00:00Z,,
+NTGT,,Forced Centering,Steel Mast,-2.59,Reinforced Concrete,0,2024-01-15T00:00:00Z,9999-01-01T00:00:00Z,,
 OHIN,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.6,Stainless Steel Rods,10,2008-09-03T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,"Sandstone, Siltstone, Mudstone Sequence."
 OKOH,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.56,Stainless Steel Rods,10,2009-11-16T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 OPTK,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.46,Stainless Steel Rods,10,2009-08-20T00:00:00Z,9999-01-01T00:00:00Z,,
 OROA,,Forced Centering,Wyatt/Agnew Drilled-Braced,0,Stainless Steel Rods,10,2010-11-08T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
+ORRG,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2024-12-05T00:00:00Z,9999-01-01T00:00:00Z,Tuff,"Lithic tuff, comprising comminuted pre-volcanic materials with basaltic fragments, and unconsolidated ash and lapilli deposits of well-sorted basalt and basanite fragments."
 OTAK,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2007-03-07T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 OUSD,50212M001,Forced Centering,Steel Mast,-1.5,Stainless Steel Rod,0,1995-01-16T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 PAEK,50215M001,Forced Centering,Pillar,-1.315,Reinforced Concrete,2,2002-03-22T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
@@ -166,11 +175,13 @@ SCTB,66071M001,Forced Centering,Pillar,-0.361,Reinforced Concrete,2,2004-10-28T0
 SCTY,,Forced Centering,Shallow Rod / Braced Antenna Mount,-1.736,Stainless Steel Rods,3.2,2020-03-31T00:00:00Z,9999-01-01T00:00:00Z,Bedrock,Highly Weathered Meta Sedimentary
 SEDD,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.53,Stainless Steel Rods,10,2014-06-01T00:00:00Z,9999-01-01T00:00:00Z,,Situated On Quaternary Gravels. Depth To Underlying Strata Unknown.
 SNST,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.52,Stainless Steel Rods,10,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z,Mudstone,Top Of Ridge Line Adjacent To Steep Grassy Slope
+SSFT,,Forced Centering,Steel Mast,-4.09,Reinforced Concrete,0.5,2024-10-16T00:00:00Z,9999-01-01T00:00:00Z,,
 SUTT,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2016-05-26T00:00:00Z,9999-01-01T00:00:00Z,,
 TAKL,50216S001,Forced Centering,Pillar,-3.2,Reinforced Concrete,2,2001-07-11T00:00:00Z,2007-07-05T00:00:00Z,,
 TAKP,,Forced Centering,Pillar,-1.09,Reinforced Concrete,2,2004-01-14T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 TAUP,50217M001,Forced Centering,Pillar,-1.15,Reinforced Concrete,2,2002-03-22T00:00:00Z,9999-01-01T00:00:00Z,Rhyolite,
 TAUW,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.436,Stainless Steel Rods,10,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z,,
+TBWT,,Forced Centering,Steel Mast,-2.6,Reinforced Concrete,0.5,2025-02-25T00:00:00Z,9999-01-01T00:00:00Z,,
 TEMA,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.15,Stainless Steel Rods,10,2007-02-12T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 TEN2,,Forced Centering,Steel Mast,0,Stainless Steel Rod,0,2016-11-16T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 TENN,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.61,Stainless Steel Rods,10,2017-03-10T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
@@ -231,6 +242,7 @@ WGTT,50208S004,Forced Centering,Steel Mast,-999,Stainless Steel Rod,0,1999-12-14
 WHKT,50244M001,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2009-03-23T00:00:00Z,9999-01-01T00:00:00Z,,
 WHNG,50218M001,Forced Centering,Pillar,-1.2,Reinforced Concrete,2,2003-04-09T00:00:00Z,9999-01-01T00:00:00Z,Limestone,
 WHVR,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.535,Stainless Steel Rods,10,2011-09-30T00:00:00Z,9999-01-01T00:00:00Z,,
+WIAH,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.8,Stainless Steel Rods,10,2024-10-09T00:00:00Z,9999-01-01T00:00:00Z,,
 WITH,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.505,Stainless Steel Rods,10,2009-11-09T00:00:00Z,9999-01-01T00:00:00Z,,
 WMAT,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.42,Stainless Steel Rods,10,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z,,
 WPAW,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2006-04-20T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,

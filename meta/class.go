@@ -37,6 +37,24 @@ var classHeaders Header = map[string]int{
 	"Notes":          classNotes,
 }
 
+var ClassTable Table = Table{
+	name:    "Class",
+	headers: classHeaders,
+	primary: []string{"Station"},
+	native:  []string{"Vs30", "Basement Depth"},
+	foreign: map[string][]string{
+		"Citations": {"Citation"},
+	},
+	remap: map[string]string{
+		"Site Class":     "SiteClass",
+		"Vs30 Quality":   "Vs30Quality",
+		"Tsite Method":   "TsiteMethod",
+		"Tsite Quality":  "TsiteQuality",
+		"Basement Depth": "BasementDepth",
+		"Depth Quality":  "DepthQuality",
+	},
+}
+
 type Class struct {
 	Station       string
 	SiteClass     string

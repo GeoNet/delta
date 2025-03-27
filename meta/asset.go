@@ -28,6 +28,13 @@ var assetHeaders Header = map[string]int{
 	"Notes":  assetNotes,
 }
 
+var AssetTable Table = Table{
+	name:    "Asset",
+	headers: assetHeaders,
+	primary: []string{"Make", "Model", "Serial"},
+	foreign: map[string][]string{},
+}
+
 type AssetList []Asset
 
 func (a AssetList) Len() int           { return len(a) }

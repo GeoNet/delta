@@ -29,6 +29,14 @@ var placenameHeaders Header = map[string]int{
 	"Level":     placenameLevel,
 }
 
+var PlacenameTable Table = Table{
+	name:    "Placename",
+	headers: placenameHeaders,
+	primary: []string{"Name"},
+	native:  []string{"Latitude", "Longitude", "Level"},
+	foreign: map[string][]string{},
+}
+
 // Placename is used to describe distances and azimuths to known places.
 type Placename struct {
 	Name      string

@@ -27,14 +27,29 @@ var connectionHeaders Header = map[string]int{
 	"End Date":   connectionEnd,
 }
 
+var ConnectionTable Table = Table{
+	name:    "Connection",
+	headers: connectionHeaders,
+	primary: []string{"Station", "Location", "Place", "Number", "Start Date"},
+	foreign: map[string][]string{
+		"Site": {"Station", "Location"},
+	},
+	remap: map[string]string{
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Connection struct {
 	Span
 
-	Station  string
-	Location string
-	Place    string
-	Role     string
-	Number   int
+	Station  string `json:"station"`
+	Location string `json:"location"`
+	Place    string `json:"place"`
+	Role     string `json:"role,omitempty"`
+	Number   int    `json:"number,omitempty"`
 
 	number string
 }

@@ -17,7 +17,7 @@ var classChecks = map[string]func(*meta.Set) func(t *testing.T){
 			for i := 0; i < len(classes); i++ {
 				for j := i + 1; j < len(classes); j++ {
 					if classes[i].Station == classes[j].Station {
-						t.Errorf("class site duplication: " + classes[i].Station + " <=> " + classes[j].Station)
+						t.Errorf("class site duplication: %s <=> %s", classes[i].Station, classes[j].Station)
 					}
 				}
 			}
@@ -32,7 +32,7 @@ var classChecks = map[string]func(*meta.Set) func(t *testing.T){
 					continue
 				}
 				if _, ok := set.Station(c.Station); !ok {
-					t.Errorf("class station missing: " + c.Station)
+					t.Errorf("class station missing: %s", c.Station)
 				}
 			}
 		}
@@ -44,28 +44,28 @@ var classChecks = map[string]func(*meta.Set) func(t *testing.T){
 				switch c.SiteClass {
 				case "A", "B", "C", "D", "E":
 				default:
-					t.Errorf("class invalid site class for station " + c.Station + ": " + c.SiteClass)
+					t.Errorf("class invalid site class for station %s: %s", c.Station, c.SiteClass)
 				}
 				switch c.Vs30Quality {
 				case "Q3", "Q2", "Q1":
 				default:
-					t.Errorf("class invalid Vs30 quality for station " + c.Station + ": " + c.Vs30Quality)
+					t.Errorf("class invalid Vs30 quality for station %s: %s", c.Station, c.Vs30Quality)
 				}
 				switch c.TsiteQuality {
 				case "I", "Q3", "Q2", "Q1":
 				default:
-					t.Errorf("class invalid Tsite quality for station " + c.Station + ": " + c.TsiteQuality)
+					t.Errorf("class invalid Tsite quality for station %s: %s", c.Station, c.TsiteQuality)
 				}
 				switch c.TsiteMethod {
 				case "I", "Ms", "Mw", "Mn", "Mu", "Ma":
 				default:
-					t.Errorf("class invalid Tsite method for station " + c.Station + ": " + c.TsiteMethod)
+					t.Errorf("class invalid Tsite method for station %s: %s", c.Station, c.TsiteMethod)
 				}
 
 				switch c.DepthQuality {
 				case "Q3", "Q2", "Q1":
 				default:
-					t.Errorf("class invalid depth quality for station " + c.Station + ": " + c.DepthQuality)
+					t.Errorf("class invalid depth quality for station %s: %s", c.Station, c.DepthQuality)
 				}
 			}
 		}
@@ -76,7 +76,7 @@ var classChecks = map[string]func(*meta.Set) func(t *testing.T){
 			for _, c := range set.Classes() {
 				for _, r := range c.Citations {
 					if _, ok := set.Citation(r); !ok {
-						t.Errorf("class unknown citation for station " + c.Station + ": \"" + r + "\"")
+						t.Errorf("class unknown citation for station %s: %q", c.Station, r)
 					}
 				}
 			}

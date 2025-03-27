@@ -35,6 +35,7 @@ CMBL,No obstruction above 5 degrees elevation.,2003-12-03T00:00:00Z,9999-01-01T0
 CNCL,unknown,2000-02-05T00:00:00Z,9999-01-01T00:00:00Z
 CNST,"Good, trees create a 3-5 degree obstruction between 210 and 220 degrees from magnetic north.",2007-02-22T00:00:00Z,9999-01-01T00:00:00Z
 CORM,No obstruction above 10 degrees elevation,2003-05-09T00:00:00Z,9999-01-01T00:00:00Z
+DBHI,No obstruction above 10 degrees elevation,2024-11-06T00:00:00Z,9999-01-01T00:00:00Z
 DNVK,No obstruction above 05 degrees elevation.,2002-06-05T00:00:00Z,2017-03-08T23:59:59Z
 DNVK,3m tall data comms mast installed 10m south of the antenna,2017-03-09T00:00:00Z,9999-01-01T00:00:00Z
 DUND,No obstructions above 2 degrees.,2005-08-10T00:00:00Z,9999-01-01T00:00:00Z
@@ -60,6 +61,8 @@ HIKB,No obstruction above 10 degrees elevation,2003-05-01T00:00:00Z,9999-01-01T0
 HOKI,No obstructions above 5 degrees elevation,1998-06-01T00:00:00Z,9999-01-01T00:00:00Z
 HOLD,"Good. Up to 16 degrees of obstruction from hill due south, but this does not block any satellites.",2007-02-12T00:00:00Z,9999-01-01T00:00:00Z
 HORN,unknown,2002-11-01T00:00:00Z,9999-01-01T00:00:00Z
+IFMA,"Excellent visibility to the north, and no obstructions to the north west. All other directions have mountains that obstruct no more than 7 degrees of elevation.",2025-03-12T00:00:00Z,9999-01-01T00:00:00Z
+JTGT,"Hills close by to the north and west, obstructing up to 20 degrees. More distant hills to the south and east obstructing between 5 and 10 degrees. Clear otherwise.",2025-02-20T00:00:00Z,9999-01-01T00:00:00Z
 KAHU,Excellent,2006-04-19T00:00:00Z,2016-07-25T23:59:00Z
 KAHU,9m tall data comms mast installed at 3m south of the antenna,2016-07-26T00:00:00Z,9999-01-01T00:00:00Z
 KAIK,No obstruction above 10 degrees,2004-01-30T00:00:00Z,9999-01-01T00:00:00Z
@@ -80,6 +83,7 @@ LKTA,"No obstruction above 07 degrees in the northern quadrants, upto 16 degrees
 LOK1,good,2016-11-15T00:00:00Z,2017-11-02T00:00:00Z
 LOOK,"good. though Lookout Mountain peak is to the NE, with a maximum elevation of 20 degrees.",2017-03-28T00:00:00Z,9999-01-01T00:00:00Z
 LRR1,good,2016-11-15T00:00:00Z,2017-05-22T00:00:00Z
+LY2T,"Close hills to the north and east, with angles of elvation between 10 and 20 degrees. Distant hills in the south and west.",2024-08-22T00:00:00Z,9999-01-01T00:00:00Z
 LYTT,Fair,1999-11-15T00:00:00Z,9999-01-01T00:00:00Z
 MAHA,fair,2009-11-16T00:00:00Z,9999-01-01T00:00:00Z
 MAHI,Excellent,2007-02-20T00:00:00Z,2018-03-15T00:00:00Z
@@ -94,6 +98,7 @@ MCNL,"Excellent, no obstructions",2008-05-27T00:00:00Z,9999-01-01T00:00:00Z
 METH,"Cloud cover made it impossible to see mountains to the west, calculations show < 10 degrees.",2010-09-10T00:00:00Z,9999-01-01T00:00:00Z
 MING,Excellent,2010-04-28T00:00:00Z,9999-01-01T00:00:00Z
 MKNO,Obstructions to East up to 12 degrees formed by Mokai Patea Range.,2011-05-11T00:00:00Z,9999-01-01T00:00:00Z
+MKTR,"Situated on a western ridgline of the Southern Alps. No obstructions to the west and north, mountain ranges obstructing no more than 5 degrees to the south and east.",2025-03-04T00:00:00Z,9999-01-01T00:00:00Z
 MNHR,excellent,2011-02-16T00:00:00Z,9999-01-01T00:00:00Z
 MNMW,No obstruction above 5 degrees elevation,2023-09-21T00:00:00Z,9999-01-01T00:00:00Z
 MQZG,No obstructions above 10 degrees elevation. Tree/gorse cutting may be required in future,1999-09-27T00:00:00Z,2020-01-29T23:59:00Z
@@ -104,6 +109,7 @@ MTJO,No obstructions above 5 degrees,2000-07-31T00:00:00Z,9999-01-01T00:00:00Z
 MTPR,Very good,2010-01-27T00:00:00Z,9999-01-01T00:00:00Z
 MTQN,All less than 4 degrees in all directions.,2010-02-09T00:00:00Z,9999-01-01T00:00:00Z
 MUL1,good,2016-11-16T00:00:00Z,2018-01-15T00:00:00Z
+MWOR,"Some large trees 100m south, Mt. taranaki and a heightened horizen to the north. Otherwise, good visibility.",2024-12-04T00:00:00Z,9999-01-01T00:00:00Z
 NETT,unknown,2002-02-17T00:00:00Z,9999-01-01T00:00:00Z
 NIUC,unknown,1996-11-13T00:00:00Z,2003-12-31T00:00:00Z
 NIUM,"Good. Meterological service building is about 50m away to the North. There are also large radio masts to the North-east and West of the monument, but these are quite distant.",2005-09-14T00:00:00Z,9999-01-01T00:00:00Z
@@ -116,10 +122,13 @@ NMAI,"Excellent, no obstructions",2008-04-07T00:00:00Z,9999-01-01T00:00:00Z
 NPLY,No obstruction above 5 degrees elevation.,2003-03-20T00:00:00Z,9999-01-01T00:00:00Z
 NRRD,Skyview is obstructed by windturbines between bearings of 260 and 340 (true) at angles of between 6 and 10 degrees. The wind turbines are about 2 kilometers from the proposed site.,2008-03-27T00:00:00Z,9999-01-01T00:00:00Z
 NRSW,"trees to the south, < 10 deg",2011-01-18T00:00:00Z,9999-01-01T00:00:00Z
+NSFT,"A few small buildings and shipping containers very close by, blocking very little of the sky as the mast is 3.5m.",2024-09-23T00:00:00Z,9999-01-01T00:00:00Z
+NTGT,"Large hill to the south - southwest blocking upwards of 15 degrees. A few small buildings and a metal mast close by, blocking some visibility. There could be temporarily moored boats in the east and west directions. The north direction is clear.",2025-01-15T00:00:00Z,9999-01-01T00:00:00Z
 OHIN,"Excellent, no obstructions",2008-09-03T00:00:00Z,9999-01-01T00:00:00Z
 OKOH,ok,2009-11-16T00:00:00Z,9999-01-01T00:00:00Z
 OPTK,suitable visibility Inc. Dec. 7 137 tree 4 160-140 5 125-110 trees 4 355 tree,2009-08-20T00:00:00Z,9999-01-01T00:00:00Z
 OROA,excellent,2010-11-08T00:00:00Z,9999-01-01T00:00:00Z
+ORRG,"Bushes to the West, North West, North, and North East at a distance of 7-15 meters.",2024-12-05T00:00:00Z,9999-01-01T00:00:00Z
 OTAK,"Good; Otaki and Kapiti Island are in clear line of sight, Levin also through gap in hills. Hills to the north east create 4?-6? obstructions between 005? and 140? from true north.",2007-03-07T00:00:00Z,9999-01-01T00:00:00Z
 OUSD,Good,1995-01-16T00:00:00Z,9999-01-01T00:00:00Z
 PAEK,unknown,2003-03-22T00:00:00Z,9999-01-01T00:00:00Z
@@ -176,11 +185,13 @@ SCTB,No obstruction above 08 degrees,2004-10-28T00:00:00Z,9999-01-01T00:00:00Z
 SCTY,obstructions to 135-145az up to 7deg and mast up to 30deg,2020-06-23T00:00:00Z,9999-01-01T00:00:00Z
 SEDD,"Clear skyview 000 360 from 2? elevation - except row of trees at 074 to 097 block view from 3? to 5?. Couldn't see hilltops at ~256 because of low cloud, unlikely to be > 5? elevation",2014-06-01T00:00:00Z,9999-01-01T00:00:00Z
 SNST,good. 5 degree obstruction to the north,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
+SSFT,Excellent visibility. The largest obstruction is Bluff Hill to the south which blocks roughly 5 degrees of the horizon.,2024-10-16T00:00:00Z,9999-01-01T00:00:00Z
 SUTT,good,2016-05-26T00:00:00Z,9999-01-01T00:00:00Z
 TAKL,Fair,2001-07-11T00:00:00Z,2007-07-05T00:00:00Z
 TAKP,No obstructions above 10 degrees elevation,2004-01-14T00:00:00Z,9999-01-01T00:00:00Z
 TAUP,"Clear above 10 degrees elevation with the exception of a meteorological mast six metres Northeast. Mast dimensions: 8 metre high, 70mm diameter",2002-03-22T00:00:00Z,9999-01-01T00:00:00Z
 TAUW,good,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
+TBWT,Excellent visibility. Some close hills and the distant Mt. Taranaki obstruct up to roughly 5 degrees in elevation.,2025-02-25T00:00:00Z,9999-01-01T00:00:00Z
 TEMA,Excellent,2007-02-12T00:00:00Z,9999-01-01T00:00:00Z
 TEN2,good,2016-11-16T00:00:00Z,9999-01-01T00:00:00Z
 TENN,excellent,2017-03-10T00:00:00Z,9999-01-01T00:00:00Z
@@ -247,6 +258,7 @@ WHNG,Skyview obscured below 10 degrees due to earthern wall along eastern site m
 WHNG,"Skyview obscured from 045-170 below 10 degrees, and from 170-045 below 20-30 degrees due to pines",2018-03-15T00:00:00Z,2018-10-10T00:00:00Z
 WHNG,trees have been cleared up to 40m from the monument,2018-10-10T00:00:01Z,9999-01-01T00:00:00Z
 WHVR,Excellent,2011-09-30T00:00:00Z,9999-01-01T00:00:00Z
+WIAH,No obstruction above 10 degrees,2024-10-09T00:00:00Z,9999-01-01T00:00:00Z
 WITH,very good,2009-11-09T00:00:00Z,9999-01-01T00:00:00Z
 WMAT,sweet as,2010-03-15T00:00:00Z,9999-01-01T00:00:00Z
 WPAW,Good,2006-04-20T00:00:00Z,9999-01-01T00:00:00Z

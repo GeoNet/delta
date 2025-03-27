@@ -34,12 +34,29 @@ var mountHeaders Header = map[string]int{
 	"End Date":    mountEnd,
 }
 
+var MountTable Table = Table{
+	name:    "Mount",
+	headers: mountHeaders,
+	primary: []string{"Mount", "Start Date"},
+	native:  []string{"Latitude", "Longitude", "Elevation"},
+	foreign: map[string][]string{
+		"Network": {"Network"},
+	},
+	remap: map[string]string{
+		"Mount":      "Code",
+		"Start Date": "Start",
+		"End Date":   "End",
+	},
+	start: "Start Date",
+	end:   "End Date",
+}
+
 type Mount struct {
 	Reference
 	Position
 	Span
 
-	Description string
+	Description string `json:"description"`
 }
 
 type MountList []Mount
