@@ -1,13 +1,17 @@
-## About overseas stations in Delta repository - Reference ##
+## About overseas stations in Delta repository - Information/Reference ##
 Historical long standing seismological international stations were refered to 
-in Delta/network/stations.csv and Delta/network/networks.csv as the "OE" network
-these have been removed since. 
+in Delta as in the "OE" network.
+
+Reference for "OE" stations in delta: https://github.com/GeoNet/delta/blob/main/network/stations.csv.
+
+N.B.: The network "OE" was removed from network/networks.csv since
 
 #### Station Recordings and Instrumentation ####
-Most likely used in the paper seismograms and pre-miniseed recordings. 
-	
-#### Countries Australia, U.S.A., Japan  ####
-Delta reference as it was for "historical stations": 
+Most likely used in the paper seismograms and pre-miniseed digital recordings (pre 80's) . 
+
+####  Station  from Countries Australia, U.S.A., Japan  ####
+Delta reference as for "historical overseas stations": 
+```
 BRS,OE,Brisbane,-27.389720485,152.774988403,525,,WGS84,1937-09-01T00:00:00Z,9999-01-01
 CAN,OE,Canberra,-35.3208,148.9987,700,,NZGD49,1958-01-01T00:00:00Z,9999-01-01
 COO,OE,Cooney Tunnel,-30.5778,151.8917,653,,NZGD49,1974-08-17T00:00:00Z,1991-09-19
@@ -23,8 +27,10 @@ RIV,OE,Riverview,-33.8295,151.1583,25,,NZGD49,1909-01-01T00:00:00Z,9999-01-01
 SYD,OE,Sydney,-33.8667,151.2,43,,NZGD49,1906-01-01T00:00:00Z,1948-12-31
 TOK,OE,Tokyo,-35.684741727,139.758118639,21,,WGS84,1875-06-01T00:00:00Z,9999-01-01
 TOO,OE,Toolangi,-37.5713,145.4905,604,,NZGD49,1962-01-01T00:00:00Z,9999-01-01
-
+```
 ####  Additional information #### 
     No information on these
     No additional metadata
     No information about data being used in events
+    Station rae still deemed opened/acrive (9999-01-01) 
+    Will be completed over time and change in delta
