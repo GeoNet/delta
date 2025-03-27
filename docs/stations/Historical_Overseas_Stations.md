@@ -12,6 +12,7 @@ Most likely used in the paper seismograms and pre-miniseed digital recordings (p
 ####  Station  from Countries Australia, U.S.A., Japan  ####
 Delta reference as for "historical overseas stations": 
 ```
+station,Network	Name,Latitude,Longitude,Elevation,Depth,Datum,Start Date,End Date
 BRS,OE,Brisbane,-27.389720485,152.774988403,525,,WGS84,1937-09-01T00:00:00Z,9999-01-01
 CAN,OE,Canberra,-35.3208,148.9987,700,,NZGD49,1958-01-01T00:00:00Z,9999-01-01
 COO,OE,Cooney Tunnel,-30.5778,151.8917,653,,NZGD49,1974-08-17T00:00:00Z,1991-09-19
