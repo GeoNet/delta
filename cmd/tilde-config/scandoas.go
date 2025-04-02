@@ -60,7 +60,7 @@ func (t *Tilde) ScanDOAS(set *meta.Set, network string) error {
 	// update domains
 	t.Domains = append(t.Domains, Domain{
 		Name:        "scandoas",
-		Description: "Continuous sulphur dioxide gas emission rates and supporting data",
+		Description: "Continuous sulphur dioxide gas emission rates",
 		Stations:    stns,
 	})
 
