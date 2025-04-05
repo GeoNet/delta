@@ -38,7 +38,7 @@ var ids = map[string]string{
 	"Ruapehu & Ngauruhoe from East":        "ruapehungauruhoe",
 	"Ruapehu from South":                   "ruapehusouth",
 	"Raoul Island":                         "raoulisland",
-	"Taranaki from New Plymouth":           "taranaki",
+	"Taranaki Maunga from New Plymouth":    "taranaki",
 	"Whakaari/White Island from Te Kaha":   "tekaha",
 	"Tongariro Te Maari Crater":            "tongarirotemaaricrater",
 	"Whakaari/White Island from Whakatāne": "whakatane",
