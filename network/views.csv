@@ -18,8 +18,8 @@ RUD01,01,Tukino Skifield,266,,-60,SO2 from Ruapehu from Tukino Skifield,2022-05-
 RUD02,01,Iwikau Village,172,,-60,SO2 from Ruapehu from Iwikau Village,2022-05-06T00:00:00Z,9999-01-01T00:00:00Z
 RUD03,01,Turoa Road End,51,,-60,SO2 from Ruapehu from Turoa Road End,2023-06-28T03:30:00Z,9999-01-01T00:00:00Z
 RUD04,01,Wahianoa,330,,-60,SO2 from Ruapehu from Wahianoa,2024-02-07T23:00:00Z,9999-01-01T00:00:00Z
-TEMO,01,Taranaki from New Plymouth,180,,0,Images of Mount Taranaki (Egmont volcano) from the volcano camera situated in New Plymouth.,2002-09-18T13:00:10Z,2012-04-02T22:45:00Z
-TEMO,02,Taranaki from New Plymouth,180,,0,Images of Mount Taranaki (Egmont volcano) from the volcano camera situated in New Plymouth.,2012-04-03T00:15:00Z,9999-01-01T00:00:00Z
+TEMO,01,Taranaki Maunga from New Plymouth,180,,0,Images of Taranaki Maunga from the volcano camera situated in New Plymouth.,2002-09-18T13:00:10Z,2012-04-02T22:45:00Z
+TEMO,02,Taranaki Maunga from New Plymouth,180,,0,Images of Taranaki Maunga from the volcano camera situated in New Plymouth.,2012-04-03T00:15:00Z,9999-01-01T00:00:00Z
 TKAH,01,Whakaari/White Island from Te Kaha,299,,0,Images of White Island from the volcano camera situated at Te Kaha.,2024-07-15T01:09:59Z,9999-01-01T00:00:00Z
 TOD01,01,,250,,-60,SO2 from Tongariro from Lower Te Maari East,2021-07-29T02:30:00Z,2024-02-04T08:00:00Z
 TOD02,01,,169,,-60,SO2 from Tongariro from Lower Te Maari West,2021-07-29T01:00:00Z,9999-01-01T00:00:00Z
