@@ -9,7 +9,7 @@ Reference information for the GeoNet sensor networks and manual data collection 
 * `citations.csv` - Reference citations
 * `datasets.csv` - Datasets Digital Object Identifiers
 * `domains.csv` - Tilde domains
-* `tilde_methods.csv` - Tilde  method descriptions
+* `methods.csv` - Tilde  method descriptions
 
 #### _CITATIONS_ ####
 

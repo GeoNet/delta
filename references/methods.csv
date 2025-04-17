@@ -1,7 +1,15 @@
 Domain,Method,Description,Reference
+coastal,15s,water height and water height detided measured by coastal shore sensors every 15 seconds,
+dart,15m,water height and water height detided measured by ocean floor sensors every 15 minutes,
+dart,15s,"water pressure, temperature or height measured by ocean floor sensors every 15 seconds",
+dart,raw,"original recordings of water pressure, temperature or height measured by ocean floor sensors",
+envirosensor,avg,"Average (mean) during the sampling interval",
 envirosensor,max,"The maximum value of the observation over the output interval","https://help.campbellsci.com/crbasic/cr1000x/Content/Instructions/maximum.htm"
 envirosensor,min,"The minimum value of the observation over the output interval","https://help.campbellsci.com/crbasic/cr1000x/Content/Instructions/minimum.htm"
 envirosensor,snapshot,"The value of the observation at the measurement time",
+envirosensor,tot,"Total during the sampling interval. Usually used for rainfall", "https://en.wikipedia.org/wiki/Rain_gauge"
+geomag,60s,Geomagnetic field observations measured by digital magnetometers,"https://doi.org/10.21420/5q60-k348"
+gnss,1d,daily ground displacement measured by continuous GNSS sensors,"https://doi.org/10.21420/30F4-1A55"
 manualcollect,accumulation-chamber,"An upside down bucket-shaped collection device is placed on the ground surface. A sensor in the chamber measures the concentration of gas coming from the ground beneath the chamber","https://www.geonet.org.nz/volcano/how"
 manualcollect,contouring,"While an aircraft flies through a plume at different altitudes, a pump inside the aircraft sucks in gases and instruments measure the concentration","https://www.geonet.org.nz/volcano/how"
 manualcollect,cospec,"A correlation spectrometer that measures absorption of ultraviolet light by SO2 from beneath a volcanic plume","https://www.geonet.org.nz/volcano/how"
@@ -14,8 +22,11 @@ manualcollect,manual-count,"A count of the total number of events in a given tim
 manualcollect,mobile-doas,"A differential optical absorption spectrometry (DOAS) instrument that is small enough to be operated from an aircraft and make observations of SO2 concentration from beneath a volcanic plume","https://www.geonet.org.nz/volcano/how"
 manualcollect,photo-comparison,"Photographing a water surface against a staff gauge and using that to estimate the water level to a precision greater than that of markings on the staff gauge",""
 manualcollect,staff-gauge,"A calibrated scale which used to provide a visual indication of water level","https://en.wikipedia.org/wiki/Staff_gauge"
+manualcollect,surface-accumulation-chamber,"A bucket-shaped metal accumulation chamber placed on the ground with the gases pumped through a back-pack analyser to derive the flux/concentration","https://www.geonet.org.nz/volcano/how"
 manualcollect,thermal-camera,"A thermographic camera that senses infrared radiation","https://en.wikipedia.org/wiki/Forward-looking_infrared"
 manualcollect,thermocouple,"A thermoelectrical thermometer","https://en.wikipedia.org/wiki/Thermocouple"
 manualcollect,thermometer,"A mercury thermometer","https://en.wikipedia.org/wiki/Thermometer"
+manualcollect,velocity-cross-sectional-area,"Flow rate determined by the product of velocity and channel cross-sectional area, with a roughness factor (of 0.7)","http://en.wikipedia.org/wiki/Discharge_(hydrology)"
 manualcollect,vertical-angle-rangefinder,"A measurement of vertical angle and distance using a laser rangefinder","https://en.wikipedia.org/wiki/Laser_rangefinder"
 manualcollect,water-analysis-lab,"A physical sample is analysed in a laboratory. For water samples, this is typically the New Zealand Geothermal Analytical Laboratory (NZGAL)","https://www.gns.cri.nz/partner-with-us/labs-and-facilities/new-zealand-geothermal-analytical-laboratory/"
+scandoas,reviewed,"Differential Optical Absorption Spectrometer (DOAS) technology used for SO2 flux measurement using a ground-based instrument. The technique relies on UV light from the Sun so only works in daylight hours and when the sky is bright enough","https://www.geonet.org.nz/volcano/how"
