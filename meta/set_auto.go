@@ -244,6 +244,20 @@ func (s Set) Class(station string) (Class, bool) {
 	return Class{}, false
 }
 
+// Constituent is a helper function to return a Constituent value and true if one exists.
+func (s Set) Constituent(gauge, location string) (Constituent, bool) {
+	for _, v := range s.constituents {
+		if gauge != v.Gauge {
+			continue
+		}
+		if location != v.Location {
+			continue
+		}
+		return v, true
+	}
+	return Constituent{}, false
+}
+
 // Dart is a helper function to return a Dart value and true if one exists.
 func (s Set) Dart(station string) (Dart, bool) {
 	for _, v := range s.darts {

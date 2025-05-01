@@ -1002,6 +1002,7 @@ func TestList(t *testing.T) {
 						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
 					},
 					Gauge:     "AUCT",
+					Location:  "41",
 					Number:    2,
 					Name:      "SA",
 					Amplitude: 3.8781,

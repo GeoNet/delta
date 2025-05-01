@@ -36,6 +36,7 @@ DROP TABLE IF EXISTS constituent;
 CREATE TABLE IF NOT EXISTS constituent (
   constituent_id INTEGER PRIMARY KEY NOT NULL,
   gauge_id INTEGER NOT NULL,
+  location TEXT DEFAULT "" NOT NULL,
   number TEXT NOT NULL,
   constituent TEXT NOT NULL,
   amplitude REAL NOT NULL,
@@ -61,11 +62,11 @@ END;
 var constituent = Table{
 	Create: constituentCreate,
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO constituent (gauge, number, constituent, amplitude, lag, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?);",
+		return fmt.Sprintf("INSERT INTO constituent (gauge_id, location, number, constituent, amplitude, lag, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?);",
 			gauge.Select(),
 		)
 	},
-	Fields: []string{"Gauge", "Identification Number", "Analysis Time Zone", "Analysis Latitude", "Analysis Longitude", "Crex Tag", "Start Date", "End Date"},
+	Fields: []string{"Gauge", "Location", "Number", "Constituent", "Amplitude", "Lag", "Start Date", "End Date"},
 }
 
 const dartCreate = `
