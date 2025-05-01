@@ -77,6 +77,7 @@ Quality estimates are roughly
 | Field | Description |
 | --- | --- |
 | _Gauge_ | Code used to uniquely identify Tide Gauge _Station_
+| _Location_ | Code used to uniquely identify the _Gauge_ deployment, this can be left empty if not appropriate.
 | _Number_ | Constituent number, used mainly for display and sorting
 | _Constituent_ | Standard Constituent Name
 | _Amplitude_ | Analysis Amplitude, in cm
