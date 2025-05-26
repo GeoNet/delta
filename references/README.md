@@ -9,7 +9,7 @@ Reference information for the GeoNet sensor networks and manual data collection 
 * `citations.csv` - Reference citations
 * `datasets.csv` - Datasets Digital Object Identifiers
 * `domains.csv` - Tilde domains
-* `tilde_methods.csv` - Tilde  method descriptions
+* `methods.csv` - Tilde  method descriptions
 
 #### _CITATIONS_ ####
 
@@ -53,7 +53,7 @@ List of data domains.
 | Field | Description |
 | --- | --- |
 | _Domain_ | The data domain. This is a concept used by the Tilde data application, and refers to the broad collection method or data discipline
-| _Description_ | Short description of the domain as used in Tilde application.
+| _Description_ | Short description of the domain as used in Tilde application. Description is empty if data are not available via Tilde.
 
 
 #### _METHODS_ ####
