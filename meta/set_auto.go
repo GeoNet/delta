@@ -55,6 +55,11 @@ func (s Set) Darts() []Dart {
 	return s.darts
 }
 
+// Datasets is a helper function to return a slice of Dataset values.
+func (s Set) Datasets() []Dataset {
+	return s.datasets
+}
+
 // DeployedDataloggers is a helper function to return a slice of DeployedDatalogger values.
 func (s Set) DeployedDataloggers() []DeployedDatalogger {
 	return s.deployedDataloggers
@@ -244,6 +249,20 @@ func (s Set) Class(station string) (Class, bool) {
 	return Class{}, false
 }
 
+// Constituent is a helper function to return a Constituent value and true if one exists.
+func (s Set) Constituent(gauge, location string) (Constituent, bool) {
+	for _, v := range s.constituents {
+		if gauge != v.Gauge {
+			continue
+		}
+		if location != v.Location {
+			continue
+		}
+		return v, true
+	}
+	return Constituent{}, false
+}
+
 // Dart is a helper function to return a Dart value and true if one exists.
 func (s Set) Dart(station string) (Dart, bool) {
 	for _, v := range s.darts {
@@ -253,6 +272,20 @@ func (s Set) Dart(station string) (Dart, bool) {
 		return v, true
 	}
 	return Dart{}, false
+}
+
+// Dataset is a helper function to return a Dataset value and true if one exists.
+func (s Set) Dataset(domain, network string) (Dataset, bool) {
+	for _, v := range s.datasets {
+		if domain != v.Domain {
+			continue
+		}
+		if network != v.Network {
+			continue
+		}
+		return v, true
+	}
+	return Dataset{}, false
 }
 
 // Mark is a helper function to return a Mark value and true if one exists.

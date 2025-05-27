@@ -9,6 +9,7 @@ import (
 
 const (
 	constituentGauge = iota
+	constituentLocation
 	constituentNumber
 	constituentName
 	constituentAmplitude
@@ -20,6 +21,7 @@ const (
 
 var constituentHeaders Header = map[string]int{
 	"Gauge":       constituentGauge,
+	"Location":    constituentLocation,
 	"Number":      constituentNumber,
 	"Constituent": constituentName,
 	"Amplitude":   constituentAmplitude,
@@ -31,7 +33,7 @@ var constituentHeaders Header = map[string]int{
 var ConstituentTable Table = Table{
 	name:    "Constituent",
 	headers: constituentHeaders,
-	primary: []string{"Gauge", "Number", "Start Date"},
+	primary: []string{"Gauge", "Location", "Number", "Start Date"},
 	native:  []string{"Amplitude", "Lage"},
 	foreign: map[string][]string{
 		"Gauge": {"Gauge"},
@@ -48,6 +50,7 @@ type Constituent struct {
 	Span
 
 	Gauge     string
+	Location  string
 	Number    int
 	Name      string
 	Amplitude float64
@@ -66,6 +69,10 @@ func (c ConstituentList) Less(i, j int) bool {
 	case c[i].Gauge < c[j].Gauge:
 		return true
 	case c[i].Gauge > c[j].Gauge:
+		return false
+	case c[i].Location < c[j].Location:
+		return true
+	case c[i].Location > c[j].Location:
 		return false
 	case c[i].Start.Before(c[j].Start):
 		return true
@@ -86,6 +93,7 @@ func (c ConstituentList) encode() [][]string {
 	for _, row := range c {
 		data = append(data, []string{
 			strings.TrimSpace(row.Gauge),
+			strings.TrimSpace(row.Location),
 			strconv.Itoa(row.Number),
 			strings.TrimSpace(row.Name),
 			strings.TrimSpace(row.amplitude),
@@ -140,6 +148,7 @@ func (c *ConstituentList) decode(data [][]string) error {
 			},
 
 			Gauge:     d[constituentGauge],
+			Location:  d[constituentLocation],
 			Number:    num,
 			Name:      d[constituentName],
 			Amplitude: amp,

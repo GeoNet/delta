@@ -17,6 +17,7 @@ gnss,LI,Gns1995b,true
 gnss,SA,Gns1995a,false
 gnss,SA,Gns1995b,true
 manualcollect,MC,Gns1954,true
+scandoas,EN,Gns2022b,true
 seismic,AK,Gns2021a,false
 seismic,CB,Gns2021a,false
 seismic,CH,Gns2021a,false
@@ -26,7 +27,7 @@ seismic,FI,Gns2021a,false
 seismic,HB,Gns2021a,false
 seismic,IU,Usgs2014,false
 seismic,KI,Gns2021a,false
-seismic,MN,Gns2021a,false
+seismic,NM,Gns2021a,false
 seismic,NX,Gns2021a,false
 seismic,NZ,Gns2021a,false
 seismic,OT,Gns2021a,false

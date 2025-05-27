@@ -58,6 +58,8 @@ HIKB,50225M001,Forced Centering,Pillar,-1.2,Reinforced Concrete,2,2003-05-01T00:
 HOKI,50211M001,Forced Centering,Pillar,-2,Reinforced Concrete,2,1998-06-01T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
 HOLD,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.15,Stainless Steel Rods,10,2007-02-12T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 HORN,,Forced Centering,Pillar,-0.4,Reinforced Concrete,2,2002-11-01T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
+IFMA,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2025-03-12T00:00:00Z,9999-01-01T00:00:00Z,Semischist,"Planar-foliated, low-grade psammitic/pelitic semischist, minor low-grade metatuff and metachert, TZIIB."
+JTGT,,Forced Centering,Steel Mast,-2.6,Wooden Pier,0,2025-02-20T00:00:00Z,9999-01-01T00:00:00Z,,
 KAHU,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2006-04-19T00:00:00Z,9999-01-01T00:00:00Z,Limestone,
 KAIK,50231M001,Forced Centering,Pillar,-1.27,Reinforced Concrete,2,2004-01-30T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 KAPT,,Forced Centering,Pillar,-1.275,Reinforced Concrete,2,2004-06-10T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
@@ -90,6 +92,9 @@ MCNL,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.507,Stainless Steel Rods,10
 METH,50251M001,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.56,Stainless Steel Rods,6,2010-08-01T00:00:00Z,9999-01-01T00:00:00Z,,
 MING,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.54,Stainless Steel Rods,10,2010-04-28T00:00:00Z,9999-01-01T00:00:00Z,,
 MKNO,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.551,Stainless Steel Rods,10,2011-05-11T00:00:00Z,9999-01-01T00:00:00Z,,
+MKP1,,Forced Centering,Steel Mast,-2,Ground Screw,0.5,2025-03-17T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,Landslide deposit
+MKP2,,Forced Centering,Steel Mast,-2,Ground Screw,0.5,2025-03-18T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,Landslide deposit
+MKTR,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.70,Stainless Steel Rods,10,2025-03-04T00:00:00Z,9999-01-01T00:00:00Z,,
 MNHR,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.58,Stainless Steel Rods,10,2011-02-16T00:00:00Z,9999-01-01T00:00:00Z,,
 MNMW,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.635,Stainless Steel Rods,10,2023-09-21T00:00:00Z,9999-01-01T00:00:00Z,,
 MQZG,50214M001,Forced Centering,Pillar,-0.95,Reinforced Concrete,2,1999-09-27T00:00:00Z,9999-01-01T00:00:00Z,Rhyolite,
@@ -178,6 +183,7 @@ TAKL,50216S001,Forced Centering,Pillar,-3.2,Reinforced Concrete,2,2001-07-11T00:
 TAKP,,Forced Centering,Pillar,-1.09,Reinforced Concrete,2,2004-01-14T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 TAUP,50217M001,Forced Centering,Pillar,-1.15,Reinforced Concrete,2,2002-03-22T00:00:00Z,9999-01-01T00:00:00Z,Rhyolite,
 TAUW,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.436,Stainless Steel Rods,10,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z,,
+TBWT,,Forced Centering,Steel Mast,-2.6,Reinforced Concrete,0.5,2025-02-25T00:00:00Z,9999-01-01T00:00:00Z,,
 TEMA,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.15,Stainless Steel Rods,10,2007-02-12T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 TEN2,,Forced Centering,Steel Mast,0,Stainless Steel Rod,0,2016-11-16T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
 TENN,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.61,Stainless Steel Rods,10,2017-03-10T00:00:00Z,9999-01-01T00:00:00Z,Greywacke,
