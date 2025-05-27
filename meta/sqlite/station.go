@@ -4,25 +4,6 @@ import (
 	"fmt"
 )
 
-const datumCreate = `
-DROP TABLE IF EXISTS datum;
-CREATE TABLE IF NOT EXISTS datum (
-  datum_id INTEGER PRIMARY KEY NOT NULL,
-  datum TEXT NOT NULL,
-  UNIQUE (datum)
-);`
-
-var datum = Table{
-	Create: datumCreate,
-	Select: func() string {
-		return "SELECT datum_id FROM datum WHERE datum = ?"
-	},
-	Insert: func() string {
-		return "INSERT INTO datum (datum) VALUES (?) ON CONFLICT(datum) DO NOTHING;"
-	},
-	Fields: []string{"Datum"},
-}
-
 const methodCreate = `
 DROP TABLE IF EXISTS method;
 CREATE TABLE IF NOT EXISTS method (
@@ -40,28 +21,6 @@ var method = Table{
 		return "INSERT INTO method (method) VALUES (?) ON CONFLICT(method) DO NOTHING;"
 	},
 	Fields: []string{"Method"},
-}
-
-const networkCreate = `
-DROP TABLE IF EXISTS network;
-CREATE TABLE IF NOT EXISTS network (
-  network_id INTEGER PRIMARY KEY NOT NULL,
-  network TEXT NOT NULL,
-  external TEXT NOT NULL,
-  description TEXT DEFAULT "" NOT NULL,
-  restricted BOOLEAN DEFAULT false NOT NULL,
-  UNIQUE (network)
-);`
-
-var network = Table{
-	Create: networkCreate,
-	Select: func() string {
-		return "SELECT network_id FROM network WHERE network = ?"
-	},
-	Insert: func() string {
-		return "INSERT INTO network (network, external, description, restricted) VALUES (?, ?, ?, ?);"
-	},
-	Fields: []string{"Network", "External", "Description", "Restricted"},
 }
 
 const stationCreate = `

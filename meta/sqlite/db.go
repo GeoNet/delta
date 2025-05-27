@@ -67,11 +67,18 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 		return err
 	}
 
+	if err := d.exec(ctx, tx, reference.Create); err != nil {
+		return fmt.Errorf("reference create: %v", err)
+	}
+	if err := d.exec(ctx, tx, referenceNetwork.Create); err != nil {
+		return fmt.Errorf("reference network create: %v", err)
+	}
+
 	if err := d.exec(ctx, tx, method.Create); err != nil {
-		return err
+		return fmt.Errorf("method create: %v", err)
 	}
 	if err := d.exec(ctx, tx, placeRole.Create); err != nil {
-		return err
+		return fmt.Errorf("place role create: %v", err)
 	}
 
 	for _, l := range list {
@@ -81,7 +88,7 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 				return fmt.Errorf("resonse create: %v", err)
 			}
 			if err := d.prepare(ctx, tx, response.Insert(), response.Columns(l)...); err != nil {
-				return fmt.Errorf("resonse insert: %v", err)
+				return fmt.Errorf("response insert: %v", err)
 			}
 		case "Placename":
 			if err := d.exec(ctx, tx, placename.Create); err != nil {
