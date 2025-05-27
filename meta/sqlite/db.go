@@ -67,11 +67,17 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 		return err
 	}
 
+	if err := d.exec(ctx, tx, location.Create); err != nil {
+		return fmt.Errorf("location create: %v", err)
+	}
+	if err := d.exec(ctx, tx, locationNetwork.Create); err != nil {
+		return fmt.Errorf("location network create: %v", err)
+	}
 	if err := d.exec(ctx, tx, method.Create); err != nil {
-		return err
+		return fmt.Errorf("method create: %v", err)
 	}
 	if err := d.exec(ctx, tx, placeRole.Create); err != nil {
-		return err
+		return fmt.Errorf("place role create: %v", err)
 	}
 
 	for _, l := range list {
@@ -81,7 +87,7 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 				return fmt.Errorf("resonse create: %v", err)
 			}
 			if err := d.prepare(ctx, tx, response.Insert(), response.Columns(l)...); err != nil {
-				return fmt.Errorf("resonse insert: %v", err)
+				return fmt.Errorf("response insert: %v", err)
 			}
 		case "Placename":
 			if err := d.exec(ctx, tx, placename.Create); err != nil {
@@ -167,21 +173,24 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 			if err := d.prepare(ctx, tx, datum.Insert(), datum.Columns(l)...); err != nil {
 				return fmt.Errorf("datum insert: %v", err)
 			}
+			if err := d.prepare(ctx, tx, location.Insert(), location.Columns(l)...); err != nil {
+				return fmt.Errorf("location insert: %v", err)
+			}
 			if err := d.exec(ctx, tx, station.Create); err != nil {
 				return fmt.Errorf("station create: %v", err)
 			}
 			if err := d.prepare(ctx, tx, station.Insert(), station.Columns(l)...); err != nil {
 				return fmt.Errorf("station insert: %v", err)
 			}
-			if err := d.exec(ctx, tx, stationNetwork.Create); err != nil {
-				return fmt.Errorf("station network create: %v", err)
-			}
-			if err := d.prepare(ctx, tx, stationNetwork.Insert(), stationNetwork.Columns(l)...); err != nil {
-				return fmt.Errorf("station network insert: %v", err)
+			if err := d.prepare(ctx, tx, locationNetwork.Insert(), locationNetwork.Columns(l)...); err != nil {
+				return fmt.Errorf("station location network insert: %v", err)
 			}
 		case "Sample":
 			if err := d.prepare(ctx, tx, datum.Insert(), datum.Columns(l)...); err != nil {
 				return fmt.Errorf("datum insert: %v", err)
+			}
+			if err := d.prepare(ctx, tx, location.Insert(), location.Columns(l)...); err != nil {
+				return fmt.Errorf("location insert: %v", err)
 			}
 			if err := d.exec(ctx, tx, sample.Create); err != nil {
 				return fmt.Errorf("sample create: %v", err)
@@ -189,11 +198,8 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 			if err := d.prepare(ctx, tx, sample.Insert(), sample.Columns(l)...); err != nil {
 				return fmt.Errorf("sample insert: %v", err)
 			}
-			if err := d.exec(ctx, tx, sampleNetwork.Create); err != nil {
-				return fmt.Errorf("sample network create: %v", err)
-			}
-			if err := d.prepare(ctx, tx, sampleNetwork.Insert(), sampleNetwork.Columns(l)...); err != nil {
-				return fmt.Errorf("sample network insert: %v", err)
+			if err := d.prepare(ctx, tx, locationNetwork.Insert(), locationNetwork.Columns(l)...); err != nil {
+				return fmt.Errorf("station location network insert: %v", err)
 			}
 		case "Site":
 			if err := d.prepare(ctx, tx, datum.Insert(), datum.Columns(l)...); err != nil {
@@ -207,7 +213,7 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 			}
 		case "Point":
 			if err := d.prepare(ctx, tx, datum.Insert(), datum.Columns(l)...); err != nil {
-				return fmt.Errorf("datum insert: %v", err)
+				return fmt.Errorf("point datum insert: %v", err)
 			}
 			if err := d.exec(ctx, tx, point.Create); err != nil {
 				return fmt.Errorf("point create: %v", err)
@@ -236,17 +242,20 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 				return fmt.Errorf("class citation insert: %v", err)
 			}
 		case "Mark":
+			if err := d.prepare(ctx, tx, datum.Insert(), datum.Columns(l)...); err != nil {
+				return fmt.Errorf("mark datum insert: %v", err)
+			}
+			if err := d.prepare(ctx, tx, location.Insert(), location.Columns(l)...); err != nil {
+				return fmt.Errorf("mark location insert: %v", err)
+			}
 			if err := d.exec(ctx, tx, mark.Create); err != nil {
 				return fmt.Errorf("mark create: %v", err)
 			}
 			if err := d.prepare(ctx, tx, mark.Insert(), mark.Columns(l)...); err != nil {
 				return fmt.Errorf("mark insert: %v", err)
 			}
-			if err := d.exec(ctx, tx, markNetwork.Create); err != nil {
-				return fmt.Errorf("mark network create: %v", err)
-			}
-			if err := d.prepare(ctx, tx, markNetwork.Insert(), markNetwork.Columns(l)...); err != nil {
-				return fmt.Errorf("mark network insert: %v", err)
+			if err := d.prepare(ctx, tx, locationNetwork.Insert(), locationNetwork.Columns(l)...); err != nil {
+				return fmt.Errorf("station location network insert: %v", err)
 			}
 		case "Monument":
 			if err := d.exec(ctx, tx, markType.Create); err != nil {
@@ -334,6 +343,9 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 			if err := d.prepare(ctx, tx, gauge.Insert(), gauge.Columns(l)...); err != nil {
 				return fmt.Errorf("gauge insert: %v", err)
 			}
+			if err := d.prepare(ctx, tx, locationNetwork.Insert(), locationNetwork.Columns(l)...); err != nil {
+				return fmt.Errorf("gauge location network insert: %v", err)
+			}
 		case "Constituent":
 			if err := d.exec(ctx, tx, constituent.Create); err != nil {
 				return fmt.Errorf("constituent create: %v", err)
@@ -350,7 +362,10 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 			}
 		case "Mount":
 			if err := d.prepare(ctx, tx, datum.Insert(), datum.Columns(l)...); err != nil {
-				return fmt.Errorf("datum insert: %v", err)
+				return fmt.Errorf("mount datum insert: %v", err)
+			}
+			if err := d.prepare(ctx, tx, location.Insert(), location.Columns(l)...); err != nil {
+				return fmt.Errorf("mount location insert: %v", err)
 			}
 			if err := d.exec(ctx, tx, mount.Create); err != nil {
 				return fmt.Errorf("mount create: %v", err)
@@ -358,11 +373,8 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 			if err := d.prepare(ctx, tx, mount.Insert(), mount.Columns(l)...); err != nil {
 				return fmt.Errorf("mount insert: %v", err)
 			}
-			if err := d.exec(ctx, tx, mountNetwork.Create); err != nil {
-				return fmt.Errorf("mount network create: %v", err)
-			}
-			if err := d.prepare(ctx, tx, mountNetwork.Insert(), mountNetwork.Columns(l)...); err != nil {
-				return fmt.Errorf("mount network insert: %v", err)
+			if err := d.prepare(ctx, tx, locationNetwork.Insert(), locationNetwork.Columns(l)...); err != nil {
+				return fmt.Errorf("station location network insert: %v", err)
 			}
 		case "View":
 			if err := d.exec(ctx, tx, view.Create); err != nil {

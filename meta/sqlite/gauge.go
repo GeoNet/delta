@@ -8,7 +8,7 @@ const gaugeCreate = `
 DROP TABLE IF EXISTS gauge;
 CREATE TABLE IF NOT EXISTS gauge (
   gauge_id INTEGER PRIMARY KEY NOT NULL,
-  gauge TEXT NOT NULL,
+  location_id INTEGER NOT NULL,
   identification_number TEXT NOT NULL,
   analysis_time_zone REAL NOT NULL,
   analysis_latitude REAL NOT NULL,
@@ -16,17 +16,18 @@ CREATE TABLE IF NOT EXISTS gauge (
   crex_tag TEXT NOT NULL,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
-  UNIQUE(gauge, start_date, end_date)
+  FOREIGN KEY (location_id) REFERENCES location (location_id),
+  UNIQUE(location_id, start_date, end_date)
 );
 `
 
 var gauge = Table{
 	Create: gaugeCreate,
 	Select: func() string {
-		return "SELECT gauge_id FROM gauge WHERE gauge = ?"
+		return fmt.Sprintf("SELECT gauge_id FROM gauge WHERE location_id = (%s)", location.Select())
 	},
 	Insert: func() string {
-		return "INSERT INTO gauge (gauge, identification_number, analysis_time_zone, analysis_latitude, analysis_longitude, crex_tag, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"
+		return fmt.Sprintf("INSERT INTO gauge (location_id, identification_number, analysis_time_zone, analysis_latitude, analysis_longitude, crex_tag, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?);", location.Select())
 	},
 	Fields: []string{"Gauge", "Identification Number", "Analysis Time Zone", "Analysis Latitude", "Analysis Longitude", "Crex Tag", "Start Date", "End Date"},
 }

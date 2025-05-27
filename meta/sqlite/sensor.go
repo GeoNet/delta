@@ -88,7 +88,7 @@ DROP TABLE IF EXISTS polarity;
 CREATE TABLE IF NOT EXISTS polarity (
   polarity_id INTEGER PRIMARY KEY NOT NULL,
   site_id INTEGER NOT NULL,
-  sublocation TEXT NULL,
+  subcode TEXT NULL,
   subsource TEXT NULL,
   preferred BOOLEAN NOT NULL ON CONFLICT REPLACE DEFAULT true,
   reversed BOOLEAN NOT NULL ON CONFLICT REPLACE DEFAULT false,
@@ -102,7 +102,7 @@ WHEN EXISTS (
       WHERE datetime(start_date) <= datetime(NEW.end_date)
       AND datetime(end_date) > datetime(NEW.start_date)
       AND site_id = NEW.site_id
-      AND sublocation =  NEW.sublocation
+      AND subcode =  NEW.subcode
       AND subsource =  NEW.subsource
       AND preferred =  NEW.preferred
       AND preferred =  true
@@ -115,7 +115,7 @@ END;
 var polarity = Table{
 	Create: polarityCreate,
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO polarity (site_id, sublocation, subsource, preferred, reversed, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?);",
+		return fmt.Sprintf("INSERT INTO polarity (site_id, subcode, subsource, preferred, reversed, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?);",
 			site.Select(),
 		)
 	},
@@ -163,7 +163,7 @@ DROP TABLE IF EXISTS gain;
 CREATE TABLE IF NOT EXISTS gain (
   gain_id INTEGER PRIMARY KEY NOT NULL,
   site_id INTEGER NOT NULL,
-  sublocation TEXT NULL,
+  subcode TEXT NULL,
   subsource TEXT NULL,
   scale_factor REAL NOT NULL ON CONFLICT REPLACE DEFAULT 1.0,
   scale_bias REAL NOT NULL ON CONFLICT REPLACE DEFAULT 0.0,
@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS gain (
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
   FOREIGN KEY (site_id) REFERENCES site (site_id),
-  UNIQUE(site_id, sublocation, subsource, start_date, end_date)
+  UNIQUE(site_id, subcode, subsource, start_date, end_date)
 );
 CREATE TRIGGER IF NOT EXISTS no_overlap_on_gain BEFORE INSERT ON gain
 WHEN EXISTS (
@@ -179,7 +179,7 @@ WHEN EXISTS (
       WHERE datetime(start_date) <= datetime(NEW.end_date)
       AND datetime(end_date) > datetime(NEW.start_date)
       AND site_id =  NEW.site_id
-      AND sublocation = NEW.sublocation
+      AND subcode = NEW.subcode
       AND subsource = NEW.subsource
 )
 BEGIN
@@ -190,7 +190,7 @@ END;
 var gain = Table{
 	Create: gainCreate,
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO gain (site_id, sublocation, subsource, scale_factor, scale_bias, absolute_bias, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?);",
+		return fmt.Sprintf("INSERT INTO gain (site_id, subcode, subsource, scale_factor, scale_bias, absolute_bias, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?);",
 			site.Select(),
 		)
 	},

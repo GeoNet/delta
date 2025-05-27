@@ -4,25 +4,6 @@ import (
 	"fmt"
 )
 
-const datumCreate = `
-DROP TABLE IF EXISTS datum;
-CREATE TABLE IF NOT EXISTS datum (
-  datum_id INTEGER PRIMARY KEY NOT NULL,
-  datum TEXT NOT NULL,
-  UNIQUE (datum)
-);`
-
-var datum = Table{
-	Create: datumCreate,
-	Select: func() string {
-		return "SELECT datum_id FROM datum WHERE datum = ?"
-	},
-	Insert: func() string {
-		return "INSERT INTO datum (datum) VALUES (?) ON CONFLICT(datum) DO NOTHING;"
-	},
-	Fields: []string{"Datum"},
-}
-
 const methodCreate = `
 DROP TABLE IF EXISTS method;
 CREATE TABLE IF NOT EXISTS method (
@@ -42,80 +23,26 @@ var method = Table{
 	Fields: []string{"Method"},
 }
 
-const networkCreate = `
-DROP TABLE IF EXISTS network;
-CREATE TABLE IF NOT EXISTS network (
-  network_id INTEGER PRIMARY KEY NOT NULL,
-  network TEXT NOT NULL,
-  external TEXT NOT NULL,
-  description TEXT DEFAULT "" NOT NULL,
-  restricted BOOLEAN DEFAULT false NOT NULL,
-  UNIQUE (network)
-);`
-
-var network = Table{
-	Create: networkCreate,
-	Select: func() string {
-		return "SELECT network_id FROM network WHERE network = ?"
-	},
-	Insert: func() string {
-		return "INSERT INTO network (network, external, description, restricted) VALUES (?, ?, ?, ?);"
-	},
-	Fields: []string{"Network", "External", "Description", "Restricted"},
-}
-
 const stationCreate = `
 DROP TABLE IF EXISTS station;
 CREATE TABLE IF NOT EXISTS station (
   station_id INTEGER PRIMARY KEY NOT NULL,
-  datum_id INTEGER NOT NULL,
-  station TEXT NOT NULL,
-  name TEXT NOT NULL,
-  latitude REAL NOT NULL,
-  longitude REAL NOT NULL,
-  elevation REAL NULL,
-  depth REAL NULL,
+  location_id INTEGER NOT NULL,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
-  FOREIGN KEY (datum_id) REFERENCES datum (datum_id),
-  UNIQUE (station)
+  FOREIGN KEY (location_id) REFERENCES location (location_id),
+  UNIQUE (location_id)
 );`
 
 var station = Table{
 	Create: stationCreate,
 	Select: func() string {
-		return "SELECT station_id FROM station WHERE station = ?"
+		return fmt.Sprintf("SELECT station_id FROM station WHERE location_id = (%s)", location.Select())
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO station (datum_id, station, name, latitude, longitude, elevation, depth, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?);", datum.Select())
+		return fmt.Sprintf("INSERT INTO station (location_id, start_date, end_date) VALUES ((%s), ?, ?);", location.Select())
 	},
-	Fields: []string{"Datum", "Station", "Name", "Latitude", "Longitude", "Elevation", "Depth", "Start Date", "End Date"},
-	Nulls:  []string{"Elevation", "Depth"},
-}
-
-const stationNetworkCreate = `
-DROP TABLE IF EXISTS station_network;
-CREATE TABLE IF NOT EXISTS station_network (
-  station_network_id INTEGER PRIMARY KEY NOT NULL,
-  station_id INTEGER NOT NULL,
-  network_id INTEGER NOT NULL,
-  FOREIGN KEY (station_id) REFERENCES station (station_id),
-  FOREIGN KEY (network_id) REFERENCES network (network_id),
-  UNIQUE (station_id, network_id)
-);`
-
-var stationNetwork = Table{
-	Create: stationNetworkCreate,
-	Select: func() string {
-		return fmt.Sprintf("SELECT station_network_id FROM station_network WHERE station_id = (%s) AND network_id = (%s)",
-			station.Select(), network.Select())
-	},
-	Insert: func() string {
-		// not all networks are in the networks table so simply ignore any that fail
-		return fmt.Sprintf("INSERT OR IGNORE INTO station_network (station_id, network_id) VALUES ((%s), (%s));",
-			station.Select(), network.Select())
-	},
-	Fields: []string{"Station", "Network"},
+	Fields: []string{"Station", "Start Date", "End Date"},
 }
 
 const siteCreate = `
@@ -124,7 +51,7 @@ CREATE TABLE IF NOT EXISTS site (
   site_id INTEGER PRIMARY KEY NOT NULL,
   station_id INTEGER NOT NULL,
   datum_id INTEGER NOT NULL,
-  location TEXT NOT NULL,
+  code TEXT NOT NULL,
   latitude REAL NOT NULL,
   longitude REAL NOT NULL,
   elevation REAL NULL,
@@ -134,7 +61,7 @@ CREATE TABLE IF NOT EXISTS site (
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
   FOREIGN KEY (station_id) REFERENCES station (station_id),
   FOREIGN KEY (datum_id) REFERENCES datum (datum_id),
-  UNIQUE (station_id, location)
+  UNIQUE (station_id, code)
 );
 CREATE TRIGGER IF NOT EXISTS site_too_soon BEFORE INSERT ON site
 WHEN NEW.start_date < (SELECT station.start_date FROM station WHERE station.station_id = new.station_id)
@@ -151,10 +78,10 @@ END;
 var site = Table{
 	Create: siteCreate,
 	Select: func() string {
-		return fmt.Sprintf("SELECT site_id FROM site WHERE station_id = (%s) AND location = ?", station.Select())
+		return fmt.Sprintf("SELECT site_id FROM site WHERE station_id = (%s) AND code = ?", station.Select())
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO site (station_id, datum_id, location, latitude, longitude, elevation, depth, survey, start_date, end_date) VALUES ((%s), (%s), ?, ?, ?, ?, ?, ?, ?, ?);",
+		return fmt.Sprintf("INSERT INTO site (station_id, datum_id, code, latitude, longitude, elevation, depth, survey, start_date, end_date) VALUES ((%s), (%s), ?, ?, ?, ?, ?, ?, ?, ?);",
 			station.Select(), datum.Select())
 	},
 
@@ -162,53 +89,22 @@ var site = Table{
 	Nulls:  []string{"Elevation", "Depth"},
 }
 
-const sampleNetworkCreate = `
-DROP TABLE IF EXISTS sample_network;
-CREATE TABLE IF NOT EXISTS sample_network (
-  sample_network_id INTEGER PRIMARY KEY NOT NULL,
-  sample_id INTEGER NOT NULL,
-  network_id INTEGER NOT NULL,
-  FOREIGN KEY (sample_id) REFERENCES sample (sample_id),
-  FOREIGN KEY (network_id) REFERENCES network (network_id),
-  UNIQUE (sample_id, network_id)
-);`
-
-var sampleNetwork = Table{
-	Create: sampleNetworkCreate,
-	Select: func() string {
-		return fmt.Sprintf("SELECT sample_network_id FROM sample_network WHERE sample_id = (%s) AND network_id = (%s)",
-			sample.Select(), network.Select())
-	},
-	Insert: func() string {
-		// not all networks are in the networks table so simply ignore any that fail
-		return fmt.Sprintf("INSERT OR IGNORE INTO sample_network (sample_id, network_id) VALUES ((%s), (%s));",
-			sample.Select(), network.Select())
-	},
-	Fields: []string{"Station", "Network"},
-}
-
 const sampleCreate = `
 DROP TABLE IF EXISTS sample;
 CREATE TABLE IF NOT EXISTS sample (
   sample_id INTEGER PRIMARY KEY NOT NULL,
-  datum_id INTEGER NOT NULL,
-  station TEXT NOT NULL,
-  name TEXT NOT NULL,
-  latitude REAL NOT NULL,
-  longitude REAL NOT NULL,
-  elevation REAL NULL,
-  depth REAL NULL,
+  location_id INTEGER NOT NULL,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
-  FOREIGN KEY (datum_id) REFERENCES datum (datum_id),
-  UNIQUE(station)
+  FOREIGN KEY (location_id) REFERENCES location (location_id),
+  UNIQUE (location_id, start_date, end_date)
 );
 CREATE TRIGGER IF NOT EXISTS no_overlap_on_sample BEFORE INSERT ON sample
 WHEN EXISTS (
   SELECT * FROM sample
       WHERE datetime(start_date) <= datetime(NEW.end_date)
       AND datetime(end_date) > datetime(NEW.start_date)
-      AND station =  NEW.station
+      AND location_id =  NEW.location_id
 )
 BEGIN
   SELECT RAISE(FAIL, "overlapping intervals on sample");
@@ -218,14 +114,12 @@ END;
 var sample = Table{
 	Create: sampleCreate,
 	Select: func() string {
-		return "SELECT sample_id FROM sample WHERE station = ?"
+		return fmt.Sprintf("SELECT sample_id FROM sample WHERE location_id = (%s)", location.Select())
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO sample (datum_id, station, name, latitude, longitude, elevation, depth, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?);",
-			datum.Select())
+		return fmt.Sprintf("INSERT INTO sample (location_id, start_date, end_date) VALUES ((%s), ?, ?);", location.Select())
 	},
-	Fields: []string{"Datum", "Station", "Name", "Latitude", "Longitude", "Elevation", "Depth", "Start Date", "End Date"},
-	Nulls:  []string{"Elevation", "Depth"},
+	Fields: []string{"Station", "Start Date", "End Date"},
 }
 
 const pointCreate = `
@@ -234,7 +128,7 @@ CREATE TABLE IF NOT EXISTS point (
   point_id INTEGER PRIMARY KEY NOT NULL,
   sample_id INTEGER NOT NULL,
   datum_id INTEGER NOT NULL,
-  location TEXT NOT NULL,
+  code TEXT NOT NULL,
   latitude REAL NOT NULL,
   longitude REAL NOT NULL,
   elevation REAL DEFAULT 0 NOT NULL,
@@ -244,7 +138,7 @@ CREATE TABLE IF NOT EXISTS point (
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
   FOREIGN KEY (sample_id) REFERENCES sample (sample_id),
   FOREIGN KEY (datum_id) REFERENCES datum (datum_id),
-  UNIQUE (sample_id, location)
+  UNIQUE (sample_id, code)
 );
 CREATE TRIGGER IF NOT EXISTS point_too_soon BEFORE INSERT ON point
 WHEN NEW.start_date < (SELECT sample.start_date FROM sample WHERE sample.sample_id = new.sample_id)
@@ -261,7 +155,7 @@ END;
 var point = Table{
 	Create: pointCreate,
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO point (sample_id, datum_id, location, latitude, longitude, elevation, depth, survey, start_date, end_date) VALUES ((%s), (%s), ?, ?, ?, ?, ?, ?, ?, ?);",
+		return fmt.Sprintf("INSERT INTO point (sample_id, datum_id, code, latitude, longitude, elevation, depth, survey, start_date, end_date) VALUES ((%s), (%s), ?, ?, ?, ?, ?, ?, ?, ?);",
 			sample.Select(), datum.Select())
 	},
 	Fields: []string{"Sample", "Datum", "Location", "Latitude", "Longitude", "Elevation", "Depth", "Survey", "Start Date", "End Date"},
@@ -272,14 +166,14 @@ DROP TABLE IF EXISTS feature;
 CREATE TABLE IF NOT EXISTS feature (
   feature_id INTEGER PRIMARY KEY NOT NULL,
   site_id INTEGER NOT NULL,
-  sublocation TEXT NULL,
+  code TEXT NULL,
   property TEXT NOT NULL,
   description TEXT NULL,
   aspect TEXT NULL,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
   FOREIGN KEY (site_id) REFERENCES site (site_id),
-  UNIQUE(site_id, sublocation, property, description, aspect, start_date, end_date)
+  UNIQUE(site_id, code, property, description, aspect, start_date, end_date)
 );
 CREATE TRIGGER IF NOT EXISTS no_overlap_on_feature BEFORE INSERT ON feature
 WHEN EXISTS (
@@ -287,7 +181,7 @@ WHEN EXISTS (
       WHERE datetime(start_date) <= datetime(NEW.end_date)
       AND datetime(end_date) > datetime(NEW.start_date)
       AND site_id = NEW.site_id
-      AND sublocation =  NEW.sublocation
+      AND code =  NEW.code
       AND property =  NEW.property
       AND description =  NEW.description
       AND aspect =  NEW.aspect
@@ -301,7 +195,7 @@ var feature = Table{
 	Create: featureCreate,
 	Insert: func() string {
 		// currently a feature could reference a site or a point or a sample, solution is consolidation.
-		return fmt.Sprintf("INSERT OR IGNORE INTO feature (site_id, sublocation, property, description, aspect, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?);",
+		return fmt.Sprintf("INSERT OR IGNORE INTO feature (site_id, code, property, description, aspect, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?);",
 			site.Select())
 	},
 	Fields: []string{"Station", "Location", "Sublocation", "Property", "Description", "Aspect", "Start Date", "End Date"},
@@ -366,25 +260,4 @@ var classCitation = Table{
 		)
 	},
 	Fields: []string{"Station", "Citations"},
-}
-
-const noteCreate = `
-DROP TABLE IF EXISTS note;
-CREATE TABLE IF NOT EXISTS note (
-  note_id INTEGER PRIMARY KEY NOT NULL,
-  network_id INTEGER NOT NULL,
-  code TEXT NULL,
-  entry TEXT NULL,
-  FOREIGN KEY (network_id) REFERENCES network (network_id),
-  UNIQUE(network_id, code)
-);
-`
-
-var note = Table{
-	Create: noteCreate,
-	Insert: func() string {
-		return fmt.Sprintf("INSERT OR IGNORE INTO note (network_id, code, entry) VALUES ((%s), ?, ?);",
-			network.Select())
-	},
-	Fields: []string{"Network", "Code", "Entry"},
 }
