@@ -470,6 +470,13 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 			if err := d.prepare(ctx, tx, connection.Insert(), connection.Columns(l)...); err != nil {
 				return fmt.Errorf("connection insert: %v", err)
 			}
+		case "Note":
+			if err := d.exec(ctx, tx, note.Create); err != nil {
+				return fmt.Errorf("note create: %v", err)
+			}
+			if err := d.prepare(ctx, tx, note.Insert(), note.Columns(l)...); err != nil {
+				return fmt.Errorf("note insert: %v", err)
+			}
 		default:
 			log.Printf("ignoring %s", l.Table.Name())
 		}
