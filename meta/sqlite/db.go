@@ -70,9 +70,11 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 	if err := d.exec(ctx, tx, reference.Create); err != nil {
 		return fmt.Errorf("reference create: %v", err)
 	}
-	if err := d.exec(ctx, tx, referenceNetwork.Create); err != nil {
-		return fmt.Errorf("reference network create: %v", err)
-	}
+	/*
+		if err := d.exec(ctx, tx, referenceNetwork.Create); err != nil {
+			return fmt.Errorf("reference network create: %v", err)
+		}
+	*/
 
 	if err := d.exec(ctx, tx, method.Create); err != nil {
 		return fmt.Errorf("method create: %v", err)
@@ -174,6 +176,9 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 			if err := d.prepare(ctx, tx, datum.Insert(), datum.Columns(l)...); err != nil {
 				return fmt.Errorf("datum insert: %v", err)
 			}
+			if err := d.prepare(ctx, tx, reference.Insert(), reference.Columns(l)...); err != nil {
+				return fmt.Errorf("reference insert: %v", err)
+			}
 			if err := d.exec(ctx, tx, station.Create); err != nil {
 				return fmt.Errorf("station create: %v", err)
 			}
@@ -189,6 +194,9 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 		case "Sample":
 			if err := d.prepare(ctx, tx, datum.Insert(), datum.Columns(l)...); err != nil {
 				return fmt.Errorf("datum insert: %v", err)
+			}
+			if err := d.prepare(ctx, tx, reference.Insert(), reference.Columns(l)...); err != nil {
+				return fmt.Errorf("reference insert: %v", err)
 			}
 			if err := d.exec(ctx, tx, sample.Create); err != nil {
 				return fmt.Errorf("sample create: %v", err)
@@ -214,7 +222,7 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 			}
 		case "Point":
 			if err := d.prepare(ctx, tx, datum.Insert(), datum.Columns(l)...); err != nil {
-				return fmt.Errorf("datum insert: %v", err)
+				return fmt.Errorf("point datum insert: %v", err)
 			}
 			if err := d.exec(ctx, tx, point.Create); err != nil {
 				return fmt.Errorf("point create: %v", err)
@@ -243,6 +251,12 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 				return fmt.Errorf("class citation insert: %v", err)
 			}
 		case "Mark":
+			if err := d.prepare(ctx, tx, datum.Insert(), datum.Columns(l)...); err != nil {
+				return fmt.Errorf("mark datum insert: %v", err)
+			}
+			if err := d.prepare(ctx, tx, reference.Insert(), reference.Columns(l)...); err != nil {
+				return fmt.Errorf("mark reference insert: %v", err)
+			}
 			if err := d.exec(ctx, tx, mark.Create); err != nil {
 				return fmt.Errorf("mark create: %v", err)
 			}

@@ -1,6 +1,8 @@
 package sqlite
 
 import (
+	"log"
+
 	"fmt"
 )
 
@@ -66,12 +68,20 @@ var reference = Table{
 		return "SELECT reference_id FROM reference WHERE code = ?"
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO reference (datum_id, code, name, latitude, longitude, elevation, depth) VALUES ((%s), ?, ?, ?, ?, ?, ?);", datum.Select())
+		//log.Println("INSERT INTO reference (datum_id, code, name, latitude, longitude, elevation, depth)")
+		x := fmt.Sprintf("INSERT INTO reference (datum_id, code, name, latitude, longitude, elevation, depth) VALUES ((%s), ?, ?, ?, ?, ?, ?) ON CONFLICT(code) DO NOTHING;", datum.Select())
+		//x := fmt.Sprintf("INSERT INTO reference (datum_id, code, name, latitude, longitude, elevation, depth) VALUES ((%s), ?, ?, ?, ?, ?, ?);", datum.Select())
+		log.Println(x)
+		return x
 	},
 	Fields: []string{"Datum", "Code", "Name", "Latitude", "Longitude", "Elevation", "Depth"},
 	Nulls:  []string{"Elevation", "Depth"},
+	Remap: map[string][]string{
+		"Code": {"Station", "Mark"},
+	},
 }
 
+/*
 const referenceNetworkCreate = `
 DROP TABLE IF EXISTS reference_network;
 CREATE TABLE IF NOT EXISTS reference_network (
@@ -96,6 +106,7 @@ var referenceNetwork = Table{
 	},
 	Fields: []string{"Reference", "Network"},
 }
+*/
 
 const placenameCreate = `
 DROP TABLE IF EXISTS placename;

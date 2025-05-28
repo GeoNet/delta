@@ -27,29 +27,32 @@ const stationCreate = `
 DROP TABLE IF EXISTS station;
 CREATE TABLE IF NOT EXISTS station (
   station_id INTEGER PRIMARY KEY NOT NULL,
-  datum_id INTEGER NOT NULL,
-  station TEXT NOT NULL,
-  name TEXT NOT NULL,
-  latitude REAL NOT NULL,
-  longitude REAL NOT NULL,
-  elevation REAL NULL,
-  depth REAL NULL,
+  reference_id INTEGER NOT NULL,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
-  FOREIGN KEY (datum_id) REFERENCES datum (datum_id),
-  UNIQUE (station)
+  FOREIGN KEY (reference_id) REFERENCES reference (reference_id),
+  UNIQUE (reference_id)
 );`
 
 var station = Table{
 	Create: stationCreate,
+	/*
+		Select: func() string {
+			return "SELECT station_id FROM station WHERE station = ?"
+		},
+		Insert: func() string {
+			return fmt.Sprintf("INSERT INTO station (datum_id, station, name, latitude, longitude, elevation, depth, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?);", datum.Select())
+		},
+		Fields: []string{"Datum", "Station", "Name", "Latitude", "Longitude", "Elevation", "Depth", "Start Date", "End Date"},
+		Nulls:  []string{"Elevation", "Depth"},
+	*/
 	Select: func() string {
-		return "SELECT station_id FROM station WHERE station = ?"
+		return fmt.Sprintf("SELECT station_id FROM station WHERE reference_id = (%s)", reference.Select())
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO station (datum_id, station, name, latitude, longitude, elevation, depth, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?);", datum.Select())
+		return fmt.Sprintf("INSERT INTO station (reference_id, start_date, end_date) VALUES ((%s), ?, ?);", reference.Select())
 	},
-	Fields: []string{"Datum", "Station", "Name", "Latitude", "Longitude", "Elevation", "Depth", "Start Date", "End Date"},
-	Nulls:  []string{"Elevation", "Depth"},
+	Fields: []string{"Station", "Start Date", "End Date"},
 }
 
 const stationNetworkCreate = `
@@ -150,24 +153,18 @@ const sampleCreate = `
 DROP TABLE IF EXISTS sample;
 CREATE TABLE IF NOT EXISTS sample (
   sample_id INTEGER PRIMARY KEY NOT NULL,
-  datum_id INTEGER NOT NULL,
-  station TEXT NOT NULL,
-  name TEXT NOT NULL,
-  latitude REAL NOT NULL,
-  longitude REAL NOT NULL,
-  elevation REAL NULL,
-  depth REAL NULL,
+  reference_id INTEGER NOT NULL,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
-  FOREIGN KEY (datum_id) REFERENCES datum (datum_id),
-  UNIQUE(station)
+  FOREIGN KEY (reference_id) REFERENCES reference (reference_id),
+  UNIQUE (reference_id, start_date, end_date)
 );
 CREATE TRIGGER IF NOT EXISTS no_overlap_on_sample BEFORE INSERT ON sample
 WHEN EXISTS (
   SELECT * FROM sample
       WHERE datetime(start_date) <= datetime(NEW.end_date)
       AND datetime(end_date) > datetime(NEW.start_date)
-      AND station =  NEW.station
+      AND reference_id =  NEW.reference_id
 )
 BEGIN
   SELECT RAISE(FAIL, "overlapping intervals on sample");
@@ -177,14 +174,12 @@ END;
 var sample = Table{
 	Create: sampleCreate,
 	Select: func() string {
-		return "SELECT sample_id FROM sample WHERE station = ?"
+		return fmt.Sprintf("SELECT sample_id FROM sample WHERE reference_id = (%s)", reference.Select())
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO sample (datum_id, station, name, latitude, longitude, elevation, depth, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?);",
-			datum.Select())
+		return fmt.Sprintf("INSERT INTO sample (reference_id, start_date, end_date) VALUES ((%s), ?, ?);", reference.Select())
 	},
-	Fields: []string{"Datum", "Station", "Name", "Latitude", "Longitude", "Elevation", "Depth", "Start Date", "End Date"},
-	Nulls:  []string{"Elevation", "Depth"},
+	Fields: []string{"Station", "Start Date", "End Date"},
 }
 
 const pointCreate = `

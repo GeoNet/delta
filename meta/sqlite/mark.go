@@ -108,31 +108,25 @@ const markCreate = `
 DROP TABLE IF EXISTS mark;
 CREATE TABLE IF NOT EXISTS mark (
   mark_id INTEGER PRIMARY KEY NOT NULL,
-  datum_id INTEGER NOT NULL,
-  mark TEXT NOT NULL,
+  reference_id INTEGER NOT NULL,
   igs BOOLEAN NOT NULL,
-  name TEXT NOT NULL,
-  latitude REAL NOT NULL,
-  longitude REAL NOT NULL,
-  elevation REAL DEFAULT 0 NOT NULL,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
-  FOREIGN KEY (datum_id) REFERENCES datum (datum_id),
-  UNIQUE (mark)
+  FOREIGN KEY (reference_id) REFERENCES reference (reference_id),
+  UNIQUE (reference_id)
 );`
 
 var mark = Table{
 	Create: markCreate,
 	Select: func() string {
-		return "SELECT mark_id FROM mark WHERE mark = ?"
+		return fmt.Sprintf("SELECT mark_id FROM mark WHERE reference_id = (%s)", reference.Select())
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO mark (datum_id, mark, igs, name, latitude, longitude, elevation, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?);",
-			datum.Select(),
+		return fmt.Sprintf("INSERT INTO mark (reference_id, igs, start_date, end_date) VALUES ((%s), ?, ?, ?);",
+			reference.Select(),
 		)
 	},
-
-	Fields: []string{"Datum", "Mark", "Igs", "Name", "Latitude", "Longitude", "Elevation", "Start Date", "End Date"},
+	Fields: []string{"Mark", "Igs", "Start Date", "End Date"},
 }
 
 const markNetworkCreate = `
