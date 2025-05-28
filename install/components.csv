@@ -62,12 +62,12 @@ Guralp,CMG-3TB,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3TB
 Guralp,CMG-3TB/GN,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-3TB_GN
 Guralp,CMG-3TB/GN,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-3TB_GN
 Guralp,CMG-3TB/GN,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-3TB_GN
-Guralp,CMG-40T-30S,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-40T-30S
-Guralp,CMG-40T-30S,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-40T-30S
-Guralp,CMG-40T-30S,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-40T-30S
-Guralp,CMG-40T-60S,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-40T-60S
-Guralp,CMG-40T-60S,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-40T-60S
-Guralp,CMG-40T-60S,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-40T-60S
+Guralp,CMG-40T/30S,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-40T_30S
+Guralp,CMG-40T/30S,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-40T_30S
+Guralp,CMG-40T/30S,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-40T_30S
+Guralp,CMG-40T/60S,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Guralp_CMG-40T_60S
+Guralp,CMG-40T/60S,Broadband Seismometer,1,,N,0,0,G,,sensor_Guralp_CMG-40T_60S
+Guralp,CMG-40T/60S,Broadband Seismometer,2,,E,0,90,G,,sensor_Guralp_CMG-40T_60S
 Guralp,Fortis,Accelerometer,0,,Z,-90,0,G,,sensor_Guralp_Fortis
 Guralp,Fortis,Accelerometer,1,,N,0,0,G,,sensor_Guralp_Fortis
 Guralp,Fortis,Accelerometer,2,,E,0,90,G,,sensor_Guralp_Fortis
