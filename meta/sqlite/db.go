@@ -232,7 +232,7 @@ func (d DB) Init(ctx context.Context, list []meta.TableList) error {
 			if err := d.exec(ctx, tx, classCitation.Create); err != nil {
 				return fmt.Errorf("class citation create: %v", err)
 			}
-			if err := d.prepare(ctx, tx, classCitation.Insert(), class.Links(l)...); err != nil {
+			if err := d.prepare(ctx, tx, classCitation.Insert(), class.Links(l, "Station")...); err != nil {
 				return fmt.Errorf("class citation insert: %v", err)
 			}
 		case "Mark":

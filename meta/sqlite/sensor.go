@@ -39,7 +39,7 @@ var timing = Table{
 			site.Select(),
 		)
 	},
-	Fields: []string{"Site", "Correction", "Start Date", "End Date"},
+	Fields: []string{"Station", "Location", "Correction", "Start Date", "End Date"},
 }
 
 const telemetryCreate = `
@@ -47,7 +47,7 @@ DROP TABLE IF EXISTS telemetry;
 CREATE TABLE IF NOT EXISTS telemetry (
   telemetry_id INTEGER PRIMARY KEY NOT NULL,
   site_id INTEGER NOT NULL,
-  scale_factor REAL DEFAULT 1.0 NOT NULL,
+  scale_factor REAL NOT NULL ON CONFLICT REPLACE DEFAULT 1.0,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
   FOREIGN KEY (site_id) REFERENCES site (site_id),
@@ -73,11 +73,14 @@ var telemetry = Table{
 		)
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO telemetry (site_id, scalar_factor, start_date, end_date) VALUES ((%s), ?, ?, ?);",
+		return fmt.Sprintf("INSERT INTO telemetry (site_id, scale_factor, start_date, end_date) VALUES ((%s), ?, ?, ?);",
 			site.Select(),
 		)
 	},
-	Fields: []string{"Site", "Scalar Factor", "Start Date", "End Date"},
+	Fields: []string{"Station", "Location", "Scale Factor", "Start Date", "End Date"},
+	Nulls: []string{
+		"Scale Factor",
+	},
 }
 
 const polarityCreate = `
@@ -87,8 +90,8 @@ CREATE TABLE IF NOT EXISTS polarity (
   site_id INTEGER NOT NULL,
   sublocation TEXT NULL,
   subsource TEXT NULL,
-  preferred BOOLEAN DEFAULT true NOT NULL,
-  reversed BOOLEAN DEFAULT false NOT NULL,
+  preferred BOOLEAN NOT NULL ON CONFLICT REPLACE DEFAULT true,
+  reversed BOOLEAN NOT NULL ON CONFLICT REPLACE DEFAULT false,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
   FOREIGN KEY (site_id) REFERENCES site (site_id)
@@ -112,11 +115,11 @@ END;
 var polarity = Table{
 	Create: polarityCreate,
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO polarity (site_id, sublocation, subsource, preferred, reversed, start_date, end_date) VALUES ((%s), ?, ?, ?);",
+		return fmt.Sprintf("INSERT INTO polarity (site_id, sublocation, subsource, preferred, reversed, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?);",
 			site.Select(),
 		)
 	},
-	Fields: []string{"Site", "Sublocation", "Subsource", "Primary", "Reversed", "Start Date", "End Date"},
+	Fields: []string{"Station", "Location", "Sublocation", "Subsource", "Primary", "Reversed", "Start Date", "End Date"},
 }
 
 const preampCreate = `
@@ -125,7 +128,7 @@ CREATE TABLE IF NOT EXISTS preamp (
   preamp_id INTEGER PRIMARY KEY NOT NULL,
   site_id INTEGER NOT NULL,
   subsource TEXT NULL,
-  scale_factor REAL DEFAULT 1.0 NOT NULL,
+  scale_factor REAL NOT NULL ON CONFLICT REPLACE DEFAULT 1.0,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
   FOREIGN KEY (site_id) REFERENCES site (site_id),
@@ -152,7 +155,7 @@ var preamp = Table{
 			site.Select(),
 		)
 	},
-	Fields: []string{"Site", "Subsource", "Scale Factor", "Start Date", "End Date"},
+	Fields: []string{"Station", "Location", "Subsource", "Scale Factor", "Start Date", "End Date"},
 }
 
 const gainCreate = `
@@ -337,8 +340,8 @@ DROP TABLE IF EXISTS stream;
 CREATE TABLE IF NOT EXISTS stream (
   stream_id INTEGER PRIMARY KEY NOT NULL,
   site_id INTEGER NOT NULL,
-  band TEXT DEFAULT "" NOT NULL,
-  source TEXT DEFAULT "" NOT NULL,
+  band TEXT NOT NULL ON CONFLICT REPLACE DEFAULT "",
+  source TEXT NOT NULL ON CONFLICT REPLACE DEFAULT "",
   sampling_rate REAL NOT NULL,
   axial TEXT NOT NULL,
   reversed TEXT NOT NULL,
@@ -378,7 +381,7 @@ CREATE TABLE IF NOT EXISTS connection (
   connection_id INTEGER PRIMARY KEY NOT NULL,
   site_id INTEGER NOT NULL,
   place_role_id INTEGER NOT NULL,
-  number TEXT DEFAULT "" NOT NULL,
+  number TEXT NOT NULL ON CONFLICT REPLACE DEFAULT "",
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
   FOREIGN KEY (site_id) REFERENCES site (site_id),
@@ -415,7 +418,7 @@ DROP TABLE IF EXISTS place_role;
 CREATE TABLE IF NOT EXISTS place_role (
   place_role_id INTEGER PRIMARY KEY NOT NULL,
   place TEXT NOT NULL,
-  role TEXT DEFAULT "" NOT NULL,
+  role TEXT NOT NULL ON CONFLICT REPLACE DEFAULT "",
   UNIQUE (place, role)
 );`
 
