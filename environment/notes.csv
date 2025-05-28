@@ -79,7 +79,7 @@ VGTS,CG,5/8 thread in centre of 160 mm diameter stainless steel plate set in a 3
 VGWH,CG,5/8 thread in centre of 160 mm diameter stainless steel plate set in a 300 mm external diameter concrete tube cast using a cardboard Formatube.
 VGWN,CG,5/8 thread in centre of 160 mm diameter stainless steel plate set in a 300 mm external diameter concrete tube cast using a cardboard Formatube.
 WARK,LI,"LINZ CGPS at VLBI site with streaming capabilities. Timing now being received from AUT's hydrogen maser 10MHz - switch over completed at 2012-03-23 00:22 UTC."
-WGTT,GN,There is a 20dB in-line amplifier in the antenna cable to boost the signal from the LEIAT504 antenna to the NetRS.  The amplifier is GPS Networking p/n LA20RPDC-. 
+WGTT,GT,There is a 20dB in-line amplifier in the antenna cable to boost the signal from the LEIAT504 antenna to the NetRS.  The amplifier is GPS Networking p/n LA20RPDC-. 
 WRA1,XX,temporary mark set to monitor 2016-11-13 M7.8 Kaikoura earthquake sequence. Replaced by a drilled braced monument (WRAU). The site has been dismantled
 WRAU,CG,Hikurangi margin array (scientific target: SS events) and 2016-13-11 M7.8 Kaikoura event response (scientific target: postseismic signal). A temporary site (WRA1) 55m from the deep braced monument recorded the first period after the Kaikoura earthquake.
 YALD,CG,The mark is a SECO 2072-33 levelling mount installed on 16/09/2014 (21:00) UTC time mounted on top of the deep braced monument.
