@@ -46,6 +46,17 @@ var antennaChecks = map[string]func(*meta.Set) func(t *testing.T){
 		}
 	},
 
+	"check for invalid installation dates": func(set *meta.Set) func(t *testing.T) {
+		return func(t *testing.T) {
+			for _, i := range set.InstalledAntennas() {
+				if i.End.After(i.Start) {
+					continue
+				}
+				t.Errorf("installed antenna is removed before it has been installed: %s", i.String())
+			}
+		}
+	},
+
 	"check for antenna installation mark overlaps": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			installs := make(map[string]meta.InstalledAntennaList)
