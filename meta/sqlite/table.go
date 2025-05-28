@@ -1,8 +1,6 @@
 package sqlite
 
 import (
-	"log"
-
 	"strings"
 
 	"github.com/GeoNet/delta/meta"
@@ -124,7 +122,6 @@ func (t Table) Columns(list meta.TableList) [][]any {
 					parts = append(parts, nil)
 					continue
 				}
-				log.Println("missing", f)
 				return nil
 			}
 			if !(n < len(line)) {

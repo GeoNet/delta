@@ -8,31 +8,26 @@ const mountCreate = `
 DROP TABLE IF EXISTS mount;
 CREATE TABLE IF NOT EXISTS mount (
   mount_id INTEGER PRIMARY KEY NOT NULL,
-  datum_id INTEGER NOT NULL,
-  mount TEXT NOT NULL,
-  name TEXT NOT NULL,
-  latitude REAL NOT NULL,
-  longitude REAL NOT NULL,
-  elevation REAL NOT NULL,
+  reference_id INTEGER NOT NULL,
   description TEXT DEFAULT "" NOT NULL,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
-  FOREIGN KEY (datum_id) REFERENCES datum (datum_id),
-  UNIQUE(mount, start_date, end_date)
+  FOREIGN KEY (reference_id) REFERENCES reference (reference_id),
+  UNIQUE(reference_id, start_date, end_date)
 );
 `
 
 var mount = Table{
 	Create: mountCreate,
 	Select: func() string {
-		return "SELECT mount_id FROM mount WHERE mount = ?"
+		return fmt.Sprintf("SELECT mount_id FROM mount WHERE reference_id = (%s)", reference.Select())
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO mount (datum_id, mount, name, latitude, longitude, elevation, description, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?);",
-			datum.Select(),
+		return fmt.Sprintf("INSERT INTO mount (reference_id, description, start_date, end_date) VALUES ((%s), ?, ?, ?);",
+			reference.Select(),
 		)
 	},
-	Fields: []string{"Datum", "Mount", "Name", "Latitude", "Longitude", "Elevation", "Description", "Start Date", "End Date"},
+	Fields: []string{"Mount", "Description", "Start Date", "End Date"},
 }
 
 const mountNetworkCreate = `

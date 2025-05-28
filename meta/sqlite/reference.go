@@ -1,8 +1,6 @@
 package sqlite
 
 import (
-	"log"
-
 	"fmt"
 )
 
@@ -68,20 +66,15 @@ var reference = Table{
 		return "SELECT reference_id FROM reference WHERE code = ?"
 	},
 	Insert: func() string {
-		//log.Println("INSERT INTO reference (datum_id, code, name, latitude, longitude, elevation, depth)")
-		x := fmt.Sprintf("INSERT INTO reference (datum_id, code, name, latitude, longitude, elevation, depth) VALUES ((%s), ?, ?, ?, ?, ?, ?) ON CONFLICT(code) DO NOTHING;", datum.Select())
-		//x := fmt.Sprintf("INSERT INTO reference (datum_id, code, name, latitude, longitude, elevation, depth) VALUES ((%s), ?, ?, ?, ?, ?, ?);", datum.Select())
-		log.Println(x)
-		return x
+		return fmt.Sprintf("INSERT INTO reference (datum_id, code, name, latitude, longitude, elevation, depth) VALUES ((%s), ?, ?, ?, ?, ?, ?) ON CONFLICT(code) DO NOTHING;", datum.Select())
 	},
 	Fields: []string{"Datum", "Code", "Name", "Latitude", "Longitude", "Elevation", "Depth"},
 	Nulls:  []string{"Elevation", "Depth"},
 	Remap: map[string][]string{
-		"Code": {"Station", "Mark"},
+		"Code": {"Station", "Mark", "Mount"},
 	},
 }
 
-/*
 const referenceNetworkCreate = `
 DROP TABLE IF EXISTS reference_network;
 CREATE TABLE IF NOT EXISTS reference_network (
@@ -104,9 +97,11 @@ var referenceNetwork = Table{
 		return fmt.Sprintf("INSERT OR IGNORE INTO reference_network (reference_id, network_id) VALUES ((%s), (%s));",
 			reference.Select(), network.Select())
 	},
-	Fields: []string{"Reference", "Network"},
+	Fields: []string{"Code", "Network"},
+	Remap: map[string][]string{
+		"Code": {"Station", "Mark", "Mount"},
+	},
 }
-*/
 
 const placenameCreate = `
 DROP TABLE IF EXISTS placename;
