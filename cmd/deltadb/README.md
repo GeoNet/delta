@@ -61,3 +61,13 @@ sqlite>
 ## schema
 
 [![Schema](delta.svg)](delta.svg)
+
+### building the schema
+
+This uses the application from [sqlite-schema-diagram](https://github.com/o0101/sqlite-schema-diagram) and graphviz.
+
+```
+sqlite3 path/to/database.db -init sqlite-schema-diagram.sql "" > schema.dot
+dot -Tsvg schema.dot > schema.svg
+```
+

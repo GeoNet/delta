@@ -367,3 +367,24 @@ var classCitation = Table{
 	},
 	Fields: []string{"Station", "Citations"},
 }
+
+const noteCreate = `
+DROP TABLE IF EXISTS note;
+CREATE TABLE IF NOT EXISTS note (
+  note_id INTEGER PRIMARY KEY NOT NULL,
+  network_id INTEGER NOT NULL,
+  code TEXT NULL,
+  entry TEXT NULL,
+  FOREIGN KEY (network_id) REFERENCES network (network_id),
+  UNIQUE(network_id, code)
+);
+`
+
+var note = Table{
+	Create: noteCreate,
+	Insert: func() string {
+		return fmt.Sprintf("INSERT OR IGNORE INTO note (network_id, code, entry) VALUES ((%s), ?, ?);",
+			network.Select())
+	},
+	Fields: []string{"Network", "Code", "Entry"},
+}

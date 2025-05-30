@@ -1,4 +1,4 @@
-﻿Code,Network,Entry
+Code,Network,Entry
 2406,CG,5/8 threaded bolt on top of concrete pillar
 ARTA,CG,Concrete pillar with 3 stainless rods drilled to 0.5m into concrete butress.Note that between 2006-10-12 and 2006-11-08 the existing pillar adjacent to this one was occupied using the code ATIA as a test.
 ATIA,XX,Test deployment for site ARTA
@@ -12,7 +12,7 @@ CLS5,XX,Equipment has been dismantled on 2016-04-26 because reasons. The monumen
 CLS6,XX,Site used for landslide monitoring. Mark has been dismantled on 2016-08-28
 CLSG,XX,site has been dismantled after the June 13 2011 Christchurch earthquake due to its proximity to a cliff edge and its unsafety
 CMBL,CG,5/8 thread in centre of 160 mm diameter stainless steel plate set in 320 mm diameter concrete pillar. Pillar plate is 1601 mm above the top of previous mark (A Cape Campbell B28C).
-FALE,GN,IGS Pacific site. Post is cemented into a hole excavated approximately 1m deep in weathered igneous bedrock. Geodetic reference point is top-center of steel coupler atop steel mast. 
+FALE,GN,IGS Pacific site. Post is cemented into a hole excavated approximately 1m deep in weathered igneous bedrock. Geodetic reference point is top-center of steel coupler atop steel mast.
 GDS1,XX,temporary mark deployed for M7.8 Kaikoura earthquake sequence monitoring. Tribrach found out of level on 2017-02-22 and readjusted at the same time of the NetR9 receiver swap.
 GLDB,LI,5/8 thread in centre of 100 mm diameter stainless steel plate set in concrete pillar.
 GLOK,CG,2016-13-11 M7.8 Kaikoura event response (scientific target: postseismic signal). A temporary site (LOK1) 350m SW of the deep braced monument recorded the initial period after the earthquake.
@@ -36,9 +36,9 @@ NIUC,GN,Site was destroyed by cyclone Heta at the end of 2003 and replaced by NI
 NIUM,GN,Starting from 2014-03-13T01:30 the station is operated and maintained by Geoscience Australia.
 NMAI,CG,The site is on limestone which dips about 18 degrees to the SE from a measurement close to the site.
 OHIN,CG,There are numerous shallow surface slumps in the area but Nick is of the opinion that these will not affect a site on the broad flat top of the hill.
-PALI,CG,The drillers had problems with hole collapse at this site so it is effectively now a short-braced monument with legs grouted in place.  BORELOG: All holes are in soft brown fractured Greywacke: North leg - GL to 3m hole collapsing back to 3m; South leg - GL to 1.5m hole collapsing back at 1.5m; East and centre legs - GL to 1.8m holes collapsing back to 1.8m; West leg - GL to 3.2m hole collapsing back to  3.2m. Mark name changed from ""Cape Palliser CGPS to Cape Palliser on Sept 2014
+PALI,CG,"The drillers had problems with hole collapse at this site so it is effectively now a short-braced monument with legs grouted in place.  BORELOG: All holes are in soft brown fractured Greywacke: North leg - GL to 3m hole collapsing back to 3m; South leg - GL to 1.5m hole collapsing back at 1.5m; East and centre legs - GL to 1.8m holes collapsing back to 1.8m; West leg - GL to 3.2m hole collapsing back to  3.2m. Mark name changed from ""Cape Palliser CGPS"" to ""Cape Palliser"" on Sept 2014"
 PARI,CG,Broad exposed slab of sandstone
-PORA,CG,5/8 thread in centre of 50 mm diameter stainless steel centre block of deep braced monument. Top of SS centre block is 1273 mm above the top of previous mark geodetic mark 30 (Poranagahau SD) - A47A. 
+PORA,CG,5/8 thread in centre of 50 mm diameter stainless steel centre block of deep braced monument. Top of SS centre block is 1273 mm above the top of previous mark geodetic mark 30 (Poranagahau SD) - A47A.
 RAHI,CG,hard limestone
 RGCR,CG,Abandoned due to the planting of pine trees in the proximity of the monument.
 RGHL,CG,Faulty antenna from 2017-03-20 to  2017-06-07
@@ -78,8 +78,8 @@ VGTR,CG,5/8 thread in centre of 160 mm diameter stainless steel plate set in a 3
 VGTS,CG,5/8 thread in centre of 160 mm diameter stainless steel plate set in a 300 mm external diameter concrete tube cast using a cardboard Formatube.
 VGWH,CG,5/8 thread in centre of 160 mm diameter stainless steel plate set in a 300 mm external diameter concrete tube cast using a cardboard Formatube.
 VGWN,CG,5/8 thread in centre of 160 mm diameter stainless steel plate set in a 300 mm external diameter concrete tube cast using a cardboard Formatube.
-WARK,LI,"LINZ CGPS at VLBI site with streaming capabilities. Timing now being received from AUT's hydrogen maser 10MHz - switch over completed at 2012-03-23 00:22 UTC."
-WGTT,GT,There is a 20dB in-line amplifier in the antenna cable to boost the signal from the LEIAT504 antenna to the NetRS.  The amplifier is GPS Networking p/n LA20RPDC-. 
+WARK,LI,LINZ CGPS at VLBI site with streaming capabilities. Timing now being received from AUT's hydrogen maser 10MHz - switch over completed at 2012-03-23 00:22 UTC.
+WGTT,GT,There is a 20dB in-line amplifier in the antenna cable to boost the signal from the LEIAT504 antenna to the NetRS.  The amplifier is GPS Networking p/n LA20RPDC-.
 WRA1,XX,temporary mark set to monitor 2016-11-13 M7.8 Kaikoura earthquake sequence. Replaced by a drilled braced monument (WRAU). The site has been dismantled
 WRAU,CG,Hikurangi margin array (scientific target: SS events) and 2016-13-11 M7.8 Kaikoura event response (scientific target: postseismic signal). A temporary site (WRA1) 55m from the deep braced monument recorded the first period after the Kaikoura earthquake.
 YALD,CG,The mark is a SECO 2072-33 levelling mount installed on 16/09/2014 (21:00) UTC time mounted on top of the deep braced monument.

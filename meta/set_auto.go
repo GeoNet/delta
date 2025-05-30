@@ -150,6 +150,11 @@ func (s Set) Networks() []Network {
 	return s.networks
 }
 
+// Notes is a helper function to return a slice of Note values.
+func (s Set) Notes() []Note {
+	return s.notes
+}
+
 // Placenames is a helper function to return a slice of Placename values.
 func (s Set) Placenames() []Placename {
 	return s.placenames
@@ -346,6 +351,20 @@ func (s Set) Network(code string) (Network, bool) {
 		return v, true
 	}
 	return Network{}, false
+}
+
+// Note is a helper function to return a Note value and true if one exists.
+func (s Set) Note(code, network string) (Note, bool) {
+	for _, v := range s.notes {
+		if code != v.Code {
+			continue
+		}
+		if network != v.Network {
+			continue
+		}
+		return v, true
+	}
+	return Note{}, false
 }
 
 // Placename is a helper function to return a Placename value and true if one exists.
