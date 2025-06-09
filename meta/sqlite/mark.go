@@ -108,57 +108,25 @@ const markCreate = `
 DROP TABLE IF EXISTS mark;
 CREATE TABLE IF NOT EXISTS mark (
   mark_id INTEGER PRIMARY KEY NOT NULL,
-  datum_id INTEGER NOT NULL,
-  mark TEXT NOT NULL,
+  location_id INTEGER NOT NULL,
   igs BOOLEAN NOT NULL,
-  name TEXT NOT NULL,
-  latitude REAL NOT NULL,
-  longitude REAL NOT NULL,
-  elevation REAL DEFAULT 0 NOT NULL,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
-  FOREIGN KEY (datum_id) REFERENCES datum (datum_id),
-  UNIQUE (mark)
+  FOREIGN KEY (location_id) REFERENCES location (location_id),
+  UNIQUE (location_id)
 );`
 
 var mark = Table{
 	Create: markCreate,
 	Select: func() string {
-		return "SELECT mark_id FROM mark WHERE mark = ?"
+		return fmt.Sprintf("SELECT mark_id FROM mark WHERE location_id = (%s)", location.Select())
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO mark (datum_id, mark, igs, name, latitude, longitude, elevation, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?);",
-			datum.Select(),
+		return fmt.Sprintf("INSERT INTO mark (location_id, igs, start_date, end_date) VALUES ((%s), ?, ?, ?);",
+			location.Select(),
 		)
 	},
-
-	Fields: []string{"Datum", "Mark", "Igs", "Name", "Latitude", "Longitude", "Elevation", "Start Date", "End Date"},
-}
-
-const markNetworkCreate = `
-DROP TABLE IF EXISTS mark_network;
-CREATE TABLE IF NOT EXISTS mark_network (
-  mark_network_id INTEGER PRIMARY KEY NOT NULL,
-  mark_id INTEGER NOT NULL,
-  network_id INTEGER NOT NULL,
-  FOREIGN KEY (mark_id) REFERENCES mark (mark_id),
-  FOREIGN KEY (network_id) REFERENCES network (network_id),
-  UNIQUE (mark_id, network_id)
-);`
-
-var markNetwork = Table{
-	Create: markNetworkCreate,
-	Select: func() string {
-		return fmt.Sprintf("SELECT mark_network_id FROM mark_network WHERE mark_id = (%s) AND network_id = (%s)",
-			mark.Select(), network.Select(),
-		)
-	},
-	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO mark_network (mark_id, network_id) VALUES ((%s), (%s));",
-			mark.Select(), network.Select(),
-		)
-	},
-	Fields: []string{"Mark", "Network"},
+	Fields: []string{"Mark", "Igs", "Start Date", "End Date"},
 }
 
 const monumentCreate = `

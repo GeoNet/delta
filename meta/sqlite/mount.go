@@ -8,57 +8,26 @@ const mountCreate = `
 DROP TABLE IF EXISTS mount;
 CREATE TABLE IF NOT EXISTS mount (
   mount_id INTEGER PRIMARY KEY NOT NULL,
-  datum_id INTEGER NOT NULL,
-  mount TEXT NOT NULL,
-  name TEXT NOT NULL,
-  latitude REAL NOT NULL,
-  longitude REAL NOT NULL,
-  elevation REAL NOT NULL,
+  location_id INTEGER NOT NULL,
   description TEXT DEFAULT "" NOT NULL,
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
-  FOREIGN KEY (datum_id) REFERENCES datum (datum_id),
-  UNIQUE(mount, start_date, end_date)
+  FOREIGN KEY (location_id) REFERENCES location (location_id),
+  UNIQUE(location_id, start_date, end_date)
 );
 `
 
 var mount = Table{
 	Create: mountCreate,
 	Select: func() string {
-		return "SELECT mount_id FROM mount WHERE mount = ?"
+		return fmt.Sprintf("SELECT mount_id FROM mount WHERE location_id = (%s)", location.Select())
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO mount (datum_id, mount, name, latitude, longitude, elevation, description, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?);",
-			datum.Select(),
+		return fmt.Sprintf("INSERT INTO mount (location_id, description, start_date, end_date) VALUES ((%s), ?, ?, ?);",
+			location.Select(),
 		)
 	},
-	Fields: []string{"Datum", "Mount", "Name", "Latitude", "Longitude", "Elevation", "Description", "Start Date", "End Date"},
-}
-
-const mountNetworkCreate = `
-DROP TABLE IF EXISTS mount_network;
-CREATE TABLE IF NOT EXISTS mount_network (
-  mount_network_id INTEGER PRIMARY KEY NOT NULL,
-  mount_id INTEGER NOT NULL,
-  network_id INTEGER NOT NULL,
-  FOREIGN KEY (mount_id) REFERENCES mount (mount_id),
-  FOREIGN KEY (network_id) REFERENCES network (network_id),
-  UNIQUE (mount_id, network_id)
-);`
-
-var mountNetwork = Table{
-	Create: mountNetworkCreate,
-	Select: func() string {
-		return fmt.Sprintf("SELECT mount_network_id FROM mount_network WHERE mount_id = (%s) AND network_id = (%s)",
-			mount.Select(), network.Select(),
-		)
-	},
-	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO mount_network (mount_id, network_id) VALUES ((%s), (%s));",
-			mount.Select(), network.Select())
-	},
-
-	Fields: []string{"Mount", "Network"},
+	Fields: []string{"Mount", "Description", "Start Date", "End Date"},
 }
 
 const viewCreate = `

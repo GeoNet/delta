@@ -181,6 +181,7 @@ func (s *Set) TableList(extra ...TableList) []TableList {
 		{Table: StationTable, List: StationList(s.Stations())},
 		{Table: SiteTable, List: SiteList(s.Sites())},
 		{Table: MarkTable, List: MarkList(s.Marks())},
+		{Table: NoteTable, List: NoteList(s.Notes())},
 		{Table: MonumentTable, List: MonumentList(s.Monuments())},
 		{Table: MountTable, List: MountList(s.Mounts())},
 		{Table: ViewTable, List: ViewList(s.Views())},

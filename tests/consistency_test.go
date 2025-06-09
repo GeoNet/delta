@@ -78,6 +78,7 @@ func TestConsistency(t *testing.T) {
 		"constituents": {f: "../environment/constituents.csv", l: &meta.ConstituentList{}},
 		"features":     {f: "../environment/features.csv", l: &meta.FeatureList{}},
 		"gauges":       {f: "../environment/gauges.csv", l: &meta.GaugeList{}},
+		"notes":        {f: "../environment/notes.csv", l: &meta.NoteList{}},
 		//"placenames":   {f: "../environment/placenames.csv", l: &meta.PlacenameList{}},
 		"visibility": {f: "../environment/visibility.csv", l: &meta.VisibilityList{}},
 

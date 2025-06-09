@@ -22,6 +22,8 @@ type Table struct {
 	Nulls []string
 	// Unwrap can be used to build a linking table when a column has multiple fields
 	Unwrap string
+	// Remap can be used to overide a missing column
+	Remap map[string][]string
 }
 
 // Links returns the rows to insert into a Linking table for the given unwrapping column.
@@ -95,6 +97,18 @@ func (t Table) Columns(list meta.TableList) [][]any {
 	for n, v := range list.Table.Columns() {
 		lookup[v] = n
 	}
+	for k, l := range t.Remap {
+		if _, ok := lookup[k]; ok {
+			continue
+		}
+		for _, v := range l {
+			n, ok := lookup[v]
+			if !ok {
+				continue
+			}
+			lookup[k] = n
+		}
+	}
 
 	var res [][]any
 	for _, line := range lines[1:] {
@@ -103,6 +117,11 @@ func (t Table) Columns(list meta.TableList) [][]any {
 		for _, f := range t.Fields {
 			n, ok := lookup[f]
 			if !ok {
+				// it could be assumed to be not given
+				if _, ok := nulls[f]; ok {
+					parts = append(parts, nil)
+					continue
+				}
 				return nil
 			}
 			if !(n < len(line)) {
