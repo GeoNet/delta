@@ -48,10 +48,13 @@ const (
 	ConstituentsFile = "environment/constituents.csv"
 	FeaturesFile     = "environment/features.csv"
 	GaugesFile       = "environment/gauges.csv"
+	NotesFile        = "environment/notes.csv"
 	PlacenamesFile   = "environment/placenames.csv"
 	VisibilityFile   = "environment/visibility.csv"
 
 	CitationsFile = "references/citations.csv"
+	DatasetsFile  = "references/datasets.csv"
+	DomainsFile   = "references/domains.csv"
 )
 
 // SetPathMap is used to manipulate the filepath inside the Set.
@@ -101,10 +104,13 @@ type Set struct {
 	constituents ConstituentList
 	features     FeatureList
 	gauges       GaugeList
+	notes        NoteList
 	placenames   PlacenameList
 	visibilities VisibilityList
 
 	citations CitationList
+	datasets  DatasetList
+	domains   DomainList
 }
 
 func (s *Set) files() map[string]List {
@@ -148,10 +154,13 @@ func (s *Set) files() map[string]List {
 		ConstituentsFile: &s.constituents,
 		FeaturesFile:     &s.features,
 		GaugesFile:       &s.gauges,
+		NotesFile:        &s.notes,
 		PlacenamesFile:   &s.placenames,
 		VisibilityFile:   &s.visibilities,
 
 		CitationsFile: &s.citations,
+		DatasetsFile:  &s.datasets,
+		DomainsFile:   &s.domains,
 	}
 }
 

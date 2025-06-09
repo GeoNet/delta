@@ -3,8 +3,8 @@ Mark,Domes Number,Mark Type,Type,Ground Relationship,Foundation Type,Foundation 
 2406,,Forced Centering,Pillar,-1.66,Reinforced Concrete,2,2012-01-31T00:00:00Z,9999-01-01T00:00:00Z,,
 AHTI,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,Site On Flat Linear Ridge Line With Steepening Slopes To The North And South.
 AKTO,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2006-04-27T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
-ALS1,,Forced Centering,Steel Mast,-2.1,Stainless Steel Rods,4,2023-02-24T01:08:38Z,9999-01-01T00:00:00Z,,
-ALS2,,Forced Centering,Steel Mast,-0.5,Stainless Steel Rods,1.5,2023-02-23T01:17:02Z,9999-01-01T00:00:00Z,,
+ALS1,,Forced Centering,Steel Mast,-2.1,Stainless Steel Rods,4,2023-02-24T01:08:38Z,2024-02-26T00:00:00Z,,
+ALS2,,Forced Centering,Steel Mast,-0.5,Stainless Steel Rods,1.5,2023-02-23T01:17:02Z,2024-03-14T00:00:00Z,,
 ANAU,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.42,Stainless Steel Rods,10,2010-06-01T00:00:00Z,9999-01-01T00:00:00Z,,Top Of Narrow Hill
 ARTA,,Forced Centering,Pillar,-1.017,Reinforced Concrete,2,2008-11-05T00:00:00Z,9999-01-01T00:00:00Z,,
 ATIA,,Forced Centering,Pillar,-1,Reinforced Concrete,2,2006-10-12T00:00:00Z,2006-11-08T00:00:00Z,,
@@ -92,6 +92,8 @@ MCNL,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.507,Stainless Steel Rods,10
 METH,50251M001,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.56,Stainless Steel Rods,6,2010-08-01T00:00:00Z,9999-01-01T00:00:00Z,,
 MING,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.54,Stainless Steel Rods,10,2010-04-28T00:00:00Z,9999-01-01T00:00:00Z,,
 MKNO,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.551,Stainless Steel Rods,10,2011-05-11T00:00:00Z,9999-01-01T00:00:00Z,,
+MKP1,,Forced Centering,Steel Mast,-2,Ground Screw,0.5,2025-03-17T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,Landslide deposit
+MKP2,,Forced Centering,Steel Mast,-2,Ground Screw,0.5,2025-03-18T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,Landslide deposit
 MKTR,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.70,Stainless Steel Rods,10,2025-03-04T00:00:00Z,9999-01-01T00:00:00Z,,
 MNHR,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.58,Stainless Steel Rods,10,2011-02-16T00:00:00Z,9999-01-01T00:00:00Z,,
 MNMW,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.635,Stainless Steel Rods,10,2023-09-21T00:00:00Z,9999-01-01T00:00:00Z,,
