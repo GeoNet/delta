@@ -22,10 +22,12 @@ type Table struct {
 	Nulls []string
 	// Unwrap can be used to build a linking table when a column has multiple fields
 	Unwrap string
+	// Remap can be used to overide a missing column
+	Remap map[string][]string
 }
 
 // Links returns the rows to insert into a Linking table for the given unwrapping column.
-func (t Table) Links(list meta.TableList) [][]any {
+func (t Table) Links(list meta.TableList, keys ...string) [][]any {
 
 	lines := list.Table.Encode(list.List)
 	if !(len(lines) > 0) {
@@ -49,7 +51,8 @@ func (t Table) Links(list meta.TableList) [][]any {
 		}
 		for _, c := range strings.Fields(strings.TrimSpace(line[w])) {
 			var parts []any
-			for _, f := range t.Fields {
+
+			for _, f := range keys {
 				n, ok := lookup[f]
 				if !ok {
 					return nil
@@ -57,13 +60,11 @@ func (t Table) Links(list meta.TableList) [][]any {
 				if !(n < len(line)) {
 					return nil
 				}
-				switch {
-				case n == w:
-					parts = append(parts, c)
-				default:
-					parts = append(parts, line[n])
-				}
+
+				parts = append(parts, line[n])
 			}
+
+			parts = append(parts, c)
 			res = append(res, parts)
 		}
 	}
@@ -96,6 +97,18 @@ func (t Table) Columns(list meta.TableList) [][]any {
 	for n, v := range list.Table.Columns() {
 		lookup[v] = n
 	}
+	for k, l := range t.Remap {
+		if _, ok := lookup[k]; ok {
+			continue
+		}
+		for _, v := range l {
+			n, ok := lookup[v]
+			if !ok {
+				continue
+			}
+			lookup[k] = n
+		}
+	}
 
 	var res [][]any
 	for _, line := range lines[1:] {
@@ -104,6 +117,11 @@ func (t Table) Columns(list meta.TableList) [][]any {
 		for _, f := range t.Fields {
 			n, ok := lookup[f]
 			if !ok {
+				// it could be assumed to be not given
+				if _, ok := nulls[f]; ok {
+					parts = append(parts, nil)
+					continue
+				}
 				return nil
 			}
 			if !(n < len(line)) {

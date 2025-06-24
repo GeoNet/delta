@@ -55,6 +55,11 @@ func (s Set) Darts() []Dart {
 	return s.darts
 }
 
+// Datasets is a helper function to return a slice of Dataset values.
+func (s Set) Datasets() []Dataset {
+	return s.datasets
+}
+
 // DeployedDataloggers is a helper function to return a slice of DeployedDatalogger values.
 func (s Set) DeployedDataloggers() []DeployedDatalogger {
 	return s.deployedDataloggers
@@ -68,6 +73,11 @@ func (s Set) DeployedReceivers() []DeployedReceiver {
 // Doases is a helper function to return a slice of InstalledDoas values.
 func (s Set) Doases() []InstalledDoas {
 	return s.doases
+}
+
+// Domains is a helper function to return a slice of Domain values.
+func (s Set) Domains() []Domain {
+	return s.domains
 }
 
 // Features is a helper function to return a slice of Feature values.
@@ -138,6 +148,11 @@ func (s Set) Mounts() []Mount {
 // Networks is a helper function to return a slice of Network values.
 func (s Set) Networks() []Network {
 	return s.networks
+}
+
+// Notes is a helper function to return a slice of Note values.
+func (s Set) Notes() []Note {
+	return s.notes
 }
 
 // Placenames is a helper function to return a slice of Placename values.
@@ -269,6 +284,31 @@ func (s Set) Dart(station string) (Dart, bool) {
 	return Dart{}, false
 }
 
+// Dataset is a helper function to return a Dataset value and true if one exists.
+func (s Set) Dataset(domain, network string) (Dataset, bool) {
+	for _, v := range s.datasets {
+		if domain != v.Domain {
+			continue
+		}
+		if network != v.Network {
+			continue
+		}
+		return v, true
+	}
+	return Dataset{}, false
+}
+
+// Domain is a helper function to return a Domain value and true if one exists.
+func (s Set) Domain(name string) (Domain, bool) {
+	for _, v := range s.domains {
+		if name != v.Name {
+			continue
+		}
+		return v, true
+	}
+	return Domain{}, false
+}
+
 // Mark is a helper function to return a Mark value and true if one exists.
 func (s Set) Mark(code string) (Mark, bool) {
 	for _, v := range s.marks {
@@ -311,6 +351,20 @@ func (s Set) Network(code string) (Network, bool) {
 		return v, true
 	}
 	return Network{}, false
+}
+
+// Note is a helper function to return a Note value and true if one exists.
+func (s Set) Note(code, network string) (Note, bool) {
+	for _, v := range s.notes {
+		if code != v.Code {
+			continue
+		}
+		if network != v.Network {
+			continue
+		}
+		return v, true
+	}
+	return Note{}, false
 }
 
 // Placename is a helper function to return a Placename value and true if one exists.
