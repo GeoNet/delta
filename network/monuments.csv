@@ -38,6 +38,7 @@ DNVK,50224M001,Forced Centering,Pillar,-1.15,Reinforced Concrete,2,2002-06-05T00
 DUND,50212M003,Forced Centering,Shallow Rod / Braced Antenna Mount,-1.25,Stainless Steel Rods,2.5,2005-08-10T00:00:00Z,9999-01-01T00:00:00Z,Basalt,
 DUNT,50212S001,Forced Centering,Steel Mast,-4.5,Stainless Steel Rod,0,1999-09-23T00:00:00Z,9999-01-01T00:00:00Z,Basalt,
 DURV,,Forced Centering,Pillar,-999,Reinforced Concrete,2,2005-03-09T00:00:00Z,9999-01-01T00:00:00Z,,"Mapped As Ymm, Permian Serpentinite, Dunite, Peridotite."
+ERWO,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.5,Stainless Steel Rods,10,2025-06-17T00:00:00Z,9999-01-01T00:00:00Z,Gravel,"Generally unweathered bouldery till, mixtures of gravel/sand/silt/clay, in well-defined valley moraines."
 FALE,50601S001,Forced Centering,Pillar,-2,Reinforced Concrete,2,1999-01-01T00:00:00Z,9999-01-01T00:00:00Z,,
 FOX1,,Unmarked Mark,Unknown,0,Reinforced Concrete,0,2019-02-05T00:00:00Z,9999-01-01T00:00:00Z,,concrete block on fast moving 10cm/day landslide
 FRTN,,Forced Centering,Wyatt/Agnew Drilled-Braced,-1.545,Stainless Steel Rods,10,2011-01-01T00:00:00Z,9999-01-01T00:00:00Z,Sandstone,
