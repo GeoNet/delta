@@ -62,7 +62,7 @@ func main() {
 	flag.StringVar(&settings.camera, "camera", "VC,BC", "volcano camera network codes")
 	flag.StringVar(&settings.magnetic, "magnetic", "GM,SM", "geomagnetic network code")
 	flag.StringVar(&settings.doas, "doas", "EN", "doas network code")
-	flag.StringVar(&settings.gnss, "gnss", "CG,GN,IG,LI,SA", "GNSS network codes")
+	flag.StringVar(&settings.gnss, "gnss", "CG,GN,IG,LI,GT,SA", "GNSS network codes")
 	flag.TextVar(&settings.seismic, "seismic", regexp.MustCompile("^(1[0-9A-Z]|00)$"), "combined sensor location codes")
 	flag.TextVar(&settings.strong, "strong", regexp.MustCompile("^2"), "combined sensor location codes")
 	flag.TextVar(&settings.acoustic, "acoustic", regexp.MustCompile("^3"), "combined sensor location codes")
