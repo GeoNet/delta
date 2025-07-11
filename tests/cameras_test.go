@@ -2,6 +2,7 @@ package delta_test
 
 import (
 	"testing"
+	"time"
 
 	"github.com/GeoNet/delta"
 	"github.com/GeoNet/delta/meta"
@@ -75,15 +76,36 @@ var cameraChecks = map[string]func(*meta.Set) func(t *testing.T){
 	"check for cameras installation views": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			type view struct{ m, c string }
-			keys := make(map[view]interface{})
+			keys := make(map[view][]meta.View)
 			for _, m := range set.Views() {
-				keys[view{m.Mount, m.Code}] = true
+				keys[view{m.Mount, m.Code}] = append(keys[view{m.Mount, m.Code}], m)
 			}
 
 			for _, c := range set.InstalledCameras() {
 				if _, ok := keys[view{c.Mount, c.View}]; !ok {
 					t.Errorf("unable to find camera mount %-5s (%-2s)", c.Mount, c.View)
 				}
+			}
+
+			for _, c := range set.InstalledCameras() {
+				views, ok := keys[view{c.Mount, c.View}]
+				if !ok {
+					continue
+				}
+				var found bool
+				for _, v := range views {
+					if c.Start.Before(v.Start) {
+						continue
+					}
+					if c.End.After(v.End) {
+						continue
+					}
+					found = true
+				}
+				if found {
+					continue
+				}
+				t.Errorf("installed camera is not within a known view: %s (%s/%s) %s", c.String(), c.Mount, c.View, c.Start.Format(time.RFC3339))
 			}
 		}
 	},
