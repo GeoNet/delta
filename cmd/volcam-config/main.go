@@ -79,6 +79,8 @@ func main() {
 	// avoids null when marshalling an empty slice
 	volcs := make([]Volcam, 0)
 
+	counts := make(map[string]int)
+
 	for _, view := range set.Views() {
 		if time.Since(view.Span.End) > 0 {
 			continue
@@ -133,6 +135,12 @@ func main() {
 				if !ok {
 					continue
 				}
+
+				count := counts[id]
+				if count > 0 {
+					continue
+				}
+				counts[id]++
 
 				volcs = append(volcs, Volcam{
 					Id:        id,
