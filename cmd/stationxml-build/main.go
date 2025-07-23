@@ -133,7 +133,7 @@ func main() {
 	flag.BoolVar(&settings.corrections, "corrections", false, "add calculated and applied response delays and corrections")
 
 	flag.StringVar(&settings.source, "source", "GeoNet", "stationxml source")
-	flag.StringVar(&settings.sender, "sender", "WEL(GNS_Test)", "stationxml sender")
+	flag.StringVar(&settings.sender, "sender", "WEL(GNS)", "stationxml sender")
 	flag.StringVar(&settings.module, "module", "Delta", "stationxml module")
 
 	flag.TextVar(&settings.external, "external", MustMatcher(externalRe), "regexp selection of external networks")
@@ -232,37 +232,6 @@ func main() {
 	installed := make(map[string]interface{})
 	for _, sensor := range set.InstalledSensors() {
 		installed[sensor.Station] = true
-	}
-
-	spans := make(map[string]meta.Span)
-	for _, ext := range set.Networks() {
-		if ext.Code != ext.External {
-			continue
-		}
-		var span meta.Span
-		for _, net := range set.Networks() {
-			if net.External != ext.Code {
-				continue
-			}
-			for _, stn := range set.Stations() {
-				if stn.Network != net.Code {
-					continue
-				}
-				if _, ok := installed[stn.Code]; !ok {
-					continue
-				}
-				if span.Start.IsZero() || stn.Span.Start.Before(span.Start) {
-					span.Start = stn.Span.Start
-				}
-				if span.End.IsZero() || stn.Span.End.After(span.End) {
-					span.End = stn.Span.End
-				}
-			}
-		}
-		if span.Start.IsZero() || span.End.IsZero() {
-			continue
-		}
-		spans[ext.Code] = span
 	}
 
 	// find a map of stations that match
@@ -493,8 +462,21 @@ func main() {
 			})
 		}
 
-		// lookup the external network time span
-		span := spans[ext.Code]
+		var span meta.Span
+		for _, n := range networks {
+			for _, s := range n.Stations {
+				if span.Start.IsZero() || s.StartDate.Before(span.Start) {
+					span.Start = s.StartDate
+				}
+				if span.End.IsZero() || s.EndDate.After(span.End) {
+					span.End = s.EndDate
+				}
+			}
+		}
+
+		if span.Start.IsZero() || span.End.IsZero() {
+			continue
+		}
 
 		// build a stationxml shadow external structure
 		externals = append(externals, stationxml.External{
