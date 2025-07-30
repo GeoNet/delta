@@ -21,7 +21,7 @@
       <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
     </Coefficients>
     <Decimation>
-      <InputSampleRate>0.06666666666666667</InputSampleRate>
+      <InputSampleRate>1</InputSampleRate>
       <Factor>1</Factor>
       <Offset>0</Offset>
       <Delay>0</Delay>
@@ -44,7 +44,7 @@
     </Coefficients>
     <Decimation>
       <InputSampleRate>1</InputSampleRate>
-      <Factor>1</Factor>
+      <Factor>15</Factor>
       <Offset>0</Offset>
       <Delay>0</Delay>
       <Correction>0</Correction>
