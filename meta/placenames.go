@@ -49,19 +49,19 @@ type Placename struct {
 }
 
 // Distance returns the distance in kilometres from the given latitude and longitude to the Placename.
-func (p Placename) Distance(lat, lon float64) float64 {
+func Distance(lat0, lon0, lat1, lon1 float64) float64 {
 
-	if (p.Latitude == lat) && (p.Longitude == lon) {
+	if (lat0 == lat1) && (lon0 == lon1) {
 		return 0.0
 	}
 
 	esq := (1.0 - 1.0/298.25) * (1.0 - 1.0/298.25)
-	alat3 := math.Atan(math.Tan(p.Latitude/RadiansToDegrees)*esq) * RadiansToDegrees
-	alat4 := math.Atan(math.Tan(lat/RadiansToDegrees)*esq) * RadiansToDegrees
+	alat3 := math.Atan(math.Tan(lat0/RadiansToDegrees)*esq) * RadiansToDegrees
+	alat4 := math.Atan(math.Tan(lat1/RadiansToDegrees)*esq) * RadiansToDegrees
 
 	rlat1 := alat3 / RadiansToDegrees
 	rlat2 := alat4 / RadiansToDegrees
-	rdlon := (lon - p.Longitude) / RadiansToDegrees
+	rdlon := (lon1 - lon0) / RadiansToDegrees
 
 	clat1 := math.Cos(rlat1)
 	clat2 := math.Cos(rlat2)
@@ -80,20 +80,25 @@ func (p Placename) Distance(lat, lon float64) float64 {
 	return RadiansToKm * math.Acos(cdel)
 }
 
-// Azimuth returns the azimuth in degrees from the given latitude and longitude to the Placename.
-func (p Placename) Azimuth(lat, lon float64) float64 {
+// Distance returns the distance in kilometres from the given latitude and longitude to the Placename.
+func (p Placename) Distance(lat, lon float64) float64 {
+	return Distance(p.Latitude, p.Longitude, lat, lon)
+}
 
-	if (p.Latitude == lat) && (p.Longitude == lon) {
+// Azimuth returns the azimuth in degrees from the given latitude and longitude to the Placename.
+func Azimuth(lat0, lon0, lat1, lon1 float64) float64 {
+
+	if (lat0 == lat1) && (lon0 == lon1) {
 		return 0.0
 	}
 
 	esq := (1.0 - 1.0/298.25) * (1.0 - 1.0/298.25)
-	alat3 := math.Atan(math.Tan(p.Latitude/RadiansToDegrees)*esq) * RadiansToDegrees
-	alat4 := math.Atan(math.Tan(lat/RadiansToDegrees)*esq) * RadiansToDegrees
+	alat3 := math.Atan(math.Tan(lat0/RadiansToDegrees)*esq) * RadiansToDegrees
+	alat4 := math.Atan(math.Tan(lat1/RadiansToDegrees)*esq) * RadiansToDegrees
 
 	rlat1 := alat3 / RadiansToDegrees
 	rlat2 := alat4 / RadiansToDegrees
-	rdlon := (lon - p.Longitude) / RadiansToDegrees
+	rdlon := (lon1 - lon0) / RadiansToDegrees
 
 	clat1 := math.Cos(rlat1)
 	clat2 := math.Cos(rlat2)
@@ -114,20 +119,24 @@ func (p Placename) Azimuth(lat, lon float64) float64 {
 	return azi
 }
 
-// BackAzimuth returns the back-azimuth in degrees from the given latitude and longitude to the Placename.
-func (p Placename) BackAzimuth(lat, lon float64) float64 {
+func (p Placename) Azimuth(lat, lon float64) float64 {
+	return Azimuth(p.Latitude, p.Longitude, lat, lon)
+}
 
-	if (p.Latitude == lat) && (p.Longitude == lon) {
+// BackAzimuth returns the back-azimuth in degrees from the given latitude and longitude to the Placename.
+func BackAzimuth(lat0, lon0, lat1, lon1 float64) float64 {
+
+	if (lat0 == lat1) && (lon0 == lon1) {
 		return 0.0
 	}
 
 	esq := (1.0 - 1.0/298.25) * (1.0 - 1.0/298.25)
-	alat3 := math.Atan(math.Tan(p.Latitude/RadiansToDegrees)*esq) * RadiansToDegrees
-	alat4 := math.Atan(math.Tan(lat/RadiansToDegrees)*esq) * RadiansToDegrees
+	alat3 := math.Atan(math.Tan(lat0/RadiansToDegrees)*esq) * RadiansToDegrees
+	alat4 := math.Atan(math.Tan(lat1/RadiansToDegrees)*esq) * RadiansToDegrees
 
 	rlat1 := alat3 / RadiansToDegrees
 	rlat2 := alat4 / RadiansToDegrees
-	rdlon := (lon - p.Longitude) / RadiansToDegrees
+	rdlon := (lon1 - lon0) / RadiansToDegrees
 
 	clat1 := math.Cos(rlat1)
 	clat2 := math.Cos(rlat2)
@@ -146,6 +155,10 @@ func (p Placename) BackAzimuth(lat, lon float64) float64 {
 	}
 
 	return baz
+}
+
+func (p Placename) BackAzimuth(lat, lon float64) float64 {
+	return BackAzimuth(p.Latitude, p.Longitude, lat, lon)
 }
 
 // Compass returns a text representation of the azimuth from the given latitude and longitude to the Placename.
