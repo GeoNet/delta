@@ -152,6 +152,9 @@ Nanometrics,Trillium Horizon TH120-1,Broadband Seismometer,2,,E,0,90,G,,sensor_N
 Nanometrics,Trillium Horizon TH120-2,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Nanometrics-Inc_Trillium-Horizon-TH120-2
 Nanometrics,Trillium Horizon TH120-2,Broadband Seismometer,1,,N,0,0,G,,sensor_Nanometrics-Inc_Trillium-Horizon-TH120-2
 Nanometrics,Trillium Horizon TH120-2,Broadband Seismometer,2,,E,0,90,G,,sensor_Nanometrics-Inc_Trillium-Horizon-TH120-2
+Nanometrics,Trillium Posthole T120-PH3,Broadband Seismometer,0,,Z,-90,0,G,,sensor_Nanometrics_Trillium120PH_EG3_SG1203_LP120_STgroundVel
+Nanometrics,Trillium Posthole T120-PH3,Broadband Seismometer,1,,N,0,0,G,,sensor_Nanometrics_Trillium120PH_EG3_SG1203_LP120_STgroundVel
+Nanometrics,Trillium Posthole T120-PH3,Broadband Seismometer,2,,E,90,0,G,,sensor_Nanometrics_Trillium120PH_EG3_SG1203_LP120_STgroundVel
 SAIC,BPR Subsystem,Bottom Pressure Recorder,0,,Z,0,0,G,-900,combined_SAIC_BPR-Subsystem_BPR-Subsystem_Z_900s
 SAIC,BPR Subsystem,Bottom Pressure Recorder,0,,Z,0,0,G,-15,combined_SAIC_BPR-Subsystem_BPR-Subsystem_Z_15s
 Sercel,L4C,Short Period Seismometer,0,,Z,-90,0,G,,sensor_Sercel_L4C
