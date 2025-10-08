@@ -42,7 +42,7 @@ DUND,No obstructions above 2 degrees.,2005-08-10T00:00:00Z,9999-01-01T00:00:00Z
 DUNT,Fair,1999-09-23T00:00:00Z,9999-01-01T00:00:00Z
 DURV,below 10 degrees in all directions,2005-03-09T00:00:00Z,9999-01-01T00:00:00Z
 ERWO,Close mountains to the east and north east create a 8-9 degrees obstruction. All other directions have distant mountains and hills obstructing between 2-5 degrees elevation.,2025-06-17T00:00:00Z,9999-01-01T00:00:00Z
-FALE,unknown; Antenna is fixed to a steel post ~ 2m high.,1999-01-01T00:00:00Z,9999-01-01T00:00:00Z
+FALE,unknown; Antenna is fixed to a steel post ~ 2m high.,1999-01-01T00:00:00Z,2017-12-29T00:00:00Z
 FOX1,unknown,2019-02-05T00:00:00Z,9999-01-01T00:00:00Z
 FRTN,"Excellent, hills are 5 degree obstruction from ~230-274 true (approx southwest).",2011-01-18T00:00:00Z,9999-01-01T00:00:00Z
 GDS1,good,2016-11-16T00:00:00Z,2018-01-16T00:00:00Z
@@ -187,6 +187,7 @@ RLTN,obstructions to 330-340az up to 5deg and mast up to 20deg,2020-06-22T00:00:
 SCTB,No obstruction above 08 degrees,2004-10-28T00:00:00Z,9999-01-01T00:00:00Z
 SCTY,obstructions to 135-145az up to 7deg and mast up to 30deg,2020-06-23T00:00:00Z,9999-01-01T00:00:00Z
 SEDD,"Clear skyview 000 360 from 2? elevation - except row of trees at 074 to 097 block view from 3? to 5?. Couldn't see hilltops at ~256 because of low cloud, unlikely to be > 5? elevation",2014-06-01T00:00:00Z,9999-01-01T00:00:00Z
+SMRG,Clear views of the horizon to west and north west. Mountain ranges both close and far obstructing no more than 10 degrees of elevation in all other directions.,2025-03-13T00:00:00Z,9999-01-01T00:00:00Z
 SNST,good. 5 degree obstruction to the north,2009-01-01T00:00:00Z,9999-01-01T00:00:00Z
 SSFT,Excellent visibility. The largest obstruction is Bluff Hill to the south which blocks roughly 5 degrees of the horizon.,2024-10-16T00:00:00Z,9999-01-01T00:00:00Z
 SUTT,good,2016-05-26T00:00:00Z,9999-01-01T00:00:00Z
