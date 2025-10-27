@@ -1,4 +1,4 @@
-Station,Location,Band,Source,Sampling Rate,Axial,Reversed,Triggered,Start Date,End Date
-KIW,10,E,H,100,false,false,false,2004-06-09T23:00:00Z,9999-01-01T00:00:00Z
-DKHS,20,B,N,50,true,false,false,2014-09-08T05:00:00Z,9999-01-01T00:00:00Z
-DKHS,20,H,N,200,true,false,true,2002-06-06T00:00:00Z,9999-01-01T00:00:00Z
+Station,Location,Band,Source,Sampling Rate,Axial,Triggered,Start Date,End Date
+KIW,10,E,H,100,false,false,2004-06-09T23:00:00Z,9999-01-01T00:00:00Z
+DKHS,20,B,N,50,true,false,2014-09-08T05:00:00Z,9999-01-01T00:00:00Z
+DKHS,20,H,N,200,true,true,2002-06-06T00:00:00Z,9999-01-01T00:00:00Z

@@ -27,8 +27,6 @@ are presently not constrained, other than that they should match when a connecti
 Datalogger configuration, through the __install/streams.csv__ file, is meant to provide a mechanism
 for mapping recorded data to a datalogger or recorder configuration. This is an overlay
 template which isn't dependent on the actual equipment being installed, only the broad settings.
-This is also the mechanism that can inject external information, such as when a stream has
-been flagged as being of the reverse polarity, and is mainly used to build _StationXML_ meta-data files.
 
 ## <a name="steps">_Overall steps_
 

@@ -908,7 +908,6 @@ func TestList(t *testing.T) {
 					SamplingRate: 50.0,
 					samplingRate: "50",
 					Axial:        "true",
-					Reversed:     false,
 					Triggered:    true,
 					Span: Span{
 						Start: time.Date(2011, time.August, 25, 0, 25, 0, 0, time.UTC),
@@ -923,7 +922,6 @@ func TestList(t *testing.T) {
 					SamplingRate: 200.0,
 					samplingRate: "200",
 					Axial:        "false",
-					Reversed:     false,
 					Triggered:    false,
 					Span: Span{
 						Start: time.Date(2007, time.May, 2, 22, 0, 1, 0, time.UTC),
