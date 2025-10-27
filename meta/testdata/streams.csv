@@ -1,3 +1,3 @@
-Station,Location,Band,Source,Sampling Rate,Axial,Reversed,Triggered,Start Date,End Date
-AKSS,20,B,N,50,true,false,true,2011-08-25T00:25:00Z,9999-01-01T00:00:00Z
-APZ,20,H,N,200,false,false,false,2007-05-02T22:00:01Z,9999-01-01T00:00:00Z
+Station,Location,Band,Source,Sampling Rate,Axial,Triggered,Start Date,End Date
+AKSS,20,B,N,50,true,true,2011-08-25T00:25:00Z,9999-01-01T00:00:00Z
+APZ,20,H,N,200,false,false,2007-05-02T22:00:01Z,9999-01-01T00:00:00Z

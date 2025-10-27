@@ -14,7 +14,6 @@ const (
 	streamSource
 	streamSamplingRate
 	streamAxial
-	streamReversed
 	streamTriggered
 	streamStart
 	streamEnd
@@ -28,7 +27,6 @@ var streamHeaders Header = map[string]int{
 	"Source":        streamSource,
 	"Sampling Rate": streamSamplingRate,
 	"Axial":         streamAxial,
-	"Reversed":      streamReversed,
 	"Triggered":     streamTriggered,
 	"Start Date":    streamStart,
 	"End Date":      streamEnd,
@@ -60,7 +58,6 @@ type Stream struct {
 	Source       string  `json:"source"`
 	SamplingRate float64 `json:"sampling-rate"`
 	Axial        string  `json:"axial,omitempty"`
-	Reversed     bool    `json:"reversed,omitempty"`
 	Triggered    bool    `json:"triggered,omitempty"`
 
 	samplingRate string
@@ -112,7 +109,6 @@ func (s StreamList) encode() [][]string {
 			strings.TrimSpace(row.Source),
 			strings.TrimSpace(row.samplingRate),
 			strings.TrimSpace(row.Axial),
-			strings.TrimSpace(strconv.FormatBool(row.Reversed)),
 			strings.TrimSpace(strconv.FormatBool(row.Triggered)),
 			row.Start.Format(DateTimeFormat),
 			row.End.Format(DateTimeFormat),
@@ -150,10 +146,6 @@ func (s *StreamList) decode(data [][]string) error {
 			rate = -1.0 / rate
 		}
 
-		reversed, err := strconv.ParseBool(d[streamReversed])
-		if err != nil {
-			return err
-		}
 		triggered, err := strconv.ParseBool(d[streamTriggered])
 		if err != nil {
 			return err
@@ -167,7 +159,6 @@ func (s *StreamList) decode(data [][]string) error {
 			SamplingRate: rate,
 			samplingRate: strings.TrimSpace(d[streamSamplingRate]),
 			Axial:        strings.TrimSpace(d[streamAxial]),
-			Reversed:     reversed,
 			Triggered:    triggered,
 			Span: Span{
 				Start: start,
