@@ -14,6 +14,7 @@ import (
 type Settings struct {
 	base    string // optional delta base directory
 	network string // dart buoy network code
+	band    string // dart buoy band code
 	output  string // optional output file
 }
 
@@ -37,6 +38,7 @@ func main() {
 
 	flag.StringVar(&settings.base, "base", "", "delta base files")
 	flag.StringVar(&settings.network, "network", "TD", "dart buoy network code")
+	flag.StringVar(&settings.band, "band", "W", "dart buoy stream band code")
 	flag.StringVar(&settings.output, "output", "", "output dart configuration file")
 
 	flag.Parse()
@@ -74,6 +76,9 @@ func main() {
 		}
 
 		for _, c := range set.Collections(s) {
+			if settings.band != c.Stream.Band {
+				continue
+			}
 			for _, x := range set.Corrections(c) {
 				var correction time.Duration
 				if x.Timing != nil {
