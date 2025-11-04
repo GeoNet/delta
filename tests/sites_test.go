@@ -54,6 +54,32 @@ var siteChecks = map[string]func(*meta.Set) func(t *testing.T){
 			}
 		}
 	},
+
+	"check for mislocated station sites": func(set *meta.Set) func(t *testing.T) {
+		return func(t *testing.T) {
+			stas := make(map[string]meta.Station)
+			for _, s := range set.Stations() {
+				stas[s.Code] = s
+			}
+			for _, c := range set.Sites() {
+				s, ok := stas[c.Station]
+				if !ok {
+					continue
+				}
+				dist := meta.Distance(s.Latitude, s.Longitude, c.Latitude, c.Longitude)
+				if dist < 1.0 {
+					continue
+				}
+
+				// offshore water sites may not be relocated close enough
+				if s.Network == "TD" || s.Network == "HA" {
+					continue
+				}
+
+				t.Errorf("possible site location error %s (%s) %.1f km", s.Code, c.Location, dist)
+			}
+		}
+	},
 }
 
 func TestSites(t *testing.T) {
