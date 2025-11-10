@@ -44,6 +44,10 @@ Polarities describe data aquisition system configurations: the combination of se
 
 Polarities may describe the polarity of a single data stream (e.g., a Z component) or many data streams (e.g., all components). What the polarity value applies to is distinguished by the `Station,Location,Sublocation,Subsource` columns in the `polarities.csv`.
 
+To illustrate the differences between conventional and reversed polarities, the effects on digitized seismic waveforms, and how the polarities table links into StationXML metadata, please refer to the schematic below (the SVG can be downloaded and opened in Excalidraw).
+
+![SEISMIC_SENSOR_ORIENTATION_POLARITIES-reversed](/docs/SEISMIC_SENSOR_ORIENTATION_POLARITIES-reversed.excalidraw.svg)
+
 ### Measurement
 
 Polarity measurements are all data-based. Often polarities are communicated to GeoNet by data users noticing non-default values in their applications. The `Method,Citation` columns in `polarities.csv` captures the source of polarity information.
