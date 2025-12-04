@@ -267,6 +267,8 @@ Notes:
 
 - An empty, or blank, _Method_ is treated as _unknown_.
 
+- For further information please take a look at our docs for seismic orientations & polarities https://github.com/GeoNet/delta/blob/main/docs/SEISMIC_SENSOR_ORIENTATION_POLARITIES.md
+
 Example:
 
     Station,Location,Sublocation,Subsource,Primary,Reversed,Method,Citation,Start Date,End Date
