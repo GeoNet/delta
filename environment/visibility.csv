@@ -62,6 +62,7 @@ HIKB,No obstruction above 10 degrees elevation,2003-05-01T00:00:00Z,9999-01-01T0
 HOKI,No obstructions above 5 degrees elevation,1998-06-01T00:00:00Z,9999-01-01T00:00:00Z
 HOLD,"Good. Up to 16 degrees of obstruction from hill due south, but this does not block any satellites.",2007-02-12T00:00:00Z,9999-01-01T00:00:00Z
 HORN,unknown,2002-11-01T00:00:00Z,9999-01-01T00:00:00Z
+HSPA,"Good. On the side of a mountain. Up to 21 degrees of obstruction from the mountain due south, and up to 10 degrees due north due to other hills",2025-02-26T00:00:00Z,9999-01-01T00:00:00Z
 IFMA,"Excellent visibility to the north, and no obstructions to the north west. All other directions have mountains that obstruct no more than 7 degrees of elevation.",2025-03-12T00:00:00Z,9999-01-01T00:00:00Z
 JTGT,"Hills close by to the north and west, obstructing up to 20 degrees. More distant hills to the south and east obstructing between 5 and 10 degrees. Clear otherwise.",2025-02-20T00:00:00Z,9999-01-01T00:00:00Z
 KAHU,Excellent,2006-04-19T00:00:00Z,2016-07-25T23:59:00Z
@@ -220,6 +221,7 @@ TRAV,unknown,2005-06-23T00:00:00Z,9999-01-01T00:00:00Z
 TRNG,No obstruction above 5 degrees elevation,2002-12-17T00:00:00Z,9999-01-01T00:00:00Z
 TRWH,Good: single obstruction of 5 degrees inclination at 170 degrees (magnetic north).,2010-12-02T00:00:00Z,9999-01-01T00:00:00Z
 TURI,"Very good (max 5 degrees)except 3 power poles in western sky (John Beavan has approved site). Pole 1 (at 249T) is 7 degrees tall, pole 2 (at 278T) is 7 degrees tall and pole 3 (at 303T) is 2 degrees.",2011-08-31T00:00:00Z,9999-01-01T00:00:00Z
+UPKR,"Excellent visibility with no obstuction north, south, and west. the distant Mt. Taranaki to the east obstructs up to 14 degrees at its peak.",2025-11-27T00:00:00Z,9999-01-01T00:00:00Z
 UTK1,About 45 deg off horizon,2008-07-22T00:00:00Z,2016-08-19T00:00:00Z
 UTK2,"sky visible from about 45 deg above horizon, may clear more if needed",2008-07-22T00:00:00Z,2016-08-30T00:00:00Z
 UTK3,"Sky visible from about 45 deg above horizon, may clear more trees if needed",2008-07-18T00:00:00Z,2016-04-05T00:00:00Z
