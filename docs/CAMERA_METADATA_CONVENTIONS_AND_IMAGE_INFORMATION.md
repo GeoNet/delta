@@ -8,13 +8,12 @@ Mount codes are the equivalent of site codes for seismic and acoustic sensors. M
 
 Mount codes are unique across all sites, including seismic, GNSS, and other sites. They are found in the [network/mounts.csv](https://github.com/GeoNet/delta/blob/main/network/mounts.csv) file.
 
-Mount codes are named for ease of distinction and reflect either (or both) camera location or monitoring subject cues.
+Mount codes are 4 or more letters. 
 
-Mount codes are 4 or more letters.
+Mount codes are named for ease of distinction and reflect either (or both) camera location or monitoring subject cues. There is no fixed convention for camera mount codes although a few are used consistently: 
 
-For some older camera sites, the first two letters of the mount code give an indication of where the site is (i.e. they will be an abbreviation of a significant local geographic feature), and the last two letters give a sub-location, particularly where there are multiple mounts in the same area, e.g. WINR is at White Island (WI) on the north rim of the crater (NR). In other old camera sites, the mount codes do not follow this pattern, typically for historical or other reasons, e.g. TEMO is Taranaki Emergency Management Office, and KAKA is Kakaramea.
-
-Newer mount codes either abbreviate the location prefix to one letter or discard it completely, e.g., WSMC (White Island Summit Camera).
+- The first 1-2 letters of the mount code give an indication of where the site is (i.e. they will be an abbreviation of a significant local geographic feature), and the last 1-2 letters give a sub-location, particularly where there are multiple mounts in the same area, e.g. WINR is at White Island (WI) on the north rim of the crater (NR).
+- The mount codes are named simply by their location, e.g. TEMO is Taranaki Emergency Management Office, and KAKA is Kakaramea.
 
 As of 2026, permanent camera sites are named with a C suffix to indicate their nature. This allows distinction of camera sites from GNSS at the same location where they would otherwise have equivalent station codes.
 
