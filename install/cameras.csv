@@ -1,7 +1,7 @@
 Make,Model,Serial,Mount,View,Dip,Azimuth,Height,North,East,Start Date,End Date,Notes
 Axis Communications AB,AXIS-221,00408C6DC9E1,WHOH,01,0,20,3,0,0,2006-02-24T14:00:00Z,2018-04-19T00:00:00Z,Looking at White Island
 Axis Communications AB,Q1808-LE 150mm,B8A44FBF8200,WHOH,02,2,19,4,0,0,2025-07-09T06:10:00Z,9999-01-01T00:00:00Z,Whakatane looking at White Island
-Axis Communications AB,Q1808-LE,B8A44FE4A100,TOKR,01,0,0,0,0,0,2026-01-28T22:20:01Z,9999-01-01T00:00:00Z,Karewerewa looking at Te Maari
+Axis Communications AB,Q1808-LE,B8A44FE4A100,TOKR,01,0,0,0,0,0,2026-01-28T22:19:59Z,9999-01-01T00:00:00Z,Karewerewa looking at Te Maari
 Mobotix AG,M12 3MP,0003c5041fc7,KMTP,01,0,280,10,0,0,2009-03-03T02:00:00Z,2009-09-18T01:00:00Z,Bearing is magnetic.
 Mobotix AG,M12 3MP,10.3.234.85,TEMO,01,0,180,0,0,0,2009-11-24T22:30:00Z,2012-04-02T22:45:00Z,TEMO (New Plymouth) looking at North side of Taranaki Maunga
 Mobotix AG,M12 3MP,10.3.234.85,TEMO,02,0,180,0,0,0,2012-04-03T00:15:00Z,2020-02-18T00:40:01Z,TEMO (New Plymouth) looking at North side of Taranaki Maunga
