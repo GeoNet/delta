@@ -2,6 +2,8 @@ Make,Model,Serial,Mount,View,Dip,Azimuth,Height,North,East,Start Date,End Date,N
 Axis Communications AB,AXIS-221,00408C6DC9E1,WHOH,01,0,20,3,0,0,2006-02-24T14:00:00Z,2018-04-19T00:00:00Z,Looking at White Island
 Axis Communications AB,Q1808-LE,B8A44FBF8200,WHOH,02,2,19,4,0,0,2025-07-09T06:10:00Z,9999-01-01T00:00:00Z,Whakatane looking at White Island
 Axis Communications AB,Q1808-LE,B8A44FC2A6B0,MTSR,01,12.5,37,2,0,0,2026-01-23T03:49:59Z,9999-01-01T00:00:00Z,Mangateitei looking at South Ruapehu
+Axis Communications AB,Q1808-LE,B8A44FE49577,KAKA,01,5.6,192,1.5,0,0,2026-02-05T05:49:59Z,9999-01-01T00:00:00Z,Kakaramea looking at Tongariro Massif
+Axis Communications AB,Q1808-LE,B8A44FE4A100,TOKR,01,0,0,0,0,0,2026-01-28T22:19:59Z,9999-01-01T00:00:00Z,Karewerewa looking at Te Maari
 Mobotix AG,M12 3MP,0003c5041fc7,KMTP,01,0,280,10,0,0,2009-03-03T02:00:00Z,2009-09-18T01:00:00Z,Bearing is magnetic.
 Mobotix AG,M12 3MP,10.3.234.85,TEMO,01,0,180,0,0,0,2009-11-24T22:30:00Z,2012-04-02T22:45:00Z,TEMO (New Plymouth) looking at North side of Taranaki Maunga
 Mobotix AG,M12 3MP,10.3.234.85,TEMO,02,0,180,0,0,0,2012-04-03T00:15:00Z,2020-02-18T00:40:01Z,TEMO (New Plymouth) looking at North side of Taranaki Maunga
@@ -17,7 +19,7 @@ Mobotix AG,M12 3MP,10.5.160.96,MTSR,01,0,0,2,0,0,2011-09-08T00:10:00Z,2016-01-08
 Mobotix AG,M12 3MP,10.5.186.107,KAKA,01,0,0,5,0,0,2011-12-09T00:02:00Z,2012-03-05T00:00:00Z,"Replaces previous camera (SN 10.5.128.224, Asset 14136) replaced by manufacturer under warranty."
 Mobotix AG,M12 3MP,10.5.202.81,KAKA,01,0,0,5,0,0,2012-03-05T01:05:00Z,2017-03-04T04:40:03Z,Kakaramea looking at Tongariro Massif
 Mobotix AG,M12 3MP,10.5.202.81,KAKA,02,0,0,5,0,0,2017-03-04T04:50:03Z,2021-07-28T10:40:00Z,Kakaramea looking at Tongariro Massif
-Mobotix AG,M12 3MP,10.5.217.68,TOKR,01,0,100,0,0,0,2012-08-29T02:00:00Z,2017-10-12T00:20:00Z,Looking at Te Maari Craters
+Mobotix AG,M12 3MP,10.5.217.68,TOKR,01,0,100,0,0,0,2012-08-29T02:00:00Z,2017-10-12T00:20:00Z,Karewerewa looking at Te Maari
 Mobotix AG,M12 3MP,10.5.32.131,RIMK,01,0,270,0,0,0,2010-10-29T01:00:00Z,2017-09-24T00:00:00Z,
 Mobotix AG,M12 3MP,10.6.15.32,WINR,02,0,0,1.5,0,0,2013-04-23T01:00:00Z,2023-12-01T00:00:00Z,White Island North Rim looking into the crater
 Mobotix AG,M15,10.13.10.47,WHOH,02,0,19,4,0,0,2013-08-07T00:00:00Z,2023-01-18T00:05:00Z,Whakatane looking at White Island
@@ -37,12 +39,12 @@ Mobotix AG,M15,10.18.101.137,KMTP,01,9.5,290,2.5,0,0,2019-11-27T21:00:00Z,2020-0
 Mobotix AG,M15,10.18.101.33,WIWR,01,0,0,1.5,0,0,2016-10-03T06:14:00Z,2023-12-01T00:00:00Z,White Island West Rim looking into the crater
 Mobotix AG,M15,10.18.168.61,WICF,01,0,0,0,0,0,2016-06-01T23:40:00Z,2023-12-01T00:00:00Z,White Island Factory looking across the crater floor
 Mobotix AG,M15,10.20.210.120,KMTP,01,9.5,290,2.5,0,0,2020-05-07T00:20:00Z,2022-04-12T07:40:01Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
-Mobotix AG,M15,10.20.245.115,TOKR,01,0,0,0,0,0,2018-05-03T00:00:00Z,9999-01-01T00:00:00Z,Karewerewa looking at TeMaari
-Mobotix AG,M15,10.7.46.153,TOKR,01,0,0,0,0,0,2017-10-12T00:40:00Z,2018-05-02T23:55:00Z,
+Mobotix AG,M15,10.20.245.115,TOKR,01,0,0,0,0,0,2018-05-03T00:00:00Z,2026-01-28T19:40:01Z,Karewerewa looking at Te Maari
+Mobotix AG,M15,10.7.46.153,TOKR,01,0,0,0,0,0,2017-10-12T00:40:00Z,2018-05-02T23:55:00Z,Karewerewa looking at Te Maari
 Mobotix AG,M16,10.26.194.146,MTSR,01,12.5,37,2,0,0,2022-09-23T02:40:00Z,2026-01-22T21:50:01Z,Mangateitei looking at South Ruapehu
 Mobotix AG,M16,10.26.194.151,RIMK,01,-16.8,270,1.5,0,0,2021-02-13T01:05:23Z,9999-01-01T00:00:00Z,Mt Moumoukai (Raoul Island) looking at Green Lake
 Mobotix AG,M16,10.26.196.188,KMTP,01,9.5,290,2.5,0,0,2022-05-05T01:12:50Z,2022-07-31T10:55:00Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
-Mobotix AG,M16,10.26.196.191,KAKA,01,5.6,192,1.5,0,0,2021-08-01T23:35:11Z,9999-01-01T00:00:00Z,Kakaramea looking at Tongariro Massif
+Mobotix AG,M16,10.26.196.191,KAKA,01,5.6,192,1.5,0,0,2021-08-01T23:35:11Z,2026-02-05T02:30:01Z,Kakaramea looking at Tongariro Massif
 Mobotix AG,M16,10.26.62.41,TEMO,02,0,187,0,3.7,0.8,2020-08-28T01:13:59Z,9999-01-01T00:00:00Z,TEMO (New Plymouth) looking at North side of Taranaki Maunga
 Mobotix AG,M16,10.26.62.43,TEMO,02,0,187,0,3.7,0.8,2020-07-22T01:10:00Z,2020-08-27T23:40:01Z,TEMO (New Plymouth) looking at North side of Taranaki Maunga
 Mobotix AG,M16,10.26.62.43,DISC,01,16,148,0,0,0,2021-02-05T04:54:00Z,9999-01-01T00:00:00Z,Discovery Lodge (Whakapapa) looking at North Ruapehu
