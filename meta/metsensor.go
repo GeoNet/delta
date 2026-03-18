@@ -83,7 +83,7 @@ type InstalledMetSensorList []InstalledMetSensor
 
 func (ims InstalledMetSensorList) Len() int           { return len(ims) }
 func (ims InstalledMetSensorList) Swap(i, j int)      { ims[i], ims[j] = ims[j], ims[i] }
-func (ims InstalledMetSensorList) Less(i, j int) bool { return ims[i].Install.Less(ims[j].Install) }
+func (ims InstalledMetSensorList) Less(i, j int) bool { return ims[i].Less(ims[j].Install) }
 
 func (ims InstalledMetSensorList) encode() [][]string {
 	var data [][]string
@@ -113,7 +113,7 @@ func (ims InstalledMetSensorList) encode() [][]string {
 }
 
 func (ims *InstalledMetSensorList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

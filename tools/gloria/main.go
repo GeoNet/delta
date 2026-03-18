@@ -256,7 +256,7 @@ contact information can be found at www.geonet.org.nz`
 		}
 
 		pbfile := filepath.Join(output, strings.ToLower(m.Code)+".pb")
-		if err := os.MkdirAll(filepath.Dir(pbfile), 0755); err != nil {
+		if err := os.MkdirAll(filepath.Dir(pbfile), 0750); err != nil {
 			fmt.Fprintf(os.Stderr, "error: unable to create dir: %v\n", err)
 			os.Exit(-1)
 		}

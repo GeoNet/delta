@@ -145,7 +145,7 @@ func (d Decoder11) Decode(data []byte) ([]byte, error) {
 					return true
 				case root.Network[n].Station[s].Channel[i].StartDate.After(root.Network[n].Station[s].Channel[j].StartDate.Time):
 					return false
-				case root.Network[n].Station[s].Channel[i].BaseNodeType.Code < root.Network[n].Station[s].Channel[j].BaseNodeType.Code:
+				case root.Network[n].Station[s].Channel[i].Code < root.Network[n].Station[s].Channel[j].Code:
 					return true
 				default:
 					return false
@@ -156,7 +156,7 @@ func (d Decoder11) Decode(data []byte) ([]byte, error) {
 			net.EndDate = stationxml.DateTime{}
 		}
 		sort.Slice(root.Network[n].Station, func(i, j int) bool {
-			return root.Network[n].Station[i].BaseNodeType.Code < root.Network[n].Station[j].BaseNodeType.Code
+			return root.Network[n].Station[i].Code < root.Network[n].Station[j].Code
 		})
 
 	}
@@ -166,7 +166,7 @@ func (d Decoder11) Decode(data []byte) ([]byte, error) {
 	}
 
 	sort.Slice(root.Network, func(i, j int) bool {
-		return root.Network[i].BaseNodeType.Code < root.Network[j].BaseNodeType.Code
+		return root.Network[i].Code < root.Network[j].Code
 	})
 
 	res, err := xml.MarshalIndent(root, "", "  ")

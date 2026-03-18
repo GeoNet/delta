@@ -74,7 +74,7 @@ func (t Telemetry) Less(telemetry Telemetry) bool {
 		return true
 	case t.Location > telemetry.Location:
 		return false
-	case t.Span.Start.Before(telemetry.Span.Start):
+	case t.Start.Before(telemetry.Start):
 		return true
 	default:
 		return false
@@ -117,7 +117,7 @@ func (t *TelemetryList) toFloat64(str string, def float64) (float64, error) {
 
 func (t *TelemetryList) decode(data [][]string) error {
 	// needs more than a comment line
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 
