@@ -16,7 +16,7 @@ func testListFunc(path string, list List) func(t *testing.T) {
 		}
 
 		t.Run("compare raw list file: "+path, func(t *testing.T) {
-			check, err := os.ReadFile(path)
+			check, err := os.ReadFile(path) //nolint:gosec // disable G304
 			if err != nil {
 				t.Fatal(err)
 			}

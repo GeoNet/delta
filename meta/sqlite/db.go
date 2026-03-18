@@ -34,7 +34,9 @@ func (d DB) prepare(ctx context.Context, tx *sql.Tx, cmd string, values ...[]any
 	if err != nil {
 		return err
 	}
-	defer stmt.Close()
+	defer func() {
+		_ = stmt.Close()
+	}()
 
 	for _, v := range values {
 		if _, err := stmt.ExecContext(ctx, v...); err != nil {

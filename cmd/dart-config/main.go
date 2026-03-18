@@ -76,7 +76,7 @@ func main() {
 		}
 
 		for _, c := range set.Collections(s) {
-			if settings.band != c.Stream.Band {
+			if settings.band != c.Band {
 				continue
 			}
 			for _, x := range set.Corrections(c) {
@@ -112,7 +112,11 @@ func main() {
 		if err != nil {
 			log.Fatalf("unable to create output file %q: %v", settings.output, err)
 		}
-		defer file.Close()
+		defer func() {
+			if err := file.Close(); err != nil {
+				log.Printf("unable to close output file %q: %v", settings.output, err)
+			}
+		}()
 
 		if err := Encode(file, deployments); err != nil {
 			log.Fatalf("unable to write output to %q: %v", settings.output, err)

@@ -65,7 +65,7 @@ type InstalledAntennaList []InstalledAntenna
 
 func (ia InstalledAntennaList) Len() int           { return len(ia) }
 func (ia InstalledAntennaList) Swap(i, j int)      { ia[i], ia[j] = ia[j], ia[i] }
-func (ia InstalledAntennaList) Less(i, j int) bool { return ia[i].Install.Less(ia[j].Install) }
+func (ia InstalledAntennaList) Less(i, j int) bool { return ia[i].Less(ia[j].Install) }
 
 func (ia InstalledAntennaList) encode() [][]string {
 	var data [][]string
@@ -90,7 +90,7 @@ func (ia InstalledAntennaList) encode() [][]string {
 }
 
 func (ia *InstalledAntennaList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

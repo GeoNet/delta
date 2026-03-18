@@ -68,7 +68,7 @@ type InstalledDoasList []InstalledDoas
 
 func (id InstalledDoasList) Len() int           { return len(id) }
 func (id InstalledDoasList) Swap(i, j int)      { id[i], id[j] = id[j], id[i] }
-func (id InstalledDoasList) Less(i, j int) bool { return id[i].Install.Less(id[j].Install) }
+func (id InstalledDoasList) Less(i, j int) bool { return id[i].Less(id[j].Install) }
 
 func (id InstalledDoasList) encode() [][]string {
 	var data [][]string
@@ -96,7 +96,7 @@ func (id InstalledDoasList) encode() [][]string {
 }
 
 func (id *InstalledDoasList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 
