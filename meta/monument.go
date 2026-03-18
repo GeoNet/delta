@@ -104,7 +104,7 @@ func (m MonumentList) encode() [][]string {
 }
 
 func (m *MonumentList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

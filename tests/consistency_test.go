@@ -18,7 +18,7 @@ var testConsistency = map[string]func(path string, list meta.List) func(t *testi
 	"check file consistency": func(path string, list meta.List) func(t *testing.T) {
 		return func(t *testing.T) {
 
-			raw, err := os.ReadFile(path)
+			raw, err := os.ReadFile(path) //nolint:gosec // disable G304
 			if err != nil {
 				t.Fatalf("unable to read %s file: %v", path, err)
 			}

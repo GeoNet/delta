@@ -22,7 +22,7 @@ var preampsChecks = map[string]func(*meta.Set) func(t *testing.T){
 					if preamps[i].Subsource != preamps[j].Subsource {
 						continue
 					}
-					if !preamps[i].Span.Overlaps(preamps[j].Span) {
+					if !preamps[i].Overlaps(preamps[j].Span) {
 						continue
 					}
 

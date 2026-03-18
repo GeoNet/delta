@@ -70,7 +70,7 @@ func main() {
 		log.Fatal("no schema source found, needs either an input file or remote url")
 	}
 
-	if err := os.MkdirAll(output, 0755); err != nil {
+	if err := os.MkdirAll(output, 0750); err != nil {
 		log.Fatal(err)
 	}
 
