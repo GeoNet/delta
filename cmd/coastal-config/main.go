@@ -135,7 +135,11 @@ func main() {
 		if err != nil {
 			log.Fatalf("unable to create output file %q: %v", settings.output, err)
 		}
-		defer file.Close()
+		defer func() {
+			if err := file.Close(); err != nil {
+				log.Printf("unable to close output file %q: %v", settings.output, err)
+			}
+		}()
 
 		if err := Encode(file, coastal); err != nil {
 			log.Fatalf("unable to write output to %q: %v", settings.output, err)

@@ -111,7 +111,7 @@ func (c ClassList) encode() [][]string {
 }
 
 func (c *ClassList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

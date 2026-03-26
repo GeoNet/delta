@@ -82,12 +82,12 @@ func main() {
 	counts := make(map[string]int)
 
 	for _, view := range set.Views() {
-		if time.Since(view.Span.End) > 0 {
+		if time.Since(view.End) > 0 {
 			continue
 		}
 
 		for _, mount := range set.Mounts() {
-			if time.Since(mount.Span.End) > 0 {
+			if time.Since(mount.End) > 0 {
 				continue
 			}
 			if mount.Code != view.Mount {
@@ -95,7 +95,7 @@ func main() {
 			}
 
 			for _, camera := range set.InstalledCameras() {
-				if time.Since(camera.Span.End) > 0 {
+				if time.Since(camera.End) > 0 {
 					continue
 				}
 
@@ -162,7 +162,7 @@ func main() {
 						return mount.Elevation
 					}(),
 					Azimuth:   camera.Azimuth,
-					Ground:    camera.Offset.Vertical,
+					Ground:    camera.Vertical,
 					Volcanoes: volcanoes,
 				})
 			}

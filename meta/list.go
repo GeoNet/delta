@@ -71,11 +71,13 @@ func EncodeList(l ListEncoder) [][]string {
 // it returns a non empty error otherwise.
 func LoadList(path string, l ListDecoder) error {
 
-	file, err := os.OpenFile(path, os.O_RDONLY, 0)
+	file, err := os.OpenFile(path, os.O_RDONLY, 0) //nolint:gosec // disable G304
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
 	data, err := csv.NewReader(file).ReadAll()
 	if err != nil {
@@ -86,6 +88,10 @@ func LoadList(path string, l ListDecoder) error {
 		return err
 	}
 
+	if err := file.Close(); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -93,18 +99,23 @@ func LoadList(path string, l ListDecoder) error {
 // it returns a non empty error otherwise.
 func StoreList(path string, l ListEncoder) error {
 
-	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
+	if err := os.MkdirAll(filepath.Dir(path), 0750); err != nil {
 		return err
 	}
 
-	file, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+	file, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644) //nolint:gosec // disable G304
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
-	err = csv.NewWriter(file).WriteAll(EncodeList(l))
-	if err != nil {
+	if err := csv.NewWriter(file).WriteAll(EncodeList(l)); err != nil {
+		return err
+	}
+
+	if err := file.Close(); err != nil {
 		return err
 	}
 
