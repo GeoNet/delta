@@ -54,7 +54,7 @@ func updateFile(path string, contents []byte, mode fs.FileMode) error {
 		return os.WriteFile(path, contents, mode)
 	}
 	// write the file if reading the existing one fails
-	existing, err := os.ReadFile(path)
+	existing, err := os.ReadFile(path) //nolint:gosec // disable G304
 	if err != nil {
 		return os.WriteFile(path, contents, mode)
 	}
@@ -314,11 +314,11 @@ func main() {
 						}
 
 						// possibly check the collection span for only sites with currently installed sensors
-						if settings.operational && collection.InstalledSensor.Span.End.Before(operational) {
+						if settings.operational && collection.InstalledSensor.End.Before(operational) {
 							continue
 						}
 						// possibly check the collection span for only sites with currently installed dataloggers
-						if settings.operational && collection.DeployedDatalogger.Span.End.Before(operational) {
+						if settings.operational && collection.DeployedDatalogger.End.Before(operational) {
 							continue
 						}
 
@@ -334,14 +334,14 @@ func main() {
 							// build a stationxml shadow stream structure
 							streams = append(streams, stationxml.Stream{
 								Code:      collection.Code(),
-								StartDate: correction.Span.Start,
-								EndDate:   correction.Span.End,
+								StartDate: correction.Start,
+								EndDate:   correction.End,
 
 								SamplingRate: collection.Stream.SamplingRate,
-								Triggered:    collection.Stream.Triggered,
-								Types:        collection.Component.Types,
+								Triggered:    collection.Triggered,
+								Types:        collection.Types,
 
-								Vertical: collection.InstalledSensor.Vertical,
+								Vertical: collection.Vertical,
 								Azimuth:  collection.Azimuth(correction.Polarity),
 								Dip:      collection.Dip(correction.Polarity),
 
@@ -369,7 +369,7 @@ func main() {
 						}
 					}
 
-					if !(len(streams) > 0) {
+					if streams == nil {
 						if settings.debug {
 							log.Printf("debug: skip channels for location %q of station %q, no streams found", site.Location, site.Station)
 						}
@@ -391,7 +391,7 @@ func main() {
 				}
 
 				// only process sites with actual channels wanted
-				if settings.active && len(channels) == 0 {
+				if settings.active && channels == nil {
 					continue
 				}
 
@@ -445,7 +445,7 @@ func main() {
 				singles = append(singles, stn.Code)
 			}
 
-			if !(len(stations) > 0) {
+			if stations == nil {
 				if settings.debug {
 					log.Printf("debug: skip networks for %q, no stations found", net.Code)
 				}
@@ -549,7 +549,7 @@ func main() {
 				delete(files, name.String())
 
 				// has anything changed, other than the creation time?
-				if raw, err := os.ReadFile(path); err == nil {
+				if raw, err := os.ReadFile(path); err == nil { //nolint:gosec // disable G304
 					if bytes.Equal(redacted(raw), redacted(res)) {
 						continue
 					}

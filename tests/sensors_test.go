@@ -62,8 +62,8 @@ var installedSensorChecks = map[string]func(*meta.Set) func(t *testing.T){
 		return func(t *testing.T) {
 
 			for _, i := range set.InstalledSensors() {
-				if i.Orientation.Azimuth < -360.0 || i.Orientation.Azimuth > 360.0 {
-					t.Errorf("installed sensor has invalid orientation azimuth: %s [%g]", i.String(), i.Orientation.Azimuth)
+				if i.Azimuth < -360.0 || i.Azimuth > 360.0 {
+					t.Errorf("installed sensor has invalid orientation azimuth: %s [%g]", i.String(), i.Azimuth)
 				}
 			}
 		}
@@ -72,8 +72,8 @@ var installedSensorChecks = map[string]func(*meta.Set) func(t *testing.T){
 	"check for invalid sensor dip": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			for _, i := range set.InstalledSensors() {
-				if i.Orientation.Dip < -90.0 || i.Orientation.Dip > 90.0 {
-					t.Errorf("installed sensor has invalid orientation dip: %s [%g]", i.String(), i.Orientation.Dip)
+				if i.Dip < -90.0 || i.Dip > 90.0 {
+					t.Errorf("installed sensor has invalid orientation dip: %s [%g]", i.String(), i.Dip)
 				}
 			}
 		}

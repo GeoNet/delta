@@ -90,7 +90,7 @@ func (i Info) Like(info Info) bool {
 // remove overlaps of stream information not related to firmware
 func squashInfo(info ...Info) []Info {
 
-	if !(len(info) > 0) {
+	if len(info) == 0 {
 		return nil
 	}
 
@@ -113,7 +113,7 @@ func squashInfo(info ...Info) []Info {
 // encode stream information in the "info" format.
 func encodeInfo(wr io.Writer, update time.Time, name string, info ...Info) error {
 
-	var funcMap template.FuncMap = template.FuncMap{
+	funcMap := template.FuncMap{
 		"name": func() string {
 			return name
 		},

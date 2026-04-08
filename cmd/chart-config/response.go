@@ -34,7 +34,7 @@ func Response(base string, collection meta.Collection) (*ResponseInfo, error) {
 
 		// find the associated StationXML snippet, skip if missing
 		data, err := resp.LookupBase(base, lookup)
-		if err != nil || len(data) == 0 {
+		if err != nil || data == nil {
 			continue
 		}
 

@@ -44,12 +44,14 @@ func main() {
 	}
 
 	if settings.header != "" {
-		fmt.Fprintln(os.Stdout, settings.header)
+		if _, err := fmt.Fprintln(os.Stdout, settings.header); err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	// process each template given on the command line
 	for _, file := range flag.Args() {
-		conf, err := os.ReadFile(file)
+		conf, err := os.ReadFile(file) //nolint:gosec // disable G304
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -59,10 +61,14 @@ func main() {
 			log.Fatal(err)
 		}
 
-		fmt.Fprintln(os.Stdout, string(config))
+		if _, err := fmt.Fprintln(os.Stdout, string(config)); err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	if settings.footer != "" {
-		fmt.Fprintln(os.Stdout, settings.footer)
+		if _, err := fmt.Fprintln(os.Stdout, settings.footer); err != nil {
+			log.Fatal(err)
+		}
 	}
 }

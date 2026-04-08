@@ -31,7 +31,7 @@ func (s Station) Path() string {
 }
 
 func (s Station) Store(path string) error {
-	if err := os.MkdirAll(filepath.Dir(path), 0755); err != nil {
+	if err := os.MkdirAll(filepath.Dir(path), 0750); err != nil {
 		return err
 	}
 	if err := os.WriteFile(path, []byte(contents), 0600); err != nil {

@@ -30,7 +30,7 @@ type Table struct {
 func (t Table) Links(list meta.TableList, keys ...string) [][]any {
 
 	lines := list.Table.Encode(list.List)
-	if !(len(lines) > 0) {
+	if lines == nil {
 		return nil
 	}
 
@@ -46,7 +46,7 @@ func (t Table) Links(list meta.TableList, keys ...string) [][]any {
 
 	var res [][]any
 	for _, line := range lines[1:] {
-		if !(w < len(line)) {
+		if w >= len(line) {
 			continue
 		}
 		for _, c := range strings.Fields(strings.TrimSpace(line[w])) {
@@ -57,7 +57,7 @@ func (t Table) Links(list meta.TableList, keys ...string) [][]any {
 				if !ok {
 					return nil
 				}
-				if !(n < len(line)) {
+				if n >= len(line) {
 					return nil
 				}
 
@@ -84,7 +84,7 @@ func checkNull(nulls map[string]interface{}, key, value string) any {
 func (t Table) Columns(list meta.TableList) [][]any {
 
 	lines := list.Table.Encode(list.List)
-	if !(len(lines) > 0) {
+	if lines == nil {
 		return nil
 	}
 
@@ -124,7 +124,7 @@ func (t Table) Columns(list meta.TableList) [][]any {
 				}
 				return nil
 			}
-			if !(n < len(line)) {
+			if n >= len(line) {
 				return nil
 			}
 

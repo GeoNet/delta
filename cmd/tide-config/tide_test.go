@@ -25,13 +25,13 @@ func TestTide(t *testing.T) {
 		t.Run("check "+k, func(t *testing.T) {
 
 			// read the template file
-			tmpl, err := os.ReadFile(k)
+			tmpl, err := os.ReadFile(k) //nolint:gosec // disable G304
 			if err != nil {
 				t.Fatal(err)
 			}
 
 			// read the expected results
-			expected, err := os.ReadFile(v)
+			expected, err := os.ReadFile(v) //nolint:gosec // disable G304
 			if err != nil {
 				t.Fatal(err)
 			}

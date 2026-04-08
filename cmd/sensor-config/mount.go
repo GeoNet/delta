@@ -95,7 +95,7 @@ func (s Settings) Cameras(set *meta.Set, name, networks string) (Group, bool) {
 			})
 		}
 
-		if !(len(views) > 0) {
+		if views == nil {
 			continue
 		}
 
@@ -192,7 +192,7 @@ func (s Settings) Doases(set *meta.Set, name, network string) (Group, bool) {
 			})
 		}
 
-		if !(len(views) > 0) {
+		if views == nil {
 			continue
 		}
 
