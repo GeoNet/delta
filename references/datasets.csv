@@ -5,7 +5,7 @@ coastal,LG,Gns2007a,true
 coastal,TG,Gns2007a,true
 dart,TD,Gns2020a,true
 envirosensor,EN,Gns2018a,true
-geomag,GM,Gns1902,true
+geomag,GM,Gns2024,true
 gnss,CG,Gns1995a,false
 gnss,CG,Gns1995b,true
 gnss,GN,Gns1995a,false
