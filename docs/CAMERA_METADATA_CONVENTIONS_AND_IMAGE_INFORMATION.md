@@ -8,11 +8,11 @@ Mount codes are the equivalent of site codes for seismic and acoustic sensors. M
 
 Mount codes are unique across all sites, including seismic, GNSS, and other sites. They are found in the [network/mounts.csv](https://github.com/GeoNet/delta/blob/main/network/mounts.csv) file.
 
-Mount codes are 4 or more letters. As of 2026, permanent camera sites are named with a C suffix to indicate their nature. This allows distinction of camera sites from GNSS at the same location where they would otherwise have equivalent station codes.
+Mount codes are 4 or more letters.
 
 Mount codes are named for ease of distinction and reflect either (or both) camera location or monitoring subject cues. There is no fixed convention for camera mount codes although a few are used consistently: 
 
-- The first 1-2 letters of the mount code give an indication of where the site is (i.e. they will be an abbreviation of a significant local geographic feature), and the last 1-2 letters give a sub-location, particularly where there are multiple mounts in the same area, e.g. WINR is at White Island (WI) on the north rim of the crater (NR).
+- The first 2-3 letters of the mount code give an indication of where the site is (i.e. they will be an abbreviation of a significant local geographic feature), and the last 1-2 letters give a sub-location, particularly where there are multiple mounts in the same area, e.g. WINR is at White Island (WI) on the north rim of the crater (NR); FOXVF is at Fox Glacier Landslide (FOX) looking at Victoria Falls (VF).
 - The mount codes are named simply by their location, e.g. TEMO is Taranaki Emergency Management Office, and KAKA is Kakaramea.
 
 ## View Codes
@@ -24,6 +24,8 @@ View codes have two digits. They are unique for a given mount code. The initial 
 The view code is used for one of two purposes:
 - To distinguish between multiple cameras installed at a single observation site where the same mount code is used.
 - To show that the view of a particular camera has changed substantially so that the subject of the view does not have the same prominence or position in the image. This is intended to reflect an intentional change in view, but is also used when there is an unintentional change if that change is not subsequently corrected.
+
+View code azimuths describe the geographic relationship between the mount and the subject of the view code. These do not change across installations. Finer detail on camera azimuth, dip and position at the mount (height, offset) are given in specific camera installation metadata.
 
 ## Naming Conventions When Moving or Changing Cameras
 
