@@ -53,7 +53,7 @@ func main() {
 	}
 
 	flag.StringVar(&settings.base, "base", "", "delta base files")
-	flag.StringVar(&settings.networks, "networks", "AK,CB,CH,EC,FI,HB,IU,KI,NM,NZ,OT,RA,RT,SC,SI,SM,SP,TP,TR,WL", "installed network codes")
+	flag.StringVar(&settings.networks, "networks", "AK,CB,CH,EC,FI,HB,IU,KI,NM,NZ,OT,RA,RT,SB,SC,SI,SM,SP,TP,TR,WL", "installed network codes")
 	flag.StringVar(&settings.coastal, "coastal", "TG", "coastal tsunami gauge network code")
 	flag.StringVar(&settings.lentic, "lentic", "LG", "lentic tsunami gauge network code")
 	flag.StringVar(&settings.dart, "dart", "TD", "dart buoy network code")
