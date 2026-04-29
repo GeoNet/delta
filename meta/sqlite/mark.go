@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS mark (
   start_date DATETIME NOT NULL CHECK (start_date IS strftime('%Y-%m-%dT%H:%M:%SZ', start_date)),
   end_date DATETIME NOT NULL CHECK (end_date IS strftime('%Y-%m-%dT%H:%M:%SZ', end_date)),
   FOREIGN KEY (location_id) REFERENCES location (location_id),
-  UNIQUE (location_id)
+  UNIQUE (location_id, start_date, end_date)
 );`
 
 var mark = Table{
