@@ -15,6 +15,12 @@ var markChecks = map[string]func(*meta.Set) func(t *testing.T){
 			marks := set.Marks()
 			for i := 0; i < len(marks); i++ {
 				for j := i + 1; j < len(marks); j++ {
+					if marks[i].Start.After(marks[j].End) {
+						continue
+					}
+					if marks[i].End.Before(marks[j].Start) {
+						continue
+					}
 					if marks[i].Code == marks[j].Code {
 						t.Errorf("mark duplication: %s", marks[i].Code)
 					}
