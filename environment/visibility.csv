@@ -64,7 +64,8 @@ HOLD,"Good. Up to 16 degrees of obstruction from hill due south, but this does n
 HORN,unknown,2002-11-01T00:00:00Z,9999-01-01T00:00:00Z
 HSPA,"Good. On the side of a mountain. Up to 21 degrees of obstruction from the mountain due south, and up to 10 degrees due north due to other hills",2025-02-26T00:00:00Z,9999-01-01T00:00:00Z
 IFMA,"Excellent visibility to the north, and no obstructions to the north west. All other directions have mountains that obstruct no more than 7 degrees of elevation.",2025-03-12T00:00:00Z,9999-01-01T00:00:00Z
-JTGT,"Hills close by to the north and west, obstructing up to 20 degrees. More distant hills to the south and east obstructing between 5 and 10 degrees. Clear otherwise.",2025-02-20T00:00:00Z,9999-01-01T00:00:00Z
+JTGT,"Hills close by to the north and west, obstructing up to 20 degrees. More distant hills to the south and east obstructing between 5 and 10 degrees. Clear otherwise.",2025-02-20T00:00:00Z,2026-04-19T23:59:59Z
+JTGT,"Solar panel has been added at site, may cause reflections. Hills close by to the north and west, obstructing up to 20 degrees. More distant hills to the south and east obstructing between 5 and 10 degrees. Clear otherwise.",2026-04-20T00:00:00Z,9999-01-01T00:00:00Z
 KAHU,Excellent,2006-04-19T00:00:00Z,2016-07-25T23:59:00Z
 KAHU,9m tall data comms mast installed at 3m south of the antenna,2016-07-26T00:00:00Z,9999-01-01T00:00:00Z
 KAIK,No obstruction above 10 degrees,2004-01-30T00:00:00Z,9999-01-01T00:00:00Z
