@@ -32,16 +32,18 @@ var keywords = map[string][]string{
 }
 
 var ids = map[string]string{
-	"Ruapehu from North":                   "ruapehunorth",
-	"Ngauruhoe from West":                  "ngauruhoe",
-	"Tongariro from North":                 "tongariro",
-	"Ruapehu & Ngauruhoe from East":        "ruapehungauruhoe",
-	"Ruapehu from South":                   "ruapehusouth",
-	"Raoul Island":                         "raoulisland",
-	"Taranaki Maunga from New Plymouth":    "taranaki",
-	"Whakaari/White Island from Te Kaha":   "tekaha",
-	"Tongariro Te Maari Crater":            "tongarirotemaaricrater",
-	"Whakaari/White Island from Whakatāne": "whakatane",
+	"Ruapehu from North":                    "ruapehunorth",
+	"Ngauruhoe from West":                   "ngauruhoe",
+	"Tongariro from North":                  "tongariro",
+	"Ruapehu & Ngauruhoe from East":         "ruapehungauruhoe",
+	"Ruapehu from East":                     "ruapehueast",
+	"Ruapehu from South":                    "ruapehusouth",
+	"Raoul Island":                          "raoulisland",
+	"Taranaki Maunga from New Plymouth":     "taranaki",
+	"Whakaari/White Island from Te Kaha":    "tekaha",
+	"Tongariro Te Maari Crater":             "tongarirotemaaricrater",
+	"Whakaari/White Island from Whakatāne":  "whakatane",
+	"Ngauruhoe & Tongariro from South East": "ngauruhoetongariro",
 }
 
 type Settings struct {
