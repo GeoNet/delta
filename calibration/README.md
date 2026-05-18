@@ -5,5 +5,6 @@ _Sensor calibration information for scientific equipment installed at collection
 ### FOLDERS ###
 
 * `antennas` - individual GNSS receiver antenna calibration files.
+* `multigas` - gas calibration concentrations.
 * `fluxgates` - individual Geomagnetic Fluxgate sensor calibration files.
 
