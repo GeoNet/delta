@@ -10,7 +10,9 @@ The `calibrations/multigas` contains gas calibration concentrations for each gas
 |Gas|Calibration gas||
 |Concentration|Of calibration gas|ppm (parts per million)|
 |Frequency|How often calibration performed, D=daily, W=weekly, 4W=4 weekly, etc||
-|Day|Calibration day of week, 0=Monday, 1=Tuesday, etc||
-|Time|Time calibration performed||
-|Start Date|Of calibrations||
-|End Date|Of calibrations||
+|Day Of Week|Calibration day of week, 0=Monday, 1=Tuesday, etc||
+|Calibration Time|Time calibration performed|HH:MM:SS|
+|Zero Time|Time observation should be zero|HH:MM:SS|
+|Start Date|Of calibrations|YYYY-mm-ddTHH:MM:SSZ|
+|End Date|Of calibrations|YYYY-mm-ddTHH:MM:SSZ|
+

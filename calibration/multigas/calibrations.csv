@@ -1,4 +1,4 @@
-Station,Location,Gas,Concentration,Frequency,DayofWeek,CalTime,ZerTime,Start Date,End Date
+Station,Location,Gas,Concentration,Frequency,Day Of Week,Calibration Time,Zero Time,Start Date,End Date
 NA002,04,CO2,400,W,6,02:10:00,01:40:00,2024-03-21T02:10:00Z,9999-01-01T00:00:00Z
 NA002,05,SO2,10,W,6,02:50:00,02:10:00,2024-03-21T02:10:00Z,9999-01-01T00:00:00Z
 NA002,06,H2S,25,W,6,02:30:00,02:10:00,2024-03-21T02:10:00Z,9999-01-01T00:00:00Z
