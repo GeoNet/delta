@@ -145,6 +145,11 @@ func (s Set) Mounts() []Mount {
 	return s.mounts
 }
 
+// Multigases is a helper function to return a slice of Multigas values.
+func (s Set) Multigases() []Multigas {
+	return s.multigases
+}
+
 // Networks is a helper function to return a slice of Network values.
 func (s Set) Networks() []Network {
 	return s.networks
@@ -340,6 +345,23 @@ func (s Set) Mount(code string) (Mount, bool) {
 		return v, true
 	}
 	return Mount{}, false
+}
+
+// Multigas is a helper function to return a Multigas value and true if one exists.
+func (s Set) Multigas(station, location, gas string) (Multigas, bool) {
+	for _, v := range s.multigases {
+		if station != v.Station {
+			continue
+		}
+		if location != v.Location {
+			continue
+		}
+		if gas != v.Gas {
+			continue
+		}
+		return v, true
+	}
+	return Multigas{}, false
 }
 
 // Network is a helper function to return a Network value and true if one exists.

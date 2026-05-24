@@ -95,6 +95,10 @@ func LoadList(path string, l ListDecoder) error {
 	return nil
 }
 
+func Load[T ListDecoder](path string, dec T) error {
+	return LoadList(path, dec)
+}
+
 // StoreList encodes and writes into a file the contents of a type that implements the ListEncoder interface,
 // it returns a non empty error otherwise.
 func StoreList(path string, l ListEncoder) error {
@@ -120,4 +124,8 @@ func StoreList(path string, l ListEncoder) error {
 	}
 
 	return nil
+}
+
+func Store[T ListEncoder](path string, enc T) error {
+	return StoreList(path, enc)
 }
