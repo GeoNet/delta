@@ -16,9 +16,10 @@ HB,NZ,Hawke's Bay regional seismic network,false
 IG,LI,LINZ IGS CGPS Network,false
 IU,IU,Global Seismograph Network,false
 KI,NZ,Kermadec Islands volcano seismic network,false
+LC,LC,Landslide camera network, false
 LG,NZ,Lake tsunami gauge network,false
 LI,LI,The LINZ national CGPS network,false
-LS,XX,Landslide response seismic network,false
+LS,NZ,Landslide seismic network,false
 MC,MC,Manually collected volcano monitoring data,false
 NM,NZ,Nelson and Marlborough regional seismic network,false
 NX,NZ,Private seismograph sites,true
