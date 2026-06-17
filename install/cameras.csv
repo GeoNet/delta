@@ -43,6 +43,7 @@ Mobotix AG,M15,10.18.101.137,KMTP,01,10,290,2.5,0,0,2019-06-19T22:00:00Z,2019-07
 Mobotix AG,M15,10.18.101.137,KMTP,01,4,290,2.5,0,0,2019-07-06T21:20:00Z,2019-07-08T00:40:00Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
 Mobotix AG,M15,10.18.101.137,KMTP,01,0.5,290,2.5,0,0,2019-07-08T00:50:00Z,2019-11-27T20:50:00Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
 Mobotix AG,M15,10.18.101.137,KMTP,01,9.5,290,2.5,0,0,2019-11-27T21:00:00Z,2020-05-07T00:19:59Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
+Mobotix AG,M15,10.18.101.137,FOXMC,01,-10,310,0,0,0,XXXX-XX-XXTXX:XX:XXZ,2026-06-15T01:39:59Z,Mills Creek debris fan from river bank
 Mobotix AG,M15,10.18.101.33,WIWR,01,0,0,1.5,0,0,2016-10-03T06:14:00Z,2023-12-01T00:00:00Z,White Island West Rim looking into the crater
 Mobotix AG,M15,10.18.168.61,WICF,01,0,0,0,0,0,2016-06-01T23:40:00Z,2023-12-01T00:00:00Z,White Island Factory looking across the crater floor
 Mobotix AG,M15,10.20.210.120,KMTP,01,9.5,290,2.5,0,0,2020-05-07T00:20:00Z,2022-04-12T07:40:01Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
@@ -51,6 +52,7 @@ Mobotix AG,M15,10.7.46.153,TOKR,01,0,0,0,0,0,2017-10-12T00:40:00Z,2018-05-02T23:
 Mobotix AG,M16,10.26.194.146,MTSR,01,12.5,37,2,0,0,2022-09-23T02:40:00Z,2026-01-22T21:50:01Z,Mangateitei looking at South Ruapehu
 Mobotix AG,M16,10.26.194.146,LS002,01,0,195,0,0,0,2026-03-05T22:49:59Z,9999-01-01T00:00:00Z,Lottin Point looking at landslide dam
 Mobotix AG,M16,10.26.194.151,RIMK,01,-16.8,270,1.5,0,0,2021-02-13T01:05:23Z,2026-02-21T22:40:01Z,Mt Moumoukai (Raoul Island) looking at Green Lake
+Mobotix AG,M16,10.26.194.151,FOXMC,01,-10,310,0,0,0,2026-06-15T01:39:59Z,9999-01-01T00:00:00Z,Mills Creek debris fan from river bank
 Mobotix AG,M16,10.26.194.154,FOXVF,01,-3.1,269,0,0,0,2022-02-23T00:00:00Z,9999-01-01T00:00:00Z,Fox Glacier Victoria Falls looking at rock slopes
 Mobotix AG,M16,10.26.196.188,KMTP,01,9.5,290,2.5,0,0,2022-05-05T01:12:50Z,2022-07-31T10:55:00Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
 Mobotix AG,M16,10.26.196.191,KAKA,01,5.6,192,1.5,0,0,2021-08-01T23:35:11Z,2026-02-05T02:30:01Z,Kakaramea looking at Tongariro Massif
