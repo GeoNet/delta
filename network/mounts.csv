@@ -1,6 +1,7 @@
 Mount,Network,Name,Latitude,Longitude,Elevation,Datum,Description,Start Date,End Date
 CHTB,BC,Christchurch Telecom Building,-43.53162,172.63544,0,WGS84,Images of Christchurch.,2011-11-28T00:00:00Z,2019-02-24T21:00:00Z
 DISC,VC,Discovery Lodge,-39.16732,175.48055,881,WGS84,Images of Ruapehu and Ngauruhoe.,2020-07-28T02:20:00Z,9999-01-01T00:00:00Z
+FOXMC,LC,Fox Glacier Mills Creek,-43.494178,170.033938,Images of Mills Creek debris fan.,XXXX-XX-XXTXX:XX:XXZ,9999-01-01T00:00:00Z
 FOXRB,LC,Fox Glacier Rapanui Bluff,-43.498265,170.093465,1024,WGS84,Images of sediment and rock slopes.,2022-02-22T00:00:00Z,9999-01-01T00:00:00Z
 FOXVF,LC,Fox Glacier Victoria Falls,-43.502881,170.097863,791,WGS84,Images of rock slopes.,2022-02-23T00:00:00Z,9999-01-01T00:00:00Z
 KAKA,VC,Kakaramea,-38.97490003,175.694834619,1327,WGS84,Images of Tongariro.,2011-09-05T00:01:00Z,9999-01-01T00:00:00Z
