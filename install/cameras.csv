@@ -59,9 +59,9 @@ Mobotix AG,M16,10.26.62.43,TEMO,02,0,187,0,3.7,0.8,2020-07-22T01:10:00Z,2020-08-
 Mobotix AG,M16,10.26.62.43,DISC,01,16,148,0,0,0,2021-02-05T04:54:00Z,2026-04-23T21:10:01Z,Discovery Lodge (Whakapapa) looking at North Ruapehu
 Mobotix AG,M16,10.28.95.169,WHOH,02,2,19,4,0,0,2023-01-18T00:45:00Z,2025-07-09T06:09:59Z,Whakatane looking at White Island
 Mobotix AG,M16,10.28.95.175,DISC,02,14,84,4,0,0,2022-10-19T22:29:59Z,2026-04-23T21:10:01Z,Discovery Lodge looking at Ngauruhoe
-Mobotix AG,M16B,10.26.194.154,FOXVF,01,-3.1,269,0,0,0,2022-02-23T00:00:00Z,2026-04-16T23:40:01Z,Fox Glacier Victoria Falls looking at rock slopes
+Mobotix AG,M16B,10.26.194.154,FOXVF,01,-3.1,296,0,0,0,2022-02-23T00:00:00Z,2026-04-16T23:40:01Z,Fox Glacier Victoria Falls looking at rock slopes
 Mobotix AG,M16B,10.27.173.237,KMTP,01,9.5,290,2.5,0,0,2022-08-04T00:44:00Z,2026-04-30T00:40:01Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
-Mobotix AG,M16B,10.27.173.237,FOXVF,01,-9,269,0,0,0,2026-06-10T02:51:15Z,9999-01-01T00:00:00Z,Fox Glacier Victoria Falls looking at rock slopes
+Mobotix AG,M16B,10.27.173.237,FOXVF,01,-9,296,0,0,0,2026-06-10T02:51:15Z,9999-01-01T00:00:00Z,Fox Glacier Victoria Falls looking at rock slopes
 Mobotix AG,M16B,10.28.69.216,TKAH,01,0,299,2,0,0,2025-05-16T01:00:00Z,2026-03-19T01:40:01Z,Te Kaha looking at White Island
 Mobotix AG,M16B,10.28.92.94,TKAH,01,0,299,2,0,0,2024-07-15T01:09:59Z,2025-05-16T00:59:59Z,Te Kaha looking at White Island
 Mobotix AG,M24M-Secure,10.9.190.163,CHTB,03,0,315,0,0,0,2011-11-28T00:00:00Z,2019-02-24T21:00:00Z,
