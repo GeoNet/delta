@@ -70,6 +70,10 @@ Nanometrics,Centaur CTR4-6S,Datalogger,,1,datalogger_Nanometrics_CentaurCTR4_24b
 Nanometrics,Centaur CTR4-6S,Datalogger,,10,datalogger_Nanometrics_CentaurCTR4_24bits_10sps
 Nanometrics,Centaur CTR4-6S,Datalogger,,100,datalogger_Nanometrics_CentaurCTR4_24bits_100sps
 Nanometrics,Centaur CTR4-6S,Datalogger,,200,datalogger_Nanometrics_CentaurCTR4_24bits_200sps
+Nanometrics,Centaur CTR5-8,Datalogger,,1,datalogger_Nanometrics_CentaurCTR5_24bits_1s
+Nanometrics,Centaur CTR5-8,Datalogger,,10,datalogger_Nanometrics_CentaurCTR5_24bits_10sps
+Nanometrics,Centaur CTR5-8,Datalogger,,100,datalogger_Nanometrics_CentaurCTR5_24bits_100sps
+Nanometrics,Centaur CTR5-8,Datalogger,,200,datalogger_Nanometrics_CentaurCTR5_24bits_200sps
 Nanometrics,ORION,Datalogger,,100,datalogger_Nanometrics_Orion_25bits_100sps
 Nanometrics,Taurus,Datalogger,,100,datalogger_Nanometrics_Taurus_24bits_100sps
 Nanometrics,TitanSMA,Strong Motion Recorder,,200,datalogger_Nanometrics_TitanSMA_24bits_200sps
