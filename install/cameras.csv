@@ -51,7 +51,6 @@ Mobotix AG,M15,10.7.46.153,TOKR,01,0,0,0,0,0,2017-10-12T00:40:00Z,2018-05-02T23:
 Mobotix AG,M16,10.26.194.146,MTSR,01,12.5,37,2,0,0,2022-09-23T02:40:00Z,2026-01-22T21:50:01Z,Mangateitei looking at South Ruapehu
 Mobotix AG,M16,10.26.194.146,LS002,01,0,195,0,0,0,2026-03-05T22:49:59Z,9999-01-01T00:00:00Z,Lottin Point looking at landslide dam
 Mobotix AG,M16,10.26.194.151,RIMK,01,-16.8,270,1.5,0,0,2021-02-13T01:05:23Z,2026-02-21T22:40:01Z,Mt Moumoukai (Raoul Island) looking at Green Lake
-Mobotix AG,M16,10.26.194.154,FOXVF,01,-3.1,269,0,0,0,2022-02-23T00:00:00Z,9999-01-01T00:00:00Z,Fox Glacier Victoria Falls looking at rock slopes
 Mobotix AG,M16,10.26.196.188,KMTP,01,9.5,290,2.5,0,0,2022-05-05T01:12:50Z,2022-07-31T10:55:00Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
 Mobotix AG,M16,10.26.196.191,KAKA,01,5.6,192,1.5,0,0,2021-08-01T23:35:11Z,2026-02-05T02:30:01Z,Kakaramea looking at Tongariro Massif
 Mobotix AG,M16,10.26.201.108,FOXRB,01,17.5,349,0,0,0,2022-02-22T00:00:00Z,9999-01-01T00:00:00Z,Fox Glacier Rapanui Bluff looking at sediment and rock slopes
@@ -60,7 +59,9 @@ Mobotix AG,M16,10.26.62.43,TEMO,02,0,187,0,3.7,0.8,2020-07-22T01:10:00Z,2020-08-
 Mobotix AG,M16,10.26.62.43,DISC,01,16,148,0,0,0,2021-02-05T04:54:00Z,2026-04-23T21:10:01Z,Discovery Lodge (Whakapapa) looking at North Ruapehu
 Mobotix AG,M16,10.28.95.169,WHOH,02,2,19,4,0,0,2023-01-18T00:45:00Z,2025-07-09T06:09:59Z,Whakatane looking at White Island
 Mobotix AG,M16,10.28.95.175,DISC,02,14,84,4,0,0,2022-10-19T22:29:59Z,2026-04-23T21:10:01Z,Discovery Lodge looking at Ngauruhoe
+Mobotix AG,M16B,10.26.194.154,FOXVF,01,-3.1,296,0,0,0,2022-02-23T00:00:00Z,2026-04-16T23:40:01Z,Fox Glacier Victoria Falls looking at rock slopes
 Mobotix AG,M16B,10.27.173.237,KMTP,01,9.5,290,2.5,0,0,2022-08-04T00:44:00Z,2026-04-30T00:40:01Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
+Mobotix AG,M16B,10.27.173.237,FOXVF,01,-9,296,0,0,0,2026-06-10T02:51:15Z,9999-01-01T00:00:00Z,Fox Glacier Victoria Falls looking at rock slopes
 Mobotix AG,M16B,10.28.69.216,TKAH,01,0,299,2,0,0,2025-05-16T01:00:00Z,2026-03-19T01:40:01Z,Te Kaha looking at White Island
 Mobotix AG,M16B,10.28.92.94,TKAH,01,0,299,2,0,0,2024-07-15T01:09:59Z,2025-05-16T00:59:59Z,Te Kaha looking at White Island
 Mobotix AG,M24M-Secure,10.9.190.163,CHTB,03,0,315,0,0,0,2011-11-28T00:00:00Z,2019-02-24T21:00:00Z,
