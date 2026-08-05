@@ -59,7 +59,7 @@ func main() {
 	flag.StringVar(&settings.dart, "dart", "TD", "dart buoy network code")
 	flag.StringVar(&settings.enviro, "enviro", "EN", "envirosensor network code")
 	flag.StringVar(&settings.manual, "manual", "MC", "manualcollect network code")
-	flag.StringVar(&settings.camera, "camera", "VC,BC", "volcano camera network codes")
+	flag.StringVar(&settings.camera, "camera", "BC,LC,VC", "camera network codes")
 	flag.StringVar(&settings.magnetic, "magnetic", "GM,SM", "geomagnetic network code")
 	flag.StringVar(&settings.doas, "doas", "EN", "doas network code")
 	flag.StringVar(&settings.gnss, "gnss", "CG,GN,IG,LI,GT,SA,XX", "GNSS network codes")

@@ -119,6 +119,12 @@ func (mg Multigas) Compare(multigas Multigas) int {
 	if cmp := strings.Compare(mg.Gas, multigas.Gas); cmp != 0 {
 		return cmp
 	}
+	if mg.Concentration < multigas.Concentration {
+		return -1
+	}
+	if mg.Concentration > multigas.Concentration {
+		return 1
+	}
 	if cmp := mg.Start.Compare(mg.End); cmp != 0 {
 		return cmp
 	}
