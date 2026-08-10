@@ -17,7 +17,7 @@ func main() {
 
 	flag.Parse()
 
-	b, err := os.ReadFile(config)
+	b, err := os.ReadFile(config) //nolint:gosec // disable G304
 	if err != nil {
 		log.Fatal(err)
 	}

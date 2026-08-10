@@ -24,6 +24,7 @@ const ResponseName = "Response"
 //go:embed network/*.csv
 //go:embed environment/*.csv
 //go:embed references/*.csv
+//go:embed calibration/*.csv
 var files embed.FS
 
 // there can be but one

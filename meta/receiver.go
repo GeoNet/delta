@@ -52,7 +52,7 @@ type DeployedReceiverList []DeployedReceiver
 
 func (dr DeployedReceiverList) Len() int           { return len(dr) }
 func (dr DeployedReceiverList) Swap(i, j int)      { dr[i], dr[j] = dr[j], dr[i] }
-func (dr DeployedReceiverList) Less(i, j int) bool { return dr[i].Install.Less(dr[j].Install) }
+func (dr DeployedReceiverList) Less(i, j int) bool { return dr[i].Less(dr[j].Install) }
 
 func (dr DeployedReceiverList) encode() [][]string {
 	var data [][]string
@@ -74,7 +74,7 @@ func (dr DeployedReceiverList) encode() [][]string {
 }
 
 func (dr *DeployedReceiverList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

@@ -50,11 +50,11 @@ func MustParseDateTimePtr(s string) *DateTime {
 }
 
 func (t DateTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	if t.Time.Year() < 1880 {
+	if t.Year() < 1880 {
 		return e.EncodeElement(nil, start)
 	}
 
-	return e.EncodeElement(t.Time.Format(DateTimeFormat), start)
+	return e.EncodeElement(t.Format(DateTimeFormat), start)
 }
 
 func (t *DateTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
@@ -75,11 +75,11 @@ func (t *DateTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 }
 
 func (t DateTime) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
-	if t.Time.Year() < 1880 {
+	if t.Year() < 1880 {
 		return xml.Attr{}, nil
 	}
 
-	return xml.Attr{Name: name, Value: t.Time.Format(DateTimeFormat)}, nil
+	return xml.Attr{Name: name, Value: t.Format(DateTimeFormat)}, nil
 }
 
 func (t *DateTime) UnmarshalXMLAttr(attr xml.Attr) error {

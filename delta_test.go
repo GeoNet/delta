@@ -27,7 +27,11 @@ func TestDB(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer db.Close()
+	defer func() {
+		if err := db.Close(); err != nil {
+			t.Error(err)
+		}
+	}()
 
 	if err := db.Init(context.Background(), set, files...); err != nil {
 		t.Fatal(err)

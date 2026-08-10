@@ -55,7 +55,7 @@ type DeployedDataloggerList []DeployedDatalogger
 
 func (dd DeployedDataloggerList) Len() int           { return len(dd) }
 func (dd DeployedDataloggerList) Swap(i, j int)      { dd[i], dd[j] = dd[j], dd[i] }
-func (dd DeployedDataloggerList) Less(i, j int) bool { return dd[i].Install.Less(dd[j].Install) }
+func (dd DeployedDataloggerList) Less(i, j int) bool { return dd[i].Less(dd[j].Install) }
 
 func (dd DeployedDataloggerList) encode() [][]string {
 
@@ -79,7 +79,7 @@ func (dd DeployedDataloggerList) encode() [][]string {
 }
 
 func (dd *DeployedDataloggerList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

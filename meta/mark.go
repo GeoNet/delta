@@ -93,7 +93,7 @@ func (m MarkList) encode() [][]string {
 }
 
 func (m *MarkList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

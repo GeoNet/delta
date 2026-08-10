@@ -32,16 +32,18 @@ var keywords = map[string][]string{
 }
 
 var ids = map[string]string{
-	"Ruapehu from North":                   "ruapehunorth",
-	"Ngauruhoe from West":                  "ngauruhoe",
-	"Tongariro from North":                 "tongariro",
-	"Ruapehu & Ngauruhoe from East":        "ruapehungauruhoe",
-	"Ruapehu from South":                   "ruapehusouth",
-	"Raoul Island":                         "raoulisland",
-	"Taranaki Maunga from New Plymouth":    "taranaki",
-	"Whakaari/White Island from Te Kaha":   "tekaha",
-	"Tongariro Te Maari Crater":            "tongarirotemaaricrater",
-	"Whakaari/White Island from Whakatāne": "whakatane",
+	"Ruapehu from North":                    "ruapehunorth",
+	"Ngauruhoe from West":                   "ngauruhoe",
+	"Tongariro from North":                  "tongariro",
+	"Ruapehu & Ngauruhoe from East":         "ruapehungauruhoe",
+	"Ruapehu from East":                     "ruapehueast",
+	"Ruapehu from South":                    "ruapehusouth",
+	"Raoul Island":                          "raoulisland",
+	"Taranaki Maunga from New Plymouth":     "taranaki",
+	"Whakaari/White Island from Te Kaha":    "tekaha",
+	"Tongariro Te Maari Crater":             "tongarirotemaaricrater",
+	"Whakaari/White Island from Whakatāne":  "whakatane",
+	"Ngauruhoe & Tongariro from South East": "ngauruhoetongariro",
 }
 
 type Settings struct {
@@ -82,12 +84,12 @@ func main() {
 	counts := make(map[string]int)
 
 	for _, view := range set.Views() {
-		if time.Since(view.Span.End) > 0 {
+		if time.Since(view.End) > 0 {
 			continue
 		}
 
 		for _, mount := range set.Mounts() {
-			if time.Since(mount.Span.End) > 0 {
+			if time.Since(mount.End) > 0 {
 				continue
 			}
 			if mount.Code != view.Mount {
@@ -95,7 +97,7 @@ func main() {
 			}
 
 			for _, camera := range set.InstalledCameras() {
-				if time.Since(camera.Span.End) > 0 {
+				if time.Since(camera.End) > 0 {
 					continue
 				}
 
@@ -162,7 +164,7 @@ func main() {
 						return mount.Elevation
 					}(),
 					Azimuth:   camera.Azimuth,
-					Ground:    camera.Offset.Vertical,
+					Ground:    camera.Vertical,
 					Volcanoes: volcanoes,
 				})
 			}

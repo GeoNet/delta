@@ -30,7 +30,7 @@ func (t *Tilde) Geomag(set *meta.Set, geomag string, extra ...string) error {
 			}
 
 			// skip if there are no installed sensors
-			if len(installs) == 0 {
+			if installs == nil {
 				continue
 			}
 
@@ -86,7 +86,7 @@ func (t *Tilde) Geomag(set *meta.Set, geomag string, extra ...string) error {
 			}
 
 			// skip if there are no installed sensors
-			if len(installs) == 0 {
+			if installs == nil {
 				continue
 			}
 

@@ -19,7 +19,7 @@ var timingsChecks = map[string]func(*meta.Set) func(t *testing.T){
 					if timings[i].Location != timings[j].Location {
 						continue
 					}
-					if !timings[i].Span.Overlaps(timings[j].Span) {
+					if !timings[i].Overlaps(timings[j].Span) {
 						continue
 					}
 

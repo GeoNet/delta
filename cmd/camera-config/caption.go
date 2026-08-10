@@ -15,13 +15,23 @@ type Caption struct {
 type Captions []Caption
 
 func (c Captions) EncodeFile(path string) error {
-	file, err := os.Create(path)
+	file, err := os.Create(path) //nolint:gosec // disable G304
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
-	return c.Encode(file)
+	if err := c.Encode(file); err != nil {
+		return err
+	}
+
+	if err := file.Close(); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (c Captions) Encode(wr io.Writer) error {

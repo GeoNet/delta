@@ -17,7 +17,7 @@ import (
 // this usually happens when the intervals are different.
 func squash(sessions []meta.Session) []meta.Session {
 
-	if !(len(sessions) > 1) {
+	if len(sessions) < 2 {
 		return sessions
 	}
 
@@ -300,17 +300,23 @@ func main() {
 
 	list := squashInfo(info...)
 
-	if err := os.MkdirAll(filepath.Dir(output), 0755); err != nil {
+	if err := os.MkdirAll(filepath.Dir(output), 0750); err != nil {
 		log.Fatal(err)
 	}
 
-	file, err := os.Create(output)
+	file, err := os.Create(output) //nolint:gosec // disable G304
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close() // ignore close errors
+	}()
 
 	if err := encodeInfo(file, update, filepath.Base(output), list...); err != nil {
+		log.Fatal(err)
+	}
+
+	if err := file.Close(); err != nil {
 		log.Fatal(err)
 	}
 }

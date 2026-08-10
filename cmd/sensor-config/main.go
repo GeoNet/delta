@@ -53,16 +53,16 @@ func main() {
 	}
 
 	flag.StringVar(&settings.base, "base", "", "delta base files")
-	flag.StringVar(&settings.networks, "networks", "AK,CB,CH,EC,FI,HB,IU,KI,NM,NZ,OT,RA,RT,SC,SI,SM,SP,TP,TR,WL", "installed network codes")
+	flag.StringVar(&settings.networks, "networks", "AK,CB,CH,EC,FI,HB,IU,KI,NM,NZ,OT,RA,RT,SB,SC,SI,SM,SP,TP,TR,WL", "installed network codes")
 	flag.StringVar(&settings.coastal, "coastal", "TG", "coastal tsunami gauge network code")
 	flag.StringVar(&settings.lentic, "lentic", "LG", "lentic tsunami gauge network code")
 	flag.StringVar(&settings.dart, "dart", "TD", "dart buoy network code")
 	flag.StringVar(&settings.enviro, "enviro", "EN", "envirosensor network code")
 	flag.StringVar(&settings.manual, "manual", "MC", "manualcollect network code")
-	flag.StringVar(&settings.camera, "camera", "VC,BC", "volcano camera network codes")
+	flag.StringVar(&settings.camera, "camera", "BC,LC,VC", "camera network codes")
 	flag.StringVar(&settings.magnetic, "magnetic", "GM,SM", "geomagnetic network code")
 	flag.StringVar(&settings.doas, "doas", "EN", "doas network code")
-	flag.StringVar(&settings.gnss, "gnss", "CG,GN,IG,LI,GT,SA", "GNSS network codes")
+	flag.StringVar(&settings.gnss, "gnss", "CG,GN,IG,LI,GT,SA,XX", "GNSS network codes")
 	flag.TextVar(&settings.seismic, "seismic", regexp.MustCompile("^(1[0-9A-Z]|00)$"), "combined sensor location codes")
 	flag.TextVar(&settings.strong, "strong", regexp.MustCompile("^2"), "combined sensor location codes")
 	flag.TextVar(&settings.acoustic, "acoustic", regexp.MustCompile("^3"), "combined sensor location codes")
@@ -84,7 +84,11 @@ func main() {
 		if err != nil {
 			log.Fatalf("unable to create output file %q: %v", settings.output, err)
 		}
-		defer file.Close()
+		defer func() {
+			if err := file.Close(); err != nil {
+				log.Printf("unable to close output file %q: %v", settings.output, err)
+			}
+		}()
 
 		if err := network.EncodeXML(file, "", "  "); err != nil {
 			log.Fatalf("unable to marshal output file %q: %v", settings.output, err)

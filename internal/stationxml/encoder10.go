@@ -513,7 +513,7 @@ func (e Encoder10) Network(root Root, external External) stationxml.NetworkType 
 	}
 
 	sort.Slice(stations, func(i, j int) bool {
-		return stations[i].BaseNodeType.Code < stations[j].BaseNodeType.Code
+		return stations[i].Code < stations[j].Code
 	})
 
 	return stationxml.NetworkType{
@@ -554,7 +554,7 @@ func (e Encoder10) MarshalRoot(root Root) ([]byte, error) {
 	}
 
 	sort.Slice(networks, func(i, j int) bool {
-		return networks[i].BaseNodeType.Code < networks[j].BaseNodeType.Code
+		return networks[i].Code < networks[j].Code
 	})
 
 	r := FDSNStationXML{

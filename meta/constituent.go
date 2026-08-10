@@ -107,7 +107,7 @@ func (c ConstituentList) encode() [][]string {
 }
 
 func (c *ConstituentList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

@@ -151,7 +151,7 @@ func main() {
 
 				// check that the lowest location code is being used
 				if s, ok := stationMap[key]; ok {
-					if !(collection.InstalledSensor.Location < s.Global.Location) {
+					if collection.InstalledSensor.Location >= s.Global.Location {
 						continue
 					}
 				}

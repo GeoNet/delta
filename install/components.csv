@@ -29,6 +29,7 @@ Canterbury Seismic Instruments,EQR120,Strong Motion Sensor,0,,Z,-90,0,G,,sensor_
 Canterbury Seismic Instruments,EQR120,Strong Motion Sensor,1,,N,0,0,G,,sensor_Canterbury-Seismic-Instruments_EQR120
 Canterbury Seismic Instruments,EQR120,Strong Motion Sensor,2,,E,0,90,G,,sensor_Canterbury-Seismic-Instruments_EQR120
 Chaparral Physics,M64Vx2,Infrasound Sensor,0,,F,0,0,W,,sensor_Chaparral_60Vx2_LP50_HF200_SG0.0275_STairPressure
+Chaparral Physics,M64Vx3,Infrasound Sensor,0,,F,0,0,W,,sensor_Chaparral_60Vx2_LP50_HF200_SG0.0275_STairPressure
 Danish Meteorological Institute,FGE,Fluxgate Magnetometer,0,,X,0,90,G,,sensor_Danish_Meteorological_Institute_FGE
 Danish Meteorological Institute,FGE,Fluxgate Magnetometer,1,,Y,0,0,G,,sensor_Danish_Meteorological_Institute_FGE
 Danish Meteorological Institute,FGE,Fluxgate Magnetometer,2,,Z,-90,0,G,,sensor_Danish_Meteorological_Institute_FGE

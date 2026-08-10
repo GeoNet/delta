@@ -93,7 +93,7 @@ func (g Gain) Less(gain Gain) bool {
 		return true
 	case g.Subsource > gain.Subsource:
 		return false
-	case g.Span.Start.Before(gain.Span.Start):
+	case g.Start.Before(gain.Start):
 		return true
 	default:
 		return false
@@ -148,8 +148,8 @@ func (g GainList) encode() [][]string {
 			strings.TrimSpace(row.Location),
 			strings.TrimSpace(row.Sublocation),
 			strings.TrimSpace(row.Subsource),
-			strings.TrimSpace(row.Scale.factor),
-			strings.TrimSpace(row.Scale.bias),
+			strings.TrimSpace(row.factor),
+			strings.TrimSpace(row.bias),
 			strings.TrimSpace(row.absolute),
 			row.Start.Format(DateTimeFormat),
 			row.End.Format(DateTimeFormat),
@@ -169,7 +169,7 @@ func (g *GainList) toFloat64(str string, def float64) (float64, error) {
 }
 
 func (g *GainList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

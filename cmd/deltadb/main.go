@@ -60,7 +60,11 @@ func main() {
 	if err != nil {
 		log.Fatalf("unable to open database %q: %v", settings.path, err)
 	}
-	defer db.Close()
+	defer func() {
+		if err := db.Close(); err != nil {
+			log.Printf("unable to close database %q: %v", settings.path, err)
+		}
+	}()
 
 	start := time.Now()
 

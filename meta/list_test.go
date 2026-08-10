@@ -16,7 +16,7 @@ func testListFunc(path string, list List) func(t *testing.T) {
 		}
 
 		t.Run("compare raw list file: "+path, func(t *testing.T) {
-			check, err := os.ReadFile(path)
+			check, err := os.ReadFile(path) //nolint:gosec // disable G304
 			if err != nil {
 				t.Fatal(err)
 			}
@@ -1105,6 +1105,41 @@ func TestList(t *testing.T) {
 					DepthQuality:  "Q3",
 					Citations:     []string{"Kaiser2017", "Perrin2015a"},
 					Notes:         "Perrin et al. 2015",
+				},
+			},
+		},
+		{
+			"testdata/multigas.csv",
+			&MultigasList{
+				Multigas{
+					Station:       "NA002",
+					Location:      "04",
+					Gas:           "CO2",
+					Concentration: 400.0,
+					Frequency:     CalibrationWeekly,
+					Day:           time.Saturday,
+					Calibration:   time.Date(0, 0, 0, 2, 10, 0, 0, time.UTC),
+					Zero:          time.Date(0, 0, 0, 1, 40, 0, 0, time.UTC),
+					Span: Span{
+						Start: time.Date(2024, time.March, 21, 2, 10, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+					concentration: "400",
+				},
+				Multigas{
+					Station:       "RU001",
+					Location:      "09",
+					Gas:           "CO2",
+					Concentration: 400.0,
+					Frequency:     CalibrationDaily,
+					Day:           time.Monday,
+					Calibration:   time.Date(0, 0, 0, 1, 40, 0, 0, time.UTC),
+					Zero:          time.Date(0, 0, 0, 1, 10, 0, 0, time.UTC),
+					Span: Span{
+						Start: time.Date(2025, time.May, 13, 22, 20, 0, 0, time.UTC),
+						End:   time.Date(9999, time.January, 1, 0, 0, 0, 0, time.UTC),
+					},
+					concentration: "400",
 				},
 			},
 		},

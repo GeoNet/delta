@@ -19,13 +19,24 @@ func DecodeStationXML(rd io.Reader) (*stationxml.FDSNStationXML, error) {
 }
 
 func ReadStationXML(path string) (*stationxml.FDSNStationXML, error) {
-	file, err := os.Open(path)
+	file, err := os.Open(path) //nolint:gosec // disable G304
 	if err != nil {
 		return nil, err
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
-	return DecodeStationXML(file)
+	res, err := DecodeStationXML(file)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := file.Close(); err != nil {
+		return nil, err
+	}
+
+	return res, nil
 }
 
 func StationXML(path string) (*stationxml.FDSNStationXML, error) {

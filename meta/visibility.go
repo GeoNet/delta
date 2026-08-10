@@ -80,7 +80,7 @@ func (v VisibilityList) encode() [][]string {
 }
 
 func (v *VisibilityList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

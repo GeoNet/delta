@@ -154,7 +154,7 @@ func main() {
 				key := ToKey(network.External, station.Code)
 
 				if s, ok := stationMap[key]; ok {
-					if !(collection.InstalledSensor.Location < s.Global.Location) {
+					if collection.InstalledSensor.Location >= s.Global.Location {
 						continue
 					}
 				}

@@ -104,13 +104,23 @@ func (r *Responses) AddStream(srcname string, channel stationxml.ChannelType) {
 }
 
 func (r *Responses) WriteFile(path string) error {
-	file, err := os.Create(path)
+	file, err := os.Create(path) //nolint:gosec // disable G304
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
-	return r.Write(file)
+	if err := r.Write(file); err != nil {
+		return err
+	}
+
+	if err := file.Close(); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (r *Responses) Write(wr io.Writer) error {

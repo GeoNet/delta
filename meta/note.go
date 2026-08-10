@@ -70,7 +70,7 @@ func (n NoteList) encode() [][]string {
 }
 
 func (n *NoteList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

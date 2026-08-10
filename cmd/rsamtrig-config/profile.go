@@ -16,7 +16,7 @@ type Profiler interface {
 func Store(profile Profiler, path string) error {
 	name := filepath.Join(path, profile.Path())
 
-	if err := os.MkdirAll(filepath.Dir(name), 0755); err != nil {
+	if err := os.MkdirAll(filepath.Dir(name), 0750); err != nil {
 		return err
 	}
 

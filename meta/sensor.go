@@ -77,7 +77,7 @@ type InstalledSensorList []InstalledSensor
 
 func (is InstalledSensorList) Len() int           { return len(is) }
 func (is InstalledSensorList) Swap(i, j int)      { is[i], is[j] = is[j], is[i] }
-func (is InstalledSensorList) Less(i, j int) bool { return is[i].Install.Less(is[j].Install) }
+func (is InstalledSensorList) Less(i, j int) bool { return is[i].Less(is[j].Install) }
 
 func (is InstalledSensorList) encode() [][]string {
 	var data [][]string
@@ -108,7 +108,7 @@ func (is InstalledSensorList) encode() [][]string {
 }
 
 func (is *InstalledSensorList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

@@ -105,7 +105,7 @@ func (s PointList) encode() [][]string {
 func (s *PointList) decode(data [][]string) error {
 	var points []Point
 
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

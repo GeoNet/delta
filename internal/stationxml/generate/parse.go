@@ -49,7 +49,7 @@ func (s *Schemas) ParseEnum(pkg string, fn func(string, Enum) error) error {
 
 			switch t := t.(type) {
 			case *xsd.SimpleType:
-				if !(len(t.Restriction.Enum) > 0) {
+				if t.Restriction.Enum == nil {
 					continue
 				}
 

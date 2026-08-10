@@ -63,7 +63,9 @@ func main() {
 
 	switch settings.output {
 	case "", "-":
-		os.Stdout.Write(res)
+		if _, err := os.Stdout.Write(res); err != nil {
+			log.Fatalf("error: unable to write output: %v", err)
+		}
 	default:
 		if err := os.WriteFile(settings.output, res, 0600); err != nil {
 			log.Fatalf("error: unable to write file %s: %v", settings.output, err)

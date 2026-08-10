@@ -105,7 +105,7 @@ func (s SiteList) encode() [][]string {
 func (s *SiteList) decode(data [][]string) error {
 	var sites []Site
 
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

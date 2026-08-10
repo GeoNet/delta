@@ -22,7 +22,7 @@ func (set *Set) Corrections(coll Collection) []Correction {
 	var corrections []Correction
 
 	for _, polarity := range set.PolarityCorrections(coll) {
-		span, ok := coll.Span.Extent(polarity.Span)
+		span, ok := coll.Extent(polarity.Span)
 		if !ok {
 			continue
 		}
@@ -96,7 +96,7 @@ func (s *Set) TimingCorrections(coll Collection) []Correction {
 		if t.Location != coll.Stream.Location {
 			continue
 		}
-		if !t.Span.Overlaps(coll.Span) {
+		if !t.Overlaps(coll.Span) {
 			continue
 		}
 
@@ -104,21 +104,21 @@ func (s *Set) TimingCorrections(coll Collection) []Correction {
 	}
 
 	sort.Slice(timings, func(i, j int) bool {
-		return timings[i].Span.Start.Before(timings[j].Span.Start)
+		return timings[i].Start.Before(timings[j].Start)
 	})
 
 	// no timings found process an empty timings correction
-	if !(len(timings) > 0) {
+	if timings == nil {
 		return []Correction{{Span: coll.Span}}
 	}
 
 	var res []Correction
 
 	// check prior to the first timing
-	if first := timings[0]; first.Start.After(coll.Span.Start) {
+	if first := timings[0]; first.Start.After(coll.Start) {
 		res = append(res, Correction{
 			Span: Span{
-				Start: coll.Span.Start,
+				Start: coll.Start,
 				End:   first.Start,
 			},
 		})
@@ -147,11 +147,11 @@ func (s *Set) TimingCorrections(coll Collection) []Correction {
 	}
 
 	// check after the last timing
-	if last := timings[len(timings)-1]; last.End.Before(coll.Span.End) {
+	if last := timings[len(timings)-1]; last.End.Before(coll.End) {
 		res = append(res, Correction{
 			Span: Span{
 				Start: last.End,
-				End:   coll.Span.End,
+				End:   coll.End,
 			},
 		})
 	}
@@ -176,7 +176,7 @@ func (s *Set) PolarityCorrections(coll Collection) []Correction {
 			continue
 		}
 
-		if !p.Span.Overlaps(coll.Span) {
+		if !p.Overlaps(coll.Span) {
 			continue
 		}
 
@@ -184,21 +184,21 @@ func (s *Set) PolarityCorrections(coll Collection) []Correction {
 	}
 
 	sort.Slice(polarities, func(i, j int) bool {
-		return polarities[i].Span.Start.Before(polarities[j].Span.Start)
+		return polarities[i].Start.Before(polarities[j].Start)
 	})
 
 	// no polarities found process an empty polarity correction
-	if !(len(polarities) > 0) {
+	if polarities == nil {
 		return []Correction{{Span: coll.Span}}
 	}
 
 	var res []Correction
 
 	// check prior to the first gain
-	if v := polarities[0]; v.Start.After(coll.Span.Start) {
+	if v := polarities[0]; v.Start.After(coll.Start) {
 		res = append(res, Correction{
 			Span: Span{
-				Start: coll.Span.Start,
+				Start: coll.Start,
 				End:   v.Start,
 			},
 		})
@@ -226,11 +226,11 @@ func (s *Set) PolarityCorrections(coll Collection) []Correction {
 	}
 
 	// check after the last gain
-	if v := polarities[len(polarities)-1]; v.End.Before(coll.Span.End) {
+	if v := polarities[len(polarities)-1]; v.End.Before(coll.End) {
 		res = append(res, Correction{
 			Span: Span{
 				Start: v.End,
-				End:   coll.Span.End,
+				End:   coll.End,
 			},
 		},
 		)
@@ -253,18 +253,18 @@ func (s *Set) GainCorrections(coll Collection) []Correction {
 		if g.Subsource != coll.Component.Subsource && g.Subsource != "" {
 			continue
 		}
-		if !g.Span.Overlaps(coll.Span) {
+		if !g.Overlaps(coll.Span) {
 			continue
 		}
 		gains = append(gains, g)
 	}
 
 	sort.Slice(gains, func(i, j int) bool {
-		return gains[i].Span.Start.Before(gains[j].Span.Start)
+		return gains[i].Start.Before(gains[j].Start)
 	})
 
 	// no gains found process a nominal correction
-	if !(len(gains) > 0) {
+	if gains == nil {
 		return []Correction{{Span: coll.Span}}
 	}
 
@@ -272,10 +272,10 @@ func (s *Set) GainCorrections(coll Collection) []Correction {
 	var res []Correction
 
 	// check prior to the first gain
-	if v := gains[0]; v.Start.After(coll.Span.Start) {
+	if v := gains[0]; v.Start.After(coll.Start) {
 		res = append(res, Correction{
 			Span: Span{
-				Start: coll.Span.Start,
+				Start: coll.Start,
 				End:   v.Start,
 			},
 		})
@@ -304,11 +304,11 @@ func (s *Set) GainCorrections(coll Collection) []Correction {
 	}
 
 	// check after the last gain
-	if v := gains[len(gains)-1]; v.End.Before(coll.Span.End) {
+	if v := gains[len(gains)-1]; v.End.Before(coll.End) {
 		res = append(res, Correction{
 			Span: Span{
 				Start: v.End,
-				End:   coll.Span.End,
+				End:   coll.End,
 			},
 		})
 	}
@@ -334,17 +334,17 @@ func (s *Set) SensorCalibrationCorrections(coll Collection) []Correction {
 			continue
 		}
 
-		if !coll.Span.Overlaps(c.Span) {
+		if !coll.Overlaps(c.Span) {
 			continue
 		}
 		sensors = append(sensors, c)
 	}
 	sort.Slice(sensors, func(i, j int) bool {
-		return sensors[i].Span.Start.Before(sensors[j].Span.Start)
+		return sensors[i].Start.Before(sensors[j].Start)
 	})
 
 	// no calibrations found return the nominal correction
-	if !(len(sensors) > 0) {
+	if sensors == nil {
 		return []Correction{{Span: coll.Span}}
 	}
 
@@ -353,10 +353,10 @@ func (s *Set) SensorCalibrationCorrections(coll Collection) []Correction {
 	var res []Correction
 
 	// check prior to the first gain
-	if v := sensors[0]; v.Start.After(coll.Span.Start) {
+	if v := sensors[0]; v.Start.After(coll.Start) {
 		res = append(res, Correction{
 			Span: Span{
-				Start: coll.Span.Start,
+				Start: coll.Start,
 				End:   v.Start,
 			},
 		})
@@ -385,11 +385,11 @@ func (s *Set) SensorCalibrationCorrections(coll Collection) []Correction {
 	}
 
 	// check after the last gain
-	if v := sensors[len(sensors)-1]; v.End.Before(coll.Span.End) {
+	if v := sensors[len(sensors)-1]; v.End.Before(coll.End) {
 		res = append(res, Correction{
 			Span: Span{
 				Start: v.End,
-				End:   coll.Span.End,
+				End:   coll.End,
 			},
 		})
 	}
@@ -414,17 +414,17 @@ func (s *Set) DataloggerCalibrationCorrections(coll Collection) []Correction {
 		if c.Number != coll.Channel.Number {
 			continue
 		}
-		if !coll.Span.Overlaps(c.Span) {
+		if !coll.Overlaps(c.Span) {
 			continue
 		}
 		dataloggers = append(dataloggers, c)
 	}
 	sort.Slice(dataloggers, func(i, j int) bool {
-		return dataloggers[i].Span.Start.Before(dataloggers[j].Span.Start)
+		return dataloggers[i].Start.Before(dataloggers[j].Start)
 	})
 
 	// no calibrations found return the nominal correction
-	if !(len(dataloggers) > 0) {
+	if dataloggers == nil {
 		return []Correction{{Span: coll.Span}}
 	}
 
@@ -432,10 +432,10 @@ func (s *Set) DataloggerCalibrationCorrections(coll Collection) []Correction {
 
 	var res []Correction
 	// check prior to the first gain
-	if v := dataloggers[0]; v.Start.After(coll.Span.Start) {
+	if v := dataloggers[0]; v.Start.After(coll.Start) {
 		res = append(res, Correction{
 			Span: Span{
-				Start: coll.Span.Start,
+				Start: coll.Start,
 				End:   v.Start,
 			},
 		})
@@ -464,11 +464,11 @@ func (s *Set) DataloggerCalibrationCorrections(coll Collection) []Correction {
 	}
 
 	// check after the last gain
-	if v := dataloggers[len(dataloggers)-1]; v.End.Before(coll.Span.End) {
+	if v := dataloggers[len(dataloggers)-1]; v.End.Before(coll.End) {
 		res = append(res, Correction{
 			Span: Span{
 				Start: v.End,
-				End:   coll.Span.End,
+				End:   coll.End,
 			},
 		})
 	}
@@ -490,27 +490,27 @@ func (s *Set) PreampCorrections(coll Collection) []Correction {
 		if p.Subsource != coll.Component.Subsource && p.Subsource != "" {
 			continue
 		}
-		if !coll.Span.Overlaps(p.Span) {
+		if !coll.Overlaps(p.Span) {
 			continue
 		}
 		preamps = append(preamps, p)
 	}
 	sort.Slice(preamps, func(i, j int) bool {
-		return preamps[i].Span.Start.Before(preamps[j].Span.Start)
+		return preamps[i].Start.Before(preamps[j].Start)
 	})
 
 	// no preamps found return an empty span
-	if !(len(preamps) > 0) {
+	if preamps == nil {
 		return []Correction{{Span: coll.Span}}
 	}
 
 	var res []Correction
 
 	// check prior to the first preamp
-	if v := preamps[0]; v.Start.After(coll.Span.Start) {
+	if v := preamps[0]; v.Start.After(coll.Start) {
 		res = append(res, Correction{
 			Span: Span{
-				Start: coll.Span.Start,
+				Start: coll.Start,
 				End:   v.Start,
 			},
 		})
@@ -539,11 +539,11 @@ func (s *Set) PreampCorrections(coll Collection) []Correction {
 	}
 
 	// check after the last gain
-	if v := preamps[len(preamps)-1]; v.End.Before(coll.Span.End) {
+	if v := preamps[len(preamps)-1]; v.End.Before(coll.End) {
 		res = append(res, Correction{
 			Span: Span{
 				Start: v.End,
-				End:   coll.Span.End,
+				End:   coll.End,
 			},
 		})
 	}
@@ -562,27 +562,27 @@ func (s *Set) TelemetryCorrections(coll Collection) []Correction {
 		if t.Location != coll.Stream.Location {
 			continue
 		}
-		if !coll.Span.Overlaps(t.Span) {
+		if !coll.Overlaps(t.Span) {
 			continue
 		}
 		telemetries = append(telemetries, t)
 	}
 	sort.Slice(telemetries, func(i, j int) bool {
-		return telemetries[i].Span.Start.Before(telemetries[j].Span.Start)
+		return telemetries[i].Start.Before(telemetries[j].Start)
 	})
 
 	// no telemetries found return an empty span
-	if !(len(telemetries) > 0) {
+	if telemetries == nil {
 		return []Correction{{Span: coll.Span}}
 	}
 
 	var res []Correction
 
 	// check prior to the first preamp
-	if v := telemetries[0]; v.Start.After(coll.Span.Start) {
+	if v := telemetries[0]; v.Start.After(coll.Start) {
 		res = append(res, Correction{
 			Span: Span{
-				Start: coll.Span.Start,
+				Start: coll.Start,
 				End:   v.Start,
 			},
 		})
@@ -611,11 +611,11 @@ func (s *Set) TelemetryCorrections(coll Collection) []Correction {
 	}
 
 	// check after the last telemetry
-	if v := telemetries[len(telemetries)-1]; v.End.Before(coll.Span.End) {
+	if v := telemetries[len(telemetries)-1]; v.End.Before(coll.End) {
 		res = append(res, Correction{
 			Span: Span{
 				Start: v.End,
-				End:   coll.Span.End,
+				End:   coll.End,
 			},
 		})
 	}

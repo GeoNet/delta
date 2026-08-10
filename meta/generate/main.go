@@ -53,6 +53,7 @@ func main() {
 			"timings":             {"Timing"},
 			"views":               {"View"},
 			"visibilities":        {"Visibility"},
+			"multigases":          {"Multigas"},
 		},
 		Lookup: map[string]struct {
 			Key    string
@@ -68,6 +69,7 @@ func main() {
 			"marks":        {"Mark", []string{"code"}},
 			"monuments":    {"Monument", []string{"mark"}},
 			"mounts":       {"Mount", []string{"code"}},
+			"multigases":   {"Multigas", []string{"station", "location", "gas"}},
 			"networks":     {"Network", []string{"code"}},
 			"notes":        {"Note", []string{"code", "network"}},
 			"placenames":   {"Placename", []string{"name"}},

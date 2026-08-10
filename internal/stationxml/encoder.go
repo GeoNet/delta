@@ -34,11 +34,21 @@ func (r Root) Write(wr io.Writer, version string) error {
 
 // WriteFile encodes and stores the output from the given Encoder for a Root struct.
 func (r Root) WriteFile(path string, version string) error {
-	file, err := os.Create(path)
+	file, err := os.Create(path) //nolint:gosec // disable G304
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close() // ignore close error as it will likely be related to an existing error
+	}()
 
-	return r.Write(file, version)
+	if err := r.Write(file, version); err != nil {
+		return err
+	}
+
+	if err := file.Close(); err != nil {
+		return err
+	}
+
+	return nil
 }

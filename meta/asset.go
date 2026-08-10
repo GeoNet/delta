@@ -39,7 +39,7 @@ type AssetList []Asset
 
 func (a AssetList) Len() int           { return len(a) }
 func (a AssetList) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a AssetList) Less(i, j int) bool { return a[i].Equipment.Less(a[j].Equipment) }
+func (a AssetList) Less(i, j int) bool { return a[i].Less(a[j].Equipment) }
 
 func (a AssetList) encode() [][]string {
 	var data [][]string
@@ -59,7 +59,7 @@ func (a AssetList) encode() [][]string {
 }
 
 func (a *AssetList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

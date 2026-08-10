@@ -29,7 +29,7 @@ func NewConfig(set *meta.Set, caster *ntrip.Caster) (*Config, error) {
 			Country:   m.Country,
 			Latitude:  strconv.FormatFloat(mark.Latitude, 'f', 2, 64),
 			Longitude: strconv.FormatFloat(mark.Longitude, 'f', 2, 64),
-			Format:    strings.Replace(m.Format, " ", "_", -1),
+			Format:    strings.ReplaceAll(m.Format, " ", "_"),
 		})
 	}
 

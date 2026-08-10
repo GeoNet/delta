@@ -76,7 +76,7 @@ func (p Preamp) Less(preamp Preamp) bool {
 		return true
 	case p.Subsource > preamp.Subsource:
 		return false
-	case p.Span.Start.Before(preamp.Span.Start):
+	case p.Start.Before(preamp.Start):
 		return true
 	default:
 		return false
@@ -150,7 +150,7 @@ func (g *PreampList) toFloat64(str string, def float64) (float64, error) {
 }
 
 func (p *PreampList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

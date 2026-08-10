@@ -83,7 +83,7 @@ func main() {
 		}
 	}
 
-	var tplFuncMap template.FuncMap = template.FuncMap{
+	tplFuncMap := template.FuncMap{
 		"empty": func(d, s string) string {
 			if s != "" {
 				return s
@@ -261,7 +261,7 @@ func main() {
 		var pressure []GnssMetSensor
 		var temperature []GnssMetSensor
 
-		for _, m := range installedMetSensors[m.Reference.Code] {
+		for _, m := range installedMetSensors[m.Code] {
 			var session *meta.Session
 			for i, s := range sessions[m.Mark] {
 				if m.Start.After(s.End) || m.End.Before(s.Start) {
@@ -652,7 +652,7 @@ func main() {
 		}
 
 		xmlfile := filepath.Join(output, fmt.Sprintf("%s_%s.xml", strings.ToLower(m.Code), updated.Format("20060102")))
-		if err := os.MkdirAll(filepath.Dir(xmlfile), 0755); err != nil {
+		if err := os.MkdirAll(filepath.Dir(xmlfile), 0750); err != nil {
 			log.Fatalf("error: unable to create dir: %v", err)
 		}
 		if err := os.WriteFile(xmlfile, current, 0600); err != nil {
@@ -660,17 +660,23 @@ func main() {
 		}
 
 		logfile := filepath.Join(logs, fmt.Sprintf("%s_%s.log", strings.ToLower(m.Code), updated.Format("20060102")))
-		if err := os.MkdirAll(filepath.Dir(logfile), 0755); err != nil {
+		if err := os.MkdirAll(filepath.Dir(logfile), 0750); err != nil {
 			log.Fatalf("error: unable to create logs dir: %v", err)
 		}
-		f, err := os.Create(logfile)
+		f, err := os.Create(logfile) //nolint:gosec // disable G304
 		if err != nil {
 			log.Fatalf("error: unable to create log file: %v", err)
 		}
-		defer f.Close()
+		defer func() {
+			_ = f.Close() // ignore close errors
+		}()
 
 		if err := tmpl.Execute(f, sitelog); err != nil {
 			log.Fatalf("error: unable to write log file: %v", err)
+		}
+
+		if err := f.Close(); err != nil {
+			log.Fatalf("error: unable to close log file: %v", err)
 		}
 	}
 }

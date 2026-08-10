@@ -12,7 +12,7 @@ import (
 )
 
 func decode(version string, path string) ([]byte, error) {
-	data, err := os.ReadFile(path)
+	data, err := os.ReadFile(path) //nolint:gosec // disable G304
 	if err != nil {
 		return nil, err
 	}

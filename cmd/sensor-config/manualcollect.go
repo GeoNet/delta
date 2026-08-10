@@ -45,7 +45,7 @@ func (s Settings) ManualCollection(set *meta.Set, name, network string) (Group, 
 				})
 			}
 
-			if !(len(sensors) > 0) {
+			if sensors == nil {
 				continue
 			}
 
@@ -70,7 +70,7 @@ func (s Settings) ManualCollection(set *meta.Set, name, network string) (Group, 
 			})
 		}
 
-		if !(len(sites) > 0) {
+		if sites == nil {
 			continue
 		}
 
