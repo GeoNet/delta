@@ -19,7 +19,7 @@ func (t *Tilde) Gnss(set *meta.Set) error {
 		// Simply create a nil sensor, which inherits station level information
 
 		sens := []Sensor{
-			Sensor{
+			{
 				Code:      "nil",
 				Start:     toTimePtr(m.Start),
 				End:       toTimePtr(m.End),
