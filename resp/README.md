@@ -21,6 +21,6 @@ the `.xml` suffix.
 
 ### References
 
-* https://ds.iris.edu/ds/nrl/
+* https://service.earthscope.org/irisws/nrl/1/
  
 - Mary E. Templeton (2017): IRIS Library of Nominal Response for Seismic Instruments. Incorporated Research Institutions for Seismology. Dataset. https://doi.org/10.17611/S7159Q
