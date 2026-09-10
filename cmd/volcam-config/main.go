@@ -14,10 +14,10 @@ import (
 // will form the id and title for each camera
 var titles = map[string]string{
 	"ngauruhoe":       "Ngauruhoe",
-	"whiteisland":     "White Island",
+	"whiteisland":     "Whakaari/White Island",
 	"ruapehu":         "Ruapehu",
-	"taranakiegmont":  "Taranaki/Egmont",
-	"kermadecislands": "Kermadec Islands",
+	"taranakiegmont":  "Taranaki Maunga",
+	"kermadecislands": "Rangitāhua/Kermadec Islands",
 	"tongariro":       "Tongariro",
 }
 
@@ -27,7 +27,7 @@ var keywords = map[string][]string{
 	"whiteisland":     {"White Island"},
 	"ruapehu":         {"Ruapehu"},
 	"taranakiegmont":  {"Taranaki"},
-	"kermadecislands": {"Raoul", "Kermadec Islands"},
+	"kermadecislands": {"Rangitāhua/Raoul", "Kermadec Islands"},
 	"tongariro":       {"Tongariro"},
 }
 
@@ -38,7 +38,7 @@ var ids = map[string]string{
 	"Ruapehu & Ngauruhoe from East":         "ruapehungauruhoe",
 	"Ruapehu from East":                     "ruapehueast",
 	"Ruapehu from South":                    "ruapehusouth",
-	"Raoul Island":                          "raoulisland",
+	"Rangitāhua/Raoul Island":               "raoulisland",
 	"Taranaki Maunga from New Plymouth":     "taranaki",
 	"Whakaari/White Island from Te Kaha":    "tekaha",
 	"Tongariro Te Maari Crater":             "tongarirotemaaricrater",
