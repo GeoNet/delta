@@ -12,7 +12,7 @@ Mount codes are 4 or more letters.
 
 Mount codes are named for ease of distinction and reflect either (or both) camera location or monitoring subject cues. There is no fixed convention for camera mount codes although a few are used consistently: 
 
-- The first 2-3 letters of the mount code give an indication of where the site is (i.e. they will be an abbreviation of a significant local geographic feature), and the last 1-2 letters give a sub-location, particularly where there are multiple mounts in the same area, e.g. WINR is at White Island (WI) on the north rim of the crater (NR); FOXVF is at Fox Glacier Landslide (FOX) looking at Victoria Falls (VF).
+- The first 2-3 letters of the mount code give an indication of where the site is (i.e. they will be an abbreviation of a significant local geographic feature), and the last 1-2 letters give a sub-location, particularly where there are multiple mounts in the same area, e.g. WINR is at Whakaari/White Island (WI) on the north rim of the crater (NR); FOXVF is at Fox Glacier Landslide (FOX) looking at Victoria Falls (VF).
 - The mount codes are named simply by their location, e.g. TEMO is Taranaki Emergency Management Office, and KAKA is Kakaramea.
 
 ## View Codes

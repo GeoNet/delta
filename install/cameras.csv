@@ -1,7 +1,7 @@
 Make,Model,Serial,Mount,View,Dip,Azimuth,Height,North,East,Start Date,End Date,Notes
-Axis Communications AB,AXIS-221,00408C6DC9E1,WHOH,01,0,20,3,0,0,2006-02-24T14:00:00Z,2018-04-19T00:00:00Z,Looking at White Island
-Axis Communications AB,Q1808-LE,B8A44FBF7CE0,TKAH,01,1.9,298,2,0,0,2026-03-19T03:19:59Z,9999-01-01T00:00:00Z,Te Kaha looking at White Island
-Axis Communications AB,Q1808-LE,B8A44FBF8200,WHOH,02,2,19,4,0,0,2025-07-09T06:10:00Z,9999-01-01T00:00:00Z,Whakatane looking at White Island
+Axis Communications AB,AXIS-221,00408C6DC9E1,WHOH,01,0,20,3,0,0,2006-02-24T14:00:00Z,2018-04-19T00:00:00Z,Looking at Whakaari/White Island
+Axis Communications AB,Q1808-LE,B8A44FBF7CE0,TKAH,01,1.9,298,2,0,0,2026-03-19T03:19:59Z,9999-01-01T00:00:00Z,Te Kaha looking at Whakaari/White Island
+Axis Communications AB,Q1808-LE,B8A44FBF8200,WHOH,02,2,19,4,0,0,2025-07-09T06:10:00Z,9999-01-01T00:00:00Z,Whakatane looking at Whakaari/White Island
 Axis Communications AB,Q1808-LE,B8A44FC2A6B0,MTSR,01,12.5,37,2,0,0,2026-01-23T03:49:59Z,9999-01-01T00:00:00Z,Mangateitei looking at South Ruapehu
 Axis Communications AB,Q1808-LE,B8A44FE490A6,DISC,02,14,84,4,0,0,2026-04-24T01:59:59Z,9999-01-01T00:00:00Z,Discovery Lodge looking at Ngauruhoe
 Axis Communications AB,Q1808-LE,B8A44FE49577,KAKA,01,5.6,192,1.5,0,0,2026-02-05T05:49:59Z,9999-01-01T00:00:00Z,Kakaramea looking at Tongariro Massif
@@ -29,7 +29,7 @@ Mobotix AG,M12 3MP,10.5.202.81,KAKA,02,0,0,5,0,0,2017-03-04T04:50:03Z,2021-07-28
 Mobotix AG,M12 3MP,10.5.217.68,TOKR,01,0,100,0,0,0,2012-08-29T02:00:00Z,2017-10-12T00:20:00Z,Karewerewa looking at Te Maari
 Mobotix AG,M12 3MP,10.5.32.131,RIMK,01,0,270,0,0,0,2010-10-29T01:00:00Z,2017-09-24T00:00:00Z,
 Mobotix AG,M12 3MP,10.6.15.32,WINR,02,0,0,1.5,0,0,2013-04-23T01:00:00Z,2023-12-01T00:00:00Z,White Island North Rim looking into the crater
-Mobotix AG,M15,10.13.10.47,WHOH,02,0,19,4,0,0,2013-08-07T00:00:00Z,2023-01-18T00:05:00Z,Whakatane looking at White Island
+Mobotix AG,M15,10.13.10.47,WHOH,02,0,19,4,0,0,2013-08-07T00:00:00Z,2023-01-18T00:05:00Z,Whakatane looking at Whakaari/White Island
 Mobotix AG,M15,10.13.68.240,WIWR,01,0,0,1.5,0,0,2013-12-10T00:00:00Z,2016-09-14T00:00:00Z,
 Mobotix AG,M15,10.13.68.240,MNTA,02,0,0,0,0,0,2017-09-12T00:00:00Z,2019-05-22T21:50:00Z,Mountain Air (Whakapapa) looking at Ngauruhoe
 Mobotix AG,M15,10.14.178.98,RIMK,01,-23.5,270,1.5,0,0,2017-09-24T00:00:00Z,2021-02-12T23:10:01Z,Mt Moumoukai (Raoul Island) looking at Green Lake
@@ -57,13 +57,13 @@ Mobotix AG,M16,10.26.201.108,FOXRB,01,17.5,349,0,0,0,2022-02-22T00:00:00Z,9999-0
 Mobotix AG,M16,10.26.62.41,TEMO,02,0,187,0,3.7,0.8,2020-08-28T01:13:59Z,2026-05-27T23:40:01Z,TEMO (New Plymouth) looking at North side of Taranaki Maunga
 Mobotix AG,M16,10.26.62.43,TEMO,02,0,187,0,3.7,0.8,2020-07-22T01:10:00Z,2020-08-27T23:40:01Z,TEMO (New Plymouth) looking at North side of Taranaki Maunga
 Mobotix AG,M16,10.26.62.43,DISC,01,16,148,0,0,0,2021-02-05T04:54:00Z,2026-04-23T21:10:01Z,Discovery Lodge (Whakapapa) looking at North Ruapehu
-Mobotix AG,M16,10.28.95.169,WHOH,02,2,19,4,0,0,2023-01-18T00:45:00Z,2025-07-09T06:09:59Z,Whakatane looking at White Island
+Mobotix AG,M16,10.28.95.169,WHOH,02,2,19,4,0,0,2023-01-18T00:45:00Z,2025-07-09T06:09:59Z,Whakatane looking at Whakaari/White Island
 Mobotix AG,M16,10.28.95.175,DISC,02,14,84,4,0,0,2022-10-19T22:29:59Z,2026-04-23T21:10:01Z,Discovery Lodge looking at Ngauruhoe
 Mobotix AG,M16B,10.26.194.154,FOXVF,01,-3.1,296,0,0,0,2022-02-23T00:00:00Z,2026-04-16T23:40:01Z,Fox Glacier Victoria Falls looking at rock slopes
 Mobotix AG,M16B,10.27.173.237,KMTP,01,9.5,290,2.5,0,0,2022-08-04T00:44:00Z,2026-04-30T00:40:01Z,Tai Ping looking at East Ruapehu & South East Ngauruhoe
 Mobotix AG,M16B,10.27.173.237,FOXVF,01,-9,296,0,0,0,2026-06-10T02:51:15Z,9999-01-01T00:00:00Z,Fox Glacier Victoria Falls looking at rock slopes
-Mobotix AG,M16B,10.28.69.216,TKAH,01,0,299,2,0,0,2025-05-16T01:00:00Z,2026-03-19T01:40:01Z,Te Kaha looking at White Island
-Mobotix AG,M16B,10.28.92.94,TKAH,01,0,299,2,0,0,2024-07-15T01:09:59Z,2025-05-16T00:59:59Z,Te Kaha looking at White Island
+Mobotix AG,M16B,10.28.69.216,TKAH,01,0,299,2,0,0,2025-05-16T01:00:00Z,2026-03-19T01:40:01Z,Te Kaha looking at Whakaari/White Island
+Mobotix AG,M16B,10.28.92.94,TKAH,01,0,299,2,0,0,2024-07-15T01:09:59Z,2025-05-16T00:59:59Z,Te Kaha looking at Whakaari/White Island
 Mobotix AG,M24M-Secure,10.9.190.163,CHTB,03,0,315,0,0,0,2011-11-28T00:00:00Z,2019-02-24T21:00:00Z,
 Mobotix AG,M24M-Secure,10.9.190.76,CHTB,02,0,45,0,0,0,2011-11-28T00:00:03Z,2019-02-24T21:00:00Z,
 Mobotix AG,M24M-Secure,10.9.246.200,CHTB,01,0,90,0,0,0,2011-11-28T00:00:03Z,2019-02-24T21:00:00Z,
