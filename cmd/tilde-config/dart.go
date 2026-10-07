@@ -65,10 +65,18 @@ func (t *Tilde) Dart(set *meta.Set, network string) error {
 		})
 	}
 
+	var doi string
+	for _, d := range set.Datasets() {
+		if d.Domain == "dart" {
+			doi = d.Key
+		}
+	}
+
 	// update domains
 	t.Domains = append(t.Domains, Domain{
 		Name:        "dart",
 		Description: "Deep-ocean Assessment and Reporting of Tsunami",
+		DOI:         doi,
 		Stations:    stns,
 	})
 
