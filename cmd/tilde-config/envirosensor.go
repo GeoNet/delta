@@ -74,10 +74,18 @@ func (t *Tilde) EnviroSensor(set *meta.Set, enviro string) error {
 		})
 	}
 
+	var doi string
+	for _, d := range set.Datasets() {
+		if d.Domain == "envirosensor" {
+			doi = d.Key
+		}
+	}
+
 	// update domains
 	t.Domains = append(t.Domains, Domain{
 		Name:        "envirosensor",
 		Description: "Environmental Sensors",
+		DOI:         doi,
 		Stations:    stns,
 	})
 
