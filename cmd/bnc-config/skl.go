@@ -35,6 +35,17 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 		err = fmt.Errorf("no mark found for %s", code)
 		return
 	}
+
+	for _, m := range set.Marks() {
+		if m.Code != code {
+			continue
+		}
+		if !inWindow(ts, m.Span) {
+			continue
+		}
+		mark = m
+	}
+
 	if !inWindow(ts, mark.Span) {
 		err = fmt.Errorf("no valid mark found for this time period for %s", code)
 		return
