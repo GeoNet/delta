@@ -1,13 +1,14 @@
 ## About overseas stations in Delta repository - Information/Reference ##
-Historical long standing seismological international stations were refered to 
-in Delta as in the "OE" network.
-
-Reference for "OE" stations in delta: https://github.com/GeoNet/delta/blob/main/network/stations.csv.
-
-N.B.: The network "OE" was removed from network/networks.csv since
+Historical long standing seismological international stations are referred to 
+in Delta as in the "OE" sub-network. 
+OE is not a network in this context it s a label, standing for e.g. "Other External" networks,
+and is not an official "OE" Austrian seismic network (source FDSN). 
+- Reference to "OE" stations in delta: https://github.com/GeoNet/delta/blob/main/network/stations.csv.
+- UnMerged OE PR available at https://github.com/GeoNet/delta/pull/598/changes 
+- FDSN OE network:  https://www.fdsn.org/networks/detail/OE/ 
 
 #### Station Recordings and Instrumentation ####
-Most likely used in the paper seismograms and pre-miniseed digital recordings (pre 80's) . 
+Most likely the OE  stations were used in paper seismograms and pre-miniseed digital recordings (pre 80's) . 
 
 ####  Stations from Countries Australia, U.S.A., Japan  ####
 Delta reference as for "historical overseas stations": 
@@ -33,5 +34,5 @@ TOO,OE,Toolangi,-37.5713,145.4905,604,,NZGD49,1962-01-01T00:00:00Z,9999-01-01
     No information on these
     No additional metadata
     No information about data being used in events
-    Station are still deemed opened/active ( as in end date 9999-01-01) 
-    Will be completed over time and change in delta
+    Historical Station are deemed opened/active 
+   
