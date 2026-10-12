@@ -1,8 +1,11 @@
 ## About overseas stations in Delta repository - Information/Reference ##
 Historical long standing seismological international stations are referred to 
 in Delta as in the "OE" sub-network. 
+
 OE is not a network in this context it s a label, standing for e.g. "Other External" networks,
 and is not an official "OE" Austrian seismic network (source FDSN). 
+
+
 - Reference to "OE" stations in delta: https://github.com/GeoNet/delta/blob/main/network/stations.csv.
 - UnMerged OE PR available at https://github.com/GeoNet/delta/pull/598/changes 
 - FDSN OE network:  https://www.fdsn.org/networks/detail/OE/ 
