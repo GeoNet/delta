@@ -16,6 +16,7 @@ type Deployment struct {
 	Depth            float64       `json:"depth"`
 	Detide           *Detide       `json:"detide,omitempty"`
 	TimingCorrection time.Duration `json:"timing-correction,omitempty"`
+	Reference        string        `json:"reference"`
 	Start            time.Time     `json:"start"`
 	End              time.Time     `json:"end"`
 }
