@@ -46,13 +46,19 @@ func ReadBytes(data []byte, dec Decoder) error {
 
 // ReadFile reads csv input from a file and decodes elements into a given decoder interface.
 func ReadFile(path string, dec Decoder) error {
-	file, err := os.OpenFile(path, os.O_RDONLY, 0)
+	file, err := os.OpenFile(path, os.O_RDONLY, 0) //nolint:gosec // disable G304
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close() //ignore any error as it is likely related to an existing error
+	}()
 
 	if err := Read(file, dec); err != nil {
+		return err
+	}
+
+	if err := file.Close(); err != nil {
 		return err
 	}
 

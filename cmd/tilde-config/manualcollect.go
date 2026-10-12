@@ -29,7 +29,7 @@ func (t *Tilde) ManualCollection(set *meta.Set, network string) error {
 
 		}
 
-		if !(len(sens) > 0) {
+		if sens == nil {
 			continue
 		}
 

@@ -77,7 +77,7 @@ func (b *Builder) DerivedResponseType(c meta.Collection) (*resp.ResponseType, er
 
 	// find the derived response
 	derived, err := b.Lookup(c.Component.Response)
-	if err != nil || !(len(derived) > 0) {
+	if err != nil || derived == nil {
 		return nil, err
 	}
 
@@ -114,7 +114,7 @@ func (b *Builder) PairedResponseType(c meta.Collection, v meta.Correction) (*res
 		pair.SetCalibration(v.SensorCalibration.ScaleFactor, v.SensorCalibration.ScaleBias, v.SensorCalibration.ScaleAbsolute)
 	}
 	if v.Gain != nil {
-		pair.SetGain(v.Gain.Scale.Factor, v.Gain.Scale.Bias, v.Gain.Absolute)
+		pair.SetGain(v.Gain.Factor, v.Gain.Bias, v.Gain.Absolute)
 	}
 	if v.Telemetry != nil {
 		pair.SetTelemetry(v.Telemetry.ScaleFactor)
@@ -125,7 +125,7 @@ func (b *Builder) PairedResponseType(c meta.Collection, v meta.Correction) (*res
 
 	// find the sensor and add it to the pair
 	sensor, err := b.Lookup(c.Component.Response)
-	if err != nil || !(len(sensor) > 0) {
+	if err != nil || sensor == nil {
 		return nil, err
 	}
 	if err := pair.SetSensor(sensor); err != nil {
@@ -134,7 +134,7 @@ func (b *Builder) PairedResponseType(c meta.Collection, v meta.Correction) (*res
 
 	// find the datalogger and add it to the pair
 	datalogger, err := b.Lookup(c.Channel.Response)
-	if err != nil || !(len(datalogger) > 0) {
+	if err != nil || datalogger == nil {
 		return nil, nil
 	}
 	if err := pair.SetDatalogger(datalogger); err != nil {

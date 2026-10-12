@@ -71,11 +71,21 @@ func (c Config) Marshal() ([]byte, error) {
 
 // Write sends a JSON encoded byte array to a file.
 func (c Config) WriteFile(path string) error {
-	file, err := os.Create(path)
+	file, err := os.Create(path) //nolint:gosec // disable G304
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
-	return c.Write(file)
+	if err := c.Write(file); err != nil {
+		return err
+	}
+
+	if err := file.Close(); err != nil {
+		return err
+	}
+
+	return nil
 }

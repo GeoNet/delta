@@ -31,7 +31,7 @@ var polaritiesChecks = map[string]func(*meta.Set) func(t *testing.T){
 					if !polarities[i].Primary && polarities[j].Primary {
 						continue
 					}
-					if !polarities[i].Span.Overlaps(polarities[j].Span) {
+					if !polarities[i].Overlaps(polarities[j].Span) {
 						continue
 					}
 

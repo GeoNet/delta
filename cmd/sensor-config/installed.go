@@ -57,15 +57,15 @@ func (s Settings) InstalledSensors(set *meta.Set, name string, match *regexp.Reg
 					Type:   c.Component.Type,
 
 					Azimuth: c.InstalledSensor.Azimuth,
-					Method:  c.InstalledSensor.Method,
+					Method:  c.Method,
 					Dip:     c.InstalledSensor.Dip,
 
-					Vertical: c.InstalledSensor.Vertical,
-					North:    c.InstalledSensor.North,
-					East:     c.InstalledSensor.East,
+					Vertical: c.Vertical,
+					North:    c.North,
+					East:     c.East,
 
-					StartDate: c.InstalledSensor.Start,
-					EndDate:   c.InstalledSensor.End,
+					StartDate: c.Start,
+					EndDate:   c.End,
 				}
 
 				sensors[sensor] = append(sensors[sensor], c.Code())
@@ -87,7 +87,7 @@ func (s Settings) InstalledSensors(set *meta.Set, name string, match *regexp.Reg
 			}
 
 			// need at least one sensor
-			if !(len(list) > 0) {
+			if list == nil {
 				continue
 			}
 
@@ -113,7 +113,7 @@ func (s Settings) InstalledSensors(set *meta.Set, name string, match *regexp.Reg
 		}
 
 		// need at least one site
-		if !(len(sites) > 0) {
+		if sites == nil {
 			continue
 		}
 

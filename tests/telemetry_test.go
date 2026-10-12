@@ -20,7 +20,7 @@ var telemetryChecks = map[string]func(*meta.Set) func(t *testing.T){
 					if telemetries[i].Location != telemetries[j].Location {
 						continue
 					}
-					if !telemetries[i].Span.Overlaps(telemetries[j].Span) {
+					if !telemetries[i].Overlaps(telemetries[j].Span) {
 						continue
 					}
 

@@ -14,6 +14,8 @@ _Lists the geological and physical environment details of collection points._
 
 * `gauges.csv` - Gauges Descriptions.
 
+* `notes.csv` - miscellaneous notes about site geological characteristics and monumentations
+
 * `placenames.csv` - Placename Descriptions.
 
 * `visibility.csv` - Sky View Descriptions.
@@ -77,6 +79,7 @@ Quality estimates are roughly
 | Field | Description |
 | --- | --- |
 | _Gauge_ | Code used to uniquely identify Tide Gauge _Station_
+| _Location_ | Code used to uniquely identify the _Gauge_ deployment, this can be left empty if not appropriate.
 | _Number_ | Constituent number, used mainly for display and sorting
 | _Constituent_ | Standard Constituent Name
 | _Amplitude_ | Analysis Amplitude, in cm

@@ -108,9 +108,9 @@ var doas = Table{
 		)
 	},
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO doas (asset_id, view_id, dip, azimuth, height, north, east, notes, start_date, end_date) VALUES ((%s), (%s), ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+		return fmt.Sprintf("INSERT INTO doas (asset_id, view_id, dip, azimuth, height, north, east, start_date, end_date) VALUES ((%s), (%s), ?, ?, ?, ?, ?, ?, ?);",
 			asset.Select(), view.Select(),
 		)
 	},
-	Fields: []string{"Make", "Model", "Serial", "Mount", "View", "Dip", "Azimuth", "Height", "North", "East", "Notes", "Start Date", "End Date"},
+	Fields: []string{"Make", "Model", "Serial", "Mount", "View", "Start Date", "End Date", "Dip", "Azimuth", "Height", "North", "East", "Start Date", "End Date"},
 }

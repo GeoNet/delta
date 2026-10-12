@@ -106,7 +106,9 @@ func (s *Schemas) Download(url string, insecure bool) error {
 	if err != nil {
 		return err
 	}
-	defer resp.Body.Close()
+	defer func() {
+		_ = resp.Body.Close() // ignore body close errors
+	}()
 
 	var buf bytes.Buffer
 	if _, err = io.Copy(&buf, resp.Body); err != nil {
@@ -118,7 +120,7 @@ func (s *Schemas) Download(url string, insecure bool) error {
 
 // ReadFile decodes an FDSN StationXML schema from a file.
 func (s *Schemas) ReadFile(path string) error {
-	raw, err := os.ReadFile(path)
+	raw, err := os.ReadFile(path) //nolint:gosec // disable
 	if err != nil {
 		return err
 	}

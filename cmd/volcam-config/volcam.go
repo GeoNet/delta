@@ -29,13 +29,23 @@ type Volcam struct {
 type Volcams []Volcam
 
 func (v Volcams) EncodeFile(path string) error {
-	file, err := os.Create(path)
+	file, err := os.Create(path) //nolint:gosec // disable G304
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
-	return v.Encode(file)
+	if err := v.Encode(file); err != nil {
+		return err
+	}
+
+	if err := file.Close(); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (v Volcams) Encode(wr io.Writer) error {

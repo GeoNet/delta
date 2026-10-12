@@ -64,7 +64,7 @@ type InstalledRecorderList []InstalledRecorder
 
 func (ir InstalledRecorderList) Len() int           { return len(ir) }
 func (ir InstalledRecorderList) Swap(i, j int)      { ir[i], ir[j] = ir[j], ir[i] }
-func (ir InstalledRecorderList) Less(i, j int) bool { return ir[i].Install.Less(ir[j].Install) }
+func (ir InstalledRecorderList) Less(i, j int) bool { return ir[i].Less(ir[j].Install) }
 
 func (ir InstalledRecorderList) encode() [][]string {
 	var data [][]string
@@ -92,7 +92,7 @@ func (ir InstalledRecorderList) encode() [][]string {
 }
 
 func (ir *InstalledRecorderList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

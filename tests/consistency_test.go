@@ -18,7 +18,7 @@ var testConsistency = map[string]func(path string, list meta.List) func(t *testi
 	"check file consistency": func(path string, list meta.List) func(t *testing.T) {
 		return func(t *testing.T) {
 
-			raw, err := os.ReadFile(path)
+			raw, err := os.ReadFile(path) //nolint:gosec // disable G304
 			if err != nil {
 				t.Fatalf("unable to read %s file: %v", path, err)
 			}
@@ -52,24 +52,24 @@ func TestConsistency(t *testing.T) {
 		"stations":  {f: "../network/stations.csv", l: &meta.StationList{}},
 		"views":     {f: "../network/views.csv", l: &meta.ViewList{}},
 
-		//"antennas":     {f: "../install/antennas.csv", l: &meta.InstalledAntennaList{}},
+		"antennas":     {f: "../install/antennas.csv", l: &meta.InstalledAntennaList{}},
 		"calibrations": {f: "../install/calibrations.csv", l: &meta.CalibrationList{}},
 		"cameras":      {f: "../install/cameras.csv", l: &meta.InstalledCameraList{}},
-		//"channels":     {f: "../install/channels.csv", l: &meta.ChannelList{}},
-		//"components":   {f: "../install/components.csv", l: &meta.ComponentList{}},
-		"connections": {f: "../install/connections.csv", l: &meta.ConnectionList{}},
-		"dataloggers": {f: "../install/dataloggers.csv", l: &meta.DeployedDataloggerList{}},
-		"doases":      {f: "../install/doases.csv", l: &meta.InstalledDoasList{}},
-		"firmware":    {f: "../install/firmware.csv", l: &meta.FirmwareHistoryList{}},
-		"gains":       {f: "../install/gains.csv", l: &meta.GainList{}},
-		"metsensors":  {f: "../install/metsensors.csv", l: &meta.InstalledMetSensorList{}},
+		"channels":     {f: "../install/channels.csv", l: &meta.ChannelList{}},
+		"components":   {f: "../install/components.csv", l: &meta.ComponentList{}},
+		"connections":  {f: "../install/connections.csv", l: &meta.ConnectionList{}},
+		"dataloggers":  {f: "../install/dataloggers.csv", l: &meta.DeployedDataloggerList{}},
+		"doases":       {f: "../install/doases.csv", l: &meta.InstalledDoasList{}},
+		"firmware":     {f: "../install/firmware.csv", l: &meta.FirmwareHistoryList{}},
+		"gains":        {f: "../install/gains.csv", l: &meta.GainList{}},
+		"metsensors":   {f: "../install/metsensors.csv", l: &meta.InstalledMetSensorList{}},
 		//"polarities":   {f: "../install/polarities.csv", l: &meta.PolarityList{}},
-		"preamps":   {f: "../install/preamps.csv", l: &meta.PreampList{}},
-		"radomes":   {f: "../install/radomes.csv", l: &meta.InstalledRadomeList{}},
-		"receivers": {f: "../install/receivers.csv", l: &meta.DeployedReceiverList{}},
-		"recorders": {f: "../install/recorders.csv", l: &meta.InstalledRecorderList{}},
-		"sensors":   {f: "../install/sensors.csv", l: &meta.InstalledSensorList{}},
-		//"sessions":     {f: "../install/sessions.csv", l: &meta.SessionList{}},
+		"preamps":     {f: "../install/preamps.csv", l: &meta.PreampList{}},
+		"radomes":     {f: "../install/radomes.csv", l: &meta.InstalledRadomeList{}},
+		"receivers":   {f: "../install/receivers.csv", l: &meta.DeployedReceiverList{}},
+		"recorders":   {f: "../install/recorders.csv", l: &meta.InstalledRecorderList{}},
+		"sensors":     {f: "../install/sensors.csv", l: &meta.InstalledSensorList{}},
+		"sessions":    {f: "../install/sessions.csv", l: &meta.SessionList{}},
 		"streams":     {f: "../install/streams.csv", l: &meta.StreamList{}},
 		"telemetries": {f: "../install/telemetries.csv", l: &meta.TelemetryList{}},
 		"timings":     {f: "../install/timings.csv", l: &meta.TimingList{}},
@@ -78,10 +78,13 @@ func TestConsistency(t *testing.T) {
 		"constituents": {f: "../environment/constituents.csv", l: &meta.ConstituentList{}},
 		"features":     {f: "../environment/features.csv", l: &meta.FeatureList{}},
 		"gauges":       {f: "../environment/gauges.csv", l: &meta.GaugeList{}},
+		"notes":        {f: "../environment/notes.csv", l: &meta.NoteList{}},
 		//"placenames":   {f: "../environment/placenames.csv", l: &meta.PlacenameList{}},
 		"visibility": {f: "../environment/visibility.csv", l: &meta.VisibilityList{}},
 
 		"citations": {f: "../references/citations.csv", l: &meta.CitationList{}},
+
+		"multigases": {f: "../calibration/multigas.csv", l: &meta.MultigasList{}},
 	}
 
 	for f, v := range files {

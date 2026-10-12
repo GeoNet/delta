@@ -1,0 +1,25 @@
+package meta
+
+import (
+	"testing"
+)
+
+func TestNoteList(t *testing.T) {
+	t.Run("check notes", testListFunc("testdata/notes.csv", &NoteList{
+		Note{
+			Code:    "ARTA",
+			Network: "CG",
+			Entry:   "Concrete pillar with 3 stainless rods drilled to 0.5m into concrete butress.Note that between 2006-10-12 and 2006-11-08 the existing pillar adjacent to this one was occupied using the code ATIA as a test.",
+		},
+		Note{
+			Code:    "ATIA",
+			Network: "XX",
+			Entry:   "Test deployment for site ARTA",
+		},
+		Note{
+			Code:    "AUCK",
+			Network: "LI",
+			Entry:   "Site upgraded to Trimble NETRS/Trimble Zephyr combination on 3rd November 2005",
+		},
+	}))
+}

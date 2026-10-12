@@ -192,9 +192,9 @@ END;
 var session = Table{
 	Create: sessionCreate,
 	Insert: func() string {
-		return fmt.Sprintf("INSERT INTO session (mark_id, operator, agency, model, satellite, interval, elevation_mask, header_comment, format, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+		return fmt.Sprintf("INSERT INTO session (mark_id, operator, agency, model, satellite_system, interval, elevation_mask, header_comment, format, start_date, end_date) VALUES ((%s), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
 			mark.Select(),
 		)
 	},
-	Fields: []string{"Make", "Operator", "Agency", "Model", "Satellite", "Interval", "Elevation Mask", "Header Comment", "Format", "Start Date", "End Date"},
+	Fields: []string{"Mark", "Operator", "Agency", "Model", "Satellite System", "Interval", "Elevation Mask", "Header Comment", "Format", "Start Date", "End Date"},
 }

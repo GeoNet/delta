@@ -43,7 +43,7 @@ func (t *Tilde) EnviroSensor(set *meta.Set, enviro string) error {
 			}
 
 			// skip if there are no installed sensors
-			if len(installs) == 0 {
+			if installs == nil {
 				continue
 			}
 

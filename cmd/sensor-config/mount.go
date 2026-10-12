@@ -32,6 +32,14 @@ func (s Settings) Cameras(set *meta.Set, name, networks string) (Group, bool) {
 				continue
 			}
 
+			if view.Start.After(mount.End) {
+				continue
+			}
+
+			if view.End.Before(mount.Start) {
+				continue
+			}
+
 			var cameras []Sensor
 
 			for _, camera := range set.InstalledCameras() {
@@ -39,6 +47,14 @@ func (s Settings) Cameras(set *meta.Set, name, networks string) (Group, bool) {
 					continue
 				}
 				if view.Code != camera.View {
+					continue
+				}
+
+				if camera.Start.After(view.End) {
+					continue
+				}
+
+				if camera.End.Before(view.Start) {
 					continue
 				}
 				cameras = append(cameras, Sensor{
@@ -79,7 +95,7 @@ func (s Settings) Cameras(set *meta.Set, name, networks string) (Group, bool) {
 			})
 		}
 
-		if !(len(views) > 0) {
+		if views == nil {
 			continue
 		}
 
@@ -176,7 +192,7 @@ func (s Settings) Doases(set *meta.Set, name, network string) (Group, bool) {
 			})
 		}
 
-		if !(len(views) > 0) {
+		if views == nil {
 			continue
 		}
 

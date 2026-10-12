@@ -21,6 +21,30 @@
       <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
       <NormalizationFactor>6.916860291045512e+31</NormalizationFactor>
       <NormalizationFrequency>1</NormalizationFrequency>
+      <Zero>
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="1">
+        <Real>0</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="2">
+        <Real>-392</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
+      <Zero number="3">
+        <Real>-1490</Real>
+        <Imaginary>1740</Imaginary>
+      </Zero>
+      <Zero number="4">
+        <Real>-1490</Real>
+        <Imaginary>-1740</Imaginary>
+      </Zero>
+      <Zero number="5">
+        <Real>-1960</Real>
+        <Imaginary>0</Imaginary>
+      </Zero>
       <Pole>
         <Real>-0.2214</Real>
         <Imaginary>0.2221</Imaginary>

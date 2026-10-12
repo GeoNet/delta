@@ -62,7 +62,7 @@ func (n NetworkList) encode() [][]string {
 }
 
 func (n *NetworkList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

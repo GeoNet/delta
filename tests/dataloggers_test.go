@@ -90,6 +90,17 @@ var dataloggerChecks = map[string]func(*meta.Set) func(t *testing.T){
 			}
 		}
 	},
+
+	"check for invalid installation dates": func(set *meta.Set) func(t *testing.T) {
+		return func(t *testing.T) {
+			for _, i := range set.DeployedDataloggers() {
+				if i.End.After(i.Start) {
+					continue
+				}
+				t.Errorf("deployed datalogger is removed before it has been installed: %s", i.String())
+			}
+		}
+	},
 }
 
 func TestDataloggers(t *testing.T) {

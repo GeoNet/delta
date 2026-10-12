@@ -15,13 +15,23 @@ type Renderer interface {
 
 // RenderFile applies a Renderer and stores its go code output into the given file path.
 func RenderFile(path string, renderer Renderer) error {
-	file, err := os.Create(path)
+	file, err := os.Create(path) //nolint:gosec // disable
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close() // ignore any close errors as these will likely be related
+	}()
 
-	return Render(file, renderer)
+	if err := Render(file, renderer); err != nil {
+		return err
+	}
+
+	if err := file.Close(); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // Render applies a Renderer and passes its go code output into the Writer provided.

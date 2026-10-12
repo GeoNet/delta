@@ -127,7 +127,7 @@ func (s SampleList) encode() [][]string {
 func (s *SampleList) decode(data [][]string) error {
 	var samples []Sample
 
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

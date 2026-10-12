@@ -54,7 +54,7 @@ type FirmwareHistoryList []FirmwareHistory
 
 func (fh FirmwareHistoryList) Len() int           { return len(fh) }
 func (fh FirmwareHistoryList) Swap(i, j int)      { fh[i], fh[j] = fh[j], fh[i] }
-func (fh FirmwareHistoryList) Less(i, j int) bool { return fh[i].Install.Less(fh[j].Install) }
+func (fh FirmwareHistoryList) Less(i, j int) bool { return fh[i].Less(fh[j].Install) }
 
 func (fh FirmwareHistoryList) encode() [][]string {
 	var data [][]string
@@ -77,7 +77,7 @@ func (fh FirmwareHistoryList) encode() [][]string {
 }
 
 func (fh *FirmwareHistoryList) decode(data [][]string) error {
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

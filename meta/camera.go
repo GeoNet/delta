@@ -71,7 +71,7 @@ type InstalledCameraList []InstalledCamera
 
 func (ic InstalledCameraList) Len() int           { return len(ic) }
 func (ic InstalledCameraList) Swap(i, j int)      { ic[i], ic[j] = ic[j], ic[i] }
-func (ic InstalledCameraList) Less(i, j int) bool { return ic[i].Install.Less(ic[j].Install) }
+func (ic InstalledCameraList) Less(i, j int) bool { return ic[i].Less(ic[j].Install) }
 
 func (ic InstalledCameraList) encode() [][]string {
 	var data [][]string
@@ -101,7 +101,7 @@ func (ic InstalledCameraList) encode() [][]string {
 
 func (ic *InstalledCameraList) decode(data [][]string) error {
 
-	if !(len(data) > 1) {
+	if len(data) < 2 {
 		return nil
 	}
 

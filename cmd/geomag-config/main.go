@@ -147,7 +147,7 @@ func main() {
 					pair.SetCalibration(cal.ScaleFactor, cal.ScaleBias, cal.ScaleAbsolute)
 				}
 				if gain := correction.Gain; gain != nil {
-					pair.SetGain(gain.Scale.Factor, gain.Scale.Bias, gain.Absolute)
+					pair.SetGain(gain.Factor, gain.Bias, gain.Absolute)
 				}
 				if correction.Telemetry != nil {
 					pair.SetTelemetry(correction.Telemetry.ScaleFactor)
@@ -274,7 +274,11 @@ func main() {
 		if err != nil {
 			log.Fatalf("unable to create output file %q: %v", settings.output, err)
 		}
-		defer file.Close()
+		defer func() {
+			if err := file.Close(); err != nil {
+				log.Printf("unable to close output file %q: %v", settings.output, err)
+			}
+		}()
 
 		if err := Encode(file, configs); err != nil {
 			log.Fatalf("unable to write output to %q: %v", settings.output, err)

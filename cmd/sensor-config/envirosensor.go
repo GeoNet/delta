@@ -61,7 +61,7 @@ func (s Settings) EnviroSensor(set *meta.Set, name, enviro string) (Group, bool)
 				})
 			}
 
-			if !(len(sensors) > 0) {
+			if sensors == nil {
 				continue
 			}
 
@@ -85,7 +85,7 @@ func (s Settings) EnviroSensor(set *meta.Set, name, enviro string) (Group, bool)
 			})
 		}
 
-		if !(len(sites) > 0) {
+		if sites == nil {
 			continue
 		}
 

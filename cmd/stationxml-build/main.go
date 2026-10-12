@@ -54,7 +54,7 @@ func updateFile(path string, contents []byte, mode fs.FileMode) error {
 		return os.WriteFile(path, contents, mode)
 	}
 	// write the file if reading the existing one fails
-	existing, err := os.ReadFile(path)
+	existing, err := os.ReadFile(path) //nolint:gosec // disable G304
 	if err != nil {
 		return os.WriteFile(path, contents, mode)
 	}
@@ -133,7 +133,7 @@ func main() {
 	flag.BoolVar(&settings.corrections, "corrections", false, "add calculated and applied response delays and corrections")
 
 	flag.StringVar(&settings.source, "source", "GeoNet", "stationxml source")
-	flag.StringVar(&settings.sender, "sender", "WEL(GNS_Test)", "stationxml sender")
+	flag.StringVar(&settings.sender, "sender", "WEL(GNS)", "stationxml sender")
 	flag.StringVar(&settings.module, "module", "Delta", "stationxml module")
 
 	flag.TextVar(&settings.external, "external", MustMatcher(externalRe), "regexp selection of external networks")
@@ -234,37 +234,6 @@ func main() {
 		installed[sensor.Station] = true
 	}
 
-	spans := make(map[string]meta.Span)
-	for _, ext := range set.Networks() {
-		if ext.Code != ext.External {
-			continue
-		}
-		var span meta.Span
-		for _, net := range set.Networks() {
-			if net.External != ext.Code {
-				continue
-			}
-			for _, stn := range set.Stations() {
-				if stn.Network != net.Code {
-					continue
-				}
-				if _, ok := installed[stn.Code]; !ok {
-					continue
-				}
-				if span.Start.IsZero() || stn.Span.Start.Before(span.Start) {
-					span.Start = stn.Span.Start
-				}
-				if span.End.IsZero() || stn.Span.End.After(span.End) {
-					span.End = stn.Span.End
-				}
-			}
-		}
-		if span.Start.IsZero() || span.End.IsZero() {
-			continue
-		}
-		spans[ext.Code] = span
-	}
-
 	// find a map of stations that match
 	stns := make(map[string]meta.Station)
 	for _, s := range set.Stations() {
@@ -345,11 +314,11 @@ func main() {
 						}
 
 						// possibly check the collection span for only sites with currently installed sensors
-						if settings.operational && collection.InstalledSensor.Span.End.Before(operational) {
+						if settings.operational && collection.InstalledSensor.End.Before(operational) {
 							continue
 						}
 						// possibly check the collection span for only sites with currently installed dataloggers
-						if settings.operational && collection.DeployedDatalogger.Span.End.Before(operational) {
+						if settings.operational && collection.DeployedDatalogger.End.Before(operational) {
 							continue
 						}
 
@@ -365,14 +334,14 @@ func main() {
 							// build a stationxml shadow stream structure
 							streams = append(streams, stationxml.Stream{
 								Code:      collection.Code(),
-								StartDate: correction.Span.Start,
-								EndDate:   correction.Span.End,
+								StartDate: correction.Start,
+								EndDate:   correction.End,
 
 								SamplingRate: collection.Stream.SamplingRate,
-								Triggered:    collection.Stream.Triggered,
-								Types:        collection.Component.Types,
+								Triggered:    collection.Triggered,
+								Types:        collection.Types,
 
-								Vertical: collection.InstalledSensor.Vertical,
+								Vertical: collection.Vertical,
 								Azimuth:  collection.Azimuth(correction.Polarity),
 								Dip:      collection.Dip(correction.Polarity),
 
@@ -400,7 +369,7 @@ func main() {
 						}
 					}
 
-					if !(len(streams) > 0) {
+					if streams == nil {
 						if settings.debug {
 							log.Printf("debug: skip channels for location %q of station %q, no streams found", site.Location, site.Station)
 						}
@@ -422,7 +391,7 @@ func main() {
 				}
 
 				// only process sites with actual channels wanted
-				if settings.active && len(channels) == 0 {
+				if settings.active && channels == nil {
 					continue
 				}
 
@@ -476,7 +445,7 @@ func main() {
 				singles = append(singles, stn.Code)
 			}
 
-			if !(len(stations) > 0) {
+			if stations == nil {
 				if settings.debug {
 					log.Printf("debug: skip networks for %q, no stations found", net.Code)
 				}
@@ -493,8 +462,21 @@ func main() {
 			})
 		}
 
-		// lookup the external network time span
-		span := spans[ext.Code]
+		var span meta.Span
+		for _, n := range networks {
+			for _, s := range n.Stations {
+				if span.Start.IsZero() || s.StartDate.Before(span.Start) {
+					span.Start = s.StartDate
+				}
+				if span.End.IsZero() || s.EndDate.After(span.End) {
+					span.End = s.EndDate
+				}
+			}
+		}
+
+		if span.Start.IsZero() || span.End.IsZero() {
+			continue
+		}
 
 		// build a stationxml shadow external structure
 		externals = append(externals, stationxml.External{
@@ -567,7 +549,7 @@ func main() {
 				delete(files, name.String())
 
 				// has anything changed, other than the creation time?
-				if raw, err := os.ReadFile(path); err == nil {
+				if raw, err := os.ReadFile(path); err == nil { //nolint:gosec // disable G304
 					if bytes.Equal(redacted(raw), redacted(res)) {
 						continue
 					}

@@ -62,7 +62,7 @@ func (s Settings) ImpactStreams(set *meta.Set, response *resp.Resp) (map[string]
 					continue
 				}
 
-				if time.Now().After(collection.Span.End) {
+				if time.Now().After(collection.End) {
 					continue
 				}
 

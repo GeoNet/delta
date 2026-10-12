@@ -48,7 +48,7 @@ func (s Settings) Gnss(set *meta.Set, name, networks string) (Group, bool) {
 			})
 		}
 
-		if !(len(receivers) > 0) {
+		if receivers == nil {
 			continue
 		}
 
@@ -78,7 +78,7 @@ func (s Settings) Gnss(set *meta.Set, name, networks string) (Group, bool) {
 			})
 		}
 
-		if !(len(antennas) > 0) {
+		if antennas == nil {
 			continue
 		}
 

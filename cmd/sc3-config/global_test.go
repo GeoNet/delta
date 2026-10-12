@@ -64,13 +64,17 @@ func TestGlobal(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			defer os.RemoveAll(d)
+			defer func() {
+				if err := os.RemoveAll(d); err != nil {
+					t.Error(err)
+				}
+			}()
 
 			if err := Store(g.global, d); err != nil {
 				t.Fatalf("unable to store key output %s: %v", k, err)
 			}
 
-			key, err := os.ReadFile(filepath.Join(d, k))
+			key, err := os.ReadFile(filepath.Join(d, k)) //nolint:gosec // disable G304
 			if err != nil {
 				t.Fatalf("unable to read temp key file %s: %v", d, err)
 			}

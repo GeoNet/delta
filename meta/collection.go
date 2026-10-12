@@ -37,9 +37,9 @@ func (c Collection) Less(collection Collection) bool {
 		return true
 	case c.Channel.Number > collection.Channel.Number:
 		return false
-	case c.Span.Start.Before(collection.Span.Start):
+	case c.Start.Before(collection.Start):
 		return true
-	case c.Span.Start.After(collection.Span.Start):
+	case c.Start.After(collection.Start):
 		return false
 	case c.Stream.SamplingRate > collection.Stream.SamplingRate:
 		return true
@@ -50,7 +50,7 @@ func (c Collection) Less(collection Collection) bool {
 
 // Subsource returns the Subsource code based on the Stream and Component values.
 func (c Collection) Subsource() string {
-	switch strings.ToLower(c.Stream.Axial) {
+	switch strings.ToLower(c.Axial) {
 	case "true", "yes", "z12":
 		switch strings.ToUpper(c.Component.Subsource) {
 		case "N":
@@ -76,7 +76,7 @@ func (c Collection) Subsource() string {
 
 // Code returns the Channel code based on the Stream and Component values.
 func (c Collection) Code() string {
-	return c.Stream.Band + c.Stream.Source + c.Subsource()
+	return c.Band + c.Stream.Source + c.Subsource()
 }
 
 // Dip returns the vertical orientation of the recorded stream in degrees from the vertical, positive values are downwards.
@@ -143,16 +143,16 @@ func (s *Set) Collections(site Site) []Collection {
 				continue
 			}
 
-			span, ok := recorder.Span.Extent(stream.Span)
+			span, ok := recorder.Extent(stream.Span)
 			if !ok {
 				continue
 			}
 
 			for _, component := range s.Components() {
-				if recorder.InstalledSensor.Make != component.Make {
+				if recorder.Make != component.Make {
 					continue
 				}
-				if recorder.InstalledSensor.Model != component.Model {
+				if recorder.Model != component.Model {
 					continue
 				}
 
@@ -177,9 +177,9 @@ func (s *Set) Collections(site Site) []Collection {
 						DeployedDatalogger: DeployedDatalogger{
 							Install: Install{
 								Equipment: Equipment{
-									Make:   recorder.InstalledSensor.Make,
+									Make:   recorder.Make,
 									Model:  recorder.DataloggerModel,
-									Serial: recorder.InstalledSensor.Serial,
+									Serial: recorder.Serial,
 								},
 								Span: Span{
 									Start: recorder.Start,
@@ -221,7 +221,7 @@ func (s *Set) Collections(site Site) []Collection {
 					continue
 				}
 
-				span, ok := connection.Span.Extent(sensor.Span, datalogger.Span)
+				span, ok := connection.Extent(sensor.Span, datalogger.Span)
 				if !ok {
 					continue
 				}
@@ -302,7 +302,7 @@ func (s *Set) Collections(site Site) []Collection {
 					continue
 				}
 
-				span, ok := connection.Span.Extent(sensor.Span, recorder.Span)
+				span, ok := connection.Extent(sensor.Span, recorder.Span)
 				if !ok {
 					continue
 				}
@@ -355,9 +355,9 @@ func (s *Set) Collections(site Site) []Collection {
 								DeployedDatalogger: DeployedDatalogger{
 									Install: Install{
 										Equipment: Equipment{
-											Make:   recorder.InstalledSensor.Make,
+											Make:   recorder.Make,
 											Model:  recorder.DataloggerModel,
-											Serial: recorder.InstalledSensor.Serial,
+											Serial: recorder.Serial,
 										},
 										Span: Span{
 											Start: recorder.Start,

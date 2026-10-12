@@ -34,7 +34,6 @@ var installedRadomeChecks = map[string]func(*meta.Set) func(t *testing.T){
 			}
 		}
 	},
-
 	"check for overlapping radomes installations": func(set *meta.Set) func(t *testing.T) {
 		return func(t *testing.T) {
 			installs := make(map[string]meta.InstalledRadomeList)
@@ -59,6 +58,17 @@ var installedRadomeChecks = map[string]func(*meta.Set) func(t *testing.T){
 							v[i].Mark, v[i].Model, v[i].Serial, v[j].Model, v[j].Serial, v[i].Start.Format(meta.DateTimeFormat), v[i].End.Format(meta.DateTimeFormat))
 					}
 				}
+			}
+		}
+	},
+
+	"check for invalid installation dates": func(set *meta.Set) func(t *testing.T) {
+		return func(t *testing.T) {
+			for _, i := range set.InstalledRadomes() {
+				if i.End.After(i.Start) {
+					continue
+				}
+				t.Errorf("installed radome is removed before it has been installed: %s", i.String())
 			}
 		}
 	},

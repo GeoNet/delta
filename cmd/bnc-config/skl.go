@@ -35,6 +35,17 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 		err = fmt.Errorf("no mark found for %s", code)
 		return
 	}
+
+	for _, m := range set.Marks() {
+		if m.Code != code {
+			continue
+		}
+		if !inWindow(ts, m.Span) {
+			continue
+		}
+		mark = m
+	}
+
 	if !inWindow(ts, mark.Span) {
 		err = fmt.Errorf("no valid mark found for this time period for %s", code)
 		return
@@ -49,7 +60,7 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 		}
 	}
 
-	if dr.Span.Start.IsZero() { // empty value
+	if dr.Start.IsZero() { // empty value
 		err = fmt.Errorf("no effective deployed receiver version found for this time for %s", mark.Code)
 		return
 	}
@@ -64,7 +75,7 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 		}
 	}
 
-	if ifirm.Span.Start.IsZero() {
+	if ifirm.Start.IsZero() {
 		err = fmt.Errorf("no effective firmware version found for this time for %s", mark.Code)
 		return
 	}
@@ -78,7 +89,7 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 		}
 	}
 
-	if ia.Span.Start.IsZero() {
+	if ia.Start.IsZero() {
 		err = fmt.Errorf("no effective installed antenna found for this time for %s", mark.Code)
 		return
 	}
@@ -93,7 +104,7 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 	}
 	// radome is optional, can be nil
 	var radome string
-	if rad.Span.Start.IsZero() {
+	if rad.Start.IsZero() {
 		radome = "NONE"
 	} else {
 		radome = rad.Model
@@ -115,26 +126,26 @@ func skeleton(code string, country string, set *meta.Set, ts int64) (content str
 		}
 	}
 
-	if session.Span.Start.IsZero() {
+	if session.Start.IsZero() {
 		err = fmt.Errorf("no effective session found for this time for %s", mark.Code)
 		return
 	}
 
-	if !monument.Span.Start.IsZero() && monument.DomesNumber != "" {
+	if !monument.Start.IsZero() && monument.DomesNumber != "" {
 		content = fmt.Sprintf(headerFormat,
 			fmt.Sprintf("%s00%s", code, country), // MARKER NAME
 			monument.DomesNumber,                 // MARKER NUMBER
 			dr.Serial, dr.Model, ifirm.Version,   // REC # / TYPE / VERS
 			ia.Serial, ia.Model, radome, //ANT # / TYPE
 			x, y, z, //APPROX POSITION XYZ
-			ia.Offset.Vertical, ia.Offset.East, ia.Offset.North) // ANTENNA: DELTA H/E/N
+			ia.Vertical, ia.East, ia.North) // ANTENNA: DELTA H/E/N
 	} else {
 		content = fmt.Sprintf(noMarkerNumberHeaderForamt,
 			fmt.Sprintf("%s00%s", code, country), // MARKER NAME
 			dr.Serial, dr.Model, ifirm.Version,   // REC # / TYPE / VERS
 			ia.Serial, ia.Model, radome, //ANT # / TYPE
 			x, y, z, //APPROX POSITION XYZ
-			ia.Offset.Vertical, ia.Offset.East, ia.Offset.North) // ANTENNA: DELTA H/E/N
+			ia.Vertical, ia.East, ia.North) // ANTENNA: DELTA H/E/N
 	}
 
 	switch session.SatelliteSystem {
