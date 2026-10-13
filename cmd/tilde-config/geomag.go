@@ -117,10 +117,18 @@ func (t *Tilde) Geomag(set *meta.Set, geomag string, extra ...string) error {
 		})
 	}
 
+	var doi string
+	for _, d := range set.Datasets() {
+		if d.Domain == "geomag" {
+			doi = d.Key
+		}
+	}
+
 	// update domains
 	t.Domains = append(t.Domains, Domain{
 		Name:        "geomag",
 		Description: "Geomagnetic Sensors",
+		DOI:         doi,
 		Stations:    stns,
 	})
 
