@@ -75,6 +75,20 @@ func main() {
 			continue
 		}
 
+		var reference string
+		for _, gauge := range set.Gauges() {
+			if gauge.Code != s.Station {
+				continue
+			}
+			if gauge.End.Before(s.Start) {
+				continue
+			}
+			if gauge.Start.After(s.End) {
+				continue
+			}
+			reference = gauge.Crex
+		}
+
 		for _, c := range set.Collections(s) {
 			if settings.band != c.Band {
 				continue
@@ -94,6 +108,7 @@ func main() {
 					Detide:           NewDetide(set, s),
 					Depth:            s.Depth,
 					TimingCorrection: correction,
+					Reference:        reference,
 					Start:            c.Start,
 					End:              c.End,
 				})
