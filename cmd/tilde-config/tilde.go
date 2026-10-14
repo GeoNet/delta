@@ -73,6 +73,7 @@ type Station struct {
 type Domain struct {
 	Name        string `xml:"name,attr"`
 	Description string `xml:"description,attr,omitempty"`
+	DOI         string `xml:"DOI,attr,omitempty"`
 
 	Stations []Station `xml:"Station,omitempty"`
 }
