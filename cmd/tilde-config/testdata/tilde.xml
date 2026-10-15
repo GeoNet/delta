@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TildeXML>
-  <Domain name="dart" DOI="Gns2020a">
+  <Domain name="dart" DOI="https://doi.org/10.21420/8TCZ-TV02">
     <Station code="NZA">
       <Latitude>aaaa</Latitude>
       <Longitude>bbbb</Longitude>

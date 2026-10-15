@@ -77,7 +77,11 @@ func (t *Tilde) EnviroSensor(set *meta.Set, enviro string) error {
 	var doi string
 	for _, d := range set.Datasets() {
 		if d.Domain == "envirosensor" {
-			doi = d.Key
+			for _, c := range set.Citations() {
+				if c.Key == d.Key {
+					doi = c.Doi.String()
+				}
+			}
 		}
 	}
 

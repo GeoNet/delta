@@ -120,7 +120,11 @@ func (t *Tilde) Geomag(set *meta.Set, geomag string, extra ...string) error {
 	var doi string
 	for _, d := range set.Datasets() {
 		if d.Domain == "geomag" {
-			doi = d.Key
+			for _, c := range set.Citations() {
+				if c.Key == d.Key {
+					doi = c.Doi.String()
+				}
+			}
 		}
 	}
 
