@@ -60,7 +60,11 @@ func (t *Tilde) ScanDOAS(set *meta.Set, network string) error {
 	var doi string
 	for _, d := range set.Datasets() {
 		if d.Domain == "scandoas" {
-			doi = d.Key
+			for _, c := range set.Citations() {
+				if c.Key == d.Key {
+					doi = c.Doi.String()
+				}
+			}
 		}
 	}
 
