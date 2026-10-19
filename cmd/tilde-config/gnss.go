@@ -42,10 +42,22 @@ func (t *Tilde) Gnss(set *meta.Set) error {
 		})
 	}
 
+	var doi string
+	for _, d := range set.Datasets() {
+		if d.Domain == "gnss" {
+			for _, c := range set.Citations() {
+				if c.Key == d.Key {
+					doi = c.Doi.String()
+				}
+			}
+		}
+	}
+
 	// update domains
 	t.Domains = append(t.Domains, Domain{
 		Name:        "gnss",
 		Description: "Global Navigation Satellite System",
+		DOI:         doi,
 		Stations:    stns,
 	})
 

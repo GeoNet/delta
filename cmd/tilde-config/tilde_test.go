@@ -28,6 +28,7 @@ func TestTilde(t *testing.T) {
 		Domains: []Domain{
 			{
 				Name: "dart",
+				DOI:  "https://doi.org/10.21420/8TCZ-TV02",
 				Stations: []Station{
 					{
 						Code: "NZA",
