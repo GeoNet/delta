@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"log"
-	"log/slog"
 	"os"
 	"path/filepath"
 	"strings"
@@ -15,7 +14,6 @@ import (
 )
 
 type Settings struct {
-	debug      bool   // run application in debug mode
 	base       string // optional delta base directory
 	output     string // output caps key directory
 	configured string // configured networks
@@ -23,13 +21,7 @@ type Settings struct {
 	include    string // list of stations to include
 	skip       string // list of streams to skip
 	purge      bool   // remove unknown station files
-	gaps       bool   // build gaps key files
 }
-
-var (
-	Version = "s3-config"
-	Release = "dev"
-)
 
 func main() {
 
@@ -38,8 +30,6 @@ func main() {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "\n")
 		fmt.Fprintf(os.Stderr, "Build a set of sc3 key files\n")
-		fmt.Fprintf(os.Stderr, "\n")
-		fmt.Fprintf(os.Stderr, "Version: %s (%s)\n", Version, Release)
 		fmt.Fprintf(os.Stderr, "\n")
 		fmt.Fprintf(os.Stderr, "Usage:\n")
 		fmt.Fprintf(os.Stderr, "\n")
@@ -51,23 +41,15 @@ func main() {
 		fmt.Fprintf(os.Stderr, "\n")
 	}
 
-	flag.BoolVar(&settings.debug, "debug", false, "run the application in debug mode")
 	flag.StringVar(&settings.base, "base", "", "optional delta base directory")
 	flag.StringVar(&settings.output, "output", "key", "output caps configuration directory")
-	flag.StringVar(&settings.configured, "networks", "AK,CB,CH,EC,FI,HB,KI,NM,NZ,OT,RA,RT,SC,SI,SM,SP,TP,TR,WL", "comma separated list of networks to use")
+	flag.StringVar(&settings.configured, "networks", "AK,CB,CH,EC,FI,HB,KI,NM,NZ,OT,RA,RT,SC,SI,SM,SP,TP,TR,WL,TG", "comma separated list of networks to use")
 	flag.StringVar(&settings.exclude, "exclude", "", "comma separated list of stations to skip (either NN_SSSS, or simply SSSS)")
 	flag.StringVar(&settings.include, "include", "", "comma separated list of external stations to add (requires NN_SSSS)")
 	flag.StringVar(&settings.skip, "skip", "", "comma separated list of streams to skip (requires NN_SSSS_LL)")
 	flag.BoolVar(&settings.purge, "purge", false, "remove unknown single xml files")
-	flag.BoolVar(&settings.gaps, "gaps", false, "build gaps key files")
 
 	flag.Parse()
-
-	if settings.debug {
-		slog.SetLogLoggerLevel(slog.LevelDebug)
-	}
-
-	slog.Info(Version, "release", Release)
 
 	set, err := delta.NewBase(settings.base)
 	if err != nil {
@@ -76,13 +58,6 @@ func main() {
 
 	if err := os.MkdirAll(settings.output, 0700); err != nil {
 		log.Fatalf("unable to create output directory %s: %v", settings.output, err)
-	}
-
-	if settings.gaps {
-		if err := settings.Gaps(set); err != nil {
-			log.Fatal(err)
-		}
-		return
 	}
 
 	files := make(map[string]string)

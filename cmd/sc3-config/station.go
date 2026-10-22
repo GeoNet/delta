@@ -4,12 +4,11 @@ import (
 	"fmt"
 )
 
-const stationTemplate = `{{ if not .Headless}}###
+const stationTemplate = `###
 ### Delivered by puppet
 ###
-{{ end }}global:{{.Global.Key}}
-{{ if .Gaps }}gaps:enable
-{{ else }}scautopick:{{.AutoPick.Style}}{{end }}
+global:{{.Global.Key}}
+scautopick:{{.AutoPick.Style}}
 `
 
 func ToKey(network, station string) string {
@@ -25,8 +24,6 @@ type Station struct {
 	AutoPick AutoPick
 	Network  string
 	Code     string
-	Gaps     bool
-	Headless bool
 }
 
 func (s Station) Id() string {
