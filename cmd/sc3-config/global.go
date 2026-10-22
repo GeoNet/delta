@@ -6,10 +6,10 @@ import (
 	"strings"
 )
 
-const globalTemplate = `###
+const globalTemplate = `{{ if not .Headless }}###
 ### Delivered by puppet
 ###
-# Defines the channel code of the preferred stream used eg by scautopick and
+{{ end }}# Defines the channel code of the preferred stream used eg by scautopick and
 # scrttv. If no component code is given, 'Z' will be used by default.
 detecStream = {{.Stream}}
 
@@ -25,6 +25,7 @@ amplitudes.enable = {{.Amplitudes}}{{ end }}
 type Global struct {
 	Stream   string
 	Location string
+	Headless bool
 }
 
 func (p Global) Id() string {
@@ -56,6 +57,10 @@ func (p Global) Style() string {
 		return "strong"
 	case strings.HasPrefix(p.Stream, "BN"):
 		return "strong"
+	case strings.HasPrefix(p.Stream, "LF"):
+		return "geomag"
+	case strings.HasPrefix(p.Stream, "BT"):
+		return "tsunami"
 	default:
 		return ""
 	}
@@ -63,6 +68,8 @@ func (p Global) Style() string {
 
 func (p Global) Rate() string {
 	switch {
+	case strings.HasPrefix(p.Stream, "BT"):
+		return ""
 	case strings.HasPrefix(p.Stream, "B"):
 		return "lowrate"
 	case strings.HasPrefix(p.Stream, "S"):
