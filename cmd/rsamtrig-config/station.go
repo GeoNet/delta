@@ -5,10 +5,10 @@ import (
 	"strings"
 )
 
-const stationTemplate = `###
+const stationTemplate = `{{ if not .Headless}}###
 ### Delivered by puppet
 ###
-global:{{.Global.Key}}
+{{ end }}global:{{.Global.Key}}
 rsamtrig:{{.Style}}
 `
 
@@ -21,6 +21,7 @@ type Station struct {
 	RsamTrig RsamTrig
 	Network  string
 	Code     string
+	Headless bool
 }
 
 func (s Station) Id() string {
