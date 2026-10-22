@@ -9,10 +9,10 @@ import (
 const DefaultName = "f1-4"
 const DefaultFilter = "BW(4,1,4)"
 
-const rsamTrigTemplate = `###
+const rsamTrigTemplate = `{{ if not .Headless }}###
 ### Delivered by puppet
 ###
-# Defines a list of filters to apply.
+{{ end }}# Defines a list of filters to apply.
 rsamFilters = {{.Name}}
 
 # Waveform filter string to apply before RSAM calculation.
@@ -29,6 +29,7 @@ type RsamTrig struct {
 	Base         float64
 	Location     string
 	SamplingRate float64
+	Headless     bool
 }
 
 func (r RsamTrig) Id() string {
