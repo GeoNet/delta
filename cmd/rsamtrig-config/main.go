@@ -20,6 +20,7 @@ type Settings struct {
 	stations string  // list of stations to configure
 	channels string  // list of stations to include
 	purge    bool    // remove unknown station files
+	headless bool    // do not add extra header details
 }
 
 func main() {
@@ -46,6 +47,7 @@ func main() {
 	flag.StringVar(&settings.stations, "stations", "MAVZ/11:330,TRVZ:130,WHVZ:140,WSRZ:2780", "comma separated list of stations to configure")
 	flag.StringVar(&settings.channels, "channels", "HHZ,EHZ", "comma separated list of channels to configure")
 	flag.BoolVar(&settings.purge, "purge", false, "remove unknown single xml files")
+	flag.BoolVar(&settings.headless, "headless", false, "do not add extra header details")
 
 	flag.Parse()
 
@@ -160,6 +162,7 @@ func main() {
 				global := Global{
 					Stream:   collection.Code(),
 					Location: collection.Stream.Location,
+					Headless: settings.headless,
 				}
 
 				if global.Style() == "" {
@@ -178,6 +181,7 @@ func main() {
 					Base:         level,
 					Location:     collection.Stream.Location,
 					SamplingRate: collection.Stream.SamplingRate,
+					Headless:     settings.headless,
 				}
 
 				// first time through
@@ -201,6 +205,7 @@ func main() {
 					RsamTrig: rsamTrig,
 					Code:     station.Code,
 					Network:  network.External,
+					Headless: settings.headless,
 				}
 
 				stationMap[station.Key()] = station

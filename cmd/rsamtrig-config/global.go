@@ -6,10 +6,10 @@ import (
 	"strings"
 )
 
-const globalTemplate = `###
+const globalTemplate = `{{ if not .Headless }}###
 ### Delivered by puppet
 ###
-# Defines the channel code of the preferred stream used eg by scautopick and
+{{ end }}# Defines the channel code of the preferred stream used eg by scautopick and
 # scrttv. If no component code is given, 'Z' will be used by default.
 detecStream = {{.Stream}}
 
@@ -21,6 +21,7 @@ detecLocid = {{.Location}}
 type Global struct {
 	Stream   string
 	Location string
+	Headless bool
 }
 
 func (p Global) Id() string {

@@ -57,10 +57,22 @@ func (t *Tilde) ScanDOAS(set *meta.Set, network string) error {
 		})
 	}
 
+	var doi string
+	for _, d := range set.Datasets() {
+		if d.Domain == "scandoas" {
+			for _, c := range set.Citations() {
+				if c.Key == d.Key {
+					doi = c.Doi.String()
+				}
+			}
+		}
+	}
+
 	// update domains
 	t.Domains = append(t.Domains, Domain{
 		Name:        "scandoas",
 		Description: "Continuous sulphur dioxide gas emission rates",
+		DOI:         doi,
 		Stations:    stns,
 	})
 
