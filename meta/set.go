@@ -12,6 +12,7 @@ const (
 	AssetFiles = "assets/*.csv"
 
 	DartsFile     = "network/darts.csv"
+	DasFile       = "network/das.csv"
 	MarksFile     = "network/marks.csv"
 	MonumentsFile = "network/monuments.csv"
 	MountsFile    = "network/mounts.csv"
@@ -22,27 +23,33 @@ const (
 	StationsFile  = "network/stations.csv"
 	ViewsFile     = "network/views.csv"
 
-	AntennasFile     = "install/antennas.csv"
-	CalibrationsFile = "install/calibrations.csv"
-	CamerasFile      = "install/cameras.csv"
-	ChannelsFile     = "install/channels.csv"
-	ComponentsFile   = "install/components.csv"
-	ConnectionsFile  = "install/connections.csv"
-	DataloggersFile  = "install/dataloggers.csv"
-	DoasesFile       = "install/doases.csv"
-	FirmwareFile     = "install/firmware.csv"
-	GainsFile        = "install/gains.csv"
-	MetsensorsFile   = "install/metsensors.csv"
-	PolaritiesFile   = "install/polarities.csv"
-	PreampsFile      = "install/preamps.csv"
-	RadomesFile      = "install/radomes.csv"
-	ReceiversFile    = "install/receivers.csv"
-	RecordersFile    = "install/recorders.csv"
-	SensorsFile      = "install/sensors.csv"
-	SessionsFile     = "install/sessions.csv"
-	StreamsFile      = "install/streams.csv"
-	TelemetriesFile  = "install/telemetries.csv"
-	TimingsFile      = "install/timings.csv"
+	AcqisitionsFile     = "install/acquisitions.csv"
+	AntennasFile        = "install/antennas.csv"
+	CalibrationsFile    = "install/calibrations.csv"
+	CablesFile          = "install/cables.csv"
+	CamerasFile         = "install/cameras.csv"
+	ChannelsFile        = "install/channels.csv"
+	ComponentsFile      = "install/components.csv"
+	ConnectionsFile     = "install/connections.csv"
+	DasChannelsFile     = "install/das_channels.csv"
+	DasChannelGroupFile = "install/das_channel_groups.csv"
+	DataloggersFile     = "install/dataloggers.csv"
+	DoasesFile          = "install/doases.csv"
+	FibersFile          = "install/fibers.csv"
+	FirmwareFile        = "install/firmware.csv"
+	GainsFile           = "install/gains.csv"
+	InterrogatorsFile   = "install/interrogators.csv"
+	MetsensorsFile      = "install/metsensors.csv"
+	PolaritiesFile      = "install/polarities.csv"
+	PreampsFile         = "install/preamps.csv"
+	RadomesFile         = "install/radomes.csv"
+	ReceiversFile       = "install/receivers.csv"
+	RecordersFile       = "install/recorders.csv"
+	SensorsFile         = "install/sensors.csv"
+	SessionsFile        = "install/sessions.csv"
+	StreamsFile         = "install/streams.csv"
+	TelemetriesFile     = "install/telemetries.csv"
+	TimingsFile         = "install/timings.csv"
 
 	ClassesFile      = "environment/classes.csv"
 	ConstituentsFile = "environment/constituents.csv"
@@ -70,6 +77,7 @@ type Set struct {
 	assets AssetList
 
 	darts     DartList
+	das       DASList
 	marks     MarkList
 	monuments MonumentList
 	mounts    MountList
@@ -80,27 +88,33 @@ type Set struct {
 	stations  StationList
 	views     ViewList
 
-	installedAntennas   InstalledAntennaList
-	calibrations        CalibrationList
-	installedCameras    InstalledCameraList
-	channels            ChannelList
-	components          ComponentList
-	connections         ConnectionList
-	deployedDataloggers DeployedDataloggerList
-	doases              InstalledDoasList
-	firmwareHistory     FirmwareHistoryList
-	gains               GainList
-	installedMetSensors InstalledMetSensorList
-	polarities          PolarityList
-	preamps             PreampList
-	installedRadomes    InstalledRadomeList
-	deployedReceivers   DeployedReceiverList
-	installedRecorders  InstalledRecorderList
-	installedSensors    InstalledSensorList
-	sessions            SessionList
-	streams             StreamList
-	telemetries         TelemetryList
-	timings             TimingList
+	dasAcquisitions        AcquisitionList
+	installedAntennas      InstalledAntennaList
+	installedCables        CableList
+	calibrations           CalibrationList
+	installedCameras       InstalledCameraList
+	channels               ChannelList
+	components             ComponentList
+	connections            ConnectionList
+	dasChannels            DASChannelList
+	dasChannelGroups       DASChannelGroupList
+	deployedDataloggers    DeployedDataloggerList
+	doases                 InstalledDoasList
+	installedFibers        FiberList
+	firmwareHistory        FirmwareHistoryList
+	gains                  GainList
+	installedInterrogators InterrogatorList
+	installedMetSensors    InstalledMetSensorList
+	polarities             PolarityList
+	preamps                PreampList
+	installedRadomes       InstalledRadomeList
+	deployedReceivers      DeployedReceiverList
+	installedRecorders     InstalledRecorderList
+	installedSensors       InstalledSensorList
+	sessions               SessionList
+	streams                StreamList
+	telemetries            TelemetryList
+	timings                TimingList
 
 	classes      ClassList
 	constituents ConstituentList
@@ -122,6 +136,7 @@ func (s *Set) files() map[string]List {
 		AssetFiles: &s.assets,
 
 		DartsFile:     &s.darts,
+		DasFile:       &s.das,
 		MarksFile:     &s.marks,
 		MonumentsFile: &s.monuments,
 		MountsFile:    &s.mounts,
@@ -132,27 +147,33 @@ func (s *Set) files() map[string]List {
 		StationsFile:  &s.stations,
 		ViewsFile:     &s.views,
 
-		AntennasFile:     &s.installedAntennas,
-		CalibrationsFile: &s.calibrations,
-		CamerasFile:      &s.installedCameras,
-		ChannelsFile:     &s.channels,
-		ComponentsFile:   &s.components,
-		ConnectionsFile:  &s.connections,
-		DataloggersFile:  &s.deployedDataloggers,
-		DoasesFile:       &s.doases,
-		FirmwareFile:     &s.firmwareHistory,
-		GainsFile:        &s.gains,
-		MetsensorsFile:   &s.installedMetSensors,
-		PolaritiesFile:   &s.polarities,
-		PreampsFile:      &s.preamps,
-		RadomesFile:      &s.installedRadomes,
-		ReceiversFile:    &s.deployedReceivers,
-		RecordersFile:    &s.installedRecorders,
-		SensorsFile:      &s.installedSensors,
-		SessionsFile:     &s.sessions,
-		StreamsFile:      &s.streams,
-		TelemetriesFile:  &s.telemetries,
-		TimingsFile:      &s.timings,
+		AcqisitionsFile:     &s.dasAcquisitions,
+		AntennasFile:        &s.installedAntennas,
+		CablesFile:          &s.installedCables,
+		CalibrationsFile:    &s.calibrations,
+		CamerasFile:         &s.installedCameras,
+		ChannelsFile:        &s.channels,
+		ComponentsFile:      &s.components,
+		ConnectionsFile:     &s.connections,
+		DasChannelsFile:     &s.dasChannels,
+		DasChannelGroupFile: &s.dasChannelGroups,
+		DataloggersFile:     &s.deployedDataloggers,
+		DoasesFile:          &s.doases,
+		FibersFile:          &s.installedFibers,
+		FirmwareFile:        &s.firmwareHistory,
+		GainsFile:           &s.gains,
+		InterrogatorsFile:   &s.installedInterrogators,
+		MetsensorsFile:      &s.installedMetSensors,
+		PolaritiesFile:      &s.polarities,
+		PreampsFile:         &s.preamps,
+		RadomesFile:         &s.installedRadomes,
+		ReceiversFile:       &s.deployedReceivers,
+		RecordersFile:       &s.installedRecorders,
+		SensorsFile:         &s.installedSensors,
+		SessionsFile:        &s.sessions,
+		StreamsFile:         &s.streams,
+		TelemetriesFile:     &s.telemetries,
+		TimingsFile:         &s.timings,
 
 		ClassesFile:      &s.classes,
 		ConstituentsFile: &s.constituents,
@@ -192,7 +213,7 @@ func NewSet(fsys fs.FS, maps ...SetPathMap) (*Set, error) {
 					return nil, fmt.Errorf("read error %s: %w", path, err)
 				}
 				if err := UnmarshalList(data, &assets); err != nil {
-					return nil, fmt.Errorf("unmarshal error %s: %w", path, err)
+					return nil, fmt.Errorf("unmarshal asset error %s: %w", path, err)
 				}
 				set.assets = append(set.assets, assets...)
 			}
@@ -211,7 +232,7 @@ func NewSet(fsys fs.FS, maps ...SetPathMap) (*Set, error) {
 					return nil, fmt.Errorf("read error %s: %w", path, err)
 				}
 				if err := UnmarshalList(data, list); err != nil {
-					return nil, fmt.Errorf("unmarshal error %s: %w", path, err)
+					return nil, fmt.Errorf("unmarshal file error %s: %w", path, err)
 				}
 			}
 			sort.Sort(list)

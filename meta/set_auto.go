@@ -55,6 +55,26 @@ func (s Set) Darts() []Dart {
 	return s.darts
 }
 
+// Das is a helper function to return a slice of DASStation values.
+func (s Set) Das() []DASStation {
+	return s.das
+}
+
+// DasAcquisitions is a helper function to return a slice of Acquisition values.
+func (s Set) DasAcquisitions() []Acquisition {
+	return s.dasAcquisitions
+}
+
+// DasChannelGroups is a helper function to return a slice of DASChannelGroup values.
+func (s Set) DasChannelGroups() []DASChannelGroup {
+	return s.dasChannelGroups
+}
+
+// DasChannels is a helper function to return a slice of DASChannel values.
+func (s Set) DasChannels() []DASChannel {
+	return s.dasChannels
+}
+
 // Datasets is a helper function to return a slice of Dataset values.
 func (s Set) Datasets() []Dataset {
 	return s.datasets
@@ -105,9 +125,24 @@ func (s Set) InstalledAntennas() []InstalledAntenna {
 	return s.installedAntennas
 }
 
+// InstalledCables is a helper function to return a slice of InstalledCable values.
+func (s Set) InstalledCables() []InstalledCable {
+	return s.installedCables
+}
+
 // InstalledCameras is a helper function to return a slice of InstalledCamera values.
 func (s Set) InstalledCameras() []InstalledCamera {
 	return s.installedCameras
+}
+
+// InstalledFibers is a helper function to return a slice of InstalledFiber values.
+func (s Set) InstalledFibers() []InstalledFiber {
+	return s.installedFibers
+}
+
+// InstalledInterrogators is a helper function to return a slice of InstalledInterrogator values.
+func (s Set) InstalledInterrogators() []InstalledInterrogator {
+	return s.installedInterrogators
 }
 
 // InstalledMetSensors is a helper function to return a slice of InstalledMetSensor values.
@@ -287,6 +322,17 @@ func (s Set) Dart(station string) (Dart, bool) {
 		return v, true
 	}
 	return Dart{}, false
+}
+
+// DASStation is a helper function to return a DASStation value and true if one exists.
+func (s Set) DASStation(location string) (DASStation, bool) {
+	for _, v := range s.das {
+		if location != v.Location {
+			continue
+		}
+		return v, true
+	}
+	return DASStation{}, false
 }
 
 // Dataset is a helper function to return a Dataset value and true if one exists.

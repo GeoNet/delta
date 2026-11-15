@@ -1,0 +1,966 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.fdsn.org/schemas/DAS-Metadata-FDSN/2.0",
+  "title": "Overview metadata",
+  "description": "The Overview metadata gives a high-level overview of the DAS deployment and describes the geographic location of the installation, dates of the project, and information on the data provider.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "network_code",
+    "location",
+    "principal_investigator",
+    "point_of_contact",
+    "point_of_contact_email",
+    "point_of_contact_address",
+    "start_date"
+  ],
+  "properties": {
+    "schema_version": {
+      "description": "Metadata schema version. This identifies which version of the metadata schema that this document conforms to.",
+      "enum": [
+        "2.0"
+      ]
+    },
+    "network_code": {
+      "description": "Unique FDSN network code for the installation, following FDSN Source Identifier specification",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8,
+      "pattern": "^[A-Z0-9]+$",
+      "examples": [
+        "3U2023"
+      ]
+    },
+    "location": {
+      "description": "Name of the geographic location of the installation.",
+      "type": "string",
+      "examples": [
+        "Brady's Hot Springs, Nevada"
+      ]
+    },
+    "country": {
+      "description": "Country where the installation is located. Use ISO 3166-1 alpha-3 three-letter country code.",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3,
+      "examples": [
+        "USA"
+      ]
+    },
+    "principal_investigator": {
+      "description": "Principal investigator(s) for the installation.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/principal_investigator_fields"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "point_of_contact": {
+      "description": "Point of contact for the metadata.",
+      "type": "string",
+      "examples": [
+        "Dr. Jean Grey"
+      ]
+    },
+    "point_of_contact_email": {
+      "description": "Email address of point of contact.",
+      "type": "string",
+      "format": "email",
+      "examples": [
+        "jean.gray@xavier-institute.com"
+      ]
+    },
+    "point_of_contact_address": {
+      "description": "Physical address and institution of point of contact.",
+      "type": "string",
+      "examples": [
+        "University of Wisconsin"
+      ]
+    },
+    "start_date": {
+      "description": "Start date of data collection at the installation in Coordinated Universal Time (UTC).",
+      "type": "string",
+      "format": "date",
+      "examples": [
+        "2016-03-11"
+      ]
+    },
+    "end_date": {
+      "description": "End date of data collection at the installation in UTC. If the installation end date is unknown this field should be omitted and updated when it is known.",
+      "type": "string",
+      "format": "date",
+      "examples": [
+        "2016-03-26"
+      ]
+    },
+    "funding_agency": {
+      "description": "Name(s) of agency that funded the experiment.",
+      "type": "string",
+      "examples": [
+        "U.S. DOE Geothermal Technology Office"
+      ]
+    },
+    "project_number": {
+      "description": "Funding project number. Should be supplied if a number has been assigned by funding agency(s).",
+      "type": "string",
+      "examples": [
+        "DOE CN: EE0006760"
+      ]
+    },
+    "digital_object_identifier": {
+      "description": "Digital object identifier (DOI) that uniquely identifies the metadata; this identifier may only become available following archiving.",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "https://doi.org/10.15121/1778858",
+        "doi:10.5880/GFZ.2.2.2023.001"
+      ]
+    },
+    "purpose_of_data_collection": {
+      "description": "Brief explanation of the purpose of experiment.",
+      "type": "string",
+      "examples": [
+        "Monitor geothermal field"
+      ]
+    },
+    "comment": {
+      "description": "Additional comments.",
+      "type": "string"
+    },
+    "interrogators": {
+      "title": "Interrogators",
+      "description": "Interrogators. Multiple interrogators can be documented.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/interrogator"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "cables": {
+      "title": "Cables",
+      "description": "Cables. Multiple cables can be documented.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cable"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "principal_investigator_fields": {
+      "title": "Principal investigator metadata",
+      "description": "The Principal Investigator metadata contains information about the principal investigator for the installation.",
+      "type": "object",
+      "required": [
+        "name",
+        "email",
+        "address"
+      ],
+      "properties": {
+        "name": {
+          "description": "Name of principal investigator for the installation.",
+          "type": "string",
+          "examples": [
+            "Professor Xavier"
+          ]
+        },
+        "email": {
+          "description": "Email address of principal investigator.",
+          "type": "string",
+          "format": "email",
+          "examples": [
+            "professorx@xavier-institute.com"
+          ]
+        },
+        "address": {
+          "description": "Physical address and institution of principal investigator.",
+          "type": "string",
+          "examples": [
+            "University of Wisconsin"
+          ]
+        }
+      }
+    },
+    "interrogator": {
+      "title": "Interrogator metadata",
+      "description": "The Interrogator metadata contains information about the interrogator unit used for the data collection. More than one interrogator may be operating during an experiment, therefore each unit is given a unique identifier and described in individual Interrogator metadata blocks.",
+      "type": "object",
+      "required": [
+        "interrogator_id",
+        "manufacturer",
+        "model"
+      ],
+      "properties": {
+        "interrogator_id": {
+          "description": "Unique identifier of the interrogator unit used in the experiment, assigned by data provider. Identifier should have the maximum of eight alphanumeric characters with no special characters (e.g., underscores, period, and dash).",
+          "allOf": [
+            {
+              "$ref": "#/$defs/dasid"
+            }
+          ],
+          "examples": [
+            "IU001"
+          ]
+        },
+        "manufacturer": {
+          "description": "Manufacturer name of the interrogator.",
+          "type": "string",
+          "examples": [
+            "Silixa"
+          ]
+        },
+        "model": {
+          "description": "Model number of the interrogator.",
+          "type": "string",
+          "examples": [
+            "iDAS"
+          ]
+        },
+        "serial_number": {
+          "description": "Serial number of the interrogator.",
+          "type": "string",
+          "examples": [
+            "12345"
+          ]
+        },
+        "firmware_version": {
+          "description": "Firmware version of the software used within the interrogator.",
+          "type": "string"
+        },
+        "comment": {
+          "description": "Additional comments.",
+          "type": "string"
+        },
+        "acquisitions": {
+          "title": "Acquisitions",
+          "description": "One or more acquisitions with this interrogator.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/acquisition"
+          }
+        }
+      }
+    },
+    "acquisition": {
+      "title": "Acquisition metadata",
+      "description": "The Acquisition metadata describes the acquisition parameters set by the user on a particular interrogator. While different interrogator vendors may implement various photonics design and algorithms which are not easily translatable across interrogators, the Acquisition metadata intends to capture the critical acquisition attributes that are commonly required to analyze and interpret the output time series or matrices. These attributes are carefully defined to be standardized across all interrogator systems.",
+      "type": "object",
+      "required": [
+        "acquisition_id",
+        "acquisition_start_time",
+        "acquisition_sample_rate",
+        "acquisition_sample_rate_unit",
+        "gauge_length",
+        "gauge_length_unit",
+        "unit_of_measure",
+        "number_of_channels",
+        "spatial_sampling_interval",
+        "spatial_sampling_interval_unit"
+      ],
+      "properties": {
+        "acquisition_id": {
+          "description": "Unique identifier of the data acquisition, assigned by data provider. Identifier should have the maximum of eight alphanumeric characters with no special characters (e.g., underscores, period, and dash). One identifier per acquisition settings.",
+          "allOf": [
+            {
+              "$ref": "#/$defs/dasid"
+            }
+          ],
+          "examples": [
+            "ACQ1"
+          ]
+        },
+        "acquisition_start_time": {
+          "description": "Start time of this data acquisition in Coordinated Universal Time (UTC).",
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2016-03-11T16:46:18.000Z"
+          ]
+        },
+        "acquisition_end_time": {
+          "description": "End time of this data acquisition in UTC. If data acquisition is still in operation, this field should be omitted and updated when it is known.",
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2016-03-26T01:01:15.000Z"
+          ]
+        },
+        "acquisition_sample_rate": {
+          "description": "The rate at which the interrogator provides output data.",
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "examples": [
+            1000
+          ]
+        },
+        "acquisition_sample_rate_unit": {
+          "description": "Unit of acquisition sample rate. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "Hz"
+          ]
+        },
+        "gauge_length": {
+          "description": "The averaging length along the fiber for a measurement, determined at experiment setup and used during acquisition.",
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "examples": [
+            10
+          ]
+        },
+        "gauge_length_unit": {
+          "description": "Unit of gauge length. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "unit_of_measure": {
+          "description": "Unit of measure of archived data set. This may be the same unit as the Interrogator unit measure if the data are raw. SI units should be used.",
+          "enum": [
+            "count",
+            "m/m",
+            "m/m/s",
+            "m/s",
+            "rad/s",
+            "rad/m/s"
+          ],
+          "examples": [
+            "m/m"
+          ]
+        },
+        "scale_factor": {
+          "description": "Scaling factor to multiply in order to express data in physical units.",
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "examples": [
+            1234567.89
+          ]
+        },
+        "number_of_channels": {
+          "description": "The total number of sampling points along the fiber as output from the interrogator, referred to as NumberOfLoci in PRODML.",
+          "type": "integer",
+          "minimum": 1,
+          "examples": [
+            8720
+          ]
+        },
+        "spatial_sampling_interval": {
+          "description": "The channel spacing, or offset, between channels.",
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "examples": [
+            1.000
+          ]
+        },
+        "spatial_sampling_interval_unit": {
+          "description": "Unit of spatial sampling interval. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "pulse_rate": {
+          "description": "Rate at which the interrogator unit interrogates the fiber sensor.",
+          "type": "number",
+          "minimum": 0,
+          "examples": [
+            1000
+          ]
+        },
+        "pulse_rate_unit": {
+          "description": "Unit of pulse rate. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "Hz"
+          ]
+        },
+        "pulse_width": {
+          "description": "Width of the pulse sent down the fiber in unit of time.",
+          "type": "number",
+          "minimum": 0
+        },
+        "pulse_width_unit": {
+          "description": "Unit of pulse width. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "ns"
+          ]
+        },
+        "comment": {
+          "description": "Additional comments.",
+          "type": "string"
+        },
+        "native_headers": {
+          "title": "Native headers",
+          "description": "Native headers from the interrogator for this acquisition as a key-value list.",
+          "type": "object",
+          "additionalProperties": true,
+          "examples": [
+            {
+              "header1": "Value of header1",
+              "header2": "Value of header2",
+              "header3": 99.4
+            }
+          ]
+        },
+        "channel_groups": {
+          "title": "Channel groups",
+          "description": "One or more channel groups for this acquisition.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/channel_group"
+          }
+        }
+      }
+    },
+    "channel_group": {
+      "title": "Channel group metadata",
+      "description": "The Channel Group metadata describes the properties that are common to all the channels nested under the Interrogator and Acquisition metadata blocks. Having a group-level metadata removes the repetition of common attributes in the individual Channel metadata. This design allows multiple channel groups to exist under the same interrogator and data acquisition settings. The unique identifiers for the interrogator, acquisition, cable and fiber are recorded as well in this metadata block to allows mapping between the interrogator, acquisition, and fiber that were used for this set of coordinates during a particular data collection.",
+      "type": "object",
+      "required": [
+        "channel_group_id",
+        "cable_id",
+        "fiber_id",
+        "coordinate_generation_date",
+        "coordinate_system",
+        "reference_frame",
+        "distance_along_fiber_unit",
+        "x_coordinate_unit",
+        "y_coordinate_unit"
+      ],
+      "properties": {
+        "channel_group_id": {
+          "description": "Unique identifier of the channel group. Identifier should have the maximum of eight alphanumeric characters with no special characters (e.g., underscores, period, and dash).",
+          "allOf": [
+            {
+              "$ref": "#/$defs/dasid"
+            }
+          ],
+          "examples": [
+            "CG001"
+          ]
+        },
+        "cable_id": {
+          "description": "Unique identifier of cable linked to this channel group.",
+          "allOf": [
+            {
+              "$ref": "#/$defs/dasid"
+            }
+          ],
+          "examples": [
+            "CA001"
+          ]
+        },
+        "fiber_id": {
+          "description": "Unique identifier of fiber linked to this channel group. The fiber_id must nest within specified cable_id.",
+          "allOf": [
+            {
+              "$ref": "#/$defs/dasid"
+            }
+          ],
+          "examples": [
+            "F001"
+          ]
+        },
+        "coordinate_generation_date": {
+          "description": "Date that the channel coordinates were generated.",
+          "type": "string",
+          "format": "date",
+          "examples": [
+            "2016-07-01"
+          ]
+        },
+        "coordinate_system": {
+          "description": "Coordinate system used in channel location. Select geographic for coordinates in latitude and longitude. Universal Transverse Mercator (UTM) is the preferred projected coordinate system.",
+          "enum": [
+            "geographic",
+            "UTM",
+            "local"
+          ],
+          "examples": [
+            "UTM"
+          ]
+        },
+        "reference_frame": {
+          "description": "Geodetic datum and/or grid zone number in UTM.",
+          "type": "string",
+          "examples": [
+            "UTM Zone 11N",
+            "WGS84"
+          ]
+        },
+        "location_method": {
+          "description": "Method used to determine the coordinates of each channel. Example: tap test, GPS tracker.",
+          "type": "string",
+          "examples": [
+            "tap test"
+          ]
+        },
+        "distance_along_fiber_unit": {
+          "description": "Unit of distance along fiber. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "x_coordinate_unit": {
+          "description": "Unit of x-coordinate (UTM-x or longitude). Applies to every individual channel nested under the channel group.",
+          "type": "string",
+          "examples": [
+            "degree"
+          ]
+        },
+        "uncertainty_in_x_coordinate": {
+          "description": "Uncertainty in the x-coordinate (UTM-x or longitude) representing the average uncertainty for all the channels.",
+          "type": "number",
+          "minimum": 0
+        },
+        "uncertainty_in_x_coordinate_unit": {
+          "description": "Unit of uncertainty in x-coordinate. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "y_coordinate_unit": {
+          "description": "Unit of y-coordinate (UTM-y or latitude). Applies to every individual channel nested under the channel group.",
+          "type": "string",
+          "examples": [
+            "degree"
+          ]
+        },
+        "uncertainty_in_y_coordinate": {
+          "description": "Uncertainty in the y-coordinate (UTM-y or latitude) representing the average uncertainty for all the channels.",
+          "type": "number",
+          "minimum": 0
+        },
+        "uncertainty_in_y_coordinate_unit": {
+          "description": "Unit of uncertainty in y-coordinate. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "elevation_above_sea_level_unit": {
+          "description": "Unit of elevation above sea level. Applies to every individual channel nested under the channel group. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "uncertainty_in_elevation": {
+          "description": "Uncertainty in elevation above sea level, representing the average uncertainty in elevation for all the coordinates.",
+          "type": "number",
+          "minimum": 0
+        },
+        "uncertainty_in_elevation_unit": {
+          "description": "Unit of uncertainty in elevation. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "depth_below_surface_unit": {
+          "description": "Unit of depth below surface. Applies to every individual channel nested under the channel group. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "uncertainty_in_depth": {
+          "description": "Uncertainty in depth below surface, representing the average uncertainty in depth for all the coordinates.",
+          "type": "number",
+          "minimum": 0
+        },
+        "uncertainty_in_depth_unit": {
+          "description": "Unit of uncertainty in depth. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "strike_unit": {
+          "description": "Unit of strike. Applies to every individual channel nested under the channel group.",
+          "type": "string",
+          "examples": [
+            "degree"
+          ]
+        },
+        "uncertainty_in_strike": {
+          "description": "Uncertainty in the strike.",
+          "type": "number",
+          "minimum": 0
+        },
+        "uncertainty_in_strike_unit": {
+          "description": "Unit of uncertainty in strike.",
+          "type": "string",
+          "examples": [
+            "degree"
+          ]
+        },
+        "dip_unit": {
+          "description": "Unit of dip. Applies to every individual channel nested under the channel group.",
+          "type": "string",
+          "examples": [
+            "degree"
+          ]
+        },
+        "uncertainty_in_dip": {
+          "description": "Uncertainty in the dip.",
+          "type": "number",
+          "minimum": 0
+        },
+        "uncertainty_in_dip_unit": {
+          "description": "Unit of uncertainty in dip.",
+          "type": "string",
+          "examples": [
+            "degree"
+          ]
+        },
+        "first_usable_channel_id": {
+          "description": "The first channel considered physically meaningful. Typically, this will be a few channels after the last channel inside the interrogator. Must match one of the channel IDs.",
+          "type": "string",
+          "examples": [
+            "A0030"
+          ]
+        },
+        "last_usable_channel_id": {
+          "description": "The last channel considered physically meaningful. Typically, an acquisition will add virtual channels at the end of the fiber or the optical path might not reach the end of the fiber, and this can be used to cut the data set into a working set. Must match one of the channel IDs.",
+          "type": "string",
+          "examples": [
+            "A8650"
+          ]
+        },
+        "comment": {
+          "description": "Additional comments.",
+          "type": "string"
+        },
+        "channels": {
+          "title": "Channels",
+          "description": "Channels for this channel group.",
+          "type": "object",
+          "items": {
+            "$ref": "#/$defs/channelarray"
+          }
+        }
+      }
+    },
+    "channelarray": {
+      "title": "Channels metadata",
+      "description": "Nested under the Channel Group metadata, the metadata of the Channels is stored in arrays, including a unique identifier, coordinates, and for borehole cable, optional strike and dip. Note that the total amount of individual Channel metadata may be equal or less than the number_of_channels attribute specified under Acquisition metadata as only a subset of the channels may be included in the data. This is to accommodate cases where channels cannot be located or omitted due to various reasons.",
+      "type": "object",
+      "required": [
+        "channel_ids",
+        "distances_along_fiber",
+        "x_coordinates",
+        "y_coordinates"
+      ],
+      "properties": {
+        "channel_ids": {
+          "description": "Array of Unique IDs of each individual channel, with the maximum of eight alphanumeric characters with no special characters (e.g., underscores, period, and dash).",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dasid"
+          },
+          "uniqueItems": true,
+          "examples": [
+            ["A0001", "A0002", "B0001"]
+          ]
+        },
+        "distances_along_fiber": {
+          "description": "Array of distances along fiber between the interrogator and channel. Zero meter at the connector to the interrogator; and negative distances for fiber section inside the interrogator.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "x_coordinates": {
+          "description": "Array of X-coordinates (UTM-x or longitude) of the channels.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "examples": [
+            [100.1, 100.3, 100.5]
+          ]
+        },
+        "y_coordinates": {
+          "description": "Array of y-coordinates (UTM-y or latitude) of the channels.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "examples": [
+            [32.1, 33.3, 33.5]
+          ]
+        },
+        "elevations_above_sea_level": {
+          "description": "Array of local ground-surface elevations or heights above sea level at each channel.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "examples": [
+            [12345.6, 12346.7, 12347.8]
+          ]
+        },
+        "depths_below_surface": {
+          "description": "Array of vertical distances from the local ground surface to the fibre at each channel, with the ground surface defined as zero and positive values measured downward.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "examples": [
+            [1.1, 1.0, 0]
+          ]
+        },
+        "strikes": {
+          "description": "Array of local azimuths at each channel, measured clockwise from geographical north in the direction of increasing channel number.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "examples": [
+            [0, 1, 2]
+          ]
+        },
+        "dips": {
+          "description": "Array of individual channel dips, measured from horizontal and positive downward: 0° is horizontal, −90° is vertically upward, and +90° is vertically downward.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "examples": [
+            [0, 1, 2]
+          ]
+        }
+      }
+    },
+    "cable": {
+      "title": "Cable metadata",
+      "description": "The Cable metadata is designed to allow investigators to describe the cable used in their experiment, which could be one continuous long cable, or cables with multiple connectors or across several installation environments. There are also parameters relating to the general geographical location of the cable to facilitate searchability in future databases. The Cable metadata should include available information on the cable and its installation as this knowledge may help in developing a system-level description of the exact cable response.",
+      "type": "object",
+      "required": [
+        "cable_id",
+        "cable_bounding_box",
+        "cable_owner"
+      ],
+      "properties": {
+        "cable_id": {
+          "description": "Unique identifier for the specific physical cable used in the data acquisition. Identifier should have the maximum of eight alphanumeric characters with no special characters (e.g., underscores, period, and dash).",
+          "allOf": [
+            {
+              "$ref": "#/$defs/dasid"
+            }
+          ],
+          "examples": [
+            "CA001"
+          ]
+        },
+        "cable_bounding_box": {
+          "description": "List of approximate coordinates of the bounding box containing the array [minimum latitude, maximum latitude, minimum longitude, and maximum longitude].",
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4,
+          "examples": [
+            [
+              39.797,
+              39.813,
+              -119.013,
+              -118.995
+            ]
+          ]
+        },
+        "cable_owner": {
+          "description": "Proprietary owner of the cable.",
+          "type": "string"
+        },
+        "cable_installation_date": {
+          "description": "Cable installation date in Coordinated Universal Time (UTC). This may not be known, an optional field.",
+          "type": "string",
+          "format": "date"
+        },
+        "cable_removal_date": {
+          "description": "Cable removal date in UTC. This may not be known, an optional field.",
+          "type": "string",
+          "format": "date"
+        },
+        "cable_characteristics": {
+          "description": "Describes how the fiber is encased in the cable.",
+          "type": "string",
+          "examples": [
+            "buffered",
+            "armored",
+            "gel-filled"
+          ]
+        },
+        "cable_environment": {
+          "description": "Describes the installation environment of cable [conduit| trench | outside borehole casing | wireline | other ].",
+          "type": "string",
+          "examples": [
+            "trench",
+            "conduit"
+          ]
+        },
+        "cable_installation_environment": {
+          "description": "Plain language description of how the cable was installed.",
+          "type": "string"
+        },
+        "cable_model": {
+          "description": "Cable manufacturer model.",
+          "type": "string"
+        },
+        "cable_outside_diameter": {
+          "description": "Cable outside diameter.",
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "cable_outside_diameter_unit": {
+          "description": "Unit of outside diameter of cable. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "mm"
+          ]
+        },
+        "comment": {
+          "description": "Additional comments.",
+          "type": "string"
+        },
+        "fibers": {
+          "title": "Fibers",
+          "description": "One or more Fibers for this cable",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fiber"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "fiber": {
+      "title": "Fiber metadata",
+      "description": "The intention for a separate Fiber metadata is to uniquely identify the fiber used to make the measurements. More than one cable may be used over the course of an experiment and there may be several fibers within a cable.",
+      "type": "object",
+      "required": [
+        "fiber_id",
+        "fiber_geometry",
+        "fiber_mode",
+        "fiber_refraction_index"
+      ],
+      "properties": {
+        "fiber_id": {
+          "description": "Unique identifier for the physical fiber, with the maximum of eight alphanumeric characters with no special characters (e.g., underscores, period, and dash).",
+          "allOf": [
+            {
+              "$ref": "#/$defs/dasid"
+            }
+          ],
+          "examples": [
+            "F001"
+          ]
+        },
+        "fiber_geometry": {
+          "description": "Geometry of fiber [linear | helical | other].",
+          "type": "string",
+          "examples": [
+            "linear",
+            "helical"
+          ]
+        },
+        "fiber_mode": {
+          "description": "Mode of fiber [single-mode | multi-mode | other].",
+          "type": "string",
+          "examples": [
+            "single-mode",
+            "multi-mode"
+          ]
+        },
+        "fiber_refraction_index": {
+          "description": "Refractive index of the fiber (unitless). Typical value for single-mode fiber is 1.4681.",
+          "type": "number",
+          "minimum": 0,
+          "examples": [
+            1.4681
+          ]
+        },
+        "fiber_winding_angle": {
+          "description": "If helical, this is the winding angle relative to the center of the cable.",
+          "type": "number"
+        },
+        "fiber_winding_angle_unit": {
+          "description": "Unit of fiber winding angle.",
+          "type": "string"
+        },
+        "fiber_start_location": {
+          "description": "The start distance along the fiber with respect to the interrogator, referred to as StartLocus in PRODML.",
+          "type": "number"
+        },
+        "fiber_start_location_unit": {
+          "description": "Unit of fiber start location. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "fiber_end_location": {
+          "description": "The end location or distance along the fiber with respect to the interrogator.",
+          "type": "number"
+        },
+        "fiber_end_location_unit": {
+          "description": "Unit of fiber end location. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "fiber_optic_length": {
+          "description": "Total length of this fiber. Typically, it is the sum of fiber_start_location and fiber_end_location.",
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "examples": [
+            8400
+          ]
+        },
+        "fiber_optic_length_unit": {
+          "description": "Unit of fiber-optical length. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "m"
+          ]
+        },
+        "fiber_one_way_attenuation": {
+          "description": "Power loss for one-way travel of a beam of light. Typical value for single mode fiber is 0.4.",
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "fiber_one_way_attenuation_unit": {
+          "description": "Unit of fiber one way attenuation [dB/m | dB/km]. SI units should be used.",
+          "type": "string",
+          "examples": [
+            "dB/m"
+          ]
+        },
+        "comment": {
+          "description": "Additional comments.",
+          "type": "string"
+        }
+      }
+    },
+    "dasid": {
+      "title": "Identifier",
+      "description": "Identifier used to name or reference resources throughout this schema (e.g. Interrogator, Channel)",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8,
+      "pattern": "^[A-Z0-9]+$"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+Acquisition ID,Interrogator ID,Channel Group,Sample Rate,Gauge Length,Unit Of Measure,Number Of Channels,Spatial Sampling Interval,Pulse Rate,Pulse Width,Native Headers,Start Date,End Date
+LNA01,AKL1,LN01,4190,0.82,m/s,100,0.82,54490,0.82,"{header1: Value of header1, header2: Value of header2, header3: 99.4}",2026-08-31T21:22:00Z,2026-08-31T23:02:00Z

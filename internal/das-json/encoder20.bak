@@ -1,0 +1,278 @@
+package dasjson
+
+import (
+	"encoding/xml"
+	"sort"
+	"time"
+
+	dasjson "github.com/GeoNet/delta/internal/das-json/dasv2.0"
+)
+
+type Encoder20 struct{}
+
+func Encode20(r Root) ([]byte, error) {
+	return Encoder20{}.MarshalRoot(r)
+}
+
+func (e Encoder20) toDateTime(at time.Time) dasjson.DateTime {
+	if time.Since(at) > 0 {
+		return dasjson.DateTime{Time: at}
+	}
+	return dasjson.DateTime{}
+}
+
+func (e Encoder20) toDateTimePtr(at time.Time) *dasjson.DateTime {
+	t := dasjson.DateTime{Time: at}
+	return &t
+}
+
+
+func (e Encoder20) Channel(root Root, network Network, channel Channel) []dasjson.ChannelType {
+	var channels []dasjson.ChannelType
+
+	for _, stream := range channel.Streams {
+
+		var response *dasjson.ResponseType
+		if stream.Response != nil {
+			response = e.Response(stream.Response)
+		}
+
+		var types []dasjson.Type
+		switch {
+		case stream.Triggered:
+			types = append(types, dasjson.Triggered)
+		default:
+			types = append(types, dasjson.Continuous)
+		}
+		for _, t := range stream.Types {
+			switch t {
+			case 'G':
+				types = append(types, dasjson.Geophysical)
+			case 'W':
+				types = append(types, dasjson.Weather)
+			case 'H':
+				types = append(types, dasjson.Health)
+			}
+		}
+
+		var depth float64
+		if stream.Vertical != 0.0 {
+			depth = -stream.Vertical
+		}
+
+		datalogger := &dasjson.EquipmentType{
+			ResourceId:       "Datalogger#" + stream.Datalogger.Model + ":" + stream.Datalogger.SerialNumber,
+			Type:             stream.Datalogger.Type,
+			Description:      stream.Datalogger.Description,
+			Manufacturer:     stream.Datalogger.Manufacturer,
+			Model:            stream.Datalogger.Model,
+			SerialNumber:     stream.Datalogger.SerialNumber,
+			InstallationDate: e.toDateTime(stream.Datalogger.InstallationDate),
+			RemovalDate:      e.toDateTime(stream.Datalogger.RemovalDate),
+		}
+
+		channels = append(channels, dasjson.ChannelType{
+			BaseNodeType: dasjson.BaseNodeType{
+				Code:             stream.Code,
+				RestrictedStatus: e.toRestrictedStatus(network.Restricted),
+				StartDate:        e.toDateTime(stream.StartDate),
+				EndDate:          e.toDateTime(stream.EndDate),
+				Comment: []dasjson.CommentType{
+					{
+						Id:    dasjson.CounterType(1),
+						Value: ToSiteSurvey(channel.Survey),
+					},
+					{
+						Id:    dasjson.CounterType(2),
+						Value: "Location is given in " + channel.Datum,
+					},
+					{
+						Id:    dasjson.CounterType(3),
+						Value: "Sensor orientation not known",
+					},
+				},
+			},
+			LocationCode: channel.LocationCode,
+			Latitude: dasjson.LatitudeType{
+				LatitudeBaseType: dasjson.LatitudeBaseType{
+					FloatType: dasjson.FloatType{
+						Value: channel.Latitude,
+					},
+				},
+				Datum: channel.Datum,
+			},
+			Longitude: dasjson.LongitudeType{
+				LongitudeBaseType: dasjson.LongitudeBaseType{
+					FloatType: dasjson.FloatType{
+						Value: channel.Longitude,
+					},
+				},
+				Datum: channel.Datum,
+			},
+			Elevation:       dasjson.DistanceType{FloatType: dasjson.FloatType{Value: channel.Elevation}},
+			Depth:           dasjson.DistanceType{FloatType: dasjson.FloatType{Value: depth}},
+			Azimuth:         &dasjson.AzimuthType{FloatType: dasjson.FloatType{Value: stream.Azimuth}},
+			Dip:             &dasjson.DipType{FloatType: dasjson.FloatType{Value: stream.Dip}},
+			Type:            types,
+			SampleRate:      dasjson.SampleRateType{FloatType: dasjson.FloatType{Value: stream.SamplingRate}},
+			SampleRateRatio: e.toSampleRateRatio(stream.SamplingRate),
+			Sensor: &dasjson.EquipmentType{
+				ResourceId:       "Sensor#" + stream.Sensor.Model + ":" + stream.Sensor.SerialNumber,
+				Type:             stream.Sensor.Type,
+				Description:      stream.Sensor.Description,
+				Manufacturer:     stream.Sensor.Manufacturer,
+				Model:            stream.Sensor.Model,
+				SerialNumber:     stream.Sensor.SerialNumber,
+				InstallationDate: e.toDateTime(stream.Sensor.InstallationDate),
+				RemovalDate:      e.toDateTime(stream.Sensor.RemovalDate),
+			},
+			DataLogger: datalogger,
+			Response:   response,
+		})
+	}
+
+	return channels
+}
+
+func (e Encoder20) Station(root Root, external External, network Network, station Station) dasjson.StationType {
+
+	var channels []dasjson.ChannelType
+	for _, c := range station.Channels {
+		channels = append(channels, e.Channel(root, network, c)...)
+	}
+
+	sort.Slice(channels, func(i, j int) bool {
+		switch {
+		case channels[i].LocationCode < channels[j].LocationCode:
+			return true
+		case channels[i].LocationCode > channels[j].LocationCode:
+			return false
+		case channels[i].StartDate.Before(channels[j].StartDate.Time):
+			return true
+		case channels[i].StartDate.After(channels[j].StartDate.Time):
+			return false
+		case channels[i].SampleRate.Value > channels[j].SampleRate.Value:
+			return true
+		case channels[i].SampleRate.Value < channels[j].SampleRate.Value:
+			return false
+		case channels[i].Code < channels[j].Code:
+			return true
+		default:
+			return false
+		}
+	})
+
+	return dasjson.StationType{
+		BaseNodeType: dasjson.BaseNodeType{
+			Code:             station.Code,
+			Description:      network.Description,
+			RestrictedStatus: e.toRestrictedStatus(network.Restricted),
+			StartDate:        e.toDateTime(station.StartDate),
+			EndDate:          e.toDateTime(station.EndDate),
+			Comment: []dasjson.CommentType{{
+				Id:    dasjson.CounterType(1),
+				Value: "Location is given in " + station.Datum,
+			}},
+		},
+		Latitude: dasjson.LatitudeType{LatitudeBaseType: dasjson.LatitudeBaseType{
+			FloatType: dasjson.FloatType{
+				Value: station.Latitude,
+			}},
+			Datum: station.Datum,
+		},
+		Longitude: dasjson.LongitudeType{LongitudeBaseType: dasjson.LongitudeBaseType{
+			FloatType: dasjson.FloatType{
+				Value: station.Longitude,
+			}},
+			Datum: station.Datum,
+		},
+		Elevation: dasjson.DistanceType{
+			FloatType: dasjson.FloatType{Value: station.Elevation},
+		},
+		Site: dasjson.SiteType{
+			Name:        station.Name,
+			Description: station.Description,
+		},
+		CreationDate:    e.toDateTime(station.CreationDate),
+		TerminationDate: e.toDateTime(station.TerminationDate),
+		Channel:         channels,
+	}
+}
+
+func (e Encoder20) Network(root Root, external External) dasjson.NetworkType {
+
+	var stations []dasjson.StationType
+	for _, network := range external.Networks {
+		for _, station := range network.Stations {
+			stations = append(stations, e.Station(root, external, network, station))
+		}
+	}
+
+	sort.Slice(stations, func(i, j int) bool {
+		return stations[i].Code < stations[j].Code
+	})
+
+	return dasjson.NetworkType{
+		BaseNodeType: dasjson.BaseNodeType{
+			Code:        external.Code,
+			Description: external.Description,
+			RestrictedStatus: func() dasjson.RestrictedStatusType {
+				switch external.Restricted {
+				case true:
+					return dasjson.ClosedRestrictedStatus
+				default:
+					return dasjson.OpenRestrictedStatus
+				}
+			}(),
+			StartDate: e.toDateTime(external.StartDate),
+			EndDate:   e.toDateTime(external.EndDate),
+		},
+		Station: stations,
+	}
+}
+
+func (e Encoder20) MarshalRoot(root Root) ([]byte, error) {
+
+	type FDSNStationXML struct {
+		dasjson.RootType
+
+		NameSpace string `xml:"xmlns,attr"`
+	}
+
+	var created *dasjson.DateTime
+	if root.Create {
+		created = e.toDateTimePtr(time.Now().UTC())
+	}
+
+	var networks []dasjson.NetworkType
+	for _, ext := range root.Externals {
+		networks = append(networks, e.Network(root, ext))
+	}
+
+	sort.Slice(networks, func(i, j int) bool {
+		return networks[i].Code < networks[j].Code
+	})
+
+	r := FDSNStationXML{
+		NameSpace: "http://www.fdsn.org/xml/station/1",
+		RootType: dasjson.RootType{
+			SchemaVersion: 1.2,
+
+			Source: root.Source,
+			Sender: root.Sender,
+			Module: root.Module,
+
+			Network: networks,
+
+			Created: created,
+		},
+	}
+
+	h := xml.Header
+	b, err := xml.MarshalIndent(r, "", "  ")
+	if err != nil {
+		return nil, err
+	}
+
+	return append([]byte(h), append(b, '\n')...), nil
+}
