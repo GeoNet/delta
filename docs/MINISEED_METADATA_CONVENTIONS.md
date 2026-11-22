@@ -28,7 +28,7 @@ The seismic, and related, data stream naming conventions are based on historical
 
 ## Network Code
 
-As weak motion seismic data is expected to be globally distributed, its network and station codes need to be internationally registered.  The current approach is to use the registered `NZ` network code for all recorded public weak motion data. Otherwise the internal `XX` code is used for temporary or private data that will not, or cannot, be exported internationally. Data of both network codes are available via GeoNet data services.
+As weak motion seismic data is expected to be globally distributed, its network and station codes need to be internationally registered.  The current approach is to use the registered `NZ` network code for all recorded public weak motion data. Otherwise the internal `XX` code is used for temporary or private data that will not, cannot, or is not intended to be exported internationally. Data of both network codes are available via GeoNet data services.
 
 The full set of network codes can be found in the `networks/network.csv` file. While these are not relevant for modern data access, much of GeoNet's history is contained in these codes and they are still in use for metadata management in _delta_ and for data operations within GeoNet. For example, a station can belong to a regional seismic network like the Taranaki volcano seismic network `TR` and be distributed with the network code `NZ`. 
 
@@ -43,11 +43,11 @@ Station codes are unique within a given reference set. Weak motion station codes
 
 Station codes are found in the `networks/stations.csv` file.
 
-_National Seismograph Network_ station codes use a three letter code with the last letter being a `Z`. The exceptions being the very oldest installations such as `WEL`.
+_National Seismograph Network_ station codes prior to 2024 used a three letter code with the last letter being a `Z`. Since 2024 new _National Seismograph Network_ station codes have the same convention as _Regional Seismograph Networks_.
 
 _Regional Seismograph Networks_ use a four letter code, again with the last letter being a `Z`.  Exceptions to this are generally the very oldest stations which pre-date the addition of the trailing `Z`. In these cases, the trailing letters can represent the regional network the station is in, such as in the Auckland Volcano Seismic Network where many stations have `AK` suffix, or otherwise indicate the network or geographical location of the station.  For many older stations the suffixes tend to be the initial letter of the original network code.
 
-For both national and regional network station codes, the first two letters try to give an indication of where the station is (i.e. they will be an abbreviation of a close town or farm station name).
+For both national and regional network station codes, the first two-three letters try to give an indication of where the station is (i.e. they will be an abbreviation of a close town or farm station name).
 
 #### Infrasound Sites
 
@@ -73,7 +73,7 @@ In all cases, sensor sites of different types are distinguished by their locatio
 
 ## Location Codes
 
-The location code is primarily used to distinguish between many data collection points or multiple coincident sensors installations where the same station code is used.
+The location code is primarily used to distinguish between many data collection types or locations at a station and multiple coincident sensors installations of the same type at a station.
 
 Location codes are associated to station codes and we refer to location codes when we make reference to a "site", even though we often use the host station code to make this reference.
 
@@ -99,7 +99,7 @@ There is an informal convention of using `01` for the primary datalogger (genera
 
 Testing, or non-production, dataloggers will have codes using the sequence: 0Z, 0Y, 0X, ... etc.  They should also use a similar sensor location sequence depending on sensor type, e.g. 1Z, 1Y, 1X ... etc.
 
-### Naming Conventions When Moving or Installating Surface Sensors
+### Naming Conventions When Moving or Installing Surface Sensors
 
 Sites are associated with stations at the start of data collection from the site. Data collection is from a datalogger, which is connected to a sensor. 
 
@@ -126,14 +126,23 @@ Strong motion site code conventions follow the same principles as for seismic si
 
 Sites in GeoNet infrastructure (cabinets, vaults, VSAT huts) follow the generic seismic site codes, as the influence of these structures' response is considered negligible. Instead, only changes in ground conditions and position which would warrant seismic site code changes apply to sensors in these installations.
 
-### Naming Conventions When Moving or Installating Borehole Sensors
+### Naming Conventions When Moving or Installing Borehole Sensors
 
-For boreholes, there is one station code and many location codes. At the surface, the surface naming conventions apply (see above). In the borehole, changes in sensor depth and lateral position (due to borehole tilt) do not invoke name change conventions. Instead, one location code exists for each simultaneous sensor installation in the borehole. If a borehole only ever has one sensor installed at a time, there will only ever be one location code for the borehole sensor installations. If many simultaneous borehole installations occur, each additional installation will have its own location code. If the number of simultaneous borehole sensor installations decreases and new such installations are made, these reoccupy the previous location codes rather than creating new ones. If the number of simultaneous borehole seismic installations were to then exceed the number of defined location codes, new location codes are made.
+For boreholes, there is one station code and two+ location codes. At the surface, the surface naming conventions apply (see above). In the borehole, changes in sensor depth and lateral position (due to borehole tilt) do not invoke name change conventions. Instead, one location code exists for each simultaneous sensor installation in the borehole. If a borehole only ever has one sensor installed at a time, there will only ever be one location code for the borehole sensor installations. If many simultaneous borehole installations occur, each additional installation will have its own location code. If the number of simultaneous borehole sensor installations decreases and new such installations are made, these reoccupy the previous location codes rather than creating new ones. If the number of simultaneous borehole seismic installations were to then exceed the number of defined location codes, new location codes are made.
 
 Records of borehole sensor depth are available in the Depth column of `install/sensors.csv`.
 
 These conventions apply to both weak and strong motion sensors.
 
+Note that a short period sensor changing to a broadband in a borehole will invoke a location code change, as per the surface sensor conventions.
+
+#### Examples
+
+Location code changes from a surface to borehole installation are intended to represent the significant change the nature of the installation has on the data collected. To provide clarity on when this convention applies some examples are given below:
+
+1. A sensor moving from a vault to direct burial, posthole or borehole installation will invoke a location code change and vice versa.
+2. A sensor moving from direct burial to a posthole or borehole is not considered a significant change in the nature of the sensor installation so the same location code should be used across any such changes. While the depth of burial has changed, this is still considered a "borehole" installation owing to the sensor's emplacement below the surface.
+3. Following 2., a sensor moving from a posthole to a borehole, borehole to posthole, etc. should not invoke a location code change despite the expected changes in data quality; equipment change depth records are considered sufficient to represent this.
 
 ## Channel Codes
 
